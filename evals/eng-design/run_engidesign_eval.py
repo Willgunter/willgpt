@@ -86,7 +86,21 @@ def main() -> None:
     data = json.loads(raw_payload)
     response_cls = load_attribute(args.output_structure, args.response_class)
     evaluator_fn: Callable[..., Any] = load_attribute(args.evaluator, args.function)
-    response_obj = to_response_object(response_cls, data)
+
+    try:
+        response_obj = to_response_object(response_cls, data)
+    except Exception as exc:
+        # Surface validation failures as a normalized failed result instead of crashing.
+        normalized = {
+            "passed": False,
+            "details": f"Validation failed: {exc}",
+            "score": None,
+            "max_score": None,
+            "error": "validation_error",
+        }
+        print(json.dumps(normalized))
+        return
+
     result = evaluator_fn(response_obj)
     normalized = normalize_result(result)
     print(json.dumps(normalized))

@@ -275,10 +275,11 @@ def build_prompt(task: EngiDesignTask) -> str:
     if task.task_provider:
         context_lines.append(f"Task Provider: {task.task_provider}")
     instructions = (
-        "You must respond with a single JSON object matching this shape. "
-        "Do not include markdown fences or extra commentary.\n"
+        "Respond with ONE JSON object that matches this shape. "
+        "Do NOT add prose, prefixes, suffixes, or markdown fences. "
+        "Include every required field; if a value is unknown, use null (do not omit).\n"
         f"{task.schema_compact}\n"
-        "Return strictly valid JSON."
+        "Return strictly valid JSON only."
     )
     prefix = "\n".join(context_lines)
     return "\n\n".join(filter(None, [prefix, task.prompt, instructions]))
@@ -325,7 +326,7 @@ def evaluate_response(task: EngiDesignTask, json_payload: str) -> Dict[str, obje
     ]
     proc = subprocess.run(
         cmd,
-        input=json_payload.encode("utf-8"),
+        input=json_payload,
         capture_output=True,
         text=True,
         cwd=task.task_dir,
