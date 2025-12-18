@@ -44,7 +44,7 @@ These are the base models used as starting points (all links go to the model car
 - [google/gemma-2-2b](https://huggingface.co/google/gemma-2-2b)
 - [deepseek-ai/deepseek-llm-7b-base](https://huggingface.co/deepseek-ai/deepseek-llm-7b-base)
 
-For benchmarking (especially EngiDesign OPEN), the closest available instruct / sibling variants are:
+For benchmarks that require careful instruction following and tool use (especially EngiDesign OPEN), I used instruct variants of models due to instruction fine tuning not being a primary factor in the raw engineering capabilities of models for my purposes:
 
 - Qwen/Qwen2.5-3B Base → `Qwen/Qwen2.5-3B-Instruct`
 - Qwen/Qwen3-4B-Base → `Qwen/Qwen3-4B-Instruct`

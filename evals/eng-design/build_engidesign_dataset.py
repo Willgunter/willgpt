@@ -14,13 +14,22 @@ the resulting JSON entries when available.
 
 from __future__ import annotations
 
-import os
 import json
+import os
 from pathlib import Path
 from typing import Dict, Optional
 
-SCRIPT_DIR = Path(__file__).resolve().parent # correct (.../evals)
-REPO_ROOT = SCRIPT_DIR.parent.parent.parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+
+def find_repo_root(start: Path) -> Path:
+    for candidate in [start, *start.parents]:
+        if (candidate / "README.md").exists() and (candidate / "evals").exists():
+            return candidate
+    return start
+
+
+REPO_ROOT = find_repo_root(SCRIPT_DIR)
 
 def path_from_env(var_name: str, default: Path) -> Path:
     override = os.environ.get(var_name)
@@ -29,7 +38,9 @@ def path_from_env(var_name: str, default: Path) -> Path:
     return default
 
 
-ENGIDESIGN_ROOT = path_from_env("ENGIDESIGN_ROOT", SCRIPT_DIR / "EngDesign-Open")
+ENGIDESIGN_ROOT = path_from_env(
+    "ENGIDESIGN_ROOT", REPO_ROOT / "evals" / "eng-design" / "EngDesign-Open"
+)
 OUTPUT_PATH = path_from_env(
     "ENGIDESIGN_DATASET_PATH", SCRIPT_DIR / "engidesign_open_dataset.jsonl"
 )
@@ -61,8 +72,12 @@ def build_entry(task_dir: Path) -> Optional[Dict[str, object]]:
     evaluation_notes = read_text(task_dir / "evaluation_pipeline.txt")
 
     # Paths relative to repo root keep JSON portable.
-    rel_output_structure = output_structure.relative_to(REPO_ROOT).as_posix()
-    rel_evaluator = evaluator.relative_to(REPO_ROOT).as_posix()
+    try:
+        rel_output_structure = output_structure.relative_to(REPO_ROOT).as_posix()
+        rel_evaluator = evaluator.relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        rel_output_structure = os.path.relpath(output_structure, REPO_ROOT).replace(os.sep, "/")
+        rel_evaluator = os.path.relpath(evaluator, REPO_ROOT).replace(os.sep, "/")
 
     return {
         "id": task_dir.name,

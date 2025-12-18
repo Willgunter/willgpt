@@ -33,11 +33,24 @@ from typing import Dict, List, Optional
 
 import torch
 from vllm import LLM, SamplingParams
+from transformers import AutoTokenizer
 
 
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-DATASET_PATH = REPO_ROOT / "evals" / "engidesign_open_dataset.jsonl"
-EVAL_RUNNER = REPO_ROOT / "evals" / "run_engidesign_eval.py"
+def find_repo_root(start: Path) -> Path:
+    start_dir = start if start.is_dir() else start.parent
+    for candidate in [start_dir, *start_dir.parents]:
+        evals_dir = candidate / "evals"
+        if evals_dir.exists() and (
+            (evals_dir / "EngDesign-Open").exists() or (evals_dir / "eng-design").exists()
+        ):
+            return candidate
+    return start_dir
+
+
+REPO_ROOT = find_repo_root(Path(__file__).resolve())
+HERE = Path(__file__).resolve().parent
+DATASET_PATH = HERE / "engidesign_open_dataset.jsonl"
+EVAL_RUNNER = HERE / "run_engidesign_eval.py"
 
 MODELS = [
     "Qwen/Qwen2.5-3B-Instruct",
@@ -59,6 +72,44 @@ def read_json_schema(response_cls) -> str:
     else:
         schema = {}
     return json.dumps(schema, indent=2)
+
+
+def compact_schema_from_pydantic(response_cls) -> str:
+    """
+    Return a small, human-readable schema guide to reduce prompt length.
+    Full JSON Schema can be extremely verbose and can blow past model context.
+    """
+    if hasattr(response_cls, "model_json_schema"):
+        schema = response_cls.model_json_schema()
+    elif hasattr(response_cls, "schema"):
+        schema = response_cls.schema()
+    else:
+        return '{"reasoning": "..."}'
+
+    def describe(schema_obj) -> str:
+        if not isinstance(schema_obj, dict):
+            return ""
+        props = schema_obj.get("properties") or {}
+        if not isinstance(props, dict):
+            return ""
+        required = schema_obj.get("required") or []
+        if not isinstance(required, list):
+            required = []
+
+        parts = []
+        for key, val in props.items():
+            if isinstance(val, dict) and val.get("type") == "object":
+                sub = describe(val)
+                t = sub or "object"
+            elif isinstance(val, dict):
+                t = val.get("type") or "any"
+            else:
+                t = "any"
+            suffix = " (required)" if key in required else ""
+            parts.append(f'{key}: {t}{suffix}')
+        return "{ " + ", ".join(parts) + " }"
+
+    return describe(schema) or '{"reasoning": "..."}'
 
 
 def load_response_class(module_path: Path, class_name: str):
@@ -87,10 +138,12 @@ class EngiDesignTask:
     evaluator_path: Path
     evaluator_fn: str
     schema_text: str = field(init=False)
+    schema_compact: str = field(init=False)
 
     def __post_init__(self):
         response_cls = load_response_class(self.output_structure_path, self.output_structure_class)
         self.schema_text = read_json_schema(response_cls)
+        self.schema_compact = compact_schema_from_pydantic(response_cls)
 
     @property
     def task_dir(self) -> Path:
@@ -98,21 +151,34 @@ class EngiDesignTask:
 
 
 def load_tasks(dataset_path: Path, limit: Optional[int]) -> List[EngiDesignTask]:
+    def normalize_repo_relative2(path_str: str) -> str:
+        path_str = path_str.replace("\\", "/").lstrip("/")
+        if path_str.startswith("evals/"):
+            return path_str
+        idx = path_str.find("evals/")
+        if idx != -1:
+            return path_str[idx:]
+        return path_str
+
     tasks: List[EngiDesignTask] = []
     with dataset_path.open("r", encoding="utf-8") as handle:
         for line in handle:
             if not line.strip():
                 continue
             record = json.loads(line)
+            output_path_raw = record["output_structure"]["path"]
+            evaluator_path_raw = record["evaluator"]["path"]
+            output_path_rel = normalize_repo_relative2(output_path_raw)
+            evaluator_path_rel = normalize_repo_relative2(evaluator_path_raw)
             task = EngiDesignTask(
                 task_id=record["id"],
                 prompt=record["prompt"],
                 domain_topic=record.get("domain_topic"),
                 task_provider=record.get("task_provider"),
                 evaluation_pipeline=record.get("evaluation_pipeline"),
-                output_structure_path=REPO_ROOT / record["output_structure"]["path"],
+                output_structure_path=REPO_ROOT / output_path_rel,
                 output_structure_class=record["output_structure"].get("class", "Response_structure"),
-                evaluator_path=REPO_ROOT / record["evaluator"]["path"],
+                evaluator_path=REPO_ROOT / evaluator_path_rel,
                 evaluator_fn=record["evaluator"].get("function", "evaluate_llm_response"),
             )
             tasks.append(task)
@@ -187,6 +253,18 @@ def parse_args() -> argparse.Namespace:
         default=4,
         help="Swap space (GB) allocated by vLLM when VRAM is limited.",
     )
+    parser.add_argument(
+        "--skip-long-prompts",
+        action="store_true",
+        default=True,
+        help="Skip tasks whose prompts exceed the model context window.",
+    )
+    parser.add_argument(
+        "--no-skip-long-prompts",
+        dest="skip_long_prompts",
+        action="store_false",
+        help="Do not skip long prompts (vLLM may error if any exceed max_model_len).",
+    )
     return parser.parse_args()
 
 
@@ -197,9 +275,9 @@ def build_prompt(task: EngiDesignTask) -> str:
     if task.task_provider:
         context_lines.append(f"Task Provider: {task.task_provider}")
     instructions = (
-        "You must respond with a single JSON object that satisfies the schema "
-        "below. Do not include markdown fences or extra commentary.\n"
-        f"{task.schema_text}\n"
+        "You must respond with a single JSON object matching this shape. "
+        "Do not include markdown fences or extra commentary.\n"
+        f"{task.schema_compact}\n"
         "Return strictly valid JSON."
     )
     prefix = "\n".join(context_lines)
@@ -283,6 +361,12 @@ def cleanup_model(llm: Optional[LLM]) -> None:
         torch.cuda.empty_cache()
 
 
+def get_vllm_max_model_len(llm: LLM) -> Optional[int]:
+    engine = getattr(llm, "llm_engine", None)
+    model_config = getattr(engine, "model_config", None)
+    return getattr(model_config, "max_model_len", None)
+
+
 def main() -> None:
     args = parse_args()
     tasks = load_tasks(args.dataset, args.max_samples)
@@ -301,14 +385,55 @@ def main() -> None:
                 swap_space=args.swap_space,
                 enforce_eager=True,
             )
-            outputs = llm.generate(prompts, sampling_params)
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            max_model_len = get_vllm_max_model_len(llm) or getattr(tokenizer, "model_max_length", None)
+            if not isinstance(max_model_len, int) or max_model_len <= 0:
+                max_model_len = 32768
+
+            prompt_token_lens = [len(tokenizer.encode(p)) for p in prompts]
+            max_prompt_len = max_model_len - int(args.max_new_tokens)
+            if max_prompt_len < 1:
+                max_prompt_len = max_model_len
+
+            runnable_indices: List[int] = []
+            skipped: Dict[int, Dict[str, object]] = {}
+            for idx, prompt_len in enumerate(prompt_token_lens):
+                if prompt_len <= max_prompt_len:
+                    runnable_indices.append(idx)
+                else:
+                    skipped[idx] = {
+                        "passed": False,
+                        "details": (
+                            f"Prompt too long for model context window: "
+                            f"{prompt_len} tokens > {max_prompt_len} tokens "
+                            f"(reserved {args.max_new_tokens} for generation)."
+                        ),
+                        "score": None,
+                        "max_score": None,
+                        "error": "prompt_too_long",
+                        "prompt_tokens": prompt_len,
+                        "max_prompt_tokens": max_prompt_len,
+                        "max_model_len": max_model_len,
+                    }
+
+            if skipped and not args.skip_long_prompts:
+                longest = max(prompt_token_lens)
+                raise ValueError(
+                    f"At least one prompt exceeds max_model_len (max prompt tokens: {longest}, "
+                    f"max allowed: {max_prompt_len}). Re-run with --skip-long-prompts."
+                )
+
+            runnable_prompts = [prompts[i] for i in runnable_indices]
+            runnable_tasks = [tasks[i] for i in runnable_indices]
+            outputs = llm.generate(runnable_prompts, sampling_params)
 
             per_sample = []
             n_passed = 0
             score_sum = 0.0
             score_count = 0
 
-            for task, result in zip(tasks, outputs):
+            results_by_task_id: Dict[str, Dict[str, object]] = {}
+            for task, result in zip(runnable_tasks, outputs):
                 raw_output = result.outputs[0].text if result.outputs else ""
                 json_block = extract_json(raw_output)
                 parsed_obj = None
@@ -339,15 +464,27 @@ def main() -> None:
                     score_sum += float(eval_result["score"])
                     score_count += 1
 
-                per_sample.append(
-                    {
-                        "task_id": task.task_id,
-                        "raw_output": raw_output,
-                        "json_payload": json_block,
-                        "parsed": parsed_obj,
-                        "evaluation": eval_result,
-                    }
-                )
+                results_by_task_id[task.task_id] = {
+                    "task_id": task.task_id,
+                    "raw_output": raw_output,
+                    "json_payload": json_block,
+                    "parsed": parsed_obj,
+                    "evaluation": eval_result,
+                }
+
+            for idx, task in enumerate(tasks):
+                if idx in skipped:
+                    per_sample.append(
+                        {
+                            "task_id": task.task_id,
+                            "raw_output": None,
+                            "json_payload": None,
+                            "parsed": None,
+                            "evaluation": skipped[idx],
+                        }
+                    )
+                else:
+                    per_sample.append(results_by_task_id[task.task_id])
 
             avg_score = (score_sum / score_count) if score_count else None
             summary = {
@@ -361,6 +498,10 @@ def main() -> None:
                     "max_new_tokens": args.max_new_tokens,
                     "temperature": args.temperature,
                     "top_p": args.top_p,
+                },
+                "skipped": {
+                    "n_skipped": len(skipped),
+                    "reason": "prompt_too_long",
                 },
             }
 
