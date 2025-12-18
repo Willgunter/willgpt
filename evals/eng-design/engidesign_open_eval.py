@@ -36,9 +36,7 @@ from vllm import LLM, SamplingParams
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-print(REPO_ROOT)
 DATASET_PATH = REPO_ROOT / "evals" / "engidesign_open_dataset.jsonl"
-print(DATASET_PATH)
 EVAL_RUNNER = REPO_ROOT / "evals" / "run_engidesign_eval.py"
 
 MODELS = [
@@ -91,8 +89,6 @@ class EngiDesignTask:
     schema_text: str = field(init=False)
 
     def __post_init__(self):
-        print(self.output_structure_path)
-        print(self.output_structure_class) # Response_structure
         response_cls = load_response_class(self.output_structure_path, self.output_structure_class)
         self.schema_text = read_json_schema(response_cls)
 
