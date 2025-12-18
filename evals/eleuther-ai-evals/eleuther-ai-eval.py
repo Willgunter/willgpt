@@ -28,7 +28,7 @@ DESIRED_BENCHMARKS = [
     "mmlu_college_physics",
     "mmlu_conceptual_physics",
     "mmlu_college_mathematics"#,
-    # "engidesign",  # not in lm_eval_harness
+    # "engidesign",  # (OPEN subsection) not in lm_eval_harness
     # "engibench",  # not in lm_eval_harness
     # "svamp",  # not in lm_eval_harness
 ]
