@@ -84,8 +84,27 @@ def main() -> None:
         raise SystemExit("No JSON payload was provided on stdin.")
 
     data = json.loads(raw_payload)
-    response_cls = load_attribute(args.output_structure, args.response_class)
-    evaluator_fn: Callable[..., Any] = load_attribute(args.evaluator, args.function)
+
+    # Ensure the task directory is importable for relative imports like `from output_structure import ...`.
+    task_dir = args.evaluator.parent
+    for path in {task_dir, args.output_structure.parent}:
+        path_str = str(path.resolve())
+        if path_str not in sys.path:
+            sys.path.insert(0, path_str)
+
+    try:
+        response_cls = load_attribute(args.output_structure, args.response_class)
+        evaluator_fn: Callable[..., Any] = load_attribute(args.evaluator, args.function)
+    except Exception as exc:
+        normalized = {
+            "passed": False,
+            "details": f"Import failed: {exc}",
+            "score": None,
+            "max_score": None,
+            "error": "import_error",
+        }
+        print(json.dumps(normalized, default=str))
+        return
 
     try:
         response_obj = to_response_object(response_cls, data)
@@ -98,12 +117,12 @@ def main() -> None:
             "max_score": None,
             "error": "validation_error",
         }
-        print(json.dumps(normalized))
+        print(json.dumps(normalized, default=str))
         return
 
     result = evaluator_fn(response_obj)
     normalized = normalize_result(result)
-    print(json.dumps(normalized))
+    print(json.dumps(normalized, default=str))
 
 
 if __name__ == "__main__":
