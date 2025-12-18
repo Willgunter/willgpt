@@ -27,7 +27,6 @@ import argparse
 import json
 import subprocess
 import sys
-import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -86,8 +85,59 @@ def compact_schema_from_pydantic(response_cls) -> str:
         schema = response_cls.schema()
     else:
         return '{"reasoning": "..."}'
+    if not isinstance(schema, dict):
+        return '{"reasoning":"..."}'
 
-    def describe(schema_obj) -> str:
+    defs = schema.get("$defs") or schema.get("definitions") or {}
+    if not isinstance(defs, dict):
+        defs = {}
+
+    def resolve_ref(ref: str) -> dict:
+        if not isinstance(ref, str):
+            return {}
+        if ref.startswith("#/$defs/"):
+            return defs.get(ref.split("#/$defs/", 1)[1], {})
+        if ref.startswith("#/definitions/"):
+            return defs.get(ref.split("#/definitions/", 1)[1], {})
+        return {}
+
+    def normalize(schema_obj: object) -> dict:
+        if not isinstance(schema_obj, dict):
+            return {}
+        if "$ref" in schema_obj:
+            target = resolve_ref(schema_obj["$ref"])
+            return normalize(target) or schema_obj
+        for key in ("allOf", "anyOf", "oneOf"):
+            val = schema_obj.get(key)
+            if isinstance(val, list) and val:
+                return normalize(val[0]) or schema_obj
+        return schema_obj
+
+    def describe_type(schema_obj: object) -> str:
+        schema_obj = normalize(schema_obj)
+        if not isinstance(schema_obj, dict):
+            return "any"
+
+        if "enum" in schema_obj:
+            return "enum"
+
+        schema_type = schema_obj.get("type")
+        if schema_type == "array":
+            return f"array[{describe_type(schema_obj.get('items'))}]"
+
+        if schema_type == "object" or (
+            "properties" in schema_obj and isinstance(schema_obj.get("properties"), dict)
+        ):
+            described = describe_object(schema_obj)
+            return described or "object"
+
+        if isinstance(schema_type, str):
+            return schema_type
+
+        return "any"
+
+    def describe_object(schema_obj: object) -> str:
+        schema_obj = normalize(schema_obj)
         if not isinstance(schema_obj, dict):
             return ""
         props = schema_obj.get("properties") or {}
@@ -99,18 +149,11 @@ def compact_schema_from_pydantic(response_cls) -> str:
 
         parts = []
         for key, val in props.items():
-            if isinstance(val, dict) and val.get("type") == "object":
-                sub = describe(val)
-                t = sub or "object"
-            elif isinstance(val, dict):
-                t = val.get("type") or "any"
-            else:
-                t = "any"
             suffix = " (required)" if key in required else ""
-            parts.append(f'{key}: {t}{suffix}')
+            parts.append(f"{key}: {describe_type(val)}{suffix}")
         return "{ " + ", ".join(parts) + " }"
 
-    return describe(schema) or '{"reasoning": "..."}'
+    return describe_object(schema) or '{"reasoning":"..."}'
 
 
 def load_response_class(module_path: Path, class_name: str):
@@ -221,7 +264,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--max-new-tokens",
         type=int,
-        default=512,
+        default=2048,
         help="Maximum tokens generated per task.",
     )
     parser.add_argument(
@@ -276,19 +319,26 @@ def build_prompt(task: EngiDesignTask) -> str:
     if task.task_provider:
         context_lines.append(f"Task Provider: {task.task_provider}")
     instructions = (
-        "Respond with ONE JSON object that matches this shape. "
-        "Do NOT add prose, prefixes, suffixes, or markdown fences. "
-        "Include every required field; if a value is unknown, use null (do not omit). "
-        "All strings must be valid JSON strings (escape newlines as \\n).\n"
-        f"{task.schema_compact}\n"
-        'Return strictly valid JSON only. Example: {"reasoning":"...","config":{...}}'
+        "Return ONLY a single, strictly valid JSON object.\n"
+        "- Your response must start with '{' and end with '}'.\n"
+        "- No markdown, no code fences, no extra keys, no extra text.\n"
+        "- Do not use duplicate keys anywhere in the JSON (each key appears at most once).\n"
+        "- Use the EXACT field names from the JSON shape below; do not rename fields or invent new ones.\n"
+        "- Do not include any input data or intermediate artifacts unless the JSON shape explicitly asks for them.\n"
+        "- Use correct JSON types (numbers as numbers, arrays as arrays; do not wrap them as strings).\n"
+        "- Include every required field; if a value is unknown, use null (do not omit).\n"
+        "- Keep top-level reasoning brief (1-3 sentences max).\n"
+        "- If the schema includes code, put raw code in the string (no ``` fences); escape newlines as \\n.\n"
+        f"JSON shape: {task.schema_compact}\n"
+        'Example (shape only): {"reasoning":"...","config":{...}}'
     )
     prefix = "\n".join(context_lines)
     return "\n\n".join(filter(None, [prefix, task.prompt, instructions]))
 
 
 def build_sampling_params(max_tokens: int, temperature: float, top_p: float) -> SamplingParams:
-    params = {"max_tokens": max_tokens}
+    # Stop early if the model tries to wrap output in markdown fences.
+    params = {"max_tokens": max_tokens, "stop": ["```"]}
     if temperature and temperature > 0:
         params.update({"temperature": temperature, "top_p": top_p})
     else:
@@ -302,8 +352,25 @@ def extract_json(text: str) -> Optional[str]:
     if start == -1:
         return None
     depth = 0
+    in_string = False
+    escape = False
     for idx in range(start, len(text)):
         char = text[idx]
+        if in_string:
+            if escape:
+                escape = False
+                continue
+            if char == "\\":
+                escape = True
+                continue
+            if char == '"':
+                in_string = False
+            continue
+
+        if char == '"':
+            in_string = True
+            escape = False
+            continue
         if char == "{":
             depth += 1
         elif char == "}":
@@ -311,55 +378,6 @@ def extract_json(text: str) -> Optional[str]:
             if depth == 0:
                 return text[start : idx + 1]
     return None
-
-
-_TRAILING_COMMA_RE = re.compile(r",(\s*[}\]])")
-
-
-def sanitize_json_candidate(candidate: str) -> str:
-    """
-    Best-effort cleanup to reduce common JSON errors from LLM outputs.
-
-    Fixes:
-      - trailing commas before } or ]
-      - raw newlines/tabs inside quoted strings (must be escaped in JSON)
-    """
-    candidate = candidate.strip()
-    candidate = _TRAILING_COMMA_RE.sub(r"\1", candidate)
-
-    out: List[str] = []
-    in_string = False
-    escape = False
-    for ch in candidate:
-        if in_string:
-            if escape:
-                out.append(ch)
-                escape = False
-                continue
-            if ch == "\\":
-                out.append(ch)
-                escape = True
-                continue
-            if ch == '"':
-                out.append(ch)
-                in_string = False
-                continue
-            if ch == "\n":
-                out.append("\\n")
-                continue
-            if ch == "\r":
-                out.append("\\r")
-                continue
-            if ch == "\t":
-                out.append("\\t")
-                continue
-            out.append(ch)
-        else:
-            out.append(ch)
-            if ch == '"':
-                in_string = True
-                escape = False
-    return "".join(out)
 
 
 def evaluate_response(task: EngiDesignTask, json_payload: str) -> Dict[str, object]:
@@ -499,7 +517,6 @@ def main() -> None:
 
                 if json_block:
                     try:
-                        json_block = sanitize_json_candidate(json_block)
                         parsed_obj = json.loads(json_block)
                         eval_result = evaluate_response(task, json_block)
                     except json.JSONDecodeError as exc:
