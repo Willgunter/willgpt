@@ -27,6 +27,7 @@ import argparse
 import json
 import subprocess
 import sys
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -277,9 +278,10 @@ def build_prompt(task: EngiDesignTask) -> str:
     instructions = (
         "Respond with ONE JSON object that matches this shape. "
         "Do NOT add prose, prefixes, suffixes, or markdown fences. "
-        "Include every required field; if a value is unknown, use null (do not omit).\n"
+        "Include every required field; if a value is unknown, use null (do not omit). "
+        "All strings must be valid JSON strings (escape newlines as \\n).\n"
         f"{task.schema_compact}\n"
-        "Return strictly valid JSON only."
+        'Return strictly valid JSON only. Example: {"reasoning":"...","config":{...}}'
     )
     prefix = "\n".join(context_lines)
     return "\n\n".join(filter(None, [prefix, task.prompt, instructions]))
@@ -309,6 +311,55 @@ def extract_json(text: str) -> Optional[str]:
             if depth == 0:
                 return text[start : idx + 1]
     return None
+
+
+_TRAILING_COMMA_RE = re.compile(r",(\s*[}\]])")
+
+
+def sanitize_json_candidate(candidate: str) -> str:
+    """
+    Best-effort cleanup to reduce common JSON errors from LLM outputs.
+
+    Fixes:
+      - trailing commas before } or ]
+      - raw newlines/tabs inside quoted strings (must be escaped in JSON)
+    """
+    candidate = candidate.strip()
+    candidate = _TRAILING_COMMA_RE.sub(r"\1", candidate)
+
+    out: List[str] = []
+    in_string = False
+    escape = False
+    for ch in candidate:
+        if in_string:
+            if escape:
+                out.append(ch)
+                escape = False
+                continue
+            if ch == "\\":
+                out.append(ch)
+                escape = True
+                continue
+            if ch == '"':
+                out.append(ch)
+                in_string = False
+                continue
+            if ch == "\n":
+                out.append("\\n")
+                continue
+            if ch == "\r":
+                out.append("\\r")
+                continue
+            if ch == "\t":
+                out.append("\\t")
+                continue
+            out.append(ch)
+        else:
+            out.append(ch)
+            if ch == '"':
+                in_string = True
+                escape = False
+    return "".join(out)
 
 
 def evaluate_response(task: EngiDesignTask, json_payload: str) -> Dict[str, object]:
@@ -448,6 +499,7 @@ def main() -> None:
 
                 if json_block:
                     try:
+                        json_block = sanitize_json_candidate(json_block)
                         parsed_obj = json.loads(json_block)
                         eval_result = evaluate_response(task, json_block)
                     except json.JSONDecodeError as exc:
