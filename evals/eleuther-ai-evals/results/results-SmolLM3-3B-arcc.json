@@ -1,0 +1,11 @@
+{
+  "HuggingFaceTB/SmolLM3-3B-Base": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.49146757679180886,
+      "acc_stderr,none": 0.014609263165632116,
+      "acc_norm,none": 0.5221843003412969,
+      "acc_norm_stderr,none": 0.014597001927076213
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Qwen/Qwen3-4B-Base": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.48464163822525597,
+      "acc_stderr,none": 0.014604496129394757,
+      "acc_norm,none": 0.5179180887372014,
+      "acc_norm_stderr,none": 0.014602005585490881
+    }
+  }
+}

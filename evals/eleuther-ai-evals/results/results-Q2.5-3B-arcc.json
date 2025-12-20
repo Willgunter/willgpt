@@ -1,0 +1,11 @@
+{
+  "Qwen/Qwen2.5-3B": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.45051194539249145,
+      "acc_stderr,none": 0.01453964609847157,
+      "acc_norm,none": 0.47525597269624575,
+      "acc_norm_stderr,none": 0.014593487694937702
+    }
+  }
+}

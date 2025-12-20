@@ -1,0 +1,11 @@
+{
+  "ibm-granite/granite-4.0-micro-base": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.4726962457337884,
+      "acc_stderr,none": 0.01458958910198608,
+      "acc_norm,none": 0.5034129692832765,
+      "acc_norm_stderr,none": 0.014611050403244159
+    }
+  }
+}

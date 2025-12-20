@@ -1,0 +1,11 @@
+{
+  "ServiceNow-AI/Apriel-5B-Base": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.46501706484641636,
+      "acc_stderr,none": 0.014575583922019714,
+      "acc_norm,none": 0.48293515358361777,
+      "acc_norm_stderr,none": 0.014602878388536585
+    }
+  }
+}

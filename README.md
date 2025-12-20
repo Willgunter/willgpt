@@ -104,3 +104,21 @@ python evals/engidesign_open_eval.py \
 ```
 
 The harness loads one model at a time via vLLM, generates JSON responses for each task prompt (constrained by the task’s Pydantic schema), calls the task’s `evaluate_llm_response` function, and saves a per-model JSON summary with pass rate, average score, and per-task transcripts.
+
+## EleutherAI (lm-eval-harness) Evals
+
+For quick, standardized benchmarks I use EleutherAI’s `lm-eval-harness` via `evals/eleuther-ai-evals/eleuther-ai-eval.py`.
+
+### Run
+
+From the repo root:
+
+```bash
+python evals/eleuther-ai-evals/eleuther-ai-eval.py --output results.json
+```
+
+By default this evaluates the models + tasks listed in `evals/eleuther-ai-evals/eleuther-ai-eval.py` (e.g. `arc_challenge`, `gsm8k`, `mathqa`, and engineering-related MMLU subsets).
+
+### Shot setting
+
+These runs are **0-shot** (no in-context exemplars), mainly due to compute limitations. The script does not pass `num_fewshot`, and the harness defaults to 0 when a task doesn’t specify a different value.
