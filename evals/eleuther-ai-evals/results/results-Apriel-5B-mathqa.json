@@ -1,0 +1,11 @@
+{
+  "ServiceNow-AI/Apriel-5B-Base": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.3273031825795645,
+      "acc_stderr,none": 0.008589846265498413,
+      "acc_norm,none": 0.32931323283082076,
+      "acc_norm_stderr,none": 0.00860329967236164
+    }
+  }
+}
