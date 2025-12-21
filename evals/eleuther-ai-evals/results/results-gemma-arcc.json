@@ -1,0 +1,11 @@
+{
+  "google/gemma-2-2b": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.4684300341296928,
+      "acc_stderr,none": 0.014582236460866985,
+      "acc_norm,none": 0.49658703071672355,
+      "acc_norm_stderr,none": 0.014611050403244159
+    }
+  }
+}

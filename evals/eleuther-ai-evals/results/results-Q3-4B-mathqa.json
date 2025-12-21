@@ -1,0 +1,11 @@
+{
+  "Qwen/Qwen3-4B-Base": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.5386934673366834,
+      "acc_stderr,none": 0.009125701258181426,
+      "acc_norm,none": 0.5350083752093803,
+      "acc_norm_stderr,none": 0.009130686807508481
+    }
+  }
+}

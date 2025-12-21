@@ -1,0 +1,11 @@
+{
+  "google/gemma-2-2b": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.33500837520938026,
+      "acc_stderr,none": 0.0086404529701752,
+      "acc_norm,none": 0.33098827470686765,
+      "acc_norm_stderr,none": 0.00861437472958516
+    }
+  }
+}

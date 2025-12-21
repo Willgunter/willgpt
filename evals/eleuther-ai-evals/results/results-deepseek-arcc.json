@@ -1,0 +1,11 @@
+{
+  "deepseek-ai/deepseek-llm-7b-base": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.2935153583617747,
+      "acc_stderr,none": 0.013307250444941061,
+      "acc_norm,none": 0.318259385665529,
+      "acc_norm_stderr,none": 0.013611993916971517
+    }
+  }
+}

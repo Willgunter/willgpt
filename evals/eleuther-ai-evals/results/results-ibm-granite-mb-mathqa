@@ -1,0 +1,11 @@
+{
+  "ibm-granite/granite-4.0-micro-base": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.4904522613065327,
+      "acc_stderr,none": 0.009151481382262282,
+      "acc_norm,none": 0.4797319932998325,
+      "acc_norm_stderr,none": 0.009145627148890086
+    }
+  }
+}

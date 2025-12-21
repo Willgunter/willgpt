@@ -1,0 +1,11 @@
+{
+  "meta-llama/Llama-3.2-3B": {
+    "arc_challenge": {
+      "alias": "arc_challenge",
+      "acc,none": 0.42662116040955633,
+      "acc_stderr,none": 0.014453185592920293,
+      "acc_norm,none": 0.46075085324232085,
+      "acc_norm_stderr,none": 0.014566303676636534
+    }
+  }
+}

@@ -28,8 +28,9 @@ Models are evaluated on the following benchmarks:
 - GSM8K
 - SVAMP
 - ARC-Challenge
-- MathQA
-
+- MathQA (Note: while benchmarking, I ran into the following error message: Dataset scripts are no longer supported, but found math_qa.py)
+    - Note: actually submit a fix to this on Eleuther-ai github
+    
 ## Base Models
 
 These are the base models used as starting points (all links go to the model cards on Hugging Face):
@@ -118,6 +119,9 @@ python evals/eleuther-ai-evals/eleuther-ai-eval.py --output results.json
 ```
 
 By default this evaluates the models + tasks listed in `evals/eleuther-ai-evals/eleuther-ai-eval.py` (e.g. `arc_challenge`, `gsm8k`, `mathqa`, and engineering-related MMLU subsets).
+
+### Notes
+- I ran into serious dependency issues running the Service Now model as the model was released in between Transformers internal refactor window and relied on non public APIs, unstable symbols, and trust_remote_code without version guards. I simply used transformers version >= 4.52.0
 
 ### Shot setting
 

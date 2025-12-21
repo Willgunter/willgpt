@@ -1,0 +1,11 @@
+{
+  "HuggingFaceTB/SmolLM3-3B-Base": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.4562814070351759,
+      "acc_stderr,none": 0.00911809407831689,
+      "acc_norm,none": 0.4458961474036851,
+      "acc_norm_stderr,none": 0.00909940584363527
+    }
+  }
+}

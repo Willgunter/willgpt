@@ -1,32 +1,43 @@
 """
 Quick eval harness tuned to the models and benchmarks documented in README.md.
 """
+from typing import TypedDict
+import transformers.utils
+
+if not hasattr(transformers.utils, "LossKwargs"):
+    class LossKwargs(TypedDict, total=False):
+        pass
+
+    transformers.utils.LossKwargs = LossKwargs
 
 import argparse
 import json
 import lm_eval
 from lm_eval.tasks import TaskManager
-from lm_eval.utils import handle_non_serializable
+try:
+    from lm_eval.utils import handle_non_serializable
+except ImportError:
+    def handle_non_serializable(x):
+        return x
+
+
+
+
 
 MODELS = [
-    "Qwen/Qwen2.5-3B", # HF native
-    "Qwen/Qwen3-4B-Base", # HF native
-    "HuggingFaceTB/SmolLM3-3B-Base", # HF native
-    "ServiceNow-AI/Apriel-5B-Base", # NOT HF native - needed some bs to run properly
-    "ibm-granite/granite-4.0-micro-base",
-    "mistralai/Ministral-3-3B-Base-2512", # Ministral is very new so it needs trust_remote_code to be true
-                                          # this eval (this file) doesn't properly propagate trust_remote_code down
-                                          # so we get this error and do this fix:
-                                          # ministral 3 key error - changed line 632 of /usr/local/lib/python3.12/dist-packages/lm_eval/models/huggingface.py
-                                          # to be trust_remote_code=True,
-    "meta-llama/Llama-3.2-3B",
-    "google/gemma-2-2b",
-    "deepseek-ai/deepseek-llm-7b-base",
+    "Qwen/Qwen2.5-3B", # HF native (proxy: Qwen/Qwen2.5-0.5B)
+    "Qwen/Qwen3-4B-Base", # HF native (proxy: Qwen/Qwen2.5-0.5B)
+    "HuggingFaceTB/SmolLM3-3B-Base", # HF native (proxy: HuggingFaceTB/SmolLM3-135M)
+    "ServiceNow-AI/Apriel-5B-Base", # NOT HF native - needed some bs to run properly (proxy: ServiceNow-AI/Apriel-1.5B-Base)
+    "ibm-granite/granite-4.0-micro-base", # (proxy: itself (3B params))
+    "meta-llama/Llama-3.2-3B", # need to be authenticated (proxy: meta-llama/Llama-3.2-1B)
+    "google/gemma-2-2b", # need to be authenticated (proxy: itself)
+    "deepseek-ai/deepseek-llm-7b-base", # proxy: deepseek-ai/deepseek-llm-1.3b-base
 ]
 
 DESIRED_BENCHMARKS = [
     "arc_challenge",
-    "gsm8k", # for eval, set max_new_tokens to 256, 
+    "gsm8k", # (save for later) for eval, set max_new_tokens to 256, 
     "mathqa",
     "mmlu_electrical_engineering",
     "mmlu_college_computer_science",
@@ -103,13 +114,11 @@ def main() -> None:
     if not available_benchmarks:
         raise RuntimeError("No valid benchmarks could be resolved; please add tasks first.")
 
-    extra_model_args = (args.model_args or "").strip().lstrip(",")
-
     all_results = {}
     for model_name in models:
         model_args = f"pretrained={model_name}"
-        if extra_model_args:
-            model_args = f"{model_args},{extra_model_args}"
+        if args.model_args:
+            model_args = f"{model_args},{args.model_args}"
         results = lm_eval.simple_evaluate(
             model="hf",
             model_args=model_args,
