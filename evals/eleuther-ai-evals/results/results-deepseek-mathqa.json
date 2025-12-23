@@ -1,0 +1,11 @@
+{
+  "deepseek-ai/deepseek-llm-7b-base": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.2847571189279732,
+      "acc_stderr,none": 0.00826160939090075,
+      "acc_norm,none": 0.2917922948073702,
+      "acc_norm_stderr,none": 0.008321810539961184
+    }
+  }
+}

@@ -29,6 +29,39 @@ MODELS = [
     "Qwen/Qwen3-4B-Base", # HF native (proxy: Qwen/Qwen2.5-0.5B)
     "HuggingFaceTB/SmolLM3-3B-Base", # HF native (proxy: HuggingFaceTB/SmolLM3-135M)
     "ServiceNow-AI/Apriel-5B-Base", # NOT HF native - needed some bs to run properly (proxy: ServiceNow-AI/Apriel-1.5B-Base)
+        # ImportError: cannot import name 'LossKwargs' from 'transformers.utils'
+        # vim into /usr/local/lib/python3.12/dist-packages/lm_eval/models/huggingface.py and change this code on line 630 ish,
+        # then run lm_eval
+        # OLD
+        # self._model = self.AUTO_MODEL_CLASS.from_pretrained(
+        #     pretrained,
+        #     revision=revision,
+        #     dtype=get_dtype(dtype),
+        #     trust_remote_code=trust_remote_code,
+        #     gguf_file=gguf_file,
+        #     quantization_config=quantization_config,
+        #     subfolder=subfolder,
+        #     **model_kwargs,
+        # )
+        # 
+        # NEW
+        #  fp_dtype = get_dtype(dtype)
+        #     if trust_remote_code or dtype in (None, "auto"):
+        #         fp_dtype = None
+        #     if fp_dtype is not None:
+        #         model_kwargs = dict(model_kwargs)
+        #         model_kwargs["dtype"] = fp_dtype
+        #     self._model = self.AUTO_MODEL_CLASS.from_pretrained(
+        #         pretrained,
+        #         revision=revision,
+        #         trust_remote_code=trust_remote_code,
+        #         gguf_file=gguf_file,
+        #         quantization_config=quantization_config,
+        #         subfolder=subfolder,
+        #         **model_kwargs,
+        #     )
+        
+        
     "ibm-granite/granite-4.0-micro-base", # (proxy: itself (3B params))
     "meta-llama/Llama-3.2-3B", # need to be authenticated (proxy: meta-llama/Llama-3.2-1B)
     "google/gemma-2-2b", # need to be authenticated (proxy: itself)
@@ -37,13 +70,13 @@ MODELS = [
 
 DESIRED_BENCHMARKS = [
     "arc_challenge",
-    "gsm8k", # (save for later) for eval, set max_new_tokens to 256, 
     "mathqa",
     "mmlu_electrical_engineering",
     "mmlu_college_computer_science",
     "mmlu_college_physics",
     "mmlu_conceptual_physics",
     "mmlu_college_mathematics"#,
+    "gsm8k", # (save for later) for eval, set max_new_tokens to 256, 
     # "engidesign",  # (OPEN subsection) not in lm_eval_harness
     # "engibench",  # not in lm_eval_harness
 ]
@@ -91,6 +124,11 @@ def main() -> None:
         default="",
         help='Extra lm_eval model_args to append, e.g. "dtype=float16,device_map=auto,trust_remote_code=true".',
     )
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        help="Forward-generation budget (e.g. gsm8k likes 256).",
+    )
     args = parser.parse_args()
 
     models = _parse_csv_or_repeat(args.models) or MODELS
@@ -119,11 +157,15 @@ def main() -> None:
         model_args = f"pretrained={model_name}"
         if args.model_args:
             model_args = f"{model_args},{args.model_args}"
+        generate_kwargs = {}
+        if args.max_new_tokens is not None:
+            generate_kwargs["max_new_tokens"] = args.max_new_tokens
         results = lm_eval.simple_evaluate(
             model="hf",
             model_args=model_args,
             tasks=available_benchmarks,
             batch_size=args.batch_size,
+            generate_kwargs=generate_kwargs or None,
         )
         all_results[model_name] = results["results"]
 

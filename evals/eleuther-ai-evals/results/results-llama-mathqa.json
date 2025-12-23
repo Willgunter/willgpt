@@ -1,0 +1,11 @@
+{
+  "meta-llama/Llama-3.2-3B": {
+    "mathqa": {
+      "alias": "mathqa",
+      "acc,none": 0.33835845896147404,
+      "acc_stderr,none": 0.008661647232390704,
+      "acc_norm,none": 0.3390284757118928,
+      "acc_norm_stderr,none": 0.008665827783254325
+    }
+  }
+}

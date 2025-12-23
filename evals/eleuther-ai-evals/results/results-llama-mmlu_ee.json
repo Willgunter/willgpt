@@ -1,0 +1,9 @@
+{
+  "meta-llama/Llama-3.2-3B": {
+    "mmlu_electrical_engineering": {
+      "alias": "electrical_engineering",
+      "acc,none": 0.5172413793103449,
+      "acc_stderr,none": 0.04164188720169378
+    }
+  }
+}

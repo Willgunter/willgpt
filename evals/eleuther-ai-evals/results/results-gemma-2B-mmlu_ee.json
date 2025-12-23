@@ -1,0 +1,9 @@
+{
+  "google/gemma-2-2b": {
+    "mmlu_electrical_engineering": {
+      "alias": "electrical_engineering",
+      "acc,none": 0.5517241379310345,
+      "acc_stderr,none": 0.041443118108781485
+    }
+  }
+}

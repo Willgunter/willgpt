@@ -1,0 +1,9 @@
+{
+  "Qwen/Qwen2.5-3B": {
+    "mmlu_electrical_engineering": {
+      "alias": "electrical_engineering",
+      "acc,none": 0.6482758620689655,
+      "acc_stderr,none": 0.03979236637497416
+    }
+  }
+}
