@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1772" height="580" viewBox="0 0 1772 580" font-family="Verdana, sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="20" y="30" font-size="20" fill="#222">Grouped benchmark bar chart (all 8×8 scores)</text>
+<line x1="160" y1="80" x2="160" y2="440" stroke="#111" stroke-width="1"/>
+<line x1="160" y1="440.0" x2="1732" y2="440.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="440.0" x2="160" y2="440.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="444.0" text-anchor="end" font-size="10" fill="#222">0%</text>
+<line x1="160" y1="404.0" x2="1732" y2="404.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="404.0" x2="160" y2="404.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="408.0" text-anchor="end" font-size="10" fill="#222">10%</text>
+<line x1="160" y1="368.0" x2="1732" y2="368.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="368.0" x2="160" y2="368.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="372.0" text-anchor="end" font-size="10" fill="#222">20%</text>
+<line x1="160" y1="332.0" x2="1732" y2="332.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="332.0" x2="160" y2="332.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="336.0" text-anchor="end" font-size="10" fill="#222">30%</text>
+<line x1="160" y1="296.0" x2="1732" y2="296.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="296.0" x2="160" y2="296.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="300.0" text-anchor="end" font-size="10" fill="#222">40%</text>
+<line x1="160" y1="260.0" x2="1732" y2="260.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="260.0" x2="160" y2="260.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="264.0" text-anchor="end" font-size="10" fill="#222">50%</text>
+<line x1="160" y1="224.0" x2="1732" y2="224.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="224.0" x2="160" y2="224.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="228.0" text-anchor="end" font-size="10" fill="#222">60%</text>
+<line x1="160" y1="188.00000000000003" x2="1732" y2="188.00000000000003" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="188.00000000000003" x2="160" y2="188.00000000000003" stroke="#111" stroke-width="1"/>
+<text x="150" y="192.00000000000003" text-anchor="end" font-size="10" fill="#222">70%</text>
+<line x1="160" y1="152.0" x2="1732" y2="152.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="152.0" x2="160" y2="152.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="156.0" text-anchor="end" font-size="10" fill="#222">80%</text>
+<line x1="160" y1="116.0" x2="1732" y2="116.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="116.0" x2="160" y2="116.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="120.0" text-anchor="end" font-size="10" fill="#222">90%</text>
+<line x1="160" y1="80.0" x2="1732" y2="80.0" stroke="#e0e0e0" stroke-width="1"/>
+<line x1="154" y1="80.0" x2="160" y2="80.0" stroke="#111" stroke-width="1"/>
+<text x="150" y="84.0" text-anchor="end" font-size="10" fill="#222">100%</text>
+<text x="257.0" y="470" text-anchor="middle" font-size="11" fill="#333">ARC Challenge (norm acc)</text>
+<rect x="180" y="266.14334470989763" width="14" height="173.8566552901024" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="200" y="325.4266211604096" width="14" height="114.57337883959045" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="220" y="261.22866894197955" width="14" height="178.77133105802048" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="240" y="258.77133105802045" width="14" height="181.22866894197955" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="260" y="274.1296928327645" width="14" height="165.8703071672355" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="280" y="268.90784982935156" width="14" height="171.09215017064847" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="300" y="253.5494880546075" width="14" height="186.4505119453925" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="320" y="252.0136518771331" width="14" height="187.9863481228669" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="451.0" y="470" text-anchor="middle" font-size="11" fill="#333">MathQA (norm acc)</text>
+<rect x="374" y="321.4472361809045" width="14" height="118.55276381909547" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="394" y="334.95477386934675" width="14" height="105.04522613065326" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="414" y="320.84422110552765" width="14" height="119.15577889447235" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="434" y="267.2964824120603" width="14" height="172.7035175879397" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="454" y="317.9497487437186" width="14" height="122.05025125628141" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="474" y="305.64824120603015" width="14" height="134.35175879396985" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="494" y="247.3969849246231" width="14" height="192.6030150753769" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="514" y="279.47738693467335" width="14" height="160.52261306532665" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="645.0" y="470" text-anchor="middle" font-size="11" fill="#333">GSM8K (strict exact match)</text>
+<rect x="568" y="203.63912054586808" width="14" height="236.36087945413192" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="588" y="383.7755875663381" width="14" height="56.22441243366186" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="608" y="355.3904473085671" width="14" height="84.60955269143291" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="628" y="182.07733131159972" width="14" height="257.9226686884003" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="648" y="347.2024260803639" width="14" height="92.7975739196361" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="668" y="190.81122062168308" width="14" height="249.18877937831692" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="688" y="177.16451857467774" width="14" height="262.83548142532226" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="708" y="195.1781652767248" width="14" height="244.8218347232752" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="839.0" y="470" text-anchor="middle" font-size="11" fill="#333">MMLU College CS</text>
+<rect x="762" y="274.4" width="14" height="165.6" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="782" y="310.4" width="14" height="129.6" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="802" y="285.2" width="14" height="154.8" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="822" y="234.8" width="14" height="205.2" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="842" y="252.79999999999998" width="14" height="187.20000000000002" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="862" y="227.60000000000002" width="14" height="212.39999999999998" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="882" y="195.2" width="14" height="244.8" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="902" y="249.2" width="14" height="190.8" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="1033.0" y="470" text-anchor="middle" font-size="11" fill="#333">MMLU College Math</text>
+<rect x="956" y="314.0" width="14" height="125.99999999999999" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="976" y="332.0" width="14" height="108.0" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="996" y="324.8" width="14" height="115.2" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="1016" y="285.2" width="14" height="154.8" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="1036" y="332.0" width="14" height="108.0" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="1056" y="296.0" width="14" height="144.0" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="1076" y="249.2" width="14" height="190.8" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="1096" y="306.8" width="14" height="133.2" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="1227.0" y="470" text-anchor="middle" font-size="11" fill="#333">MMLU College Physics</text>
+<rect x="1150" y="337.6470588235294" width="14" height="102.35294117647058" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="1170" y="337.6470588235294" width="14" height="102.35294117647058" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="1190" y="295.2941176470588" width="14" height="144.7058823529412" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="1210" y="274.11764705882354" width="14" height="165.88235294117646" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="1230" y="330.5882352941177" width="14" height="109.41176470588235" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="1250" y="260.0" width="14" height="180.0" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="1270" y="228.23529411764704" width="14" height="211.76470588235296" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="1290" y="305.88235294117646" width="14" height="134.11764705882354" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="1421.0" y="470" text-anchor="middle" font-size="11" fill="#333">MMLU Conceptual Physics</text>
+<rect x="1344" y="268.4255319148936" width="14" height="171.5744680851064" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="1364" y="294.468085106383" width="14" height="145.531914893617" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="1384" y="286.8085106382979" width="14" height="153.19148936170214" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="1404" y="207.14893617021275" width="14" height="232.85106382978725" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="1424" y="288.3404255319149" width="14" height="151.6595744680851" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="1444" y="196.4255319148936" width="14" height="243.5744680851064" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="1464" y="153.531914893617" width="14" height="286.468085106383" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="1484" y="220.93617021276597" width="14" height="219.06382978723403" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="1615.0" y="470" text-anchor="middle" font-size="11" fill="#333">MMLU Electrical Engineering</text>
+<rect x="1538" y="226.48275862068968" width="14" height="213.51724137931032" fill="#1f77b4" stroke="#222" stroke-width="0.5"/>
+<rect x="1558" y="278.62068965517244" width="14" height="161.3793103448276" fill="#ff7f0e" stroke="#222" stroke-width="0.5"/>
+<rect x="1578" y="241.3793103448276" width="14" height="198.6206896551724" fill="#2ca02c" stroke="#222" stroke-width="0.5"/>
+<rect x="1598" y="189.24137931034485" width="14" height="250.75862068965515" fill="#d62728" stroke="#222" stroke-width="0.5"/>
+<rect x="1618" y="253.79310344827584" width="14" height="186.20689655172416" fill="#9467bd" stroke="#222" stroke-width="0.5"/>
+<rect x="1638" y="206.62068965517244" width="14" height="233.37931034482756" fill="#8c564b" stroke="#222" stroke-width="0.5"/>
+<rect x="1658" y="171.8620689655172" width="14" height="268.1379310344828" fill="#e377c2" stroke="#222" stroke-width="0.5"/>
+<rect x="1678" y="201.6551724137931" width="14" height="238.3448275862069" fill="#17becf" stroke="#222" stroke-width="0.5"/>
+<text x="180" y="500" font-size="12" fill="#333">Model legend:</text>
+<rect x="300" y="488" width="10" height="10" fill="#1f77b4"/>
+<text x="314" y="498" font-size="10" fill="#111">Apriel 5B</text>
+<rect x="440" y="488" width="10" height="10" fill="#ff7f0e"/>
+<text x="454" y="498" font-size="10" fill="#111">Deepseek 7B</text>
+<rect x="580" y="488" width="10" height="10" fill="#2ca02c"/>
+<text x="594" y="498" font-size="10" fill="#111">Gemma 2.2B</text>
+<rect x="720" y="488" width="10" height="10" fill="#d62728"/>
+<text x="734" y="498" font-size="10" fill="#111">Granite 4.0</text>
+<rect x="860" y="488" width="10" height="10" fill="#9467bd"/>
+<text x="874" y="498" font-size="10" fill="#111">Llama 3.2 3B</text>
+<rect x="1000" y="488" width="10" height="10" fill="#8c564b"/>
+<text x="1014" y="498" font-size="10" fill="#111">Qwen 2.5 3B</text>
+<rect x="1140" y="488" width="10" height="10" fill="#e377c2"/>
+<text x="1154" y="498" font-size="10" fill="#111">Qwen 3 4B</text>
+<rect x="1280" y="488" width="10" height="10" fill="#17becf"/>
+<text x="1294" y="498" font-size="10" fill="#111">SmolLM3 3B</text>
+</svg>

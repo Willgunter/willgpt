@@ -1,0 +1,9 @@
+{
+    "deepseek-ai/deepseek-llm-7b-base": {
+      "mmlu_electrical_engineering": {
+        "alias": "electrical_engineering",
+        "acc,none": 0.4482758620689655,
+        "acc_stderr,none": 0.041443118108781485
+      }
+    }
+  }

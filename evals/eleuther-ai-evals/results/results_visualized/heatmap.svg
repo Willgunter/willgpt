@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1350" height="624" viewBox="0 0 1350 624" font-family="Verdana, sans-serif">
+<defs><linearGradient id="heatGradient" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#e84a5f"/><stop offset="100%" stop-color="#2ecc71"/></linearGradient></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="20" y="30" font-size="20" fill="#222">LLM benchmark heatmap (metric-specific scores)</text>
+<text x="260.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 260.0 112)">ARC Challenge (norm acc)</text>
+<text x="400.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 400.0 112)">MathQA (norm acc)</text>
+<text x="540.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 540.0 112)">GSM8K (strict exact match)</text>
+<text x="680.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 680.0 112)">MMLU College CS</text>
+<text x="820.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 820.0 112)">MMLU College Math</text>
+<text x="960.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 960.0 112)">MMLU College Physics</text>
+<text x="1100.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 1100.0 112)">MMLU Conceptual Physics</text>
+<text x="1240.0" y="112" text-anchor="middle" font-size="12" fill="#333" transform="rotate(-30 1240.0 112)">MMLU Electrical Engineering</text>
+<text x="180" y="189.0" text-anchor="end" font-size="12" fill="#111">Apriel 5B</text>
+<rect x="190" y="160" width="140" height="48" fill="rgb(143,137,99)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="189.0" text-anchor="middle" font-size="11" fill="#111">48.3%</text>
+<rect x="330" y="160" width="140" height="48" fill="rgb(174,119,93)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="189.0" text-anchor="middle" font-size="11" fill="#fff">32.9%</text>
+<rect x="470" y="160" width="140" height="48" fill="rgb(108,158,106)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="189.0" text-anchor="middle" font-size="11" fill="#111">65.7%</text>
+<rect x="610" y="160" width="140" height="48" fill="rgb(148,135,98)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="189.0" text-anchor="middle" font-size="11" fill="#111">46.0%</text>
+<rect x="750" y="160" width="140" height="48" fill="rgb(170,122,94)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="189.0" text-anchor="middle" font-size="11" fill="#fff">35.0%</text>
+<rect x="890" y="160" width="140" height="48" fill="rgb(183,114,91)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="189.0" text-anchor="middle" font-size="11" fill="#fff">28.4%</text>
+<rect x="1030" y="160" width="140" height="48" fill="rgb(144,137,99)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="189.0" text-anchor="middle" font-size="11" fill="#111">47.7%</text>
+<rect x="1170" y="160" width="140" height="48" fill="rgb(121,151,103)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="189.0" text-anchor="middle" font-size="11" fill="#111">59.3%</text>
+<text x="180" y="237.0" text-anchor="end" font-size="12" fill="#111">Deepseek 7B</text>
+<rect x="190" y="208" width="140" height="48" fill="rgb(176,118,92)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">31.8%</text>
+<rect x="330" y="208" width="140" height="48" fill="rgb(181,115,91)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">29.2%</text>
+<rect x="470" y="208" width="140" height="48" fill="rgb(208,98,86)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">15.6%</text>
+<rect x="610" y="208" width="140" height="48" fill="rgb(168,123,94)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">36.0%</text>
+<rect x="750" y="208" width="140" height="48" fill="rgb(180,116,92)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">30.0%</text>
+<rect x="890" y="208" width="140" height="48" fill="rgb(183,114,91)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">28.4%</text>
+<rect x="1030" y="208" width="140" height="48" fill="rgb(159,128,96)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">40.4%</text>
+<rect x="1170" y="208" width="140" height="48" fill="rgb(150,133,97)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="237.0" text-anchor="middle" font-size="11" fill="#fff">44.8%</text>
+<text x="180" y="285.0" text-anchor="end" font-size="12" fill="#111">Gemma 2.2B</text>
+<rect x="190" y="256" width="140" height="48" fill="rgb(140,139,99)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="285.0" text-anchor="middle" font-size="11" fill="#111">49.7%</text>
+<rect x="330" y="256" width="140" height="48" fill="rgb(173,119,93)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">33.1%</text>
+<rect x="470" y="256" width="140" height="48" fill="rgb(192,108,89)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">23.5%</text>
+<rect x="610" y="256" width="140" height="48" fill="rgb(154,131,97)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">43.0%</text>
+<rect x="750" y="256" width="140" height="48" fill="rgb(176,118,92)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">32.0%</text>
+<rect x="890" y="256" width="140" height="48" fill="rgb(159,128,96)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">40.2%</text>
+<rect x="1030" y="256" width="140" height="48" fill="rgb(154,131,97)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="285.0" text-anchor="middle" font-size="11" fill="#fff">42.6%</text>
+<rect x="1170" y="256" width="140" height="48" fill="rgb(129,146,102)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="285.0" text-anchor="middle" font-size="11" fill="#111">55.2%</text>
+<text x="180" y="333.0" text-anchor="end" font-size="12" fill="#111">Granite 4.0</text>
+<rect x="190" y="304" width="140" height="48" fill="rgb(139,140,100)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">50.3%</text>
+<rect x="330" y="304" width="140" height="48" fill="rgb(144,137,99)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">48.0%</text>
+<rect x="470" y="304" width="140" height="48" fill="rgb(96,165,108)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">71.6%</text>
+<rect x="610" y="304" width="140" height="48" fill="rgb(126,148,102)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">57.0%</text>
+<rect x="750" y="304" width="140" height="48" fill="rgb(154,131,97)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="333.0" text-anchor="middle" font-size="11" fill="#fff">43.0%</text>
+<rect x="890" y="304" width="140" height="48" fill="rgb(147,135,98)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">46.1%</text>
+<rect x="1030" y="304" width="140" height="48" fill="rgb(110,157,105)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">64.7%</text>
+<rect x="1170" y="304" width="140" height="48" fill="rgb(100,163,107)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="333.0" text-anchor="middle" font-size="11" fill="#111">69.7%</text>
+<text x="180" y="381.0" text-anchor="end" font-size="12" fill="#111">Llama 3.2 3B</text>
+<rect x="190" y="352" width="140" height="48" fill="rgb(147,135,98)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="381.0" text-anchor="middle" font-size="11" fill="#111">46.1%</text>
+<rect x="330" y="352" width="140" height="48" fill="rgb(172,120,93)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="381.0" text-anchor="middle" font-size="11" fill="#fff">33.9%</text>
+<rect x="470" y="352" width="140" height="48" fill="rgb(188,110,90)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="381.0" text-anchor="middle" font-size="11" fill="#fff">25.8%</text>
+<rect x="610" y="352" width="140" height="48" fill="rgb(136,142,100)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="381.0" text-anchor="middle" font-size="11" fill="#111">52.0%</text>
+<rect x="750" y="352" width="140" height="48" fill="rgb(180,116,92)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="381.0" text-anchor="middle" font-size="11" fill="#fff">30.0%</text>
+<rect x="890" y="352" width="140" height="48" fill="rgb(179,116,92)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="381.0" text-anchor="middle" font-size="11" fill="#fff">30.4%</text>
+<rect x="1030" y="352" width="140" height="48" fill="rgb(155,130,96)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="381.0" text-anchor="middle" font-size="11" fill="#fff">42.1%</text>
+<rect x="1170" y="352" width="140" height="48" fill="rgb(136,142,100)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="381.0" text-anchor="middle" font-size="11" fill="#111">51.7%</text>
+<text x="180" y="429.0" text-anchor="end" font-size="12" fill="#111">Qwen 2.5 3B</text>
+<rect x="190" y="400" width="140" height="48" fill="rgb(144,137,99)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">47.5%</text>
+<rect x="330" y="400" width="140" height="48" fill="rgb(165,124,94)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="429.0" text-anchor="middle" font-size="11" fill="#fff">37.3%</text>
+<rect x="470" y="400" width="140" height="48" fill="rgb(101,163,107)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">69.2%</text>
+<rect x="610" y="400" width="140" height="48" fill="rgb(122,150,103)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">59.0%</text>
+<rect x="750" y="400" width="140" height="48" fill="rgb(160,128,96)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="429.0" text-anchor="middle" font-size="11" fill="#fff">40.0%</text>
+<rect x="890" y="400" width="140" height="48" fill="rgb(140,140,100)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">50.0%</text>
+<rect x="1030" y="400" width="140" height="48" fill="rgb(104,161,107)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">67.7%</text>
+<rect x="1170" y="400" width="140" height="48" fill="rgb(110,157,105)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="429.0" text-anchor="middle" font-size="11" fill="#111">64.8%</text>
+<text x="180" y="477.0" text-anchor="end" font-size="12" fill="#111">Qwen 3 4B</text>
+<rect x="190" y="448" width="140" height="48" fill="rgb(136,142,100)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">51.8%</text>
+<rect x="330" y="448" width="140" height="48" fill="rgb(132,144,101)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">53.5%</text>
+<rect x="470" y="448" width="140" height="48" fill="rgb(93,167,109)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">73.0%</text>
+<rect x="610" y="448" width="140" height="48" fill="rgb(103,161,107)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">68.0%</text>
+<rect x="750" y="448" width="140" height="48" fill="rgb(134,143,101)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">53.0%</text>
+<rect x="890" y="448" width="140" height="48" fill="rgb(122,150,103)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">58.8%</text>
+<rect x="1030" y="448" width="140" height="48" fill="rgb(80,175,111)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">79.6%</text>
+<rect x="1170" y="448" width="140" height="48" fill="rgb(91,169,109)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="477.0" text-anchor="middle" font-size="11" fill="#111">74.5%</text>
+<text x="180" y="525.0" text-anchor="end" font-size="12" fill="#111">SmolLM3 3B</text>
+<rect x="190" y="496" width="140" height="48" fill="rgb(135,142,100)" stroke="#ccc" stroke-width="1"/>
+<text x="260.0" y="525.0" text-anchor="middle" font-size="11" fill="#111">52.2%</text>
+<rect x="330" y="496" width="140" height="48" fill="rgb(150,133,97)" stroke="#ccc" stroke-width="1"/>
+<text x="400.0" y="525.0" text-anchor="middle" font-size="11" fill="#fff">44.6%</text>
+<rect x="470" y="496" width="140" height="48" fill="rgb(103,161,107)" stroke="#ccc" stroke-width="1"/>
+<text x="540.0" y="525.0" text-anchor="middle" font-size="11" fill="#111">68.0%</text>
+<rect x="610" y="496" width="140" height="48" fill="rgb(134,143,101)" stroke="#ccc" stroke-width="1"/>
+<text x="680.0" y="525.0" text-anchor="middle" font-size="11" fill="#111">53.0%</text>
+<rect x="750" y="496" width="140" height="48" fill="rgb(166,124,94)" stroke="#ccc" stroke-width="1"/>
+<text x="820.0" y="525.0" text-anchor="middle" font-size="11" fill="#fff">37.0%</text>
+<rect x="890" y="496" width="140" height="48" fill="rgb(165,124,94)" stroke="#ccc" stroke-width="1"/>
+<text x="960.0" y="525.0" text-anchor="middle" font-size="11" fill="#fff">37.3%</text>
+<rect x="1030" y="496" width="140" height="48" fill="rgb(118,153,104)" stroke="#ccc" stroke-width="1"/>
+<text x="1100.0" y="525.0" text-anchor="middle" font-size="11" fill="#111">60.9%</text>
+<rect x="1170" y="496" width="140" height="48" fill="rgb(107,159,106)" stroke="#ccc" stroke-width="1"/>
+<text x="1240.0" y="525.0" text-anchor="middle" font-size="11" fill="#111">66.2%</text>
+<text x="190" y="559" font-size="12" fill="#333">Color scale: low (red) → high (green)</text>
+<rect x="190" y="569" width="280" height="16" fill="url(#heatGradient)" stroke="#555"/>
+</svg>

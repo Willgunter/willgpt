@@ -1,0 +1,9 @@
+{
+    "ServiceNow-AI/Apriel-5B-Base": {
+      "mmlu_electrical_engineering": {
+        "alias": "electrical_engineering",
+        "acc,none": 0.593103448275862,
+        "acc_stderr,none": 0.040937939812662354
+      }
+    }
+  }

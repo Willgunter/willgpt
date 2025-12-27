@@ -1,0 +1,9 @@
+{
+    "ibm-granite/granite-4.0-micro-base": {
+      "mmlu_electrical_engineering": {
+        "alias": "electrical_engineering",
+        "acc,none": 0.696551724137931,
+        "acc_stderr,none": 0.03831226048850335
+      }
+    }
+  }
