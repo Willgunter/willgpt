@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate heatmap and grouped bar-chart comparisons for evaluated LLMs."""
+"""Generate heatmap and grouped bar-chart comparisons for evaluated LLMs.
+   Convert to SVG here: https://svgtopng.com/"""
 
 import json
 from pathlib import Path

@@ -1,0 +1,15 @@
+{"id": "q1", "prompt": "A battery pack is designed to operate at 25°C using natural convection for cooling. It will now be deployed in a desert environment with ambient temperatures reaching 55°C. List the assumptions in the original design that may no longer hold."}
+{"id": "q2", "prompt": "A satellite radiator panel is modeled assuming steady-state thermal conditions. What assumptions are being made, and which are most likely to break in orbit?"}
+{"id": "q3", "prompt": "A pressure vessel is designed using room-temperature material properties. Identify assumptions that become invalid at cryogenic temperatures."}
+{"id": "q4", "prompt": "A structural component is analyzed assuming linear elastic behavior. Under extreme vibration and thermal cycling, what assumptions may fail?"}
+{"id": "q5", "prompt": "At what point does radiative heat transfer dominate over conduction and convection in high-temperature environments?"}
+{"id": "q6", "prompt": "A material model assumes constant thermal conductivity. When does this assumption break down, and why?"}
+{"id": "q7", "prompt": "When does a lumped-capacitance thermal model stop being valid?"}
+{"id": "q8", "prompt": "A sensor enclosure is deployed in a high-radiation environment for long-term monitoring. What are the most likely failure modes over time?"}
+{"id": "q9", "prompt": "A mechanical joint is exposed to extreme thermal cycling between −100°C and 150°C. What failure mechanisms should be considered?"}
+{"id": "q10", "prompt": "A high-power electronics module operates near its maximum rated temperature. What are the primary failure risks?"}
+{"id": "q11", "prompt": "A polymer seal is used in a vacuum environment. What failure modes are unique to this operating condition?"}
+{"id": "q12", "prompt": "Given the failure modes of a battery pack in high-temperature environments, propose a test plan to validate safe operation."}
+{"id": "q13", "prompt": "What instrumentation would you add to detect early failure in a high-temperature electronics system?"}
+{"id": "q14", "prompt": "How would you design an accelerated life test for a component exposed to radiation?"}
+{"id": "q15", "prompt": "If limited to one mitigation, which would you prioritize and why?"}
