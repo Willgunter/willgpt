@@ -192,6 +192,9 @@ def main() -> None:
         writer = csv.writer(review_file)
         writer.writerow(["id", "prompt", "response", "score", "notes"])
 
+        completed = 0
+        total = len(prompts)
+
         for batch in chunked(prompts, args.batch_size):
             prompt_texts = [record["prompt"] for record in batch]
             enc = tokenizer(
@@ -230,6 +233,8 @@ def main() -> None:
                 }
                 results_file.write(json.dumps(result, ensure_ascii=True) + "\n")
                 writer.writerow([record["id"], record["prompt"], response_text, "", ""])
+            completed += len(batch)
+            print(f"Completed {completed} / {total} prompts")
 
     print(f"Wrote results to {results_path}")
     print(f"Wrote review sheet to {review_path}")
