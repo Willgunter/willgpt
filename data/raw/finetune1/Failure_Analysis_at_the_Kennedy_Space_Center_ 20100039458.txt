@@ -1,0 +1,99 @@
+International Space Station (LSS) materials and processes engineering personnel submitted a payload canister rail
+from the Rotation Handling Fixture when a crack was observed on the top of the rail during installation. The
+Rotation Handling Fixture is used to lift the modules of the ISS into a vacuum chamber in order to perform leak
+checks. The drawing specified that the rail be
+composed of AISI 4140 steel (UNS G41400).
+Fig. J shows the payload canister rail, as received.
+The blue arrows indicate the six notches that are
+cut into the top of the rail in order to fit a thrust
+block assembly used to secure the payload to the
+rail. The yellow arrow indicates the location of
+the crack (inset). Two apparent weld repairs were
+observed in the locations indicated by the red
+arrows. The distance between the weld repair
+regions and their closest notches was
+approximately equal to the distant between
+adjacent notches, which is equal to 10 cm. The
+rail was sectioned longitudinally in order to
+remove the top ledge from the base of the rail so
+that examination of the underside of the ledge
+could be performed. Four cracked regions were
+Figure 1. Payload canister rail, as received, with an
+inset image of the crack on the top of the rail. Scales are
+in cm increments.
+observed on the underside of the ledge near the weld repair regions.
+The crack was opened using an Instron tensile tester in a three-point bend loading configuration in order to
+examine the fracture surface. Corrosion product covered the majority of the revealed surfaces, as shown in Fig. 2.
+The corrosion product was removed in order to reveal the features on the surface. The surfaces were flat and only
+IIh_lu(:eJ Irad ll lt:
+had a small region of fracture around the edge of
+the surface that was approximately I to 2 mm wide.
+Plating was observed on one of the revealed
+surfaces (Fig. 2, bottom right). The other surface
+displayed tools marks that appeared to be the result
+of a machining and grinding operation (Fig. 2, top
+right).
+Analysis of the fracture surface via scanning
+electron microscope (SEM) revealed tool marks on
+both of the surfaces. Examination of the fracture
+region around the edge of both of the surfaces
+revealed dimples formed by microvoid coalescence
+(MVC), characteristic of ductile stress overload.
+Analysis of the bulk metal surface with
+qualitative/semi-quantitative energy dispersive
+spectroscopy via the SEM (SEM/EDS) confirmed
+the presence of nickel plating on one of the
+revealed surfaces.
+Metallographic specimens were prepared from Figure 2. Stereomicroscope images of the revealed
+service fracture. cross sections of the un fractured weld repair
+region. Initial observation of the metallographic specimens after etching indicated that a piece of different material
+was welded into a notch cut in the base material and that the weld had penetrated less than 3 mm, as shown in Fig. 3.
+The size of the notch correlated with the size of the machined notches that were located in six positions on the rail in
+order to install the thrust block. On the underside of the rail ledge, the weld did not fuse the fill piece with the base
+metal.
+2
+American Institute of Aeronautics and Astronautics 
+Metallographic specimens were also prepared from cross-sections of the fractured weld region. Macroscopic
+examination of the metallographic specimens indicated that cold-work lines parallel to the fracture surface were
+present on the fill material, which would
+indicate that the bar was cut from a larger plate
+of material and the material was inserted such
+that the transverse cross-section was sustaining
+the load. Metallographic analysis of the
+samples confirmed the stereomicroscope and
+SEM findings that plating was present on the
+bulk metal surface and the fracture surface was
+limited to a small region on the edge of the
+specimen. The weld used to hold the piece of
+fill materials in the notch also had significant
+porosity.
+Microscopic examination of the bulk metal
+metallographic specimen indicated that the base
+microstructure was ferrite and pearlite
+dendrites. The heat-affected zone (HAZ) had a
+progressive microstructure of ferrite and
+Figure 3. Cross-sections of the weld repair region
+showing a piece of metal inserted into the rail (left) with
+an incomplete weld around the edge (right, arrow).
+untempered martensite and plate martensite showing the prior austenite grain boundaries. The fusion zone structure
+was ferrite with martensite/austenite/carbides (MAC). The microstructures found in the bulk metal were typical for
+a 4140 steel weld.
+Microscopic examination of the fill material metallographic specimens revealed that the base microstructure was
+coarse grain ferrite and pearlite. The HAZ had a progressive microstructure of spheroidized pearlite in ferrite, ferrite
+and martensite in refined prior austenite grain boundaries, and ferrite and martensite in coarse prior austenite grain
+boundaries. The fusion zone structure was ferrite with MAC. The microstructures found in the fill material were
+typical for welded plain carbon steel.
+Microhardness measurements were taken on the metallographic specimens prepared from the cross-sections of
+the fracture surface and were converted3 to the Rockwell B scale (HRB). The converted hardness of the bulk metal
+averaged 92 HRB. The converted hardness of the fill metal averaged 82 HRB, which is significantly less than the
+hardness of the bulk rail metal. The hardness of the bulk metal from the rail met the drawing requirements;
+however, the hardness of the fill metal was less than the required hardness of the rail.
+Chemical analysis determined that the bulk metal was AIS) 4140 steel (UNS G41400), which was in accordance
+with the drawing. The fill material was determined to likely be a 1000-series steel and most closely matched AISI
+1030 steel (UNS G 1 0300).
+The payload canister rail failed due to improper fabrication techniques. The rail had two cut notches that were
+not in accordance with the drawing, and thereby were filled with a low-strength, 1000-series steel. The grinding
+marks on the fill material surface indicate that the cut piece of materials was ground in order to fit into the miscut
+notch. The weld around the steel bar that was used to fill the slot did not have adequate penetration to fuse the fill
+material with the bulk rail metal. The lack of fusion was the most pronounced on the underside of the rail and acted
+as crack initiation points. The rail subsequently failed due to stress overload. 
