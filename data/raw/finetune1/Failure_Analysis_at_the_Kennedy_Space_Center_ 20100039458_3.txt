@@ -1,0 +1,120 @@
+During installation of the new launch pad lightning protection towers for the Constellation program, inspectors
+found toe cracks along a total of nine
+welds on all three of the towers at 101·11 . 3-in. level
+various elevations. Cracking occurred
+along one third or less of the perimeter
+of each weld between the 10-in.
+diameter main horizontal pipe joining
+two 8-in. diameter bracing pipes,
+which are shown in Fig. 8. A
+representative coupon sample was
+removed from one of the towers at the
+10 I-ft, 3-in. elevation crack area for
+analysis. Temperature measurements
+were taken during cutting operations
+to ensure that the part was not overheated such that no microstructural
+101·ft. 3·in. levol
+38-ft. 9·in. level ,-
+Figure 8. Images of the partially assembled lightning towers at the
+launch pad.
+changes were induced. The pipes were specified as ASTM A 500 Grade B carbon steel. Photodocumentation,
+stereomicroscopy, SEM analysis, chemical analysis and metallography were performed on three specimens created
+from the removed coupon to determine the cause of weld toe cracking.
+After initial photodocumentation, a sectioning plan was formulated to create cross-sectional samples for
+stereomicroscopy, metallography, fractography, and chemical analysis. During sectioning of Specimen I shown in
+Fig. 9, the through-crack was exposed to reveal corrosion product on the fracture surface. Specimen 2, which was
+opened during analysis creating a laboratory-induced overload region, revealed that the crack surface extended to
+the inner diameter (lD) of the 10-in. pipe and tapered off, as illustrated in Fig. 9, bottom right. No paint was
+6
+American Institute of Aeronautics and Astronautics 
+observed on the fracture surface, indicating that the crack had initiated after painting and had propagated to its full
+extent before the coupon was taken, with enough time to allow corrosion product to form.
+The fracture surfaces of Specimen I
+were evaluated via SEM at higher
+magnifications as part of a fractographic
+analysis. Each surface was ultrasonically Cldck
+cleaned to remove the majority of the
+corrosion product that had formed on the
+surface. The fracture surface near the IO-in. 10·in. di • . pipe
+pipe outer diameter (00) contained both
+intergranular and transgranular crack
+propagation features with evidence of brittle
+and ductile (mixed-mode) fracture.
+Intergranular (IG) crack propagation regions
+were surrounded by regions of transgranular
+crack growth. Microvoid coalescence
+(MVC), indicative of ductile stress overload,
+was observed near the ID of the pipe.
+Further evaluation was performed on the
+Specimen 2 fracture surface, which
+exhibited crack propagation demarcations.
+It was determined that the demarcations
+10·in. pipe 00 f-----':.:...::..::.:...c:---'-----"', ]-:;~:::;;;;;;:;;;;;:;;;;'i 10·in. pipe 00
+Laboratory"
+10·in. pipe 10 ::::=====--__ ---' ~~~~:..:.:::J 10. in pipe 10
+10mm
+Figure 9. Removed coupon, as received (top), showing the
+location of the two samples that were opened for
+fractographic analysis (bottom images).
+were not beach marks typically associated with progressive crack growth during fatigue; rather the marks were due
+to superficial corrosion product build-up on the fracture surface. The secondary electron (SE) image did not show
+fatigue striations or plastic transgranular deformation normally observed around the site of a beach mark. At higher
+magnification, SE analysis appeared to show a slight change in fracture features from IG to MVC. Additionally, the
+backscatter electron (BSE) image exhibited atomic contrast due to the presence of corrosion product forming the
+curved lines (darker regions) which was verified by energy dispersive spectroscopy (EOS). It is expected that this
+crack
+imtlation weld bead
+Heat Affe<ted
+lone/HAl)
+base metal
+(ASTMA500.
+Grade B)
+Figure 10. Micrographs of the cross-section of the weld
+showing the crack at the toe of the weld.
+failure was due to overload with a
+geometrical stress state constraint, which
+prevented the material to plastically deform
+resulting in a mixed-mode fracture with a
+large percentage of brittle fracture features.
+According to the ASM Handbook, Vol. 12,
+"when a change in the fracture mode does
+occur as a result of a triaxial state of stress ...
+the mode of rupture can change from the
+normal dimple rupture to quasi-cleavage or
+intergranular decohesion.,,7
+A third specimen was extracted and a
+cross section was mounted, polished, and
+etched to reveal the weld bead, heat affected
+zone, and base metal microstructure.
+Metallography showed the crack initiating
+near the toe of the IO-in. pipe weld at the joint
+transition where a stress concentration was
+expected due to weld geometry, as shown in
+the left image of Fig. 10. The crack propagated mostly perpendicular to the weld near through-thickness and
+deviated at a 45° angle I mm from the lD of the IO-in. pipe, as shown in the right image of Fig. 10. The cross
+section exhibited acceptable microstructures for the heat-affected zone (HAZ), weld metal, and base metal as
+expected for a plain carbon steel fillet weld. Microstructure and crack morphology indicated that this failure was
+neither due to hydrogen-induced cracking nor other types of materials-related fracture.
+Chemical analysis via optical emission spectroscopy indicated that the average carbon content for both the 8-in.
+pipe and the IO-in. pipe met the specification8 and that the chemistry of the pipes was nominal. Microhardness
+measurements using a Knoop indenter were converted3 to the Rockwell B scale (HRB). The converted hardness
+values indicated that the mechanical properties of the pipes were within the specification8
+.
+7
+American Institute of Aeronautics and Astronautics 
+The crack profile and fractography indicated that the joint failed due to stress overload. The lack of paint on the
+fracture surface indicated that the crack occurred after painting. Heavier oxidation on the fracture near the 10-in.
+pipe ID, rather than the origin at the 00, indicates that moisture had wicked into the fracture and settled over time.
+Weld features and geometry appeared nominal. No weld discontinuities or defects were observed. Fracture
+initiated at a transition near the toe of the weld, a region of stress concentration, and propagated inward through the
+base metal rather than following the weld HAZ. Microstructure, hardness, and fracture features did not indicate a
+hydrogen-induced failure mechanism. No other failure mechanisms related to the material were observed.
+Loading configuration of this joint design should be evaluated to determine if the joint was overloaded, with the
+weld toe considered to be a significant point of stress concentration. Future assembly operations should eliminate
+the possibility of stress overload during fit-up and existing cracks should be repaired.
+The reasoning behind the categorization of this failure is more due to the lessons learned from this failure. After
+completion, the lightning towers stand 500 feet tall with 100 foot high fiberglass masts. The only access to the
+lightning tower is with a rung ladder on one side of each tower, with four walkways approximately every 125 feet.
+Routine inspection and maintenance of the towers and the welds, along with troubleshooting of any problems that
+may arise, will be difficult with the current access configuration, which should be taken into account at the
+beginning of a new long-term program. 

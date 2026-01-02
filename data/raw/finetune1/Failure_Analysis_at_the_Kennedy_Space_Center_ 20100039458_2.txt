@@ -1,0 +1,170 @@
+Sections of wire rope that had been used as lightning protection at the launch pads were submitted for damage
+inspection to determine potential future usage of similar wire rope for future programs. The samples were pulltested as part of a separate investigation, and were subsequently submitted for evaluation of any service damage.
+The wire rope was reportedly type 316 stainless steel (UNS S31600), 6x 19 right regular lay, with a 7x7 independent
+wire rope core (IWRC), installed in 2001 and removed in 2008.
+Portions of the wire rope were photographed both in the field prior to pull testing and as received after pull
+testing. The majority of the ropes fractured at the swage fittings that were used to loop the wire ropes for pull
+testing. The fitting acted as a stress concentration due to the clamping of the fitting onto the wire rope. However,
+one sample fractured during pull testing at a damaged location on the wire rope and not at the swage fitting location.
+Visual observation of the wire rope revealed damage that was due to two separate environmental problems:
+corrosion and possible lightning damage.
+3
+American Institute of Aeronautics and Astronautics 
+I. Damage due to lightning
+Several areas of damage were observed on the surface of the wire rope that were apparent localized melted and
+Figure 4. SEM image (top) and cross-section
+(bottom) of the wire rope.
+fused wires. Orange corrosion product was observed on
+the wire rope in the areas of the melting damage. The
+one pull test sample that did not fail at the swage fitting
+failed at one of the areas of apparent melting damage.
+SEM examination of one of these areas of damage
+observed via stereomicroscope revealed a melted bead
+of metal that formed during a localized heating event, as
+shown in Fig. 4 (blue arrow).
+One of the areas of apparent melting and
+resolidification was cross sectioned and prepared for
+metallographic examination, as shown in Fig. 4 (yellow
+line). Observation of the cross-section indicated that
+five of the nineteen wires in the strand were damaged.
+The area of interest had a typical weld-like dendritic
+microstructure, confirming that the material had been
+melted and resolidified, as illustrated in Fig. 4 (red inset
+image). The base metal consisted of extremely fine
+austenitic grains in the transverse direction. The etchant
+preferentially reacted with the melted and resolidified
+metal, indicating that it is more prone to chemical attack
+than the original wire rope material, as confirmed
+through the observation of corrosion product in these damaged areas.
+Microhardness measurements were taken on the wire rope cross-section. No significant hardness difference was
+noted in the wires near the damaged areas as compared to the rest of the wires, which indicates that the heat affected
+zone of the damaged area was very small.
+2. Damage due to corrosion
+Visual and stereomicroscopic inspection of the fractured wires in one of the ropes revealed pitting of the interior
+of several of the wires, as shown in the top left image in
+Fig. 5. Approximately one quarter of the wires in one
+strand had reduced cross-sectional areas due to the pitting.
+SEM observation of these wire indicated that the pitting
+was not limited to the exterior of the wires, and in some
+cases, the corrosion process preferentially attacked the
+interior of the wires, leading to a wormhole-like
+appearance.
+The pitted wire sample was analyzed using EDS via
+the SEM. Spherical deposits containing aluminum and
+chlorine were observed within the pit, as shown in Fig. 5
+(circled), which are typical of solid rocket booster (SRB)
+combustion product deposit. The corrosion product
+consisted primarily of oxygen, iron, and chromium with
+minor amounts of both chlorine and sulfur. The corrosion
+was likely due to chloride-induced pitting of the stainless
+steel wire from the chlorine-containing SRB deposition
+and from the marine environment.
+One of the pitted wires was mounted and
+metallographically prepared to observe the longitudinal
+cross-section of the wire. Approximately two-thirds of the
+interior portion of the cross-section was pitted, as shown
+Figure 5. The pits observed via stereomicroscope
+(top left) were determined via SEM (bottom image)
+and EOS (spectrum) to contain SRB deposition
+(circled). The cross-section of the wire was
+reduced due to pitting (top right).
+in the top right image in Fig. 5. The grain structure of the wire was extremely elongated due to cold-working. The
+4
+American Institute of Aeronautics and Astronautics 
+grain boundary attack caused the wormhole-like pitting of the interior of the wire since the corrosion mechanism
+acted longitudinally with the grain structure. In other words, the directionality of the grains due to cold working
+influenced the directionality of the pitting process, leading to wormhole-like pitting of the wire.
+The metallurgical evaluation of the wire rope used at the launch pad as part of the lightning protection system for
+eight years revealed localized damage due to two different environmental factors. The localized nature of the
+damage in both cases would likely not affect the overall strength of the wire rope because only one quarter of the
+wires in one of the strands was damaged. Inspection of the wire rope would reveal the lightning strike damage areas
+because they occur on the surface of the wire rope; however, the pitting of the interior of the wires would be more
+difficult to detect through visual inspection.
+C. Failure Due to Processing and Maintenance Problems5
+A spherical bearing from a steering cylinder of the crawler transporter (CT) was submitted for failure analysis
+when a crack was observed
+during maintenance. The
+crawler transporter is used to
+transport the shuttle
+transportation system to the
+launch pad after mating
+operations in the Vehicle
+Assembly Building (V AB). The
+spherical bearing assumes the
+horizontal load during the
+steering of one of the four
+individual truck assemblies.
+The drawing specifies that the
+spberical bearing be composed
+of A1S1 E 52100 bearing steel
+(UNS G52986). Fig. 6 shows
+the location of the steering
+cylinder (blue arrow) and the
+Figure 6. Image of the CT in the storage field (left) showing the steering
+cylinder (blue arrow) and the location of the cracked bearing (red arrow).
+The crack was observed on the surface of the spherical bearing (right,
+yellow arrow).
+location of the cracked bearing (red arrow).
+The bearing was photographed as-received to document the location of the crack on the bearing, as shown in Fig.
+6. A lubrication groove was located around the circumference of the spherical bearing. The bearing was submitted
+for nondestructive evaluation (NDE) by liquid penetrant and magnetic particle examination in order to extent of the
+Laboratory·induced
+overload fracture
+:! cm
+Figure 7. The revealed fracture surface displayed crack
+arrest marks (yellow lines).
+indicate that the failure was progressive, as shown in Fig. 7.
+which was located on the weak axis of the spherical bearing.
+cracking. The crack tip was located just below
+the lubrication groove. A witness mark was
+observed on the interior surface of the spherical
+bearing, directly across from the location of the
+crack. The witness mark was more pronounced
+on the lower portion of the spherical bearing,
+indicating that uneven pressure was applied to the
+spherical bearing.
+The spherical bearing was sectioned and the
+crack was opened in order to reveal the service
+fracture surface. The fracture surface was coated
+with grease and had a burnt odor when it was
+opened, evidence that the bearing was in
+operation subsequent to crack formation. The
+fracture surface was cleaned ultrasonically and
+visually examined and the fracture surface
+displayed conchoidal crack-arrest lines that
+The blue arrow indicates the location of the origin,
+Analysis of the fracture surface via SEM revealed mainly intergranular fracture features with localized areas of
+microvoid coalescence (MVC). The fracture surface also had smeared regions and corrosion product, which are
+further indications that the bearing was in service subsequent to fracture. Qualitative/semi-quantitative EDS
+5
+American Institute of Aeronautics and Astronautics 
+analysis via the SEM indicated that the corrosion product consisted primarily of iron and oxygen with minor
+amounts of silicon and sulfur. Although no microscopic indication of fatigue striations were observed, the fracture
+features were consistent with progressive failure in high strength steel.
+Metallographic specimens were prepared from cross sections of the fracture surface. The fracture surface
+showed intergranular features with secondary cracks emanating from the fracture surface. The microstructure
+consisted of tempered martensite with evenly dispersed undissolved carbide particles and manganese sulfide
+stringers, typical for high strength bearing steel. SEM/EDS analysis confirmed that the dark colored particles were
+manganese sulfide. Converted3 through-thickness microhardness measurements taken on the metallographic
+specimens averaged 56 Rockwell C scale (HRC), meeting the specified 55 HRC minimum.
+Lubricant samples from two different bearing locations and from the tube of unused grease were submitted for
+analysis. The lubricant from the failed bearing location had been changed during installation of the new bearing, so
+the sample from this location was a mixture of unused grease and grease at the time of failure. A sample was also
+taken from cylinder bearing that had not been changed in order to analyze a typical operational sample. A sample of
+unused grease was taken from the container that was supplied by the technicians who indicated that it was used
+during bearing maintenance. Both of the used samples were a darker brown color than the unused sample and were
+heavily contaminated with particles, which degrades the lubricity of the grease.
+The samples were analyzed for oxidation with Fourier transformed infrared spectroscopy (FT-IR) and for water
+content with the Karl Fischer Test. The FT-IR results confirmed that all of the samples were lithium base soap type
+grease consistent with the composition of the specified grease. The Karl Fischer test results indicated that the grease
+had absorbed water during service, typical for this type of grease. The unused sample displayed elevated water
+content above the optimum initial content, which could be due to age and exposure during storage.
+Qualitative/semi-quantitative SEM/EDS analysis of particles extracted from both of the used grease samples
+indicated that the grease was contaminated with several metallic and nonmetallic particles. The compositions of the
+various particles were consistent with corrosion product and environmental contaminants such as sand and rock
+fragments.
+The lubricant analysis indicated severe degradation due to age and contamination with environmental particles.
+Also, macroscopic indications of misalignment were found on the interior wall of the spherical bearing. The bearing
+failed in a progressive manner, likely the result of misalignment, with periods of fast crack growth corresponding to
+cycles of large applied loads. The misalignment could be caused by the failure of the grease to properly transfer the
+load, leading to the bearing binding in its race. 
