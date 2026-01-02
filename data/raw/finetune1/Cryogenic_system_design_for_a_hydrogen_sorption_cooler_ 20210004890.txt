@@ -1,0 +1,276 @@
+e present the cryogenic design of Hydrogen Sorption Cooler, part of cryogenic chain in the
+Planck Mission (ESA). This cooler has to provide for a period of about 2 years, continuous
+cooling power at a nominal temperature about18K. Two independent astrophysical
+instruments will be supplied with the cooling power of: 0.175W for HFI instrument and
+0.95W for LFI instrument, and both need temperature stability as good as possible (actual
+stability on ground 4mK peak to peak). We show different designs to reach this stability and
+we present test results. The thermal performance of the liquid reservoirs for the instruments
+was also tested, when re-oriented on three axes. No significant changes in reservoir
+temperature were measured. A local heater simulated the heat load on each reservoir.
+INTRODUCTION
+In the cryogenic cooling chain for the Planck Mission,I, three distinct coolers are required:
+Hydrogen Sorption Cooler to reach 18K (from Jet Propulsion Laboratory USA), Helium
+Joule-Thomson Cooler (with mechanical compressors) to reach 4K (supplied by Rutherford
+Appleton Laboratory UK), and an Open Cycle Dilution Refrigerator (OCDR) to reach 0.1K
+(supplied by CNRS-CRTBT FR). A pre-cooling temperature in the range 50K-60K from
+passive radiation in space is simulated with a Gifford McMahon (GM) cooler during ground
+tests.For testing the cryogenic components of Sorption Cooler, the hydride compressor is
+replaced by pressurized gas from a cylinder for injection gas and by a vacuum pump on lowpressure side. The major advantage of hydride compressor for the sorption cooler is that no
+mechanical parts are in movement which require maintenance and a gas circulation
+parameter uses only heaters and temperature sensors make the cooler vibration free.
+The performance of Cold End is dependent of compressor parameters.
+PRESENTATION OF COLD END OF HYDROGEN SORPTION COOLER
+The gas driving from one compressor to another, through the cold end, is monitoring by the
+check- valves, heaters and temperature sensors. A schematic of Planck flight Sorption Cooler
+is shown in Figure 1:
+0.01 um Joule-Thomsor Particle Expander LR#1 Filter
+Warm P-Sensor Getter
+OP-Sensor
+18 K
+LR#2
+20 K
+LR#3
+1st Precool:
+140 K Radiator 140 K Redia t
+OP-Sensor
+OP-Sensor
+24 K
+2nd Precool:
+80 K Radiator
+-OP-Sensor
+-OP-Sensor
+Charcoal 3rd Precool: Filter
+50 K Radiator
+OP-Sensor
+{Sorption Bed #6
+Figure1 Schematic of Hydride Sorption Cooler-a closed cycle Joule-Thomson
+When pressure in a sorption bed of the compressor reaches 50 atm., a check valve will be
+open and the gas flows into injection line. When the pressure is lower, check-valve will close
+and block the gas return into the bed. On low-pressure side when the pressure inside
+compressor is lower than 0.4 atm, the check -valve open; if not the check-valve is closed.
+The cold end was developed and tested for the following hydride performance parameters.
+Injection pressure 50 atm, with a stability of 1%
+Outlet pressure 0.4 atm
+Nominal flow 6.5mg/sec (1% fluctuation)
+Running continuously in close cycle during minimum 2 years.
+Perturbation in outlet pressure from compressor are about 0.12 psia (6torr),
+An overview of the cold end starting form the last pre-cooling stage 50-60Kis shown below:
+50K - 60K thermal shield
+Joule-Thomson
+H2; 50atm HEX H2, 0.4atm
+LR1 LR2 LR3 T=18K
+P=0.4atm
+T≤18K
+P≤0.4atm T≥18K P≤ 0.4atm
+Figure2. The Cold End Components
+The principle components of Cold End:
+• Joule-Thomson expansion,
+First liquid reservoir (LR1) used exclusively for High Frequency Instrument (HFI)
+Second liquid reservoir (LR2) used exclusively for Low Frequency Instrument (LFI)
+Extra device used to insure that no liquid is going in the outlet line of the heat exchanger
+Joule Thomson expansion device
+We choose to use a porous material to create the JT impedance needed 31. The porous
+material is SS 316 produced by Mott Corporation inside housing made of 316L stainless steel. The pore size used in this case is in the range 0.5-1 microns, and all is sintered inside
+the housing to create a stronger contact with the housing wall. To prevent any possibility to
+displace the sintered plug the housing contains a small step at the end of plug. The porous
+plug size is about 0.063" (1.6mm) diameter and in length 0.1" (2.5mm).
+25.4
+2.
+1.6 '8 4.6 6.4
+Figure3. JT design. The gray square inside is the porous plug installed
+More detail on porous plug JT is given in reference [3].
+The choice of sintered powder is due to its higher resistance to the particle contamination.
+The weak point is that once contaminated with particle, the porous plug is almost impossible
+to clean up. Installing particle filter in the line can prevent this process.
+During normal running, the residual gas existing in the warm side of cooler (Ar, N2, water
+vapor, carbon monoxide and methane produced by the hydride), can contaminate of JT. We
+prevent this by installing a charcoal trap, on the thermal shield at 60K-50K temperature.
+Liquid Reservoirs
+Joule Thomson expansion produce a mixture of liquid and gas as a function of gas
+temperature going into JT produce is in the range between 50% to 90% liquid. We chose a
+design where the hydrogen mixture liquid-gas goes through three separate reservoirs; the
+inlet and outlet of reservoir are on opposite sides.
+Figure.3 Schematic of liquid reservoir, a) inside and b) outside with copper clamp
+The reservoir size is a diameter 19 mm (34") and length 51mm (2" )for first reservoir LR1
+and 127mm (5") for the second one LR2. The reservoir wall is SS 316L thickness 0.5mm
+(0.02"). А copper clamp braised outside of reservoir as the interface between the cooling
+power produced and the instrument heat load. The liquid is collected inside the reservoir by
+copper foam. We plan to use copper foam to avoid any temperature gradient inside the
+reservoir. A view of the inside and outside of reservoirs is shown in figure 3.
+The difference in length between 2 reservoirs comes from the heat load required by each; the
+first reservoir has to provide maximum 0.175mW since the second one has to supply
+945mW. To reduce as much as possible a increase in pressure along the reservoir, this has 4
+open channels of diameter 1mm made especially for gas circulation. The angle drilled for
+these channels increase the exchange between porous foam with liquid running.
+Extra liquid evaporation
+In zero g, the extra-liquid produced can create temperature fluctuation on the Cold End.
+The aim of this devise is to evaporate all the extra-liquid without over-heating the exit gas.
+Two different devices were build and test.
+The First Generation of liquid evaporator is a simple reservoir containing copper porous
+foam. The heat is apply at the exit of reservoirs on outside side, and we measure the
+temperature on both sides of reservoir; we expect to have liquid temperature on the inlet of
+reservoir and a slightly higher temperature on the exit of reservoirs.
+The inconvenient of copper is that we cannot create a temperature gradient along the
+reservoir to have a stable interface controller.
+Figure 4: one design of LR3: stainless steel wall and mixture of copper foam and mesh inside
+The same 19mm diameter tubing is fill up with a mixture of mesh and copper foams, as
+shown in figure 4 or with only copper foam. It stills in progress the test for outside tubing
+19mm copper fills with copper foam inside. The heat applied on this reservoir is function of
+temperature set up is the in following points
+• Before JT the gas temperature should be around 37K when the pre-cooling temperature is
+60K and around 33K when the pre-cooling temperature is 50K
+• Temperature of the gas coming out from LR3 should be slightly higher then the liquid
+temperature.
+In order to accomplish both conditions we must not apply extra heat higher then cooling
+power available, which can cause warming entire JT system. If the heat applied is slightly
+lower than cooling power produce, the gas temperature going into JT decrease causing extra
+liquid in heat exchanger and in time fluctuation arise on the reservoir temperature due to
+extra liquid evaporation in heat exchanger (HEX) leading to control problems.
+Any change in this temperature affect the flow rate of gas going through JT which affect the
+cooling power produce and the outlet temperature.
+A Second Generation of evaporator tested is what we call a discrete heat exchanger DHЕХ,
+which has a double role of cold heat exchanger for injection gas (temperature in JT is 18K),
+and evaporator for extra-liquid coming from the cold end. The evaporation is de-coupled
+from the cold end. One of DHEX is shown in figure 5.
+The extra heat is applied on the warm side of DHEX, far from the cold end to be able to
+adjust the heat load without affecting the temperature reservoirs.
+DHEX-1
+DHEX-2
+DHEX-3
+DHEX-4
+Figure 5. A schematic of one design of DHEX; Thermometers are install on DHEX and
+heaters along the line.
+MEASUREMENTS AND RESULTS
+Temperature gradient present on the reservoir due to heat load
+When the maximum heat load is applied on each reservoir, for the same value of the outlet
+pressure a temperature gradient build up on the interface. This value was measured with
+reservoir in both vertical and horizontal positions and no important differences were found in
+the measured temperature.
+When the total heat load is applied, we observe a significant increase in reservoir temperature
+due to increase in outlet pressure. In time this temperature will stabilize just a little higher
+than the liquid temperature measured previously.
+In figure 6 are presented the temperatures on first reservoir (LR1) with and without heat load
+0.175W and the same parameters for second reservoir (LR2) at 0.95W
+18.30
+outlet-pressure (psia) AA
+18.20
+a
+コ
+18.10
+(psia)
+8 18.70-
+6
+18.60
+18.50
+418.40
+T(K)-LP 루outlet-pressure(psia)
+8
+6
+4
+18.30
+2
+18.20 heat load(W). 2 heat 0.2WT
+018.10 이
+4000 5000 6000 7000
+18.00-
+17.90
+2500 3000
+(a) (b)
+Figure6: (a) Temperature on LR1 with a heat load applied 0.2W; (b) Temperature on LR2
+with a maximum heat load applied 0.95W; fluctuation in temperature due to extra-liquid.
+Temperature on the reservoirs when the LR1 and LR2 are oriented on 3 axes.
+The only way to test the performance of reservoirs on the ground and evaluate the gravity
+influence is to have it oriented about the 3 axes. In all these tests the separation between
+liquid and gas will be along the gravity force and in any reservoir position, the liquid will
+touch the reservoir wall. In zero g and with the heat load apply from outside of reservoir we
+have to guarantee that any time the heat load will be uniforms distribute inside reservoir.
+We show in figure7, as a function of orientation for each axe, the reservoir temperature
+obtained when no heat load is applied on reservoirs.
+Reservoirs are in vertical orientation, flow running in opposite gravity direction (a) compare
+with same vertical reservoir orientation when flow running in gravity direction (b), the major difference is on the temperature fluctuation on reservoirs.
+18.6 LR1 F 12. 17.80
+18.5 一11. 17.75- LR1(K) -8
+18.4 17.70- outlet-pressure(psia) 10. 7 18.3 17.65-
+9.0 LR2(K) 18.2- 17.60- out-pressure(psia)
+18.1 8.0 17.55- -5
+10 11 12 13 14 0 2000 4000 6000 (a) (b)
+Figure 7. (a) Flow runs opposite to gravity force; b) flow runs same direction with gravity
+Temperature stability
+Stability in temperature depends on the ability to evaporate all the extra-liquid without
+applying extra heat in the system. In the case of first generation of evaporator the nominal
+temperature fluctuation measured directly on outside reservoir are in the range 40-20mK,
+depending of reservoir orientation as shown in figure 8. We want point out that in the real
+case where an important mass load will be attach on the reservoir, the temperature fluctuation
+will attenuated.
+In the first generation of evaporator reservoir (LR3), we are obliged to control the
+temperature with a PID controller.
+19.0
+18.8
+10 outlet-pressure(psia)
+8
+6
+1W-heat load
+18.6 4
+18.4-W 0.2W heat load. 2
+T 0 Itime (sec)
+14.0 14.5 15.0 15.5 16.0x103
+Figure8. a) Temperature fluctuation before and after heat load applied on the cold end;
+The tests were for short times compared to the lifetime of cooler mission; longer test
+stability will be done in a bread board model later this year.
+In zero g, function of liquid retention in reservoir and in the connection tubing, the quantity
+of liquid arriving in the evaporator can also change and no prediction can be done from the
+any ground test. The heat is applied from outside.
+The temperature reading is either on LR3, where we have a fast response or on the gas before
+going into the JT. In the last case the response time is longer. The first signs of overheating
+are seen on the warm side of HEX. The risk of overheating is that if the heat applied is higher
+than the cooling power produced and we still trying to regulate at the same temperature we
+will over load the JT and the entire cold end will warm up.
+For the DHEX, the heat is applied on different location on DHEX. The temperature is
+measured on both sides of inlet and outlet warm side of DHEX (see figure5).
+The idea is to apply a constant heat to compensate the extra-cooling and stabilize a
+temperature gradient along this DHEX.
+The design is made to have a temperature control working only on/off. The temperature
+reading can be in one point or for better understanding in 2 points: inlet and outlet of the
+warm side of DHEХ.
+We still analyzing this new evaporator and we present the some data obtained in figure9.
+--6.44
+ルイ
+on LR1&LR2
+18.020
+18.010-
+18.000
+17.990
+(psia). 30 0.30
+K
+28 0.25
+6.4026 0.20
+6.364 117.980-
+17.970
+☐ Theheater 0.15
+6.322 0.10
+C
+17.960 outlet pressure. 20 0.05
+17.950- - 6.28
+W
+C
+18 17.940 | 0.00
+3000 4000 5000 6000 7000 8000 3000 4000 5000(a) 6000 7000 (b)
+Figure9: a) temperature fluctuation when a nominal heat load is applied on reservoirs LR1
+and LR2; b) temperature on the last two blocks of DHEX: in the warm side W and the
+following block is C; second graph from the top is the heat apply on DHEX
+Data shown in figure 9a) was for a temperature pre-cooling at 50K and an extra cooling
+power was around 0.140W. On left side it shows temperature fluctuation on both reservoirs
+(top-LR2 and bottom-LR1); on right axe we have outlet pressure fluctuation present in the
+middle of graphs and all are function of time show in seconds.
+We remark that we can stabilize or have a very smooth increase in temperature, for a given
+heat load. When we decrease the heat load, this temperature is going down with a very long
+constant time. We can choose the temperature range between which we can regulate on/off. Its better in order to avoid perturbation during the change in the heat load, to operate with a heat step as small as possible
+The temperature range is correlated with the heat load step. For large temperature range we need to be able to decrease the heat load with a more important value than in the case of
+narrow temperature range.
+In the graph presented above, we remark that the temperature fluctuation on the cold end is
+given almost by the changing in the outlet pressure. The hydride material has the capability
+to keep a constant pressure for la large change in flow rate, so the stability when changing happens in heat load should be better.
+The temperature was measure with LakeShore218. The thermometers used are cernox.
+In this specific case we was looking at the maximum temperature, which can be reach on the inlet of DHEX. Once which this temperature reach 27K, it starts to affect the next level of
+DHEX. In this case the heat apply was turn off from 170mW at 90mW. Waiting long time
+the temperature will decrease again.

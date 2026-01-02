@@ -1,0 +1,393 @@
+III. Test Results of Notched Panels
+Tension and compression tests of the small panels and the tension test of the intermediate panels were performed
+at NASA LaRC and the compression tests of the intermediate panels was performed at a Boeing facility. All panels
+were tested under displacement control mode. The failure loads of the small test panels are given in Table 2 and the
+failure loads of the intermediate test panels are given in Table 3.
+Table 2: Failure Load of Small Test Panels.
+Panel ID Load Type
+Notch
+Length
+(in.)
+Test
+Failure Load
+(kips)
+Average Test
+Failure Load
+(kips)
+2BC-C-1-1 Compression 0.8 18.40
+2BC-C-1-2 Compression 0.8 18.39 18.16
+2BC-C-1-3 Compression 0.8 17.68
+2BC-T-1-1 Tension 0.8 34.10
+2BC-T-1-2 Tension 0.8 33.05 33.80
+2BC-T-1-3 Tension 0.8 34.24
+Table 3: Failure Load of Intermediate Test Panels.
+Panel ID Load Type
+Notch
+Length
+(in.)
+Failure Load
+(kips)
+Average
+Failure Load
+(kips)
+2BC-C-4-1 Compression 4.0 53* 52.55 2BC-C-4-2 Compression 4.0 52.1
+2BC-T-4-1 Tension 4.0 102.16 109.95 2BC-T-4-2 Tension 4.0 117.74
+* Adjusted test data based on engineering analysis.
+For the small panels tested, based on the data shown in Table 2, the average compression test failure load is 18.16
+kips with test values ranging from -2.6% to +1.3% of average. Similarly, the average tension test failure load is 33.8
+kips with test values ranging from -2.2% to +1.3% of the average value.
+For the intermediate panels tested under compression at Boeing, significant bending was noticed in one of the
+panels (2BC-C-4-1) from the beginning of the loading cycle and ultimately failed at 44.2 kips. However panel 2BCC-4-2 showed normal bending behavior, and based on failure strain of this panel, the failure strain of 2BC-C-4-1 was
+modified based on engineering analysis [7], which led to adjusting the failure load to 53 kips. Thus the average
+adjusted test failure load of the intermediate panel under compressive load is 52.55 kips.
+For the intermediate panels tested under tension load at LaRC, the average test failure load is 109.95 kips. In
+addition to the large difference of 13.2% between the two failure loads, both the panels exhibited noticeable nonlinear
+behavior with an increase in stiffness. Far-field strain gauge data of both the panels are presented in Figure 4, where
+the nonlinear increase in stiffness can be observed occurring for Panel-1 in Figure 4a, and Panel-2 in Figure 4b. In
+general, for a uniform loading scenario, strain data from gauges 1-6 (far-field) ideally should exhibit linear behavior
+until failure, and should have similar strain values. However, the middle gauges (SG-5, 6) located right above the
+notch may record a lesser value. The stiffening behavior was noticed in panel-1 (see Figure 4a) with slight increase in
+stiffness at approximately 60 kips. Also, slippage of the test panel was noticed during the test at approximately 92 kips 
+10
+and is reflected in the load versus end displacement curve in the form of load oscillations. Regarding panel-2 (Figure
+4b), a strain jump (strain relaxation) was noticed at approximately 60 kips in gauges 1-4, which was approximately
+half the final failure load. This behavior could be attributed to a potential slippage between panel and the loading
+fixture. In addition to this jump, the middle gauges (SG-5, 6) are reading higher strains than gauges 1-4.
+a. 2BC-T-4-1 Panel b. 2BC-T-4-2 Panel
+Figure 4: Far-Field Strain Data of Intermediate Tension Panels.
+In general, failure mode of all panels was a through thickness self-similar crack, i.e., the crack path of the laminate
+load carrying plies is perpendicular to the loading direction; and the crack starts from the notch tips and then propagates
+all the way to the edge. Additionally, crack path in laminates is categorized as self-similar when fibers are fractured
+in all the plies, or at least in load carrying plies, which in this case are the 0o
+ plies; combined with matrix failure in
+non-0o
+ plies and delamination confined along the crack path between some or all ply interfaces. Photographs of failed
+panels with typical results are presented in Figure 6. Note that the outer surface ply that is visible in the photographs
+is a 45o
+ ply which delaminated from the underlying plies, and which masks the self-similar nature of the underlying
+failure mode of the panel. 
+11
+Small Panel under Compression Small Panel under Tension
+Intermediate Panel under Compression Intermediate Panel under Tension
+Figure 6: Crack Path in Failed Small and Intermediate Test Panels.
+IV. Progressive Failure Analysis Methodology
+a. Damage Models
+Progressive failure analysis (PFA) of notched panels was performed with Abaqus Built-in [5] and COmplete
+STress Reduction (COSTR) [6] damage models to obtain failure load predictions for use in test planning, and to assess
+overall stiffness and structural response. The Abaqus Built-in damage model, which is commercially available is
+briefly described here. For a detailed explanation of the model, one can refer to Abaqus theory manual [5]. In general,
+the Abaqus damage model adopts Hashin [8] and Hashin-Rotem [9] failure criterion to identify damage initiation. The
+stress degradation approach used to simulation damage is shown in figure 7.
+Figure 7: Stress Degradation Profile of Abaqus Built-in Damage Model. 
+12
+The damage variable evolves based on the stress displacement behavior as shown in Figure 7 for all damage modes
+(fiber and matrix). Point A in Figure 7 represents the material strength and damage initiation point. The area of the
+triangle is related to energy required to fail the material completely, which is equivalent to the fracture toughness
+parameter (Gc) provided by the user. The stress degradation profile after damage initiation, point A, follows the linear
+curve AC. Line OB shows the loss in stiffness due to damage initiation and the unloading path due to load removal
+that might occur before complete damage.
+As an alternative to the Abaqus Built-in damage model, the COSTR damage model was developed at NASA
+Langley Research Center to simulate intra-laminar damage such as fiber and matrix failure [6]. The COSTR damage
+model is interfaced with the Abaqus/Explict solver utilizing an Abaqus user-written subroutine, VUMAT.
+The progressive failure analysis procedure adopted in the COSTR damage model consists of three steps. The first
+step is to determine damage in an element at each and every ply. This was accomplished by adopting the HashinRotem failure criteria [9]:
+The damage indices df and dm represent the damage status of fiber and matrix material systems, respectively.
+Damage index df will be zero while the fiber damage criteria is less than 1, and then attains a value of 1 when the
+fiber damage criteria becomes greater or equal to 1. A similar procedure is adopted for the matrix damage index dm.
+The constitutive law along with damage indices is presented below.
+ቌ
+𝜎ሺ11ሻ
+𝜎ሺ22ሻ
+𝜎ሺ12ሻ
+ቍൌቌ ሺ1 െ 0.8ሺ𝑑𝑓ሻሻ𝑄11 ሺ1 െ 𝑑𝑓ሻሺ1 െ 𝑑𝑚ሻ𝑄12 0.
+ሺ1 െ 𝑑𝑓ሻሺ1 െ 𝑑𝑚ሻ𝑄12 ሺ1 െ 𝑑𝑓ሻሺ1 െ 𝑑𝑚ሻ𝑄22 0.
+0. 0. ሺ1 െ 𝑑𝑓ሻሺ1 െ 𝑉𝑚𝑑𝑚ሻ𝑄66ቍ ቌ 𝜀 ሺ11ሻ
+𝜀 ሺ22ሻ
+𝜀 ሺ12ሻ
+ቍ
+ Q11 = E1 / Δ
+ Q22 = E2 / Δ
+ Q12 = ν12 E2 /Δ
+ Q66 = G12
+Δ = [1 - ν12ν21 (1 - dm)]
+Once stress in an element for a ply reaches the ply strength, the stress is degraded as show in Figure 8. Damage
+simulation of the fiber is accomplished by instantaneously reducing the axial stress, (σ11), to 20% of the axial strength,
+X, and then maintaining that level until the area under the stress strain curve when multiplied by the characteristic
+length of an element, equates to the fiber fracture toughness (GFc). However, when the transverse stress, (σ22), reaches
+the transverse strength, Y, the transverse stress, (σ22), is instantaneously reduced to zero, but the shear stress, (σ12), is
+reduced by an amount proportional to the resin volume fraction in plies where the fibers are not aligned with the
+loading direction, and to zero level in plies where the fibers are aligned parallel to the loading direction. In the case of
+matrix damage, when the shear stress, (σ12), reaches the shear strength, S, then both transverse stress, (σ22), and shear
+stress, (σ12), are instantaneously reduced to zero. Additional information regarding shear stress degradation due to
+matrix damage can be found in reference [10]. The failure load provided by this damage model is independent of
+finite element area [6].
+13
+Figure 8: Stress Degradation Profiles in COSTR Damage Model.
+The final step in PFA is simulation of the virtual crack. This step is accomplished by deleting elements from
+computation when fibers in all the plies have been damaged. In certain plies, where fibers are not damaged but matrix
+is, a quadratic strain criterion involving transverse and shear strains is adopted and is set to a large value greater than
+0.2 in./in., in flagging failure of the ply.
+In general, both damage models have the same in-plane failure criteria. However, the stress degradation profile is
+significantly different between the two damage methods. The Abaqus built-in damage model has a gradual stress
+degradation profile after damage (fiber and matrix) initiation. Also, Abaqus built-in uses one fiber fracture toughness
+value, which does not accommodate the use of both fiber fracture initiation and propagation values, when available.
+However, the COSTR damage model is capable of using both fiber fracture, initiation and propagation values and has
+different stress degradation profiles for fiber and matrix damage simulation.
+b. Progressive Failure Analysis Model of Small and Intermediate Panels
+Finite element models (FEM) of the small and intermediate panels were generated for performing both
+compression and tension analysis using the Abaqus explicit finite element code. The general panel specifications for
+the small and intermediate panels are listed in Table 1. The COSTR finite element models are presented in Figure 9
+for small and intermediate panels for both the tension and compression analysis. The panel’s left edge is fixed in all
+degrees of freedom (DOF) and the right edge is fixed for all DOF except for the axial DOF. An axial displacement is
+applied to the right edge of the panels. For the compression panels, all the interior nodes except a small window near
+the notch area are fixed in the out-of-plane direction (highlighted in orange color). In the case of the intermediate
+tension panel, a few nodes near the notch are fixed in the out-of-plane direction to represent the out-of-plane constraint
+imposed by the rod shown in Figure 3b, which was designed to prevent buckling near the notch during testing. The
+notch width is 0.25 in. in all models and the notch tips all have a radius of 0.125 in. at the ends. The material properties
+and strengths used in the pre-test PFA are given in Table 4 [2]. Average modulus values in 1, 2 direction and average
+value of Poisson’s ratio were used in the analysis by both damage models. Identical properties and strengths are used
+by both the damage models except fiber and matrix fracture toughness values. Fiber and matrix fracture toughness
+properties in tension and compression used in the Abaqus built-in damage model is half of what is used for the COSTR
+damage model and this approach was based on past experience and best modeling practices when using Abaqus. The
+fracture initiation values used in the COSTR damage model are evaluated based on Bazant’s equation provided in the
+Abaqus manual [5] for a characteristic distance of 0.09-in. The FEM of the panels were generated using S4R Abaqus
+shell elements. The maximum element length is approximately 0.125 in. The FEM used with the Abaqus built-in
+damage model has the same global dimensions, boundary and load conditions as shown in Figure 9, but different
+element sizes are used. The Abaqus Built-in FEM consists of elements whose maximum length is approximately
+0.08in. Evaluation of maximum element size is based on Bazant’s equation provided in the Abaqus manual [5] and
+depends on fracture toughness properties. Since the damage evolution and mesh regularization procedures are
+different between the Abaqus built-in and COSTR damage models, the latter can accommodate larger element sizes. 
+14
+Small Compression Panel
+Intermediate Compression Panel
+a: Small and Intermediate Compression Panels.
+Small Tension Panel
+Intermediate Tension Panel
+b: Small and Intermediate Tension Panels.
+Figure 9: COSTR Finite Element Models of Small and Intermediate Panels. 
+15
+Table 4: Properties and Strengths of IM7/8552-1 lamina used in Pre-Test PFA.
+V. Results and Discussion
+a. Comparison of Test Results to Pre-Test PFA
+The pre-test analysis results are presented in Table 5 along with test data. Based on comparison of analysis and
+test results, the PFA results mostly over-predicted the failure load for compression load cases and under-predicted the
+failure load for tension load cases. This trend was consistent for small panels with both damage models, while there
+was a slight under-prediction by COSTR for the intermediate panel tested in compression. Considering the
+compression results, correlation between test and PFA analysis is considered to be adequate with the maximum
+difference of 11.3% occurring for the small panels when compared to COSTR PFA results. Considering the tension
+results, the maximum difference was near 40%, and both damage models significantly under-predicted the test failure
+load. Consequently, the pre-test PFA analysis models are not considered adequate to accurately predict the failure load
+of the notched composite laminates when tested in tension. Additionally, all analysis performed predicted a selfsimilar type failure mode originating at the notch tip, which agreed with the test results.
+Properties Abaqus
+Built-in COSTR
+E1t (Msi) 22.14 22.14
+E1c (Msi) 20.04 20.04
+E1Avg (Msi) 21.27 21.27
+E2t (Msi) 1.26 1.26
+E2c (Msi) 1.41 1.41
+E2Avg (Msi) 1.335 1.335
+Nu12t 0.32 0.32
+Nu12c 0.356 0.356
+Nu21 0.024 0.024
+Nu23 0.45 0.45
+G12 (Msi) 0.749 0.749
+G13 (Msi) 0.749 0.749
+G23 (Msi) 0.435 0.435
+Xt (Ksi) 337.0 337.0
+Xc (Ksi) 248.94 248.94
+Yt (Ksi) 11.6 11.6
+Yc (Ksi) 41.8 41.8
+Sxy (ksi) 14.2 14.2
+GcfT (in-lbf/in2
+) 385.45 240 / 771
+GcfC (in-lbf/in2
+) 228.5 131 / 457
+GcmT (in-lbf/in2
+) 2.25 4.5
+GcmC (in-lbf/in2
+) 29.5 59.0 
+16
+Table 5: Comparison of Pre-Test Failure Load Predictions of Panels with Test Data.
+Notch Size Load Case
+Average
+Test Failure
+Load (kips)
+Pre-Test
+Failure
+Load
+COSTR
+(kips)
+Pre-Test
+Failure Load
+Abaqus Builtin (kips)
+% Error
+COSTR
+% Error
+Abaqus
+Built-in
+Small Compression 18.16 20.22 19.9 +11.30 +9.60
+Small Tension 33.80 28.89 24.65 -14.53 -27.10
+Intermediate Compression 52.55* 52.31 53.20 -0.46 +1.24
+Intermediate Tension 109.95 70.51 65.80 -35.87 -40.15
+*Average of adjusted test data based on engineering analysis.
+b. Post-Test PFA and Material Property Adjustments
+Due to the large differences observed in some cases between the pre-test PFA predicted and test results, further
+investigation into the possible causes ensued by interrogating the material properties chosen for the pre-test analysis.
+The purpose of this effort was to identify a material property input set that better represented the actual panel material
+properties, and that should subsequently be used in future analyses to better predict panel behavior. Considering the
+fiber direction strength data in tension (Xt = 337 ksi) as reported in Table 4, the value was observed to be low when
+compared with other material data sources from Hexcel [11] and NIAR [12], where the data sheets are presented in
+the appendix. Hexcel and NIAR reported tensile strength of unidirectional lamina as 395 ksi and 371.08 ksi,
+respectively, at room temperature. However, NIAR [12] reported an Xt of 320.79 ksi for an un-notched tension
+laminate (UNT0) which is close to the value (337.0 ksi) used in pre-test analysis. The UNT0 coupons are 0/90 laminate
+and the strengths are back calculated from Classical Laminate Theory (CLT) expressions. So, the Xt = 371 ksi value
+obtained from NIAR of the unidirectional lamina was used in the post-test PFA rather than a value of 337.0 ksi which
+was used in the pre-test analysis. Next, the fiber-direction compression strength, Xc = 248.94 ksi, used in the pre-test
+analysis was also obtained from 0/90 cross-ply laminate coupons. However, unlike for Xt, there was no data available
+for Xc from unidirectional laminates in the material property reference documents used here. Hence, considering the
+pre-test PFA over-predicting the test panel failure load as presented in Table 4, Xc was reduced to 215.0 ksi for the
+post-test PFA prediction. This value was chosen based on several PFA predictions performed using COSTR damage
+model to determine a value that resulted in a failure load that better matched the small compression test data. Then
+post-test PFA analysis was performed just with COSTR damage model. The fiber fracture toughness values reported
+in reference [2] are used in the post-test analysis for GcfT and GcfC. However the fracture toughness values of GcmT
+and GcmC were evaluated using Bazant’s [13] energy equation for a characteristic distance of 0.09-in. The modified
+strengths and properties used in post -test PFA are given in Table 6. Measured values are used when normalized
+values are not available for some properties and strengths. The highlighted cell indicates values that are changed from
+the pre-test data set where for this set the properties and strengths are now taken from Reference [12] unless already
+discussed otherwise. However the same finite element models used in the pre-test analysis were used during the posttest analysis when employing Abaqus built-in and COSTR damage models. 
+17
+Table 6: Properties and Strengths of IM7/8552-1 used in Pre- and Post-Test PFA
+Properties Pre-Test
+Abaqus
+Post-Test
+Abaqus
+Pre-Test
+COSTR
+Post-Test
+COSTR
+E1t (Msi) 22.14 22.99 22.14 22.99
+E1c (Msi) 20.04 20.04 20.04 20.04
+E1Avg (Msi) 21.27 21.52 21.27 21.52
+E2t (Msi) 1.26 1.3 1.26 1.3
+E2c (Msi) 1.41 1.41 1.41 1.41
+E2Avg (Msi) 1.335 1.355 1.335 1.355
+Nu12t 0.32 0.316 0.32 0.316
+Nu12c 0.356 0.356 0.356 0.356
+G12 (Msi) 0.749 0.68 0.749 0.68
+G13 (Msi) 0.749 0.68 0.749 0.68
+G23 (Msi) 0.435 0.435 0.435 0.435
+Xt (Ksi) 337.0 371.08 337.0 371.08
+Xc (Ksi) 248.94 215.0 248.94 215.0
+Yt (Ksi) 11.6 9.29 11.6 9.29
+Yc (Ksi) 41.8 41.44 41.8 41.44
+Sxy (ksi) 14.2 13.22 14.2 13.22
+GcfT (in-lbf/in2
+) 385.45 585 240 / 771 282 / 1170
+GcfC (in-lbf/in2
+) 228.5 174 131 / 457 130 / 348
+GcmT (in-lbf/in2
+) 2.25 1.435 4.5 2.87
+GcmC (in-lbf/in2
+) 29.5 28.5 59.0 57.0
+The failure loads from the post-test PFA using the COSTR and Abaqus built-in damage models are presented in
+Table 7 and 8 for small and intermediate panels, respectively. Considering the small panels, the failure load prediction
+by COSTR damage model was within 1% and 12% for compression and tension cases, respectively. Since the COSTR
+model of the small panel was tuned to predict compression failure load for the small panel by adjusting Xc for the
+post-test analyses, the close prediction for the small panel tested in compression was expected. For the intermediate
+panels, the failure load was under-predicted for the compression load case by approximately 8% when compared to
+average test data and the failure load was under-predicted for the tension load case by approximately 23% when
+compared to average test data.
+Similar trend was noticed in the failure load predictions by Abaqus built-in damage model. In case of small panels,
+the failure load over prediction was within 2% and under prediction of 16% for compression and tension cases,
+respectively. For the intermediate panels, the failure load was under-predicted for the compression load case by
+approximately 12% when compared to average test data and the failure load was under-predicted for the tension load
+case by approximately 26.3% when compared to average test data.
+In general, failure load predictions are improved using the post-test material property data set. Consequently, this
+data set is recommended for future analyses of panels constructed from the same laminate material with COSTR
+damage model. Considering just the post-test results, failure load prediction is better with respect to compression load
+cases than tension load cases. For the tension load tests, under-prediction of the failure load is considered to be due
+to the limitation of the finite element models. During testing of the small and intermediate panels in tension, the
+delamination occurring at certain ply interfaces, as was shown in Figure 6, would have caused the stress reduction at
+the notch tips and have extend the failure load. To improve the prediction of failure load of tension panels, higher
+fidelity models, using solid elements with cohesive elements at certain ply interfaces, are recommended for future
+studies to better predict failure. 
+18
+Table 7: Failure Load of Small Panels from Post-Test Progressive Failure Analysis.
+Notch Size Load Case
+Average
+Actual Test
+Failure
+Load (kips)
+Post-Test
+Failure
+Load
+COSTR
+(kips)
+Post-Test
+Failure Load
+Abaqus Builtin (kips)
+% Error
+COSTR
+% Error
+Abaqus
+Built-in
+Small Compression 18.16 17.99 18.51 -0.936 +1.93
+Small Tension 33.80 29.85 28.50 -11.68 -15.68
+Table 8: Failure Load of Intermediate Panels from Post-Test Progressive Failure Analysis.
+Notch Size Load Case
+Average
+Test Failure
+Load (kips)
+Post-Test
+Failure
+Load
+COSTR
+(kips)
+Post-Test
+Failure Load
+Abaqus Builtin (kips)
+% Error
+COSTR
+% Error
+Abaqus
+Built-in
+Intermediate Compression 52.55* 48.43 46.24 -7.84 -12.00
+Intermediate Tension 109.95 84.66 81.04 -23.0 -26.29
+*Average of adjusted test data based on engineering analysis.
+The crack path predicted by the COSTR model with post-test properties is presented in Figure 10. The model
+predicts self-similar crack for all cases evaluated which agreed with the test results. However, simulation of
+delamination is not possible with shell models as this failure mode is not available. Consequently, as noted earlier,
+this could be the reason for the discrepancies between PFA predicted and test failure load of both small and
+intermediate tension panels. The evidence of delamination is prominent in small tension panel which is shown in
+Figure 4, where the damage region is widely spread.
+The crack path predicted by the Abaqus built-in damage model with post-test properties is identical to the one
+presented in Figure 10 and hence, is not presented in this report. However, the model predicts self-similar crack in all
+coupons and for all load cases evaluated which agreed with the test results. 
+19
+Small Compression Panel – COSTR Damage Model Intermediate Compression Panel – COSTR Damage Model
+Small Tension Panel – COSTR Damage Model Intermediate Tension Panel – COSTR Damage Model
+Figure 10: Crack Path (Fiber Damage) Predictions by COSTR Damage model
+In Figure 11, the load versus end displacement response obtained from a typical test of a small panel is compared
+to post-test PFA results using the COSTR damage model. For the compression load case, PFA results yield stiffer
+responses than the test panel by approximately 11%. The test data in Figure 11a is from the 2BC-C-1-1 panel. The
+main reason for this could be the out-of-plane constraint applied to the nodes in the finite element models, which
+significantly reduces the flexibility to a greater extent than in the experiment. Also, the models do not account for any
+geometric imperfection of the test panel, or non-uniform load application, which would also contribute to a stiffer
+response with the model. For the tension load case, the stiffness of COSTR finite element model and the test panel
+match very well. The test data in Figure 11b is of a 2BC-T-1-2 panel. The failure load obtained from COSTR damage
+model is lower likely because of not capturing the delamination damage mode. In general, when same direction plies
+are stacked together, the interface is prone to generate large inter-laminar shear stresses which causes delamination at
+the interface. The delamination will reduce the stress concentration and slow down the failure process. This is evident
+in the small failed tension panel pictures shown in Figure 4, in the form of wider damage zone consisting of fiber pull
+out, fiber breakage, and delaminations. 
+20
+a. Small Compression Panel b. Small Tension Panel
+Figure 11: Load versus End Displacement of Small Panels
+In Figure 12, the load versus end displacement response from an intermediate panel tested in compression and
+tension are compared to the post-test PFA results using the COSTR damage model. Excellent agreement is noticed
+in the stiffness with COSTR damage model and test panel for compression load case. The test data presented in Figure
+12a for the compression load case is from panel 2BC-C-4-2. In the case of tension load, the stiffness from COSTR
+damage model matches well with the test panel. The test data presented in Figure 12b is of the panel 2BC-T-4-1.
+
+a. Intermediate Compression Panel b. Intermediate Tension Panel
+Figure 12: Load versus End Displacement of Intermediate Panels 

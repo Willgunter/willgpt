@@ -1,0 +1,298 @@
+## 1. EXPLICIT ASSUMPTIONS
+
+### Materials
+
+* Solder alloys are **Sn-based**, with varying Pb content from 1 wt% to 90 wt%.
+* Sn is assumed to be in the **β-Sn phase** during service unless transformed.
+* Pb-rich alloys are treated as increasingly FCC-dominated systems.
+* Bulk solder specimens are assumed to represent solder joint behavior.
+
+---
+
+### Environment
+
+* Temperature range considered spans **room temperature down to −185°C**, with contextual relevance down to **−230°C**.
+* Thermal transitions occur over **seconds to minutes**, implying high thermal gradients.
+* Repeated thermal cycling is expected on-orbit.
+
+---
+
+### Mechanical Testing
+
+* Modified Charpy impact testing is assumed to be a valid proxy for:
+
+  * Ductile to brittle transition temperature behavior
+  * Crack initiation susceptibility at cryogenic temperatures
+* Impact energy is assumed to correlate with fracture toughness.
+
+---
+
+### Reliability Framing
+
+* Brittle cracking is assumed to be catastrophic at the system level.
+* DBTT is treated as a dominant failure threshold for solder reliability.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Geometry and Scale
+
+* Bulk Charpy specimens are assumed to scale down to:
+
+  * Thin solder joints
+  * Micro-scale interconnects
+  * Multiaxial stress states in real assemblies
+
+**Hidden issue:**
+Actual solder joints experience constraint, triaxial stress, and intermetallic interfaces absent in bulk tests.
+
+---
+
+### Loading Mode
+
+* Impact loading is assumed to represent:
+
+  * Thermally induced strain rates
+  * Mismatch-driven stresses from CTE differences
+
+**Hidden assumption:**
+High strain-rate Charpy fracture behavior maps to low strain-rate thermal fatigue and shock loading.
+
+---
+
+### Microstructural Stability
+
+* Grain size, texture, and intermetallic compound distribution are assumed stable.
+* No explicit control or reporting of solder microstructure is provided.
+
+---
+
+### Environmental Interactions
+
+* Exposure to seeding materials such as CdTe or InSb is treated as incidental, not systemic.
+* Metastable ice formation is implicitly assumed rare or uncontrolled.
+
+---
+
+### Time Dependence
+
+* Tin pest incubation time is implicitly assumed relevant within mission lifetime.
+* No assumption is stated about radiation-enhanced diffusion or defect generation.
+
+---
+
+## 3. GOVERNING FIRST PRINCIPLES
+
+### 3.1 Crystal Plasticity and Slip Theory
+
+**Principle:**
+Plastic deformation requires activation of crystallographic slip systems.
+
+* β-Sn: Body-centered tetragonal
+* Pb: Face-centered cubic
+
+**Implication:**
+As temperature decreases:
+
+* Critical resolved shear stress for β-Sn slip rises sharply
+* FCC Pb remains ductile due to multiple close-packed slip systems
+
+This directly explains the observed DBTT behavior.
+
+---
+
+### 3.2 Ductile to Brittle Transition Mechanics
+
+**Principle:**
+Brittle fracture occurs when:
+[
+\sigma_{fracture} < \sigma_{yield}
+]
+
+At low temperatures:
+
+* Yield stress increases
+* Fracture toughness decreases
+* Crack propagation becomes energetically favorable
+
+---
+
+### 3.3 Thermo-Mechanical Mismatch
+
+**Principle:**
+[
+\epsilon = (\alpha_1 - \alpha_2)\Delta T
+]
+
+**Application:**
+Solder joints experience cyclic strain from:
+
+* PCB substrates
+* Ceramic packages
+* Silicon die
+
+At cryogenic ΔT values exceeding 200°C, elastic accommodation becomes impossible.
+
+---
+
+### 3.4 Allotropic Phase Transformation of Tin
+
+**Principle:**
+β-Sn → α-Sn transformation involves:
+
+* Diamond cubic structure
+* ~27% volumetric expansion
+
+**Consequences:**
+
+* Local tensile stresses
+* Crack nucleation
+* Loss of electrical continuity
+
+---
+
+### 3.5 Nucleation and Growth Kinetics
+
+**Principle:**
+Transformation rate depends on:
+
+* Temperature
+* Nucleation sites
+* Diffusion kinetics
+
+The growth rate peaking between −20°C and −40°C is particularly dangerous because it overlaps common spacecraft thermal regimes.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Slip system limitation + thermal mismatch**
+  → brittle cracking under constrained strain
+* **Tin pest volumetric expansion + joint constraint**
+  → interfacial delamination
+* **Cryogenic hardening + impact or shock loading**
+  → catastrophic fracture
+* **Thermal cycling + phase transformation**
+  → accelerated fatigue failure
+
+These effects reinforce each other rather than acting independently.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                      | Physical Violation Outcome               |
+| ------------------------------- | ---------------------------------------- |
+| Bulk behavior represents joints | Overestimates toughness                  |
+| Pb suppresses brittleness       | Pb segregation creates weak interfaces   |
+| Tin pest incubation is long     | Cryogenic cycling accelerates nucleation |
+| Slip systems available          | CRSS too high at low T                   |
+| No external seeding             | Assembly materials act as seeds          |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### Implicitly Masked by the Study
+
+* Intermetallic compound fracture at solder-pad interfaces
+* Grain boundary decohesion under cryogenic cycling
+* Crack initiation at notches created by CTE mismatch
+* Radiation-assisted embrittlement
+* Tin pest initiation at microstructural defects
+
+---
+
+### If Assumptions Fail
+
+* A solder joint may fail without any macroscopic plastic deformation.
+* Electrical opens occur before mechanical failure is detectable.
+* Damage accumulates silently during dormant cruise phases.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Pb Content
+
+* Pb improves ductility but violates environmental regulations.
+* High Pb content suppresses DBTT but introduces toxicity and phase separation issues.
+
+---
+
+### Test Method
+
+* Charpy testing chosen for simplicity and comparative trends.
+* Not optimized for:
+
+  * Low strain-rate behavior
+  * Cyclic fatigue
+  * Multiaxial stress states
+
+---
+
+### Alloy Selection
+
+* Focus on Pb-based systems excludes many modern Pb-free solders.
+* Implies legacy aerospace reliance on Pb despite regulatory pressure.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM INTERFACES
+
+* Solder joints interface with:
+
+  * Ceramic substrates
+  * Polymer boards
+  * Silicon devices
+* Electrical continuity is as critical as mechanical integrity.
+* No redundancy at joint level.
+
+A single brittle crack equals functional loss.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+Over mission duration:
+
+* Repeated thermal cycling increases dislocation density.
+* Cryogenic exposure shortens tin pest incubation.
+* Microcracks grow subcritically.
+* DBTT effectively shifts upward.
+
+Failure probability increases with time, not decreases.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+### Present
+
+* Increased Pb content
+* Conservative thermal design ranges
+
+### Absent
+
+* Crack arrest mechanisms
+* Phase stabilization strategies
+* Active thermal control at joint level
+* In-situ health monitoring
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Design Assumptions
+
+* Solder remains ductile
+* Phase stability maintained
+* Thermal cycling manageable
+
+### Actual Operating Reality
+
+* Repeated crossings of DBTT
+* Exposure to tin pest temperature window
+* High constraint stress states
+* Long-duration cryogenic aging
