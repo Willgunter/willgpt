@@ -1,0 +1,183 @@
+3. Experimental Details
+Failure investigation was conducted on the cracked heater tube. The investigation included visual examination of the tube
+surfaces and deposits before and after splitting the tube into halves. Also, measurements were done for the variation in the tube wall
+thickness and deposits. The deposits inside the tube were scrubbed off the surface and analyzed using X-ray diffraction (XRD). Water
+extract of the deposits was also prepared, and pH measurement was taken.
+Also, cross-sectional specimens were cut from the tube and metallographically prepared for microhardness measurements, as well
+as microscopic examinations and analysis of the material. The sections were cut at the crack location and away from the crack. The
+microhardness measurements (in Vickers) were conducted on a polished crosssection, using diamond pyramid indenter at an applied
+Fig. 1. Camera photographs showing (a) as-received tube section; (b) circumferential crack seen after removal of studs; (c) deposited black layer on internal surface;
+and (d) stud portion of tube.
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+2
+load of 500 g. The measurements were taken at 1-mm intervals along a line starting from the internal surface. The microscopic
+examinations were carried out before and after etching, using optical and scanning electron microscopy (SEM). Etching was made
+electrolytically in 10% Oxalic acid at an applied voltage of 6 V. The corrosion products were analyzed, using energy dispersive
+spectroscopy (EDS).
+In order to evaluate sensitization of the tube material, and therefore, its susceptibility to intergranular corrosion, full thickness
+service exposed and solution annealed crosssectional specimens were tested using the double loop electrochemical potentiokinetic
+reactivation (EPR) technique. The EPR tests were made in accordance with a procedure previously reported [11,12]. The solution
+annealed specimen was prepared by subjecting a specimen cut from the service exposed tube to a heat treatment at 1050 °C for 1 h
+followed by water quenching to dissolve the precipitated carbides. The solution for the EPR tests consisted of 0.5-M H2SO4 and 0.01-
+M KSCN. The solution was deaerated by purging with nitrogen gas for 1 h before each test, as well as during the tests, which were
+conducted at room temperature. A graphite rod and saturated calomel electrode (SCE) were used as the counter and reference
+electrodes, respectively. Each test was started by keeping the specimen at a cathodic potential of −600 mV vs SCE for 2 min, and
+then, holding the specimen at its corrosion potential for another 2 min. The EPR plot was obtained through an anodic potential sweep
+at a scan rate of 100 mV/min starting from the corrosion potential. When the potential reached a value of +300 mV, back scan at the
+same rate was conducted until the open circuit potential was reached. The ratios of reactivation peak current (Ir) to activation current
+peak (Ia) of the solution annealed and service exposed specimens were compared to assess the relative degree of sensitization. Both
+EPR test specimens were examined using the optical microscope and SEM.
+4. Results
+4.1. Visual Observations
+The stud tube that suffered cracking in a circumferential direction was visually examined. The crack was found to be not
+associated with bulging. Thus, the appearance of the crack may suggest that cracking could have been due to stress corrosion caused
+by polythionic acid or chloride and not to the creep.
+The provided tube section was 89.0 cm in length and 13.83 cm in outside diameter. The internal tube surface was covered with a
+deposited black layer (see Fig. 1c and d). The black layer varied considerably in thickness. The minimum thickness of the deposited
+layer was ≈1.86 mm; while the maximum thickness was ≈4.61 mm (a difference of ≈2.75 mm). The maximum deposit thickness
+was seen at the crack location. The tube also varied in wall thickness, and the minimum tube thickness was ≈5.92 mm; while the
+maximum thickness was ≈6.96 mm. Thus, the tube suffered reduction in wall thickness of ≈1.04 mm maximum, which was mostly
+at the crack location.
+4.2. Microhardness Measurements
+Table 1 provides the average microhardness values taken for a polished crosssection cut from the failed tube. It is clear from the
+table that the microhardness is slightly higher, close to the internal and external surfaces than at the interior of the crosssection.
+4.3. Analysis of Deposits
+The black deposited layer found on the internal tube surface was analyzed, using XRD. It is clear from Fig. 2 that the black
+deposited layer consisted of carbon (coke), iron sulphide, calcite, sodium chloride, hematite, and magnetite. It is worth mentioning
+that the black deposited layer was strongly adherent to the internal metal surface. Moreover, the layer was quite dense and hard, and
+thus, it was difficult to remove. A chisel was used to remove sufficient amount for XRD. Measurement of pH of the water extract of the
+deposits yielded an acidic pH of 4.8.
+4.4. Electrochemical Reactivation Test
+The EPR curves obtained for the service exposed and the solution annealed tube material are shown in Fig. 3. Forward scanning
+was shown to provide passivity at about −150 mV, as indicated by a drop in anodic current. The solution annealed specimen showed
+a lower passive current compared to that obtained for the service exposed specimen, indicating that the failed tube had less tendency
+Table 1
+Average Microhardness Measurements along Tube Crosssection
+Starting from Internal Surface.
+Depth (mm) Vickers Hardness (Hv)
+0–1 171
+1–2 164
+2–3 165
+3–4 174
+4–5 183
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+3
+towards passivation. Upon reverse scanning, reactivation peaks were formed for both specimens, but the reactivation peak current for
+the service exposed tube was much higher than that of the solution annealed sample. In terms of Ir/Ia%, the service exposed sample
+showed Ir/Ia% value of 4.0; whereas, the Ir/Ia% value for the solution annealed specimen was 0.07. The relatively high Ir/Ia% value
+of the service exposed specimen (over 50 times) compared to that obtained for the solution annealed specimen would indicate that
+the tube material suffered some degree of sensitization during its long-term service.
+4.5. Microscopic Examinations and Analyses
+As previously mentioned, optical and SEM examinations were conducted on the material of the failed tube, as well as, on the
+specimens that underwent the electrochemical reactivation tests. Also, the alloy base metal, scale, and precipitates were analyzed
+using EDS.
+Fig. 4 shows optical micrographs taken for an etched crosssection cut from the tube at the crack location. Shallow grooves or pits
+Fig. 2. XRD pattern of black deposited layer found on the internal tube surface.
+Fig. 3. EPR curves obtained for the service exposed and the solution annealed 321 SS tube material in 0.5-M H2SO4 + 0.01-M KSCN solution.
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+4
+were seen along the internal tube surface underneath a thick scale layer. The grooves appeared to have developed as a result of the
+separation of internal surface grains (Fig. 4a and b). Apparently, the internal surface experienced grain boundary attack to a depth of
+two grains, resulting in corrosion and dropping out of surface grains. Several intergranular cracks initiated from the internal tube
+surface. However, these cracks were not more than four grains in depth, except the main crack that extended across the tube wall
+thickness. Linear marks of precipitations extended from both sides of the main crack for a short distance along the tube axis (see
+Fig. 4a). These lines of precipitations were noticed to exist near the internal surface. Some of the grains next to the main crack walls
+experienced partial or full grain boundary attack to a depth of one or two grains. This grain boundary attack was noticed to have
+existed until the middle of the tube wall thickness (see Fig. 4a and c). Beyond the middle of the tube crosssection, the main crack was
+not surrounded with attacked grain boundaries. The main crack had a few short branches, and the crack branches were noticed to be
+intergranular starting from the internal surface until about half the wall thickness and then became transgranular up to the external
+surface. Also, feathery transgranular cracks existed near the main crack close to the external surface (Fig. 4d). Subsurface grain
+boundary precipitations were seen close to the external surface.
+Optical microscopic examination was also done on a cross-sectional specimen cut away from the crack in order to identify the
+extent and severity of damage. Once again, subsurface intercrystalline precipitation was observed up to two grains in depth at the
+internal surface. Also, the internal surface was found to contain small grooves or pits and was covered with a scale layer. The extent of
+grain boundary precipitation and grain separation appeared considerably less than at the failure location. The linear precipitation
+close to the internal surface was less intense and much shorter when compared with those observed at the failure location. It is worth
+mentioning that scattered grain boundary precipitations were seen near the external surface.
+SEM examinations of a polished crosssection cut at the crack location revealed that the separation of grains, the subsurface grain
+boundary penetrations, the linear marks, and the crack and its branches were associated with precipitation of a corrosion product
+compound. The precipitates penetrated into the bulk of the alloy starting from the internal tube surface (Fig. 5). The precipitation
+appeared similar to those resulting from high temperature reactions, such as oxidation or sulphidation.
+When the crosssectional specimens that underwent the EPR tests were examined, grain boundary attack manifested by ditches
+was evident for the service exposed specimen. The grain boundary attack was observed at both the external and internal surfaces,
+although the depth of attack was much more at the external surface (see Fig. 6). On the other hand, the solution annealed specimen
+Fig. 4. Optical micrographs of a crosssection cut at the crack location, showing (a) major crack and linear precipitations emanating from its walls close to internal
+surface; (b) intergranular attack and grain separation at internal surface; (c) appearance of the main crack and branches in the mid tube section; and (d) view of the
+main crack and nearby feathery cracks close to external surface (oxalic acid etch).
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+5
+did not suffer grain boundary attack. These results indicated that the internal and external surface layers of the heater tube had
+suffered sensitization during service.
+Spot EDS analyses were made on the base metal, internal surface scale, and precipitates inside the crack. As expected, the EDS
+spectrum of the base metal exhibited peaks for iron (Fe), chromium (Cr), nickel (Ni), and titanium (Ti). On the other hand, EDS
+analyses of the internal surface scale always provided spectra containing strong Fe and sulphur (S) peaks (Fig. 7a). When the same
+analysis was made on the precipitates inside the main crack and its branches, the spectrum was most of the time similar to that of the
+Fig. 5. SEM micrographs of a polished crosssection of the cracked tube, showing (a) scale buildup and corrosion products filling a crack with branches emanating from
+the internal surface; (b) view of the scale-filled crack and nearby feathery cracks near external surface; and (c) and (d) penetration of boundaries of grains surrounding
+the major crack near internal surface.
+Fig. 6. SEM micrographs of a crosssection cut from the tube showing intergranular attack at internal surface (a) external surface (b) after EPR test in 0.5-M H2SO4 and
+0.01-M KSCN solution.
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+6
+internal surface scale (i.e., Fe and S peaks). But, it occasionally exhibited prominent peaks of Fe, Cr, and S. The Cr peak was noticed to
+be equal to that of Fe at some spots and higher than that of Fe at other spots (Fig. 7b). These results would suggest that the internal
+surface scale and the precipitates inside the crack and its branches are mostly iron sulphide. However, the high Cr peak could be due
+to chromium sulphide precipitations.
+5. Discussion
+The EPR test and the microscopic examination of the tested specimen indicated that the internal and external surface layers of the
+tube material experienced grain boundary attack. Thus, the tube surfaces were in a sensitized condition, which might explain the
+slight increase in hardness observed at both surfaces. As previously indicated, the failed tube was in the convection section, where the
+inlet temperature is 130 °C (266°F); while the outlet temperature is 316 °C (601°F). These temperatures are far below the requirement
+for the occurrence of sensitization in such a stabilized alloy. However, long-term aging and the deposition of coke and salts from the
+heavy crude oil during a service that extended more than twenty years are most likely the causes of the observed sensitization.
+It appeared that the precipitation of coke and salts from the heavy crude led to several events that included sensitization of the
+tube surface layers and formation of grooves/pits. The presence of chlorides and acidic conditions as indicated by XRD analysis and
+pH measurement of the deposits autocatalyzed the growth of pits at the internal tube surface. The pits in the sensitized internal
+surface layer of the tube acted as stress risers to the initiation of chloride stress corrosion cracks. In the sensitized layer close to the
+internal surface, the cracks propagated intergranularly. The precipitation of coke and salts also led to hot spot formation, which
+resulted in sulphidation of the internal tube surface and the crack walls. The sulphidation of crack walls obscured the typical features
+of chloride SCC near the internal surface. However, with the increase in stress concentration accompanying the crack propagation,
+the crack branches became transgranular in the midsection of the tube, where the alloy was not in a sensitized condition. It is possible
+that the synergistic action of chloride and H2S played a role in the initiation of stress corrosion cracks.
+Fig. 7. EDS analysis of (a) internal surface scale and (b) precipitates inside the main crack.
+H.M. Shalaby et al. Case Studies in Engineering Failure Analysis 9 (2017) 1–8
+7
+The only possible explanation for the occurrence of high temperature sulfidation is the formation of a hot spot along the length of
+the tube. This view is supported by the fact that the internal tube surface was found covered with a nonuniform black deposited layer.
+The thickness of the layer was ≈1.86 mm minimum and ≈4.61 mm maximum (a difference of ≈2.75 mm). The maximum deposit
+thickness was seen near the failure location. In addition, the layer was very dense and hard that a chisel was used to remove sufficient
+quantity for XRD. This nature of the deposited layer could be attributed to its composition, which consisted of calcite in addition to
+coke, iron sulfide, sodium chloride, hematite, and magnetite.
+According to ASM Handbook [13], the presence of internal surface scale or deposits causes an increase in the tube metal
+temperature, because the scale or deposits have a lower thermal conductivity than the steel tube. Such temperature increase can lead
+to creep and accelerated oxidation in addition to other failure mechanisms. It would appear that in the present case, the increase in
+metal temperature did not lead to creep, but caused sensitization and high temperature sulphidation. It has been suggested [13] that
+for austenitic iron-based high temperature alloys, elevated temperature behavior, such as creep, begins at 0.49Tm (700 °C), where Tm
+is the melting temperature. Thus, it would seem that the tube was exposed to temperatures greater than 260 °C, but less than 700 °C.
+Refinery furnace tubes are usually fabricated from several grades of steels for elevated temperature applications, mainly ferritic,
+i.e., carbon steels, carbon-molybdenum (C-Mo) steels, and Cr-Mo steels. The materials are selected for their stress rupture or creep
+rupture properties combined with corrosion resistance [14,15]. SSs are sometimes used as furnace tubes for highly corrosive feeds.
+SSs are preferred over high nickel alloys, because nickel is prone to form low melting nickel-nickel sulphide eutectic. Over the service
+time, the tubes are subjected to several degradation phenomena that may cause operational problems. Damage to the inside surface of
+the tube results from the aggressive action of the feed. The principal corrosive impurities in crude oils are sulphur compounds and
+chlorides [16]. In the present case, chlorides led to SCC, while sulphidic corrosion caused by the sulphur compounds resulted in
+localized sulphide scale formation on the crack walls and along grain boundaries.
+As previously mentioned, heavy crude oils rich in salts, sulphur and H2S were the charge since commissioning over twenty years
+ago. This might explain the presence of calcite as part of the scale and the occurrence of the failure in the convection section where
+the operating temperature is suitable for the precipitation of calcite. Although minor sulphidation existed along the length of the
+internal tube surface; albeit, it was more intense at the failure location where more salt precipitation occurred. It can be safely
+assumed that the nature of the crude was the catalytic factor for the occurrence of SCC and the sulphidation of the internal surface
+and crack walls.
+The presence of hematite and magnetite within the scale suggests their formation during decoking operations carried out by
+means of steam or that the crude oil still contained residual water. The latter assumption appears to be the correct one since not only
+calcite was precipitated on the internal tube surface, but also sodium chloride. Because metal sulphides form at faster rates than do
+metal oxides, much more sulphides were observed in the present failure than oxides. Thus, it was advised that the performance of the
+desalter be improved and frequent decoking and scale removal be carried out, with emphasis on the convection section.
+6. Conclusions
+• The charge heater tube suffered from chloride SCC. The chloride SCC initiated in the sensitized internal surface layer as
+intergranular cracks.
+• The precipitation of salts from the crude increased the metal temperature in the convection section of the heater, leading to
+sensitization of the material and the high temperature sulphidation. Sulphidation of crack walls obscured the chloride SCC
+features at some locations.
+• The utilization of heavy crude oil rich in salts, sulphur, and H2S may have been the catalytic factor. Thus, the problem is related to
+the type of feed used.

@@ -1,0 +1,124 @@
+A 4-stroke internal combustion engine was used to power a Global GT1 race car. Although commonly used to power Global Class race cars, the engine was not designed for this application. The engine was acquired by the University of Derby; after which it was rebuilt. It was then mounted transversely as a stressed member of the GT1 chassis. Throughout its track life, the engine was run at very high speeds, exceeding 11,000 revolutions per minute (RPM). After the engine rebuild, the car had run for around 50 race hours before failing. During a race the engine failed catastrophically with a sudden loss of power. Upon dismantling the engine, a connecting rod was found to have failed along with one of its bolts and its slip bearings. Fig. 1a shows a typical connecting rod with key features highlighted and Fig. 1b shows an intact connecting rod next to the failed connecting rod. Connecting rods undergo cyclical tensile and compressive loading during the combustion cycle, suggesting fatigue could be the cause of a failure. At the point of failure, the brake and throttle were being applied, increasing the magnitude of these forces.
+Fig. 1
+Download: Download high-res image (746KB)
+Download: Download full-size image
+Fig. 1. (a) Diagram of an assembled connecting rod, rod cap, bolts and slip bearing with key features and components annotated in red; (b) The intact and failed connecting rod and piston assemblies, left and right consecutively, are shown with the failure.
+
+This study aims to find the mechanism of failure for the failed connecting rod. An investigation was conducted by inspecting the fracture surface, microstructure and hardness of the component and validated using a finite element analysis (FEA) simulation. The failure analysis was conducted in the hope that designs or practices can be improved, and failures such as this avoided in future.
+2. Methodology
+A visual inspection was first conducted on the failed components, after they had been removed from the engine, as well as other components such as the oil filter and sump. Statements were also taken from interviews with people involved in refurbishing the car prior to failure. Data from the on-board event data recorder (EDR) was obtained and analysed to accurately assess the condition of the engine during the failure event.
+Six specimens were collected and tested, ENG1 to 6, some from the failed connecting rod and some from an intact connecting rod from the same failed engine. Each of the rods was sectioned in various places and cross sections of bolts from each connecting rod were also made. One specimen from each of the failed and intact connecting rods as well as the two bolt cross sections were mounted in MetPrep TRI-HARD compound and polished using MetPrep SILICO 0.06 μm colloidal silica paste. The specimen identification system used for all samples is outlined in Table 1 and shown Fig. 1.
+Table 1. Specimen identification system codes and corresponding descriptions for samples analysed.
+
+Specimen Identification	Specimen Description
+ENG1	Unmounted failed connecting rod piece consisting of bolt housing and fracture surface.
+ENG2	Unmounted section from the top of the failed connecting rod big end with fracture surface.
+ENG3	Mounted and polished section from the top of the failed connecting rod big end, corresponding to sample ENG2.
+ENG4	Mounted and polished section from the beam of the intact connecting rod.
+ENG5	Mounted and polished cross section of a bolt from the intact connecting rod.
+ENG6	Mounted and polished cross section of the failed bolt from the failed connecting rod.
+As part of the fractography investigation, ENG1 was examined using a limited zoom, full-colour digital microscope; the Nikon ShuttlePix P-400R, to identify areas to be looked at in greater detail using other devices. Polished samples, ENG3 to 6, then went under an Olympus BX51M optical microscope and a digital video recorder was used to capture images of the specimens’ microstructures at multiple magnifications.
+After identifying key areas to investigate further, most of the fractography was conducted by placing specimens in a scanning electron microscope (SEM); the Zeiss LEO 1550 field emission SEM, to observe surfaces at further magnifications. Unmounted samples were cleaned in an ultrasound bath and mounted samples were also etched using 1 M hydrochloric acid, to reveal their microstructures. Energy dispersive spectroscopy (EDS) was also conducted on specimens in the SEM to determine chemical composition.
+Hardness tests were conducted on mounted samples using an in size ISH-TDV2000 Vickers hardness tester by applying a 5 kgf force for 5 s. An average hardness value was determined by repeating the test 5 times at random locations on each sample surface.
+Finally, a finite element analysis (FEA) was conducted to determine the stress distribution in intact connecting rod geometry. The model for these simulations was imported from a 3D scan laser camera with some surface modifications. A curvature-based, tetrahedral element mesh was created from the model. Mesh independent testing was conducted to ensure that results were independent of the mesh density. A uniformly distributed load was applied to 120° of the small end journal, while 180° of the rod cap journal was kept fixed on cylindrical faces, to simulate tension stress in operating conditions. A reliable mesh was created with about 106 parabolic tetrahedral elements, with a uniform global element length of 0.1 mm and a local element length of 0.01 mm at locations with high stress intensity [1].
+During the test sessions the engine reached the highest RPM of 11,000 on at least 5 occasions, and on all laps the engine RPM was frequently close to the RPM limit. The maximum tensile force (14,800 N) was calculated from inertia force obtained from the manufacture data listed in Table 2.
+Table 2. Manufacture data of the connecting rod.
+
+Crankshaft radius	29 mm
+Connecting rod length	141 mm
+Piston diameter	70 mm
+Mass of the piston assembly	0.234 kg
+Mass of the connecting rod	0.239 kg
+Stroke length	58 mm
+Maximum gas pressure	27.1 bar
+3. Results and Discussion
+3.1. Visual Analysis
+Fig. 2a shows the fracture point at the big end of the connecting rod. The fracture surface, Fig. 2b, is normal to the rod big end. Observation of the fracture surface reveals discoloured area due to excessive heat. The rod big end is blackened and it should be noted that the slip bearing is no longer a separate piece; it has melted into the big end journal. The rod cap is plastically deformed as shown in Fig. 2a. The plastic deformation is due to heat build-up during operation, causing a drop in yield strength.
+Fig. 2
+Download: Download high-res image (473KB)
+Download: Download full-size image
+Fig. 2. Photographs of the failed connecting rod: (a) Fractured rod shank and big end, fractured rod bolt, deformed rod cap, and melted slip bearing; (b) A closer look of the fracture point highlighted by the red arrow.
+
+3.2. Fractography
+Evidence of heat tinting was found, suggesting that thermal hotspots inside the material were a contributing factor to its failure. The blue sections represent a temperature of around 330 °C, the violet represent temperatures of approximately 280 °C, and the yellow areas represent temperatures ranging from 210 °C for the lighter shade to 240 °C for the deeper shade, as seen in Fig. 3 [2]. The red arrow in Fig. 3a indicates the fracture point in the big end of the connecting rod, some of the Marco beach marks are appeared to be perpendicular to the red arrow in Fig. 3b.
+Fig. 3
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 3. Digital microscope images of ENG1: (a) Digital microscopy reveals heat tinting marks on the fracture surface; (b) Close up showing heat tinting near surface which suggests crack initiation point indicated by the red arrow.
+
+Observation of the fracture surface, using an SEM at the lowest magnification, presents key topographies to understanding the cause of fracture including; crack initiation, crack propagation, and a fracture plateau. Beginning with the region 1, shown in Fig. 4, the geometry of the fracture reveals the direction of shear and suggests a multiple ratchet cracks were initiated. During operation, the micro cracks grow to major ratchet crack through the sulphide brittle phase in region 1 as shown in Fig. 5a. In region 2, circular micro cracks (striations) can be seen, highlighted in Fig. 4, as yellow subtle circular beach marks. The direction of the circular beach marks agrees with the direction of crack propagation from the initiation site in region 1, towards the fracture plateau (region 3).
+Fig. 4
+Download: Download high-res image (710KB)
+Download: Download full-size image
+Fig. 4. SEM image of the fracture point in ENG-1.
+
+Fig. 5
+Download: Download high-res image (539KB)
+Download: Download full-size image
+Fig. 5. (a) SEM image of fracture surface showing region 1 as a crack initiation in form of major and micro cracks. (b) High magnification SEM image of the black circle in Fig. 4 that shows the transition area between region 2 and 3.
+
+In region 3, The fracture plateau marked with the red arrow in Fig. 4, shows morphology that suggests a brittle fracture mode [3]. In a fatigue fracture, the final stage, catastrophic failure, is characterized by a rapid brittle fracture as shown in Fig. 5b, which is a high magnification of the black circle in Fig. 4. the transition area from beack marks (region 2) to brittle fracture (region 3) is highlighted in Fig. 5b.
+Further magnification of surface SEM imaging shown by Fig. 6, reveals the mud-type micro cracks that exist on the surface of the connecting rod. These cracks were initiated from sulphur-rich iron scale that build-up during environmentally corrosion process, creating sulphide brittle phase inclusion [4]. The brittle sulphide phase leads to the creation of the micro cracks that highlighted in Fig. 7. The EDX analysis of sample ENG2 shows a high sulphur content on the surface of failed and the intact connecting rods (sample ENG4). On the other hand, no sulphur was detected in the fracture regions 1, 2 and 3. This could be either the engine’s oil has been sulphurized due to a sealing defect in the cylinder or the procedure for refurbishing the connecting rod were not hygienically performed.
+Fig. 6
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 6. SEM image shows of the micro cracks that appeared near the fracture surface.
+
+Fig. 7
+Download: Download high-res image (1009KB)
+Download: Download full-size image
+Fig. 7. SEM image shows the sulphur-rich iron scale inside the black circle and mico cracks (red arrow) were initiated due to the brittle sulphide phase.
+
+The EDX analysis revealed that the chemical composition of the sulphide inclusions at the surface is 3.28 wt% sulphur compared with no sulphur were present in the inner surface of the fracture point. The overall chemical compositions are listed in Table 3.
+Table 3. EDX analysis of the sulphide inclusions.
+
+Element	SurfaceWeight%	Inside Weight %
+Si	0.25	0.15
+P	0.11	0
+S	3.28	0
+Cr	2.51	2.8
+Mn	1.41	1.1
+Fe	91.96	95.1
+Mo	0.48	0.85
+Total	100	100
+3.3. Hardness Analysis
+The hardness test in Table 4 shows that the intact portion of the bolts measured an average of 393 HV, above the maximum hardness for AISI/SAE 4140 medium carbon steel. The fractured bolt measured an average of 182 HV, which shows a large reduction in the bolt's hardness, possibly due to a primary manufacturing defect. Lower hardness has induced bolt elongation as shown in sample ENG1 in Fig. 1b. Consequently, bolt plastic elongation has imposed a high cyclic impact stress on the surface of the housing during tension and compression cycles, resulting in twin cracks can be seen in Fig. 8. The rattling noise was detected by EDR before failure and the engine management system has recoded that noise for 5 s before the connecting rod’s failure.
+Table 4. Results of the Vickers hardness tests for the two connecting rod samples measured in Vickers hardness (HV).
+
+Sample	Average Hardness (HV)
+Mounted and polished section from the top of the failed connecting rod big end (ENG 3)	401
+Mounted and polished section from the beam of the intact connecting rod (ENG 4)	344
+Mounted and polished cross section of a bolt from the intact connecting rod (ENG 5)	393
+Mounted and polished cross section of the failed bolt from the failed connecting rod (ENG6)	182
+Fig. 8
+Download: Download high-res image (887KB)
+Download: Download full-size image
+Fig. 8. SEM image shows twin cracks in the bolt housing in ENG1 due to bolt defect.
+
+3.4. Finite Element Analysis
+The maximum tensile load, which is essentially the inertia load of the piston assembly mass, occurs after the exhaust cycle is completed and a vacuum created in the combustion chamber. It was observed that at high engine speeds, the maximum tension stress in the shank bottom does occur at the top dead centre (TDC) [6]. It was also observed that the stress magnitude varies with location and engine speed. The maximum bending stress over one engine cycle at the shank centre was found to be about 25% of the maximum stress at that location. The fracture point shown in Fig. 3b matches the location of the maximum stress at the big end shown in Fig. 9.
+Fig. 9
+Download: Download high-res image (823KB)
+Download: Download full-size image
+Fig. 9. Von-mises stress distribution from FEA simulation: (a) Front view of entire connecting rod; (b) Close-up of big end showing high stress concentration; (c) Rear view of connecting rod big end; (d) Cross sectional view of the connecting rod big end.
+
+After analysing the EDR data, which monitors the engine management system, it was observed that the engine failed suddenly, and lost power during braking and changing down gears into a corner. This is when the connecting rod experiences the highest tensile stress. The stress analysis in Fig. 9a shows that, as expected, the maximum stress region (300 MPa) in the model matches the fracture location, located between the big end and the shank. Fig. 9b and c show that average tensile stress at the fracture point was 195 MPa, far below the yield strength of alloy steel, meaning the fracture occurred due to fatigue failure. Fig. 9d shows that maximum tensile stresses were located on the surface of the big end, which confirms that surface cracking was the main cause of the failure. Fig. 10 shows the statistical fatigue strength of low alloy steel AISI 4140 vs fatigue cycle number obtained from Cambridge Engineering Selector software. The line intersecting the band in Fig. 10 shows the probability of the fatigue failure from one million cycles onward in a service operation at cyclic tension stress of 195 MPa. The fatigue S-N curve, however, does not consider material imperfections nor the direction of the acting stress on crack growth [7], [8].
+Fig. 10
+Download: Download high-res image (753KB)
+Download: Download full-size image
+Fig. 10. Graph shows the relationship of probable fatigue strength vs fatigue cycle of Low alloy steel AISI 4140 [5].
+
+4. Conclusion
+The manufacturer’s choice of material and engine design was made on the design consideration that the engine would be used for street and not race applications, therefore the life expectancy was shortened when the engine was swapped into the Global GT1. Therefore, it had to power a different, heavier chassis. The estimated safe service life of the material at 11,000 RPM is at least 90 min according to the one million fatigue cycles obtained in Fig. 10. The sequence of failure modes of the connecting rod are as follows:
+•
+The scale build-up of inclusions on steel led to micro crack formation that propagated during fatigue loading until the part failed suddenly.
+•
+Observation of the fracture surface reveals sulphide brittle inclusions due to either sulphurized oil or inappropriate refurbishing process.
+•
+Fatigue failure of the failed connecting rod demonstrated in term of ratchet marks (region 1), striations/beach marks (region 2) and fast brittle fracture (region 3).
+•
+One of the bolt has a lower hardness than others, which result in excessive elongation during operation and imposed a cyclic impact stress on the journal’s surface. The noise was detected by EDR before failure and the engine management system has recoded that noise for 5 s before failure.
+•
+It is concluded that the connecting rod failed on the end of exhaust stroke, primarily due to fatigue loading.
+•
+Based on FEA, the maximum bending stress at the shank centre over one engine cycle was evaluated to be about 25% (75 MPa) of the maximum stress (300 MPa). The actual fracture point shown in Fig. 3 matches the location of the maximum stress at the big end obtained from FE simulation.
