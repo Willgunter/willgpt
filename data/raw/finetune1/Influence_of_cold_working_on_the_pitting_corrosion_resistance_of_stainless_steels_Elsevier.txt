@@ -1,0 +1,166 @@
+Pitting corrosion of stainless steels (SS) results from a combination of electrochemical and metallurgical factors including the effect of alloying elements and the nature and distribution of the non-metallic inclusions, which have already been extensively studied [1]. However, the metallurgical aspect of the question has been insufficiently taken into account, especially for industrial steels. Accordingly, this paper aims to contribute to the understanding of pitting mechanisms as related to material structure by focusing on the influence of cold working.
+Various metallurgical variables are likely to be affected by cold working: first of all, the creation and slipping of dislocations, which lead to plastic deformation of metals [2]. Secondly, austenitic grades can also be sensitive to martensitic transformation induced by cold working at room temperature [3], according to the sequence γ(→ε) → α′ [4], [5]. Lastly, plastic deformation may produce inclusions, elongation, or fractures at the interface with the matrix [6], [7], [8]. The detrimental effect of cold working on carbon steel or iron corrosion resistance is well known. It was evidenced by weight loss in acidic media [9], [10], [11], [12], [13], [14], [15], [16] but was also noted in chloride-containing media [17], including tests in real environments [18], [19], [20], [21]. On the other hand, only a few results are available on the localized corrosion of cold-worked SS, and such highly scattered data do not permit scientifically reliable conclusions.
+Both the thickness and composition of passive films are likely to be modified in many ways by cold working [22], [23], [24]. Moreover, transfer resistance and interfacial capacitance do not appear to change linearly as a function of cold reduction [25]. The related passive current in acidic media is found to increase with deformation by several orders of magnitude [26], [27], in agreement with release tests [28], but an opposite result has been reported in a chloride-containing medium [22]. Regarding the time to pit nucleation as a function of cold reduction, it is found either to decrease [29], [30] or to be unaffected [31], while the stabilization of metastable pits initiated on cold-worked SS is enhanced [32].
+The effect of plastic deformation on the pitting potential (Vpit) appears to be rather limited compared to the influence of chloride concentration or addition of alloying elements. The variations in Vpit rarely exceed a few tens of millivolts and available data (Table 1) are highly inconsistent. In addition, recent work has demonstrated non-monotonous variations with cold reduction [25], [33], [34]. The number of pits counted by metallographic examination has been reported either to increase with cold-working rate, including local extrema [31], or to be unaffected [35]. Some authors have even qualitatively linked pit sites with deformation bands [33], or with interfaces between austenite and martensite induced by cold working [26].
+Table 1. Effect of plastic deformation on the pitting potential of stainless steels
+
+Author	Date	Grade	Deformation	Reduction/strain	Medium	Vpit shift (compared to annealed state)
+B. Ravi Kumar [33]	2005	AISI 304L	Cold rolling	10, 30, 50, 70, 90%	NaCl 0.1 M	⇵ (Minimum at 50%)
+S.V. Phadnis [22]	2003	AISI 304	Cold rolling	66%	NaCl 3, 5%	↑
+A. Barbucci [26]	2002	AISI 304	Cold rolling	35, 58%	Na2SO4 0.3% + Cl− (103 → 5 × 104) ppm	↑ (Low 
+)
+↓ (High 
+)
+U. Kamachi Mudali [33]	2002	AISI 316L	Cold rolling	5, 10, 15, 20, 30, 40%	NaCl 0.5 M	⇅ (Maximum at 20%)
+316LN
+316LHN
+V.A.C. Haanappel [25]	2001	AISI 304	Kitchen utensil	–	NaCl 35 g/L	↓ (Lower deformation)
+↑ (Higher deformation)
+D. Sinigaglia [72]	1983	AISI 316L	Cold rolling	10, 30, 50%	Physiological solution	↓
+16Cr–14Ni–2Mo	→
+G. Salvago [29]	1983	AISI 304L	Cold rolling (−196 °C)	30, 50%	HCl 0.1 M	↓
+H.J. Torwie [73]	1981	Fe–19%Cr–(0, 15, 20, 30%) Ni	Tensile test	0 → 110%	NaCl 100 ppm	→ (Ferritic 0% Ni)
+↓ (Austenitic)
+B. Mazza [45]	1979	AISI 304L	Tensile test	0, 10, 15, 30%	NaCl 3.5%, 40 °C	↓
+AISI 316L	Drawing	0, 10, 30, 50%
+Cold rolling
+B. Mazza [41]	1979	AISI 304L	Tensile test	0–50%	HCl 0.1 M	↓
+AISI 316L	Drawing
+Cold rolling
+C.J. Semino [35]	1979	AISI 304	Tensile test	30% (section)	NaCl 0.5 M + NaHCO3 0.1 M	↓
+AISI 316	↓
+B.C. Syrett [36]	1978	AISI 316L	Cold rolling	0–37%	Thyroid solution 37 °C	↑
+TRIP
+A. Cigada [74]	1977	AISI 304L	Tensile test	0–50%	Physiological solution	↓
+B. Mazza [43]	1976	AISI 316L	Drawing
+Cold rolling
+A. Baghdasarian [75]	1975	TRIP	Cold rolling	10, 20, 30%	Artificial sea water	↑
+Regarding the propagation current density of pits, it is generally found to increase as a function of cold working [31], [36] but not in every case [36]. This dispersion is not surprising, considering that SS dissolution in acidic media has been reported to be higher [37], [38], [39], lower [40], unaffected [41], [42], [43], and even non-monotonously modified [44] by plastic deformation. In the same way, the repassivation potential criterion appears very irregular as a function of cold working [22], [25], [29], [45]. Its trend slope depends both on grade composition [36] and the concentration of chloride in the medium [26].
+The present study employs an approach based for the most part on AISI 304 SS, cold-rolled at various reductions, and using different electrochemical techniques supplemented by metallurgical characterizations. Such an approach makes it possible to examine the influence of cold working on the various pitting stages (initiation, propagation, and repassivation) independently, and has proven efficiency [46]. In addition, both AISI 304 and AISI 430 have been investigated after tensile testing so that the previous results could be compared to another deformation process as well as to a stable ferritic grade.
+2. Experimental
+2.1. Materials
+The chemical compositions of the three investigated SS are shown in Table 2. AISI 304 (Lab.) prepared in laboratory had undergone a cold-rolling deformation process. In addition, AISI 304 and AISI 430 commercial grades (Arcelor) were scheduled for tensile testing.
+Table 2. Chemical composition of the investigated materials in wt%
+
+Grade	Elaboration	%C	%Mn	%Ni	%Cr	%Mo	%Cu	S (ppm)	%N
+AISI 304	Laboratory	0.026	1.45	8.57	17.86	0.20	0.20	51	0.036
+AISI 304	Industrial	0.037	1.42	8.66	18.18	0.25	0.22	12	0.038
+AISI 430	Industrial	0.042	0.38	0.16	16.26	0.03	0.04	21	0.027
+AISI 304 (Lab.) grade was cast as a 25 kg ingot under argon atmosphere. Next, plates were obtained by hot and cold rolling with intermediate annealing, leading to 10%, 20%, 30%, and 70% of final cold thickness reduction (Fig. 1). Disks with a diameter of 15 mm were stamped from annealed and cold-rolled plates, to be investigated by electrochemical measurements. The induced α′-martensite content as well as mechanical properties including Vickers hardness and yield stress show a monotonous increase with cold-rolling reduction (Table 3). A metallographic examination after potassium metabisulfite attack (10 s immersion in H2O 50 ml + HCl 10 ml + K2S2O5 0.3 g) reveals a homogeneous distribution of martensite laths in cross section. Furthermore, examination after electro-nitric attack (30 s immersion in H2O 97 ml + HNO3 553 ml at 50 mA cm−2) shows an equiaxial structure with a few residual primary ferrite islets in the annealed state, whereas the cold-rolling process induces the expected orientation of grains in the rolling direction. Neither modifications of inclusions morphology nor evidence of decohesion between inclusions and matrix were observed by scanning electronic microscopy. At a lower scale, dislocations structure arrangements analyzed by transmission electronic microscopy (TEM) are representative of the transition through each cold-working stage [47], [48]. Thus a planar structure favouring dislocations pile-ups is seen at 20% of cold reduction, while at 70% the dislocations network evolves toward a cellular structure typical of a dynamic recovery stage (Fig. 2).
+
+Download: Download full-size image
+Fig. 1. Cold-rolled plates processing of AISI304 (Lab.) grade.
+
+Table 3. α′-Martensite fraction, Vickers harness, yield stress and chromium content in passive film of the AISI 304 (Lab.) grade as a function of cold-rolling reduction
+
+Parameters	Techniques	Annealed	10%	20%	30%	70%
+α′-Martensite (%)	Magnetization	2.9	14.7	21.5	44.3	58.0
+Hardness (HV)	Microhardness	182	263	323	352	448
+Yield stress (MPa)	Tensile test	268	657	784	995	1346
+Passive film Cr content (at.%)	XPS analysis	23	–	–	25	–
+
+Download: Download full-size image
+Fig. 2. TEM Images (white field) of AISI 304 (Lab.) grade (a) annealed, (b) 20% cold-rolled and (c) 70% cold-rolled.
+
+Regarding commercial grades, a tensile strain of 5 mm min−1 was applied to 275 mm × 25 mm test specimens cut from plates 1 mm thick, from which 15 mm diameter disks were stamped for electrochemical study. Engineering strains of 10%, 35%, and 60% for AISI 304 grade, and 10% and 20% for AISI 430 grade, were chosen, to take into account the lower total elongation of the ferritic grade (25%) as compared to the austenitic one (70%). It was noted that tensile deformation of industrial grade AISI 304 induces a lower α′-martensite content and yield stress for a given strain compared to the equivalent cold-rolling reduction of AISI 304 (Lab.) grade (Table 4).
+Table 4. α′-Martensite fraction and yield stress for the AISI 304 commercial grade as a function of strain
+
+Parameters	Techniques	Annealed	10%	35%	60%
+α′-Martensite (%)	Magnetization	2.3	2.5	6.2	17.1
+Yield stress (MPa)	Tensile test	322	471	657	700
+Disks stamped from cold-rolled and strained SS were prepared following the same procedure: specimens were polished with SiC paper to a 1200 grit finish and afterwards with diamond paste up to 3 μm grade. They were degreased in an ultrasonic acetone/ethanol mixed bath, rinsed with distilled water, dried, and finally aged for 24 h in ambient air. It was noted that, following this procedure, the chromium content in passive film oxide layers measured by XPS analysis was roughly the same for both 30% cold-rolled and annealed samples (Table 3).
+2.2. Pitting potential measurements
+Pitting potentials (Vpit) were measured in deaerated 0.5 M NaCl, pH 6.6 electrolyte at 23 °C by leaving the sample at free potential for 15 min and then running a potentiodynamic scan at a constant scan rate (100 mV/min) until the current reached a value of 10 μA, where Vpit was taken. The tests were repeated six times to provide a significant mean value. However, such a parameter may combine in a single criterion all the different stages of the pitting process [46]. Accordingly, a few other selected electrochemical techniques were employed, so that the various steps (i.e., pit initiation, propagation, and repassivation) could be studied independently (Table 5).
+Table 5. Experimental techniques and related parameters used to characterize the pit evolution steps
+
+Pit evolution step	Experimental technique	Measured parameters
+Initiation	Transients analysis	Number of transients for 24 h
+Interfacial capacitance/Resistance
+Propagation	“PPR”	Current density from pits
+Stabilization/repassivation	Acid injection “PPR”	Free potential evolution
+Repassivation potential
+2.3. Pitting transients at open circuit potential
+Pitting transient measurement is carried out using a three-electrode setup operating at open circuit potential [49], [50]. This system includes two identical electrodes connected through a zero resistance ammeter (ZRA) and a reference electrode (SCE), allowing simultaneous measurement of both intensity and potential transients in aerated (0.1 M NaCl + 2 × 10−4 M FeCl3) of (1 M NaCl + 10−3 M FeCl3). The variation of current signal with time was first measured over 24 h periods. The typical signal shows a succession of current fluctuations or transients. Each of these was considered to be the signature of the appearance, propagation, and repassivation of a metastable pit [51], [52], [53] (i.e., a pit that has repassivated after a few seconds of propagation). A sampling frequency of 18.75 Hz was selected, to provide sufficient resolution for these events to be studied. In addition, the capacitance C and the transfer resistance R of the interface were determined for simultaneous current and potential transients. The method of estimating C and R, including an analysis of the electrical charge balance in all three of the system’s electrodes, is well detailed elsewhere [50].
+2.4. Pit propagation rate test
+The pit propagation rate (PPR) test is a method first proposed by Syrett [54] in which the specimen is subjected to a potential cycle. In this adaptation, the potential is first potentiodynamically scanned in a deaerated 0.5 M NaCl, pH 6.6, 23 °C electrolyte at a scan rate of 10 mV/min from OCP to a given potential between free potential Vcorr and Vpit. It is held at this potential for 10 min to obtain a steady-state of the current density in the passive condition. The potential scan is then continued to potentials more noble than Vpit until the current reaches a value of 10 mA, corresponding to the growth of numerous pits (whose diameters may reach a few tens of μm). The potential is then decreased in a single step to a value between Vcorr and Vpit and held at this value for 10 min. Since no new stable pits appear at potentials below Vpit, the recorded current is a measure of the rate of existing pit growth. After the potential is left at free potential in order to repassivate the pits, the potential is scanned to the selected value once again to ensure that passivity is achieved. The average value of current during the 10-min pit growth period is determined by graphic integration of the current vs. time recording. The total area actually pitted (total projected pit area) is determined by microscopic examination (Fig. 3), and the pit propagation rate is calculated by dividing the average current by the area actually pitted.
+
+Download: Download full-size image
+Fig. 3. Example of a sample surface submitted to “PPR” test after image analysis giving the number of pits and their mouth area.
+
+2.5. Depassivation test
+The “depassivation test”, based on free potential measurements during acid injection, was carried out in order to assess the passive film stability. Samples were left for 15 min in a 1 L cell of water at pH 4.5 before injecting concentrated H2SO4 doses according to the following sequence (C being the reference concentration of a 95% H2SO4 solution):
+(i)
+1 ml dose of 10−2 C H2SO4 solution every minute for 5 min.
+(ii)
+1 ml dose of 10−1 C H2SO4 solution every minute for 5 min.
+(iii)
+1 ml dose of C H2SO4 solution every minute for 5 min.
+(iv)
+5 ml dose of C H2SO4 solution every minute for 5 min.
+(v)
+10 ml dose of C H2SO4 solution every minute until depassivation.
+Injections are continued until a sharp decrease of free potential is achieved, corresponding to overall surface depassivation (Section 3.3).
+3. Results
+3.1. Measuring pitting potentials and transients
+The values of the pitting potential (Vpit) of cold-rolled AISI 304 were experimentally determined in deaerated 0.5 M NaCl, pH 6.6, at 23 °C (Table 6). Vpit is found to decrease slightly in a monotonous manner up to 70% cold-rolling reduction. To investigate this further, the pitting corrosion initiation stage was, studied by focusing on the number of metastable pitting transients initiated at open circuit potential in NaCl 0.1 M + FeCl3 2 × 10−4 M (Fig. 4). The pit initiation frequency increases with the cold-rolling rate. However, the number of metastable pits shows a maximum for 20% cold reduction, where it is four timer, higher than in the annealed state. Both interfacial capacitance (C) and transfer resistance (R) also exhibit a non-monotonous trend: C shows a maximum for 20% while R seems to reach a minimum at around 10% cold reduction (Table 6).
+Table 6. Indicators related to AISI 304 laboratory grade deduced from electrochemical techniques as a function of cold-rolling reduction
+
+Measured parameter	Experimental technique	Annealed	10%	20%	30%	70%
+Vpit (mV/SCE) in 0.5 M	Potentiodynamic	325	300	289	283	272
+
+C (μF/cm2)	Transients analysis	74	84	89	83	71
+R (kΩ cm2)	6043	2118	2835	4168	4005
+
+Vrep (mV/SCE)	PPR	200	200	100	50	50
+Number of pits after 200 mV/SCE polarization	78	146	165	189	212
+
+Download: Download full-size image
+Fig. 4. Number of metastable pits initiated during 24 h on AISI 304 grade at free potential in NaCl 0.1 M + FeCl3 2 × 10−4 M as a function of cold reduction.
+
+This rather surprising maximum in initiation frequency was confirmed by studying the influence of tensile deformation on both the AISI 304 and AISI 430 experimental grades. Indeed, a similar counting of metastable pitting transients at open circuit potential during 24 h in NaCl 1 M + FeCl3 10−3 M showed a significant rise in the initiation frequency for a 10%-elongation (Table 7).
+Table 7. Number of metastable pits initiated during 24 h on industrial AISI 304 and AISI 430 grades at free potential in NaCl 1 M + FeCl3 10−3 M as a function of strain
+
+Empty Cell	Annealed	10%	20%	35%	60%
+AISI 304	116	297	–	64	40
+AISI 430	371	515	309	–	–
+3.2. Analysis of transients and pit propagation rate
+The pitting propagation stage was investigated both at mesoscopic and macroscopic scales. The mesoscopic propagation stage (i.e., corresponding to a dissolved charge on the order of μC) was assessed by statistical analysis of metastable pits initiated at open circuit potential during 24 h in NaCl 0.1 M + FeCl3 2 × 10−4 M. The lifetime of each transient, its maximum intensity and the corresponding dissolved charge with maximum intensity exceeding a threshold of 235 nA are the main parameter considered in our analysis. Then, using a power law of the anodic current [55]: I = k × ta where t is the tune, and a and k are constants deduced from the mean statistical values of previous parameters, an average transient shape was reproduced in Fig. 5 for 0%, 20%, and 70% cold-rolling reductions. The highest propagation rate is again observed for 20% cold reduction. Nevertheless, this does not lead to a higher intensity at the top of the transient; it is instead linked to a faster repassivation. Moreover, a significant increase of pit lifetime is seen in the 70% cold-rolled sample. Finally, the resulting charge dissolved from the overall metastable pits at the end of the 24-h test monotonously increases as a function of cold-rolling reduction (Fig. 6).
+
+Download: Download full-size image
+Fig. 5. Average transient shapes for cold-rolled AISI 304 deduced from statistical analysis of current transients recorded during 24 h in NaCl 0.1 M + FeCl3 2 × 10−4 M.
+
+
+Download: Download full-size image
+Fig. 6. Total dissolved charge by metastable pitting during 24 h for AISI 304 in NaCl 0.1 M + FeCl3 2 × 10−4 M as a function of cold rolling rate.
+
+The macroscopic propagation stage was investigated under applied potential by applying the PPR test to annealed,, 20%, and 70% cold-rolling reductions. In this case, a significant and monotonous increase of the dissolution current density with cold-rolling rate was found (Fig. 7).
+
+Download: Download full-size image
+Fig. 7. Propagation current density of macroscopic pits measured by “PPR” test on AISI 304 as a function of cold-rolling reduction and applied potential.
+
+3.3. Repassivation and passivity
+The repassivation potential of AISI 304 as assessed by the PPR test is found to decrease with cold rolling (Table 6). At the same time, an increase of macroscopic pits number is noted for a given polarization (Table 6). In addition, the passive film growing on the cold-rolled surface is found to be less stable. Indeed, the higher the cold-rolling reduction, the earlier a sharp decrease of free potential is produced by acid injections (Fig. 8). Assuming a local acidity in the pits, the larger depassivation pH (the critical value of acidity causing instability of the passive film followed by general corrosion) for cold-rolled samples is believed to prevent pit repassivation.
+
+Download: Download full-size image
+Fig. 8. Free potential evolution for AISI 304 submitted to H2SO4 injection as a function of cold-rolling reduction.
+
+4. Discussion
+The present study has demonstrated two distinct effects of cold working on SS localized corrosion, depending on the stage and geometrical scale of the pitting process: the first is a non-monotonous trend as a function of deformation while the second is fairly linear. In addition, use of the pitting potential technique as a tool for measuring susceptibility to pit initiation is re-examined.
+4.1. Non-monotonous trend at mesoscopic scale
+At the initiation stage, the main unexpected-indeed, relatively rare-behaviour [25], [33], [34] is the non-monotonous dependence on cold-working reduction. A maximum of metastable pits number is found at 20% of cold-rolling reduction or 10% of tensile deformation. This behaviour, seen even in ferritic grades, contradicts the suggestion that strain-induced martensite is the main factor governing this preliminary corrosion step. It also eliminates any correlation with the linear evolution of macroscopic metallurgical parameters such as yield stress or hardness. Many authors acknowledge that the absolute amount of martensite has very little importance [26], [33], [37], [45], [56], [57], [58] and can hardly be separated from the influence of dislocations and internal stresses. An understanding of the mechanisms involved would require a smaller-scale analysis owing to the fact that in stainless steels, pit initiation is closely related to passive film stability and to non-metallic inclusions acting as triggers for future pits. First, the passive film is assumed either to be weakened [26], [35], [41], unaffected [31], or strengthened [22], [25] by cold working, which is attributed in a recent study to a higher Cr/Fe ratio [22]. Secondly, the shapes of inclusion are likely to affect the pitting [59], [60], and cracks in the inclusions or at the inclusion-matrix boundary [6], [7], [8] are thought to be detrimental to initiation [45]. Nevertheless, neither sufficient morphological modifications of the inclusions nor changes in the chemical composition of the passive film (Table 3) have been found to explain such a result in the present work. TEM analysis suggests that it may rather be related to dislocations features produced during the various cold-working stages. This interpretation is supported by TEM images showing planar deformation structures for 20% cold rolling while development of cellular structures is observed at higher reductions (Fig. 2). Multiplication of dislocations as well as their arrangement into pile-ups induce high stress concentrations [2] and are likely to modify the local deformation potential [61]. A mechano-electrochemical model has even been developed, indicating that a maximum of dislocations pile-ups is likely to increase the potential difference between inclusion and surrounding matrix [62], such local electrochemical heterogeneity is expected to enhance pit initiation. Moreover, some workers have noted that the specific combination of MnS inclusion and applied mechanical stress could affect the susceptibility to pitting [63]. Considering that martensitic transformation proceeds by oriented rapid dislocations movements and multiplication [64], a possible indirect effect of martensite cannot be ruled out to the extent that it favours planar structures and the stability of dislocations pile-ups. For the highest cold-rolling reductions, the dynamic recovery process of dislocations followed by rearrangement into cellular structures [47], [48] could limit the previous effect and cause the decrease observed in the initiation frequency. Furthermore, deformation potential is associated with lattice distortion, which provokes electron transfer to ensure a constant Fermi level [65]. The resulting change in the surface charge associated with the double-layer rearrangement has already been detected experimentally by an increase in the total interfacial capacitance (C) [66]. A similar result is found in the present work: a dependence of C on cold-rolling reduction (Table 6). It is therefore assumed that the C-value maximum for 20% cold rolling is connected to the maximum of dislocations pile-up.
+A non-monotonous trend similar to the one governing the initiation frequency can be seen at the pit propagation stage. At mesoscopic scale, the maximum dissolution rate observed for pitting transients at 20% cold rolling could also be related to the maximum in dislocations pile-ups on inclusions. Indeed, pile-ups have even been suggested to dissolve preferentially [67]. If we then consider a micron-scale affected area where dissolution is increased by pile-ups [62], the related dissolved volume can be compared with a current transient charge (μC). Only the mesoscopic propagation stage could be affected by this local dissolution activation. The very different result for the macroscopic propagation stage may support this hypothesis, as discussed in the following section.
+4.2. Monotonous behaviour at macroscopic scale
+The macroscopic pit propagation rate is found to increase monotonously with cold working. We suggest that this is related more to the total density of dislocations induced by cold working (macroscopic effect) than to local structures such as pile-ups (mesoscopic effect). Plastic deformation is believed to increase the density of dislocations, which in turn enhances dissolution, owing to the presence of lower bonding energy points compared to “perfect” crystals [13]. Such experimental evidence provides new insights into the validity of thermodynamic approaches for assessing the dissolution rates in metals containing structural defects [61], [62], [68].
+The repassivation ability, investigated with OCP technique, appears at first sight to be non-monotonous as a function of the cold-rolling reduction. Indeed, and early repassivation of metastable pits is found for 20% cold rolling. Nevertheless, each current transient corresponds to a potential transient [50], and the large potential drop related to the large dissolution rate for 20 may by itself induce an instantaneous repassivation. This trend is no longer noted at applied potential, where a monotonic decrease of the repassivation potential with cold working is observed. Furthermore, we find an increase in the lifetime of metastable pits with a high cold-rolling reduction (70%). These observations may probably be attributed not only to the increase of pit dissolution rate but also to the linear degradation of passive film stability. The easier depassivation of steel as a function of cold-rolling reduction (Fig. 8) supports this point of view. Last, the plastic deformation of the substrate and especially the presence of dislocations is believed to weaken the protective nature of the passive film [26], [35], [41].
+4.3. Reappraisal of the so-called “pitting potential”
+Based on early descriptions the “breakdown potential” [69], the pitting potential (Vpit) is generally considered as a critical potential for the passive film breakdown, disregarding the fact that passive “film breakdown and pit development are in fact two independent stages active at different scales [70]. An embryonic pit could be initiated at values lower than Vpit; the conditions for further stable pit development being met only if the potential ensures a sufficient metal dissolution rate in a given pit geometry [71]. From this viewpoint, Vpit measures better the ability of a pit embryo to grow up to an arbitrary intensity value (10 μA in the present work), believed to correspond to the onset of a stable microscopic pit. As the pit growth rate increases with cold working, it is not so surprising to find in this work that Vpit monotonously decreases with the cold rolling rate, whereas pit initiation frequency exhibits a non-monotonous behaviour.
+5. Conclusions
+The present study has confirmed that the effects of cold working on stainless steel pitting phenomena are fairly complex, which may explain the inconsistencies in the literature. Nevertheless, it has made it possible to isolate the various results of cold reduction, which depend both on the stage and on the scale of the pitting process:
+(i)
+At the initiation stage, a maximum of metastable pits is found for 10% tensile deformation or 20% cold-rolling reduction. This behaviour, seen even in ferritic grades, contradicts the theory that strain-induced martensite is the main factor governing sensitivity to corrosion. It is suggested, based on a mechano-electrochemical approach, that dislocations features resulting from the successive cold-working stages better explain this trend.
+(ii)
+Regarding the propagation stage at mesoscopic scale, the highest pit dissolution rate is obtained for 20% cold-rolling reduction, when dislocations piled up on inclusions are believed to preferentially dissolve. On the other hand, the dissolution rate increases monotonously at the macroscopic propagation stage, when the overall density of dislocations is more probably the relevant factor.
+(iii)
+Except some specific effects observed at rest potential, the repassivation ability also decreases when the cold-working rate increases, leading to a larger macroscopic pit density.
+(iv)
+The pitting potential combines in a single criterion both the resistance to pit initiation, pit propagation, and pit repassivation. In the present work, Vpit more affected by the propagation/repassivation stages than by pit initiation and then vary monotonously with cold-rolling reduction.

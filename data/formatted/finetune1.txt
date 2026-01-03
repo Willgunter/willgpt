@@ -10645,3 +10645,781 @@ These are not stated but are required for the system to function as intended.
 
 * Structure is **non-robust to realistic assembly variability**.
 * Reliability depends on perfect material compliance and operator execution.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Structural and Loading Assumptions
+
+* The structural member is a **thin rectangular steel panel** representative of ship hull plating.
+* A **transverse through-thickness crack** exists, oriented perpendicular to the loading direction.
+* The crack is **stationary**, meaning no crack growth or damage evolution is modeled.
+* The loading sequence is **monotonic tension followed by monotonic compression**, not fully cyclic.
+* Loading is applied as **uniform in-plane displacement**, not force control.
+* Boundary conditions are **simply supported on all edges**, with uniform in-plane displacement enforced via MPCs.
+* Initial geometric imperfection is imposed using **buckling mode shapes** with amplitude equal to 1 percent of panel thickness.
+
+### Material Assumptions
+
+* Material is **mild steel** with:
+
+  * Young’s modulus 205.8 GPa
+  * Poisson’s ratio 0.3
+  * Yield stress 313.6 MPa
+* Material behavior is **perfectly elasto-plastic**.
+* No strain hardening, damage accumulation, or degradation of stiffness after yielding is considered.
+
+### Crack Modeling Assumptions
+
+* Crack faces are represented using **double nodes with contact constraints**.
+* Crack face **friction is neglected**.
+* Initial crack opening gap is assumed to be **zero or negligibly small**.
+* Crack opening and closure are assumed to be governed solely by structural deformation.
+
+### Numerical Modeling Assumptions
+
+* Global panel behavior can be accurately captured by **shell finite elements**.
+* Local crack-tip and crack-face behavior requires **solid finite elements**.
+* Shell and solid domains can be coupled using **RBE3 constraint elements** without introducing artificial stiffness.
+* Contact algorithms are stable and accurately capture crack closure under compression.
+* Dynamic explicit integration is sufficient to handle nonlinear contact without numerical instability.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Fracture and Damage Mechanics
+
+* Plastic deformation at the crack tip does **not** reduce fracture resistance.
+* Crack tip blunting affects only stiffness recovery, not crack extension.
+* No microvoid nucleation, coalescence, or ductile tearing occurs.
+* Crack closure does not induce fretting, wear, or local damage at the crack faces.
+
+### Residual Stress and Welding Effects
+
+* Welding residual stresses are implicitly assumed negligible or already relaxed.
+* No residual stress redistribution occurs during tensile–compressive cycling.
+
+### Contact Mechanics
+
+* Crack face contact is assumed **perfectly compressive**, with no shear transfer limitation.
+* Absence of friction implies no energy dissipation or shear locking during crack sliding.
+* Contact pressure distribution is assumed uniform enough to transfer axial load.
+
+### Scale Separation
+
+* The local solid region is assumed large enough to capture all relevant crack-tip plasticity.
+* The shell–solid interface is assumed not to distort stress or strain fields.
+* Mesh density is assumed sufficient to capture buckling, yielding, and contact transitions.
+
+### Loading Regime
+
+* Tensile and compressive loads are applied slowly enough that **rate effects** are negligible.
+* No dynamic amplification, inertia effects, or load reversals beyond the defined sequence occur.
+
+---
+
+## 3. Governing First Principles
+
+### Continuum Mechanics
+
+* **Equilibrium**: Internal stresses balance applied displacements.
+* **Compatibility**: Shell and solid domains deform compatibly through RBE coupling.
+* **Constitutive law**: Linear elasticity followed by perfectly plastic yielding.
+
+### Buckling Theory
+
+* Panel buckling governed by **geometric nonlinearity**.
+* Critical buckling load depends on:
+
+  * Plate thickness
+  * Aspect ratio
+  * Boundary conditions
+  * Initial imperfections
+* Post-buckling strength governed by membrane stress redistribution.
+
+### Plasticity
+
+* Yielding initiates when von Mises stress reaches σY.
+* Plastic zones form around crack tips under tension.
+* Plastic strain remains upon unloading, affecting subsequent compression response.
+
+### Contact Mechanics
+
+* Crack face interaction governed by **unilateral contact constraints**.
+* Crack closure restores load path continuity under compression.
+* Loss of contact reduces effective load-bearing ligament.
+
+### Fracture Kinematics
+
+* Crack opening displacement reflects:
+
+  * Local compliance
+  * Plastic zone size
+  * Geometric constraint
+* Crack closure depends on residual plastic strain and panel curvature.
+
+---
+
+## 4. Interdependencies Between First Principles
+
+* **Plasticity ↔ Crack Closure**
+  Plastic strain generated during tensile loading delays crack closure under compression.
+
+* **Crack Closure ↔ Buckling Strength**
+  Once crack faces attach, axial load transfer resumes, restoring stiffness and delaying collapse.
+
+* **Aspect Ratio ↔ Localization**
+  Larger aspect ratios concentrate deformation near the crack, increasing COD and reducing global strength.
+
+* **Thickness ↔ Buckling vs Yielding**
+  Thicker panels suppress elastic buckling, shifting collapse control to plastic deformation.
+
+* **Contact ↔ Post-Ultimate Behavior**
+  Sliding and loss of crack contact after ultimate strength accelerates load shedding.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption             | Violated Condition       | Physical Consequence                                |
+| ---------------------- | ------------------------ | --------------------------------------------------- |
+| Stationary crack       | Crack growth allowed     | Reduced stiffness and ultimate strength             |
+| Perfect plasticity     | Strain hardening present | Higher post-yield stiffness                         |
+| No crack face friction | Friction included        | Increased energy dissipation, altered collapse path |
+| Zero initial gap       | Finite gap exists        | Delayed or incomplete load transfer                 |
+| Uniform displacement   | Nonuniform load          | Localized instability                               |
+
+---
+
+## 6. Hidden Failure Modes
+
+* Crack tip damage accumulation under tensile pre-loading.
+* Progressive reduction of contact area due to sliding and out-of-plane deformation.
+* Collapse without crack closure in slender panels.
+* Local ligament failure driven by combined bending and plastic shear.
+* Premature loss of stiffness recovery due to excessive crack tip blunting.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Modeling Tradeoffs
+
+* Shell-solid coupling improves local accuracy but increases computational cost.
+* Perfect plasticity simplifies interpretation but sacrifices realism for cyclic damage.
+* Explicit dynamics improves contact stability but obscures quasi-static interpretation.
+
+### Design Constraints
+
+* Panel thickness constrained by weight and fabrication limits.
+* Aspect ratio constrained by ship structural layout.
+* Crack length assumed fixed despite real fatigue growth.
+
+### What Is Not Optimized
+
+* Fatigue life.
+* Crack arrest capability.
+* Residual strength after repeated load reversals.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Panel is a **sub-component of a larger hull structure**, not isolated in reality.
+* Surrounding stiffeners and plating continuity are approximated via MPCs.
+* Real ships experience **multiaxial, stochastic wave loading**, not idealized uniaxial displacement.
+* Environmental effects such as corrosion are ignored.
+
+---
+
+## 9. Temporal Evolution
+
+### Within the Model
+
+* Tensile loading produces irreversible plastic strain.
+* Crack opens progressively and COD increases.
+* Upon compression, crack closure is delayed by residual strain.
+* Beyond ultimate strength, contact area reduces and collapse progresses.
+
+### Outside the Model
+
+* Cyclic loading would cause:
+
+  * Crack growth
+  * Progressive stiffness degradation
+  * Reduced closure effectiveness
+  * Eventual fracture instability
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Implied Safety Margins
+
+* Structural redundancy through crack closure under compression.
+* Thickness-dependent suppression of elastic buckling.
+
+### Margin Limitations
+
+* No margin against crack growth.
+* No allowance for damage accumulation.
+* Collapse strength sensitive to displacement history.
+
+### Single-Point Failures
+
+* Loss of crack face contact.
+* Excessive tensile pre-strain.
+* High aspect ratio inducing localization.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Stationary crack.
+* Monotonic loading segments.
+* Perfectly plastic steel.
+* Idealized boundary conditions.
+
+### Likely Operative Regime
+
+* Crack propagation.
+* Fully reversed cyclic loading.
+* Strain hardening and damage evolution.
+* Residual stresses and corrosion.
+
+### Robustness Assessment
+
+* The modeled system is **conditionally robust** only within a narrow loading envelope.
+* Stiffness recovery via crack closure is fragile and history-dependent.
+* Ultimate strength predictions are optimistic for real ship structures.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Structural and Geometric Assumptions
+
+* The structure is a **thin rectangular steel panel** representative of ship hull plating.
+* Panel thickness is **0.8 mm**, categorizing it as a **thin plate** where buckling precedes gross yielding.
+* A **transverse through crack** exists at mid-span, perpendicular to the loading direction.
+* Three crack states are considered: **intact**, **2a = 50 mm**, and **2a = 75 mm**.
+* Crack width is approximately **0.25 mm**, produced by wire EDM.
+
+### Loading Assumptions
+
+* Loading is **displacement-controlled**, not force-controlled.
+* A **sequential loading history** is applied:
+
+  1. Monotonic tensile displacement
+  2. Immediate transition to monotonic compressive displacement
+* No full cyclic or reversed cyclic loading is applied.
+* Out-of-plane deformation is initially suppressed by clamping.
+
+### Boundary Condition Assumptions
+
+* All edges of the specimen are **effectively clamped** by jigs.
+* In-plane sliding at specimen ends is assumed smooth due to grease.
+* Out-of-plane displacement is restrained at the boundaries.
+
+### Material Assumptions
+
+* Material is **SPCC steel** with:
+
+  * Young’s modulus ≈ 216 GPa
+  * Poisson’s ratio ≈ 0.34
+  * Yield stress ≈ 270 MPa
+* Material behavior is approximated using a **bilinear isotropic hardening model**.
+* Material properties are homogeneous and isotropic.
+
+### Experimental Measurement Assumptions
+
+* Load–displacement curves accurately represent global structural response.
+* Crack Opening Displacement (COD) measured between surface markers represents crack behavior.
+* Local deformation measured optically is representative despite out-of-plane buckling.
+
+### Numerical Modeling Assumptions
+
+* **Shell finite elements** are sufficient to capture global buckling and collapse.
+* Crack is modeled via **duplicated nodes** with a fixed gap.
+* **Crack face contact is neglected** in FE modeling.
+* Holes, bolts, friction, and sliding at jigs are neglected in the FE model.
+* Static implicit FE analysis adequately captures nonlinear behavior.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Fracture and Damage Evolution
+
+* Crack is **stationary** and does not propagate under tensile or compressive loading.
+* Crack tip plasticity does **not** lead to micro-void growth, tearing, or crack extension.
+* Crack closure does not introduce local damage, wear, or fretting.
+
+### Buckling Mechanics
+
+* Initial imperfections are sufficiently represented by a single half-wave mode with 10% thickness amplitude.
+* Interaction between **local buckling near crack** and **global panel buckling** is assumed linearizable.
+
+### Contact and Constraint Idealization
+
+* Jig–specimen contact does not significantly alter stress redistribution except near ultimate strength.
+* Sliding between bolts and holes is treated as a secondary effect, not a primary load path modifier.
+* Serrations ensure sufficient clamping to prevent premature slip during tension.
+
+### Scale Separation
+
+* COD measured at discrete surface points accurately reflects mid-plane crack kinematics.
+* Shell elements can represent crack-induced stiffness degradation without explicit crack face contact.
+
+### Experimental Repeatability
+
+* Variations between specimens are attributed to boundary effects, not material scatter or geometric imperfections.
+* Plastic deformation history is assumed repeatable across specimens with identical crack lengths.
+
+---
+
+## 3. Governing First Principles
+
+### Continuum Mechanics
+
+* **Equilibrium**: Internal stresses balance applied displacement-controlled loads.
+* **Compatibility**: Deformation continuity holds except across crack faces.
+* **Constitutive law**: Elastic–plastic behavior with isotropic hardening.
+
+### Plate and Shell Buckling
+
+* Buckling governed by **geometric nonlinearity**.
+* Critical buckling load depends on:
+
+  * Plate thickness
+  * Aspect ratio
+  * Boundary fixity
+  * Initial imperfections
+* Post-buckling strength governed by membrane stress redistribution.
+
+### Plasticity
+
+* Yielding initiates when von Mises stress reaches σᵧ.
+* Plastic strain localizes near crack tips under tension.
+* Residual plastic strain persists into compressive loading phase.
+
+### Fracture Kinematics
+
+* Crack Opening Displacement (COD) reflects:
+
+  * Local compliance
+  * Plastic zone size
+  * Crack length
+* Crack closure during compression alters effective load-bearing ligament.
+
+---
+
+## 4. Interdependencies Between First Principles
+
+* **Crack Length ↔ Plastic Localization**
+  Longer cracks reduce net section and intensify strain localization under tension.
+
+* **Plasticity ↔ Buckling**
+  Tensile plastic deformation reduces compressive buckling stiffness.
+
+* **Buckling ↔ Crack Closure**
+  Out-of-plane deformation modifies crack face alignment, delaying or preventing closure.
+
+* **Boundary Conditions ↔ Ultimate Strength**
+  Sliding and bolt contact alter post-buckling load paths near collapse.
+
+* **COD ↔ Ultimate Strength**
+  Larger COD correlates with reduced tensile capacity but weakly affects compressive ultimate strength.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption            | If Violated                        | Consequence                                    |
+| --------------------- | ---------------------------------- | ---------------------------------------------- |
+| Stationary crack      | Crack growth allowed               | Progressive stiffness and strength loss        |
+| No crack face contact | Contact occurs                     | Higher compressive stiffness, altered collapse |
+| Perfect clamping      | Slip dominates                     | Reduced apparent ultimate strength             |
+| Thin shell validity   | Through-thickness effects dominate | Shell FE underpredicts local damage            |
+| Bilinear hardening    | Cyclic softening                   | Lower residual strength                        |
+
+---
+
+## 6. Hidden Failure Modes
+
+* Crack tip damage accumulation during tensile phase.
+* Premature ligament collapse due to combined bending and plastic shear.
+* Loss of compressive stiffness due to crack-induced local buckling.
+* Sliding-induced load redistribution masking true structural collapse.
+* COD measurement distortion due to out-of-plane deformation.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Experimental Tradeoffs
+
+* Thin panels chosen for observability at expense of real ship thickness scaling.
+* Serrated jigs improve clamping but introduce stress concentrations and sliding artifacts.
+
+### Modeling Tradeoffs
+
+* Neglecting crack face contact simplifies computation but underestimates compressive stiffness recovery.
+* Shell-only modeling sacrifices local crack realism for global efficiency.
+
+### Design Tradeoffs
+
+* Crack tolerance evaluated only in monotonic segments, not under true fatigue cycling.
+* Ultimate strength emphasized over damage evolution.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Panels represent **sub-components of ship hulls**, not isolated structures.
+* Real ships experience:
+
+  * Multiaxial loading
+  * Residual welding stresses
+  * Corrosion-fatigue interaction
+* Experimental BCs approximate but do not replicate hull continuity.
+
+---
+
+## 9. Temporal Evolution
+
+### Within the Study
+
+* Tensile loading → crack opening + plastic localization.
+* Transition → residual plastic strain retained.
+* Compression → buckling, partial stiffness recovery.
+* Post-ultimate → deformation localization and load shedding.
+
+### In Real Service
+
+* Repeated tensile–compressive cycling.
+* Progressive crack growth.
+* Degradation of crack closure effectiveness.
+* Eventual fracture instability.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Observed Margins
+
+* **Tensile capacity** decreases significantly with crack length.
+* **Compressive ultimate strength** weakly sensitive to crack length.
+* Structural redundancy exists through post-buckling membrane action.
+
+### Margin Limitations
+
+* No margin against crack propagation.
+* Collapse strength highly sensitive to boundary condition fidelity.
+* COD increases rapidly with crack size.
+
+### Single-Point Vulnerabilities
+
+* Loss of boundary constraint integrity.
+* Excessive tensile pre-strain.
+* Crack length approaching half panel width.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime Studied
+
+* Thin panel
+* Stationary crack
+* Sequential monotonic loading
+* Controlled boundary conditions
+
+### Likely Operative Regime
+
+* Thickened plates with stiffeners
+* Growing fatigue cracks
+* Fully reversed cyclic loading
+* Residual stresses and corrosion
+
+### Robustness Assessment
+
+* System is **conditionally robust** for short cracks under limited loading history.
+* Crack-induced degradation of tensile capacity is dominant.
+* Compressive collapse resistance is deceptively stable but not damage-tolerant.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Material and Microstructural Assumptions
+
+* The primary materials of interest are **AISI 304 (austenitic)** and **AISI 430 (ferritic)** stainless steels.
+* Cold working is imposed by **cold rolling** or **uniaxial tensile deformation** at room temperature.
+* Cold working induces:
+
+  * Increased **dislocation density**
+  * Possible **strain-induced martensitic transformation** in austenitic grades
+* Martensite fraction, hardness, and yield stress increase monotonically with cold reduction.
+
+### Corrosion and Electrochemical Assumptions
+
+* Pitting corrosion proceeds through **three separable stages**:
+
+  1. Initiation (metastable pits)
+  2. Propagation
+  3. Repassivation
+* Electrochemical tests are assumed capable of **decoupling these stages**.
+* Pitting potential Vpit is treated as a reproducible electrochemical metric.
+* Chloride concentration, temperature, and pH are fixed and controlled.
+* Passive films form reproducibly after 24 h air exposure.
+
+### Experimental and Measurement Assumptions
+
+* Metastable current transients correspond one-to-one with individual pit nucleation events.
+* A fixed current threshold corresponds to the transition from metastable to stable pit.
+* The area of pit mouths measured optically represents the electrochemically active pit area.
+* TEM observations are assumed representative of bulk dislocation structures.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Metallurgical Assumptions
+
+* Dislocation structures produced by cold working are:
+
+  * Spatially homogeneous at the scale of electrochemical sampling
+  * Stable during electrochemical testing
+* Inclusion chemistry and morphology are assumed unchanged by cold working.
+* Residual stresses introduced by deformation are not independently varied or measured.
+
+### Electrochemical Assumptions
+
+* Local electrochemical heterogeneities are inferred indirectly from current transients.
+* Pit chemistry is assumed to be governed primarily by **local acidity and chloride activity**, not by evolving alloy chemistry.
+* Passive film composition measured by XPS is assumed representative of in-situ conditions during corrosion.
+
+### Geometric and Scale Assumptions
+
+* Mesoscopic and macroscopic pitting behaviors can be distinguished by dissolved charge magnitude.
+* Pit geometry does not significantly alter electrochemical kinetics beyond scale effects.
+* Surface roughness effects induced by cold working are implicitly neglected.
+
+### Temporal Assumptions
+
+* Short-term electrochemical behavior is assumed indicative of long-term corrosion susceptibility.
+* Damage accumulation during testing does not significantly alter subsequent pit statistics.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Electrochemical Thermodynamics
+
+**Principle**
+Corrosion reactions proceed when the electrochemical potential exceeds the stability domain of the passive film.
+
+**Application**
+
+* Vpit corresponds to the condition where metal dissolution inside a pit exceeds repassivation kinetics.
+* Cold working modifies local chemical potential via lattice strain energy.
+
+**Limits**
+
+* Vpit is not a fundamental breakdown potential but an operational threshold.
+* Local chemistry inside pits can violate bulk thermodynamic assumptions.
+
+---
+
+### 3.2 Electrochemical Kinetics
+
+**Principle**
+Anodic dissolution rate depends on activation energy, local overpotential, and defect density.
+
+**Application**
+
+* Dislocations act as high-energy sites with reduced activation barriers for dissolution.
+* Increased dislocation density raises anodic current density.
+
+**Emergent Effect**
+
+* Propagation rates scale monotonically with cold work at macroscopic scale.
+
+---
+
+### 3.3 Defect Thermodynamics
+
+**Principle**
+Crystal defects store elastic strain energy and modify local chemical potential.
+
+**Application**
+
+* Dislocation pile-ups create localized energy maxima.
+* These sites enhance metal dissolution and destabilize passive films.
+
+**Regime**
+
+* Dominant at mesoscopic scales where defect clustering exists.
+
+---
+
+### 3.4 Transport and Charge Balance
+
+**Principle**
+Pit growth requires maintenance of charge neutrality and mass transport.
+
+**Application**
+
+* Faster dissolution at higher defect densities accelerates acidification.
+* Increased capacitance reflects higher surface charge density due to lattice distortion.
+
+---
+
+### 3.5 Passive Film Stability
+
+**Principle**
+Passive films fail when local dissolution exceeds repair kinetics.
+
+**Application**
+
+* Cold working degrades repassivation by increasing defect-assisted dissolution.
+* Depassivation pH increases with deformation.
+
+**Boundary**
+
+* Film chemistry alone cannot explain behavior without substrate defect effects.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Dislocation density ↔ Electrochemical kinetics**
+  Higher defect density lowers dissolution activation energy.
+
+* **Dislocation arrangement ↔ Pit initiation**
+  Planar pile-ups amplify local electrochemical heterogeneity more than uniform defect density.
+
+* **Propagation rate ↔ Repassivation**
+  Faster dissolution accelerates local acidification, suppressing repassivation.
+
+* **Capacitance ↔ Defect structure**
+  Increased lattice distortion modifies double-layer structure and interfacial charge.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption                         | If Violated                        | Consequence                       |
+| ---------------------------------- | ---------------------------------- | --------------------------------- |
+| Uniform defect distribution        | Localized defect clusters dominate | Large scatter in pit statistics   |
+| Passive film chemistry dominant    | Substrate defects dominant         | Vpit misinterpreted               |
+| Martensite fraction primary factor | Dislocations dominate              | Incorrect alloy design strategies |
+| Transients represent pits          | Noise or micro-galvanic events     | Overcounting initiation           |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Implicitly Prevented by Assumptions
+
+* Transition from metastable to stable pits at stresses below Vpit.
+* Synergistic effects of residual stress and chloride concentration.
+* Preferential dissolution along deformation bands.
+* Subsurface pit coalescence not visible optically.
+
+### If Assumptions Fail
+
+* Cold-worked components may pit aggressively despite acceptable Vpit.
+* Localized corrosion may initiate at lower potentials than design criteria predict.
+* Service environments with fluctuating stress may accelerate damage.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Material Selection Tradeoffs
+
+* Cold work increases strength but reduces localized corrosion resistance.
+* Austenitic grades trade mechanical hardening for electrochemical instability.
+
+### Design Constraints
+
+* Industrial cold reductions are driven by forming requirements, not corrosion optimization.
+* Residual stresses are tolerated for strength gains.
+
+### What Is Not Optimized
+
+* Passive film repair kinetics.
+* Long-term pit stabilization resistance.
+* Corrosion-fatigue interaction.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Electrochemical testing assumes static mechanical state post-deformation.
+* No coupling with applied stress during corrosion.
+* No thermal cycling or environmental variability.
+* Results apply primarily to chloride-containing aqueous environments.
+
+---
+
+## 9. Temporal Evolution
+
+### Modeled
+
+* Short-term initiation and propagation events.
+* Immediate repassivation behavior.
+
+### Not Modeled
+
+* Long-term pit growth to failure.
+* Evolution of dislocation structures during corrosion.
+* Stress corrosion cracking initiation from pits.
+
+Time is treated as **event-based**, not lifecycle-based.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Observed Margins
+
+* Vpit shifts limited to tens of millivolts.
+* Initiation frequency varies by factors of 4–5.
+
+### Hidden Risk
+
+* Small changes in cold work can cause large increases in pit density.
+* Design relying on Vpit alone is non-conservative.
+
+### Single-Point Vulnerabilities
+
+* Maximum dislocation pile-up condition near intermediate cold reductions.
+* Passive film instability under mild acidification.
+
+---
+
+## 11. Operative vs Design Regime
+
+### Design Regime
+
+* Annealed or lightly cold-worked condition.
+* Uniform passive film assumed.
+* Corrosion resistance inferred from Vpit.
+
+### Actual Operative Regime
+
+* Cold-worked material with heterogeneous defect structures.
+* Localized electrochemical heterogeneity.
+* Damage dominated by initiation frequency and propagation kinetics.
+
+### Robustness Assessment
+
+* The system is **highly sensitive** to microstructural state.
+* Linear extrapolation from annealed behavior is invalid.
