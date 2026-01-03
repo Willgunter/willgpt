@@ -1,0 +1,137 @@
+1. Introduction
+Despite the fact that pipelines offer a safe, economical way to transport natural gas and dangerous liquids, pipeline leaks and ruptures can result in disastrous consequences. Pipelines can be susceptible to different metallurgical failure mechanisms including but not limited to manufacturing defects, third party damage, and corrosion. Understanding these failure mechanisms is critical to mitigating risk of future incidents and managing the future integrity of the pipeline. The world is experiencing a significant change in the pipeline business [1], [2], [3], debating the need to continue to transport our oil and gas through ageing pipelines while facing, at the same time, to a much stringent regulatory standard. Pipelines have, and will, fail, for one reason or the other. Recent failures in the USA [4], high pressure natural gas transmission pipeline in northern part of Pakistan [5], a T-shape natural gas pipeline network near gas extraction plant in northern Mexico [6], similar pipe in Kuwait [7] and the API 5L X46 pipe in Brazil [8] are the few examples of such cases. Extensive pipeline failure data from USA is shown and reported in Fig. 1. Excavation damage being termed as the highest cause of pipeline failures contributed 24% to overall failures. More of such cases are reported and discussed critically elsewhere [10], [11], [12], [13].
+
+Download: Download high-res image (202KB)
+Download: Download full-size image
+Fig. 1. Pipeline failure data from USA (1987–2006) [9].
+
+In this paper, RCA of the fractured 2″ scheduled 80 CS pipe of a typical oil & gas industry is performed. Through the visual and microscopic investigation, it can be estimated that excessive material loss has occurred in both failure and its adjacent regions, resulting in the formation of a through thickness flaw. To identify the root causes of the CS pipe fracture, the material and mechanical properties of the fractured pipe were first investigated. Hypotheses for the causes of the fracture are presented. Finally, based on this RCA, methods to prevent future fracture of the same pipe are suggested.
+2. Background of the incident
+The location of the ASTM A53 carbon steel gas pipe (O.D 2.375″ and I.D. 0.95″) leak was evident after the personnel from an oil & gas utility company in the north-east part of Pakistan observed that excessive leakage of raw gas took place from the ruptured site. The fractured piping was resting on a CS C-channel support that includes two L-shaped CS side supports and welded with the beam to form the major foundation for the main pipeline. Fig. 2 gives schematic details of the location of pipeline and its supports. Prompt action was taken and the leakage was immediately isolated through valve. A team was later sent to excavate the site at the incident area. This was carried out in order to locate the exact source of the leakage, to rectify and repair the damaged pipe and to make a proper record of the failure or damage for further investigation. This paper presents findings, probable cause of failure and conclusions concerning the failure of the pipe.
+
+Download: Download high-res image (151KB)
+Download: Download full-size image
+Fig. 2. Schematic details.
+
+3. Methodology
+Four fundamental aspects of RCA were taken into consideration while performing this inspection. First is the background information, which caters in the form of design and construction data that provide basic formation for understanding the sequence of events and operational conditions that might have led to the failures of the pipes. This study was later followed by physical inspection of specimen, recorded photos and subsequent observation of the actual failed pipe section. This has been conducted in order to locate the actual position and orientation of pipe and to reconstruct the event that leads to the failure. Next, the metallurgical analysis of pipe was performed on the pipe section and its surrounding failure area, followed by standard non-destructive testing (NDT) inspection techniques, including visual, penetrant testing, thickness measurement using ultrasonic technique and hardness measurement at the selected locations of the fractured pipe.
+4. Findings and discussion
+4.1. Review of the background information
+Upon the discovery of the incident location area, it was evident that the fractured piping was resting on a CS C-channel support that includes two L-shaped CS side supports and welded with the beam to form the major foundation for the main pipeline. The pipe was carrying raw gas at about 2500 PSI pressure, prior to shutdown. The fractured gas pipe was made of carbon steel manufactured with specification of API 5L. The surface texture of main failure region exhibits a blend of shiny and uneven profile. Excessive grinding was also observed at the C-channel support that was probably carried out to accommodate the pre-installed piping spool, in order to avoid the alteration in pipe position and to rest properly on support; this, however, leads to a severe pipe thickness loss adjacent to one of the L-shaped welded CS side support.
+There were four possible reasons initially given as the possible root causes of the failures, which are:
+i.
+Manufacturing defect.
+ii.
+Third party damage.
+iii.
+Pipeline material defect.
+iv.
+Leaking gas pipe impact.
+As per company records, standard manufacturing procedures that require proper coating, sound cathodic protection system and other pipeline integrity measures have been appropriately complied during manufacturing, construction and pipe laying process. This diminished the possibility of the manufacturing defects.
+On the possibility of third party works or acts, initial discussion with the oil & gas utility company personnel and available operational records dismissed that this had taken place. Furthermore, visual inspection did not find any indication or evidence to support this fact. To answer the third possibility, the metallurgical analysis was subsequently performed and will be discussed in detail in the following section.
+Visual inspections were carried out using photos and on the physical pipe specimen provided (Fig. 3). This pipe section was resting on the lower C-support. Failure areas marked on the failed specimen were cracked opening, abrasion marks, near-to-flat area and visible slopes on both ends.
+
+Download: Download high-res image (212KB)
+Download: Download full-size image
+Fig. 3. Portion of the pipe showing the failure area.
+
+Fig. 4 shows actual location of the pipe portion that is resting on the C-support. The semi-circular shaped surface on this support is visible and indicates a material loss for both the pipe and the C-support.
+
+Download: Download high-res image (300KB)
+Download: Download full-size image
+Fig. 4. Actual pipe portion resting on C-support.
+
+In addition, minor corrosion and excessive scrapping marks on the sides of the pipe can also be seen. This situation further deteriorates the condition of the resting pipe.
+4.2. Analysis of pipe's failed section
+Visual assessment of the position of the damaged part led us to conclude that the pipe damage was directly caused by the impact of the high pressure raw gas jet that gushed through. Therefore, further metallurgical/physical analysis of the pipe failure was conducted to analyze the steel pipe failure. The following testings were carried out to accomplish the task:
+i.
+Visual testing
+ii.
+Penetrant testing (PT)
+iii.
+Penetrant testing (PT)/magnetic particle testing (MPT)
+iv.
+Microstructural analysis
+4.2.1. Visual testing
+The carbon steel gas pipe was inspected externally and internally and photo-documented. Dimensional mapping was conducted and shown in Fig. 5a. The major failure area consists of approximately 45–50 mm in length of reduced section of pipe along with tapered edges on both sides of the cut. The depth of the reduced thickness portion varies from 3.1 mm to 4.3 mm on various locations, whereby, occurrence of the maximum thickness loss has led to the gas leakage from the opening. Moreover, it is also clear from Fig. 5a that the abrasion marks facing lower C-support and side support are not inline. Fig. 5b shows the presence of metal flakes around the boundary of the failure area. The direction of these flakes is towards outside with reference to the opening.
+
+Download: Download high-res image (548KB)
+Download: Download full-size image
+Fig. 5. (a) Approximate dimensions of the failure area resting on lower support and side abrasion region (Note: the smooth surface marks on right side are due to post failure lab work) and (b) metal flakes on boundary of the failure area.
+
+4.2.2. Penetrant testing (PT)/magnetic particle testing (MPT)
+Fluorescent penetrant inspection (FPI) and magnetic particle testing (MPT) were performed on the fractured area of the pipe section. Fig. 6 shows the damaged pipe section under UV light during MPT. This proved that cracks have only initiated from the failed portion area due to the thickness loss and there are no further inherent defects.
+
+Download: Download high-res image (287KB)
+Download: Download full-size image
+Fig. 6. Fractured pipe area through UV light after magnetic particle testing (MT).
+
+4.2.3. Ultrasonic thickness measurement (UTM)
+Ultrasonic thickness measurement (UTM) was performed for the fractured pipe section. The UTM results have shown marked variation in the thickness values at the vicinity of the fractured area. The thickness values vary from 1.48 mm to 2.91 mm. Marking plan and thickness variation are shown in Fig. 7 and Table 1 accordingly.
+
+Download: Download high-res image (319KB)
+Download: Download full-size image
+Fig. 7. Marking plan for UTM.
+
+Table 1. Ultrasonic thickness measurement (mm) for fractured pipe section.
+
+Empty Cell	A	B	C	D	E
+1	2.86	1.67	1.88	1.65	2.07
+2	–	–	–	1.87	2.88
+3	2.91	1.69	1.48	1.87	2.38
+4.2.4. Hardness testing
+Hardness is affected by the levels of heat input and preheat used during welding. Table 2 shows hardness values (HRB) at selected locations of the failure region of the pipe. Apparently the unaffected portion has the highest hardness, 90 HRB, while it reduced to the minimum value of 64 HRB at failure location. Scatter of the measured hardness data is primarily attributed to the roughness of the eroded surface.
+Table 2. Hardness numbers (HRB) at different locations of the failure region (cf. Fig. 7).
+
+Empty Cell	A	B	C	D	E
+1	76	64	74	82	78
+2	76	–	–	60	90
+3	70	81	71	90	90
+4.2.5. Microstructural analysis
+Microstructural examination of the gas pipe was undertaken to determine possibility of microstructural deficiencies of the pipe at the failure region. If the results reveal consistency of microstructural arrangement at the failure region compared with another section away from the failure (base metal), then it can be concluded that erosion is the main cause of the pipe failure.
+This task was carried out by examining the fractured area with stereo microscope. Fig. 8a and b shows that cracks nucleated from the edges of the opening due to post wall thinning nominal vibrations. Additionally, it can be seen that the surface texture of the failure area is a blend of shiny and uneven profile (Fig. 8c). Prepared specimen was also then examined with 200× magnification using Nikon optical metallographic microscope.
+
+Download: Download high-res image (775KB)
+Download: Download full-size image
+Fig. 8. Fracture surface analysis by stereo microscope.
+
+Examination of the microstructure at the failure region and the base metal location clearly indicate close similarity between both specimens that consist the typical ferrite and pearlite structure observed in carbon steels. There is also no evidence of micro fractures (Fig. 9a and b). These findings fully support the hypothesis that the pipe failed due to the increased turbulence caused by abrasive grindings and its adjacent regions and erosion-corrosion phenomenon was aggravated due to faulty workmanship erosion instead of corrosion.
+
+Download: Download high-res image (485KB)
+Download: Download full-size image
+Fig. 9. Optical micrograph of (a) fractured area and (b) base metal at 200×.
+
+5. Discussion
+The CS pipe material cracked from the internal surface which was in contact with raw gas. The crack propagated primarily circumferentially and transversed through the pipe wall thickness, allowed strong jetting effect and resulted in leakage. Concluding discussion is as follows:
+i.
+In addition to pipe contact with the C-support, Fig. 10, Fig. 11 show that the pipe was also in contact with inner L-support. This leads to a hypothesis that there may be significant amount of axial movement during the service. However, this theory was nullified by our earlier observed scrapping marks (Fig. 5a) on the pipe which indicates that the abrasion marks on lower and side facings on the pipe are not inline. This shows that any linear movement along the length of the piping during the service could not be the cause of failure. The reason is both motions should have been taken simultaneously.
+
+Download: Download high-res image (253KB)
+Download: Download full-size image
+Fig. 10. Actual location of the L-supports on C-support.
+
+
+Download: Download high-res image (209KB)
+Download: Download full-size image
+Fig. 11. Inner and outer L-supports.
+
+ii.
+Based on the inspection results, it was observed that the failed surface does not indicate any metallurgical failure, and hence could be a foremost basis of failure. The surface texture on the main failure area shows grinding marks (Fig. 11). This leads to a conclusion that the main failure area on the piping could be due to manual grinding.
+iii.
+C-channel support was excessively grinded for proper placement of piping, resulting in severe thickness loss of pipe from the grinded surface. Moreover, two side supports were also welded on C-channel support to avoid its to and fro movement.
+Shining and uneven profile of failure area can be seen in Fig. 12. It is also observed that pipe surface adjacent to the failure region was also excessively grinded, as shown in Fig. 13.
+
+Download: Download high-res image (346KB)
+Download: Download full-size image
+Fig. 12. Shining and uneven profile of failure area.
+
+
+Download: Download high-res image (406KB)
+Download: Download full-size image
+Fig. 13. Grinding marks on side surface of pipe.
+
+iv.
+The geometry and location of the excessive grinding at the failure and its adjacent regions of the pipe, base area of the C-channel and L-shaped side supports, clearly indicate that these grindings might have been performed to accommodate the pre-installed piping spool to avoid the alteration in pipe position to sit properly on support.
+6. Conclusion and recommendations
+In reference to the existing evidence deduced from the tests and substantial existing data the study revealed that the root cause of the pipe failures is attributed to the initial leak of the raw gas pipe. From the basic pipe material properties and behaviour, it is suspected that the failure was initiated by a crack, most probably longitudinal in nature. The crack or horizontal slit allowed high pressure gas to jet through, with the jet momentum getting stronger as the effective diameter of the slit increased. Over time the crack enlarges and breaks off into large chunk, resulting in the gaping hole as evident in the phot record. In view of crack initiation and propagation, it is concluded that the root cause for the failure of the pipe section is due to excessive thinning as a result of thickness reduction by intentional grinding. Further damage to the surface of already excessively reduced thickness occurred due to nominal pipe vibration during service.
+Based on the above, it is recommended that during installation/fabrication of piping system, proper procedures may be implemented, followed by visual inspection through qualified inspector(s) including pre-service and in-service inspection.

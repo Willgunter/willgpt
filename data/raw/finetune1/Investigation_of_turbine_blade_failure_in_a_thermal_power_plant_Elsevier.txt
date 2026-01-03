@@ -1,0 +1,104 @@
+1. Introduction
+Steam turbine blades are critical components in power plants, which convert the linear motion of high temperature and high pressure steam flowing down a pressure gradient into a rotary motion of the turbine shaft. The low pressure turbine blades, designed to extract the final remnant of energy from the passing steam flow, are relatively large scale rotating airfoils due to the significant centrifugal forces experienced during normal operation. Statistics show that low pressure (LP) turbine blades are generally more susceptible to failure than those of the high pressure (HP) and intermediate pressure (HP). Furthermore, almost 50% of the failures are related to fatigue, stress corrosion cracking, and corrosion fatigue [1], [2], [3].
+Among the various blade materials, the most popular is 12% chromium martensitic steel which has an excellent combination of strength, toughness, and corrosion resistance as well as high inherent damping characteristics [4], [5]. The combination of high temperatures with an environment that contains contaminants such as sodium, sulfur, vanadium, and other halides requires special attention to the phenomenon of hot corrosion. This form of corrosion, unlike oxidation, can consume the material at an unpredictably rapid rate [6], [7], [8].
+The present work reports an investigation of a failure in a blade in the LP stage of a thermal power plant of 310 MW. After opening the turbine casing, one blade in the LP region was found fractured. The main damage occurred in the blade row 36 which is the L-3 row of the flow in the turbine side. The key objective of this paper was to identify the root of the failure.
+2. Experimental procedure
+The objects to investigate into were a virgin blade and a fractured blade (67.000 h service exposed) obtained from the plant. Chemical analysis of the blade material was carried out by a standard wet method. A portion of the failed blade fractured surface was cut for metallography. The metallographic samples were prepared by using standard metallographic techniques and etched with reagent Vilella during 10 s at room temperature. The microstructure of the blade material was analyzed using an optical microscope and a JEOL JSM–35CF scanning electron microscope (SEM) equipped with an energy dispersive X-ray (EDX) analysis facility. Hardness values were measured using a Brinell Hardness Testing Machine with bearing of 2.5 mm in diameter under a load of 1840 N.
+3. Results and discussion
+Fig. 1 shows a detached portion of the blade after having impacted on the various components in its path, whereas Fig. 2 shows the part remaining in the rotor.
+
+Download: Download full-size image
+Fig. 1. Detached part of the blade and found within the turbine.
+
+
+Download: Download full-size image
+Fig. 2. Fracture surface of the blade was left in the rotor. It shows three distinct zones.
+
+In Fig. 2, the fractured surface presents 3 distinct zones: A, B, and C. A visual inspection of A allowed us to observe clearly the blade leakage, which initiated the crack leading to the fracture. At first, this blade leakage spread slowly (zone A), then it increased its speed (zone B) finally producing an accelerated detachment (zone C).
+3.1. Analysis of zone A
+A visual inspection of zone A allowed us to observe the presence of foreign white compounds. These were on a background of similar nature to the one present in the outer surface of the undamaged part of the blade. Observations and determinations of the chemical composition were made in a qualitative way on the three areas by using a scanning electron microscope equipped with an EDX microprobe. Fig. 3 shows the microstructure of the fractured surface displaying typical product separation irregularities of the material.
+
+Download: Download full-size image
+Fig. 3. Microstructure (low magnification) presented by the area A in the fracture surface.
+
+In Fig. 4, we can observe the presence of foreign particles on the fractured surface.
+
+Download: Download full-size image
+Fig. 4. Microstructure in zone A, which highlights the presence of foreign compounds.
+
+Chemical composition determinations were performed in a semi-quantitative way to characterize the effect of the foreign compounds observed. Elements such as O, Na (Fig. 5), and NaCl type compounds (Fig. 6) were observed.
+
+Download: Download full-size image
+Fig. 5. Energy dispersive spectrometry X-ray of foreign particles observed in region A.
+
+
+Download: Download full-size image
+Fig. 6. Energy dispersive spectrometry X-ray of other particles.
+
+3.2. Analysis of zone B
+This portion showed a ductile fractured surface (Fig. 7, Fig. 8) with no particles of similar nature to those observed in zone A. Furthermore, the EDX spectra obtained in this section showed peaks characteristic of compounds (C, Cr) and Fe. Zone C was the last area to break and was not analyzed due to lack of interest.
+
+Download: Download full-size image
+Fig. 7. Fracture surface characteristic of the area B (low magnification).
+
+
+Download: Download full-size image
+Fig. 8. Fracture surface characteristic of the area B (high magnification) with the typical holes (dimples).
+
+Chloride concentration of >20 μg/cm2 was observed on some parts of the blade, attachment 4 [9]. The pits observed on the fractured surface contained chloride, which facilitates the initiation and propagation of crevice attack. The steam produced during the cooling comes in through the condenser tube and is the possible source of Cl. Possible carriers of the chloride were Ca and K [10], [11].
+3.3. Chemical composition
+Having into account the above chemical composition, it was found that the material used in the manufacture of this component was an X20Cr13 type steel (DIN 1.4021) (Table 1).
+Table 1. Nominal chemical composition (wt%) of the rotor blade.
+
+C	Si	Mn	P	S	Cr	Ni	Mo
+0.21	0.23	0.55	0.028	0.011	13.60	0.14	0.004
+Al	Cu	Co	Ti	Nb	V	W	Pb	Fe
+0.02	0.06	0.01	<0.001	0.04	0.02	0.01	<0.003	Bal.
+3.4. Hardness
+Hardness was determined on three selected surfaces, corresponding to three different parts of the blades. The first determination of hardness is held in the detached portion of the blade on a transverse surface located approximately at 15 mm of the fractured surface. Fig. 8 indicates the location where the determination was made and its respective values. In addition, a thick line can be seen on the polished surface as a result of the longitudinal crack found in the detached portion.
+The following hardness testing was performed on the same vane, but in the portion that remained in the rotor. The same test was conducted on a side face of the root, where hardness determination is usually done to control the heat treatment. The results obtained were: 404, 426, 404, and 404. Similarly, the hardness was determined on an adjacent blade in good condition on the root region. The results were: 460, 477 and 451.
+3.5. Microstructure
+To characterize the effect of the microstructure, the cut surface of the detached blade was polished and subsequently attacked, i.e. hardness was determined in six different points on the surface (see Fig. 9). Fig. 10 shows the microstructure observed.
+
+Download: Download full-size image
+Fig. 9. Photograph of the cross sectional area corresponding to the transversal blade portion detached showing the location of hardness determination places.
+
+
+Download: Download full-size image
+Fig. 10. Microstructure characteristic of the transversal surface of the blade showing a martensitic phase in the annealed condition.
+
+As it can be seen, the micro-structure has a martensitic phase in the annealed condition.
+Fig. 11 shows the fractured portion remaining in the rotor. The sample containing the fractured surface was prepared to deepen our knowledge about the possible causes of failure.
+
+Download: Download full-size image
+Fig. 11. Portion of the blade showing the far surface region where the crack would have initially propagated (indicated by an arrow).
+
+In Fig. 12, we can observe the surface's micro-structural aspect where the crack initially spread (Fig. 13).
+
+Download: Download full-size image
+Fig. 12. Microstructure of the surface of the blade leakage fractured and detached. The figure shows the typical intergranular attack on stress corrosion cracking the pits.
+
+
+Download: Download full-size image
+Fig. 13. Microcrack typically observed in the leading edge of the blade fractured (without attacking).
+
+To have representative values of the oxidation levels, a cut off of the previous sample was done and included in a polymer for determination purposes. Fig. 14 shows the portion of material included, which is marked with the letters A (fracture surface), B, and C (external surface of the blade).
+
+Download: Download full-size image
+Fig. 14. Sample extracted by cutting the blade portion shown in Fig. 11. Court indicated by dashed line in the latter figure.
+
+Table 2 shows the values of the thicknesses determined on sides A (fracture), B, and C.
+Table 2. Thicknesses of the layers of oxides, determined on the surfaces A, B and C.
+
+Surface	Thickness (mm)
+A	0.060
+B	0.030
+C	0.037
+4. Conclusions
+The preceding results of the origin of the fracture produced in the blade have shown that:
+1.
+- The presence of pits found on the tail of the blade profile was caused by the corrosive atmosphere, mainly sodium and chloride salts. The speed at which the pits grow depends on the concentration of these compounds and the exposure time in this atmosphere.
+2.
+- Following the formation of pits, residual stresses are created giving rise to the initiation of intergranular micro-cracks type.
+3.
+- Hardness values, between 450 and 480 BHN, determined on five blades do not correspond to those values suggested by the manufacturer's standard (270–300 BHN). This implies that some blades have not been properly tempered.

@@ -1,0 +1,78 @@
+1. Introduction
+A high pressure oil tube with nominal diameter 50.8 mm and nominal thickness 4 mm has prematurely failed with a longitudinal crack, as shown in Fig. 1. The failure was detected after 11 months of operation. The tube is part of the hydraulic power unit of an off shore oil and gas platform. The maximum designed internal pressure was 20 MPa and the service temperature was 25 °C with no significant variation. In practice, the internal pressure varies from 16 to 20 MPa under operation, and shutdowns rarely occur. Fig. 2 shows the tube failed in the line, before it has been took off for analysis. The arrow indicates a clamp missing in the line.
+
+Download: Download full-size image
+Fig. 1. Tube failed with the cracks edges in detail.
+
+
+Download: Download full-size image
+Fig. 2. Tube failed assembled in the line.
+
+According to the owner, the material of the tube should be a duplex stainless steel type UNS S31803. It was also specified a seamless tube, but the visual inspection after the failure revealed that the tube was fabricated with longitudinal weld, as shown in Fig. 3. An internal weld reinforce is clearly observed. The visual inspection also revealed rough marks of cold deformation along the tube.
+
+Download: Download full-size image
+Fig. 3. Image from the internal part of the tube showing the longitudinal weld.
+
+This work deals with the investigation of the failure analysis of the tube. The mechanism of failure was determined and the factors owing to the material and fabrication processes which contributed to the fracture were analyzed.
+2. Experimental
+The failure analysis started with non-destructive tests (NDT). A radiograph was taken to detect discontinuities or defects in the tube, mainly in the weld joint. The amount of magnetic phases (ferrite and martensite) was measured by ferritoscope in different regions of the tube.
+After NDTs, the cross section of the tube was cut for analysis in a region near the initiation of the crack. Stereo microscope and light optical microscope were used to characterize the crack and the microstructure of the weld joint. The surface of fracture was carefully cut and preserved for analysis in the scanning electron microscope (SEM). Microhardness in the weld metal (WM) and heat affected zone (HAZ) were performed in a sample of the material as received and after a solution treatment at 1000 °C performed in the laboratory.
+The steel composition of the tube and its base (see Fig. 1) were checked by combustion (C and S) and spark analysis (other elements).
+3. Results and discussion
+Table 1 shows the chemical composition of the tube and the base where it was welded (see Fig. 2). The tube is an AISI 304L (UNS S30403) austenitic stainless steel and the base is a duplex UNS S31803. Accordingly to the owner the material specified in the project should be the duplex UNS S31803, which has higher mechanical and corrosion resistance than AISI 304L [1], but is considerably more expensive.
+Table 1. Chemical compositions of the materials (%wt.).
+
+Material	C	S	Cr	Ni	Mo	Mn
+Tube	0.0174	0.0012	18.08	8.02	0.11	1.43
+Base	0.0230	0.0020	22.3	5.03	3.02	1.10
+Fig. 4 was produced by scanning the original radiography of the tube, which means that the light region is thinner than the dark ones. By enhancing the contrast of the image the detection of a very narrow and continuous light region near the weld metal (see arrows) was possible. The longitudinal weld was surely made by an automatic process, which eliminates the hypothesis of undercut defect.
+
+Download: Download full-size image
+Fig. 4. Negative of the radiograph test of the tube.
+
+The images in Fig. 5(a)–(c) show that the crack initiated in the internal side of the tube, in the fusion line, a region with high stress concentration due to the weld reinforce. Fig. 5(a) shows the crack in the beginning and also the thinning near the fusion line, confirming the results of radiography. Near the weld metal the thickness was 3.3 mm.
+
+Download: Download full-size image
+Fig. 5. Images of stereo microscope showing the crack nucleating and propagating in the inner side of the tube in the interface between base metal and weld metal.
+
+The minimum thickness for the AISI 304L, calculated accordingly to ASME B31.3 [2], using Eq. (1), was 4.83 mm. This shows that the thickness of the tube (3.9 mm) was lower than the minimum thickness. The thinning observed in Fig. 4, Fig. 5 is consequence of plastic deformation during service, in the high stress concentration region. It is worth noting that, if duplex stainless steel UNS S31803 was used, the thickness limit should be 2.78 mm, due its higher yield strength. It means that the use of the specified material could make the operation much safer than it was with AISI 304L steel.
+(1)
+where tmin is the minimum thickness, P the designed internal pressure (20 MPa), Dext the external diameter (50.8 mm), σadm the admissible stress (115 MPa for AISI 304L or 207 MPa for UNS S31803), E the longitudinal weld quality factor (0.8), and Y is the coefficient in function of material and service temperature (0.4).
+The use of welded tube instead of a seamless one is another important factor which contributed to the failure. It was not for coincidence that the crack initiated in the point of maximum stress concentration, as shown in Fig. 5(a)–(c).
+Fig. 6(a)–(d) shows the microstructures of weld metal, crack region, fusion line, and base metal. The weld metal has dendritic structure with austenite and delta ferrite (dark phase). The base metal shows grains of austenite with twins, deformation bands and martensite α′, as clear signals of cold work. Conventional austenitic stainless steels with 16–18% Cr and 7–10% Ni are highly susceptible to deformation induced martensitic transformation, as reported [3], [4], [5]. The percentage of magnetic phase determined with ferritoscope varied from 1.5% to 4.5% in the base metal of the tube, but reached 10% in the weld metal. The ferritoscope measures the amounts of magnetic phases (ferrite and martensite) without distinction. The higher amount of magnetic phases in the weld metal is due to the delta ferrite in this region, and also to some martensite formed during cold bending.
+
+Download: Download full-size image
+Fig. 6. Microstructure of the tube: (a) weld metal, (b) weld metal and HAZ at the region of the crack, (c) transition of weld metal to HAZ, and (d) base metal.
+
+Microhardness profiles measured in the vicinity of the crack before and after solution treatment are shown in Fig. 7. The hardness of the fractured tube was between 250 HV and 285 HV with a slight hardening in the HAZ near the crack, possible due to plastic deformation. After solution treatment (1000 °C) the hardness decreased to the 160–180 HV. These results show how the failed tube was work hardened.
+
+Download: Download full-size image
+Fig. 7. Microhardness profiles neat the crack before and after a solution treatment (1000 °C).
+
+Fig. 8(a)–(d) shows the results of the analysis of surface fractures in the SEM. The fracture surface has two distinct regions (Fig. 8(a)). Region I is near the internal side of the tube, where the fracture initiated. At this region the striations shown in Fig. 8(b) and (c) are observed. In region II dimples or microvoids are easily seen, indicating monotonic and ductile fracture (Fig. 8(d)). Regions I and II correspond to about 50% of the surface fracture each one.
+
+Download: Download full-size image
+Fig. 8. Images from SEM: (a) general view of regions I and II; (b and c) fatigue striations of region I; (d) dimples or microvoids observed in region II.
+
+From the SEM analysis the main mechanism of fracture was fatigue, surely caused by load fluctuation. According to the operational staff, the pressure in the line varies from 16 to 20 MPa, which means that the circumferential tensile stress acting in the HAZ varies from 101.6 to 127.0 MPa. This implies in a maximum amplitude of stress equal 12.7 MPa. An empirical relation is that the expected fatigue limit of metallic materials is about half of the ultimate strength (σUTS) [6], for σUTS not much superior to ∼1000 MPa. For the AISI 304L studied the σUTS can be reasonably considered as 800 MPa, taking into account the work hardening effect. Consequently, the fatigue limit of the material would be about 400 MPa, which is much higher than the estimated amplitude of stresses (12.7 MPa). However, some important factors may contribute to the decrease of fatigue resistance of the welded joint, as explained below:
+-
+The mean stress is 114 MPa, at least. Besides, since the joint was not heat treated, welding residual stresses may also contribute to the increase of mean stresses. The influence of the mean stress (σm) on the fatigue limit (σf), in function of σUTS and the yield limit (σy) is well described by the Goodman's equation [7]:
+(2)
+-
+The fatigue stress concentration factor (Kf) due to the weld reinforce is considerably high. According to Lancaster [8], the stress concentration of a butt weld joint increases with the increase of the angle α of the joint and with the decrease of the radius r (Fig. 9(a) and (b)). Nascimento et al. [9] estimated a Kf value higher than 3.4 in a butt weld with α = 128° and r = 0.42 mm. In the case of the joint evaluated in this work, the α measured is similar (127°), but the radius is about 20 μm, which must give an extremely high Kf value. This stress concentration factor, due to the weld reinforce was determinant to the failure occurrence.
+
+Download: Download full-size image
+Fig. 9. (a) Angle and (b) radius of the stress concentration in the weld reinforce.
+
+-
+As observed before in Fig. 2, a clamp was missing in the line, and this fact probably contributed to the vibration of the tube during operation. Vibration of a constricted component cause cyclic deformation.
+The change of the material specified may also contributed to the fatigue failure. According to Gunn [10] the fatigue and corrosion-fatigue resistance of duplex stainless steels is at least equivalent to that of austenitic grades. However, microstructure features play an important hole on the fatigue resistance of duplex [11] and austenitic steels [12], [13]. For instance, Müller-Bollenhagen et al. [12], [13] determined that an amount of 26% of martensite gives an optimum fatigue resistance to AISI 304L steel. Similarly, a moderate hardening of duplex steel by cold work or low temperature aging may increase fatigue resistance [11].
+As recommendation, the failed tube must be replaced by a seamless tube of duplex UNS S31803 steel, as designed in the project. Excessive vibration of the line must also be monitored by periodic inspection.
+4. Conclusions
+The failure analysis revealed the following points as determinant to the cracking of the tube:
+(i)
+The specified material (duplex stainless steel UNS S31803) was changed by austenitic steel AISI 304L (or UNS S30403), with lower mechanical strength. As consequence, thickness of the tube was lower than the minimum value calculated accordingly to ASME B31.3 [2].
+(ii)
+The line was not correctly tied with clamps, which caused vibration. It has probably provoked cyclic deformation during operation. In accordance, it was observed that the primary mechanism of failure was fatigue, as denounced by striations observed in the surface fracture.
+(iii)
+The use of a welded tube with internal reinforce, instead of a seamless one, caused strong stress concentration. The fatigue crack initiated and propagated through this region.
