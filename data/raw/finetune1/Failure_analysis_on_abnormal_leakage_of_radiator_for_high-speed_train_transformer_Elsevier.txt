@@ -1,0 +1,149 @@
+Abstract
+The radiator is a sandwich structure with many fins brazed on the clapboards to dissipate the heat generated from the transformers, so it is an important device for ensuring safe operation of the transformers. However, many radiators failed only after one and a half years of service although their design life is five years. For this reason, this paper deeply studied the root causes of abnormal and premature leakage of the radiators for one high-speed train transformer during operation. Firstly, most of the leakages of the radiators were located using X-Ray testing and penetrant testing; then typical leakage areas were carefully selected and sampled for characterization, including metallographic inspection and micro-zone analysis. The analysis results showed that the microscopic holes resulting in the leakages in the clapboard and brazed joint were caused by pitting corrosion along the air side of the clapboard. The inappropriate design of the fin structure and the unqualified brazing process were identified to be the two root causes leading to the pitting corrosion on the clapboard of the radiators. Countermeasures were thus put forward to solve the corresponding problems.
+Previous article in issue
+Next article in issue
+Keywords
+High-speed trainTransformerRadiatorLeakagePitting corrosion
+1. Introduction
+In recent years, with the development of high-speed railway, the high-speed electric multiple units (EMU) are more and more popular for the high efficiency, rapidity and stability [1], [2], [3], [4]. With the development of technology, the power electronic devices used on locomotives are developing towards lightweight and high power density [5], [6]. However, the resulting high heat generation can cause the electrical components to be overheated [7] and insulation failure, or even burnout of the device, affecting the safe operation of the locomotive [8]. The radiator of the traction transformer is used to dissipate the heat generated during operation. Therefore, the reliability of the power electronic devices in EMU will undoubtedly be challenged if the quality problems of radiators are not adequately dealt with.
+In fact, many radiators failed only after one and a half years of service although their design life is five years. Herein, for the purpose of investigating the root causes of abnormal leakage of the radiators for high-speed train transformer, a variety of pertinent characterization measures referring to our previous experiences of failure analysis and structural integrity evaluation of heat-exchange equipment [9], [10], [11], [12], [13] were comprehensively employed for the samples, including X-Ray inspection and penetrant inspection of the radiator, matrix materials examination of the radiator, chemical constituents inspection of the corrosion products, and macro/microscopic analysis of the defects. The analysis results showed that the interaction between the factors from the service conditions and the operation parameters was the main cause of this failure. Then, the relevant failure mechanisms were discussed and the countermeasures were proposed. This paper actually presents a model case of applying such comprehensive analysis methods for failure analysis in practical engineering, and its achievement will have a reference value for failure prevention of heat exchanger tubes operating under similar service conditions.
+2. Experimental and results
+2.1. Basic structure and function of the radiator
+Fig. 1 is a schematic diagram of the power transmission unit structure of the traction system of an EMU. The basic function of the transformer is to transform the high-voltage power in the overhead line system into various low-voltage power to meet the working requirements of the train [14]. Fig. 2 is the schematic structural diagram of a radiator, which is composed of a body, an oil chamber, a flange and a mounting seat. The body is the core part of the radiator, which is brazed with clapboards and fins, as shown in Fig. 3. Fins are the basic elements of the body, which are produced by stamping or rolling of the thin aluminum alloy strips. Thus, the fins have long and small cross-sectional channels, which are used to expand the heat transfer area and improve the heat transfer efficiency [15], [16]. The cooling medium of the radiator is mineral oil, while the design pressure is 0.2 MPa, and the expected service life is 5 years.
+
+Download: Download high-res image (140KB)
+Download: Download full-size image
+Fig. 1. Schematic diagram of the power transmission unit and transformer of an EMU traction system.
+
+
+Download: Download high-res image (54KB)
+Download: Download full-size image
+Fig. 2. Schematic diagram of the radiator.
+
+
+Download: Download high-res image (99KB)
+Download: Download full-size image
+Fig. 3. Schematic diagram of the core part of the radiator.
+
+2.2. Visual observation
+As revealed in Fig. 4a and b, the leaked radiator is 2.4 m long and 0.6 m wide, and it has a multi-layer structure formed by vacuum brazing composite clapboards and fins, just like the sandwich structure.
+
+Download: Download high-res image (301KB)
+Download: Download full-size image
+Fig. 4. Macroscopic photograph of the leaking radiator: (a) plan view, (b) oblique view.
+
+Because of the large size and the complicated shape of the radiator, it is necessary to detect the leakage location through hydraulic test. Put the radiator into the water tank, as shown in Fig. 5a, and the area where the blisters appear is the leakage point. As marked by the arrows in Fig. 5a, the leakage points were concentrated on one side of the radiator.
+
+Download: Download high-res image (383KB)
+Download: Download full-size image
+Fig. 5. The leakage location of the radiator: (a) The leakage points were detected by hydraulic test, (b) The cutting sample including leakage point.
+
+Then, this leaked side of the radiator was cut by wire-electrode cutting for sampling, as shown in Fig. 5b. It can be learnt that the mineral oil channel and the cooling air channel are alternately distributed, and the mineral oil channel is 3 mm wide while the cooling air channel is 12 mm wide. The heat of mineral oil is transferred to the air through the middle aluminum alloy clapboards, thereby the system is cooled.
+Cutting along the dotted line in Fig. 5b, and the morphologies of the cutting surfaces I and II can be observed. The cutting surface I is the contact surface of cooling air, which is covered with corrosion products, as shown in Fig. 6a and b. Cutting surface II is the contact surface of mineral oil, and no obvious corrosion is found in this area, as shown in Fig. 6c and d.
+
+Download: Download high-res image (1018KB)
+Download: Download full-size image
+Fig. 6. Macroscopic morphologies of cutting surfaces: (a and b) The cutting surface I, that is the cooling air contact surface; (c and d) The cutting surface II, that is the mineral oil contact surface.
+
+2.3. Nondestructive examination (NDE)
+2.3.1. X-Ray testing (RT) inspection
+At first, the sample was inspected by RT, as shown in Fig. 7, in which the white grid was the junction area of the clapboard and the fin. Since the area was thicker, it can absorb more x-rays and therefore looks white. There were black spots at the arrow points. X-rays in this area were hardly absorbed, indicating that the area was a leakage point. Comparing the macro-morphology with the RT photos, it can be determined that the leakage points were distributed under the corrosion products.
+
+Download: Download high-res image (193KB)
+Download: Download full-size image
+Fig. 7. RT photo (leakage points indicated by arrows).
+
+2.3.2. Penetrant testing (PT) inspection
+The sample was ultrasonically cleaned with ethanol and then inspected by PT. As is shown in Fig. 8, the defects which were indicated by the red penetrant were mainly distributed at the edges. Fig. 8b is the magnification of the defect, which has a circular hole shape with a diameter of about 0.5 mm.
+
+Download: Download high-res image (314KB)
+Download: Download full-size image
+Fig. 8. Penetration detection morphology (a) leakage position (b) leakage point enlarged morphology.
+
+2.4. Matrix material examination
+2.4.1. Chemical compositions
+Chemical compositions of the clapboard of the radiator are presented in Table 1. It could be confirmed that the chemical compositions are in accordance with the requirement of the standard EN AW-3003 [17].
+Table 1. Chemical compositions of the clapboard (wt%).
+
+Element	Si	Fe	Cu	Mn	Mg	Zn	Ti
+EN AW-3003	≤0.6	≤0.7	0.05–0.20	1.0–1.5	–	≤0.10	–
+clapboard	0.58	0.45	0.09	1.05	0.10	0.01	0.03
+2.4.2. Metallographic structure
+After being etched with 0.5% HF (hydrogen fluoride) for 30 s, the metallographic structures of the cross section of the specimens are revealed in Fig. 9. The fins and the aluminum clapboards are connected by brazing, seen in Fig. 9 a and b, and their matrix structures were both α-Al solid solution with fine granular silicon phase. Also, the silicon phase in the weld seam was coarse and in gray bar shape. It should be noted that there were porosity defects in the local area of the weld seam between the fins and the clapboards, as shown in Fig. 9c and d, and the diameter of the defects was about 0.2 mm.
+
+Download: Download high-res image (486KB)
+Download: Download full-size image
+Fig. 9. Metallographic structures in cross section of specimens: (a and b) The metallographic structure of the matrix of fins and clapboards; (c and d) The porosity defects in the local area of the weld seam between fins and clapboards.
+
+2.5. Defect morphology detection
+2.5.1. Metallographic structure
+The cross-section of the leakage point on the clapboard was sampled from the radiator by wire cutting and was observed under optical microscope. As was seen in Fig. 10, the surface of the point was in the shape of a thin pit, and the middle of the pit was coarse and had a bifurcation edge. After being etched with 0.5% HF, the defect section material exhibited a mixture microstructure of α-Al and Si phase, as displayed in Fig. 11.
+
+Download: Download high-res image (149KB)
+Download: Download full-size image
+Fig. 10. Optical micrograph of the pits in the cross-section of the failed radiator.
+
+
+Download: Download high-res image (139KB)
+Download: Download full-size image
+Fig. 11. The metallographic structure of the pits in the cross-section of the failed radiator.
+
+2.5.2. Micro-zone analysis of the leakage pit
+The surface of the leakage pits in the clapboard, and the corrosion products around the leakage pits, which was shown in Fig. 6b, were observed by scanning electron microscope (SEM).
+Microscopic morphology of the leakage pits was presented in Fig. 12a and b. The corrosion products were filled in the leakage pits. What’s more, based on the energy dispersive spectrometer (EDS) results, aggressive sulfide and chloride ions were detected on the corrosion products within such leakage pits, as the marked micro-zones 3 and 4 in Table 2. However, these ions were not found in micro-zones 1 and 2.
+
+Download: Download high-res image (509KB)
+Download: Download full-size image
+Fig. 12. SEM image of the pits on the failed radiator. (a) the radiator face, (b) the leakage pit, (c and d) the corrosion products around the leakage pits.
+
+Table 2. . EDS results of the corrosion products on the rupture surface (wt.%).
+
+Element	O	Al	Si	P	S	Cl	Ca	Fe	Mn
+Micro-Zone 1	5.12	91.42	0.76	/	/	/	0.67	0.87	1.16
+Micro-Zone 2	6.23	90.34	0.61	/	/	/	0.78	0.92	1.12
+Micro-Zone 3	54.30	36.45	/	1.12	6.00	0.73	0.52	0.88	/
+Micro-Zone 4	61.50	31.67	/	0.78	4.21	0.58	0.70	0.56	/
+Micro-Zone 5	62.21	31.00	0.53	1.11	3.79	0.54	0.82	/	/
+Micro-Zone 6	62.92	30.91	0.56	0.68	3.53	0.61	0.79	/	/
+Note: “/” denotes the content lower than 0.5 wt%.
+Microscopic morphology of the corrosion products around the leakage pits was presented in Fig. 12c and d. For the purpose of investigating the chemical compositions of the marked micro-zones 5 and 6, EDS was utilized. Based on the results, the main constituents were aggressive sulfide and chloride ions of the corrosion products, similar as sites 3 and 4.
+3. Discussion
+According to the above test results, the material of the clapboard meets the requirements of EN AW-3003, indicating that the failure was not ascribed to the factor of materials. Besides, the metallographic and microscopic morphologies clearly exhibited the typical features of pitting corrosion on the partition plate of the radiator. That is to say, pitting corrosion was the main cause of leakage. Interestingly, it was learnt from the morphologies that pitting corrosion was originated from the air-side of the clapboard, rather than the oil-side. Especially, the pits that had already leaked were mostly distributed on the air inlet side of the radiator, 25 ~ 30 mm away from the cooling air inlet. This phenomenon can exclude the influence of corrosion from the mineral oil. In addition, the internal pressure of the cooling system is only 0.2 MPa, which means the load of the radiator caused by the pressure is relatively small. Therefore, focus should be laid on the sources of the corrosive elements from the cooling air side, especially the sulfur and the chlorine elements. To solve this problem, we firstly need to investigate the service environment and working principle of the radiator.
+Fig. 13 is the working principle diagram of the transformer radiator. Firstly, the fan inhales the external ambient air from the lower side of the frame, then the cooling air passes through the air filter, the air motor unit and the air inlet filter. Then the cooling air enters the radiator core, where heat exchange is realized on the fin surface. Finally, the hot air flows to the external environment from the other side under the motor frame. The cooler is installed at the bottom of the bogie body, cooling air is inhaled from the bottom, and the intake air commonly contains dusts, bird feathers, catkins and other debris. Xiao K and Lanzutti A [18], [19] found that dust in the environment contains S and Cl elements, which will cause corrosion if accumulated on metal products. Although there was an air filter, a few dusts would have still entered the internal of the radiator, accumulated at the partition near the air inlet, and mixed with acid rain to form mud.
+
+Download: Download high-res image (202KB)
+Download: Download full-size image
+Fig. 13. Working principle of oil cooler.
+
+It is also a common sense that passive film Al2O3 will be spontaneously formed when the aluminum alloy is exposed to the air, and the passive film prevents the active beneath surface of the aluminum from contacting the surrounding medium and improves corrosion resistance. However, the aluminum alloy is susceptible to pitting corrosion in the environment containing chloride ions or sulfide ions. Chloride is the anion of a strong acid and is very soluble with high diffusivity. Chloride in the electrolyte is easy to penetrate and damage the passive film and cause pitting corrosion on aluminum alloys [20], [21], [22]. Especially, the brazing pores with semi-opened structure created a favorable condition for the accumulation of chloride ions, therefore the corrosion products cannot be discharged out and will obstruct the re-passivation of the aluminum alloy matrix. The mechanism of pitting corrosion in this case can be described by Fig. 14. Pits were formed on the air side of the clapboards, especially the brazing pores, due to incomplete passive film. Once a pit was formed, the inner surface immediately exhibited the active dissolved state and then became the anode in an electrochemical reaction through Eqs. (1), (2), (3). According to the reaction by the hydrolysis of Al3+ to form Al(OH)Cl+, thereby lowering the pH at the pit tip, further accelerating the corrosion rate of materials in an autocatalytic manner [23]. Correspondingly, the outside of the pit remained a passive state and became the cathode, and it was frequently more alkaline because of the local formation of hydroxides via the following Eqs. (4), (5). Thus, a micro-galvanic corrosion cell was formed with a large cathode and small anode, which resulted in a faster dissolution rate of the aluminum alloy. Therefore, the metal in the pits was continuously dissolved, and the pits gradually propagated inwards along the thickness direction.
+(1)
+(2)
+(3)
+(4)
+(5)
+
+Download: Download high-res image (731KB)
+Download: Download full-size image
+Fig. 14. Schematic diagram of the mechanisms of pitting corrosion.
+
+Herein it can be confirmed that the inlet of dust and acid rain was the main cause for pitting corrosion of the radiator [24], [25]. To solve this problem, it can start with controlling the inlet of the dust and acid rain. Reducing the diameter of the air filter seems to be the easiest way, but the ventilation of the cooler will be simultaneously affected if the diameter of the filter is too small. In addition, the filter screen is easy to be clogged up when the diameter is reduced, which will therefore decrease the heat exchange efficiency of the cooler drastically. So reducing the diameter of the air filter is obviously not a good solution.
+Optimizing the fin structure of the radiator and avoiding dust accumulation is another way to solve the problem. The failed radiator fins were straight and staggered, as shown in Fig. 15(a), dust in cooling air tends to accumulate at the fin junction. If the air side fin was changed into a corrugated shape, not only a large heat exchange area is reserved, but also the accumulation of dust at the junction is avoided.
+
+Download: Download high-res image (332KB)
+Download: Download full-size image
+Fig. 15. The design drawing of the fin structure.
+
+4. Conclusions and recommendations
+1.
+The clapboard of the failed radiator were qualified EN 573–3 EN AW-3003 in chemical compositions.
+2.
+The inappropriate structure design of the fin and unqualified brazing process were the two root causes for pitting corrosion on the clapboard of the radiator.
+3.
+Pitting corrosion initiated at the brazing joint on the air side of the clapboard. The resulting pits became narrower and deeper, which perforated the clapboard and finally resulted in the leakage of the mineral oil.
+Based on the conclusions mentioned above, some practical countermeasures were put forward to solve the corresponding problems.
+1.
+The structure of the air side fin are suggested to be changed into corrugated shape, which will effectively avoid the accumulation of the dust and acid rain on the clapboard.
+2.
+The brazing process especially the brazing heating temperature, should be strictly controlled to reduce the welding defects between the fins and the clapboards.
+3.
+Cleaning intervals of the radiator should be shortened if necessary.
