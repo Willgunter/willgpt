@@ -1,0 +1,267 @@
+1. Introduction
+For certain special sites, such as geological reserves and active archaeological sites, foundation excavation is strictly limited. An example is the shelter at an archaeological site shown in Fig. 1. Traditional structures with interior columns or deep foundations are not suitable here. As a result, large-span suspended roof structures have been developed. These structures use separate tower and cable suspension systems on both sides of the building. The roof load is transferred to available supporting points in the surrounding ground. This allows for an internal design with no columns and no deep foundations, perfectly meeting the needs of this kind of protective construction. However, the self-weight of this roof structure is only about 70 % of that of conventional structures. This light and flexible nature makes it very sensitive to how loads are distributed. It can easily become unstable under uneven loading. When exposed to snow loads combined with wind, the high flexibility of the structure leads to noticeable deformation. This can cause local snow loads to exceed the structure's capacity, resulting in failure. The collapse of a large-span roof shown in Fig. 2, caused by uneven snow distribution, is a typical example of this type of failure under extreme snow conditions. Therefore, accurately predicting snow distribution on the roof is essential for designing such structures against snow. Based on this, installing snow fences in a well considered way can optimize snow distribution patterns. This effectively lowers the risk of structural failure and provides a scientific basis for engineering practice.
+Fig. 1
+Download: Download high-res image (182KB)
+Download: Download full-size image
+Fig. 1. Archaeological site.
+
+Fig. 2
+Download: Download high-res image (90KB)
+Download: Download full-size image
+Fig. 2. Collapse of an air supported structure from snow overload.
+
+In recent years, long-span steel structures have gained widespread application due to their innovative configurations, expansive spaces, and lightweight characteristics. However, during winter months, severe weather events such as blizzards raise significant safety concerns among experts regarding these large-span structures. Through field measurements of wind driven snow processes, scholars have revealed the physical parameters of snow phase(e.g. Taylor, 1980; Gordon et al., 2009; Gergely et al., 2010), the relationship between the wind field characteristics and snow transport rates (e.g. Schmidt, 1986; Pomeroy and Gray, 1990), as well as snow distribution patterns on building surfaces (including snow fences) and surrounding areas (e.g. Tabler, 1980; Thiis and Gjessing, 1999; Tsuchiya et al., 2002). These findings provide the most direct reference basis for studying snow distribution patterns and load determination across different building types. They establish fundamental provisions for snow load specifications in codes, while also offering validation criteria for numerical simulations and wind tunnel test results. Nevertheless, systematic research remains challenging due to the complexity and uncontrollability of field measurement environments. Computational Fluid Dynamics (CFD) has become a core tool for solving problems involving fluids, thanks to continuous improvements in computer hardware and numerical algorithms. With advantages such as high efficiency, shorter study durations, good cost effectiveness, and controllable parameters, CFD has been widely studied and applied in recent years (e.g. Zhou et al., 2016; Zhou et al., 2019; Wang et al., 2019; Chen et al., 2021). Simulating buildings at actual scale helps avoid scaling law limitations and provides detailed information on the flow field and snow phase around roofs (Kang et al., 2018; Tominaga, 2018). Despite these benefits, rigorous validation through field measurements or wind tunnel tests remains essential to ensure the accuracy and reliability of numerical simulations.
+In recent years, wind tunnel testing has become an important research approach. It reproduces snow drift on roofs through experiments using scaled models. Compared to field measurements, wind tunnel tests offer controlled and stable conditions. This platform supports quantitative and parametric studies, helping to reveal the interaction mechanisms between wind and snow on roof surfaces.
+In the area of code provisions and fundamental models for roof snow loads, Thiis and O'Rourke (2015) established an empirical model for gable roof snow loads based on a particularly large database containing simultaneous measurements. This model was specifically developed for unheated structures with nonslippery roof surfaces, thus providing conservative load estimates for heated structures and structures with slippery roof surfaces. The model results are compared with corresponding provisions in various United States and European codes and load standards. Croce et al. (2021) proposed an improved methodology based on appropriate probability density functions for ground snow loads and shape coefficients to evaluate the roof snow load characterized by a given probability of exceedance. This methodology duly takes into account the influence of the roof's geometry and its exposure to wind, and provides the curves for the design values of the shape coefficients considering different wind exposure conditions. Kringlebotn Thiis et al. (2022) proposed a formulation for the exposure coefficient that accounts for wind velocities during a snow season. By introducing information on mean wind velocity for the coldest month at the site, the model captures a clear decreasing tendency of exposure coefficient with an increasing mean wind velocity. Through parametric study, comparisons with an advanced theoretical model, and validation considering detailed meteorological data representative for various climates, the research demonstrates that the model reflects well typical European snow and wind climates. The current Chinese code “Load Code for the Design of Building Structures: GB 50009–2012” provides provisions for uneven snow accumulation on large-span roofs. However, it lacks specific guidance for such lightweight and highly flexible large-span suspended roof structures, and does not address the impact of installing snow fences on roof snow distribution coefficients. Therefore, this study provides a reference basis for further improvement of the Chinese code.
+Regarding snow load research on complex roofs, Zhang et al. (2019) decomposed the snowdrifts on a complex roof into basic characteristic distribution modes based on empirical orthogonal function (EOF) analysis. The snow distribution under a specific inflow direction could be derived from the weighted combination of the basic characteristic modes based on the wind direction coefficients, thereby providing an approach to simplify the estimation of snow load on complex roofs. For long-span membrane structures, Sun et al. (2018) addressed the sensitivity of long-span membrane structures to uneven snow loads by establishing a numerical snowdrift model based on the Euler-Euler method and multiphase flow theory, incorporating snow deposition and erosion models, and verified its reliability against field measurement data. The study simulated snow distribution on long-span membrane roofs, provided snow shape factors under different wind directions, and through Finite Element Analysis confirmed that non-uniform snow loads are more disadvantageous than uniformly distributed loads. Flaga and Flaga (2019) conducted comparison and analysis of snow load wind tunnel tests for three different roofs of sport facilities. The results of snow load distributions for both snow precipitation and redistribution simulations were presented as dimensionless roof shape factor of snow load.
+Specifically for low-slope gable roofs, Cao et al. (2021) through combined wind tunnel and CFD studies revealing that eave geometry dictates accumulation modes: sharp eaves intensify separation vortices concentrating snow at leeward eaves, while rounded eaves promote snow migration toward ridges; Liu et al. (2020) further compared skylight-equipped and plain roofs, finding skylight openings destabilize ridge vortices causing 40 % increased local loads through downwind snow accumulation. Zhou et al. (2025) established a novel erosion/deposition model, demonstrating that escalating wind speeds and roof spans exacerbate windward scouring and leeward deposition.
+Research on snow protection devices has primarily focused on cutting engineering. Ma et al. (2022) computationally analyzing three deflector types, evaluating flow fields, deposition lengths, and snow-phase concentrations to quantify drift reduction; Li et al. (2022) experimentally and numerically proved that base gaps in snow fences accelerate near-ground flows expanding leeward particle dispersion, where fence height controls deposition range and porosity governs accumulation morphology; Lei et al. (2023) systematically characterized deposition patterns around embankments based on snow fence porosity, height, and placement distance.
+Although significant progress has been made in roof snow load research, studies on snow distribution and snow fences for large-span suspended roofs are still limited. This type of structure is very sensitive to uneven loads. Therefore, this paper focuses on long-span suspended roof structures, addressing the existing research gap in understanding their snow response mechanisms and investigating the control effectiveness of snow fences on roof snow distribution. First, wind tunnel tests are described in detail in Section 2. Section 3 analyzes the influence of snow fences with different heights on roof snow distribution under both snowfall and snow erosion conditions. Results show that the 20 mm high snow fence is most effective in promoting uniform snow distribution. Based on this finding, Section 4 further studies this 20 mm snow fence. It examines snow distribution under different wind directions during snowfall and snow erosion. It also compares snow deposition patterns before and after installing the snow fence under snow erosion conditions. This study deepens the understanding of the mechanism of action of snow fences, enriches the theoretical framework for snow-wind load effects on long-span roofs. The research findings provide a reliable basis for the snow-resistant design of such structures—specifically, the 20 mm snow fence solution can significantly reduce the risk of structural failure caused by uneven snow accumulation. Furthermore, it offers experimental support and engineering references for roof safety design in regions sensitive to snow and wind.
+2. Wind tunnel test
+2.1. Similarity criteria
+To ensure accuracy in scaled testing, a series of similarity criteria between models and prototypes must be satisfied. Scholars have comprehensively summarized and discussed the similarity parameters required for wind tunnel experiments.(e.g. Anno, 1984; Iversen, 1984; Kind, 1986; Isyumov and Mikitiuk, 1990; Naaim-Bouvet, 1995). This study adopts key similarity requirements as outlined below. These parameters are described in detail below, where the subscripts m and p indicate the model and the prototype, respectively.
+In principle, the turbulence integral scale of the model flow field should also match the prototype. However, this is not strictly enforced in wind-induced snow drift experiments on roofs (Kind, 1986). Kind and Murray (1982) and Kind, 1976, Kind, 1986 recommend maintaining an aerodynamic roughness Reynolds number greater than 30 to ensure fully rough flow in the model, expressed as:
+(1)
+where 
+ is the threshold-friction velocity, g is the acceleration of gravity, and ν is the kinematic viscosity, which is taken to be 1.45 × 10−5 m2·s−1.
+Based on the force model for particle incipient motion, Iversen et al. (1987) derived the critical shear velocity for particle entrainment, which requires satisfaction of Eq. (2).
+(2)
+where 
+ is the air density, taken as 1.225 kg·m−3. The symbols 
+ and 
+ denote particle density and particle diameter, respectively.
+Wind tunnel test should consider particle dynamic similarity between prototype and model. Kind, 1976, Kind, 1986 proposed that this can be achieved through shear velocity similarity, requiring compliance with Eq. (3).
+(3)
+where U(H) is the velocity of the approaching flow at characteristic height. H is the characteristic.
+height of the geometric models.
+Kind and Murray (1982) discovered that high density granular materials minimally affect snow erosion/deposition patterns and transport rates, yielding superior experimental results. They recommended meeting the requirement of Eq. (4).
+(4)
+Particle dynamic similarity must also ensure consistency in particle trajectories. Specifically, the inertial, gravitational, and drag forces during saltation should maintain similitude. Kind (1986) stipulated that Eqs. (5), (6) must be satisfied.
+(5)
+(6)
+where 
+ is the particles' setting velocity.
+For basic geometric similarity to hold (Eq. 7), the dimensionless depth of the accumulated snow should be the same.
+(7)
+where hg is the snow depth on the ground and the characteristic length L herein is the span of the flat roof.
+To guarantee wind tunnel test accuracy, selected surrogate materials must exhibit angle of repose parameters similar to natural snow (Anno, 1984).
+(8)
+where 
+ is the angle of repose.
+2.2. Description of the experiment
+2.2.1. Facilities and roof models
+The test was conducted in the wind tunnel laboratory of the Tianjin Research Institute for Water Transport Engineering, Ministry of Transport. The test section measures 4.4 m × 2.5 m × 15 m, with a turbulence intensity of I ≤ 0.4 %. The wind speed in the test section can be adjusted from 0 to 30 m/s, and the flow field quality is excellent. The test setup is shown in Fig. 3. This test was conducted on Category B terrain to analyze and compare the snow distribution on the large-span suspended gable roof.
+Fig. 3
+Download: Download high-res image (198KB)
+Download: Download full-size image
+Fig. 3. Layout of the test region.
+
+The test included both snow erosion and snowfall simulation. In the snow erosion test, a layer of snow particles was evenly spread on the model to simulate snow accumulation. The wind erosion of snow was observed. In the snowfall simulation test, snow simulation equipment were installed at the top of the wind tunnel to spray snow particles into the flow. The resulting snow distribution on the roof model was observed. To minimize errors caused by variations in particle properties, the same batch of artificial snow was used in all tests. The particle size was 80–120 mesh (0.15 mm), and the density was 1600 kg/m3. The flow rate of the snowfall device was tested to be 11.54 L/min.
+Due to the complex snow distribution on the roof model after testing, a 3D laser scanner was used to measure the snow thickness. The scanner uses a laser to measure distance. It sends out a narrow laser pulse beam that scans the target area step by step. The ranging module records the spatial distance of each laser pulse. At the same time, the scanning control module measures the horizontal angle and zenith distance of each pulse. Based on the spatial polar coordinate principle, the 3D coordinates of each laser point on the target surface are then calculated. Three scanning stations were set up 1–2 m from the model to cover it completely. By combining the data from these stations, a 3D point cloud model was generated.
+This large-span suspended gable roof is designed for construction in sensitive zones such as protected areas and archaeological sites. Due to its unique structural characteristics, its response to snow load differs from that of conventional long-span roofs, resulting in distinct snow accumulation patterns. The reference height of the roof is 9 m, with a spreading width of 100 m and a flow span of 68 m. The model scaling ratio is 1:100, and the roof slope is 10°. The model roof was fabricated from PVC boards, with an eave height (H) of 90 mm, a spreading width (L) of 1000 mm, and a flow span (W) of 680 mm. The prototype snow fence has a width of 4 mm and a height of 20 mm. A diagram of the experimental double slope roof model is shown in Fig. 4.
+Fig. 4
+Download: Download high-res image (240KB)
+Download: Download full-size image
+Fig. 4. Schematic of the experimental model(mm).
+
+2.2.2. Substitute particles
+Tests using real snow particles are the most accurate method of estimating snow accumulation on building surfaces, but collecting and preserving real snow particles is difficult. Alternative materials are commonly used to simulate snow particles in wind tunnel tests. The selection of alternative materials for snow particles involves multiple influencing factors, and the key physical parameters such as its density, coefficient of viscosity, particle size distribution and geometrical morphology all have a significant impact on the experimental results. More scholars (Liu et al., 2019; Zhou et al., 2023) used fine silica sand for the experiment, and the results showed that fine silica sand is a more reasonable alternative material. Therefore, this paper adopts the commonly used silica sand material as the alternative material for the test, and its physical properties and some of the similarity law parameters are shown in Table 1.For the contradiction between the Reynolds number and the Froude number, most of the current wind tunnel tests only consider to meet the Reynolds number and give up the Froude number requirement.
+Table 1. Main parameters of silica sand particles.
+
+Model parameter	silica sand	snow
+Mean particle size (mm)	0.15	0.1–0.5
+Particle density (kg/m3)	1600	50–900
+Threshold friction velocity 
+(m/s)	0.149	0.118–0.28
+Falling velocity of particles 
+(m/s)	0.6	0.2–0.5
+Similarity rate	
+13	–
+0.004–0.007	0.007–2.214
+22	22
+2048	–
+4.95	0.04–0.32
+0.11	0.04–0.32
+36° ∼ 37°	>40°
+2.2.3. The mean wind velocity and turbulence intensity
+In the wind field measurement, the incoming flow in the atmospheric boundary layer is simulated by a combination of roughness elements and spires, and the flow field is calibrated by using a cobra probe, the plane where the probe is located is perpendicular to the direction of the incoming flow, and setting the frequency to 256 Hz with a sampling time of 60s. The wind field meets the requirements of China's “Load Code for the Design of Building Structures: GB 50009-2012”, and the wind velocity profile of the wind tunnel satisfies Eq. (9). In the equation, 
+, v10 is the wind velocity at a height of 10 m, and z is the vertical height. Fig. 5 presents the mean wind velocity and turbulence intensity profiles in the wind tunnel. The wind velocity profile was obtained by normalizing the wind speed at the reference point (z = 1 m).
+(9)
+Fig. 5
+Download: Download high-res image (147KB)
+Download: Download full-size image
+Fig. 5. Profiles of mean wind velocity and turbulence intensity.
+
+3. Test analysis of the impact of snow fence on roof snow distribution
+This section systematically examines snow distribution patterns on gable roofs through wind tunnel experiments. The study investigates both snowfall conditions and snow erosion scenarios while testing different snow fence heights. Our research aims to identify optimal snow fence configurations that promote more uniform snow distribution. These findings will enhance structural safety and provide valuable reference data for practical engineering applications. Fig. 6 illustrates the various snow fence designs used in our experiments, while Table 2 summarizes all test cases.
+Fig. 6
+Download: Download high-res image (96KB)
+Download: Download full-size image
+Fig. 6. The roof snow fence specifications.
+
+Table 2. Cases in the wind tunnel test.
+
+Case	Snowfall or not	Initial snow thickness S0(mm)	Wind velocity UH(m/s)	Duration(min)	Wind direction angle	Roof snow fence arrangement
+a	i	√	0	0.5	10	0°	Without roof snow fence
+ii	10 mm high roof snow fence
+iii	20 mm high roof snow fence
+b	i	×	20	5	8	0°	Without roof snow fence
+ii	10 mm high roof snow fence
+iii	20 mm high roof snow fence
+In actual structures, cable systems primarily function to transfer loads and maintain structural stability. Our experiments demonstrate that these cables do not significantly influence roof snow distribution patterns. Therefore, we employed simplified models without cable components in subsequent testing. Through extensive experimental iterations, we established optimal test durations: 10 min for snowfall simulations and 8 min for erosion scenarios. These timeframes effectively balance equipment limitations with simulation requirements while generating representative test data.
+3.1. The effect of snow fences on snow distribution under snowfall (case a)
+Group a was selected to compare the effects of different snow fences configurations on roof snow distribution, as shown in Fig. 7. The horizontal axis (X-axis) spans 0-1000 mm while the vertical axis (Y-axis) covers 680 mm, where Y = 0-340 mm defines the windward region and Y = 340-680 mm the leeward region, a partitioning maintained throughout subsequent figures. Under condition a-i, snow particles exhibited only minor deposition in localized sites under wind action, with a snow coverage rate of less than 2 %. Under condition a-ii, the grid spacing on the roof obstructed airflow, reducing the kinetic energy of snow particles. Partial particle collision and deposition occurred at the windward eaves front and the leeward eaves, resulting in coverage rates of 13.2 % and 16.4 % on the windward and leeward sides, respectively. Under condition a-iii, the snow fence height was increased to 20 mm, and the snow covered areas on both the windward and leeward sides further increased to 24.4 % and 21.1 %, respectively. The performance differences of the snow fence were mainly attributed to its regulation effect on the airflow structure near the roof surface. An increase in snow fence height enhances airflow obstruction, reduces the snow-carrying capacity of the wind–snow flow, and promotes uniform deposition. Testing results indicate that under condition a-iii, with a 20 mm high snow fence, the snow distribution on both the windward and leeward roof surfaces is optimal, resulting in a more uniform distribution. It provides a key basis for engineering design.
+Fig. 7
+Download: Download high-res image (620KB)
+Download: Download full-size image
+Fig. 7. Snow distribution for different snow fence configurations (Condition a).
+
+3.2. The effect of snow fences on snow distribution under snow erosion (case b)
+In order to compare the effect of different roof snow fence configuration patterns on the erosion deposition of double-slope roofs, cases b were selected for analysis. The experimental results are shown in Fig. 8. Case b-i has the smallest snow thickness and area on the leeward surface and leeward surface. In case b-ii, a thin snow layer is formed at the eaves, and the extreme point of snow thickness of 16 mm is formed near the middle of the eaves. The maximum snow depth of 36 mm in the leeward surface is larger than the extreme areas of the other cases. Case b-iii elevated the height of the snow fence. The region of very thin snow that existed at the ridge of the windward surface disappeared. The contour distribution of snow depth on the leeward surface is smoother and the snow deposition is more uniform.
+Fig. 8
+Download: Download high-res image (957KB)
+Download: Download full-size image
+Fig. 8. Snow distribution for different snow fence configurations (Condition b).
+
+In order to facilitate the subsequent analysis of the test results, the analysis parameters are defined. The snow depth 
+ at the position of the roof in the middle profile x is expressed by the dimensionless snow depth coefficient 
+, defined as Eq. 10.
+(10)
+where 
+ takes the initial snow depth of the roof and the maximum value of 
+ is denoted by 
+.
+Fig. 9 shows the curve morphology and peak point position changes of the snow depth coefficient at the central axis under different snow fence conditions. On the windward side, the peak points for all three cases are located near y/Y = 0.6. After installing snow fences (Cases b-ii and b-iii), 
+ increases from 0.52 to about 0.79. The snow coverage area becomes wider. The distribution becomes more uniform. On the leeward side, under Case b-i, the peak point is at y/Y = -0.6 and 
+ is 1.539. After installing 10 mm high snow fence (Case b-ii), the peak point shifts left to Y/Y = -0.48. When increasing the snow fence height to 20 mm (Case b-iii), the peak point shifts right to y/Y = -0.7. The 
+ value remains around 1.7. Overall, the snow distribution becomes more uniform under the roof with 20 mm high snow fence.
+Fig. 9
+Download: Download high-res image (192KB)
+Download: Download full-size image
+Fig. 9. Snow depth coefficient along the centerline.
+
+To eliminate the random influence of snow distribution at the central axis, Fig. 10 shows the distribution curves of snow depth coefficient at the quarter-span locations. Analysis indicates that the peak snow depth on the windward side occurs near y/Y = 0.6, while the peak on the leeward side is around y/Y = 0.7, with relatively symmetrical distribution characteristics observed at the X = 250 and X = 750 cross-sections. As the snow fence height increases from none to 10 mm and then to 20 mm, the maximum snow depth coefficient on the windward side first increases and then decreases, while on the leeward side it continuously increases. It is noteworthy that under the 20 mm high snow fence condition, not only does the difference in snow depth coefficients between the windward and leeward sides decrease compared to the no snow fence condition, but the snow depth coefficient curve on the windward side also exhibits a fuller profile, indicating improved uniformity of snow distribution across the roof. Furthermore, for this specific type of structure characterized by light weight and high flexibility, the moderate increase in total roof snow load actually enhances the overall overturning stability, which has positive significance for the global stability of this structural type.
+Fig. 10
+Download: Download high-res image (198KB)
+Download: Download full-size image
+Fig. 10. Snow depth coefficient at quarter-span locations.
+
+To summarize, 20 mm high roof grating can make the snow distribution more uniform in the case of erosion and deposition. The windward surface is uniformly eroded and the leeward surface is uniformly deposited, while the snow adhesion at the ridge is reduced, which reduces the risk of building collapse due to excessive forces on the ridge. Combined with the conclusion in section 3.1, this type of roof grating is most effective in windy and snowy weather, and can make the snow accumulation on the roof more uniform.
+3.3. Distribution of roof snow load with or without snow fence
+The roof was divided into several grids for analysis. Fig. 11 shows the envelope of dimensionless snow depth for cases with and without snow fences. Data for the roof without snow fences during snowfall conditions is not included, as the snow accumulation was negligible.
+Fig. 11
+Download: Download high-res image (225KB)
+Download: Download full-size image
+Fig. 11. Envelope diagram of roof snow depth without dimension in conditions with and without snow fences.
+
+Under snow erosion conditions without snow fences, the maximum dimensionless snow depth on the windward side is 0.4, located near the eave area of the windward side. The remaining areas have relatively small snow depths. The maximum value on the leeward side reaches 1.35, appearing near the leeward eave. After installing snow fences, the maximum dimensionless snow depths on both windward and leeward sides increase to 0.7 and 1.8 respectively. The maximum values remain distributed in the eave areas. This shows that snow fences increase snow depth on the roof to some extent. The increase is particularly significant in the central leeward area and near the eaves.
+Under snowfall conditions with snow fences, the maximum dimensionless snow depth on the windward side is 1.0, located near the eaves. The maximum value on the leeward side is also near the eaves at 1.13. These two values are relatively close. Compared to the minimal snow accumulation without snow fences, snow fences significantly improve the roof's snow retention capacity. This results in more uniform snow distribution and increased overall snow depth.
+For large-span suspended roofs with light weight and high flexibility, snow fences offer dual benefits. On one hand, moderately increasing the total roof load helps enhance the overall structural stability. On the other hand, the resulting more uniform snow distribution reduces the risk of local overload. Therefore, structural design should focus on the snow load resistance of the central leeward area and eave zones. Combining this with the snow regulation effect of snow fences can comprehensively improve the building's overall safety.
+4. Analysis of experimental results on the impact of 20 mm high snow fence on roof snow distribution
+In this paper, four wind angles of 0°, 30°, 60° and 90° were used for the wind tunnel test, and the other angles were obtained by rotating the 0° wind angle counterclockwise, as shown in Fig. 12，with test case summaries provided in Table 3.
+Fig. 12
+Download: Download high-res image (122KB)
+Download: Download full-size image
+Fig. 12. Schematic of wind direction angle.
+
+Table 3. Conditions of the wind tunnel test.
+
+Case	Snowfall or not	Initial snow thickness S0(mm)	Wind velocity UH(m/s)	Duration(min)	Wind direction angle	Roof snow fence arrangement
+c	i	√	0	0.5	10	30°	20 mm high roof snow fence
+ii	60°
+iii	90°
+d	i	×	20	6	8	0°	20 mm high roof snow fence
+ii	5	30°
+iii	60°
+iv	90°
+e	i	×	20	5	8	30°	Without roof snow fence
+ii	60°
+iii	90°
+4.1. Snow distribution on roofs at different wind angles under snowfall (case c)
+This study selected four working conditions from group c and case a-iii to compare snow distribution characteristics on double slope roofs under different wind directions. All tests maintained consistent duration, wind speed, and snow fence configuration. The test results and contour plots are presented in Fig. 13.
+Fig. 13
+Download: Download high-res image (709KB)
+Download: Download full-size image
+Fig. 13. Snow distribution for different wind angles under snowfall (case c).
+
+At 0° wind direction, the windward surface experiences higher wind pressure and airflow velocity, which prevents snow particle deposition. Consequently, snow thickness remains generally thin on the windward surface (negative vertical coordinate area), with contour values concentrated between 0.6 and 0.8. No snow accumulates near the roof ridge (y/W = 0), and the snow coverage area represents 24.4 % of the windward surface. When airflow passes over the roof ridge and reaches the leeward surface (positive vertical coordinate area), its kinetic energy decreases. Snow particles accumulate at the eaves due to gravity, resulting in thicker snow deposition on the leeward surface. The maximum thickness reaches 0.9 mm, with snow covering 21.1 % of the leeward surface area.
+At 30° wind direction, with wind entering from the lower right, the windward surface lacks snow fence protection on its right side. The roof edge experiences strong scouring under diagonal wind action, completely removing snow at the windward entrance. Snow thickness gradually increases to 1.4 mm near the left side eaves of the windward surface, with a small accumulation anomaly forming on the center-right side reaching 1.3 mm at its thickest point. Snow coverage accounts for 40.7 % of the windward surface. The roof ridge provides shielding that reduces snow particle kinetic energy, leading to continuous transport accumulation at the far end of the leeward surface. Snow significantly thickens here, forming a peak thickness zone (0.9 mm–1.5 mm) behind the roof ridge that extends downwind in a stepped pattern, covering 21.8 % of the leeward surface.
+At 60° wind direction, snow distribution shows predominant accumulation on the windward surface. The steep wind angle alters the interaction between airflow and roof surface. When wind enters obliquely from the lower right, an air separation area forms at the windward eaves due to airflow collision. Snow particles concentrate through inertial effects and deposit at the far end of the eaves, forming a maximum thickness zone that covers 47.6 % of the windward surface. As airflow moves upward along the roof, wind speed recovers, resulting in less snow accumulation near the ridge. The leeward surface shows minimal accumulation at the far eave due to accelerated airflow separation around the ridge, making it difficult for snow particles to settle, with snow covering only 15.6 % of the leeward surface.
+At 90° wind direction, snow distributes symmetrically on both roof surfaces. When wind impacts the roof vertically, snow particles deposit through inertia. With increasing distance, friction and adhesion cause snow thickness to increase. Consequently, snow distributes in a stepped pattern with rapid thickness gradient changes near the windward edge. Snow coverage reaches 82.1 % and 80.2 % of the two roof surface areas respectively.
+Therefore, in large-span suspended gable roof design, particular attention should be paid to the snow load resistance of eaves and roof corners to prevent structural instability and enhance overall building safety.
+4.2. Snow distribution on roofs at different wind angles under snow erosion (case d)
+4.2.1. The impact of wind velocity
+To investigate the variation patterns of roof erosion-deposition under different wind velocities, two working conditions from Group b-iii and d-i were selected, with erosion-deposition shown in Fig. 14. In case b-iii, the airflow over the windward surface created continuous shear stress along the roof. However, this energy proved insufficient to completely remove the snow cover. Consequently, the overall snow thickness on the windward surface remained below the initial 20 mm, gradually decreasing along the wind direction and displaying clear erosion patterns. On the leeward side, snow accumulation increased as the airflow slowed down after crossing the roof ridge due to the slope change. This slowdown caused transported snow particles to settle, forming a central peak accumulation of 28 mm that spread sideways in steps, creating a thick accumulation zone behind the ridge. The 0° wind direction produced symmetrical airflow separation, resulting in evenly balanced dome like deposition on both sides. This demonstrates the weak erosion with strong deposition pattern characteristic of low wind speeds.
+Fig. 14
+Download: Download high-res image (330KB)
+Download: Download full-size image
+Fig. 14. Erosion-deposition diagram at different wind speeds.
+
+In case d-i, the wind force significantly exceeded the threshold needed to move snow particles, causing erosion on the windward surface to increase rapidly. The erosion intensity was much stronger compared to case b-iii, reducing snow thickness on the windward surface dramatically from the initial 20 mm to just 1-8 mm. The faster airflow at the ridge created a stronger low pressure vortex zone on the leeward side, making the contour lines change more abruptly than in case b-iii. Local snow thickness reached 36 mm, with two linear ridge like peaks forming between the ridge and eaves. The accumulation area also expanded toward the X-axis direction.
+The distribution curve of snow depth coefficient at the central axis is shown in Fig. 15. In the cases b-iii and d-i, the extreme points of the windward surface are distributed in the middle region (y/Y = 0.6), which forms an obvious deposition zone due to the relatively gentle airflow movement. However, under the case b-iii, the wind is not enough to blow the snow particles completely, and the snow particles are dominated by indirect leaps. When the wind velocity is increased to 6 m/s, the airflow power is significantly enhanced, prompting a large number of snow particles to enter the suspended motion state, and is blown to the leeward surface, then the dimensionless snow depth coefficient is different, respectively, 0.78 and 0.38. In the leeward surface, the extreme point in the case b-iii is in the y/Y = -0.67, and the dimensionless snow depth coefficient is 1.78, which is closely related to the vortex formed by the roof grill blocking the incoming winds. This is closely related to the vortex formed by the roof snow fence blocking the incoming wind. In case d-i, due to the change of the airflow pattern, the extreme point is shifted to the ridge direction at y/Y = -0.42, and the dimensionless snow depth coefficient is 1.65. Based on the analysis of the above experimental phenomena, it is shown that the motion characteristics of the snow particles on the roof and the deposition pattern show significant correlation with the change of the wind velocity. Under snow erosion-deposition conditions, increasing wind speeds intensify erosion on the windward slope while expanding the high snow depth zone on the leeward slope, thereby exacerbating snow distribution non-uniformity. As wind velocity rises, the peak snow depth coefficient along the roof centerline shifts upward toward the ridge on the leeward slope, whereas its position remains unchanged on the windward slope. This phenomenon provides critical insights for optimizing snow-resistant structural design of gable roofs.
+Fig. 15
+Download: Download high-res image (130KB)
+Download: Download full-size image
+Fig. 15. Snow depth coefficient along the centerline.
+
+4.2.2. The impact of wind direction angle
+Selected case d and b-iii to explore the impact of different wind direction angle on the distribution of snow on the double slope roof. Fig. 16 shows the distribution of snow thickness characteristics of the roof under each wind direction angle. When the wind direction angle increased from 0° to 90°, the windward surface of the cases b-iii and d-ii showed low thickness and weak gradient characteristics. Case d-ii due to the wind direction angle, the lower right corner of the snow erosion at the wind inlet was significant, presenting a similar bare state. Case d-iii shows a more distinct wind direction angle feature, with more snow accumulation than in the 30° wind direction angle, with a bare band on the right side of the leeward surface and an intermittent stripe distribution on the left side of the surface, with a maximum snow thickness of 24 mm. The leeward surface generally showed drastic thickness changes. In case b-iii, a peak accumulation area formed at Y = 500 mm. Case d-ii exhibited a maximum snow thickness that was 22 % lower than case b-iii, with snow concentrating on the left side of the leeward surface. Case d-iii demonstrated a concentric arc pattern in contour distribution. Case d-iv showed relatively lower snow thickness with a maximum of 16 mm. Notably, cases b-iii, d-ii and d-iii all exhibited localized strong deposition bands near the bottom edge of the windward eaves. The maximum thickness ratios between windward and leeward surfaces measured 1:3, 1:1.75, 1:1.4 and 1:1 at wind directions of 0°, 30°, 60° and 90° respectively, showing progressively decreasing thickness differences with increasing wind direction angle.
+Fig. 16
+Download: Download high-res image (943KB)
+Download: Download full-size image
+Fig. 16. Snow distribution on roofs with different wind angles under snow erosion (case d).
+
+4.3. The effect of the snow fence on snow distribution at different wind angles (case e)
+This study compares case b-i and case b-iii to examine how wind direction angles and snow fence configurations affect snow erosion and deposition on double-slope roofs. Under 0° wind direction, case b-iii (with snow fences) shows increased maximum snow thickness compared to case b-i (without snow fences), with windward surface thickness growing from 8 mm to 12 mm and leeward surface thickness from 24 mm to 36 mm. In case b-i, snow initially appears along the windward roof edge. The snow depth gradually increases toward the center, with snow depth contours showing consistent spacing. The snow covered area in this case is somewhat smaller than in case b-iii. As shown in Fig. 17, the snow free roof area is larger without snow fences than with them. On the leeward surface, both cases show very similar snow coverage in the 4–16 mm thickness range. However, as snow thickness increases, the case with snow fences demonstrates more uniform thickness distribution. In contrast, the case without snow fences shows a sharp increase in snow coverage within the 20–28 mm high thickness range.
+Fig. 17
+Download: Download high-res image (430KB)
+Download: Download full-size image
+Fig. 17. Snow thickness percentage distribution at 0° wind direction angle.
+
+The presence of the roof snow fence changes the flow pattern of the airflow and affects the trajectory and deposition location of the snow particles. Under its effect, the snow particles are more likely to gather behind the roof snow fence, resulting in an increase in snow thickness and a more uniform snow distribution.
+Fig. 18 presents the snow erosion and deposition pattern for case e-i (without snow fence). A comparison with case d-ii (with snow fence) reveals that at 30° wind direction angle, the airflow changes direction at the roof ridge. This causes some snow particles in leeward Quadrant I to be blown backward and dispersed. As a result, the peak snow depth in Quadrant II decreases from 40 mm in case e-i to 28 mm in case d-ii. On the windward side, the presence of the snow fence reduces wind kinetic energy, which weakens snow erosion and leads to a more uniform snow distribution in Quadrants III and IV. By modifying the airflow pattern, the snow fence helps to disperse the concentrated snow accumulation near the leeward ridge toward the central and rear roof areas. This significantly reduces local snow load, thereby improving the structural safety of lightweight roofs. Although the accelerated airflow may increase snow deposition in certain windward areas—a issue that can be mitigated by local structural strengthening—the snow fence overall enhances the roof's resistance to snow erosion.
+Fig. 18
+Download: Download high-res image (296KB)
+Download: Download full-size image
+Fig. 18. Erosion-deposition contour map at 30° wind direction angle without roof snow fence.
+
+As shown in Fig. 19, the proportion of snow cover in the 0–20 mm thickness range is similar for both configurations on the windward side. Beyond that range, the proportion with snow fence continues to increase, reaching a peak at 24 mm before declining rapidly. In the 28–40 mm high thickness range, the area percentage without snow fence is significantly larger than that with snow fence.
+Fig. 19
+Download: Download high-res image (405KB)
+Download: Download full-size image
+Fig. 19. Snow thickness percentage distribution at 30° wind direction angle.
+
+As shown in Fig. 20, at 60° wind direction angle, diagonal erosion gullies parallel to the 60° wind direction were formed in both cases d-iii and e-ii. Some of the roof snow particles were completely stripped off. The snow thickness on the windward surface increased slightly with the deployment of roof snow fences, but the distribution was more uniform. The distribution of snow on the leeward surface shifted to the right with the installation of the roof snow fence, increasing the snow area and slowing down the change in thickness. As can be seen in Fig. 21, there is a more even distribution of snow percentage for each thickness of the roof snow fence in comparison.
+Fig. 20
+Download: Download high-res image (328KB)
+Download: Download full-size image
+Fig. 20. Erosion-deposition contour map at 60° wind direction angle without roof snow fence.
+
+Fig. 21
+Download: Download high-res image (386KB)
+Download: Download full-size image
+Fig. 21. Snow thickness percentage distribution at 60° wind direction angle.
+
+Without a roof snow fence, the quadrant I roof formed an erosion gully due to airflow inertia. The snow particles accumulate on the near-wind side and reach a maximum thickness of 20 mm. Whereas with the roof snow fence, the roof snow fence changes the direction of the incoming wind and forms a larger deposition area, but the thickness is reduced overall. When there is no roof snow fence in quadrant II, the airflow changes direction by violently separating at the ridge. The snow particles on the left side form dense deposition and the deposition distribution is steep. After the installation of the roof snow fence, the snow particles are uniformly deposited due to the attenuation of kinetic energy. Windward surface III, IV quadrant due to the oblique wind effect on the roof surface to produce continuous shear erosion, after the deployment of roof snow fence to reduce the wind speed of the roof near the wall surface. Due to the friction effect part of the snow particles did not reach the starting wind speed, so the erosion effect is smaller, and more uniform distribution. In summary, the roof snow fence can be part of the extreme erosion effect into a small amount of comprehensive deposition effect, reduce the risk of collapse caused by the uneven force in the local area, to achieve the overall improvement of the roof's snow-resistant performance.
+The erosion deposition without roof snow fence is shown in Fig. 22. Comparing the erosion deposition with roof snow fence in case d-iv, it can be seen that the airflow separates at the roof ridge, resulting in the snow distribution showing symmetrical characteristics along the roof ridge. Due to the roof snow fence laid on both sides of the wind direction, the effect on snow distribution is small, with or without the roof snow fence case snow distribution is generally the same, with the presence of roof snow fence roof I, IV quadrant deposition distribution is more uniform and thinner. The wind blows horizontally and vertically toward the model, and the windward surface and leeward surface show a symmetrical trend, showing only one side of the snow thickness percentage map (Fig. 23). The maximum value of snow thickness in the percentage of snow distribution is 12 mm. The case without roof snow fence produces a sudden change in snow distribution at 12 mm snow thickness, while the case with roof snow fence has a more uniform distribution of each snow thickness. As a whole, snow particles are not easy to be deposited due to the accelerated airflow and high wind speed at the two edges of the roof. Therefore, the snow depth is relatively shallow compared to the central region. The central region shows a “fish scale” distribution, and the maximum peak thickness of snow on the roof is 16 mm, but the snow thickness under the case of the roof snow fence is reduced significantly. This is due to the blocking effect at both ends of the roof snow fence, which reduces the transportation of snow particles to the central region by intercepting some snow particles and modulating the airflow field.
+Fig. 22
+Download: Download high-res image (297KB)
+Download: Download full-size image
+Fig. 22. Erosion-deposition contour map at 90° wind direction angle without roof snow fence.
+
+Fig. 23
+Download: Download high-res image (185KB)
+Download: Download full-size image
+Fig. 23. Snow thickness percentage distribution at 90° wind direction angle.
+
+This study compares the roof snow distribution data obtained from wind tunnel tests with the current Chinese code “Load Code for the Design of Building Structures: GB 50009–2012” The results show that for large-span structures (with spans exceeding 100 m), the code specifies a snow distribution pattern characterized by greater snow accumulation in the central area and less at the edges, which differs significantly from the actual distribution observed on the gable roof in this study. Additionally, the code specifies that for non-large-span gable roofs under non-uniform snow distribution conditions at a slope of 10°, the snow distribution coefficients on the two slopes of the roof are 0.75 and 1.25, respectively. This scenario aligns more closely with the snow distribution observed in this study under conditions without snow fences. Therefore, the snow distribution data derived from the wind tunnel tests in this study can provide a reference for supplementing and revising the relevant Chinese codes.
+5. Conclusions
+This study investigated snow distribution on large-span suspended roofs through wind tunnel tests. The effects of snow fences with different heights were examined. Research was also conducted on snowfall conditions, wind speed, and wind direction. The influence of snow fences on snow distribution of gable roofs under different wind directions was demonstrated. The main conclusions are as follows:
+(1)
+This study compared snowfall and snow redistribution conditions. It revealed the similarities and differences in roof snow distribution patterns. The research shows: as snow fence height increases, under snowfall conditions, both snow covered area and snow thickness show continuous growth. Under snow redistribution conditions, snow thickness first increases and then decreases. Although snow distribution patterns differ, the 20 mm high snow fence can effectively improve snow distribution uniformity under both conditions. The key characteristic areas and formation mechanisms of snow distribution under different wind directions show high similarity. This provides key parameters for snow-resistant design of such structures.
+(2)
+Considering the light weight and high flexibility of large-span suspended roofs, snow fence arrangement increases the total roof load. However, this has positive significance for the overall stability of such structures. Additionally, based on envelope diagrams of dimensionless snow thickness on the roof, it is recommended to focus on the snow load resistance of the central leeward area and eave zones in structural design. Combined with the snow regulation effect of snow fences, this can enhance the building's safety performance under extreme snow loads.
+(3)
+Under snow redistribution conditions, for the roof with a 20 mm high snow fence, increasing wind speed intensifies erosion on the windward side. It also expands the area of peak snow thickness on the leeward side. This worsens the non-uniformity of snow distribution. As wind speed increases, the peak position of the snow depth coefficient along the roof centerline moves toward the ridge on the leeward side. The peak position on the windward side remains unchanged.
+(4)
+Under snowfall conditions, for the roof with a 20 mm high snow fence, the snow covered area is smallest at 0° wind direction. The snow covered area is largest at 90° wind direction. At 30° and 60° wind directions, snow accumulation occurs at the leeward roof corner. Under snow redistribution conditions, except for the 90° wind direction, other wind directions show localized strong banded deposition near the bottom of the windward eave. Further comparison with roofs without snow fences under different wind directions shows that snow fences can reduce snow erosion on the roof. They also decrease localized concentration of snow particles. Therefore, it is recommended to focus on enhancing the snow resistance of eaves and roof corners.

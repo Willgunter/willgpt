@@ -1,0 +1,638 @@
+Abstract
+Floating offshore wind turbines (FOWTs) operating in cold marine environments must confront atmospheric icing. The objective of this work is to study the blade icing characteristics in operation and the dynamic response of FOWT after icing. For this purpose, blade icing is simulated under various operating conditions using the IEA Wind 15 MW reference wind turbine as an exemplar. The Computational Fluid Dynamics (CFD) methodology calculates the aerodynamic performance of the icing airfoil. A fully coupled dynamic analysis of the wind turbine is performed in OpenFAST to assess the response of the FOWT after blade icing. The calculation results indicate that the wind turbine’s operating regions significantly impact ice accretion. Blade icing reduces the aerodynamic performance, leading to power generation loss. The maximum lift coefficient at the blade tip decreases by 17.7%. The power generation loss in Region 2 is approximately 6%, and the maximum power loss of 0.87 MW occurs at 11 m
+s. Due to different control strategies, the wind turbine response caused by blade icing manifests differently before and after the rated wind speed. When exceeding the rated wind speed, the reduction of pitch angle caused by blade icing, which decreases by 25.6% at 11 m/s, may lead to structural overload. Under imbalanced icing, the power generation of the wind turbine exhibits fluctuations. This study provides a reference for evaluating FOWTs in cold marine environments regarding power generation and safety under atmospheric icing conditions.
+Previous article in issue
+Next article in issue
+Keywords
+Floating offshore wind turbineAtmospheric icingRotor aerodynamicsCFDHydrodynamic analysisResponse degradation
+1. Introduction
+As a promising renewable energy source, the number of wind turbines installed worldwide has increased significantly in recent years. Cold regions have great potential for the development of wind energy because of the higher air density, and the available wind energy is about 10% higher than in other regions (Fortin et al., 2005). According to the statistical data reported by the International Energy Agency (IEA) Wind Task 19 (Jordaens et al., 2018, Karlsson, 2021), the cumulative installed capacity of wind power in cold climates accounts for about 
+ of the global installed capacity of wind power. Therefore, many favorable locations for wind farms are in cold regions at high latitudes, such as the North, Barents, Baltic, Beaufort, Bohai, and other seas. However, wind turbines in these regions are vulnerable to extreme weather events such as atmospheric ice in winter (Battisti, 2015a). The dangerous situation caused by atmospheric icing events is a challenge that wind turbine designers and manufacturers must address.
+Atmospheric icing is caused by the collision of supercooled water droplets on blades. Depending on varying icing conditions, the types of icing on the blade surface can be classified into glaze, rime, and mixed ice (Heinrich, 1991). Glazed ice usually occurs at relatively warm temperatures (
+ to 
+) and high liquid water content (LWC). The supercooled water droplets that impact the blade surface do not freeze immediately but move on its surface, and the formed ice is transparent and smooth (Yang et al., 2022). When icing occurs in relatively cold environments (below 
+) and low LWC, supercooled water droplets freeze instantly upon impact, resulting in rough, white, and opaque rime ice. Mixed ice is a combination of rime and glaze ice (Han, 2011). The ice accretion process on wind turbines is influenced by multiple meteorological and operational parameters, including but not limited to ambient temperature, wind speed, LWC, droplet median volume diameter (MVD), angle of attack, and icing duration. Ice accretion induces a marked elevation in blade surface roughness, thereby substantially degrading aerodynamic efficiency (Gao et al., 2021). Shin (1996) systematically quantified roughness distribution patterns and morphological features of rime and glaze ice on leading edges while establishing parametric correlations between LWC, temperature, and surface roughness.
+Wind tunnel testing is the most widely utilized experimental method for investigating ice accretion phenomena on blade surfaces, enabling the simulation of these processes under precisely controlled environmental conditions. In 1992, Shin and Bond (1992) tested the NASA Lewis Research Center Icing Research Tunnel using a NACA0012 airfoil to verify ice shape reproducibility under controlled conditions. Kraj and Bibeau (2010) simulated the ice accretion on small wind turbine blades through icing wind tunnel experiments. Han et al. (2012) conducted wind tunnel experiments on operational wind turbine blades to simulate the realistic ice accretion process on these blades. Guo et al. (2021) designed and constructed a rotor test stand with two blades of NACA0018 airfoil in the icing wind tunnel to investigate the icing characteristics of straight-bladed vertical axis wind turbines(SB-VAWT). They carried out icing experiments under different tip-speed ratios and rime ice conditions, revealing significant differences in ice distribution between high and low tip-speed ratio conditions. Zhang et al. (2023) conducted experimental tests and mechanistic analysis on blade icing under seawater icing conditions in an icing wind tunnel, and the results showed that an increase in salinity would reduce the icing area and the maximum thickness of ice.
+With the advances in computer technology, numerical modeling has been increasingly employed to simulate atmospheric icing. LEWICE, developed by the NASA Glenn Research Center, is a two-dimensional ice accretion simulation code that employs potential flow theory to calculate particle trajectories (Wright, 2008), originally designed for the aviation industry. Shin et al. (1994) simulated ice accretion under varied conditions using a modified LEWICE code, validated outcomes against wind tunnel data, and proposed a new equivalent sand-grain roughness model. Fortin et al. (2004) developed an icing code called CIRAMIL in a cooperation project with the Italian Aerospace Research Center. This code introduces an analytical model to calculate the roughness of the airfoil surface and the remaining, runback, and shedding liquid water mass on the airfoil surface. FENSAP-ICE is a three-dimensional icing simulation software utilizing computational fluid dynamics, designed in a modular manner to solve each flow, impingement, and accretion successively (Beaugendre et al., 2005). Reid et al. (2013) utilized the ice simulation system FENSAP-ICE to conduct ice accretion simulations on the NREL Phase VI rotor and evaluated performance degradation under four distinct icing conditions. Baizhuma et al. (2021) employed a coupled approach combining the sliding mesh technique (SMT) and the multiple reference frame (MRF) method to predict ice accretion and performance degradation on vertical-axis wind turbines.
+LEWICE is regarded as a benchmark tool by industry and academia. Since the beginning of development in the 1980s (Macarthur, 1983), the code has been continuously updated and optimized. The simulation results of LEWICE were validated against a large experimental dataset conducted in icing research tunnels (Wright and Rutkowski, 1999). In a large number of academic research and engineering practices, the newly developed icing model often uses the simulation results of LEWICE as the verification standard. It is well-established that the code demonstrates reliable accuracy in predicting rime ice. With the advancement of the wind energy industry, LEWICE has been adapted to predict the atmospheric icing of wind turbine blades. Barber et al. (2011) and Jasinski et al. (1998) employed LEWICE to simulate the ice profile of wind turbines. Han et al. (2012) conducted icing experiments on a scaled NREL Phase VI Rotor model and performed non-dimensionalized comparisons with LEWICE simulated rime ice profiles. The results demonstrated satisfactory agreement and validated the code’s predictive capability.
+Blade element momentum (BEM) theory was originally developed by Glauert for helicopter rotor analysis in the 1930s (Glauert, 1983). It combines momentum theory with blade element theory to solve the complex interaction between the turbine and the incoming flow. BEM theory discretizes the blade into independent radial elements and solves the local flow conditions by iterative momentum balance. The Prandtl tip loss model is the most accepted correction and is usually considered a flow model corresponding to a finite number of blades. The strip theory calculation using the Prandtl model is in good agreement with the results obtained by the free wake vortex theory and the test data (Wilson, 1980). BEM theory is widely used in wind turbine modeling due to its adaptability to variable pitch angle, speed and airfoil geometry. Virk et al. (2012) used BEM theory to determine the relative wind speed and angle of attack of selected airfoils at various positions along the blade, and analyzed the differences in icing characteristics from the tip to the root of the blade.
+Meanwhile, the multifaceted impacts induced by ice accretion have been extensively documented. Virk et al. (2010) numerically simulated rime ice accretion effects on four wind turbines, revealing that ice accumulation modifies blade geometry and surface roughness, thereby reducing lift coefficients, increasing drag coefficients, and degrading aerodynamic performance. Shu et al. (2018) proposed a steady-state 3D CFD numerical model using Fluent to investigate the impact of ice on the blade aerodynamic performance. The results indicate that the flow separation around the icing blade is more serious at larger wind speed, especially for glaze ice. Barber et al. (2011) integrated experimental and computational methods to investigate the effects of ice accretion on wind turbine performance. Their findings indicated that icing could reduce the power coefficient by up to 22% and decrease annual energy production by 2%. Lamraoui et al. (2014) investigated the relationship between ice accretion and power output through a numerical simulation study. Their results revealed that ice-induced power losses can reach up to 40%, with the primary impact attributed to the blade tip region beyond the radial position of 
+. Rissanen et al. (2016) investigated the aerodynamic characteristics and mass imbalance of wind turbine blades under icing conditions using numerical simulations. Their study demonstrated that ice accretion on blades reduces power output and increases vibrations, thereby shortening the system’s operational lifespan. Sheidani et al. (2023) conducted a comprehensive analysis of the wake characteristics and aerodynamics of both clean and iced vertical axis wind turbines using large eddy simulation (LES) for turbulence modeling. The results indicate that ice accretion causes earlier separation of both leading-edge and trailing-edge vortices compared to the clean condition, leading to a significant reduction in the power coefficient. An additional critical concern associated with blade icing is the serious safety hazards triggered by ice shedding from the blades, particularly when wind turbines are installed near public roads, residential areas, and power lines (Dalili et al., 2009).
+The analysis and design of wind turbines critically depend on time-domain, fully coupled aero-servo-elastic-hydro simulation tools (Campaña Alonso et al., 2023). Particularly when assessing the structural integrity of offshore wind turbines in cold regions, only through such fully coupled numerical models can high-fidelity prediction of the system’s dynamic response be achieved (Heinonen and Rissanen, 2017). Etemaddar et al. (2014) investigated 8 factors affecting ice accretion using the LEWICE icing code and evaluated power output and structural loads before and after icing through the aeroelastic code HAWC2 for wind turbines. Hu et al. (2017) conducted a case study on the NREL Phase VI wind turbine using FAST v8.15 to examine the load response under both symmetric and asymmetric icing conditions, and found that asymmetric icing increased fatigue damage to the blades and tower by 97.6% and 70.8%, respectively. Chuang et al. (2022) employed a dispersed multi-phase model and melting-solidification model in CFD to simulate three-dimensional ice accretion on rotating blades of the 5 MW wind turbine, and performed a comprehensive analysis for offshore jacket-support wind turbines using FAST.
+Previous research on atmospheric icing has focused exclusively on fixed-bottom wind turbines, while the dynamic response of floating offshore wind turbines (FOWTs) after icing remains unexplored. In recent years, FOWT has been recognized as one of the most promising directions for wind energy development, as it enables electricity generation in deep-water offshore areas where vast energy potential can be harnessed (Musial et al., 2016, Commission, 2020). Deploying wind turbines in deep offshore waters has key advantages, including higher wind speeds and improved capacity factors at greater distances from shore. These capacity factors are critical for grids with high renewable energy penetration, as they mitigate wind power intermittency.
+FOWTs remain a relatively nascent technology. According to Bento and Fontes (2019), the primary barriers to its commercialization are high costs and technological immaturity. Over the years, upscaling turbine size has been regarded as a key driver for cost reduction. For floating turbines, the benefits of upscaling are even more pronounced than those for land-based counterparts, with direct implications not only for the cost per kilowatt of turbine installation but also for expenses related to floaters, mooring lines, and auxiliary systems (Papi and Bianchini, 2022). Additionally, under maritime operating conditions, operators are exempt from transportation constraints, and the installation of super-large machinery is significantly facilitated. For example, the IEA Wind 15 MW reference wind turbine was collaboratively developed by the National Renewable Energy Laboratory (NREL) and the Technical University of Denmark (DTU) (Gaertner et al., 2020), while the University of Maine (UMaine) designed the VolturnUS-S semi-submersible floating platform to support this wind turbine (Allen et al., 2020), as illustrated in Fig. 1. The trend towards larger wind turbines requires manufacturers to produce longer and lighter blades, resulting in more flexible structures (Salavatidezfouli et al., 2025). With increases in tip speed, hub height, and rotor diameter, the impact of atmospheric icing has introduced greater uncertainty.
+Prior studies on wind turbine icing have primarily focused on analyzing individual variables’ impact on ice formation or performance under isolated operating conditions. A holistic analysis of blade icing patterns across operational control zones remains to be carried out (Cao et al., 2022). For large-scale FOWTs, atmospheric icing not only reduces the power generation efficiency and shortens service life but also significantly affects the movement of the wind turbine platform, which must be taken seriously (Zhang et al., 2023). Furthermore, the imbalanced loads caused by blade icing pose additional challenges to the operational safety margins and long-term integrity of floating platforms and mooring systems. In this paper, the study firstly simulates ice accretion along the blade span under operational conditions using BEM theory, and evaluates icing characteristics across wind speed scenarios; a Computational Fluid Dynamics (CFD) method is then applied to calculate aerodynamic parameters of iced airfoils at 10 m/s and assess the impact of ice-induced airfoil profile alterations and surface roughness variations on aerodynamic degradation; the steady-state performance and dynamic responses of an offshore wind turbine post-icing is ultimately predicted within a fully coupled dynamic analysis framework.
+Fig. 1
+Download: Download high-res image (186KB)
+Download: Download full-size image
+Fig. 1. IEA Wind 15 MW reference floating wind turbine and its frame of Allen et al. (2020).
+
+The remainder of this paper is structured as follows. Section 2 details the study’s methodology, covering the wind turbine model parameters, blade node selection for icing simulation, theoretical frameworks, simulation tools, and the technical approach of the present study. Section 3 presents the results of blade icing calculation, including the relative wind speed and angle of attack at each node of the blade calculated based on BEM theory, the ice profile, thickness, and mass obtained through icing simulation, and the lift and drag coefficients of the icing airfoil obtained by CFD method. Section 4 demonstrates the response characteristics of the FOWT after icing in the fully coupled dynamic analysis framework, including both the steady-state performance metrics, e.g., power generation, operating status indices, and structural vibration, and the dynamic response, e.g., the fluctuations in power generation, the floating platform’s six-degrees-of-freedom motion, and the mooring system loads. Section 5 summarizes the principal findings and proposes future research prospects on atmospheric icing in FOWTs.
+2. Research method
+2.1. Wind turbine model and blade node selection
+This study selected the IEA Wind 15 MW offshore reference wind turbine as the research object. The wind turbine is an upwind horizontal-axis configuration, and its main parameters are documented in Table 1. From the root to the tip of the blade, the blade geometry employs a combined design of a circular section transitioning to seven airfoils of the DTU FFA-W3 series. Fig. 2 illustrates the specific airfoil profile distribution.
+UMaine developed the VolturnUS-S semi-submersible platform to support the IEA Wind 15 MW reference wind turbine. This steel structure platform consists of a central buoyant column attached to the tower and three outer buoyant columns. The central column is connected to the outer columns via three rectangular pontoons and three radial struts attached to the bottom and top of the buoyant columns, respectively. It is anchored at a depth of 200 m by a triple-line catenary mooring system. Each mooring line connects to the fairleads on the platform, evenly distributed along the central column axis. Table 2 lists the key parameters of the floating platform and the mooring system. More detailed specifications are available in Gaertner et al. (2020) and Allen et al. (2020).
+Fig. 2
+Download: Download high-res image (249KB)
+Download: Download full-size image
+Fig. 2. Blade geometry and its airfoil distribution.
+
+In the OpenFAST model of the 15 MW reference wind turbine released by the developer, the blade is defined with 50 nodes to describe the geometric and aerodynamic characteristics. In this study, 12 nodes are selected to investigate the differences in icing along the blade span direction. The local radius r, chord length c, and twist angle 
+ of the airfoil at each node are shown in Table 3, where 
+ denotes the rotor radius. The blade tip represents the area of greatest energy extraction and highest susceptibility to ice accumulation (Burton et al., 2011), which necessitates a higher concentration of nodes in this region.
+Table 1. Key parameters of the wind turbine.
+
+Parameter	Value	Units
+Rated Power	15	MW
+Hub Height	150	m
+Hub Diameter	7.94	m
+Blade Length	117	m
+Root Diameter	5.2	m
+Cut-in Wind Speed	3	m/s
+Optimized Wind Speed	6.98	m/s
+Rated Wind Speed	10.59	m/s
+Cut-out Wind Speed	25	m/s
+Table 2. Key parameters of the floating platform and the mooring system.
+
+Parameter	Value	Units
+Total Draft	20	m
+Vertical Center of Gravity from SWL	−14.94	m
+Roll Inertia about Center of Gravity	
+Pitch Inertia about Center of Gravity	
+Yaw Inertia about Center of Gravity	
+Platform Mass	17 839	t
+Angle Between Adjacent Lines	120	
+Fairlead Depth	14	m
+Anchor Radial Spacing	837.6	m
+Table 3. Definition of airfoil nodes selected in the study.
+
+Node	
+Chord 
+Twist 
+ (°)
+17	42.17	34.86	5.17	4.80
+21	51.73	42.76	4.66	3.08
+25	61.28	50.65	4.21	1.83
+29	70.83	58.55	3.80	0.84
+33	80.38	66.44	3.43	0.04
+37	89.93	74.34	3.07	−1.00
+39	94.70	78.29	2.88	−1.62
+41	99.48	82.24	2.69	−2.09
+43	104.26	86.18	2.49	−2.18
+45	109.03	90.13	2.28	−2.10
+47	113.81	94.08	2.05	−1.90
+49	118.58	98.03	1.82	−1.51
+2.2. Blade element momentum theory
+Determining the specific ice profiles at each node under operational conditions requires first calculating the relative wind speed (
+) and angle of attack (
+) at the corresponding airfoil sections. These parameters can be determined iteratively using BEM theory (Manwell et al., 2015, Hansen, 2015).
+As shown in Fig. 3, the relative wind speed 
+ of the airfoil is the vector sum of the axial velocity 
+ and the tangential velocity 
+ within the rotor plane, expressed as:
+(1)
+where 
+ represents the incoming wind speed, 
+ is the axial induction factor, 
+ is the tangential induction factor, and 
+ denotes the rotational speed.
+Fig. 3
+Download: Download high-res image (138KB)
+Download: Download full-size image
+Fig. 3. Diagram of the velocity triangle and key angles of a blade element.
+
+The angle of attack 
+ is the difference between the inflow angle 
+ and the section pitch angle 
+:
+(2)
+where the inflow angle of wind 
+ is the angle between the plane of blade rotation and the relative wind speed 
+, the section pitch angle 
+ is the sum of the blade pitch angle 
+ and the section twist angle 
+, as:
+(3)
+According to BEM theory, the axial induction factor 
+ and tangential induction factor 
+ can be derived as follows:
+(4)
+in which, 
+ is the correction coefficient, 
+ is the local airfoil lift coefficient, 
+ is the local airfoil drag coefficient, and 
+ is the local solidity, defined as:
+(5)
+where 
+ represents the number of blades.
+The blade tip loss and hub loss corrections are taken into consideration. The Glauert correction (Moriarty and Hansen, 2005) is applied when 
+, where 
+ is the thrust coefficient. Once the incoming wind speed 
+ is determined, the relative wind speed 
+ and the angle of attack 
+ at each section of the wind turbine blade can be calculated.
+2.3. Icing simulation calculation
+The LEWINT software used in this study inherits the ice accretion code from LEWICE version 3.2.2, integrated with a user interface, icing analysis tools, and automated plotting capabilities developed by American Kestrel Company. LEWICE is a time-stepping procedure to calculate the shape of an ice accretion, and can be run in two modes: when no heaters are firing and when heaters are engaged. LEWICE employs the Douglas Hess-Smith 2-D panel code (S24Y) to solve potential flow fields (Hess and Smith, 1967). Subsequently, the Lagrangian approach by Frost et al. (1982) was used to evaluate the particle trajectory and impingement characteristics. The distribution of liquid water impinging on the body serves as a critical input for the icing thermodynamic model. The icing thermodynamic model is based on the work of Messinger (Messinger, 1953), but contains several major modifications and improvements (Wright, 2008).
+The mass balance equation determines the mass of frozen water at each location by accounting for all relevant mass gains and losses:
+(6)
+where 
+ is mass flux of impinging water, 
+ is mass flux of runback water entering a given section, 
+ is mass flux of evaporating water, 
+ is mass flux of water freezing in a given section, 
+ is mass flux of runback water leaving a given section, 
+ is mass flux of water shedding in a given section, 
+ is mass flux of standing water due to surface tension effects, 
+ is surface distance spacing at next location, 
+ is surface distance spacing at current location.
+The concept of freezing fraction is introduced to represent the proportion of the total mass of liquid entering the control volume that freezes in the control volume, and it can be expressed as (Messinger, 1953):
+(7)
+The freezing fraction equals 1.0 for rime ice, since all the water entering the control volume freezes within it.
+The energy balance equation determines the amount of heat gain and loss from different factors and determines the energy available at each location for freezing the available water, and it can be expressed as follows (Wright, 2008, Messinger, 1953, Masiulaniec and Wright, 1994):
+(8)
+where 
+ is thermal conductivity of body in direction normal to the surface, 
+ is temperature at a given location on the body geometry, 
+ is direction normal to body surface, 
+ is net convective heat loss from body, 
+ is evaporative heat loss from surface water, 
+ is kinetic heat gain to body from impinging droplets, 
+ is latent heat gain to body from freezing, 
+ is sensible heat loss (or gain) from surface water.
+The net convective heat loss is expressed as:
+(9)
+where 
+ is convective heat loss, 
+ is heat gain on surface from frictional heating, 
+ is the ratio of the surface area of a bead on the surface with respect to the surface area of the control volume.
+(10)
+(11)
+where 
+ is the convective heat transfer coefficient, 
+ is the temperature at a given surface location on a body geometry, 
+ is the ambient static temperature. 
+ is the recovery temperature at a given surface location on a body geometry. The evaporative heat loss is given by:
+(12)
+where 
+ is latent heat of vaporization, 
+ is mass transfer coefficient, 
+ is molecular weight of water, 
+ is molar ideal gas constant, 
+ is temperature at the edge of boundary layer, 
+ is saturated evaporative pressure at a given surface location on a body geometry, 
+ is saturated evaporative pressure at the edge of boundary layer.
+The kinetic heat gain from the impinging droplets is defined as
+(13)
+where 
+ is local collection efficiency, 
+ is freestream velocity.
+The latent heat gain is defined as:
+(14)
+where 
+ is latent heat of fusion.
+The sensible heat transfer under rime ice is given by:
+(15)
+where 
+ is specific heat of water, 
+ is specific heat of ice, 
+ is temperature at previous surface location on a body geometry, 
+ is melting point temperature for ice.
+Ice density in LEWICE is fixed at a value of 917 kg/m
+ unless the supercooled large droplets (SLD) option is actived. By specifying icing time increments, ice growth rates can be interpreted as accreted ice thickness on the substrate, thereby driving iterative updates of the surface geometry through coordinate regeneration. The iterative process recommences with flow field recalculation and continues until the prescribed icing duration is attained.
+Ice accretion on wind turbine blades leads to changes in the airfoil’s geometric shape and surface roughness, both of which are critical characteristics to consider in simulations of ice accretion. To account for the progressive change in airfoil geometry during ice accretion, the flow field must be updated promptly within the prescribed icing time. The LEWICE code provides an automatic time-stepping flag. If the flag is enabled, the time step is calculated based on accumulated parameters to maintain the accuracy of program calculations (Wright and Rutkowski, 1999). Accurately predicting surface roughness after icing remains highly challenging and costly due to the complexity of its spatial distribution and morphological patterns. LEWICE employs an empirical roughness model to account for the influence of roughness on ice accretion simulation. Shin, Anderson, and some other researchers (Shin, 1996, Shin et al., 1994, Anderson and Shin, 1997, Bond and Anderson, 2004) conducted a series of groundbreaking studies on the surface roughness of ice accretion. The surface roughness height 
+ is expressed as a function related to the freezing fraction at the stagnation point 
+, defined as:
+(16)
+which has been widely applied by LEWICE and other ice prediction codes for maximum roughness height prediction (Han and Palacios, 2017). Local roughness is determined using different freezing fraction definitions, as it is calculated based on the control volume mass and energy balance equations.
+The present study focuses on rime ice simulation due to its comparatively straightforward ice formation processes and the enhanced reliability of numerical predictions for its accretion behavior (Hu et al., 2017). The rime ice predictions from LEWICE are validated against experimental data obtained from the Lewis Research Center Ice Wind Tunnel (Shin and Bond, 1992). A NACA0012 airfoil with a 0.5334 m chord is employed. The simulation conditions are set as follows: an angle of attack of 
+, an ambient temperature of 
+, and an MVD of 
+. For case (a), the incoming wind speed 
+ is 67.05 m/s, LWC is 
+, and the icing duration 
+ is 6 min. For case (b), 
+ is 102.82 m/s, LWC is 
+, and 
+ is 7 min. As shown in Fig. 4, the ice shapes predicted by LEWICE agree well with the experimental results.
+Subsequently, the ice shape simulated by LEWICE was compared with the FENSAP-ICE predictions from Homola et al. (2012) on the NREL 5 MW wind turbine blade sections. The icing conditions are set as follows: an ambient temperature of 
+, an MVD of 
+, an LWC of 
+ and an icing duration of 60 min. Table 4 provides the operating conditions of two test sections. As shown in Fig. 5, the results indicate that the ice shape size and extent predicted by LEWICE and Homola et al. are relatively close, with the ice shape from LEWICE being slightly more irregular. Based on the foregoing comparison, LEWICE’s prediction of the ice shape proves to be satisfactory.
+Fig. 4
+Download: Download high-res image (298KB)
+Download: Download full-size image
+Fig. 4. Comparison of ice shape for the NACA0012 airfoil.
+
+Table 4. Test sections operating condition at 10 m/s.
+
+Section	D	E
+Airfoil name	NACA64-A17	NACA64-A17
+Local radius 
+ (m)	54.25	63
+Chord 
+ (m)	3.6170	8.5213
+Relative wind speed 
+ (m/s)	64.14	75.88
+Angle of attack 
+ (°)	4.430	5.824
+Twist 
+  (°)	1.526	0.106
+Fig. 5
+Download: Download high-res image (266KB)
+Download: Download full-size image
+Fig. 5. Ice shape at two sections along NREL 5 MW wind turbine blade.
+
+2.4. Fully coupled dynamic analysis of wind turbine
+OpenFAST (Jonkman and Buhl, 2005, Jonkman, 2007) is a fully coupled dynamic analysis framework for FOWTs, which integrates computational modules for aerodynamics, hydrodynamics, control and electrical system dynamics, and structural dynamics. It enables fully coupled nonlinear aero-hydro-servo-elastic simulation in the time domain. The equations of motion in OpenFAST (Jonkman and Buhl, 2004) is based on Kane’s dynamics method (Kane and Levinson, 1985). For a simple holonomic system with 
+ generalized coordinates, Kane’s equations of motion can be stated as follows:
+(17)
+where for a set of 
+ rigid bodies characterized by reference frame 
+ and center of mass point 
+, the formula of the generalized active force 
+ and generalized inertial force 
+ are expressed as follows:
+(18)
+(19)
+In these equations, it is assumed that for each rigid body 
+, the active forces 
+ and 
+ are applied at the center of mass point 
+. 
+ is the mass of object. 
+ is the acceleration at the center of mass point 
+, and 
+ is the time derivative of the angular momentum of rigid body 
+ about its center of mass 
+ in the inertial frame 
+. 
+ and 
+ are local linear velocity and local angular velocity, respectively.
+OpenFAST is employed to analyze the global response of wind turbines under icing conditions, and its reliability in such applications has been validated in Coulling et al. (2013). In the present fully coupled dynamic analysis of wind turbines after icing, the lift and drag coefficients of the icing airfoils are modified to consider the impact of blade icing on aerodynamics, and the mass distribution of the icing blades is adjusted to consider the impact of blade icing on structural dynamics.
+HydroDyn, the hydrodynamic module integrated into OpenFAST, computes wave–structure interactions for FOWTs. Wave kinematics uses first plus second-order wave theory to generate waves (Sharma and Dean, 1981). This study considers linear regular waves for calculating hydrodynamic loads on structures. The hydrodynamic problem of the semi-submersible platform is solved by the potential flow theory. The potential flow solution requires using WAMIT to generate frequency-dependent hydrodynamic coefficients in the pre-computation step. The total load acting on the platform from hydrodynamics and moorings in the 
+th degree of freedom (DOF) 
+ is written as follows (Jonkman, 2007):
+(20)
+where 
+ is the 
+th component of the applied hydrodynamic load on the support platform, and 
+ is the 
+th component of the applied load on the support platform from the contribution of all mooring lines. 
+ can be represented by the following equation:
+(21)
+where 
+ represents the total excitation load on the support platform from incident waves. 
+ represent the load contribution from hydrostatics. 
+ denotes the load contribution from wave-radiation, expressed as:
+(22)
+where 
+ is the (
+) component of the impulsive hydrodynamic-added-mass matrix, 
+ and 
+ represent the velocity and acceleration of the 
+th DOF, respectively. 
+ is a dummy variable with the same units as the simulation time 
+, and 
+ is the 
+ component of the matrix known as the wave-radiation-retardation kernel.
+MoorDyn discretizes the cable dynamics along the length of mooring lines using the lumped-mass method. The cable is divided into 
+ uniformly sized segments, connecting 
+ nodes, each with the same characteristics of unstretched length, diameter, density, and Young’s modulus. The total load on the support platform from the contribution of all mooring lines 
+ is
+(23)
+where 
+ is the 
+ component of the linearized restoring matrix from all mooring lines, 
+ denotes the displacement of the 
+th DOF, and 
+ is the 
+th component of the total mooring system load acting on the support platform in its undisplaced position.
+2.5. Meteorological parameters
+The meteorological parameters for icing simulations are derived from Arctic detecting data in prior research (Gilson et al., 2024, Shupe et al., 2006). Persson et al. (2002) monitored annual air temperature fluctuations in the Beaufort Sea, demonstrating that the lowest temperature in winter could attain 
+, while in spring and summer, the temperature exhibited abrupt rebounds approaching 
+. Makkonen (1984) compiled comprehensive datasets on Arctic sea fog characteristics, including average droplet diameter and LWC. Based on the aforementioned meteorological studies and parameter values from previous icing simulations, this study applies the following computational settings: an ambient temperature of 
+, an LWC of 
+, an MVD of 
+, and an icing duration of 6 h. Atmospheric water droplets exhibit a polydisperse diameter distribution rather than uniform sizing. This study employs the Langmuir-D water droplet size distribution (Langmuir and Blodgett, 1946, Sokolov and Virk, 2019), and the percentage distribution of droplets is explicitly presented in Table 5.
+The 15 MW reference wind turbine operates with cut-in and cut-out wind speeds of 
+ and 
+, respectively. Its operational wind speed range 
+ is partitioned into three distinct control regions (Allen et al., 2020):
+Fig. 6
+Download: Download high-res image (531KB)
+Download: Download full-size image
+Fig. 6. Technical approach for the dynamic simulation of atmospheric icing in wind turbines.
+
+Fig. 7
+Download: Download high-res image (396KB)
+Download: Download full-size image
+Fig. 7. Spanwise distribution of relative wind speed and angle of attack under different cases.
+
+Fig. 8
+Download: Download high-res image (960KB)
+Download: Download full-size image
+Fig. 8. The ice profile of each node under different cases.
+
+Fig. 9
+Download: Download high-res image (380KB)
+Download: Download full-size image
+Fig. 9. Spanwise ice characteristics distribution on the blade under various cases.
+
+Fig. 10
+Download: Download high-res image (96KB)
+Download: Download full-size image
+Fig. 10. The mass ratio of ice to clean blade.
+
+Fig. 11
+Download: Download high-res image (175KB)
+Download: Download full-size image
+Fig. 11. Ice profiles of each node in the blade tip region at 10 m
+s.
+
+Fig. 12
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 12. Discretized domain for the icing airfoil (Node 49).
+
+Fig. 13
+Download: Download high-res image (103KB)
+Download: Download full-size image
+Fig. 13. Grids independent analysis for the icing airfoil (Node 49).
+
+Fig. 14
+Download: Download high-res image (203KB)
+Download: Download full-size image
+Fig. 14. Aerodynamic parameter verification of airfoil at Re=
+.
+
+Fig. 15
+Download: Download high-res image (349KB)
+Download: Download full-size image
+Fig. 15. Lift and drag coefficients of the clean airfoils and the icing airfoils.
+
+Fig. 16
+Download: Download high-res image (214KB)
+Download: Download full-size image
+Fig. 16. Lift-to-drag ratios of the clean airfoils and the icing airfoils.
+
+Fig. 17
+Download: Download high-res image (932KB)
+Download: Download full-size image
+Fig. 17. Comparison of wind turbine steady-state response before and after icing.
+
+Fig. 18
+Download: Download high-res image (197KB)
+Download: Download full-size image
+Fig. 18. Comparison of power loss at different wind speeds.
+
+Fig. 19
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 19. Translational motion of the platform.
+
+Fig. 20
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 20. Rotational motion of the platform.
+
+Fig. 21
+Download: Download high-res image (538KB)
+Download: Download full-size image
+Fig. 21. Wind turbine generator power.
+
+Fig. 22
+Download: Download high-res image (327KB)
+Download: Download full-size image
+Fig. 22. FFT results of PtfmYaw and GenPwr at a wind speed of 10 m/s.
+
+Fig. 23
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 23. Tension of mooring system.
+
+Fig. 24
+Download: Download high-res image (804KB)
+Download: Download full-size image
+Fig. 24. Moment of blade root.
+
+Table 5. Langmuir-D distribution of droplet diameter with an MVD of 
+ for icing simulation.
+
+Percentage of LWC (%)	Ratio of diameters	Droplet diameter (
+m)
+5	0.31	6.2
+10	0.52	10.4
+20	0.71	14.2
+30	1.00	20.0
+20	1.37	27.4
+10	1.74	34.8
+5	2.22	44.4
+In Region 1, the wind speed ranges from 
+ to 
+. The proportional integral (PI) controller on the generator torque enforces the minimum rotor speed at 5 rpm to constrain the turbine’s operational speed range. Meanwhile, the blade pitch controller applies a minimum pitch constraint based on the estimated wind speed to maximize the power coefficient 
+.
+In Region 2, the wind speed ranges from 
+ to 
+. The PI controller on the generator torque regulates rotor speed to maintain the optimal tip-speed ratio (TSR) of 9.0, gradually reaching the rated power.
+In Region 3, the wind speed ranges from 
+ to 
+. When the wind speed exceeds the rated value, the generator torque PI controller saturates at the rated torque, and the blade pitch PI controller adjusts the pitch angle to regulate the rotor speed to the rated value of 7.55 rpm. At this point, the wind turbine operates at the rated power.
+To systematically investigate the differences in blade icing characteristics during wind turbine operation under varying wind speed cases, this study selects six representative wind speeds 
+, and 
+ spanning all control regions of the 15 MW reference wind turbine to conduct numerical simulations on blade icing. The operating parameters corresponding to each wind speed case are detailed in Table 6.
+The wave conditions analyzed in this study are derived from the metocean dataset collaboratively developed by the University of Massachusetts Amherst and the National Renewable Energy Laboratory (NREL) (Stewart et al., 2016). This dataset serves as a critical resource for researchers and industry professionals engaged in the design and analysis of FOWTs. To observe the differences in wind turbine responses before and after the rated wind speed during dynamic analysis, the metocean conditions at 10 m
+s and 20 m
+s wind speed under the design load case (DLC) are selected to conduct analysis. The characteristics of regular waves are defined by the wave height and the period, as shown in Table 7. The propagation heading direction of the incident wave is 
+.
+Table 6. Operational parameters under varying wind speed.
+
+Case	Wind speed
+(m /s )	Control
+region	Rotor speed
+(rpm)	Blade pitch
+(°)	Tip Speed Ratio (TSR)
+(–)
+1	5.0	Region 1	5.000	2.699	12.67
+2	7.0	Region 2	5.014	0.000	9.00
+3	10.0	Region 2	7.129	0.000	9.00
+4	15.0	Region 3	7.550	11.626	6.38
+5	20.0	Region 3	7.550	17.924	4.78
+6	25.0	Region 3	7.550	22.907	3.86
+Table 7. Definition of regular waves for dynamic response analysis.
+
+Wind speed (m
+s)	Wave height (m)	Period (s)
+10	1.5369	7.6514
+20	3.6170	8.5213
+2.6. Technical approach
+The technical approach of this study is shown in Fig. 6. The research process can be summarized into two main parts: icing blade calculation and fully coupled dynamic analysis. Firstly, the relative wind speed 
+ and angle of attack 
+ at each node are calculated with the employment of the BEM theory in the standalone Aerodyn module. The calculation specifies the incoming wind speed 
+ and the corresponding rotor speed and blade pitch angle. Subsequently, the icing atmospheric conditions, relative wind speed 
+, angle of attack 
+, and airfoil profile are input into LEWINT for icing accretion calculations. The CFD method is employed to calculate the aerodynamic parameters of the airfoil after icing. The meshing process is conducted using ICEM, whereas the flow field simulations are carried out in Fluent. The obtained lift and drag coefficients are preprocessed via AirfoilPrep to generate aerodynamic data files essential for the fully coupled dynamic analysis. Specifically, the icing airfoil aerodynamic files are implemented into AeroDyn; mass distribution alterations induced by icing are adjusted in ElastoDyn. Steady-state performance and dynamic responses of the wind turbine before and after icing are computed within the fully coupled framework of OpenFAST. In the dynamic response simulation, the impact of ocean waves on FOWTs is considered. The variations in power loss, structural vibration, and operational status of the FOWT before and after blade icing are obtained by coupling two parts.
+3. Results and discussion of blade icing
+3.1. Results of BEM theory calculations
+The relative wind speed and angle of attack distributions at each node along the blade span are presented in Fig. 7. The relative wind speed exhibits a nearly linear rise from the root to the tip of the blade. Rotor speed serves as the primary determinant of relative wind speed variations across operational conditions. The relative wind speed curves for different cases are arranged in descending order from top to bottom (see Fig. 5(a)), corresponding to their rotor speed values. The rotor speeds of Case 1 and Case 2 are around 5 rpm, so the relative wind speed curves almost coincide. Similarly, the wind turbine’s rotor speed is held constant at 7.55 rpm in Region 3, resulting in minimal variation in relative wind speeds between Cases 4–6. At the blade tip (Node 49), specific values are recorded as 94.45 m
+s (Case 4), 95.34 m
+s (Case 5), and 96.47 m
+s (Case 6), respectively. There are noticeable differences in the relative wind speeds near the blade root for Cases 4–6. This is because the tangential velocity near the blade root is small, while the inflow wind velocity under Cases 4–6 is relatively high, which amplifies the sensitivity of relative wind speed to inflow variations in these zones.
+The angle of attack exhibits a significant dependence on blade pitch angle regulation. Cases 2 and 3, operating in Region 2 under design tip-speed ratio, TSR 
+, with blade pitch angle 
+, demonstrate identical angle of attack distributions along the blade span. Case 1 is located in Region 1, for which a PI controller on the blade pitch implements a minimum pitch angle based on wind speed estimation to maximize the power coefficient 
+. Concurrently, a PI controller on the generator torque maintains the turbine’s minimum rotor speed at 5 rpm through torque regulation. Compared with Region 2, both blade pitch angle and TSR show elevated values when the wind speed is located in Region 1. Consequently, Case 1 displays lower angles of attack relative to Cases 2 and 3.
+Examination of the angle of attack variations under Cases 4–6 reveals that within the studied blade region, the angle of attack near the tip exhibits a significant reduction and even attains negative values with increasing inflow wind speed, accompanied by progressively increasing discrepancies in angular distribution. As illustrated in Fig. 3, the inflow angle 
+ demonstrates an actual increase when the inflow wind speed escalates while the rotor maintains its rated rotational speed of 7.55 rpm. However, this increment in inflow angle 
+ manifests non-uniform characteristics along the blade span. Eq. (2) indicates that the inflow angle 
+ at each blade node can be expressed as a function of local radius 
+. Due to the substantial tangential velocity 
+ in the blade tip region, the inflow angle 
+ is not sensitive to variations in the inflow wind speed 
+. The pitch angle is incrementally adjusted in coordination with rising wind speeds. Under the substantial increase in blade pitch angle 
+, the angle of attack 
+ at the blade tip ultimately demonstrates a pronounced reduction.
+3.2. Ice accretion characteristics
+For comparative analysis of ice profiles along the blade under varying cases, eight spanwise nodes with uniform spacing of 9.55 m are selected for ice profile reconstruction, as depicted in Fig. 8. Ice accretion is predominantly distributed on the windward side of the blade. A discernible trend emerges that both mass and thickness of ice exhibit monotonic escalation from root to tip regions, with the maximum ice accretion observed at the outermost spanwise positions. This spatial distribution pattern aligns with prior findings (Etemaddar et al., 2014, Chuang et al., 2022). The investigation records a maximum ice thickness of 168.5 mm and a maximum linear mass density of 14.2 kg/m at the blade tip. This icing distribution is primarily attributed to the aerodynamic phenomenon where relative wind speed gradually increases with radial distance from the root region.
+The root-proximal region (0%–30% span) is almost unrecognizable for ice profiles, attributable not only to diminished relative velocities but also to geometric variations in root airfoil profiles. Primarily, airfoil profiles proximal to the blade root region exhibit increased dimensions. For instance, Node 49 demonstrated a chord length of 1.82 m, compared with 5.17 m at Node 17. Additionally, the root-proximal airfoil sections exhibit greater relative thickness, resulting from the spanwise implementation of strategically varied airfoil profiles. The increased chord length and greater relative thickness result in reduced curvature at the airfoil leading edge, enhanced streamline divergence, and amplified droplet flow-around effect, contributing to the decrease in collision coefficient (Battisti, 2015b, Mortensen et al., 2008).
+Additionally, the horn ice geometry exhibited significant angular variation across test cases. During the process of rime ice formations, rapid droplet freezing upon impingement caused horn angles to align closely with the local angle of attack. In Cases 4–6, progressive pitch angle adjustments were implemented to maintain rated rotor speed under escalating wind conditions, resulting in clockwise rotation of the angle of attack and consequent upward reorientation of horn ice formations in the tip region.
+The distributions of ice thickness and mass along the blade span under different cases are presented in Fig. 9(a) and Fig. 9(b). The results indicate that Cases 4–6 in Region 3 demonstrate comparable ice accumulation magnitudes, which are significantly higher than those observed in other cases. Relative wind speed is the predominant factor influencing ice accretion magnitudes, with increased relative wind speed enhancing droplet impingement and subsequent phase-change accretion on the blade surface. When the wind speed reaches 10.59 m
+s, the rotor speed stabilizes at its rated value (7.55 rpm). As evidenced by Fig. 5(a), these three cases exhibit significantly higher relative wind speeds than the others, with nearly identical wind speed magnitudes observed near the blade tip region. Analysis of ice thickness profiles reveals that Case 6 shows slightly reduced thickness near the blade tip compared to Cases 4 and 5. This phenomenon can be attributed to the increased angle of attack near the blade tip in Case 6, which modifies the ice accretion morphology and consequently decelerates thickness growth, as illustrated in Fig. 8.
+The effect of the angle of attack on ice accretion is also evident in the differences between Cases 1 and 2. Due to the comparable rotational speeds in Cases 1 and 2, the relative wind speed distribution curves exhibit nearly identical profiles between the two cases. However, due to blade pitch control, the angles of attack at each blade node in Case 2 are significantly larger than in Case 1. The increased angles of attack result in reduced collision efficiency, leading to lower ice mass and thickness in Case 2 compared to Case 1. The suppression effect of a large angle of attack on ice accretion diminishes following the formation of horn ice. Case 2 manifests a protruding horn ice structure at Node 49, with ice thickness exceeding that in Case 1.
+Cases 2 and 3, within Region 2, exhibit identical angles of attack at all blade nodes, but Case 2 operates at comparatively reduced relative wind speeds. Consequently, both cases demonstrate analogous ice thickness variation trends. This observation is corroborated by the ice profiles in Fig. 8, which reveal that while Case 2 shows reduced ice thickness values across nodes compared to Case 3, the angular ice development orientations remain fully aligned, exhibiting congruent morphological profiles.
+3.3. CFD analysis of blade icing
+3.3.1. Definition of research nodes and ice shapes
+The results of Section 3.2 indicate that there is more ice accretion in the blade tip region. Fig. 10 presents the mass ratio of ice to clean blade at each node under Case 3. Ice accretion in the blade tip region induces substantial variations in blade mass distribution. Node 49 exhibits a 54.96% mass increment in the icing airfoil compared to the clean airfoil, whereas the mass ratio of ice to clean blade at Node 39 is below 5%. More importantly, the blade tip region contributes dominantly to power generation (Burton et al., 2011). Therefore, this critical zone (77.5%–100% blade length with FFA-W3-211 airfoil profile) is selected for subsequent CFD investigations. To optimize computational efficiency, Nodes 39, 41, 43, 45, 47, and 49 for Case 3 are strategically chosen for direct aerodynamic parameter calculations of the icing airfoils.
+The normalized icing airfoil profiles of each node are presented in Fig. 11. The ice morphology exhibits progressive outward expansion from Node 39 to 49. Node 49 exhibits a pronounced upward protrusion in the ice profile compared to other nodes. This phenomenon is attributed to enhanced tip loss effects at Node 49, reducing the effective angle of attack.
+3.3.2. Grid generation and independence verification
+The C-block mesh surrounding both icing and clean airfoils is generated using ICEM. The structural superiority of C-block topology ensures enhanced mesh quality for airfoil simulations, thereby improving computational accuracy. Boundary layer resolution is achieved through near-wall refinement with the first grid layer height satisfying 
+, where 
+ is the dimensionless wall distance. The computational domain extends 15 chord lengths (
+) upstream and vertically from the leading edge, with a 
+ downstream extension to minimize wake interference, yielding a total domain length of 
+. The mesh subdivision near the airfoil and globally is shown in Fig. 12.
+Grid independence verification based on lift coefficient is conducted to ensure computational reliability, as illustrated in Fig. 13. When the grid number exceeds 
+, the variation in lift coefficient becomes negligible. In order to balance numerical accuracy and computational efficiency, an optimized grid configuration with 
+ elements is ultimately selected, comprising 600 nodes along the airfoil surface and 280 nodes in the spanwise direction.
+3.3.3. Parameter settings in CFD calculations
+Aerodynamic performance evaluations of clean and icing airfoils is conducted in ANSYS Fluent with the following parameters: Reynolds number 
+, air density 
+, kinematic viscosity 
+, inflow wind speed 
+ m
+s (Bidadi et al., 2024). The steady-state solver incorporating the 
+-
+ SST turbulence model is employed, with freestream turbulence intensity specified at 0.1% (Gaertner et al., 2020). The boundary conditions include a velocity inlet at the upstream boundary and a pressure outlet at the downstream boundary, with the airfoil surfaces assigned as no-slip walls. The pressure–velocity coupling is resolved using the Coupled scheme, with the second-order upwind scheme applied for spatial discretization.
+The surface roughness of icing airfoils differs significantly from that of clean airfoils (Quayson-Sackey et al., 2025). The present study focuses on the rime ice generated at an ambient temperature of 
+C. According to the research of Shin (1996), the surface roughness height of the icing airfoil is set to 0.2 mm, while the surface roughness height of the clean airfoil is set to 0.05 mm (Hu et al., 2017). Papadakis et al. (2007) demonstrate that rime ice predominantly affects roughness distribution within the leading 25% chordwise extent. Accordingly, surface roughness modification was exclusively applied within the leading 25% chordwise extent of icing airfoil profiles.
+3.3.4. Aerodynamic performance results
+Aerodynamic flow around an airfoil induces pressure and velocity gradients within the surrounding flow field. The resultant aerodynamic force acting on the airfoil surface can be decomposed into components parallel and perpendicular to the relative wind speed 
+ denoted as 
+ and 
+, respectively. Non-dimensionalization through
+(24)
+yields lift coefficient 
+ and drag coefficient 
+, enabling direct comparison across airfoils irrespective of geometric scale (chord length 
+) or flow parameters (air density 
+, relative wind speed 
+). The lift-to-drag ratio 
+ serves as a key performance metric for aerodynamic efficiency evaluation, which is also defined as the ratio of lift coefficient 
+ to drag coefficient 
+, i.e. 
+.
+To validate the accuracy of the Fluent aerodynamic simulations, a clean FFA-W3-211 airfoil was used as a test case. The aerodynamic parameters obtained from Fluent were compared with the experimental data at Re=
+ (Chellini et al., 2025), as shown in Figs. 14. The results indicate a good agreement between the experimental data and the simulation. Therefore, the present CFD approach can be employed as a reliable tool for aerodynamic performance evaluation in this study.
+Two-dimensional lift and drag coefficients of the clean and icing airfoils are computed in ANSYS Fluent across an angle of attack range of 
+ to 20°, as depicted in Fig. 15. The severity of ice accretion significantly affects the degradation of aerodynamic performance. The aerodynamic performance deterioration becomes more pronounced with proximity to the blade tip. The lift coefficient curves reveal reduced linear-region slopes and progressive forward shifting of the stall angles as ice accretion increases. The clean airfoil stalls at approximately 13°, whereas the icing airfoil at Node 49 exhibits premature stall onset at 11°. Concurrently, the maximum lift coefficient at Node 49 demonstrates a 17.7% reduction compared to the clean baseline. The decrease in lift coefficient directly affects the energy capture efficiency of wind turbines.
+Compared to clean airfoils, icing airfoils exhibit elevated drag coefficients across the entire angle of attack range, with the most significant increase observed at Node 49. The discrepancy in drag coefficients intensifies as the angle of attack decreases in negative incidence regimes. As evidenced in Fig. 5(b), when the incoming wind speed is located in Region 3, the airfoil at the blade tip often experiences a negative angle of attack. This implies that the increase in the drag coefficient results in greater rotor thrust.
+Fig. 16 illustrates the lift-to-drag ratio 
+ for clean and icing airfoils. Due to the degradation of airfoil aerodynamic performance caused by icing, the absolute value of the lift-to-drag ratio in the whole range is reduced. From the perspective of percentage decrease, the reduction in the lift-to-drag ratio is more significant at small angles of attack. For instance, the lift-to-drag ratio of node 49 decreases by 54.62% at an angle of attack of 0°. Combined with the calculation results of the angle of attack in Fig. 5(b), it can be inferred that wind turbine blades operate at smaller angles of attack when wind speed falls within Region 1, which results in more pronounced losses in wind energy utilization efficiency.
+4. Calculation results of fully coupled dynamic analysis
+In Section 3.3, CFD simulations are utilized to compute aerodynamic parameters at specific blade tip nodes of the 15 MW reference wind turbine. Remaining nodes in the tip region have their parameters determined via interpolation using icing airfoil data. In the fully coupled dynamic analysis, the real-time operational dynamics of the wind turbine can be simulated. The control system adjusts blade pitch angles in response to real-time wind speed and direction variations, modifying the airfoil’s angles of attack to ensure the safe operation of the wind turbine and achieve the best power generation efficiency. To carry out the fully coupled dynamic analysis of wind turbines, the Seling-Eggars method and Viterna method (Hansen, 2014) are used to expand the range of lift coefficient and drag coefficient from 
+ to 180°. The calculated aerodynamic parameters of icing airfoils are subsequently imported into the airfoils file of the OpenFAST model. The ice mass of each node in the blade tip region is computed according to icing airfoil profiles and written into the blade mass distribution defined in the ElastoDyn module. The primary objective of this study is to investigate the effects of blade icing on the response of FOWTs, ignoring the icing on other components of the wind turbine, such as the tower, nacelle, and hub. Numerical simulations of turbine operation were conducted for 2000 s.
+4.1. Steady-state performance of wind turbine
+Steady-state performance refers to the behavior of a wind turbine when its key parameters reach and remain in a relatively constant or periodic state under stable and continuous operating conditions. To characterize performance variations before and after icing, the operations of wind turbines under varying wind speeds are simulated. Steady-state performance is computed as a function of wind speed, as illustrated in Fig. 17.
+The curve before icing shows that the generator power (GenPwr) and generator torque (GenTq) have similar behavior, both increasing with wind speeds before reaching the rated wind speed. After the wind speed is higher than the rated wind speed, the wind turbine maintains the rated power through the blade pitch PI controller, and the torque remains constant. After blade icing, GenPwr and GenTq deviate from their original trends as wind speed increases, with their rated values occurring at a higher wind speed.
+The power coefficient 
+ of the rotor is shown in Fig. 17(e). For all operating points below the rated power level, the 
+ exhibits a widespread reduction. Before icing, at the cut-in wind speed (
+ m
+s), the generator produces a power output of 0.04 MW. However, the wind turbine cannot generate power normally at the cut-in wind speed after icing (
+). Fig. 17(b) reveals that the wind turbine rotor speed (RotSpeed) after icing is 4.22 rpm at this point, below the minimum required speed. After icing, the actual cut-in wind speed is delayed to 4 m
+s, and the wind speed reaching the rated power is delayed to 12 m
+s. Above wind speeds of 12 m/s, icing no longer results in power generation losses, and the turbine maintains its rated power output. The maximum 
+ decreased from 0.495 to 0.464, representing a 6.25% reduction.
+When the wind speed is less than 12 m
+s, the power generation of the wind turbine after icing decreases to varying degrees. Fig. 18 shows wind turbines’ power loss and loss ratio at different wind speeds after icing. The maximum power loss of 0.87 MW occurs at a wind speed of 11 m
+s. Corresponding to the loss of power, the slope of the linear segment of the rotor speed in Region 2 decreases in Fig. 17(b). When the degree of icing increases, the slope of rotor speed in Region 2 may continue to decrease, causing the wind speed reaching the rated power to be further delayed and resulting in greater energy loss. In Region 1, the power loss ratio is higher when the wind speed is smaller. When the wind turbine operation enters Region 2, the power loss increases with wind speed, while the power loss ratio remains at around 6%. The similarly change of power loss rate was also documented in the study by Han et al. (2018).
+As shown in Fig. 17(a), for wind turbines with clean blades, when the wind speed is less than the rated wind speed, the rotor thrust (RotThrust) increases with wind speed. When the wind turbine reaches the rated power, the RotThrust of the wind turbine reaches the peak. When the incoming wind speed exceeds the rated wind speed, the wind turbine actively pitches to reduce the frontal area and lift coefficient, hence the RotThrust gradually decreases. After icing, the behavior of RotThrust differs before and after reaching the rated wind speed. Specifically, below the rated wind speed, icing causes a reduction in RotThrust. Above this threshold, however, the iced rotor exhibits an increase in RotThrust. The trend of the thrust coefficient 
+ variation is shown in Fig. 17(e), which is consistent with this behavior. The increase of the rotor thrust reaches 9.5% when the wind speed is the cut-out wind speed (
+ m
+s). The maximum RotThrust after icing increases and delays backwards. The maximum RotThrust before icing appears at the design wind speed (10.59 m
+s), and the maximum RotThrust after icing appears at 11 m
+s.
+As shown in Fig. 17(c) before icing, the out-of-plane tip deflection of the blade (OoPDefl) peaks at 10 m
+s wind speed and then decreases with the increase of wind speed, which may be related to the blade starting to pitch at this point. The results of Fig. 5(b) show that when the incoming wind speed is located in Region 2, the blade nodes are at larger angles of attack. As wind speed increases further, the blade pitch PI controller starts to pitch the blades. After the pitch angle increases, the frontal area of the blade decreases, and the angle of attack at each blade node also decreases or even becomes negative, resulting in a decrease in the OoPDefl. After the wind turbine reaches rated power, the OoPDefl increases compared with that before icing. This is due to the decreased pitch angle and the higher drag coefficient at negative angles of attack caused by icing. The in-plane tip deflection of the blade (IPDefl) peaks at a wind speed of 13 m
+s. In contrast to OoPDefl, the absolute value of IPDefl decreases after icing due to pitch control. The fore-aft displacement of the tower top (TTDspFA) aligns with the direction of RotThrust, hence the changing trend after icing is also similar, with its peak increasing and moving backwards. The side-to-side displacement of the tower top (TTDspSS) has a minimal value, and the changes in its curve before and after icing are not significant. In summary, the steady-state performance of wind turbines undergoes a series of changes after icing, the fundamental cause being the coupled interaction between degraded blade aerodynamics and the servo-control system.
+The opposing responses of loads and displacements in wind turbines before and after the rated wind speed reflect fundamental differences in control objectives and strategies across operational regions. Below the rated wind speed, the control objective is to capture as much wind energy as possible, with the pitch angle fixed at its optimal value (0°in Region 2). Due to the destruction of the airfoil geometry after icing, the aerodynamic performance is reduced. As a result, the power output, structural loads and displacements of the wind turbine decrease accordingly. Above the rated wind speed, i.e. Region 3, the control objective shifts to maintaining constant rated power and preventing overload. The PI controller actively increases the blade pitch angle to reduce aerodynamic loads and stabilize power output. The aerodynamic performance of the airfoil is reduced after icing. In order to maintain the rated power, the pitch PI controller decreases the pitch angle compared to normal conditions, as illustrated in Fig. 17(b). The greater the power deviation, the more the pitch angle is reduced. However, this reduction increases the rotor’s frontal area, significantly amplifying the aerodynamic loads on the blades and resulting in anomalous increases in blade loads and structural displacements. In more severe icing conditions, higher wind speeds and smaller blade pitch angles can lead to greater RotThrust, and the potential safety implications of structural overload arising from these conditions necessitate rigorous structural integrity evaluations.
+Current wind turbine control strategies primarily focus on power generation as the single objective. It is recommended to incorporate multi-objective optimization algorithms into the existing blade feedback control. This approach should integrate key structural load signals in real time to develop an adaptive pitch control strategy based on structural safety thresholds. More specifically, a minimum pitch control setting should be implemented during icing operation. By defining allowable power and load deviation gradients, the corresponding minimum pitch angle can be set. This will help prevent excessive pitch angle reduction, particularly under high wind speeds, thereby mitigating rotor thrust buildup. Such a strategy facilitates a gradual feathering process and enables a controlled shutdown under extreme conditions to ensure structural safety.
+4.2. Dynamic response of wind turbine
+As evidenced by preceding analyses, ice accretion on blades alters the wind turbines’ aerodynamic loads and operational status, posing potential adverse effects on the platform and mooring system. To evaluate the impact of blade icing on the dynamic behavior of the FOWT platform and mooring system loads, time–history analyses of structural motion are performed. The differences in ice accretion, defrosting, and shedding across turbine blades can lead to imbalanced loads, threatening wind turbines’ operational safety and service life. Three blade conditions are taken into account in the dynamic response analysis: (a) Clean Blade Condition, where all three blades are clean; (b) Balanced Icing Condition, where all three blades have the same ice accretion; and (c) Imbalanced Icing Condition, where two blades experience identical ice accretion, and one remains clean. The setting of (c) Imbalanced Icing Conditions is based on the recommendations in the DNV-RP-0175 and DNV-ST-0437 (DNV, 2021, DNV, 2024). Unless otherwise specified in the following text, the comparison of before and after icing refers to the comparison between (a) Clean Blade Condition and (b) Balanced Icing Condition.
+4.2.1. Platform motion
+Fig. 19 presents the translational motion of the platform under offshore meteorological conditions at 10 m
+s and 20 m
+s wind speed. The heave motion of the platform (PtfmHeave) demonstrates negligible sensitivity to icing across offshore wind speeds of 10 m/s and 20 m/s. This behavior arises because the ice mass constitutes an insignificant fraction of the total mass of the wind turbine system. Due to the change in aerodynamic loads after icing, the mean position of platform surge motion (PtfmSurge) decreases at the wind speed of 10 m
+s, whereas it increases by 6.08% (0.804 m) at 20 m
+s. At 10 m
+s wind speed, the mean position of the platform sway motion (PtfmSway) before ice accretion is 0.114 m, while the mean position of PtfmSway after icing reaches 0.222 m, nearly doubling the motion. At 20 m
+s wind speed, the mean position of PtfmSway also increases, and the platform motion becomes more complicated under (c) Imbalanced Icing Condition. Note that a small mean offset in the platform sway motion is observed even under wind and wave alignment conditions. This is a consequence of the coupled pitch-sway response induced by the high overturning aerodynamic moment.
+Fig. 20 presents the rotational motion of the platform under offshore meteorological conditions at 10 m
+s and 20 m
+s wind speeds. The platform’s response in the roll and yaw degrees of freedom is found to be small, as expected. At a 10 m
+s wind speed, the oscillating amplitude of the platform yaw motion (PtfmYaw) after icing remains in a small range, but the average position decreases by 
+. At a 20 m
+s wind speed, the PtfmYaw is similar to the response change at 10 m
+s, with a decrease of 
+. Under (c) Imbalanced Icing Condition, the PtfmYaw fluctuates periodically. A Fast Fourier Transform (FFT) is applied to the PtfmYaw curve measured at a wind speed of 10 m/s, with the results presented in Fig. 22. A peak at 0.116 Hz on the abscissa axis is observed under (c) Imbalanced Icing Condition, indicating that the platform adds an oscillation with a period of about 8.62 s. At 10 m
+s wind speed, the mean position of platform roll motion (PtfmRoll) after icing is reduced, and the PtfmRoll under (c) Imbalanced Icing Condition is obviously affected by the rotation of the blade and fluctuates periodically. At 20 m
+s wind speed, the effect of imbalanced icing on the PtfmRoll is manifested as the amplitude change, and the maximum amplitude is increased by 56.5% compared with that under (a) Clean Blade Condition. At a 10 m
+s wind speed, the amplitude of the pitch motions of the platform (PtfmPitch) decreases by 1.69% after icing. In contrast, at a 20 m
+s wind speed, PtfmPitch increases by 17.5% compared with that before icing.
+4.2.2. Generator power
+Fig. 21 illustrates the dynamic responses of generator power (GenPwr) under offshore meteorological conditions at 10 m
+s and 20 m
+s wind speeds. At an offshore wind speed of 10 m
+s, the average GenPwr drops notably after icing. Under (a) Clean Blade Condition and (b) Balanced Icing Condition, the GenPwr fluctuates with the wave period, exhibiting essentially identical magnitudes of approximately 0.44 MW. However, the GenPwr fluctuation changes under (c) Imbalanced Icing Conditions, taking on a spindle shape with a maximum magnitude of about 0.55 MW. Similarly, an FFT is also performed on the GenPwr curve data collected at 10 m/s. The output of this analysis is provided in Fig. 22b. The observed fluctuations in generator power (GenPwr) are directly linked to platform yaw (PtfmYaw) motions. As the platform yaws, it alters the turbine’s alignment with the wind vector, resulting in the power oscillations. At an offshore wind speed of 20 m
+s, the GenPwr reaches rated power in all three conditions, and the fluctuation magnitude of the GenPwr under (c) Imbalanced Icing Condition is minimal. In summary, imbalanced icing exacerbates the generator power fluctuation, leading to power generation instability in wind turbines.
+Unlike fixed-bottom wind turbines, the platform motion of floating wind turbines can deteriorate under atmospheric icing conditions. When necessary, actively reducing rotor speed or executing a full shutdown is recommended to significantly reduce unbalanced centrifugal forces, thereby suppressing vibrations and additional motion of the floating foundation. In particular, imbalanced icing can compromise power generation stability. Therefore, it is necessary to employ an individual pitch control system for floating wind turbines to balance blade icing loads.
+4.2.3. Tension of mooring system
+The arrangement direction of mooring line 1 is consistent with the direction of wind and wave (
+) in the present study, which leads to the highest tension of the fairlead and the anchor among the three mooring line assemblies. Fig. 23 shows the tension of fairlead 1 (FairTen1) and the tension of anchor 1 (AnchTen1) of the mooring system. Due to the decrease in aerodynamic performance, both the FairTen1 and the AnchTen1 are slightly reduced when the offshore wind speed is 10 m
+s. When the offshore wind speed is 20 m
+s, the mean FairTen1 increases by 2.26%, and the mean AnchTen1 increases by 3.42% after icing. Under (c) Imbalanced Icing Condition, the FairTen1 and the AnchTen1 fall between (a) Clean Blade Condition and (b) Balanced Icing Condition.
+4.2.4. Moment of blade root
+During the operation of a wind turbine, the total thrust exerted by the wind on the rotor can be decomposed into two components: a component within the plane of rotation (tangential direction) and a component perpendicular to the rotor plane (axial direction), which respectively cause the blade root to experience edgewise moment(RootMxb) and flapwise moment (RootMyb). At the same time, the blade pitch generates a torsional moment (RootMzb) at the blade root. Fig. 24 shows the time history plots of the RootMxb, RootMyb and RootMzb at a wind speed of 20 m/s.
+After icing, the blade root moment increased in all three directions, with the most significant being RootMyb. Compared to (a) Clean Blade Condition, the RootMyb of the clean blades under (c) Imbalanced Icing Condition increases the most, by about 8.69%. RootMxb slightly increases in the negative direction after icing, and the RootMxb of the icing blade under (c) Imbalanced Icing Condition increases by approximately 3.61%. The maximum negative value of RootMzb increased by 5.54% under (b) Balanced Icing Condition, and the RootMzb fluctuation magnitude of clean blade under (c) Imbalanced Icing Condition increased by 15.5%.
+5. Conclusions and prospects
+This study presents an integrated methodology for analyzing the responses of FOWT under a blade icing event through multi-tool coupling. It first examines the blade’s ice shape, thickness, and mass characteristics in different operational states of a 15 MW floating wind turbine. Then, the operation of the FOWT after icing is simulated in the fully coupled dynamic analysis. The steady-state response of key operating parameters (e.g., power generation) is examined. Finally, the dynamic response of the wind turbine platform and mooring system is analyzed at wind speeds of 10 m
+s and 20 m
+s.
+This study provides valuable insights for designing and assessing FOWTs regarding power generation and safety under atmospheric icing. Its principal findings are summarized as follows:
+1. Icing simulation results indicate ice mass and thickness gradually increase from the blade root to tip. The blade tip has a maximum ice thickness of 168.5 mm and a maximum linear mass density of 14.2 kg
+m. Ice accretion is negligible near the blade root region (0%–30% span). The ice accretion on the airfoil is affected by the relative wind speed and angle of attack. The icing characteristics exhibit significant variations in different operational regions. The mass distribution change caused by icing primarily affects the blade tip.
+2. CFD results indicate that icing degrades aerodynamic performance, with more pronounced losses near the blade tip. Icing reduces the slope of the linear part of the lift coefficient curve. The maximum lift coefficient at Node 49 is reduced by 17.7%, and the stall angle moves forward from 
+ to 
+. The drag coefficient increases across the entire range, while the lift-to-drag ratio is significantly reduced after icing.
+3. Icing causes a reduction in the power output of the turbine and changes to its cut-in and rated wind speed. The maximum power loss of 0.87 MW occurs at 11 m
+s. The power loss ratio is higher at lower wind speeds in Region 1, and the power loss ratio in Region 2 is about 6%.
+4. Due to the distinct control strategies employed below and above the rated wind speed, the responses of the wind turbine, like RotThrust, OoPDefl and TTDspFA, exhibit opposite trends. In Region 3, the reduction of the pitch angle may lead to the load exceeding the design capacity, posing an overload risk to the wind turbine.
+5. Affected by the aerodynamic performance degradation of the blades after icing, the platform motion changes significantly. When the wind speed is 10 m
+s, the PtfmSway significantly increases. When the wind speed is 20 m
+s, the PtfmSurge increases by 
+, and the PtfmPitch increases by 17.5%.
+6. The PtfmYaw and PtfmRoll have obvious fluctuations or amplitude increases in imbalanced icing. The fluctuation of the PtfmYaw leads to the deterioration of the power generation stability of the wind turbine, as both exhibit a peak at 0.116 Hz.
+7. After icing, the blade root moment increased in all three directions, with the most significant being RootMyb. The RootMyb of the clean blades under (c) Imbalanced Icing Condition increases the most, by about 8.69%.
+This study systematically explores the impact of atmospheric icing on FOWTs in an effective simulation method, and its results are of practical value. Notwithstanding, several aspects require further investigation. Although LEWICE is a well-developed airfoil icing simulation code, it was initially designed for aviation icing. For wind turbine blade icing, rotational and breakup effects may play a pivotal role in determining the ice accretion profile. The BEM theory is used to capture the relative wind speed and angle of attack, which divides the three-dimensional blade into independent two-dimensional airfoils, and cannot consider the spanwise motion of the airflow. Hence, this study ignores the centrifugation and Coriolis effects of the flow field and droplets. Dedicated icing simulation tools or data-driven prediction models tailored to the characteristics of wind turbines are needed. Current 2D steady-state aerodynamic calculations can only obtain a limited range of aerodynamic parameters. More specialized CFD simulations should be developed and validated against wind tunnel experiments to quantify airfoil aerodynamic performance degradation accurately.
+In the present study, the wind turbine’s atmospheric icing under the designed parameters can be considered mild icing, and only the ice profile at a 10 m
+s wind speed is considered to analyze the response of the system. The influence of more extreme icing atmospheric conditions and various wind speeds on the FOWT response needs further study. While this study utilized fixed meteorological parameters, actual icing involves variable LWC that is temperature-dependent, which would result in more complex ice shapes. Investigating these dynamic effects is a key direction for future research.
+Finally, a multi-objective optimization algorithm can be introduced into the existing single-objective power feedback pitch control. The approach should integrate key structural load signals in real-time to construct adaptive pitch control strategies based on structural safety thresholds, improving the FOWT operation reliability under complex meteorological conditions.

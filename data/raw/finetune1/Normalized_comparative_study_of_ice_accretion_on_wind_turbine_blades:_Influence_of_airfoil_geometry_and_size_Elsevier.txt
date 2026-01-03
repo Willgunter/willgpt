@@ -1,0 +1,443 @@
+Abstract
+Ice accretion on wind turbine blades in cold and humid climates critically impacts energy output, equipment lifespan, and operational safety. To clarify the mechanisms and guide targeted anti−/de-icing strategies, this study employs CFD simulations on airfoils with different geometries and chord lengths, representing various spanwise positions along the blade, under a wide range of droplet velocity, liquid water content (LWC), ambient temperature, and median volume diameter (MVD). Meanwhile, ice shapes are normalized in polar coordinates for direct comparison of morphology, maximum thickness, and coverage range. Key findings are: (1) icing characteristics result from the coupled influence of climatic parameters and airfoil geometry, with strong nonlinear interactions, especially among LWC, velocity, and geometry; (2) the symmetric NACA0012 shows consistently distinct icing patterns compared to NACA4412 and DU96-W − 180, whereas the latter two behave similarly across conditions; and (3) toward the blade root, larger airfoil size reduces the prominence of icing features, with geometric scaling playing a decisive role alongside velocity. Although formulating a unified quantitative model remains difficult, the results enable simplified, engineering-level estimation of icing characteristics within acceptable error margins. These insights provide a reference for designing more broadly applicable anti−/de-icing systems and predictive tools for wind turbine blades in cold/humid-weather operation.
+Graphical abstract
+Unlabelled Image
+Download: Download high-res image (103KB)
+Download: Download full-size image
+Previous article in issue
+Next article in issue
+Keywords
+Wind turbine blade icing behaviorsCFD icing simulationsNormalized ice accretion comparisonAirfoil geometry effectsAirfoil size effects
+Nomenclature
+Abbreviations
+CFD
+Computational fluid dynamics
+IMICM
+Improved Multi-Shot Icing Computational Model
+LWC
+Liquid water content
+MVD
+Median volume diameter
+SLD
+Supercooled large droplets
+The k–ω SST
+The k–ω shear stress transport
+VAWTs
+Vertical-axis wind turbines
+Variables
+Cd
+The drag coefficient
+cf
+The thermal capacity of the water film, kJ·kg−1·K−1
+cice
+The thermal capacity of the ice layer, kJ·kg−1·K−1
+ed
+The droplet energy, J·kg−1
+Fr
+The local Froude number
+The forces caused by buoyancy
+The forces caused by drag
+The forces caused by gravity
+The forces caused by splashing
+Gk
+The generation of k
+Gω
+The generation of ω
+The gravity acceleration, m·s−2
+h
+The enthalpy, J·kg−1
+hf
+The height of the water film, m
+hice
+The ice thickness, m
+K
+An inertial parameter in Eq.(7)
+keff,a
+The effective conductivity of air, W·m−1·K−1
+The mass of ice accumulation, kg
+P
+The static pressure, Pa
+Red
+The droplets Reynolds number
+RM
+The Macklin ice density parameter
+Ts
+The surface temperature, K
+The reference temperature, K
+t
+Time, s
+Velocity, m·s−1
+The velocity of air, m·s−1
+v0
+The impact velocity of water droplet, m·s−1
+The reference velocity, m·s−1
+Yk
+The dissipation of k
+Yω
+The dissipation of ω
+α
+The mean field values of the droplet concentration
+β
+The collection efficiency of the droplet
+μa
+The dynamic viscosity, Pa·s
+μf
+The kinematic viscosity of the water film, kg·m−1·s−1
+μt
+The turbulent viscosity, Pa·s
+The ratio of the convective heat flux and the heat flux caused by droplet freezing process
+The Langmuir parameter
+The droplet inertia coefficient
+ρa
+The density of air, kg·m−3
+ρf
+The density of the water film, kg·m−3
+ρice
+The density of the ice layer, kg·m−3
+The turbulent Prandtl numbers of k
+The turbulent Prandtl numbers of ω
+The stress tensor
+The air shear stress, N·m−2
+Δt
+The icing time, s
+ΔA
+The area, m2
+Subscripts
+a
+Air
+B
+Buoyancy
+D
+Drag
+d
+Droplets
+eff
+Effective
+f
+Water film
+G
+Gravity
+ice
+Ice layer
+k
+Turbulent kinetic energy
+M
+Macklin
+S
+Splashing
+s
+Surface
+t
+Turbulent
+ω
+Specific dissipation rate
+1. Introduction
+Wind power generation has experienced sustained growth due to its abundant resources and environmentally friendly production characteristics(Maleksabet et al., 2025; Quayson-Sackey et al., 2025). However, for wind farms located in hilly and mountainous regions characterized by low temperatures and high humidity, ice accretion on wind turbine blades has become a common and significant challenge(Xu et al., 2023). This phenomenon alters the aerodynamic profile of the blades, thereby reducing electricity power output and posing risks to personnel, equipment, and overall plant safety (Wang et al., 2024). Ice accretion has thus emerged as a critical hazard that must be addressed in such environments. To mitigate the negative impact of blade icing on wind farm operations, a comprehensive understanding of the icing process and the spatial distribution of ice accumulation is essential. Such insights are crucial for the development of accurate icing prediction models and the design of effective anti−/de-icing technologies.
+The icing process on wind turbine blades involves a series of complex mechanisms, including droplet transport, impingement, freezing, and accumulation. It draws upon fundamental principles from heat and mass transfer, phase-change dynamics, particle mechanics, and aerodynamics(Wang et al., 2025a). Additionally, related disciplines such as atmospheric science and data analytics are essential for a more comprehensive understanding. Over the past decades, anti−/de-icing technologies have undergone continuous development. In general, anti-icing technologies aim to delay or suppress the formation of ice, while de-icing technologies focus on removing accumulated ice from wind turbine blades(Rekuviene et al., 2024). From the perspective of system input, these technologies can be further classified into two categories: active and passive approaches (Fakorede et al., 2016). Active approaches require external energy input to remove ice layers, including thermal, mechanical, ultrasonic, pneumatic, and chemical methods(Quayson-Sackey et al., 2025). In contrast, passive approaches rely primarily on surface coatings –such as hydrophobic, ice phobic, or thermal coatings –to prevent ice accumulation without additional energy input(Quayson-Sackey et al., 2025). However, the effectiveness of either active or passive methods alone are often limited. Hence, researchers have combined both strategies by integrating hydrophobic or ice phobic coatings with heating systems, achieving improved results(Kraj and Bibeau, 2010; Rekuviene et al., 2024). Nevertheless, this hybrid approach still suffers from a short effective lifespan and can only delay, rather than completely prevent, the onset of icing. Considering these limitations, developing accurate prediction models of icing behaviors represents a promising direction. In recent years, the emergence of artificial intelligence, particularly machine learning techniques like neural networks, has provided powerful tools for predicting icing scenarios(Li et al., 2022; Zhang et al., 2024). From an operational perspective, however, the geometric characteristics of ice, accumulation patterns, mass distribution, and ice growth rates are of greater practical value than theoretical models alone. These features directly inform engineering strategies and management decisions aimed at mitigating the adverse effects of blade icing on wind power generation, especially in constructing data-driven prediction models.
+Wind tunnel experiments have long served as a traditional and effective approach for investigating the icing process, allowing for the direct observation of key variables such as ice growth rates and geometric shapes(Chi et al., 2024). Liang et al.(Lian et al., 2025) analyzed the ice distribution characteristics of a NACA63–412 airfoil under varying wind speeds and ambient temperatures using wind tunnel testing. Their findings pointed out that ambient temperature has a more significant impact on icing mass than wind speed. Jin and Virk(Jin and Virk, 2019) experimentally explored the relationship between aerodynamic performance and angle of attack for the DU96 airfoil under glaze ice conditions. Shen et al.(Shen et al., 2025) conducted systematic experiments to investigate the effects of temperature, material properties, and attack angles on the icing behaviors of tow airfoils. They observed that as temperature decreases, glaze ice transitions into rime ice, with the ice morphology evolving from irregular formations to more streamlined, quasi-aerodynamic shapes. Gao et al.(Gao et al., 2019) experimentally investigated the dynamic ice accretion process on the DU96-W-180 airfoil under various icing conditions, analyzing transient phenomena such as droplet impingement, water film and rivulet formation, and the growth of surface roughness through temperature evolution. In addition to environmental factors, other studies have examined the hydrophobic properties of blade surfaces(Grimmer et al., 2025; Ibanez Ibanez et al., 2025), which are regarded as a promising method to mitigate or delay ice accretion. While wind tunnel testing remains an indispensable tool for icing research owing to its directness and reliability, it is also associated with substantially high financial and temporal costs. Therefore, computational fluid dynamics (CFD) simulations serve as a valuable complement, enabling serial experimentation and quantitative analysis at reduced expense.
+CFD simulation technology for analyzing icing processes on wind turbine blades and aircraft wings has undergone decades of development. In recent years, various mature commercial software packages, such as FENSAP-ICE or its combination with Fluent, have been widely adopted in this field(Beaugendre et al., 2003; Gent, 1990; Hedde and Guffond, 1995; Homola et al., 2010; Ion and Farooq, 2001; Wright, 2008). Additionally, some researchers have employed commercial CFD tools in conjunction with user-defined functions to simulate icing phenomena, achieving results comparable to those produced by specialized icing software(Villalpando et al., 2016). For instance, Manatbayev et al.(Manatbayev et al., 2021) and Baizhuma et al.(Baizhuma et al., 2021) used FENSAP-ICE to investigate icing characteristics of vertical-axis wind turbines (VAWTs), focusing on ice shape evolution under different attack angles for both static and rotating configurations. Similarly, Wang et al.(Wang et al., 2025b) conducted numerical studies of icing accretion on VAWTs blades, using the NACA0012 airfoil as a representative profile, and further examined the aerodynamic effects induced by ice accumulation. Beyond traditional simulation, Ibrahim GM et al.(Ibrahim et al., 2023) put forward a scaling method to predict ice shapes on large wind turbine blades based on laboratory experiments with reduced-scale models. Wang et al.(Wang et al., 2020) introduced an Improved Multi-Shot Icing Computational Model (IMICM) to simulate icing under yawed inflow conditions and systematically analyzed the linear and nonlinear characteristics of different ice types(Wang et al., 2024). Their results revealed that glaze ice exhibits more pronounced nonlinear behavior than rime ice and is more strongly influenced by wind shear effects. In summary, CFD-based research on blade icing primarily concentrated on ice geometry, accretion mass, and growth dynamics. And efforts still aim to refine numerical models to enhance the accuracy of predicted ice shapes and their impact on aerodynamic performance.
+Despite extensive research efforts, de/anti-icing solutions with sufficient effectiveness, reliability, and economic feasibility for practical wind farms remain limited (Rekuviene et al., 2024). When an ice event occurs, the most direct and effective measure available to on-site operators is often to shut down the turbines. Therefore, developing a practically useful prediction model – capable of determining when such shut down should be initiated – holds greater significance. Building upon this necessity, a detailed understanding of ice distribution characteristics across different airfoil geometries and sizes is more valuable for practical applications than merely studying the specific morphology of ice layers or their aerodynamic effects. Such understanding serves as an essential foundation for establishing predictive frameworks which can support real-time operational decisions.
+In this study, ice CFD simulations are conducted to investigate the influence of airfoil geometry and size on icing behaviors. Five different airfoils are analyzed, including three airfoils specifically designed for wind turbine blades and two conventional airfoils selected as a control group. Two key indicators – the maximum ice thickness and ice coverage range – are systematically examined to quantify how shape and size affect icing behaviors. Furthermore, the main parameters, including droplet velocity, ambient temperature, liquid water content (LWC, the mass of liquid water or supercooled droplets contained in a unit volume of air), and median volume diameter (MVD, the droplet diameter at which half of the total liquid-water volume is contained in smaller droplets and half in large ones), are varied over a wide range to represent extreme icing conditions and enable a comprehensive analysis. The findings of this work are expected to provide a fundamental basis for constructing predictive models and developing effective mitigation strategies for icing events in wind power generation.
+2. Mathematical modeling and numerical procedures
+In this study, CFD simulations have been carried out by combining ANSYS Fluent and FENSAP-ICE. The airflow fields will be calculated in Fluent first, after which the solution result will be transferred to FENSAP-ICE. Two modules, DROP3D and ICE3D, will be adopted to simulate droplet trajectories and the ice accretion process, respectively.
+2.1. Air flow model
+The continuity, momentum, and energy equations of the airflow field are expressed in Eq.(1), Eq.(2), and Eq.(3), respectively:
+(1)
+(2)
+(3)
+where ρa is the density of air, kg·m−3. 
+ is the velocity of air, m·s−1. t is the time, s. P is the static pressure, Pa. 
+ is the stress tensor and determined by the molecular viscosity and velocity, Pa. 
+ is the gravitational acceleration, m·s−2. ea is the internal energy of air, J. ha is the enthalpy of air, J·kg−1. keff,a is the effective conductivity of air, W·m−1·K−1.
+Among the various turbulence models available in Fluent, the k–ω shear stress transport (SST) model has been widely recognized for its superior performance in airfoil flow simulations, and is therefore adopted in this study to close the Navier-Stokes equations(Ni et al., 2019; Yan et al., 2021). The governing equations of the k-ω SST turbulence model are expressed in Eq.(4) and Eq.(5):
+(4)
+(5)
+where Gk is the generation of turbulence kinetic energy due to mean velocity gradients and Gω is the generation of ω. Yk and Yω are the dissipation of k and ω, respectively. 
+ and 
+ are the turbulent Prandtl numbers of k and ω, respectively. μa and μt are the dynamic viscosity of air and turbulent viscosity, Pa·s, 
+.
+In this study, the airflow field simulated in Fluent is considered as steady-state, and the effects of gravity are neglected.
+2.2. Icing model
+DROP3D module adopts an Eulerian two-phase model to simulate the air-droplet flow, treating both phases as continuous media. The continuity and momentum equations are presented in Eq.(6) and Eq.(7), respectively:
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+where α is the mean field value of the droplet concentration. 
+ is the velocity of the water droplet, m·s−1. The first term on the right-hand side of Eq.(7) is the drag acting on droplets with the mean diameter d. The second term on the right-hand side of Eq.(7) is buoyancy and gravity forces, which are proportional to the local Froude number, Fr (calculated by Eq.(11)). Cd (calculated by Eq.(8)) is the drag coefficient, and Red (calculated by Eq.(9)) is the droplets Reynolds number, respectively. K (calculated by Eq.(11)) is an inertial parameter.
+When the mean droplet diameter exceeds 40 μm, the droplets are categorized as supercooled large droplets (SLD) in the simulation. In this case, additional physical phenomena such as splashing, bouncing, and droplet break-up must be considered. To account for these effects, FENSAP-ICE introduces supplementary body forces near the blade surface to modify the original droplet transport equations. The governing equations for droplets motion, accounting for the additional body forces, are given in Eq.(12) and Eq.(13):
+(12)
+(13)
+where 
+, 
+, 
+ and 
+ are the forces caused by drag, buoyancy, gravity, and splashing.
+The processes of the water film runback and ice accretion are simulated using the ICE3D module. The film velocity, average over the film thickness, is expressed by Eq.(14) and Eq.(15):
+(14)
+(15)
+where 
+ is the air shear stress, N·m−2. μf is the kinematic viscosity of the water film, kg·m−1·s−1. hf is the height of the water film, m.
+Two partial differential equations, mass conservation and energy conservation equations, about the icing process are solved in the ICE3D module, which are presented in Eq.(16) and Eq.(17):
+(16)
+(17)
+(18)
+where the three items on the right side of Eq.(16) are the mass transfer by water droplet impingement, evaporation, and ice accretion, respectively. ρf and cf are the density and thermal capacity of the water film, respectively, kg·m−3 and kJ·kg−1·K−1. cice is the thermal capacity of the ice layer, kJ·kg−1·K−1. 
+ and 
+ are reference conditions for the icing environment, respectively. ed is the droplet energy, J·kg−1. β is the collection efficiency of the droplet, which is calculated by Eq.(18). 
+ is the mass of ice accumulation.
+Eq.(14) (18) alone are insufficient to form a closed system. Therefore, additional compatibility relations based on physical observations are introduced as follows:
+The ice thickness, hice, is calculated by the Eq.(19):
+(19)
+where Δt is icing time, s. ΔA is the area, m2.
+According to Eq.(19), ice density, ρice, is a key parameter in calculating the ice thickness. However, various factors (such as droplet velocity, ambient temperature, liquid water content, and droplet size) affect the ice accretion process and result in non-uniform ice density distribution. In this study, the Jones density formulation is adopted to model ice density due to its proven agreement with experimental and simulation results(Sokolov and Virk, 2020). The Jones formulations are expressed in Eq.(20) and Eq.(21) for glaze and rime ice, respectively:
+(20)
+(21)
+(22)
+where RM is the Macklin ice density parameter, which is calculated by Eq.(22). v0 is the impact velocity of the water droplet, m·s−1. Ts is the surface temperature, K. 
+ is the ratio of the convective heat flux and the heat flux caused by droplet freezing process. 
+ is the Langmuir parameter and 
+ is the droplet inertia coefficient.
+2.3. Model validation
+To validate the numerical model established in this study, the NACA0012 airfoil is selected as the test case. The simulation results are compared with experimental data obtained from the NASA Icing Research Tunnel(SHIN and BOND, 1992). The validation conditions are summarized in Table 1 and the comparison of ice shapes between simulation results and experiment is shown in Fig. 1.
+Table 1. The validation conditions.
+
+Empty Cell	Glaze ice	Rime ice
+Ambient temperature	267 K	247 K
+Air speed	102 m·s−1
+Medium volume diameter	20 μm
+LWC	0.55 g·m−3
+Icing time	420 s
+Attack angle	4 °
+Chord length	0.5334 m
+Fig. 1
+Download: Download high-res image (200KB)
+Download: Download full-size image
+Fig. 1. Numerical model verification: (a) Glaze ice shape (T = 267 K) and.
+
+As shown in Fig. 1, the simulated ice shapes for both glaze (T = 267 K) and rime (T = 247 K) icing conditions show reasonable agreement with experimental measurements for the NACA0012 airfoil. The numerical results successfully capture the overall contour, thickness distribution, and leading-edge geometry of the accreted ice. For the glaze ice case, the simulation reproduces the smooth bulged profile observed in the experiment, while for the rime ice case, the sharper leading-edge ridge is also well predicted. In addition, the maximum ice thicknesses for glaze and rime ice of simulation results are 7.5 mm and 8.6 mm, respectively, compared with 8.5 mm and 11.6 mm obtained from experimental measurements. The corresponding relative errors are 12.8 % for glaze ice and 16.4 % for rime ice, indicating that the numerical model can reasonably reproduce both icing types while slightly underpredicting the rime ice growth. These consistent results under different icing regimes confirm that the CFD model accurately represents the physical processes of droplet impingement, water film behavior, and phase change, demonstrating the model's reliability for subsequent parametric studies. The observed discrepancies mainly arise because the numerical simulations are conducted under idealized and controlled boundary conditions, whereas additional uncertainties exist in wind tunnel experiments. Nevertheless, considering the maximum relative error of 16.4 %, the accurate prediction of ice coverage, and the close agreement in ice morphology—along with previous studies that have validated the reliability of this simulation method (Ibrahim et al., 2023; Manatbayev et al., 2021; Wang et al., 2025b)—the present numerical model is considered sufficiently accurate for the analyses conducted in this study.
+(b) Rime ice shape (T = 247 K).
+2.4. Numerical procedures
+As outlined in Sec. 1, five airfoils (illustrated in Fig. 2 and listed in Table 2) are selected for a detailed analysis of ice distribution characteristics on wind turbine blades. Among them, three airfoils—DU96-W-180, DU91-W2–250, and DU97-W-300—were specifically designed for wind turbines applications by Delft University of Technology. As shown in Fig. 2, they are positioned along the blade span from the tip to the root, corresponding to 0–20 %, 20–60 %, and 60–100 % of the spanwise location, with chord lengths of 1 m, 3 m, and 5 m, respectively. This configuration enables the investigation of the influence of airfoil size on icing behavior. The remaining two airfoils, NACA0012 and NACA4412, originally designed by NASA, are included as control cases for comparison. The simulation results of these two airfoils are compared with those of DU96-W-180 to examine the influence of airfoil geometry on icing characteristics.
+Fig. 2
+Download: Download high-res image (165KB)
+Download: Download full-size image
+Fig. 2. Geometric model used in this study.
+
+Table 2. Airfoils description
+
+Airfoil type	Position	Chord length	Notes
+DU96-W-180	0–20 % from the tip of the blade	1 m	For wind turbine
+DU91-W2–250	20–60 % from the tip of the blade	3 m	For wind turbine
+DU97-W-300	60–100 % from the tip of the blade	5 m	For wind turbine
+NACA0012	/	1 m	With bending
+NACA4412	/	1 m	Without bending
+Computational meshes are generated using the Fluent Meshing module. To ensure grid independence, several cell sizes are tested. To minimize dissociation-induced errors, the average cell size on the airfoil surface is set to 1 % of the chord length. In addition, the mesh growth ratio is fixed at 1.2, and the y+ value is maintained at 1 to accurately resolve the boundary layer (computational domain mesh and local enlargement are shown Fig. 3).
+Fig. 3
+Download: Download high-res image (214KB)
+Download: Download full-size image
+Fig. 3. (a) Computational domain mesh of DU96-W-180 airfoil and (b) local enlargement of DU96-W-180 airfoil.
+
+Icing behavior is influenced by meteorological parameters such as wind velocity (droplet velocity), ambient temperature, LWC, and MVD(Xu et al., 2023), which are listed in Table 3. Due to the significant variation in rotational speed along the blade span—even exceeding 100 m·s−1 at the tip and much lower near the root—different airfoils are assigned distinct velocity ranges according to their operating regions. DU96-W-180, NACA4412, and NACA0012 are simulated over 3–110 m·s−1, whereas the DU-series airfoils are simulated over 3–15 m·s−1 to coordinate with the low-speed conditions near the root. Wind speeds below 15 m·s−1 are considered shutdown-icing conditions with a 0° attack angle; for other cases, the angle of attack corresponds to the maximum lift-to-drag ratio.
+Table 3. Ice conditions.
+
+Empty Cell	Airfoil type	Glaze ice	Rime ice	Attack angle
+Air velocity	NACA0012	3, 6. 9, 12, 15, 20, 50, 80, 110 m·s−1	0°
+NACA4412	3, 6. 9, 12, 15, 20, 50, 80, 110 m·s−1	6°
+DU96-W-180	3, 6. 9, 12, 15, 20, 50, 80, 110 m·s−1	6°
+DU91-W2–250	3, 6. 9, 12, 15 m·s−1	5.5°
+DU97-W-300	3, 6. 9, 12, 15 m·s−1	6°
+Temperature	/	-1, −2, −3, −4, −5 °C	<−5 °C	/
+LWC	/	0.25, 0.5, 1, 3, 5 g·m−3	/
+MVD	/	25, 50, 100, 250, 500 μm	/
+Additionally, it is worth noting that the boundary between glaze ice and rime ice is not clearly defined. ISO 12494:2017 describes the ice type as a function of wind speed and ambient temperature(ISO 12494:2017, 2017). However, this classification is difficult to apply in engineering practice. Some scholars simplify this function as a transition interval with −5 ∼ −10 °C(Baizhuma et al., 2021; Beaugendre et al., 2003; Jiang et al., 2024; Wang et al., 2020). In this study, the temperature range of 0 ∼ −5 °C is adopted to represent the glaze ice condition(Jiang et al., 2024). As the energy equation (Eq.(17)) is not solved in the rime ice simulations, the effect of temperature is excluded from the corresponding analysis.
+Typical icing conditions are generally defined based on interpretations of FAA Appendix C standards, which can be specified by with LWC of 0.1–1 g·m−3 and MVD of 10–40 μm (FAA, 2025). Similar parameter ranges have been widely adopted in wind turbine icing studies (Manatbayev et al., 2021; Montminy et al., 2022; Wang et al., 2025b). To comprehensively evaluate the influence of airfoil geometry and size on icing behavior, the present study extends these parameters to encompass more extreme cases. LWC is referenced from in-cloud measurements, which can range from 0 to 5 g·m−3, while droplet diameter varies from 10 μm (in freezing fog) to up to 5000 μm (in freezing rain) (Battisti, 2015). Considering these extreme scenarios, the LWC and MVD ranges used in this work are set to 0.25–5 g·m−3 and 25–500 μm, respectively. With this range defined initially,
+This expanded range ensures comprehensive representation of icing environment, spanning from typical land-based conditions to severe offshore and freezing-precipitation scenarios. A summary of all ice conditions is listed in Table 3. To ensure consistency with the simulated parameter range, the low LWC and droplet velocity in this study are defined relative to the full range of ice conditions considered. Especially, low LCW corresponds to 0.25–0.5 g·m−3. Moderate LWC is defined as 0.5–1.5 g·m−3, while high LWC exceeds 1.5 g·m−3. Similarly, the low droplet velocity regime is defined as 3–15 m·s−1. Velocities between 15–50 m·s−1 are considered moderate and those above 50 m·s−1 are defined as high velocity.
+To improve simulation efficiency while ensuring comprehensive coverage of key parameters listed in Table 3, an orthogonal experimental design is adopted to systematically combine geometric and meteorological factors. This approach enables efficient exploration of multi-parameter interactions while maintaining consistent correspondence among different airfoils and icing regimes. For airfoils operating within narrower velocity ranges, a proportionally reduced set of test conditions is applied, while ensuring overlap with the principal velocity intervals of other airfoils to preserve comparability in the analysis. Representative cases selected from the orthogonal design are used to perform direct comparisons of ice morphologies and to identify dominant contributing factors under controlled single-variable variations. These configurations collectively establish a physically consistent and computationally efficient framework for the subsequent numerical analysis.
+3. Results and discussion
+Direct comparison of ice accumulation shapes among different airfoils is inherently challenging. To address this, a normalization approach is proposed in this work to enable clear comparisons. As shown in Fig. 4, a polar coordinate system is established, with the pole located at the midpoint of the airfoil chord. The 0° polar axis is aligned with the right half of the chord line. For analysis purposes, the entire domain is divided into four regions: the Front-side (with the angle range of 165° ∼ 195°), Up-side (with the angle range of 15° ∼ 165°), Rear-side (with the angle range of 345° ∼ 15°), and Bottom-side (with the angle range of 195° ∼ 345°). The Front-side and Rear-side each span 30°, while the Up-side and Bottom-side each span 150°, respectively. Based on this framework, the ice shapes and distribution characteristics over the entire airfoil are analyzed in the following section.
+Fig. 4
+Download: Download high-res image (207KB)
+Download: Download full-size image
+Fig. 4. Airfoil transformation and partition.
+
+In this study, the term “apparent icing phenomenon” refers to the visibly observable accretion of an ice layer approximately 1 mm thickness, which serves as a quantitative reference for describing the ice-covered region along the blade surface. This magnitude corresponds to the early stage of significant aerodynamic influence (Lamraoui et al., 2014; Montminy et al., 2022). Based on this, the angular range for the 1 mm threshold (θice,1mm), which is defined as the circumferential angular extent along the airfoil surface where the local ice thickness exceeds 1 mm, is adopted to characterize the ice-coverage region on the blade surface, as illustrated in Fig. 4. In addition to this, the maximum thickness (hice,max) is also used to evaluate the extent of icing accumulation.
+In Sec. 3.1 (icing distribution with different airfoil shapes) and 3.2 (icing distribution with different location on a wind turbine blade), the icing characteristics are analyzed separately under glaze-ice and rime-ice conditions. The normalized ice shapes are first compared, and then two quantitative indicators — the maximum ice thickness (hice,max) and the angular range for the 1 mm threshold (θice,1mm) — are used to evaluate the icing behaviors, considering the effects of meteorological parameters. Due to space limitations, Sec. 3.1 provides a detailed analysis of the effects of different meteorological parameters on glaze icing, while the subsequent sections focus on a few representative cases for discussion.
+3.1. Icing distribution with different airfoil shapes
+Three airfoils—DU96-W-180, NACA0012, and NACA4412—are selected with consideration of two primary geometric parameters: the maximum thickness and camber. From the full set of orthogonal test conditions, four representative cases are identified for each meteorological parameter to enable direct comparison of icing patterns and to examine the principal contributing factors.
+i. Glaze ice.
+Compared to rime ice, glaze ice is characterized by a distinct process wherein water droplets impinge upon the blade surface and coalesce into a water film, which subsequently freezes. Hence, glaze ice can be regarded as the result of water film solidification. In this process, the icing outcome is influenced by several variables, including droplet velocity and diameter, ambient temperature, and LWC. Therefore, a detailed analysis is first conducted to examine how these icing-related factors affect the accretion patterns of glaze ice.
+Fig. 5–8 presents the normalized ice shapes for different airfoils, with the corresponding icing conditions summarized in Table 4. For the first influencing parameter—droplet velocity—the maximum ice layer thickness increases as velocity rises, as illustrated in Fig. 5 (a1), (a2) and (b1). The ice coverage angle range also tends to grow with velocity; however, this relationship is not strictly monotonic. At higher velocity conditions (e.g., ≥ 80 m·s−1, as shown in Fig. 5 (b2)), the shear force exerted by the airflow on the water film surpasses the adhesive force between the liquid layer and the blade surface, resulting in the film or droplets being blown away before they can spread toward the Rear side. Consequently, the ice accretion becomes concentrated near the leading edge, leading to a reduction in overall coverage. (See Table 5, Table 6, Table 7.)
+Fig. 5
+Download: Download high-res image (567KB)
+Download: Download full-size image
+Fig. 5. Effects of droplet velocity on normalized glaze ice accretion shapes for different airfoil geometries.
+
+Table 4. Summary of glaze ice conditions.
+
+Empty Cell	Figure No.	Case NO.	Droplet velocity (m·s−1)	Ambient temperature (K)	LWC (g·m−3)	Droplet diameter (μm)
+Fig. 5	a1	6	3	270.15	0.5	250
+a2	42	15	270.15	0.5	250
+b1	51	20	270.15	3	100
+b2	69	80	270.15	3	100
+Fig. 6	a1	31	12	271.15	0.25	50
+a2	36	12	268.15	0.25	50
+b1	55	50	272.15	3	50
+b2	59	50	270.15	3	50
+Fig. 7	a1	23	9	270.15	1	25
+a2	24	9	270.15	3	25
+b1	52	20	269.15	5	50
+b2	53	20	269.15	1	50
+Fig. 8	a1	16	6	269.15	3	250
+a2	17	6	269.15	3	500
+b1	48	20	271.15	0.5	25
+b2	49	20	271.15	0.5	100
+Table 5. Summary of rime ice conditions.
+
+Empty Cell	Figure No.	Case NO.	Droplet velocity
+(m·s−1)	LWC
+(g·m−3)	Droplet diameter
+(μm)
+Fig. 10	a1	25	9	0.25	250
+a2	69	80	0.25	250
+b1	24	9	3	25
+b2	77	110	3	25
+Fig. 11	a1	1	3	0.25	25
+a2	2	3	5	25
+b1	32	12	0.5	100
+b2	29	12	1	100
+Fig. 12	a1	14	6	1	50
+a2	18	6	1	250
+b1	67	80	3	100
+b2	68	80	3	250
+Table 6. Summary of glaze ice conditions.
+
+Empty Cell	Figure No.	Case NO.	Droplet velocity
+(m·s−1)	Ambient temperature (K)	LWC
+(g·m−3)	Droplet diameter
+(μm)
+Fig. 14	a1	5	3	270.15	0.25	250
+a2	6	3	270.15	0.5	250
+b1	16	6	269.15	3	250
+b2	17	6	269.15	3	500
+c1	25	9	269.15	0.25	100
+c2	26	9	269.15	1	100
+Fig. 15	a1	32	12	270.15	1	25
+a2	33	12	270.15	1	100
+b1	41	15	270.15	0.5	50
+b2	42	15	270.15	0.5	250
+Table 7. Summarize of rime ice conditions.
+
+Empty Cell	Figure No.	Case NO.	Droplet velocity
+(m·s−1)	LWC
+(g·m−3)	Droplet diameter
+(μm)
+Fig. 17	a1	1	3	0.25	25
+a2	2	3	5	25
+b1	14	6	1	50
+b2	18	6	1	250
+c1	21	9	0.5	50
+c2	22	9	0.5	500
+Fig. 18	a1	29	12	1	100
+a2	34	12	3	25
+b1	37	15	3	50
+b2	42	15	0.5	50
+Under low and moderate velocity conditions (≤ 50 m·s−1), airfoil geometry exerts only a limited influence on the glaze-icing process. When sufficient water is captured on the blade surface, the ice layer tends to cover the airfoil as extensively as possible (Fig. 5(b1)), exhibiting minimal differences among the three airfoils in both maximum ice thickness and coverage extent (Fig. 5(a1)). By contrast, at higher velocities (e.g., ≥ 80 m·s−1, as shown in Fig. 5(b2)), geometric variations produce a more pronounced effect, reflected in the symmetry of the ice profiles and the coverage rate. This is mainly attributed to differences in the thickness and camber of the two asymmetric airfoils. High-speed flow conditions (≥ 80 m·s−1) resemble the actual operating states of wind turbines, where the angle of attack increases the effective windward area. Under such circumstances, ice accretion on DU96-W-180 and NACA4412 covers a larger portion of the surface and spreads toward the Up-side, resulting in higher coverage rates compared with the symmetric airfoil NACA0012. Meanwhile, due to its relatively larger thickness, DU96-W-180 shows less upward intrusion of the ice layer and consequently a slightly smaller coverage rate than NACA4412. At lower velocities, when insufficient water is captured, the influence of airfoil thickness and camber follows a similar trend (as illustrated in Case 69): the water film still tends to spread along the airfoil and toward the Up-side. At this stage, the primary difference among the three airfoils lies in the ice-coverage extent, while the maximum ice thickness remains nearly unchanged.
+Ambient temperature is a key parameter for distinguishing glaze ice from rime ice and plays a major role in shaping the morphology of glaze ice. By influencing the freezing time of water droplets or the water film, it directly affects both ice layer thickness and coverage rate. The effects are illustrated in Fig. 6 for two droplet velocities and LWC levels. Under low droplet velocity (≤ 15 m·s−1) and low LWC (≤ 0.5 g·m−3), due to the limited shear force exerted by the airflow on the water film and the insufficient amount of water captured by the blade, the water film cannot satisfy the basic condition for spreading toward the Rear- side. As a result, ice accretion is concentrated near the Front-side of the airfoil, and the influence of temperature on the icing characteristics is relatively limited under this condition (see Fig. 6 (a1) and (a2)). Under such conditions, the effect of airfoil geometry cannot be observed. When velocity increases, the stronger airflow shear stress causes droplets or water films to freeze progressively as they move toward the rear side, potentially forming a continuous ice layer if the coverage area is sufficiently large (see Fig. 6 (b2)). If the ambient temperature is relatively high (close to 0 °C), droplets are more likely to be removed by airflow before freezing, leading to ice accumulation concentrated near the leading edge (Fig. 6 (b1)). In this case, the ice accretion pattern on the symmetric NACA0012 remains nearly symmetric, while asymmetric airfoils show slight variations in coverage due to differences in geometry and angle of attack. It is worth noting that Case 59 reveals the influence of airfoil geometry on the ice-coverage pattern during the spreading process of the water film. In this case, the relatively larger thickness of DU96-W-180, combined with the effect of the attack angle, causes the water film and the subsequent ice layer to develop preferentially along the Front-side and the Bottom-side. Nevertheless, the maximum ice thickness among the three airfoils shows no significant difference.
+Fig. 6
+Download: Download high-res image (566KB)
+Download: Download full-size image
+Fig. 6. Effects of ambient temperature on normalized glaze ice accretion shapes for different airfoil geometries.
+
+As shown in the earlier discussions on velocity and temperature, the spatial distribution of the ice layer is largely determined by the balance between droplet (or water film) transport and freezing rates on the wind turbine blade surface. This relationship is also evident when examining the effects of LWC (Fig. 7) and droplet diameter (Fig. 8), both of which control the availability and spreading behavior of water on the blade surface. For example, in Fig. 7(b1) and (b2), increasing LWC significantly enlarges the ice coverage angle range and moderately increases the maximum ice thickness. This phenomenon can also be observed in Fig. 7 (a1) and (a2), although it is less pronounced. Under low velocity conditions (≤ 15 m·s−1), the turbine is assumed to be in a shutdown state (described in Sec. 2.4), and the effect of the attack angle is neglected. Consequently, the icing characteristics of the three airfoils show no significant differences (see Fig. 7 (a1) and (a2)). As the velocity increases and the attack angle is introduced, when the water film is sufficient to cover the entire airfoil, the overall ice distribution remains similar among the three airfoils, although the ice accretion peaks on DU96-W-180 and NACA4412 shift slightly toward the Bottom-side (see Fig. 7 (b1)). In contrast, when the water film cannot fully cover the airfoil, the increased windward area of DU96-W-180 and NACA4412 causes the ice layer to shift more noticeably toward the lower side, with DU96-W-180 exhibiting a larger displacement due to its greater thickness (see Fig. 7 (b2)).
+Fig. 7
+Download: Download high-res image (564KB)
+Download: Download full-size image
+Fig. 7. Effects of LWC on normalized glaze ice accretion shapes for different airfoil geometries.
+
+Fig. 8
+Download: Download high-res image (567KB)
+Download: Download full-size image
+Fig. 8. Effects of MVD on normalized glaze ice accretion shapes for different airfoil geometries.
+
+The droplet diameter does not directly affect the amount of water captured on the blade surface. However, due to droplet breakup and splashing, the water film on the Front-side of the thicker airfoil (DU96-W-180) is more likely extend along the surface than that on the thinner airfoils (NACA4412 and NACA0012). Consequently, when the water film is sufficient to cover the entire airfoil, the ice layer near the Front-side of DU96-W-180 becomes slightly thicker than those of the other two airfoils (see Fig. 8 (a1) and (a2)). When the water film is insufficient to cover the entire airfoil surface, droplet breakup and splashing become more pronounced. Under these conditions, with the effect of droplet breakup and splashing, larger droplets (≥ 50 μm, regarded as SLD) and higher velocities further promote the formation of water films and subsequent ice accretion on the lower surface of the blade. Meanwhile, the thicker airfoil (DU96-W-180) is also more likely to capture fragmented droplets on the upper side of the Front-side (nearby 165°), resulting in a tendency for the ice layer to spread toward the Up-side (see Fig. 8 (b2)). For smaller droplet diameters (25 μm), the ice layers on the Front-side of the three airfoils show no noticeable differences under identical conditions (see Fig. 8 (b1)).
+Fig. 9 presents a quantitative comparison of the maximum ice thickness and ice coverage angle range of 1 mm thickness for three airfoils under various icing conditions, with detailed parameters listed in Table 4. As Fig. 9(a) shows, in general, for airfoils with a chord length of 1 m, the maximum glaze-ice thickness remains relatively limited within a given period (30 min in this study), staying below approximately 2 cm. This results from the droplet collection and freezing processes during glaze icing, where the water captured at the leading edge is driven rearward by the shear force of the airflow. The two cambered airfoils, DU96-W-180 and NACA4412, are both influenced by the attack angle during turbine operation. As a result, their glaze-icing behaviors are generally similar, and the differences in maximum ice thickness are small, with relative errors mostly within 10 %. The largest deviations occur in Case 36 and Case 55, where the differences are less than 1 mm and can therefore be neglected in engineering applications. In contrast, because NACA0012 airfoil is thinner and symmetric, and the attack angle is not considered in the simulation, the collected droplets tend to move rearward or be impressed by airflow shear. Consequently, its maximum ice thickness is significantly smaller than that of the other two airfoils—typically within 30 % but reaching 42 % in Case 55— and this difference becomes more pronounced with increasing temperature and LWC.
+Fig. 9
+Download: Download high-res image (299KB)
+Download: Download full-size image
+Fig. 9. Comparison of glaze-ice results for three airfoils (DU96-W-180, NACA4412, and NACA0012) under different icing conditions: (a) the maximum ice thickness and (b) the angular range of 1 mm ice thickness.
+
+As shown in Fig. 9(b), ice coverage angle range of 1 mm thickness of three airfoils varies significantly under different operating conditions. Small ranges (< 30°) in Cases 6, 23, 24, 31, 36, 48, 53, and 55 indicate that the captured droplets freeze before moving toward the rear side. Three main factors contribute to this phenomenon: (1) an insufficient amount of captured water, which prevents the droplets from covering the entire airfoil before freezing (2) excessively low temperatures, under which the droplets freeze immediately upon capture before they can spread or move; and (3) excessively high wind velocities, which blow away the droplets that would otherwise move toward the Rear-side. Under these conditions, the influence of airfoil geometry is not evident. Or even both affect the result. The widest ranges appear in cases 51, 52, and 59, where high LWC (≥ 3 g·m−3), suitable velocity (≤ 50 m·s−1) and temperature (nearly 270.15 K) conditions allow water films to extend further. Case 59 shows pronounced geometric influence due to high velocity (50 m·s−1) and the thicker thickness of DU96-W-180, which enhances droplet capture, but limits film spread. Large range differences in cases 16 and 17 are linked to low velocity (≤ 15 m·s−1), high LWC (≥ 3 g·m−3), and favorable temperature (269.15 K), making airfoil thickness dominant; droplet size shows little effect here, while in case 49, moderate velocity amplifies geometry-related differences.
+ii. Rime ice.
+Compared with glaze ice, the rime ice accretion process is more straightforward, as supercooled droplets freeze instantly upon impact without undergoing the intermediate stage of water film formation and subsequent freezing. For this reason, the energy equation (Eq.(17)) is not solved in rime ice simulations, and temperature is excluded as an influencing variable in the shape analysis.
+The simulated results in Figs. 10–12 present the rime ice shapes under different icing conditions, and Fig. 13 shows the corresponding maximum thickness and the ice coverage angle range of 1 mm thickness. Both Fig. 10–12 and Fig. 13(b) indicate that rime ice tends to form near the front side of the airfoil, with no significant spread toward the Up-side, Bottom-side, or Rear-side. This limited coverage is attributed to the absence of a water film that could transport liquid further downstream. Moreover, except for the cases with high velocity (≥ 80 m·s−1) and high LWC (≥ 1.5 g·m−3), the three airfoils show no significant differences in their icing characteristics. Exceptions are observed in Case 67 (Fig. 12(b1)), 68 (Fig. 12(b2)) and 77 (Fig. 10(b2)), where relatively high LWC (3 g·m−3) combined with high droplet velocity (≥ 80 m·s−1) leads to stronger droplet fragmentation and splashing upon impact. At these conditions, large droplets (≥ 100 μm) tend to break up and splash after impact. Owing to its greater thickness and larger windward area, DU96-W-180 captures more droplets, resulting in a broader icing region. For sufficiently large droplets (e.g., 250 μm in Case 68), the splashed fragments can even generate a secondary ice peak, whereas NACA4412 and NACA0012 shows a comparatively narrower icing area. For smaller droplets (25 μm), breakup and secondary impacts do not occur, and the droplets simply accumulate along the leading edge. In this case (Fig. 10(b2), Case 77), the thicker DU96-W-180, with the influence of the attack angle, develops a broader icing area with a lower peak, whereas NACA4412 exhibits a narrower but sharper ice peak. In comparison, the symmetric NACA0012—without angle-of-attack effects—shows neither higher peak thickness nor wider coverage.
+Fig. 10
+Download: Download high-res image (541KB)
+Download: Download full-size image
+Fig. 10. Effects of droplet velocity on normalized rime ice accretion shapes for different airfoil geometries.
+
+Among the three icing-related variables examined, LWC exerts the most pronounced effect on rime ice development. For example, in Cases 25 (Fig. 10(a1)), 69 (Fig. 10(a2)), 1 (Fig. 11(a1)), and 32 (Fig. 11(b1)), where LWC is less than 1 g·m−3, ice accumulation is visibly limited. In Case 69, the higher velocity leads to slightly more ice formation than in the other three cases, yet all still show minimal deposition. In particular, the extremely low velocity (≤ 12 m·s−1) and LWC (≤ 0.5 g·m−3) in Cases 1 and 32 result in negligible water collection, and thus almost no rime ice formation. Overall, when both velocity and LWC are low, the amount of liquid available for freezing is insufficient to produce notable ice layers. Under such conditions, the differences in ice distribution patterns among the three airfoils are too small to hold substantial engineering significance.
+Fig. 11
+Download: Download high-res image (525KB)
+Download: Download full-size image
+Fig. 11. Effects of LWC on normalized rime ice accretion shapes for different airfoil geometries.
+
+Fig. 12
+Download: Download high-res image (542KB)
+Download: Download full-size image
+Fig. 12. Effects of MVD normalized rime ice accretion shapes for different airfoil geometries.
+
+Fig. 13
+Download: Download high-res image (212KB)
+Download: Download full-size image
+Fig. 13. Comparison of rime-ice results for three airfoils (DU96-W-180, NACA4412, and NACA0012) under different icing conditions: (a) the maximum ice thickness and (b) the angular range of 1 mm ice thickness.
+
+Fig. 14
+Download: Download high-res image (875KB)
+Download: Download full-size image
+Fig. 14. Effects of airfoil size on normalized glaze ice accretion shapes under the droplet velocity of 3, 6, and 9 m·s−1(scaled by the chord).
+
+Fig. 15
+Download: Download high-res image (568KB)
+Download: Download full-size image
+Fig. 15. Effects of airfoil size on normalized glaze ice accretion shapes under the droplet velocity of 12 and 15 m·s−1(scaled by the chord).
+
+Fig. 16
+Download: Download high-res image (364KB)
+Download: Download full-size image
+Fig. 16. Comparison of glaze-ice results for three airfoils (DU96-W-180, DU91-W2–250, and DU97-W-300) under different wind-velocity conditions: (a) the maximum ice thickness and (b) the angular range of 1 mm ice thickness.
+
+Fig. 17
+Download: Download high-res image (818KB)
+Download: Download full-size image
+Fig. 17. Effects of airfoil size on normalized rime ice accretion shapes under the droplet velocity of 3, 6, and 9 m·s−1(scaled by the chord).
+
+Fig. 18
+Download: Download high-res image (685KB)
+Download: Download full-size image
+Fig. 18. Effects of airfoil size on normalized rime ice accretion shapes under the droplet velocity of 12 and 15 m·s−1(scaled by the chord).
+
+Fig. 19
+Download: Download high-res image (349KB)
+Download: Download full-size image
+Fig. 19. Comparison of rime-ice results for three airfoils (DU96-W-180, DU91-W2–250, and DU97-W-300) under different wind-velocity conditions: (a) the maximum ice thickness and (b) the angular range of 1 mm ice thickness.
+
+As shown in Fig. 13(a), the absence of a water film stage results in greater rime ice thickness than glaze ice under identical conditions, with both droplet velocity and LWC showing a clear positive correlation. The influence of airfoil geometry can be classified into three patterns: (1) under low velocity and low LWC (< 1 g·m−3, e.g., Cases 25, 1, 2), only small granular ice forms near the Front-side with negligible geometric impact; (2) under low velocity with pronounced camber (e.g., Cases 32, 29, 14, 18), cambered airfoils deflect droplets from the stagnation region, producing a wider but thinner ice band, while the symmetric airfoil accumulates thicker ice at the leading edge; and (3) under high velocity with large droplets (e.g., Cases 67, 68), thicker cambered airfoils retain more fragmented droplets, leading to broader and thicker ice layers, whereas the thin symmetric airfoil is less effective and more sensitive to droplet size. At high velocity with small droplet size (e.g., 110 m·s−1, 25 μm, Case 77), NACA4412 shows greater thickness due to camber and attack angle, while DU96-W-180 shifts coverage toward the lower surface, increasing total ice but reducing peak thickness. Overall, rime ice concentrates near the front side (see Fig. 13(b)), with thickness mainly controlled by droplet velocity, droplet diameter, and LWC, and geometric effects becoming more pronounced at higher speeds and larger droplet sizes.
+3.2. Icing distribution with different locations on a wind turbine blade
+According to wind turbine blade design principles, cross-sectional airfoil profiles and dimensions vary along the spanwise direction to satisfy aerodynamic and structural requirements, while the local tangential velocity also changes with radial position during operation. These factors lead to distinct icing behaviors at different blade locations. Although previous studies have shown that total ice mass generally increases linearly along the spanwise direction and stabilizes near the blade tip(Battisti, 2015), detailed comparisons of the ice distribution features, such as the maximum ice layer thickness and the ice coverage angle range, are still lacking. As analyzed in Sec. 3.1, droplet velocity and airfoil geometry significantly affect icing patterns, and the observed positive correlation between velocity and maximum ice thickness aligns with reported trends in spanwise ice mass. In this section, three representative airfoils (DU96-W-180, DU91-W2–250, DU97-W-300; listed in Table 1, shown in Fig. 2), corresponding to different spanwise positions, are selected for ice accretion analysis. The velocity range examined corresponds to the ambient wind speed (≤ 15 m·s−1, as shown in Table 3) when the blade is stationary, with multiple representative icing conditions considered under each velocity to facilitate a comprehensive comparison of icing behaviors.
+i. Glaze ice.
+According to the analysis in Sec. 3.1, for airfoils with the same chord length, a moderate increase in maximum thickness of the airfoil enhances droplet collection efficiency, thereby increasing the maximum ice thickness near the leading edge. However, when both chord length and maximum thickness increase simultaneously, the icing behavior changes markedly: larger airfoils positioned closer to the blade root exhibit comparatively thinner ice accumulation at the leading edge. Fig. 14, Fig. 15 present normalized ice shapes for three airfoils located at different positions along the blade span (detailed in Table 1). To facilitate a consistent comparison of ice distribution characteristics, the radial coordinates in the figure are normalized by the chord length of each airfoil (hice/c). As shown in Fig. 14, Fig. 15, the normalized glaze ice shapes for three airfoils representing different spanwise positions—DU96-W-180 (1 m chord), DU91-W2–250 (3 m chord), and DU97-W-300 (5 m chord)—demonstrate that icing patterns become less pronounced and more uniform as the airfoil location moves toward the blade root. This behavior reflects the combined influence of increased chord length, thickness, and leading-edge curvature, which intensify aerodynamic shear on surface water films. Near the root, even under conditions of moderate (even high) LWC (≥ 1 g·m−3), larger droplet size (≥ 100 μm), or moderate velocity (≤ 12 m·s−1) and temperature (nearby 270.15 K), distinct ice protrusions are rarely observed, as shown in Fig. 14(b1), (b2) and Fig. 15(a2). Instead, the glaze ice tends to spread more evenly, since the water film is more likely to flow toward the trailing edge before freezing. Under low LWC (e.g., < 0.5 g·m−3 in Fig. 14(a1), (c1), and Fig. 15(b1)), water collection is insufficient to generate extensive coverage in limited time (e.g. 30 min in this work), and the ice remains concentrated near the leading edge. However, due to the larger curvature in this region, even limited ice accumulation forms smooth bulges rather than sharp spikes.
+The quantitative comparison in Fig. 16 further confirms these observations. As shown in Fig. 16(a), larger airfoils generally exhibit smaller maximum glaze ice thicknesses, even without chord-length scaling. The smaller airfoil (DU96-W-180) exhibits greater curvature and thickness, which enhance aerodynamic shear and accelerate the removal of unfrozen water near the leading edge. Consequently, the reduction in maximum ice thickness with increasing airfoil size is not linear: the drop from DU96-W-180 to DU91-W2–250 is much more significant than that from DU91-W2–250 to DU97-W-300. Relative differences reach up to 60 % in Case 32 and 25 % in Case 5, compared to less than 33 % in Case 25 and below 24 % in other cases. These results indicate that once the airfoil exceeds a certain size, further enlargement brings only minor decreases in maximum ice thickness.
+Similarly, the angular range of 1 mm thickness in Fig. 16(b) generally decreases with increasing airfoil size, as the water film tends to freeze before reaching the Rear-side. This trend mirrors the behavior of the maximum thickness but includes some exceptions. For instance, in Case 42, a low LWC (0.5 g·m−3) caused early freezing on DU96-W-180, resulting in a smaller coverage angle than those of the larger airfoils, which—owing to their greater frontal areas—collected more droplets and sustained larger water films. Low velocity (≤ 9 m·s−1), low LWC (≤ 0.5 g·m−3), and small droplet sizes (≤ 50 μm) (e.g., Cases 5, 6, 25, 32, and 41) all lead to reduced coverage, with droplet size exerting the most pronounced effect, as evidenced by the difference between Cases 32 and 33. Larger droplets (≥ 100 μm) promote continuous water-film formation—especially on thicker, larger-chord airfoils—thus increasing ice coverage despite the enhanced aerodynamic shear.
+In summary, both maximum glaze ice thickness and coverage angle tend to decrease toward the blade root due to stronger aerodynamic shear and reduced water film spread. The relationship is nonlinear, and under specific conditions—such as low LWC (≤ 0.5 g·m−3) or small droplets (≤ 50 μm)—airfoil geometry and local flow features can significantly alter the expected icing patterns.
+ii. Rime ice.
+In contrast to glaze ice, increased aerodynamic shear on larger airfoils tends to reduce the maximum ice thickness. In rime ice, however, the lack of a water-film stage leads to thicker ice buildup near the leading edge of larger airfoils. Fig. 17, Fig. 18 compare normalized rime ice profiles for three airfoils of varying sizes, with ice thickness scaled by chord length (hice/c). In addition to the increase in maximum thickness with higher velocity, LWC, and droplet size, larger airfoils generally display more pronounced protrusions during rime ice accretion. Comparisons between paired cases at the same velocity show that increasing LWC mainly produces taller ice ridges (i.e., higher protrusions), whereas larger droplet sizes lead to wider accretion regions (i.e., fatter protrusions). These patterns are further reflected in Fig. 19, which presents the maximum ice thickness and ice coverage angle range under various icing conditions. As shown in Fig. 19(a), most cases indicate that larger airfoils tend to accumulate thicker rime ice near the leading edge. This trend is mainly attributed to their smoother leading-edge curvature and altered local airflow characteristics, which promote droplet collection and freezing processes. For thinner airfoils, the local flow near the leading edge promotes concentrated ice growth, producing “taller, sharper” profiles. As airfoil size increases and the leading-edge curvature grows, the ice thickness distribution becomes more uniform, shifting toward a “shorter, wider” profile. Two exceptions occur in Cases 18 and 22, where differences in maximum rime ice thickness among the three airfoils are minimal. In both cases, the combination of low LWC (< 1 g·m−3) and large droplet diameter (> 250 μm) reduces the vertical growth tendency of ice. Instead, the large droplets spread more across the blade surface, resulting in wide coverage with only minor differences in maximum thickness across different airfoil sizes.
+According to Fig. 19(b), aside from Case 22—which exhibits the widest ice coverage angle range under rime icing conditions—most other cases show an ice accretion range of less than 30°. This is primarily due to the absence of water film formation and downstream flow in rime ice accretion. As a result, the extent of rime ice coverage does not increase with proximity to the blade root; instead, the primary accretion region remains concentrated near the front side of the airfoil.
+4. Conclusion
+This study conducted CFD icing simulations on several airfoils with different geometries and sizes (corresponding to various positions along the blade span). After normalizing the icing shapes into a polar coordinate system, a comprehensive analysis of ice morphology, maximum ice thickness, and ice coverage angle range was carried out to provide engineering guidance and reference. The main conclusions are as follows:
+(1) When the chord length is fixed at 1 m, the influence of airfoil geometry on maximum glaze ice thickness is limited. DU96-W-180 and NACA4412 differ by less than 10 %, with absolute deviations under 1 mm. The thinner symmetric NACA0012 shows slightly reduced accretion due to less favorable flow conditions, but the disadvantage remains within 2 mm. Toward the blade root, increasing chord length and leading-edge curvature promotes more uniform film spreading, reducing maximum thickness, though the reduction rate diminishes as size increases.
+(2) The glaze ice coverage angle is governed by the extent of water film spreading before freezing. At low LWC (≤ 0.5 g·m−3) and droplet diameters (≤ 50 μm), accretion remains concentrated near the leading edge with negligible airfoil differences. At moderately velocities (≤ 50 m·s−1) and relatively warm temperatures (nearby 270.15 K), large liquid water content (≥ 3 g·m−3) and larger droplets (≥ 100 μm) can lead to nearly full-surface ice coverage on 1 m chord airfoils. DU96-W-180, characterized by greater thickness, frontal area, and curvature, exhibits enhanced droplet collection and spreading, leading to broader ice coverage. In contrast, as airfoil size increases, downstream spreading becomes more restricted, resulting in narrower ice coverage near the root region.
+(3) Rime ice consistently accumulates on the Front-side (the ice coverage angle range is almost limited in 30°), largely independent of geometry or size. However, NACA0012 shows a distinct disadvantage in maximum rime ice thickness at higher velocity (≥ 80 m·s−1), with differences amplified for larger droplets (≥ 250 μm). Conversely, under low-velocity (≤ 6 m·s−1) and low-LWC (≤ 0.5 g·m−3) conditions, it can exhibit slightly higher thickness. Larger airfoils, with greater curvature and frontal area, promote more uniform droplet spreading at low speeds, leading to smoother frost layers and reduced maximum thickness near the root.
+This study strives to design ice conditions for wind turbine blades as realistically as possible and ensures reasonable accuracy of simulations, but the classification boundary between glaze and rime ice remains conservative. In particular, the transitional range of −5 to −10 °C is excluded, and the icing characteristics within this interval are not fully considered. Moreover, for the blade tip region, only the DU96-W-180 airfoil is analyzed, which may limit the generality of the conclusions. Notwithstanding these limitations, the results of this study still indicate that icing behaviors can be reasonably estimated within an acceptable error range, providing practical guidance for anti−/de-icing strategies, particularly for wind turbine–dedicated airfoils. Furthermore, with the rapid development of artificial intelligence, AI-based approaches hold strong potential for capturing the multifactorial influence patterns of blade icing, offering a promising direction for future research.
