@@ -1,0 +1,183 @@
+Introduction
+Stress corrosion cracking (SCC) is cracking due to a process involving conjoint corrosion and straining of a metal due to
+residual or applied stresses. SCC is known as an insidious form of corrosion failure and it results in a significant drop in the
+mechanical strength only with little metal loss. Another important point is that although this failure cannot be recognized by
+casual inspection, it can lead to a catastrophic damage of components and structures such as the rupture of high-pressure gas
+transmission pipes, the explosion of boilers and the destruction of power stations and oil refineries.
+In phenomenological viewpoint, the occurrence of SCC depends on three simultaneous requirements; a susceptible
+material, an environment that causes SCC for that material, and sufficient tensile stress to induce SCC. Three principal
+mechanisms of SCC are active path dissolution (accelerated corrosion along a path of higher than normal corrosion
+susceptibility such as the grain boundary), hydrogen embrittlement and film-induced cleavage. However, SCC is an
+avoidable process by preventing the specific combinations of metal and environment that are subject to the problem.
+Heat exchangers are common equipments in many industries employed for the cooling/heating purposes. The plate heat
+exchanger (PHE) or plate and frame heat exchanger is a type of heat exchangers that comprises of the special metal plates
+and sealing polymeric gaskets; when two fluids with different temperatures pass over two opposite sides of the plates, the
+heat transfers from the hot side to the cold side. Excellent heat transfer characteristics, easy maintenance and fast
+Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66
+A R T I C L E I N F O
+Article history:
+Received 25 November 2015
+Received in revised form 25 February 2016
+Accepted 7 March 2016
+Available online 12 March 2016
+Keywords:
+SCC
+Chloride build-up
+Pitting
+Plate heat exchanger
+A B S T R A C T
+In Jam petrochemical complex (JPC), Iran, the plates (ASTM A.240 Type.316) of some heat
+exchangers have been damaged due to the occurrence of cracks at the sitting place of
+gaskets. A comprehensive failure analysis including the chemical analysis, visual
+inspection, optical microscopy and scanning electron microscopy (SEM) of the cracks
+spread over the plates together with the energy dispersive X-ray spectroscopy (EDS) of the
+corrosion products and the measurement of chloride and sulfide ions content of the
+process water were employed for the examination of the failure mode and its causes. The
+obtained results indicate the building-up of the chloride and sulfide ions at the crevices
+between plates and gaskets at high temperature leads to stress cracking corrosion (SCC) of
+the plates. Moreover, the simultaneous presence of chloride and sulfide in the media
+hastens the SCC failure in the heat exchanger plates.
+ 2016 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND
+license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+* Corresponding author at: P.O. Box 14155-6591, Asalouyeh, Iran. Tel.: +98 9123541962.
+E-mail address: hkhodamorad@gmail.com (S.H. Khodamorad).
+Contents lists available at ScienceDirect
+Case Studies in Engineering Failure Analysis
+j ou rnal homepa ge: www.elsevier. com/locate/c sefa
+http://dx.doi.org/10.1016/j.csefa.2016.03.001
+2213-2902/ 2016 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/
+4.0/).
+modification are the advantages of this type of heat exchangers which make them a widely used and important part of many
+industries such as petrochemical complexes [1]. Austenitic stainless steels are widely used in manufacturing of the special
+plates for PHE. The main benefit ofthe stainless steels is the corrosion resistivity. However, as previously mentioned,they are
+susceptible to local corrosion like pitting corrosion and stress corrosion cracking (SCC) [2–4]. Cooperation of stress and
+specific media such as the chloride or sulfide containing media is mandatory for SCC of susceptible materials. The
+simultaneous presence of mechanical stress and chloride or sulfide ions in environment accelerates the corrosion failure of
+metal.
+A survey of previous literature on prevention of SCC failure provides some clues about the important factors in such
+systems. For example, Orlikowsky and Krakowiak [5] studied the SCC failure of an AISI 304 stainless steel tank containing hot
+water (70–80 8C) containing 55–100 mg/dm3 chloride ions. They reported the causes of SCC as the bending of unclamped
+surge pipeline, hydrostatic pressure of water and buckling forces of tank as the origin of stress. Moreover, Yongde et al. [6]
+evaluated the failure of a 304 stainless steel tube in gas analyzer and they found that the presence of chloride and sulfide in
+the ventilating pipe and the residual stresses of manufacturing together with the airflow pressure on the pipe are responsible
+for the corrosion failure.
+In Jam petrochemical complex (JPC), Iran, the plates of some heat exchangers have been damaged due to the occurrence of
+cracks at the sitting place of gaskets. The heat exchangers have been in service since 2008. They are placed in a wet
+environment (with a humidity of usually more than 70%) at an ambient temperature of 45 8C in hot season. The main causes
+of maintenance include the thermal efficiency decrement and pressure drop increment because of fouling, leakage or
+intermixing of two fluids due to gasket failure. Under normal conditions, each of these heat exchangers has a routine
+inspection and maintenance schedule after four months in service to prevent the unexpected shut down of plant. The routine
+maintenance procedure includes low pressure (less than 20 barg) water jet cleaning, visual inspection of plates and gaskets,
+failed gasket and plate replacement and assembly of heat exchanger. Furthermore, the cleaning in place (CIP) with chemical
+reagents and Back flashing method are using to cleaning of heat exchanger without disassemble.
+The aim of the present work was to identify and quantify the mode and principal causes of corrosion failure in the PHE by
+using appropriate analysis methods including visual inspection, optical and scanning electron microscopy, energy dispersive
+X-ray spectroscopy (EDS), thermo-scan analysis, and measurement of chloride and sulfide content of the waters.
+2. Materials and methods
+The plate heat exchanger (PHE) of JPC has 56 special stainless steel plates (ASTM A240 Type.316) with special sealing
+gaskets between them. The practical thickness of the plates is 0.5 mm without any coating. A schematic view of PHE is
+presented in Fig. 1. This heat exchanger is using for cooling of the hot transport water (TW) by cooling water (CW). Both
+transport water (TW) and cooling water (CW) are de-mineralized with a maximum content of 50 ppm Cl and 8–10 ppm
+dissolved oxygen. The operating condition of failed PHE of JPC is shown in Table 1.
+The majority of the cracks have appeared in the upper gasket seat and also some cracks have been observed under two
+sideward gasket seats of the PHE. In addition, the around of these cracks has been covered with a rusty layer as shown in
+Fig. 2.
+The chemical analysis of plates was done by PMI-MASTER Pro spark emission spectrometer and results are shown in
+Table 2.
+The temperature analysis was applied by SATIR HY-G90 infrared camera. The specimens for optical microscopic analysis
+prepared according to ASTM E3-11 and micro etch treatment had done as per ASTM E407-11 by Glycergia.
+Fig. 1. Schematic of plate heat exchanger.
+60 S.H. Khodamorad et al. / Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66
+3. Results and discussion
+3.1. Visual inspection
+Generally the visual inspection by naked eye is the first step to roughly estimate the type and cause of failures. As it can be
+observed in Fig. 3, the branched cracks alongside the gasket seat grooves of plates are present and also, some corrosion pits
+are visible around theses grooves. These pits can act as the start points for the propagating of cracks over the plates when the
+mechanical stress is present in the system [7]. Although the border areas of plates are not in contact with the cooling or
+transport water, there are many crevices between them which are subjected to the pitting by crevice corrosion. Fig. 4 shows
+such pits on the border areas of the plates.
+In addition of the pitting corrosion, the presence of a brownish layer on the gasket seat grooves is an indicative for the
+corrosion occurrence. However, there is no significant sign of pitting in the interior/central parts of the plates despite the fact
+that these parts contribute in the cooling process and the water flows across them.
+Fig. 3. Presence of cracks and pits on gasket sitting groove.
+Fig. 2. Appearance of a crack on the gasket seat of heat exchanger plates.
+Table 2
+Chemical composition of plates of heat exchanger.
+Element C Mn Si Cr Ni Mo Ti
+Wt% 0.08 1.46 0.12 15.2 11.1 2.11 0.05
+Table 1
+Operating condition of failed PHE of JPC.
+Water Inlet temp. (8C) Outlet temp. (8C) Inlet pressure (barg) Outlet pressure (barg)
+TW 80 70 4.9 4.4
+CW 38 48 6.5 6
+S.H. Khodamorad et al. / Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66 61
+3.2. Microscopic analysis
+Three samples namely 1, 2 and 3 were prepared from three different plates for microscopic studies.
+3.2.1. Sample 1
+Regarding the microstructure of Sample 1 presented in Fig. 5(a) and (b), the structure includes the austenitic matrix with
+some intergranular and transgranular cracks. According to SEM image shown in Fig. 5(c), these cracks are relatively sharp
+and straight passing through the boundaries and austenitic grains. The branched cracks are typical signs of SCC [6–8].
+Fig. 4. Pitting corrosion on border area of failed heat exchanger plates.
+Fig. 5. (a) and (b): Microstructure and (c) SEM of Sample 1.
+62 S.H. Khodamorad et al. / Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66
+Intergranular SCC also commonly indicates the contribution of corrosion process in the cracking of plates [9] and on the other
+hand, the appearance of transgranular SCC in the microstructure of the plates confirms the high mechanical stress conditions
+[10]. Garcia et al. reported that transgranular SCC susceptibility decreases at lower level of cold stress but the intergranular
+SCC susceptibility increases [10]. The superimposing of residual stresses leads to the cold forming of the plates and on the
+other hand, the stresses resulted from temperature/pressure fluctuations as well as the repair and maintenance stresses
+are the main sources of SCC. The small black dots observed in Fig. 5(a) and (b) are assigned to the micro-pits distributed in the
+microstructure.
+3.2.2. Sample 2
+Based on the microstructure of Sample 2 shown in Fig. 6(a), the structure includes the austenitic matrix with
+some intergranular and transgranular cracks similar to Sample 1. Fig. 6(b) implies the presence of some twinning in the
+microstructure of sample. As a matter of knowledge, the twinning phenomenon requires high level of stress which can be
+accounted as a sign for high residual and/or applied stress in the microstructure of plates due to the plastic deformation [11].
+The SEM image of Sample 2 (Fig. 6(c)) shows the growth of cracks in several directions in the tip of a primary crack. These
+micro-cracks are additional supportive evidences for SCC.
+3.2.3. Sample 3
+As can be seen in Fig. 7(a) and (b), the microstructural features of Sample 3 is similar to Samples 1 and 2. There is a micropit as a start point for SCC (Fig. 7(b)). Also, the tip of crack contains some corrosion products according to the SEM image
+(Fig. 7(c)). This indicates that the corrosion plays an important role in the failure of plates and the formations of cracks stems
+from the simultaneous occurrence of corrosion and mechanical stress.
+Fig. 6. (a) and (b): Microstructure and (c) SEM of Sample 2.
+S.H. Khodamorad et al. / Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66 63
+3.3. EDS analysis
+Energy dispersive X-ray spectroscopy (EDS) of the brownish (rusty) layer formed around and in the cracks is shown in
+Fig. 8. According to EDS spectrum, the brownish (rusty) layer contains Fe, Cr, O as well as S and Cl. Fig. 8 shows the EDS
+Fig. 7. (a) and (b): Microstructure and (c) SEM of Sample 3.
+Fig. 8. EDS analysis of corrosion products in Sample 1.
+64 S.H. Khodamorad et al. / Case Studies in Engineering Failure Analysis 5–6 (2016) 59–66
+analysis of Sample 1. The presence of Fe, Cr and O can be attributed to the corrosion products of S.S 316 [11]. The presence of
+chloride in the EDS spectrum also confirms the contribution of Cl– in pitting corrosion of the protective layer of 316 stainless
+steel plates. It can be concluded that the formation of the pits and the presence of stress can lead to Cl-SCC failure of plates.
+Also, sulfide ion can significantly accelerate the SCC failure of the plate [6].
+3.4. Thermo-scan analysis
+Temperature analysis was conducted via infrared camera for the evaluation of the temperature profile of several areas of
+PHE. According to thermo-scan result illustrated in Fig. 9, the maximum temperature of the exchanger is around 99 8C in the
+top of PHE that belongs to TW inlet of exchanger. The value of temperature is higher than the design temperature of heat
+exchanger. The history of equipment revealed that in a period of operation around one year ago, the temperature of TW
+increases due to some process changes. During this period, the water that called service water (SW) was poured over the PHE
+to increase the cooling rate and reduce the TW outlet temperature. Moreover, as it can be seen in Fig. 3, there is a brownish
+layer over the zigzag edge of plates which imply the presence of suspended soil in the service water.
+3.5. Chloride and sulfur concentration measurement
+The chloride and sulfide content of the TW, CW and SW were measured for the confirmation of SCC postulation. However,
+the results show the both chloride and sulfide contents are around 1–3 ppm in all waters. According to API 571-4.5.1.3, there
+is no definite minimal limit for chloride ions because the local concentration of chloride ions can always occur. Therefore,
+although the chloride and sulfide ions levels of SW is low, the evaporation of SW in crevices due to high temperature of TW
+inlet and CW outlet, can lead to locally concentration of these ions. Similar observations have been reported about the local
+chloride-buildup at high temperature in crevices [4,8].
+4. Conclusions
+In this study, the principal causes of corrosion failure in the plate heat exchanger (PHE) of Jam Petrochemical Complex
+(JPC), Asalouyeh, Iran, were evaluated via visual inspection, optical and scanning electron microscopy, energy dispersive Xray spectroscopy (EDS), thermo-scan analysis, and measurement of chloride and sulfide content of the waters. It was found
+that the chloride ions build-up in crevices formed between plates and gaskets (at high temperatures), is the main reason for
+the occurrence of SCC. The suspended soil ofthe service water settled in the crevices between gasket and plate and provides a
+favorable position (dead zone) for building-up of the chloride ions. When the level of chloride ions in the water is low, the
+evaporation of water in the crevices leads to chloride ions build-up. Moreover, the high temperature of the transport water
+outlet and cooling water inlet results in the acceleration of this building-up. By chloride ions concentration in the crevices,
+the pitting corrosion under gasket seat occurs. In addition, the simultaneous presence of chloride and sulfide ions intensifies
+the SCC failure in the heat exchanger plates.
+5. Recommendations
+Since the appearance ofthe cracks in the heat exchangers occurs after cooling the TW outlet by the service water (SW),the
+use of higher number of the plates in the heat exchangers together with the higher flow rate of cooling water is strongly
+recommended; in this way, at a constant flow rate of transport water, not only the temperature of transport water is
+decreased but also the SCC cracks resulted from the direct contact of the service water (which usually contains some levels of
+Cl) can be effectively avoided.

@@ -1,0 +1,699 @@
+1. Introduction
+Stress-corrosion cracking (SCC) of austenitic stainless steels has
+been a problem in the nuclear industry for many years. The use of
+low carbon compositions, such as 304L, have mostly eliminated the
+intergranular stress-corrosion associated with chromium depleted
+zones at grain boundaries (sensitization) but there remains the
+problem of transgranular stress-corrosion cracking (TGSCC). Corrosion appears particularly to be associated with external surfaces
+where chloride corrodants are deposited on the surface, temperatures are between ambient and the boiling point of water, and
+there is exposure to atmospheric air.
+Stress-corrosion cracks have often been regarded as being associated with pitting. Turnbull et al. [1,2] have shown there to be
+competition between pitting rates, larger for small pits, and cracking rates, larger for long cracks. At a critical defect length there will
+be a transition from pit deepening to crack propagation. Work by
+Trethewey et al. [3] showed that the occurrence of pitting was
+associated with values of equivalent plastic strain between 10%
+and 25% and showed no association with areas of high tensile
+residual stress. This confirmed work by Peguet et al. [4] who had
+indicated a plastic strain value of 20% for maximum pitting. Recent
+work by Turnbull et al. [5], Horner et al. [6] and Turnbull et al. [7]
+has shown that the maximum principal tensile stress associated
+with a pit is at the base of the pit, whilst the maximum principal
+strain is at the pit mouth. In work with a 3NiCrMoV turbine steel
+cracks in 26 of 30 cases propagated from the mouth, rather than
+the base, of the pit.
+Cracks in TGSCC appear crystallographic in nature with clearly
+defined slip steps that tend to be along crystallographic planes.
+An explanation proposed by Magnin et al. [8] and Chateau et al.
+[9,10] is the corrosion enhanced plasticity model (CEPM), which
+has been shown experimentally to be consistent with fractographic
+evidence [11] of cracked austenitic stainless steel exposed to boiling MgCl2. In the model cracking along a {111} type slip plane will
+be activated by the action of a stress normal to the slip plane. Fracture then results by a zig–zig crack growth along alternate {111}
+planes producing an overall growth direction of h112i type. Studies on stress-corrosion of single crystal specimens of the 321
+austenitic steel by Qiao et al. [12] showed that cracks could both
+initiate and propagate in the presence or absence of slip bands.
+Overall propagation was always perpendicular to the applied tensile stress. Where high tensile stresses were applied many microcracks would appear, associated with slip bands and propagating
+perpendicular to the applied stress. These cracks subsequently coalesced into larger cracks.
+The presence of a stress threshold for stress-corrosion on an initially smooth specimen has been suggested by Magnin et al. [8]
+http://dx.doi.org/10.1016/j.corsci.2014.07.017
+0010-938X/Crown Copyright  2014 Published by Elsevier Ltd. All rights reserved.
+⇑ Corresponding author. Tel.: +44 (0) 1793 721673.
+E-mail addresses: dtspencer@btinternet.com (D.T. Spencer), m.r.edwards@
+cranfield.ac.uk (M.R. Edwards), m.wenman@imperial.ac.uk (M.R. Wenman),
+pchardtuckey.cmt@nd.da.mod.uk (P.R. Chard-Tuckey).
+Corrosion Science 88 (2014) 76–88
+Contents lists available at ScienceDirect
+Corrosion Science
+journal homepage: www.elsevier.com/locate/corsci
+and Nishimura and Alyousif [13] but there has been little agreement on what this threshold should be. Current International
+Atomic Energy Agency (IAEA) guidance [14] simply states: ‘‘The
+stress required for chloride induced TGSCC is relatively modest, the
+threshold being close to the proportional limit of solution annealed
+austenitic stainless steels’’. This proportional limit will be lower than
+any measured proof stress. If the threshold stress intensity
+required for the propagation of TGSCC cracks is considered, work
+from Jivkov and Marrow [15] proposed using the tensile elastic
+strain energy density of grain boundaries over a continuous range
+in their model of SCC. Their model also suggested that there was
+unlikely to be a physical basis for a threshold stress intensity value,
+since crack propagation rates continued to decrease as the stress
+intensity decreased.
+Tani et al. [16] showed that there was measurable TGSCC at a
+temperature of 298 K but it was not clear whether this was a true
+threshold or whether cracking could have been seen at lower temperatures in longer experiments.
+Work by Turnbull et al. [17] has suggested that SCC of 304
+stainless steel was affected by the surface machining and grinding
+of the material. They found that cracks originated at corrosion pits
+and were more prevalent for longitudinally ground specimens than
+for transversely milled or ground specimens. Measurements of surface residual stresses showed the highest tensile stresses to be
+associated with ground surfaces and these produced the highest
+density of stress corrosion cracks. There was also a surface layer
+in the ground and milled specimens which was not resolvable by
+electron backscattered diffraction (EBSD), indicating either a heavily cold worked or nanocrystalline structure. This layer was absent
+in the transversely dressed specimens, and these did not show
+stress corrosion cracks. This work indicates that the surface condition of any austenitic stainless steel undergoing stress-corrosion is
+likely to play a part in determining the severity of any cracking that
+occurs.
+The aim of the present work is to examine the parameters that
+control the in-service atmospheric chloride stress-corrosion cracking of 304L, principally temperature, applied stress, plastic strain,
+humidity and corrosive environment. Since any experiments are
+accelerated tests it is only the severity of the corrosive environment that has been increased in order to produce cracking in days
+rather than years.
+2. Materials and methods
+2.1. Materials
+The steel used complied with BS EN 10008-2-2005 for grade
+1.4307 (304L). The composition was C 0.023, Cr 18.26, Ni 8.01,
+Mn 1.23, N 0.066, P 0.029, S 0.004, Si 0.36 (wt%). In the as-received
+condition the steel had a 0.2% proof stress of 344 MPa, a tensile
+strength of 663 MPa and an elongation to failure of 55%.
+2.2. Specimen preparation and test procedure
+The material was supplied in the hot-rolled condition and
+stress-relieved by heating to 900 C for 30 min in a nitrogen atmosphere. A water quench was used to prevent any possible grain
+boundary sensitization. A prior uniaxial plastic strain was then
+applied to the specimens by placing them in a servo-hydraulic test
+machine, applying a pre-determined stress and then unloading. In
+order to separate the effects of the applied prior uniaxial plastic
+strain and applied tensile stress on the stress-corrosion cracking,
+a bend test geometry was chosen for the stress corrosion tests
+and the testpiece geometry is shown in Fig. 1. After annealing
+the 0.2% proof stress was 210 MPa and the tensile strength
+630 MPa.
+The tensile stress in bending (r) can be calculated from:
+r ¼ 4Ety
+h2 ð1Þ
+where h = distance between inner edges of the supports, y = maximum deflection between inner edges of the supports, t = thickness
+of the specimen and E = modulus of elasticity.
+The specimens were placed in test jigs and a load applied using
+a compression spring. The curvature of the specimen was measured using a differential variable reluctance transducer (resolution 0.6 lm, repeatability 1 lm).The value had been previously
+calculated for the actual specimen thickness so as to apply a set
+bending moment and hence correct upper surface tensile stress.
+The spring ensured that, as any crack extends, there will be
+increased bending and a reducing load applied. Thus the stress
+intensity factor will be increased by the increasing crack length
+and decreased by the reducing load, maintaining an approximately
+constant stress intensity factor during the cracking process. It is
+possible to calculate the exact stress intensity for the case of a single crack [19] but not for the case of multiple cracks. As such the
+only stress conditions precisely known are those applying to the
+uncracked or very short crack conditions.
+The whole assembly was manufactured from 304L plate, except
+for the screw thread, hexagonal head screws and wing nuts which
+were from 304 stainless steel and the spring from 302 stainless
+steel. All this was to prevent any effects of stray galvanic currents
+affecting the corrosion.
+The specimen gauge length sides were cleaned of oxide and
+copper residue from electro-discharge machining manufacture
+using 240 grit SiC paper. The upper surface was ground using standard metallographic preparation techniques to a 1200 grit SiC
+finish. A range of fixed displacements was applied by a servohydraulic tensile machine. Loads and temperature rises were measured. A fixed displacement rate of 0.1 mm s1 was used (giving a
+strain rate of 2  103 s1
+). Changes in gauge length and transverse
+Fig. 1. Bend test [18] with dimensions (mm) and geometry of bend testpiece.
+D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88 77
+dimensions were measured using a vernier calliper and micrometer to give actual strain and reduction in area.
+The surface was thoroughly degreased and then sprayed with a
+saturated solution of MgCl2 in pure ethanol using an airbrush. The
+alcohol was evaporated with warm air. This was repeated until a
+white deposit of MgCl2 was clearly visible on the surface. Jigs were
+then placed in a non-metallic, airtight container with a bubbler
+style airlock, electrically isolated from each other. A beaker of saturated ionic salt solution was placed in the container to produce a
+fixed humidity point [20] and a data logger for temperature and
+humidity installed. The whole system was placed in temperature
+controlled oven (±1 C) for three weeks. Samples were inspected
+and photographed at regular intervals of 3–4 days.
+After the test had completed the samples were inspected for
+corrosion and cracking, and if failed completely, the number of
+through thickness cracks was recorded. The samples were then
+washed in distilled water to remove remaining MgCl2 and any
+loose corrosion product. The corroded surface of the sample was
+then cleaned of remaining corrosion product using a glass fibre
+brush to avoid damaging the surface of the stainless steel and then
+given a final clean using propan-2-ol and air drying. The corroded
+surface was then video filmed using a digital non-destructive testing (NDT) inspection microscope.
+To section the samples a low deformation circular saw was used
+fitted with a high density cubic boron nitride disc. This cutting process was heavily lubricated with commercial machining emulsion
+to avoid heating and the feed rate was controlled to 2 mm min1 to
+minimise deformation of the cut surface. All the samples were sectioned vertically along the gauge length to give a longitudinal section of the centre of the sample. This was designed to cut through
+each crack on the central line of the sample. The polished samples
+were prepared using the following procedure:
+i. 320 grit SiC, 30 N force, 5 min.
+ii. 1200 grit SiC, 30 N force, 5 min.
+iii. 9 lm diamond, 30 N force, 10 min.
+iv. 3 lm diamond, 30 N force, 5 min.
+v. 1 lm diamond, 20 N force, 5 min.
+vi. Colloidal silica, 15 N force, 30 min.
+The number of cracks emanating from the tension face of the
+testpiece was counted and the length of each one measured using
+an optical microscope. Where a crack subsequently branched after
+initiation the maximum length branch was recorded. The lengths
+of the cracks were recorded as a percentage of the specimen thickness that was cracked with the actual length calculated from this
+and the measured thickness of the specimen. Crack density was
+calculated by measuring the distance between cracks and taking
+the reciprocal of this distance. Average crack propagation rate
+was calculated by dividing the average crack length by the time
+of the experiment (usually 500 h), whilst maximum crack propagation rate was calculated by taking the length of the longest crack
+and dividing this by the time of the experiment. Average crack
+growth rates usually contained between 10 and 50 measurements
+and the only cases where less than 10 are used is for the near
+threshold (very few cracks) regions. Where average crack growth
+rate is reported error bars give the standard error.
+2.3. Optical and scanning electron microscopy
+Some sections were etched for metallographic examination
+using electrolytic 0.1 M nitric acid solution to show general microstructure, tint etched with sodium metabisulphite to show phase
+differences or magnetically etched with ferrofluid to distinguish
+between martensite types.
+Scanning electron microscopy (SEM) on both polished surfaces
+and fracture surfaces was carried out on a JEOL JS840A microscope
+producing secondary electron images (SE) at a potential of 15 kV.
+Chemical analysis was carried out by energy dispersive X-ray analysis (EDAX), using an attached EDAX Genesis system.
+2.3.1. Focused ion beam secondary ion mass spectrometry (FIB-SIMS)
+and EBSD
+The polished samples were prepared using a StruersTegraForce1/Tegrapol-15 with the following procedure:
+i. Grinding with 1200 grit SiC paper for 2 min. If the sample is
+heavily corroded a previous one minute step with 800 grit
+SiC paper was used.
+ii. 2400 grit SiC paper, for 4 min.
+iii. 4000 grit SiC paper, for 8 min.
+iv. Polishing with OPS (colloidal silica) for 15 min.
+v. EBSD requirement finishing was achieved using VibroMet2,
+with OPS. This usually took about 8 h.
+The FIB-SIMS used for this investigation was a FIB200TEMfei...
+The incident beam energy used was 2–30 kV Ga+
+, with currents
+of 50–3000 pA. If ramp milling was required, the stage was tilted
+using the whole range available, 15 to 60. If required pre-tilt
+stages were used to increase the tilt (up to 40 and 85). Imaging
+was carried out at 1000 pA and 20 kV. Micromachining was carried
+out at 20 kV but using many different currents. On average, for
+large rough cuts, 1000–5000 pA was used; at the same time currents down to 50 pA were used for the final step of the cutting.
+An Auriga Zeiss field emission gun SEM was used for some analysis and this contained FIB, EBSD and EDAX within one vacuum
+chamber. High accelerating voltages (20 kV) and large apertures
+were used to improve the image qualities and pattern indexing.
+EDAX and EBSD were carried out always at 20 kV to collect heavier elements with EDAX or clearer patterns with the EBSD detector. For EBSD a 1 lm step size was used. A large aperture, 120 lm,
+was used for large maps, whereas a 60 lm aperture was used for
+smaller maps. In the Auriga FIB could only be used as a micromachining tool, with the same specifications reported for the single
+beam: it was carried out at 20 kV but using many different currents. On average, for large rough cuts, 1000–5000 pA was used;
+at the same time currents down to 50 pA were used for the final
+step of the cutting.
+The Auriga has a nominal resolution of 5 nm. Images were collected in both backscattered electron (BSE) and SE imaging modes.
+For BSE potentials of 1.4–5 kV were used. For SE imaging 5 kV was
+used to collect high resolution pictures and 20 kV used when collecting EDAX or EBSD data.
+A JSM6400 SEM was used when large maps of EBSD and EDAX
+data were required and the level of detail provided by the Auriga
+was unnecessary.
+2.4. Test plan
+With multiple test rigs constructed it was possible to attempt to
+measure the influence of applied stress, prior plastic strain, relative
+humidity and temperature.
+The relative humidity was controlled by the use of beakers of
+saturated salt solutions and a number of nominal humidity values
+was possible using the following salts [20]. Nominal and measured
+humidities are detailed in Table 1.
+All temperatures between room temperature and 100 C were
+possible with the current test equipment apart from the data loggers, which had a temperature limit of 80 C. Given previous
+results the temperatures chosen were 60, 75 and 90 C so as to
+cover the range of reactor primary circuit temperatures where
+78 D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88
+aqueous corrosion is possible and TGSCC has been known to occur,
+a threshold of 25 C having been noted previously by Tani et al.
+[15].
+3. Results
+3.1. Measurement of crack propagation rates
+The pattern of corrosion is based on multiple parallel cracks
+starting from the tension side of the bend test with their opening
+perpendicular to the gauge length and growth direction normal
+to the applied stress. Examples taken from specimens at 80 h intervals for stresses of 100 and 180 MPa show the same pattern of failure and can be seen in Figs. 2 and 3. A greater degree of bending
+can be seen in the more highly stressed specimen in Fig. 3.
+3.2. Effect of prior plastic strain
+When average crack propagation rate is plotted against the
+level of prior plastic strain, Fig. 4, there is a clear effect of the rate
+passing through a maximum value at low strains before decreasing
+steadily as the strain increases; above 20% no cracking takes place.
+This effect is clearer when the maximum rate Fig 4(b) is used
+rather than the average and shows that around 1–2% plastic strain
+gives the highest propagation rates of around 6 lm h1
+.
+Similarly, Fig. 4(c), a plot of corrected crack density, also shows
+a maximum value for low plastic strains but in this instance the
+maximum is at a slightly higher value of strain, around 3% in the
+case of 60 MPa stress with a clearly defined peak. At the higher
+stress of 120 MPa the effect is much less pronounced with a broad
+peak extending from 1% to 9% prior strain.
+3.3. Effect of applied stress
+When crack propagation rate is plotted against applied tensile
+stress, Fig. 5, then it becomes apparent that there is a threshold
+Table 1
+Nominal [20] and measured relative humidities of saturated salt solutions.
+Salt Temperature
+(K)
+Nominal relative
+humidity (%)
+Measured relative
+humidity (%)
+Lithium chloride 323–363 11.1–10.2 11
+Magnesium chloride 323–363 30.5–24.1 30
+Potassium carbonate 283–303 43.1 45–30
+Magnesium nitrate 303–323 51.4–45.4 35
+Sodium bromide 328–353 50.1–51.4 48
+Sodium chloride 323–353 74.4–76.3 70
+Fig. 2. T3-01 composite picture showing corrosion and SCC propagation at
+approximately 80 h intervals.
+Fig. 3. T3-05 composite picture showing corrosion and SCC propagation at
+approximately 80 h intervals.
+Fig. 4. Average (a) and maximum (b) crack propagation rates and corrected crack
+density (mm1
+) (c) as a function of plastic strain for stresses of 60 and 120 MPa,
+temperature of 75 C and humidity of 70%.
+D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88 79
+stress below which no cracking takes place. Above this threshold
+the propagation rate increases markedly until a maximum value
+is reached. This is again clearer when maximum, Fig. 5(b), rather
+than average, Fig. 5(a), rates are used and a threshold of around
+10 MPa and maximum propagation rate of 6–7 lm h1 are seen.
+The crack density plotted against stress, Fig. 5(c), is less consistent but does show a clear correlation with the crack density
+increasing steeply from low stresses (5–10 MPa) and then levelling
+out as the maximum propagation rate is reached. There is also an
+indication that the higher plastic strain of 10% may give a lower
+crack density than at 5% strain.
+3.4. Effect of humidity
+Below 30% humidity no corrosion, and hence no SCC, took place.
+For a stress of 120 MPa and strains of 2% and 5% (Fig. 6) the crack
+propagation rates increased from a minimum at 30% humidity to a
+maximum at 45% humidity and then reduced to a lower level at
+70% humidity. For the lower levels of plastic strain the crack
+propagation rates were constant at the lower levels of humidity
+and then increased to reach the same rates as the higher levels
+of strain by 70% humidity.
+At 60 MPa stress (Fig. 7) the effect of humidity was to produce a
+less pronounced peak at between 35% and 45% humidity and
+occurred at the lower plastic strain levels of 1% and 2%. Maximum
+crack growth rates occurred at 70% humidity at 60 MPa. It is also
+interesting to note that for 0% plastic strain SCC seems to occur
+at a much higher humidity of 70% with little noticeable at 45%
+for both stress levels.
+3.5. Effect of temperature
+In general average cracking rates increased with temperature.
+Values of 3.2 ± 0.64, 4.2 ± 0.95 and 8.9 ± 3.0 lm h1 are estimated
+at 333, 348 and 363 K respectively where plus–minus refers to
+the standard deviations. An estimate of the apparent activation
+Fig. 5. Average (a) and maximum (b) crack propagation rates and corrected crack
+density (mm1
+) (c) as a function of stress for plastic strains of 5% and 10%,
+temperature of 75 C and humidity of 70%. Fig. 6. Average (a) and maximum (b) crack propagation rates and corrected crack
+density (mm1
+) (c) as function of humidity at 120 MPa stress, plastic strains of 0–5%
+and temperature of 75 C.
+80 D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88
+energy for SCC in the temperature range 333–363 K is shown in
+Fig. 8. The activation energy for SCC was estimated to be
+33.7 kJ mol1
+. Both average crack growth rates with temperature
+and activation energy are based on measurements of average crack
+propagation rates for stresses of 60 and 120 MPa, strains of 2% and
+5% and a humidity of 70%. These ranges of values were chosen on
+the basis that crack propagation rates did not vary much with plastic strain (Fig. 4) or stress (Fig. 5).
+3.6. Metallographic observations, pitting and crack initiation
+The microsections were initially prepared as in 2.2. When the
+colloidal silica stage was omitted there appeared to be a shadowy
+area ahead of the main crack, as seen in Fig. 9a. This area, when
+repolished with 1 lm diamond and colloidal silica, revealed a network of very fine cracking as shown in Fig. 9b.
+The transgranular nature of the cracking was confirmed by
+examination of etched microsections. In the range of plastic strains
+principally investigated (0–5%) there was little evidence of martensitic transformation.
+An example of a pit blister can be seen in Fig. 10. In the same
+micrograph can be seen the initiation site of a crack separate from
+the pit blister.
+Fig. 7. Average (a) and maximum (b) crack propagation rates and corrected crack
+density (mm1
+) (c) as function of humidity at 60 MPa stress, plastic strains of 0–5%
+and temperature of 75 C.
+Fig. 8. Apparent activation energy plot of average crack propagation rate for
+temperature range 333–363 K, based on measurements at stresses of 60 and
+120 MPa, plastic strains of 2% and 5% and humidity of 70%.
+Fig. 9. Optical micrograph of T06-04 (120 MPa stress, 1% plastic strain, 75 C, 70%
+humidity) after diamond polishing (a) and colloidal silica polishing (b), showing the
+additional fine cracking when further polished with colloidal silica.
+D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88 81
+Although quantitative analysis of pit formation was not performed it was observed that the extent of pitting increased with
+both humidity and temperature. Cracks were initiated through
+chains of pits (Fig. 11) but sometimes, especially at lower temperatures and humidities, there was no discernible relationship
+between pitting and crack initiation. It was also noted that crack
+initiation occurred very early in the tests as seen in Fig. 2 and 3.
+3.7. SEM
+Results of SEM of a polished and etched sample (Fig. 12) show
+the branched cracking typical of SCC as well as confirming the
+transgranular nature of the cracking.
+A SE image of a crack in specimen T06-02 (0.5% plastic strain,
+120 MPa applied stress) with oxidized areas is shown in Fig. 13.
+Results of EDAX analysis of oxidized areas are shown in Table 2
+and give an average oxygen level in the regions analysed of 60%.
+The average Fe/Cr ratio was 2.23 with a standard deviation of
+1.18 and for comparison the Fe/Cr ratio as measured by EDAX of
+unoxidized areas is 3.63 and from the manufacturer’s specification
+3.93
+3.8. Focussed ion beam milling
+Specimen T02-04 (3.3% plastic strain, 180 MPa applied stress,
+<50 h duration) was investigated using FIB milling to micro section
+the end of a surface crack in the top surface. This showed multiple
+branching and the presence of oxide or another secondary phase in
+the crack. This is close to a deformation free investigation technique and shows the true crack geometry at the crack with very little damage of note to the exposed surface when a low beam
+current is used. A BSE image of the area close to a crack, showing
+dark and light areas is shown in Fig. 14. Elemental analysis of the
+dark and light areas can be seen in Table 3, showing the increased
+Cr content associated with the dark areas, compared to both light
+areas and the bulk composition of the alloy. Dark areas also
+showed increased oxygen levels of 15.8 at.% compared to 2.1 at.%.
+Fig. 10. Optical micrograph of T06-02 (120 MPa stress, 0.5% plastic strain, 75 C,
+70% humidity) showing crack initiation site and pit blister.
+Fig. 11. Optical micrograph of T06-04 (120 MPa stress, 1% plastic strain, 75 C, 70%
+humidity) showing cracks initiated through chains of pits.
+Fig. 12. SE image depicting the grain structure of T06-02 (120 MPa stress, 0.5%
+plastic strain, 75 C, 70% humidity) over a crack network.
+Fig. 13. SE image of one of the areas of T06-02 (120 MPa stress, 0.5% plastic strain,
+75 C, 70% humidity) chosen for oxide analysis.
+Table 2
+Elemental analysis of oxidized areas (at.%).
+Area 1 Area 2 Area 3 Area 4
+O 52.8 58.0 70.8 57.4
+Fe 28.0 20.3 10.3 21.6
+Cr 13.5 6.5 16.5 6.9
+Ni 3.2 2.3 1.1 2.1
+Mn 0.4
+Si 0.7 2.0 0.8 0.3
+Cl 1.9 0.5 1.9
+C 10.6
+82 D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88
+A sequence of views of the crack can be seen in Figs. 15 and 16.
+Here SE pictures of the crack are shown together with Cl and O elemental maps. Cl appears to be more concentrated over the cracks,
+whilst O seems to be more evenly spread over the area analysed. It
+is also noted in Fig. 16, top row, that there is a clear Cl signal
+(arrowed) branching from the main crack but no equivalent O
+signal.
+3.9. Electron backscattered diffraction and X-ray diffraction
+A Z-inverse pole figure is shown in Fig. 17 together with the
+pole figure for 0.5% cold work. These indicate an FCC texture
+around both small and large cracks. For small plastic strains
+(0–5%) there appears to be a random texture.
+X-ray diffraction on a polished sample showed the presence of a
+BCC phase, presumed to be martensite, with estimated proportions
+as shown in Table 4.
+Correlation with other observations, including the EBSD measurements of both electropolished and mechanically polished samples, indicated that there was a deformed layer at the surface of the
+samples due to the mechanical polishing processes. This layer was
+only exceeded by the underlying deformation due to the tensile
+straining when the strain was at a level of 40%. The layer masks
+the results at all lower strains.
+4. Discussion
+4.1. Presence of thresholds
+It is of considerable interest to observe the presence of any
+thresholds below or above which SCC does not occur. Mayazumi
+et al. [21] and Turnbull et al. [17] suggested that there was such
+a threshold for the humidity necessary for SCC. In the present work
+it can be seen that if the humidity is below the fixed point humidity for the particular corroding species at a given temperature, then
+the corroding species will remain dry and not form a solution. For
+the MgCl2 used this fixed point humidity is 27% at 75 C [20].
+Therefore the corrosion run at 11% humidity showed no cracking
+whilst a test at 30% humidity showed cracking. This would indicate
+that for a single corroding species the threshold humidity for SCC
+to occur can be found from the fixed point humidity for the species
+concerned. For sea water which is a complex mixture of chlorides
+and sulphates it is the presence of MgCl2 (fixed point humidity
+27%) rather than NaCl (fixed point humidity 75%) that will be significant except at higher humidities.
+The presence of a stress threshold for SCC in initially smooth
+specimens has been suggested by Magnin et al. [8] and Nishimura
+and Alyousif [13] but there has been little agreement on what this
+threshold should be. In their finite element studies Wenman et al.
+[11] assumed a value of 120 MPa perpendicular to the crack propagation direction as providing the best correlation with experimental data. Since they were using a classical finite element
+approach and a mesh size larger than any crack tip plastic zone
+size, the value was probably an overestimate of the stress required
+to produce cracking. Indeed current IAEA guidance [14] states:
+‘‘The stress required for chloride induced TGSCC is relatively modest,
+the threshold being close to the proportional limit of solution annealed
+austenitic stainless steels’’. The onset of microscale plastic deformation occurs at stresses that are considerably lower than the 0.2%
+proof stress. In this work, for a plastic strain of 5% and 10%, as seen
+in Fig. 5, there is evidence for cracking at an applied stress of
+10 MPa and no evidence at a stress of 5 MPa, the 0.2% proof stress
+is 210 MPa. It should be noted that cracking could have occurred
+with an applied stress of 5 MPa if the test had been continued
+beyond 500 h. Thus any suggestion in codes of practice that there
+is a stress threshold for initially smooth specimens below which
+SCC does not occur is likely to be unwise. Since SCC is a function
+of stress intensity rather than stress it would be useful to examine
+whether any threshold of stress intensity would apply. Jivkov and
+Marrow [15] proposed using tensile elastic strain energy density,
+of grain boundaries, over a continuous range in their model of
+SCC. Their model also supports the fact there is unlikely to be a
+physical basis for either a threshold value of stress intensity for
+SCC propagation or a threshold stress for which SCC occurs in initially smooth specimens.
+4.2. Effect of stress and plastic strain on SCC rates
+A feature of the cracking seen is the presence of many cracks
+running perpendicular to the applied stress, forming a series of
+parallel cracks propagating through the specimen (Figs. 2 and 3).
+This indicates that the crack propagation rate was not increasing
+with increasing stress intensity. If crack propagation had been a
+strong function of stress intensity, then a longer crack would
+always propagate faster than a shorter crack. Increasing stress
+beyond 20 MPa (Fig. 5) confirms the small effect of applied stress
+level on crack propagation rates.
+Fig. 6 shows the effect of strain on cracking rates. These show a
+significant increase at low plastic strains (0–2%) with a small
+decrease over the range 2–10%. At these low strains there is a considerable work hardening rate and the dislocations created are
+mostly glissile. As plastic strain increases dislocations interact
+and lock and become sessile. When mechanisms for TGSCC are
+considered, the corrosion enhanced plasticity model of Magnin
+et al. [8] is dependent on the production of glissile dislocations
+on slip planes. Once strains reach a value of around 2% the number
+of glissile dislocations remains essentially constant, since with
+Fig. 14. BSE image taken from a FIBed slice of a crack in specimen T02-04 (3.3%
+plastic strain, 180 MPa applied stress, <50 h duration) showing light and dark
+contrast regions of interest adjacent to the crack, which were analysed for chemical
+composition.
+Table 3
+Elemental analysis (at.%) of dark and light areas in Fig. 15.
+Dark area Light area
+Fe 37.9 58.3
+Cr 30.2 18.0
+Ni 3.6 5.0
+Mn 0.9 1.2
+Cl 0.6
+Si 0.3
+C 10.3 15.5
+O 15.8 2.1
+S 0.4
+D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88 83
+increasing strain more of the dislocations become sessile. Fig. 5
+shows that strains of 20% or more are associated with an absence
+of cracking. At these higher strains there is substantial transformation of the austenite to martensite (Table 4) and this may reduce
+the tendency to cracking.
+The maximum crack propagation rate is seen at a lower plastic
+strain (2%) than that seen in the work of Trethewey et al. [3] who
+reported a maximum pit density at plastic strains of 20–25% for a
+304L steel with a yield strength of 235 MPa. It should be noted
+though that in that case the stress and the plastic strain both varied
+spatially making it more difficult to separate the effects.
+4.3. Temperature effects
+Estimates by Lu et al. [22] suggest apparent activation energies
+of 75–107 kJ mol1 for the stress-corrosion cracking of coldworked 316L stainless steel in pressurised pure water in the temperature range of 473–561 K with the suggestion that the activation energy tends to decrease with decreasing temperature. Work
+by Andresen [23] has suggested an apparent activation energy of
+around 42 kJ mol1 for 304 at low temperatures (<373 K) and
+aggressive environments. The estimate of 34 kJ mol1 (Fig. 8) is
+consistent with that of [23] in that the specimens are in direct contact with the chloride contaminant thus qualifying as an aggressive
+environment. Work by Tani et al. [15] has suggested a threshold
+temperature for TGSCC of 298 K. Using the activation energy of
+Fig. 8 and the cracking rates of Figs. 5 and 6 suggest a cracking rate
+of 0.68 lm h1 at 298 K, a rate that would be difficult to measure in
+the time of the present experiments but could be significant for
+long term service.
+Factors other than the corrosion reaction at the reaction site at
+the crack tip may be influenced by temperature as well. The diffusion rate of chemical species such as Cl and O from the surface to
+the tip of the crack will increase with increasing temperature.
+The rate at which any defect in the protective oxide layer on the
+steel is repaired, re-passivation, is increased with increasing temperature. Increased passivation rate with increased temperature
+would reduce the crack propagation rate whilst an increased diffusion rate of Cl would increase the crack growth rate.
+At low temperature the amount of pitting is small and many
+cracks appear to initiate without pitting. As the temperature
+increases the amount of pitting increases and more of the cracks
+initiate at these pit sites as well as the non-pitted sites. Finally,
+at higher temperature there are relatively few non-pitted regions
+and the only cracks left are those initiated at pits. At low temperatures and low humidity the cracks propagate at a lower rate and
+there are fewer cracks present. Visual observation shows that they
+still initiate quickly. This observation is based on the appearance of
+linear brown staining features on the specimen surface. The crack
+may exist for some time before staining becomes apparent since
+this is due to emission of fluid from within the crack forced out
+by the expansion of corrosion products on their formation. The
+possibility also exists that some of the pitting seen associated with
+cracks is actually formed by these seepage fluids and therefore the
+crack initiation may arise before the pitting process.
+4.4. Initiation of cracks with and without prior pitting
+The conditions under which initiation appears to occur without
+pitting are those in which the pitting is the least, namely low
+Fig. 15. FIBed section of crack in specimen of Fig. 14 – Top to bottom: milled sections of the same crack. Left to right: secondary electron image, chlorine map and oxygen
+map.
+84 D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88
+temperature and humidity. Candidates for possible sites that initiation can take place include the sulphide inclusions that act as the
+source for pitting [24,25]. If the propagation rate for cracking is
+immediately greater than that for pitting the crack will develop
+preferentially and the pitting may be minimal. Other potential sites
+are those where slip on {111} planes reach the surface and may
+either simply apply a shear stress to the protective oxide film
+and cause a local fracture, or where the slip is sufficient to generate
+a step in the surface breaking the protective oxide film. In both
+cases the fractured oxide film will heal rapidly and the metal
+underneath is protected again. In the latter case the slip step
+may be sufficient to act as a local stress raiser and increase the
+stress intensity in similar manner to a crack.
+In these experiments the plastic strain is applied to the specimens long before placing them in the corrosive environment. This
+implies that the possibility of any fractures in the protective oxide
+film being penetrated by aggressive chemical species before the
+test and thereby producing susceptible sites is small. Similarly
+the dry chloride film was applied to the specimens after applying
+the tensile loading to the specimens so there is little chance of penetration by chloride at this stage.
+The surface preparation of the specimens is well known to
+affect the susceptibility to both pitting and TGSCC [17], both by
+the presence of scratches or similar defects on the surface and by
+the introduction of plastic deformation and residual stresses in a
+sub-surface layer. The X-ray diffraction results in Table 4 are the
+only measurement of these deformations and then only by inference. Since the amount of martensite increases with increasing
+plastic strain (all other things being equal) it is possible to say that
+the amount of deformation in the surface is only exceeded by the
+applied plastic deformation when that strain exceeds a value
+between 20% and 40%. This implies a considerably strained layer
+(at least 20%) in the surface. This was confirmed by subsequent
+problems when attempting EBSD. These indicated surface strains
+of roughly equal magnitude in all of the experimental specimens,
+apart from the very few high strain tests. From this conclusion it
+would appear that, with this specimen preparation method, the
+test values of prior plastic strain are swamped by the surface deformation strains. It will be difficult to assess the initiation of cracks
+when the 20% or more strain in the surface from grinding and polishing significantly exceeds the 0–5% plastic strain applied afterwards. What this does imply is that the effects measured for
+changes to plastic strain are likely to apply almost wholly to the
+propagation phase of the cracking process, since the strain in the
+surface region controlling initiation is essentially constant.
+Where cracking is associated with pitting the cracks tend to
+form ‘‘necklaces’’ with a series of pits in a rough line. Where visible
+the cracks appear to initiate either side of a pit simultaneously.
+Unfortunately there is no depth information available so that the
+point of origin around the pit is unknown. Given the shallow nature of the pits in this rolled plate the pits are strongly suggested to
+form in a manner similar to that in the previously reported X-ray
+tomography work [5,6], namely from the mouth rather than the
+base.
+Given the high level of deformation in the surface of the specimens, it is perhaps not surprising that sufficient high energy sites
+for crack initiation exist even when there are few pits. When pits
+are present, however, then it appears that they are generally
+Fig. 16. (a) First milled section and (b) second milled section of same crack. Left to right: SE image, chlorine map and oxygen map.
+D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88 85
+preferred sites for crack initiation, probably because of the stress and
+strain distribution around the mouth of a pit as described in [7].
+Whilst not yet definitive there are strong indicators that the
+degree of plastic strain and/or the presence of stress raisers in
+the surface layer can allow TGSCC to initiate without the requirement for any pitting, particularly at low temperatures and
+humidity.
+4.5. Crack propagation
+Crack paths tended to be filled with a compact oxide corrosion
+product. SEM microscope examination (Fig. 14) showed that the
+crack path was mostly through distinct fractures in this oxide or
+at the oxide/metal interface. The sequence of events in crack propagation would appear to be the generation of dislocations along
+slip planes to increase the existing density until the level is sufficient for preferential oxidation of the slip planes with high strain
+energy and formation of a length of oxide until the length is sufficient for fracture of the oxide segment due to the stress intensity
+exceeding the fracture toughness of the oxide.
+This idea is similar to that described by Lozano-Perez et al.
+[26,27] but it was not possible to confirm the presence of a second
+Cr-rich oxide. There are indications that the deformation bands do
+not have to be pre-existing, as was the case in their work, but that
+any deformation ahead of the crack, whenever formed, may influence the preferential oxidation.
+Of significant interest is the lack of any second phases in the
+microstructure produced as a result of the crack propagation process. If any martensite is being formed at the crack tips then it is
+below the resolution of the EBSD equipment used. The appearance
+of martensite in the microstructure is only apparent optically at
+around 5% strain and does not seem to have any effect on the
+TGSCC process.
+The measurement of crack density along the specimens gives an
+idea of the spacing between cracks. This latter was typically 1.5–
+2 mm and was consistent in any single specimen. On some specimens the cracks were almost as regular as a rule. In a study of
+stress distribution around the crack tip Behzad et al. [19] calculated using finite element analysis that this spacing of 2 mm corresponds to the point at which the stress has nearly reduced to the
+applied value remote from the crack. If the cracks were any closer
+together then the shorter one would be placed in the reduced
+stress field either side of the longer one and at some close spacing
+the stress intensity could fall below the threshold.
+The increased spacing of cracks as the temperature and humidity are reduced may be due to the reduction in suitable initiation
+sites since the pitting also is reduced.
+Fig. 17. Sample T06-02 (120 MPa stress and 0.5% plastic strain). (a) Inverse pole figure EBSD map around a crack. White areas are positions that cannot be indexed by the
+detector, because of high deformation or cracked region and (b) pole figures showing maximum intensity of 5.7 and hence shows an essentially random texture.
+Table 4
+Phase analysis by X-ray diffraction as function of applied plastic strain.
+Plastic strain (%) FCC phase (vol%) BCC phase (vol%)
+0 90 10
+1 89 11
+2 88 12
+5 89 11
+10 94 6
+20 87 13
+40 71 29
+86 D.T. Spencer et al. / Corrosion Science 88 (2014) 76–88
+For corrosion of the slip planes at the crack tips it is necessary
+for both oxygen and chloride ions to be transported from the surface to the crack tip. In the case of an atmospheric test there is
+almost certainly an excess of oxygen available but the chloride is
+limited to that on the surface of the material. It is therefore suggested that the rate limiting factor for TGSCC in crack propagation
+is the transport of chloride from the surface to the crack tip. This is
+based on the assumption that some, if not all, of the chloride transported becomes incorporated in the oxide corrosion product.
+The simplest assumption is that the chloride is transported
+from the surface to the crack tip at a constant velocity. This implies
+that a chloride ion will take longer to reach the tip of a long crack
+than it will for a short one. So in this case the propagation rate
+would be inversely proportional to the crack length, a.
+rate a a1 ð2Þ
+If one were to consider the diffusion gradient along the crack
+length then this above equation may be regarded as a maximum.
+If the concentration on the surface is regarded as constant and
+the concentration at the crack tip is constant (the chloride is consumed as fast as it arrives) then the gradient will be lower for
+longer cracks and thus the diffusion rate of chloride will be lower.
+This implies a higher inverse power interaction may exist than that
+proposed in (2), which can be expressed as:
+rate a an with n > 1 ð3Þ
+Both of these suggested rate equations imply the same characteristic, namely that the longer a crack is the slower it will propagate.
+The implication of this is that shorter cracks will tend to ‘‘catch
+up’’ with longer ones. Short side branches will propagate faster than
+long ones and this will necessarily produce highly branched crack
+systems since this will be favourable. This rate controlling mechanism goes a long way to explaining the morphology of the TGSCC
+crack networks and how fifty or more cracks can propagate to near
+failure in one short specimen without any single one dominating.
+Indeed some specimens at high humidity and high temperature fell
+apart into ten or more pieces when removed from the test jig.
+If this is true then it is somewhat reassuring that in TGSCC the
+defect will tend to propagate slower the longer it is, whereas in
+failures like corrosion fatigue the reverse is the case.
+5. Conclusions
+(a) The threshold humidity for TGSCC to be observed is the relative humidity of a saturated solution of the corrosive medium. In this case, for MgCl2, this will be 30%.
+(b) The threshold stress required to initiate TGSCC on an initially smooth specimen within 500 h is substantially below
+the measured yield strength of the steel, and can be estimated as 10 MPa.
+(c) For fixed values of applied stress the maximum rate of
+TGSCC occurred at plastic strains of 1–2%, corresponding to
+the maximum number of glissile, rather than sessile,
+dislocations.
+(d) Estimates of the activation energy (34 kJ mol1
+) suggest a
+threshold temperature for TGSCC around room temperature.
+(e) Pitting was not a necessary condition for TGSCC.
+(f) The propagation of TGSCC is suggested to occur by the repetition of three stages, the generation of dislocations on
+{111} slip planes, the preferential oxidation of these slip
+planes and the subsequent brittle failure of the oxide when
+the critical stress intensity is reached.
+(g) Cracking occurred with a series of parallel cracks with no
+dominant crack suggesting that increased s
+

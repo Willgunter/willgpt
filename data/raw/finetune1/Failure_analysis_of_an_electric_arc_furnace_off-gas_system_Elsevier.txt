@@ -1,0 +1,153 @@
+1. Introduction
+Fume emissions are normally produced during Electric Arc Furnace (EAF) operations, like scrap melting and steel refining.
+Typical off-gas flow rates are in the range of 4–6 Nm3
+/h per ton of tapped steel, with maximum gas temperatures up to
+1925 C. Great amounts of fly ashes and dust are also produced together with gas during EAF operations. Dust can be calculated in the range of 9–18 kg per ton of melted scrap, depending on scrap quality and operating practices [1].
+In an EAF, the most used off-gas control system is the Direct Evacuation System (DES), whose main components include
+the fourth hole, the system ducting and the fan. Water-cooled ducting is used to cool the off-gas and also to contain the
+off-gas combustion reaction heat, which would otherwise damage steel ductwork. A typical DES configuration is shown
+in Fig. 1.
+The DES considered in this work was installed on a 50 ton AC high impedance EAF used for the production of special grade
+steels. This furnace is equipped with a slag door lance for oxygen and carbon injection to increase the melting rate and for
+process optimisation.
+The water-cooled ducting is built with ASTM A 106 Gr.B steel (76 mm  8 mm), a low cost material, easy to work and
+with a suitable thermal conductivity.
+After few months, a DES water-cooled duct had to be replaced because of water leakages from several pipes. The failed
+part is positioned in the high temperature region of the DES, where gas temperatures can exceed 1000 C.
+Fig. 2a shows the failed water-cooled duct. Pipes are covered by a thick deposit of fly ashes that accumulate throughout
+the flue-gas path. There are ruptures in many points, mainly located in the lower part of the section. Some of these were
+evidenced by mechanical grinding performed to remove the dust deposit (see Fig. 2b).
+The failure analysis was carried out on a pipe, taken from the same duct, in order to investigate the failure mode and to
+provide some recommendations to solve the problem.
+1350-6307/$ - see front matter  2012 Elsevier Ltd. All rights reserved.
+http://dx.doi.org/10.1016/j.engfailanal.2012.04.012
+⇑ Corresponding author.
+E-mail address: annalisa.pola@ing.unibs.it (A. Pola).
+Engineering Failure Analysis 25 (2012) 42–48
+Contents lists available at SciVerse ScienceDirect
+Engineering Failure Analysis
+journal homepage: www.elsevier.com/locate/engfailanal
+2. Materials and methods
+After visual inspection of the water-cooled section, a failed pipe was sectioned in the region of the rupture. Fig. 3 shows
+the sectioned part on both sides. It was revealed the presence of a thick yellowish deposit on the outer surface. The rupture
+has a rounded irregular shape. The area close to the rupture is almost free of deposits, probably washed away by water just as
+the pipe broke up. On water side the pipe surface has a rusty appearance.
+Two samples were prepared for microstructural evaluation. The first was cut close to the rupture (named sample 1) and
+the other one was taken at some centimetres far away (named sample 2). Both samples were mechanically polished by SiC
+paper and diamond paste down to 1 lm and their microstructure was evidenced by Nital etching (2% nitric acid in 100 ml
+ethanol).
+Investigations of transverse cross-sections were carried out by means of optical microscope (Reichert-Jung MeF3) and
+scanning electron microscope LEO EVO 40, both in secondary electrons and backscattering mode.
+The Energy Dispersive X-ray Spectroscopy (EDXS) microprobe coupled to Scanning Electron Microscope (SEM) was used
+to analyse the chemical composition of the deposit present on pipe surface and to determine the main corrosion products.
+A sample of the outer deposit was scratched away to be analysed by Differential Scanning Calorimetry (DSC), a TA Instrument Q600 apparatus equipped with Universal Analysis 2000 software; the measurements were performed on 30 mg sample
+in a purified argon atmosphere with a scanning rate of 5 C/min.
+3. Results
+The first visual observation of sample 1 polished transverse section revealed that a considerable wall thinning occurred
+(residual thickness is just 1.4–1.5 mm). The thickness reduction resulted smaller in sample 2, suggesting that the corrosion
+phenomena responsible for thinning were rather localised and occurred irregularly on pipe surface.
+The scheme reported in Fig. 4 shows samples transverse sections and their original orientation in the duct. For sample 1, it
+can be noted that thinning is not regular along the section, with a maximum at about 12-o’ clock. This result is in agreement
+with the location of the ruptures shown in Fig. 2b. It is also evident that the corrosion starts from off-gas side.
+Microstructural investigations were carried out in the rupture region and in the bulk material of the pipe. Fig. 5a–c shows
+optical micrographs collected at different magnifications from the sample 1 etched section. Steel microstructure is mainly
+Fig. 1. Typical DES configuration.
+Fig. 2. General view of the damaged water-cooled section.
+M. Gelfi et al. / Engineering Failure Analysis 25 (2012) 42–48 43
+composed by fine and homogenous ferrite grains with small amounts of pearlite, as expected for the ASTM A106 grade. The
+SEM images collected at higher magnification show that the cementite present in pearlite colonies has a lamellar shape.
+Fig. 3. View of the sectioned pipe: (a) outer diameter and (b) inner diameter.
+Fig. 4. Transverse sections of sample 1 (a) and sample 2 (b) and sketch of their original orientation in the duct.
+Fig. 5. Optical micrographs of sample 1 etched transversal section (a–c) and SEM micrograph of a pearlite colony collected at high magnification (d).
+44 M. Gelfi et al. / Engineering Failure Analysis 25 (2012) 42–48
+The thick outer deposit present on pipe surface was analysed by EDXS microprobe linked to SEM (see Table 1). Scale from
+sample 1 is mainly composed by O, Zn, Pb, Fe, S, with small amounts of Ca, Si, Al and Cl. Scale from sample 2 has a similar
+composition, lower in Zn, Pb and S and higher in Fe and Cl, and additionally it shows the presence of low quantities of K and
+Mn. The thin scale formed on inner diameter is mainly iron oxide, which is the common product of corrosion for steel in
+contact with cooling water.
+SEM-EDXS observations of sample 1 were focused on rupture area, where the outer deposit is almost absent. Steel
+corrosion is quite localised with the formation of many rust tubercles (Fig. 6). The corrosion products inside the tubercles
+are mainly iron oxide with small amounts of S and K (Fig. 6 – spectra 1 and 3).
+The sample cross section revealed that these tubercles have a shallow depth, less than 100 lm (Fig. 7), that is consistent
+with the uniform thinning observed on a macroscopic scale. In some points, at the bottom of pits, small cracks initiated and
+propagated for a short distance (Fig. 7b); cracks edges were enlarged by corrosion products which blunted the tips.
+Table 1
+Chemical composition of deposits present on pipe surface determined by EDXS analysis.
+Locations O Al Si S Cl K Ca Mn Fe Zn Pb
+Outer scale – Sample 1 27.18 0.86 1.02 4.63 0.84 – 1.12 – 17.51 26.35 20.48
+Outer scale – Sample 2 28.54 0.54 1.22 2.18 1.66 1.06 1.32 0.98 32.02 13.42 17.05
+Inner scale 27.58 – – – –––– 72.42 – –
+Fig. 6. SEM images of pipe surface close to the rupture, collected in secondary electrons (a) and backscattering mode (b) and related EDXS analyses of
+corrosion products.
+Fig. 7. SEM images of pipe cross section close to the rupture collected in secondary electrons mode and related EDXS analyses of corrosion products.
+M. Gelfi et al. / Engineering Failure Analysis 25 (2012) 42–48 45
+In order to complete the investigation, a small quantity of the outer deposit was collected from sample 1 to be analysed by
+DSC to investigate the presence of low-melting compounds or mixtures. The heat flow curve collected in the range of
+50–500 C is reported in Fig. 8.
+No peaks can be detected, as further demonstrated by the flat derivative curve (light grey in Fig. 8); therefore, no thermal
+events such as solid–liquid reactions were recorded.
+4. Discussion
+There are several causes that can produce the premature failure of water-cooled ductworks:
+– At high gas temperatures, the rupture can be caused by thermal induced stress fatigue cracking, as a consequence of the
+intermittent EAF running [1].
+– If inner deposits or in situ corrosion prevent the ductwork from being properly cooled, then lead vapour in the off-gas
+precipitates in the duct as a liquid rather than the desired solid state, inducing liquid metal embrittlement, that combined
+with the inherent thermal cycling will accelerate ductwork cracking [2]. When overheating take places, there is also the
+risk for ash/salt deposit corrosion [3].
+– At low gas temperatures, aqueous corrosion is the most probable failure mode [4]: the humidity arising from burners or
+from electrode spray-cooling water, can condensate on the colder pipe wall, together with other aggressive components
+present in the gas stream, such as chlorine, sulphur and phosphorus, leading to fast corrosion of steel.
+Notwithstanding the failed part was located in the high gas temperature region of the DES, all the results collected in this
+analysis seem to exclude that the failure was induced by thermal stress fatigue and/or hot corrosion phenomena.
+The assumption that stress fatigue was the main failure mode can be discarded, considering that stress fatigue is not able
+to produce the strong wall thinning observed close to the rupture (see Fig. 4a).
+Microstructural investigations showed that duct steel has a fine and uniform ferritic–pearlitic microstructure, demonstrating that no local overheating took place. The absence of spherodised cementite or nodular graphite indicates that during
+service the wall temperature was less than 500 C [5]. Such hypothesis is also confirmed by the morphology and composition
+of the inner scale, that in the case of strong overheating should be much thicker.
+Nevertheless, considering the high content of Pb, Zn, S, Cl and K in the outer deposit, the formation of liquid metal and/or
+molten alkali sulphates and chlorides on pipe surface cannot be excluded. These eutectics mixtures can have melting points
+in the range of 300–500 C and, at these temperatures, they can react with scale or metal accelerating pipe corrosion [6].
+The DSC measurement performed on a sample taken from outer deposit permitted to verify the absence of solid–liquid
+transitions from 50 to 500 C, excluding the presence of low-melting compounds or mixtures into the deposits.
+Therefore, excluding high gas temperatures failure modes, acid dew-point corrosion remains the most likely suspect of
+failure. The significant amount of sulphur in fly-ash deposit near the rupture (Table 1) and in corrosion products (Figs. 6
+and 7) suggests that dew-point corrosion was promoted by sulphuric acid (H2SO4), which condensed from off-gas to duct
+surface.
+Sulphur is present as contaminant in the carbon powder injected in the EAF during melting operations. When carbon is
+burned, sulphur is oxidised to SO2 and carried away in off-gas stream. Further oxidation of SO2 to SO3 can take place along
+DES ducts which have many gaps to admit air and promote the complete off-gas combustion [1].
+SO3 dew-point temperature can be calculated according to Verhoff equation [7]:
+T ¼ 1000
+1:7842  0:0269log10ðPH2OÞ  0:1029log10ðPSO3 Þ þ 0:0329log10ðPH2OÞlog10ðPSO3 Þ ð1Þ
+Fig. 8. Heat flow curve of outer deposit.
+46 M. Gelfi et al. / Engineering Failure Analysis 25 (2012) 42–48
+where T is the acid dew point temperature (K); P is the partial pressure (atm).
+Dew-points calculated at various water contents of the gas are plotted in Fig. 9. These values are well above the temperature of the cooling water flowing into the duct, even for small contents of water and SO3 in the gas. Considering the
+presence of a thick ash deposit on pipes, that works as a thermal insulating layer maintaining the shell temperature close
+to that of cooling water, the chance for H2SO4 condensation and subsequent corrosion is strong. Moreover, dew-point
+corrosion is exacerbated by the presence of fly ash deposit, which acts like a sponge to collect both moisture and acid. As
+a consequence, the ruptures are mainly located in the lowest part of water-cooled section, where fly ashes can easily accumulate and the maximum pipe wall thinning is at about 12-o’ clock, where the deposit is expected to be the thickest, because
+the surface is almost flat.
+When sulphuric acid condenses on a steel surface, corrosion occurs with the formation of ferrous sulphate according to
+the following equation:
+H2SO4 þ Fe ¼ FeSO4 þ H2 ð2Þ
+Typical shallow pits are formed [8], as those observed in Fig. 6.
+Ferrous sulphate is an acidic salt, because, being in contact with water, it is hydrolysed to form oxides and the sulphuric
+acid is regenerated:
+FeSO4 þ H2O ¼ H2SO4 þ FeO ð3Þ
+One SO4
+2 ion can catalyse the dissolution of more than 100 atoms of iron before it is removed by leaching, spalling of rust
+or the formation of basic sulphate [9]. This fact can explain why the corrosion products are mainly iron oxide, with only few
+percents of sulphur inside (Figs. 6 and 7).
+The formation of small cracks at the bottom of some pits (see Fig. 6d) suggests that the rapid propagation of corrosion was
+also promoted by localised stress fatigue and/or stress corrosion cracking phenomena, which encourage the H2SO4 penetration into the pipe thickness.
+5. Conclusions
+Water cooled ductwork failure was mainly due to sulphur dewpoint corrosion formed in the hot service and continued
+also during furnace shutdown.
+Corrosion was exacerbated by the presence of thick fly ash deposit on pipe surface.
+Thermal induced stresses encouraged corrosion propagation in the hot stage.
+To cope this problem, the replacement of ASTM A 106 steel with an acid resistant material, such as nickel alloys, is not
+convenient for economical reasons. Anyway, some modifications to the process can be introduced to reduce corrosion:
+– minimising the sulphur in the injected carbon and the air entrance gaps to inhibit the sulphur tri-oxide formation;
+– minimising the electrode spray-cooling water to drop the water content in the off-gas;
+– using warmer water for the cooling ductwork to reduce H2SO4 condensation.

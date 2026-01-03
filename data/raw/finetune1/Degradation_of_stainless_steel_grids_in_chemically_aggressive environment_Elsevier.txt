@@ -1,0 +1,160 @@
+1. Background information and service history
+Crude oil refinery products need to attain constant temperature for their further post-processing, commonly achieved
+using heat exchangers. The present study concerns the failure analysis of a perforated austenitic stainless steel grid of a
+T-type pump. This strainer mesh (Fig. 1a) is part of a filter that is placed just upstream of a liquid naphtha inlet tube into
+a heat exchanger (Fig. 1b). The particular shell-and-tube heat exchanger is used for the cooling of a naphtha stream with
+the simultaneous heating of a crude oil stream. Naphtha flows in the tubes of the heat exchanger and crude oil in the shell.
+The operating conditions were as follows: inlet temperature 15.5 C for the shell and 137.0 C for the tubes, outlet temperatures of 74.0 and 90.0 C, respectively. The operating pressure of the shell was 20 bar and that of the tubes 7 bars.
+In the year 2002, an increase of the pressure difference across the heat exchanger observed, led to interruption of its operation for inspection and maintenance. During its cleaning, deposits within the tubes were observed, localized mainly in the
+fluid inlet regions. These deposits had caused a reduction of the effective cross-section areas of the tubes and consequently
+an increase of the heat exchanger’s inlet pressure. Chemical analysis of deposits trapped in the tubes’ inlet has shown that
+these were flaky naphtha structures consisting mainly of iron sulfide. Thus, the installation of a filter between the outlet of
+the feeding pump and the inlet of the heat exchanger was proposed and implemented. Since 2004, when the first installation
+1350-6307/$ - see front matter  2013 Elsevier Ltd. All rights reserved.
+http://dx.doi.org/10.1016/j.engfailanal.2013.04.016
+⇑ Corresponding author. Tel.: +30 210 4898263; fax: +30 210 4898268.
+E-mail address: gpantaz@halcor.vionet.gr (G. Pantazopoulos).
+Engineering Failure Analysis 35 (2013) 418–426
+Contents lists available at SciVerse ScienceDirect
+Engineering Failure Analysis
+journal homepage: www.elsevier.com/locate/engfailanal
+of such a filter took place, frequent – almost ever three months – replacements were necessary due to the failure of the
+austenitic stainless steel grid. It should be mentioned that similar failure issues of steel strainer employed in the filtration
+of liquid naphtha streams concerned the petrochemical industry [1].
+Fig. 1. (a) Photographs of typical austenitic stainless steel grids, before their installation and (b) schematic of process flowsheet indicating the position of
+the failed component within the fluid circuit.
+Table 1
+Chemical composition of the grid material analyzed by EDS (wt.%).
+Material/standard C Cr Ni Si Mn Fe
+Sample – 18.2 8.2 – – Rem
+AISI 304 grade (UNS S 30400)a 60.08 18.0–20.0 8.0–10.5 60.75 62.0 Rem
+a Stahlschlüssel (Key to Steel), Verlag Stahlschlüssel Wegst, GmbH, D-71672 Marbach, 2004.
+P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426 419
+2. Experimental techniques
+Macroscopic observations of the failed grid were performed with a Leica MS 5 and a Nikon SMZ 1500 stereomicroscope. In
+order to reveal the main failure mechanisms, microscopic observations were carried out using an FEI XL40 SFEG scanning
+electron microscope (SEM) equipped with an energy dispersive X-ray spectrometry (EDS) detector for elemental analysis
+of selected areas. Metallographic examination was conducted using a Nikon Epiphot 300 inverted metallurgical microscope.
+Prior to that, cross-sections of the failed component were prepared using hot-mounting, wet grinding up to 1200 grit SiC
+paper and polishing with diamond and silica suspensions.
+3. Investigation findings and discussion
+Chemical composition of the stainless steel analyzed by EDS, as far as the principal alloying elements (Cr, Ni) are concerned, indicated that the chemical composition of the construction material matches approximately that of the AISI 304
+stainless steel grade (Table 1). Macroscopic observation of the failed grid after its removal from the operation site showed
+at first that the component not only had lost its elasto-plastic metallic properties, but it became brittle and extremely friable
+as well. This friability was more intensively observed at the middle of the grid, around its circumference, being less observable at its upper and lower edges. Fig. 2a shows a typical macroscopic aspect of the failed grid, where the material’s absence
+regions were accidentally created during its examination due to the material’s severe embrittlement.
+Macroscopic observation under higher magnification (Fig. 2b) revealed two distinct features. In the one hand, macroscopic cracks propagating along the grid’s circumference were observed. These cracks were in a direction normal to the perpendicular axis of the grid, along which mechanical loading of the component due to its own weight, took place. In the other
+Fig. 2. (a) Macrograph of the failed grid after short-term service and (b) magnification of a representative area in (a) indicating macroscopic cracking and
+deposits on the inner surface of the filtration holes.
+420 P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426
+hand, fouling covering both the grid’s exterior and interior surface, as well as the interior of the holes was observed. The fouling was non-metallic and could have occurred either as deposit from the liquid medium flowing through the filter, or due to
+corrosion of the grid’s base metal.
+3.1. Stress corrosion cracking
+Non-friable regions of the grid were selected, sectioned and treated in an ultrasonic bath to remove surface fouling. Topview and cross sections of such specimens were subsequently examined by both optical and scanning electron microscopy.
+Fig. 3. Optical micrograph of a cross section area of the failed grid, revealing extensive microcracking along the grid’s strut (dotted areas are also shown in
+higher magnifications).
+Fig. 4. Sequence of optical micrographs of specimens’ cross sections, demonstrating the evolution of cracking: (a) initiated at the grid’ s strut surface, (b)
+propagated within the material by multiple branching/bifurcation and (c) resulting finally catastrophic fracture of the grid.
+P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426 421
+Fig. 3 shows optical micrographs of successive magnifications of a typical cross section area of the failed grid. Even at
+areas where failure was not macroscopically identified, extensive microcracking was observed along the grid’s strut and several regions could be distinguished; regions where cracking led to complete separation of the conjugate parts (area A), where
+crack propagation took place by multiple branching (area B) and regions of less intense cracking (area C).
+These observations could provide for the visualization of the various stages of the material’s cracking evolution (Fig. 4):
+ In the first stage, a crack was initiated at an area of the outer surface of the grid, where the metal had been in direct contact with the operation environment (liquid naphtha at 130 C, Fig. 4a).
+ In the second stage, the crack was propagating through the material creating branches, a phenomenon typical for stress
+corrosion cracking mechanism (Fig. 4b). This type of corrosion is frequently encountered at stainless steel load bearing
+components, operating in corrosive environments.
+ In the final stage, crack propagation led to complete fragmentation and catastrophic failure (Fig. 4c).
+The issue of stainless steels’ stress corrosion cracking (SCC) is a crucial research field due to the extensive use of such
+materials in special applications. It is a dominant root cause for metallic components failure occurring in industries that involve physical and chemical processes, under elevated temperatures and chemically reactive environments. For example,
+SCC of a stainless steel spiral heat exchanger operating in a distillation tower has been attributed to the action of chlorine
+ions in the cooling water, attacking the protective oxide layer formed on the surface of stainless steel, producing corrosion
+pits progressing to crack formation [2]. SCC attributed to the detrimental effect of chloride ions has also been reported in the
+case of failure of an AISI 304 styrene storage tank located near a seashore [3], as well as in the failure of an AISI 304 ethylene
+glycol condensate collector vessel due to their presence in the weakly acidic medium [4]. In the particular case of oil refineries, SCC is very often encountered and has been correlated to the presence of sulfur containing compounds in the circulated
+liquid streams. Specific examples include the effects of H2S in the case of failure of SS347H tubes incorporated in a hydroprocessing reactor heater [5] and of polythionic acid in the case of AISI 321 hydrocracker heat exchanger tubes failure [6].
+The effect of sulfur compounds has been reported to be of significant importance, especially in the case of naphtha feedstock
+circulation, as in the present study, due to the presence of H2S in these streams in relatively high concentration. Concentration of H2S required to start SCC is called critical concentration and it is 0.01 M for stainless steels, whilst below this value the
+effect of H2S is depleted in deep pits and cracks [1].
+Fig. 5. (a) SEM micrographs of crack branching/ bifurcation areas; higher magnification on the right indicates crack filling with corrosion products and (b)
+EDS elemental microanalysis spectrum within the filled cracks, presenting the typical composition of corrosion products.
+422 P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426
+In the present study, SEM observation on numerous crack openings revealed that these were filled with solid formations
+all along their length (Fig. 5a). Elemental microanalysis (Fig. 5b) shows that these formations consisted mainly of Fe, Cr and
+O, a fact advocating that they corresponded to corrosion products of the base steel material. The presence of Cl constitutes an
+additional supportive evidence of the occurrence of SCC mechanism as a failure contributor.
+3.2. Microstructure modification
+Disruption of the material’s continuity has occurred, in addition due to extensive cracking, via the creation of voids
+(Fig. 6a) of average diameter 20–40 lm. Microstructure modifications around these voids were observed with the aid of
+an optical microscope, even without prior chemical etching of the material. In particular extensive grains’ twinning and ‘‘slip
+band’’-type formations could be clearly distinguished (Fig. 6b). Twinning is commonly attributed to the stress field due to the
+voids’ development that leads to the mechanical deformation of the material’s lattice; whilst the presence of slip bands also
+supports the occurrence of plastic deformation. In relevant studies, similar ‘‘slip band’’-type formations are correlated with
+the formation of Cr-carbides. In the case of a cast AISI 310 stainless steel, they been reported as acicular chromium carbide
+precipitations [7], whereas in the case of AISI 304 stainless steel the presence of Cr-carbides at slip bands and twin boundaries has been observed in SEM micrographs [3]. This effect could be considered as secondary degradation phenomenon,
+since there is not any evidence showing inter-granular carbide precipitation, as the latter requires the synergy of various
+conditions, such as higher carbon content and prolonged overheating. In addition, the presence of martensite at the slip band
+areas cannot be ruled out, since it is consistent to strain-induced austenite-to-martensite transformation, occurring in
+austenitic stainless steels.
+Combined SEM observation and EDS microanalysis at the voids’ boundaries (Fig. 7) has revealed the presence of Fe and Cr.
+Their relevant proportion, being different than that of the base metal, suggested possible Cr leaching and segregation from
+the interior of the stainless steel grains towards the created void and consequent formation of r-phase. The formation of rphase in austenitic stainless steel is commonly connected with the tendency of Fe to react with Cr during exposure at temperatures higher than 600 C, resulting in severe loss of ductility and fracture toughness of the steel [8].
+Fig. 6. Optical micrographs demonstrating microstructure features within the failed component (without chemical etching): (a) disruption of the material’s
+continuity occurring by both crack propagation and voids development and (b) extensive twinning and slip bands clearly observed around the developed
+voids.
+P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426 423
+The simultaneous presence of r-phase and Cr-carbide precipitates, both having an embrittlement effect on the base metal, has been predicted thermodynamically, during ageing of an AISI 310 stainless steel from 600 C to 900 C; the relevant
+Fig. 7. SEM micrograph of a typical void observed; EDS microanalysis at the circumferential area (upper left) indicates the presence of Fe and Cr in different
+proportion than that of the base metal.
+Fig. 8. SEM micrograph of a typical surface feature observed; in addition to microcracking, EDS microanalysis (upper right) indicates the local formation of
+chromium oxide.
+424 P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426
+proportions of r-phase and Cr-carbide were found to depend both on the ageing temperature and duration [9]. A mechanism
+c ? M23C6 ? r was proposed to describe the intergranular precipitation of r-phase in austenitic steel [10].
+In the present study, the austenitic stainless steel grid employed for cleaning of liquid naphtha was presumably exposed
+to a maximum temperature around 140 C. Under these conditions, the formation of neither r-phase, nor Cr-carbides was
+expected, as a result of merely the operating time and temperature. Therefore, their detected presence at the voids’ neighborhood should be attributed to a synergy of localized overheating and lattice distortion due to failure evolution.
+3.3. Selective oxidation
+SEM observation of the failed grid surface revealed local formations with texture different that of the base metal (Fig. 8).
+These formations had an average size around 40–50 lm, seemed to be curved and overlay the base metal and were characterized by extensive microcracking. EDS microanalysis on them verified that they were chromium oxides, a fact that further
+advocated Cr migration towards the metal’s exposed surface under the specific operation conditions of the mesh. In addition
+the presence of S in the oxidation products, as shown in the incorporated EDS spectrum (Fig. 8), indicates the detrimental
+influence of flowing medium constituents on the grid’s structural integrity. In several cases, the formation of these structures
+was accompanied with exposure of the base metal (Fig. 9a, white areas).
+The observations above, together with the fact that the dimensions of the local chromium oxide formations were of the
+same order to those of the grains of the underlying base metal, can be schematically reproduced by Fig. 9b.
+Fig. 9. (a) SEM micrograph of formed chromium oxide; extensive cracking and exposure of base metal (white areas) advocate for the oxidation mechanism
+schematically presented in (b).
+Fig. 10. Schematic representation of the proposed (a) nucleation, (b) growth and (c) fracture mechanisms of chromium oxide during operation, at the
+stainless steel grain level.
+P.P. Psyllaki et al. / Engineering Failure Analysis 35 (2013) 418–426 425
+Based on that, Fig. 10 shows a schematic of a plausible selective oxidation mechanism at a grain level. Selective oxidation
+starts via nucleation of chromium oxide around the middle area of each separate grain, favored by Cr migration from the
+interior of the grain towards the exposed surface (Fig. 10a). As time goes by, the chromium oxide layer grows both laterally
+and vertically, resulting in a curved structure overlying the base metal grain (Fig. 10b). When the oxide layer thickness at the
+middle of the grain exceeds a critical value, crack initiation occurs due to tensile stresses. In-depth crack propagation and
+shear stresses developed at the oxide/metal interface (Fig. 10c) eventually result in detachment of the fragmented oxide
+and exposure of the base metal.
+4. Conclusions and recommendations
+Failure analysis of a perforated austenitic stainless steel grid, operating in a shell-and-tube heat exchanger of a petrochemical industry was performed. Microscopic observations revealed a synergistic action of distinct failure mechanisms
+attributed to mechanical, microstructural and chemical causes. More precisely, stress corrosion cracking, together with void
+development and lattice distortion around them, as well as microsegregation and selective oxidation of chromium at the
+grain level were identified as responsible for the premature deterioration of the metallic component that was macroscopically perceived as extensive embrittlement and friability.
+Elemental microanalysis carried out using SEM/EDS, indicated local increased presence of iron and chromium at the voids’
+neighborhood, which was correlated to the formation of r-phase. This phase is commonly observed in austenitic stainless
+steels when operating at temperatures higher than 600 C. In the case examined here, where the mean temperature of the
+flowing naphtha does not extend 140 C, r-phase formation can be attributed to the combined action of local overheating
+and lattice plastic deformation.
+The collected evidence suggested the operation of stress corrosion cracking as primary damage mechanism The SCC failure mechanism is also facilitated by other contributing phenomena, such as selective oxidation, Cr-depletion and phase
+transformation (as secondary effect), the latter causing localized lattice distortion and stress concentration. In addition,
+the grid’s manufacturing residual stresses could also be added to the operating stresses, i.e. to those caused by component
+weight and fluid pressure. The consideration of the synergy of aggressive environment, containing corrosive constituents
+(such as chlorine) at high temperatures, provides an additional driving force invigorating the hypothesis of stress corrosion
+cracking (SCC) as the dominant failure mechanism. Trans-granular cracking with multiple secondary branching constitute
+typical characteristics of SCC fracture mode in austenitic stainless steels (see also Figs. 3, 4b and 5a). Pressure modification
+in the inlet fluid stream could be suggested as further corrective action, reducing the filter operating load and minimizing the
+risk of SCC. The installation of a baffle system could potentially lead to flow equalization and uniform pressure distribution
+applied on the grid area.
+Based on the above, the substitution of the currently used stainless steel with another alloy of higher resistance in stress
+corrosion cracking and microstructure stability at high temperatures, such as nickel superalloys (Monel or Hastelloy), is recommended. A ferritic stainless steel could also constitute an alternative solution standing as potential grid material selection. The AISI 405 (UNS S 40500) is a ferritic stainless steel grade, containing Cr within the range 11.5–14.5 wt.%, which
+could be recommended as material for construction of various components in petrochemical industry

@@ -1,0 +1,78 @@
+1. Introduction
+Shell-tube heat exchangers are common type of heat exchanger which is widely used in industries such as oil refineries, thermoelectricity and mineral processing [1]. This type of heat exchanger consists of a shell (usually a large pressure vessel) with a bundle of tubes inside it. Heat is transferred between the fluid inside the tube (the tube side) and the fluid outside the tube but inside the shell (the shell side) through the tube walls, either from tube side to shell side or vice versa. A combination of welding and expansion process was usually the main technique for connecting the tube ends with the tubesheet in such type of heat exchangers. As we know, welded joints are very susceptible to sustain residual stresses. Due to the mechanisms such as stress corrosion, pitting corrosion, welding defects and so on, cracks and damages may easily formed at the tube-to-tubesheet welded joints [1], [2]. Thus, tube-to-tubesheet welded joints become a weak part in such heat exchangers [3]. During the last several decades, a number of failures of the tube-to-tubesheet welded joint in the shell-tube heat exchangers were investigated [4], [5], [6], [7], [8], [9]. However, failures of such welded joints are far from being eradicated completely and need to be further considered.
+In this work, fracture failure of a shell-tube heat exchanger at the tube-to-tubesheet welded joints was investigated using various material analysis techniques. Fatigue started at initial defects of the welded joint was confirmed as the failure mechanism of the heat exchanger.
+2. Background
+A shell-tube heat exchanger was found failed when it was used about 30 days after assembling. Dozens of leak points were found near the tube-to-tubesheet welded joints of the shell-tube heat exchanger. For some serious positions, the tube ends were broken down from the tubesheet. Fig. 1(a) shows a scheme of the failed shell-tube heat exchanger. The heat exchange tubes were made from 304 stainless steel strip and underwent contour machining, welding, and heat treatment. The diameter of the tube was 19 mm (outer) and the thickness of the tubes was 1.2 mm. After being installed in the heat exchanger, the length of the tubes was 4.5 m. The tubesheet was made from alloy steel of grade SA516 Gr.70. The tube and tubesheet was welded by the way of argon arc welding without weld metal. Then the tube was expanded by hydraulic expanding. The tube side fluid was water vapour at 250 °C and the pressure was 0.25 MPa, while the shell side medium was circulating water at 130 °C and its pressure was 0.8 MPa. The failed parts of the tube-to-tubesheet were cut from the heat exchanger and taken to the laboratory for analysis. One of the failed specimens was shown in Fig. 1(b). And it was further cut into two pieces by wire cutting. The longitudinal section of the tube and the welded joint can be seen clearly in Fig. 1(c). For this specimen, the left tube fractured at the bottom welded joint.
+
+Download: Download high-res image (953KB)
+Download: Download full-size image
+Fig. 1. (a) Scheme of the failed shell-tube heat exchanger. (b) An image of a piece of the tube-to-tubesheet welded joint cut from the failed specimen. (c) An image of the longitudinal section of the tube-to-tubesheet welded joint.
+
+3. Failure analysis and results
+3.1. Stereomicroscope examination and fracture analysis
+Visual inspection showed that all the fractures (cracks) of the heat exchanger occurred near the welded joint of the tube end and the tubesheet (within 10 mm) (shown in Fig. 1(c)). Fig. 2(a) shows one of the fractured tubes. The fracture surface of the tube was basically perpendicular to the axial direction. From the longitudinal section of the failed tube, a clear expansion area which started from the end of the tube (the welded point) could be seen. The length of the expansion area was about 50 mm. The fracture surface of this failed tube was then examined using a stereomicroscope to observe the major feature of the fracture. As shown in Fig. 2(b), the fracture surface is divided into different zones. Fracture occurred without obvious plastic deformation. Brittle feature could be seen on the fracture surface. Several radial lines were observed along the thickness direction and in the area near the inner surface. Though the inner and outer surface of the tube was covered by some corrosion production, no pitting corrosion was observed.
+
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 2. Images of (a) a fractured tube cut along the axial direction and (b) the fracture surface of the tube at the welded joint.
+
+The failed tube was then observed and analyzed using the scanning electron microscopy (SEM). As shown in Fig. 3(a), the inner surface is flat and no obvious corrosion pits were found in the inner surface. The chemical composition near the fracture surface was further confirmed using the energy dispersive spectrometer (EDS). As shown in Fig. 3(b), no corrosive elements such as chlorine and sulphur were detected in the inner surface.
+
+Download: Download high-res image (574KB)
+Download: Download full-size image
+Fig. 3. (a) An SEM image and (b) EDS results of the inner surface of the failed tube near the fracture surface.
+
+Fig. 4(a) shows the low magnification SEM micrograph of the fracture surface. The two different areas were seen more clearly. The bottom area near the inner surface of the tube was clearly a fracture surface, while the upper zone was an obvious non-fusion welding defect between the tube and the tubesheet. The depth of this area was about 0.4 mm. The bottom fracture surface started from the interface between these two areas owing to the stress concentration induced by the welding defect. Radial lines were obviously seen from the interface between the two areas to the inner surface. Actually, the welding defect at this area was just like a crack. The interface between the upper and bottom areas in Fig. 4(a) was the tip of this crack which exhibited very high stress concentration and give rise to further propagation of the crack.
+
+Download: Download high-res image (997KB)
+Download: Download full-size image
+Fig. 4. Low magnification image of (a) the fracture surface of a failed tube and (b) the crack origin.
+
+As shown in Fig. 4(a), grinding marks, which was formed due to the periodic crack opening and closing, were observed in a large area of the bottom fracture surface. However, when carefully distinguishing the fracture surface, three areas, including the initial region (marked as A), the propagation zone (marked as B), and the final zone (marked as C), could be identified in the non-grinding areas. Thus, the fracture surface showed a fatigue failure feature which was caused by a periodic load. Fig. 4(b) shows that the initial region was located at the interface between the upper and bottom areas mentioned above. Multi-crack origins could be confirmed by the numbers of radial lines. As shown in Fig. 5(a), in the fatigue crack propagation zone, fatigue striations could be seen under higher magnification. Fatigue striations were the microscope characteristic of fatigue, which is the typical evidence of a fatigue failure. Microscopic examination of the fracture further confirmed that the failure of the welded joint was due to fatigue crack propagation, which is a cumulative damage. Fig. 5(b) shows the morphology of the final zone at the inner edge of the fracture surface. Typical dimple feature can be observed in this area. The proportion of final zone area in the whole fracture surface zone was relative low, which indicated that the fatigue stress amplitude was not very large.
+
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 5. SEM images of the fracture surface. (a) The fatigue propagation zone and (b) the final fracture zone.
+
+3.2. Chemical composition
+The chemical composition of the tube near the tube-to-tubesheet welded joint was tested using an X-ray fluorescence spectrometer and an infrared absorption carbon-sulfur analyzer. The results were compared with the relative specifications of the 304 stainless steel [10]. It was found that the chemical composition of the failed sample complied with the normal 304 stainless steel standard (shown in Table 1).
+Table 1. Chemical composition of the failed tube and corresponding standard (wt.%).
+
+Empty Cell	Elements
+Empty Cell	C	Si	Mn	Cr	Ni	P	S
+Failed tube	0.061	0.45	1.22	18.63	8.08	0.038	0.0011
+304 stainless steel standard	≤0.08	≤1.00	≤2.00	18.00–20.00	8.00–11.00	≤0.035 (+0.005)	≤0.030
+3.3. Metallographic observation
+A sample cut from the welded joint of the failed specimen was ground, polished, and etched for metallographic test to evaluate the material microstructure. Another sample cut from an intact welded joint in the same heat exchanger was also prepared as a reference. Fig. 6(a) shows the metallurgical structure of the tube near the fracture surface. A typical austenite structure can be observed clearly which is a normal structure for a 304 stainless steel. In addition, metallographic examination also indicated that microstructures of the tubesheet and the welded joint were normal. However, as shown in Fig. 6(b) and (c), when comparing to the reference specimen, many cracks were found in the failed welded joint and its heat affected zone. These cracks might be caused by (1) just the welding defects; (2) the propagation from the welding defect; and (3) damage due to the mechanical expansion process.
+
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 6. Metallographic structures on the section of (a) the failed tube, (b) the failed welded joint and (c) a well reference specimen.
+
+3.4. Mechanical testing
+A sample was taken from the failed tube (non standard sample) for tensile test. It was found that tensile parameters of the failed sample including the tensile strength, the 0.2% proof stress and the rupture elongation were consistent with the standard requirements for the 304 stainless steel (Table 2). However, values of the mechanical properties were much higher than those of the specification, which means that the material may be hard and then more brittle to withstand this problem.
+Table 2. Tensile properties of the specimen.
+
+Empty Cell	Tensile strength (MPa)	0.2% proof stress (MPa)	Rupture elongation (%)
+Failed tube	841	515	39.5
+304 stainless steel standard	≥515	≥205	≥35
+Hardness tests were also performed on the cross sections of the failed sample near the fracture surface. Three points were selected as the testing positions. According to the results of hardness measurements (as shown in Table 3), the hardness for some particular position of the specimen was slightly higher than that of the standard for 304 stainless steel.
+Table 3. Hardness of the specimen.
+
+Testing position	Point 1 (HRB)	Point 2 (HRB)	Point 3 (HRB)
+Failed tube	90.2	89.2	89.8
+304 stainless steel standard	≤90
+3.5. Finite element analysis of the welded joint
+Either the welding defects or the bad expansion process might introduce stress concentrations at the welded joint. To confirm the exact position of the stress concentration, a finite element analysis was performed on the welded joint. A three dimensional model containing the tube, tubesheet and the welded joint was constructed and analyzed. As shown in Fig. 7(a), 96,553 nodes and 57,282 elements were meshed in the model. Elastic strain was simulated using the isotropic Hooke's law with Poisson's ratio and Young's modulus. As shown in the Von-Mises stress distribution (Fig. 7(b)), stress concentration, which was coincident with the crack initiation location of the failed welded joint, could be seen obviously.
+
+Download: Download high-res image (1012KB)
+Download: Download full-size image
+Fig. 7. (a) Finite element mesh of the welded joint model; (b) Von-Mises stress distribution of the tube-to-tubesheet structure.
+
+4. Discussions
+Multiple types of failure, such as stress corrosion, pitting corrosion and fatigue, may occur in the shell-tube heat exchanger owing to its complex structure and working conditions. For the present case, according to the results of examinations, the chemical composition, and mechanical properties of the failed specimen were complied with the certification of such materials. And no elements which can cause corrosion such as chlorine and sulfur were found on and around the fracture surface. In addition, the metallographic structures for either the tube and the tubesheet or the welded joint were normal. However, defects and cracks were found in the welded joint.
+The quality of the tube-to-tubesheet welded joint may significantly influence the safety and reliability of the heat exchanger. As we know, the quality of the tube-to-tubesheet welded joint was affected by not only the welding process but also the expansion process. For the present case, defects and cracks were found in the welded joint according to the metallographic test. In addition, from the fracture surface in Fig. 4(a), a non-fusion welding defect with the length of about 0.4 mm was observed clearly at the out edge of the tube wall. This type of defects could generate high stress concentration; reduce the contact area of the welded joint and decrease its fatigue performance. Actually, the welding defects such as the non-fusion welding defects could be regarded as initial cracks in the component. These cracks may further propagate under outer working conditions.
+Expansion process, which was following the welding process, was also an important operation for the heat exchanger. As suggested by some operating specifications [11], the expansion position should be at least 15 mm far away from the tube end to prevent the welded joint. However, for the present case, the expansion was started just from the tube end, which might introduce stress superposition and damage the welded joint. Initial micro-cracks at the welded joint might also be formed during this process.
+According to the analysis results, the failure of the tube-to-tubesheet welded joint was caused by fatigue cracks propagation. The periodic load was a necessary condition during fatigue cracks propagation. In the present case, such periodic load might come from the resonant vibration of the tubes which was caused by the periodic impacts of the fluid. It might also come from the changes in temperature and pressure of the fluid inside the heat exchanger. Combining with the existence of initial defects and cracks at the welded joint, fatigue failure occurred finally.
+5. Conclusions
+In summary, the collected evidence suggests that the failure mechanism of the tube-to-tubesheet in the shell-tube heat exchanger was fatigue fracture. The fracture surfaces showed obvious crack propagation traces. Fatigue striations, which were the micro-evidence of fatigue, were observed clearly. The fatigue crack initiated from the defects at the tube-to-tubesheet welded joint. The periodic load might come from the resonant vibration of the tube or the changes in temperature and pressure of the fluid inside the heat exchanger. Bad welding and unsuitable expansion position of the tubes at the tube-to-tubesheet might give rise to the formation of initial cracks. In future, prevention of failure of the shell-tube heat exchanger would still be an important topic. Improving the quality of welding and expansion processes were effective way to reduce the failure problems of the tube-to-tubesheet welded joint in such heat exchangers.
