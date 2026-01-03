@@ -1,0 +1,139 @@
+This paper presents the failure analysis of AISI-304 stainless steel tank that was fabricated by welding and used for the storage of styrene monomers. After about 13 years of satisfactory operation, significant cracking was observed adjacent to the weld joints and in base plate near tank foundation. Weld repair was by shielded gas arc welding using AISI 308 stainless steel filler wire. The failed base plate was replaced with the new AISI 304 base plate of same thickness. After a short period of time, seepage was observed along the weld bead. Upon nondestructive testing cracks were found in the heat-affected zone and in the base plate. The failure investigation was carried out on welded and base plate samples using spectroscopy, optical and scanning electron microscopy, fractography, SEM–EDS analysis, microhardness measurements, tensile and impact testing. The results revealed transgranular cracks in the HAZ and base plate, and the failure was attributed due to stress corrosion cracking. Cracks initiated as a result of combined action of stresses developed during welding and the presence of a chloride containing environment due to seawater. It was further observed that improper welding parameters were employed for weld repair which resulted in sensitization of the structure and postweld heat treatment to remove weld sensitization and minimize the residual stresses was not done.
+
+Similar content being viewed by others
+
+Investigation on Ultimate Strength of STS304L Stainless Steel Welded Connection with Base Metal Fracture Using Finite Element Analysis
+Article 11 June 2018
+
+Stress Corrosion Cracking Behavior of Welded Joints in 304 Stainless Steel Flange Neck on a Tandem Mixer
+Article 17 April 2024
+
+Residual Stress Formation and Distortion in Austenitic AISI304 Steel Pipe Weldment with Consideration of Latent Heat using Novel Prescribed Weld Temperature
+Article 24 May 2024
+Explore related subjects
+Discover the latest articles, books and news in related subjects, suggested using machine learning.
+Building Materials
+Corrosion
+Hydrogen storage materials
+Materials Fatigue
+Materials Mechanics
+Structural Materials
+Introduction and Background
+The selection of stainless steels for chemical storage tanks and vessels is based on mechanical properties, corrosion resistance, fabrication characteristics (such as weldability), working environment, service temperature, and cost. However, corrosion resistance and mechanical properties are generally the most important factors whenever selecting a grade of stainless steel for a given application [1]. Among the many 300 series austenitic stainless steel grades, AISI-304 SS is widely used for the construction of large storage tanks for styrene monomers, because of its corrosion resistance in many environments and its relatively low cost as compared to other 300 series steels. Moreover, another important factor for choosing AISI 304 SS is that it is chemically inactive to the styrene monomer. However, this corrosion resistance is not found in all environments; especially in marine environments which are well known to induce serious stress corrosion cracking (SCC) problems due to the presence of chloride ions [2–4]. Stress corrosion cracking is a form of environmentally assisted cracking (EAC) that is of great significance to the chemical, oil, and gas industries. SCC is understood to be the result of a combination of susceptible material, exposure to a corrosive environment, and tensile stress above a threshold. The tensile stresses can be either externally applied stresses or residual stresses from cold working, machining, welding, etc. Studies have revealed that virtually all grades of austenitic stainless steels, and Ni-based alloys are susceptible to SCC given the right environment and conditions [5]. Since large storage tanks and vessels are usually fabricated by welding, there always exists great chances of weld decay (also called sensitization) which results when the steel is either heated or cooled slowly in temperature range 600-800 °C [2, 6–8]. The problem of environmentally induced SCC and sensitization of stainless steel is of prime concerned to chemical, oil, & gas industries and refineries, and should be avoided, if practical, for any application. In general, poor welding practices promote the susceptibility of austenitic stainless steels to SCC.
+
+The present failure investigation is concerned with an AISI 304 SS storage tank commissioned in 1989 for the storage of styrene monomers. The tank was about 55 ft in high and 28 ft diameter and made of 8 mm thick cold-worked 304 SS plate. The tank was erected near the seashore, and an earthquake in the nearby area resulted in tilting of the tank to one side. The outer surface of the tank was cooled by a continuous flow of water. After about 6 years of satisfactory service, minor seepage of styrene was observed from small cracks associated with the weldments near the foundation of the tank. At that time, the repair was conducted by reinforcing the defective regions (regions containing cracks) by welding reinforcement to the base plate. The tank then served satisfactorily for the next 7 years without any significant leakage. However, severe leakage was experienced after 7 years and the cracking was serious that time. Significant cracks were found in the weld joints and also in the base plate. Weld joints and base plate containing cracks were replaced by new AISI 304 SS plate (8 mm thick) of similar composition by circumferential and longitudinal multipass arc welding using AISI 308 SS filler wire. The repair welding process was carried out after emptying the storage tank. No postweld heat treatment was done on the weld joints. Soon after the weld repair, it became apparent that the problem was not rectified and leakage of styrene was again observed from the cracks in the weld metal, heat-affected zone (HAZ), and base plate. These cracks were found a short period of time after welding. The investigation of the failed tank was made to determine the potential causes of the failure. The present investigation included spectroscopy, nondestructive testing (Dye Penetrant and Radiography) of weld joint and base plate, macro- and microexamination using optical and scanning electron microscopes, hardness profile, tensile and impact testing, and fractography.
+
+Visual Observations
+Visual examination was carried out on-site and the leakage of styrene was mainly from the cracks in the weld bead and base plate near tank foundation as shown in Fig. 1(b) and (c). Cracking also occurred near circumferential weld joints and longitudinal weld joints. Patches of reinforcing stainless steel sheet at various locations near the foundation of the tank contained cracks which were apparently nucleating from the patches. The region near the weld bead was severely corroded due to the salty, moist environment and as seen from Fig. 1(c) the cracks were filled with styrene monomer residue and corrosion products. One of the main observations was that the weld joints were not made properly; the weld bead was not uniform, many undercuts were present and slag inclusions were observed on the weld beads.
+
+Fig. 1
+figure 1
+Pictures of (a) AISI 304 SS styrene storage tank with severe cracks and leakage near the tank base, (b) cracks near the weld bead and reinforced plate, and (c) cracks in base plate initiating from the weld zone also showing corrosion products and styrene monomer residues
+
+Full size image
+Nondestructive Testing
+Failed pieces of weld plate, where cracking was observed, were taken for dye penetrant testing (DP) and radiography (RT). The results of DP and RT are shown in Fig. 2(a) and (b), respectively. It was seen from Fig. 2(a) that the cracks initiated at the weld fusion line and propagated in the direction normal to the weld bead and from the fusion zone into the HAZ. Radiographs of weld joints also show cracks in the weld bead and adjacent HAZ (Fig. 2b). Cracks were found running both parallel and perpendicular to the weld bead. Furthermore, cracks were also found in the base plate; far away from the weld joints. The presence of cracks in the base plate suggested that the failure was not simply due to welding operation and that some another phenomenon had contributed to the failure.
+
+Fig. 2
+figure 2
+Pictures of (a) Dye Penetrant test results showing cracks in weld bead and HAZ, and (b) radiographs of weldments showing cracks in circumferentially welded joint and adjacent area
+
+Full size image
+Spectroscopy
+Spectroscopic analysis of the base plate and weld bead (filler rod) was carried out using spark emission spectrometer in order to determine the elemental composition. Results of spectroscopic analysis are summarized in Table 1. It was found that the base plate was actually AISI 304 SS whereas the filler wire was AISI 308 SS (higher Cr content). The sulfur, phosphorus, hydrogen, and nitrogen contents were also found to be within recommended limits.
+
+Table 1 Average chemical composition (in wt.%) of base plate and filler wire
+Full size table
+Macroexamination
+Macroexamination was carried out using a stereomicroscope at a magnification of 5×. Samples containing cracks were sectioned from the weld joint and base metal for macroexamination. The transverse face (cross section) and capping face were ground to a 400 grit finish and etched in glycerol aqua regia to reveal the crack morphology in different regions of the weldments. Figure 3(a) shows the macrograph of transverse face (cross section) revealing branched cracks (lightning-like cracks) in the base plate near HAZ. Cracks were found to initiate from the outer surface of the tank wall and then propagated inward to the inner surface of the plate which ultimately led to breakthrough in the wall and leakage occurred (Fig. 3a). Lack of fusion and slag inclusions were also observed in the center of the weld bead (Fig. 3a). Moreover, it was also observed in Fig. 3(a) that the V-joints were not properly edge beveled before welding which resulted in nonuniform bead shape (Fig. 3b). Besides cracks in the base plate, significant cracking was also visible in the weld bead and HAZ, as shown in Fig. 3b. Numerous small discontinuous cracks were observed in the weld bead and were believed to nucleate from the weld bead/HAZ interface (or root of the weld bead) or any surface discontinuity or defect produced due to welding (Fig. 3b). In certain regions, cracks penetrate into a weld but do not considerably propagate in it. It appears in Fig. 3(b) that the cracks were aligned perpendicular to the welding direction.
+
+Fig. 3
+figure 3
+Macrographs of AISI 304 SS weld joints showing various zones with cracks: (a) “lightning” cracks in base metal, and (b) cracks in weld bead and HAZ (magnification: 5×)
+
+Full size image
+Microhardness Profile and Microstructural Examination
+The transverse and capping face samples were prepared for microhardness measurements and microstructural examination by conventional grinding and polishing technique. Microhardness was taken on suitably prepared metallographic samples in un-etched condition using a Vickers microhardness tester with 100 g load and 10 s dwell time at a magnification of ×400. Figure 4 shows the graph plotted between microhardness (in HV) and distance (in mm) from the weld center.
+
+Fig. 4
+figure 4
+Microhardness profile of weld joint showing hardness variation in different zones
+
+Full size image
+From Fig. 4, it is apparent that the hardness in the weld metal (WM) was about 200–225 HV, in the coarse-grained HAZ about 175–185 HV, fine-grained HAZ 240–260 HV, in the base metal (BM) about 280–310 HV, and the least hardness was about 175–180 HV in the regions containing cracks. Cracks were found in WM, HAZ and BM, and in all these regions near cracks; the hardness was very low as compared to un-cracked regions. The cracking locally relieved the residual stresses and probably occurred in the low hardness regions because the residual stresses level reached or exceeded the yield strength of the steel in that area.
+
+For optical microscopy, metallographic samples were etched in glycerol aqua regia (ASTM standard E 407-99) to reveal various weld zones, phases, and cracks on microlevel. ASTM grain size number of different weld zones and base metal was also determined as per ASTM standard E 112-96 through image analysis software. Micrographs were taken at magnifications ranging from 100× to 400×. Figure 5(a) shows the typical as-deposited dendritic microstructure produced in the WM as a result of solidification of weld pool. Transgranular cracks were observed in the WM and were perpendicular to the welding direction (Fig. 5a). Transgranular cracking was primarily along the dendrites whereas the branches of cracks were found initiating from the dendrite arms as seen in Fig. 5(a). Figure 5(b) shows the typical fusion boundary (transition boundary) between the WM and the HAZ. Fine, equiaxed grains in the austenitic matrix were also observed in the HAZ adjacent to the WM (Fig. 5c). ASTM grain size number was 5 in fine-grained HAZ. Adjacent to the fine-grained HAZ was the coarse-grained HAZ containing transgranular cracks (Fig. 5d). Transgranular cracks were highly branching with the crack branches in different directions (Fig. 5d). ASTM grain size number was found to be three in the coarse-grained HAZ. Figure 5(e) shows similar transgranular cracks in the sensitized BM. Intergranular cracks were also observed at some places, but the primarily mode of fracture was transgranular. ASTM grain size number was about 4.5 in the BM. Figure 5(f) and (g) shows the typical sensitized microstructure with Cr-rich carbide (generally Cr23C6) precipitation at the grain boundaries and within the grains during the welding operation. Grain boundaries appeared dark cause of presence of carbides (Fig. 5f and g). Microstructure of nonsensitized BM is shown in Fig. 5(h); representing typical austenitic structure with equiaxed grains and annealing twins. The nonsensitized structure was observed far away from the cracked region; which was not affected by the welding heat.
+
+Fig. 5
+figure 5
+Micrographs of AISI 304 SS weld joints showing (a) dendritic structure in WM with transgranular cracks, (b) fusion boundary, (c) fine equiaxed grains in HAZ, (d) transgranular cracks in coarse HAZ, (e) transgranular cracks in BM, (f, g) intergrain and grain boundary Cr-rich carbides precipitation showing sensitization of the structure, and (h) nonsensitized typical austenitic structure in BM
+
+Full size image
+In order to reveal the finer details of the microstructural constituents, carbide precipitations and defects, metallographic samples were examined under scanning electron microscope equipped with an energy dispersive X-ray spectrometer (EDS). Scanning electron micrographs revealed cracks and carbide precipitations at grain boundaries and within grains as shown in Fig. 6(a) through (d). Transgranular cracks are evident in Fig. 6(a) and (b) running across the grains with Cr-carbide particles within the cracks. An interesting feature observed in the SEM micrographs was the presence of Cr-carbides at slip bands and twin boundaries, as shown in Fig. 6(c) and (d), respectively. Large number of slip bands is indicative of occurrence of plastic deformation. The SEM–EDS analysis results also confirmed that the precipitates were Cr-carbides (Fig. 6e).
+
+Fig. 6
+figure 6
+SE micrographs showing (a) transgranular cracking, (b) transgranular cracks along carbide precipitates, (c) Cr-carbide precipitation at grain boundaries and slip planes, (d) carbides at grain and twin boundaries, and (e) EDS results of Cr carbides
+
+Full size image
+Mechanical Testing
+Samples were taken from the welded plate and base plate containing cracks for macrohardness, tensile test, and Charpy V-notch impact test. Vickers macrohardness measurements were made with a 100 kg load for 30 s on a suitably prepared surface as per ASTM standard E 92-82. Macrohardness data reported in this paper were the average of at least five measurements per sample. Tension tests were conducted on standard specimens of rectangular cross section as per ASTM A 370-97a on Instron 60 universal tensile testing machine at a load rate of 0.50 kN/s at room temperature. Impact test was carried out on Charpy V-notch standard subsize specimens (7.5 × 10 × 55 mm3) as per ASTM E 23-98 on pendulum-type impact testing machine using 300 J hammer. Average of at least three tensile and impact tests results is reported here. Results of the mechanical testing are shown in Table 2.
+
+Table 2 Results of mechanical testing carried out on base plate and welded AISI 304 SS samples containing cracks
+Full size table
+Mechanical test results summarized in Table 2 shows that the tensile properties were higher than recommended for plate samples. However, it was found that the yield strength, tensile strength, % elongation, and macrohardness were lower for welded samples as compared to plate samples. Moreover, impact test results showed that the impact absorbed energy was only 124 J which is significantly less than the 200–220 J recommended for plate material.
+
+Fractography
+Sections of the fractured impact samples were carefully cut for the identification of origin and type of the fracture. Fractography was then carried out using a stereomicroscope at the magnification of 10× to 35× and an SEM at higher magnifications to determine the fracture morphology. Results of the optical and SEM fractographies are shown in Figs. 7 and 8, respectively.
+
+Fig. 7
+figure 7
+Optical fractographs of impact specimens extracted from failed base plate showing ductile dimple fracture: (a) magnification: 25× and (b) magnification: ×35
+
+Full size image
+Fig. 8
+figure 8
+SEM fractographs showing (a) primarily ductile transgranular fracture, (b) primarily transgranular fracture with some intergranularly fractured facets, (c) sensitized structure fractured in a ductile manner with dimples, and (d) stepwise crack advancement and transgranular fracture of sensitized material
+
+Full size image
+Fractographs of impact specimens show the typical ductile dimple fracture, as shown in Fig. 7(a) and (b).
+
+High-magnification SEM fractographs of fractured impact specimens showed regions of typical transgranular fracture along with microvoids and pits (Fig. 8a and b). Intergranularly fractured facets were also found at some places in the fractographs (Fig. 8b). However, the primary mode of fracture was transgranular and the presence of faceted fracture topography is consistent with the lower than anticipated impact values. Figure 8(c) and (d) showed sensitized region with Cr-carbide precipitates which also resulted in a brittle fracture morphology as the dimples were either very small (Fig. 8c) or completely eliminated (Fig. 8d). Moreover, stepwise (discontinuous) morphology of crack advancement is also evident in Fig. 8(d) with transgranular fracture.
+
+Discussion
+On-site visual examination shows that the tank was installed near seashore where moist chloride containing environment is basically always present on the tank exterior. Moreover, salt residues were found accumulated inside the cracks (see whitish products in the cracks in Fig. 1c). Also tank was water cooled using tap water which promoted the condensation and accumulation of salt water “spray” on the tank surface. It is well known that sea water contains various forms of chlorides (such as NaCl, Mg2Cl, KCl, etc.) and these chlorides are often a source of the chloride ions required for chloride SCC in austenitic steels [9, 10]. The chloride ions promote SCC even when the temperature is low, the water is at a near neutral pH and the stresses on the steel are low [11, 12]. Spectroscopy of the tank material revealed AISI 304 SS grade which is very susceptible to SCC in the presence of tensile stresses and specific environment (see Table 1). From the history of the storage tank, it was known that the tank was fabricated by welding and the failed areas were weld repaired for the first time after 6 years of commissioning. It is also a well-established fact that the welding operation on AISI 304 SS generally leads to sensitization of weldments if postweld heat treatments are not incorporated. It is, therefore, expected that the second weld repair after 7 years intensified the sensitization problem that had resulted from first weld repair. It is publicized by some researchers that the percentage of sensitization caused by original welding (or first weld repair) largely influences the quality of the final weld joints. It was suggested that if the original sensitization of the metal is greater than 70%, then it is impossible to obtain a quality welded joint because sensitization of the metal of a near-bead zone at the root of a joint is at the level of 80–90%. To obtain a quality welded joint on sensitized material, it is necessary that the original sensitization of the metal in the region of welded edges be in range of 25–30% [13]. However, in this work, the original percentage of sensitization of 304 SS plate was not known, but it is clear that the final weld quality was not up to the required standard.
+
+From NDT and macroexamination results, it was inferred that the welding parameters were not appropriate and weld joint preparation was not good which caused irregular heat input and large thermal gradients (Figs. 2 and 3). It is believed that the weld repair induced residual tensile stresses in the already sensitized structure [14, 15].
+
+Numerous cracks were found widespread in weld bead, HAZ, and base plate originating from the weld bead/HAZ interface, and corrosion pits and propagating toward the inner surface of the wall. The transgranular branched cracking is associated with transgranular SCC, which usually results from the combined action of tensile stresses, corrosive chloride containing environment, and susceptible material [16, 17]. Cracking in the weld bead was caused by the tensile residual stresses which resulted from the weld repair, whereas the stresses in the base plate were due to tilted nature of the tank. Since the tank was slightly tilt as a result of earthquake, therefore styrene charge imposed excessive load on one side as compare to the other side. The excessive burden on one side of the tank resulted in tensile stresses. This hypothesis is also confirmed from the presence of cracks on excessively loaded side of the tank (Fig. 1a). The extensive crack network in the weld joints and base plate significantly reduced the load-carrying capability of the tank and resulted in crack openings sufficient for the leakage of styrene.
+
+It was also observed from the optical micrographs that the material was sensitized due to multiple weld repairs. During welding, the austenitic stainless steel is heated to temperatures in excess of 600 °C. When the temperature is above 600 °C but below 800 °C, the time–temperature-transformation curve for chromium carbide precipitation will lead to the formation of Cr-rich carbides on the grain boundaries. The area adjacent to the grain boundaries is then depleted of chromium and thus that region looses its corrosion resistance and leads to intergranular corrosion. Such localized corrosion along the grain boundaries may result in intergranular SCC in the presence of tensile stresses [18–20]. But in this case, the mode of fracture was not intergranular; rather it was transgranular which is attributed to chloride SCC [13, 21] thus the sensitization was not a primary contributor to the failure process. Similar types of failure in austenitic stainless steels have also been experienced by several other researchers [22–24].
+
+SEM pictures also confirmed that the cracking was actually transgranular, and cracks were initiated from the corrosion pits. These pits were believed to form as a result of breakdown of passive film which causes localized corrosion attack. It is also known that SCC is usually nucleated by some form of localized corrosion; like pitting in this case [25]. Once the crack was initiated from the pit, it propagated outward at a high-growth rate (Fig. 6a and b). After acquiring certain critical crack size, the crack growth rate sharply increased which ultimately cause leakage. Sensitization of the microstructure is also evident in the SEM micrographs (Fig. 6c). Besides precipitation of carbides at grain boundaries, precipitates were also found within grains at slip band and twin boundaries (Fig. 6c and d). The EDS of the particles further confirmed that the precipitation of Cr-rich carbides (Fig. 6e).
+
+Microhardness measurements and mechanical testing were also conducted to verify the sensitization of the weld joints and base plate. Microhardness result showed that the lowest hardness was obtained for regions containing cracks; the low hardness of the crack region indicates the lower strength of the region as compared to the unsensitized region (Fig. 4). It was deduced from mechanical test results (Table 2) that the weld joint was sensitized due to welding, and no stress relieving treatment was done to counter welding affects [26]. Impact strength of the sensitized structure was decreased, and material was embrittled.
+
+Optical and SEM fractographic observations of broken impact specimen exhibited transgranular faceted fracture with shallow dimples and microvoids (Figs. 7 and 8). Stepwise discontinuous crack morphology was also seen in SEM fractograph in Fig. 8(d). Transgranular fracture morphology is typical of chloride SCC and sensitized structure [13, 21, 27] as already discussed in preceding paragraphs.
+
+Conclusions
+The results of the investigation carried out on failed AISI 304 SS styrene monomer storage tank led to the following conclusions:
+
+1.
+The spectroscopy showed that the tank was made of AISI 304 SS and welded with filler wire of AISI 308 SS. It is well established that the AISI 304 SS is prone to SCC in the chloride environment. The main source of chloride environment was sea water in this case.
+
+2.
+Improper welding conditions and parameters lead to increased residual stresses and weld sensitization.
+
+3.
+NDT and macroexamination results showed cracking in the weld bead, HAZ, and base plate.
+
+4.
+Transgranular cracks were clearly observed from optical and SEM micrographs. This type of cracking is associated chloride SCC of austenitic stainless steels.
+
+5.
+Mechanical test results confirmed the sensitization and SCC of the structure and suggested that the properties of the steel were, at best, barely adequate. The hardness in the region containing cracks was found lowest as compared to the other regions.
+
+6.
+All three prerequisites required for SCC include susceptible material (304 SS), adequate tensile stresses (residual stresses cause of multiple weld repairs and tilted tank), and corrosive seashore environment (chloride ions); all are present in this case leading to transgranular SCC of sensitized AISI 304 SS and thus severe leakage of styrene from the cracks occurred.
+
+The observations are totally consistent with the occurrence of chloride stress corrosion cracking, and the failure was basically due to improper materials selection for a storage tank in a sea water environment. The poor welding practices and less than anticipated materials properties probably contributed to the failure, but the basic cause of cracking was the use of a susceptible material in an environment known to cause SCC. The interior contents of the tank played no role in the cracking process.

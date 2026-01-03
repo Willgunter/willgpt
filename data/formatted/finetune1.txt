@@ -11423,3 +11423,808 @@ Time is treated as **event-based**, not lifecycle-based.
 
 * The system is **highly sensitive** to microstructural state.
 * Linear extrapolation from annealed behavior is invalid.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### System and Service Assumptions
+
+* Two **T-type pumps** circulate naphtha downstream of a CDU column.
+* Service life prior to failure was approximately **5 years**.
+* Both **operating and standby pumps** failed in a similar manner, implying exposure equivalence.
+* The **strainer mesh and supporting plate** were manufactured from **AISI 304 stainless steel**.
+* Carbon steel piping upstream and downstream exhibited **negligible corrosion**, isolating the failure to the SS components.
+
+### Environmental Assumptions
+
+* Naphtha contains **sulfur and moisture**, enabling **H₂S formation** in wet conditions.
+* The operating environment is considered **wet H₂S service**, even though the process fluid is nominally hydrocarbon.
+* Chlorides and sulfur species are present at levels sufficient to promote localized corrosion.
+
+### Mechanical and Stress Assumptions
+
+* Tensile stresses exist in the strainer mesh and supporting plate.
+* These stresses are primarily **residual stresses**, originating from:
+
+  * Welding
+  * Fabrication
+  * Possibly installation
+* Applied operational stresses are secondary.
+* No significant compressive stress regime exists to suppress SCC.
+
+### Materials and Fabrication Assumptions
+
+* SS 304 chemistry conforms closely to specification.
+* Welding of the strainer caused **sensitization**.
+* No post-weld stress relief was effectively applied.
+* No significant bulk hardness change occurred during service.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Metallurgical Assumptions
+
+* Chromium carbide precipitation occurred preferentially at grain boundaries during welding.
+* Chromium depletion locally reduced passive film stability.
+* The microstructure remained austenitic overall, despite local carbide formation.
+* Delta-ferrite or secondary phases in weld metal contributed to corrosion susceptibility.
+
+### Environmental and Chemical Assumptions
+
+* H₂S concentration reached or exceeded the **critical SCC threshold** for austenitic stainless steel.
+* Local chemistry within pits and crevices became acidic due to hydrolysis reactions.
+* Thiosulfate (S₂O₃²⁻) formation occurred, enhancing SCC susceptibility.
+* Idle or stagnant conditions increased exposure severity.
+
+### Structural and Geometric Assumptions
+
+* The **mesh geometry** created crevices and stress concentrators.
+* Blockage and fouling increased local stress and reduced mass transport.
+* Mesh thickness was insufficient to tolerate crack propagation once SCC initiated.
+
+### Inspection and Maintenance Assumptions
+
+* No early detection of cracking was possible before brittle fracture.
+* Routine inspection intervals were longer than crack incubation time.
+* Cleaning frequency was insufficient to prevent buildup-induced stress.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Stress Corrosion Cracking Mechanics
+
+**Principle**
+SCC occurs only when **three conditions coexist**:
+
+1. Susceptible material
+2. Tensile stress ≥ σ_th
+3. Specific aggressive environment
+
+**Application**
+
+* AISI 304 is susceptible in chloride and wet H₂S environments.
+* Welding introduced tensile residual stresses approaching yield.
+* Wet H₂S and chlorides provided the chemical trigger.
+
+**Validity Regime**
+
+* Sub-yield bulk stress
+* Local stress intensification at pits and grain boundaries
+
+---
+
+### 3.2 Electrochemical Localized Corrosion
+
+**Principle**
+Localized corrosion creates local anodic sites that accelerate dissolution.
+
+**Application**
+
+* Pits and intergranular attack acted as **SCC initiation sites**.
+* Acidification within pits sustained crack propagation.
+
+---
+
+### 3.3 Metallurgical Sensitization
+
+**Principle**
+Cr₂₃C₆ precipitation at 435–815 °C depletes chromium near grain boundaries.
+
+**Application**
+
+* Welding placed the strainer in the sensitization temperature range.
+* Chromium depletion impaired passivation.
+* Grain boundaries became anodic relative to the matrix.
+
+---
+
+### 3.4 Hydrogen-Assisted Cracking
+
+**Principle**
+Hydrogen generated during corrosion reduces cohesive strength at the crack tip.
+
+**Application**
+
+* H₂S promotes hydrogen ingress.
+* Hydrogen-enhanced localized plasticity accelerated transgranular cracking.
+
+---
+
+### 3.5 Fracture Mechanics
+
+**Principle**
+Crack propagation occurs when K_I ≥ K_ISCC.
+
+**Application**
+
+* Brittle macroscopic failure despite unchanged hardness.
+* Load-bearing capacity collapsed once cracks linked across the mesh.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Sensitization ↔ Localized corrosion**
+  Chromium depletion enables pit and intergranular attack.
+
+* **Pitting ↔ SCC initiation**
+  Pits provide stress concentration and local chemistry for SCC.
+
+* **Residual stress ↔ Crack growth**
+  Welding stresses drive SCC even without high applied load.
+
+* **H₂S ↔ Hydrogen embrittlement**
+  Sulfide species accelerate hydrogen uptake and crack advance.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption                 | If Violated         | Result               |
+| -------------------------- | ------------------- | -------------------- |
+| Material remains ductile   | SCC active          | Brittle fracture     |
+| Passive film stable        | Chromium depleted   | Localized corrosion  |
+| No aggressive species      | H₂S present         | SCC enabled          |
+| Residual stress negligible | Welding stress high | Crack propagation    |
+| Uniform corrosion dominant | Localized corrosion | Catastrophic failure |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Implicitly Present
+
+* Transgranular SCC from pits.
+* Intergranular corrosion along sensitized grain boundaries.
+* Hydrogen-assisted crack acceleration.
+* Crevice-assisted chemistry amplification.
+
+### If Conditions Persisted
+
+* Rapid through-thickness penetration.
+* Sudden mesh disintegration.
+* Downstream contamination and pump damage.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Design Tradeoffs
+
+* SS 304 selected for **fabricability and cost**, not SCC resistance.
+* Mesh geometry optimized for flow, not corrosion tolerance.
+* Welding favored over mechanical fastening.
+
+### What Was Not Optimized
+
+* Resistance to wet H₂S service.
+* Residual stress management.
+* Inspectability and redundancy.
+* SCC incubation margin.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Strainer operates in a **stagnant-prone, partially aerated** region.
+* Downstream piping corrosion behavior does not reflect local strainer chemistry.
+* Heat transfer and local condensation likely occur at the strainer.
+* No cathodic protection or corrosion inhibition present.
+
+---
+
+## 9. Temporal Evolution
+
+### Modeled Implicitly
+
+* Incubation period of several years.
+* Gradual pit formation and crack nucleation.
+* Rapid final brittle failure.
+
+### Not Modeled
+
+* Crack growth rate vs time.
+* Effect of cyclic startup and shutdown.
+* Progressive hydrogen accumulation.
+
+Time to failure is governed by **damage accumulation**, not uniform corrosion rate.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Observed Margins
+
+* None. Failure occurred below design life.
+* Hardness unchanged, masking degradation.
+
+### Single-Point Vulnerabilities
+
+* Sensitized weld regions.
+* Mesh stress concentration points.
+* Wet H₂S chemistry excursions.
+
+### Failure Mode
+
+* **Non-graceful**. Brittle fracture with little warning.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Mild corrosion resistance assumed.
+* SS 304 considered adequate.
+* Uniform corrosion anticipated.
+
+### Actual Operative Regime
+
+* Localized corrosion dominated.
+* SCC-controlled failure.
+* Environment more aggressive than specified.
+
+### Robustness Assessment
+
+* Design assumptions invalid for wet H₂S service.
+* Material choice lacked environmental robustness.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### System and Service Assumptions
+
+* The structure is an **AISI 304 stainless steel storage tank** for **styrene monomers**.
+* The tank operated satisfactorily for approximately **13 years** before significant cracking.
+* The tank was fabricated from **8 mm thick cold-worked AISI 304 plate**.
+* Fabrication and subsequent repairs were performed by **arc welding**, using **AISI 308 filler metal**.
+* **No post-weld heat treatment (PWHT)** was performed after original fabrication or repairs.
+* The tank is installed **near a seashore**, exposing it to a **moist, chloride-containing environment**.
+* External cooling with water was applied to the tank wall.
+
+### Damage and Failure Assumptions
+
+* Cracks appeared primarily in:
+
+  * Weld metal
+  * Heat-affected zone (HAZ)
+  * Base plate near welds and foundation
+* Cracks formed shortly after weld repair, indicating **accelerated degradation**.
+* Leakage occurred once cracks penetrated the wall thickness.
+* The failure mode is identified as **stress corrosion cracking (SCC)**.
+
+### Materials Assumptions
+
+* Base plate chemistry corresponds to **AISI 304 SS**.
+* Filler metal corresponds to **AISI 308 SS**.
+* Sulfur, phosphorus, nitrogen, and hydrogen contents were within specification limits.
+* No gross compositional deviation caused the failure.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Metallurgical Assumptions
+
+* Welding exposed material to the **sensitization temperature range (600–800 °C)**.
+* Chromium carbide precipitation occurred at grain boundaries and within grains.
+* Chromium depletion locally destroyed passivity.
+* Sensitization accumulated over **multiple weld repair cycles**.
+
+### Stress State Assumptions
+
+* Significant **residual tensile stresses** existed due to:
+
+  * Original fabrication welding
+  * Subsequent weld repairs
+  * Thermal gradients from improper welding parameters
+* Additional **applied tensile stresses** arose from:
+
+  * Tank tilting caused by an earthquake
+  * Uneven hydrostatic loading of styrene
+
+### Environmental Assumptions
+
+* Chlorides from seawater continuously contacted the external tank surface.
+* Condensation and salt deposition occurred due to water cooling.
+* Chloride concentration at the metal surface exceeded SCC threshold values.
+* Local crevice and pit chemistry became acidic.
+
+### Inspection and Detection Assumptions
+
+* Crack incubation was long and largely undetectable until leakage occurred.
+* NDT was not applied at sufficient frequency to detect early SCC.
+* Crack growth after initiation was rapid relative to inspection intervals.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Stress Corrosion Cracking (SCC)
+
+**Principle**
+SCC occurs when three conditions coexist:
+
+1. Susceptible material
+2. Tensile stress ≥ threshold stress
+3. Specific aggressive environment
+
+**Application**
+
+* Material: AISI 304 SS is susceptible to chloride SCC.
+* Stress: Residual welding stresses and service stresses exceeded SCC threshold.
+* Environment: Moist marine chloride exposure.
+
+**Validity Regime**
+
+* Sub-yield bulk stress
+* Local stress intensification at pits, weld defects, and microstructural discontinuities
+
+---
+
+### 3.2 Metallurgical Sensitization
+
+**Principle**
+Chromium carbide (Cr₂₃C₆) precipitation depletes chromium near grain boundaries, impairing passivation.
+
+**Application**
+
+* Multiple welding cycles increased degree of sensitization.
+* Chromium-depleted zones became anodic.
+* Intergranular corrosion susceptibility increased, even though cracking mode remained transgranular.
+
+---
+
+### 3.3 Electrochemical Localized Corrosion
+
+**Principle**
+Pitting and crevice corrosion create local anodic sites and acidic microenvironments.
+
+**Application**
+
+* Pits served as SCC initiation sites.
+* Local acidification stabilized crack propagation.
+
+---
+
+### 3.4 Fracture Mechanics
+
+**Principle**
+Crack propagation occurs when stress intensity K exceeds K_ISCC.
+
+**Application**
+
+* Branched transgranular cracks indicate environmentally assisted cracking.
+* Crack growth accelerated once critical crack length was reached.
+
+---
+
+### 3.5 Hydrogen-Assisted Cracking
+
+**Principle**
+Corrosion reactions generate hydrogen, reducing cohesive strength at the crack tip.
+
+**Application**
+
+* Chloride corrosion promotes hydrogen ingress.
+* Hydrogen enhanced localized plasticity facilitated transgranular SCC.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Welding ↔ Sensitization**
+  Heat input controls carbide precipitation and chromium depletion.
+
+* **Sensitization ↔ Localized corrosion**
+  Chromium-depleted zones destabilize the passive film.
+
+* **Localized corrosion ↔ SCC initiation**
+  Pits provide stress concentration and aggressive local chemistry.
+
+* **Residual stress ↔ Crack propagation**
+  Welding stresses drive crack growth even without high applied loads.
+
+* **Marine environment ↔ Electrochemistry**
+  Chlorides sustain depassivation and inhibit repassivation.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption                    | If Violated                   | Consequence             |
+| ----------------------------- | ----------------------------- | ----------------------- |
+| 304 SS is corrosion resistant | Chloride SCC active           | Brittle cracking        |
+| Welding benign                | Sensitization present         | Passivity loss          |
+| Residual stress low           | High tensile stress           | SCC threshold exceeded  |
+| Passive film stable           | Local breakdown               | Pit-initiated cracks    |
+| Interior fluid dominant       | Exterior environment dominant | Misdiagnosed root cause |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Implicitly Active
+
+* Transgranular chloride SCC from corrosion pits
+* Crack coalescence across weld and base plate
+* Stepwise crack advance with little macroscopic deformation
+* Progressive loss of impact toughness
+
+### If Unchecked
+
+* Rapid through-wall penetration
+* Catastrophic rupture under hydrostatic loading
+* Environmental release of styrene
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Design Tradeoffs
+
+* AISI 304 selected for cost, availability, and styrene compatibility.
+* SCC resistance in marine environments was not prioritized.
+* Welding chosen over bolted construction.
+
+### What Was Not Optimized
+
+* Resistance to chloride SCC
+* Residual stress management
+* Weld quality control and joint preparation
+* Long-term environmental exposure effects
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Exterior tank surface experienced continuous chloride exposure.
+* Water cooling promoted condensation and salt deposition.
+* Interior contents were chemically benign and not causative.
+* Structural tilting altered stress distribution but was not addressed.
+
+---
+
+## 9. Temporal Evolution
+
+### Observed
+
+* Long incubation period (≈13 years).
+* Accelerated damage following weld repair.
+* Rapid crack growth once SCC initiated.
+
+### Not Modeled
+
+* Crack growth rate vs time.
+* Effect of cyclic thermal and loading conditions.
+* Progressive accumulation of residual stress with repairs.
+
+Time to failure is governed by **damage accumulation**, not uniform corrosion rate.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Observed Margins
+
+* Impact energy reduced to nearly half of expected values.
+* Local hardness reduced in cracked regions.
+* No ductility reserve once cracks formed.
+
+### Single-Point Vulnerabilities
+
+* Weld bead and HAZ
+* Sensitized base metal near foundation
+* Regions of highest tensile stress
+
+### Failure Mode
+
+* **Non-graceful**, leakage-driven failure with little warning.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Mild to moderate corrosion assumed.
+* AISI 304 considered adequate.
+* Welding effects underestimated.
+
+### Actual Operative Regime
+
+* Aggressive marine chloride exposure.
+* Multiple weld-induced sensitization cycles.
+* Combined residual and applied tensile stresses.
+
+### Robustness Assessment
+
+* The structure operated **outside the stable material–environment regime** from a corrosion standpoint.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### System and Operating Assumptions
+
+* The component is a **reactor heater tube** from an isomax hydroprocessing unit.
+* Tube material is **AISI 347 stainless steel**, OD 141.3 mm, wall thickness 18.37 mm.
+* Operating conditions:
+
+  * Temperature ≈ 522 °C
+  * Pressure ≈ 190 barg
+* These conditions are below the design limits of 530 °C and 204 barg.
+* Total service exposure before crack detection was approximately **210,000 hours**.
+* Cracks were detected during an overhaul via **ultrasonic testing**.
+
+### Process and Environmental Assumptions
+
+* The unit operates in a **hydrogen-rich, sulfur-containing environment**.
+* Sulfide scales formed on the internal surface during service.
+* During shutdown, **steam purging followed by exposure to air and moisture** occurred.
+* Alkaline washing was performed, but:
+
+  * Only duration was controlled
+  * pH was not monitored
+* No final **nitrogen or dry air purge** was applied before exposure to atmosphere.
+
+### Fabrication and Stress Assumptions
+
+* The tube contains **welded joints**, introducing residual stresses.
+* No effective **post-weld heat treatment (PWHT)** or stabilization heat treatment was performed after fabrication or repair.
+* Tensile stresses are assumed to arise from:
+
+  * Welding residual stresses
+  * Thermal gradients
+  * Possibly cold work during fabrication
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Metallurgical Assumptions
+
+* Despite being niobium-stabilized, AISI 347 experienced **sensitization**.
+* Carbide precipitation occurred preferentially near the weld and HAZ.
+* Long-term exposure near the critical temperature range degraded stabilization effectiveness.
+* Chromium depletion at grain boundaries occurred locally.
+
+### Chemical and Environmental Assumptions
+
+* Sulfur in deposits existed primarily as metal sulfides during operation.
+* During shutdown, sulfide scales reacted with oxygen and moisture to form **polythionic acids**.
+* Polythionic acids reached sufficient concentration to attack sensitized grain boundaries.
+* Acid formation was localized and transient, not reflected in bulk chemistry.
+
+### Operational Assumptions
+
+* Shutdown procedures were treated as low-risk relative to operating conditions.
+* The most aggressive corrosion environment occurred **during shutdown**, not during service.
+* Exposure time during shutdown was sufficient to initiate cracking.
+
+### Inspection Assumptions
+
+* Cracks initiated internally and were not surface-breaking initially.
+* Dye penetrant inspection was ineffective prior to sectioning.
+* Crack detection relied on volumetric UT inspection.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Stress Corrosion Cracking by Polythionic Acids
+
+**Principle**
+PTA SCC occurs when:
+
+1. Sensitized austenitic stainless steel is present
+2. Tensile stresses exist
+3. Polythionic acids contact the metal surface
+
+**Application**
+
+* Sensitization occurred near weld and HAZ.
+* Residual tensile stresses were present due to welding.
+* Polythionic acids formed during shutdown from sulfide scale oxidation.
+
+**Regime**
+
+* Typically occurs during **shutdown**, not during normal operation.
+* Crack propagation is **intergranular and branched**.
+
+---
+
+### 3.2 Sensitization and Chromium Depletion
+
+**Principle**
+Carbide precipitation at grain boundaries depletes chromium below passivation threshold.
+
+**Application**
+
+* Micrographs show ditch structure near weld.
+* Sensitization severity was highest in the HAZ.
+* The critical temperature for AISI 347 (~550 °C) is close to operating temperature.
+
+**Limits**
+
+* Stabilization by niobium is not fully effective for long-term exposure above 430 °C.
+
+---
+
+### 3.3 Electrochemical Acid Formation
+
+**Principle**
+Metal sulfides react with oxygen and moisture to form polythionic acids.
+
+**Application**
+
+* Sulfur detected at crack tips by EDS.
+* Internal deposits provided reactants.
+* Shutdown introduced oxygen and humidity.
+
+---
+
+### 3.4 Residual Stress and Crack Propagation
+
+**Principle**
+Crack growth occurs when stress intensity exceeds the SCC threshold.
+
+**Application**
+
+* High hardness in weld and HAZ indicates high residual stress.
+* Cracks propagated parallel and perpendicular to weld, reflecting complex stress fields.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Operation ↔ Shutdown Chemistry**
+  Sulfide formation occurs during operation, but damage occurs during shutdown.
+
+* **Sensitization ↔ Acid Attack**
+  Chromium-depleted grain boundaries are preferentially attacked by polythionic acids.
+
+* **Residual Stress ↔ Intergranular Cracking**
+  Stress drives crack growth once grain boundary corrosion initiates.
+
+* **Thermal History ↔ Stabilization Failure**
+  Long-term exposure near critical temperature negates Nb stabilization benefits.
+
+---
+
+## 5. Assumption–Principle Connection
+
+| Assumption                           | Violated Outcome                             |
+| ------------------------------------ | -------------------------------------------- |
+| Stabilized SS immune to PTA SCC      | Long-term exposure causes sensitization      |
+| Operating conditions dominate damage | Shutdown environment is critical             |
+| Alkaline wash sufficient             | pH not controlled, acids persist             |
+| Steam purge is protective            | Introduces moisture without oxygen exclusion |
+| Dye penetrant adequate               | Cracks initiate internally                   |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Implicitly Active
+
+* Intergranular SCC initiating at internal surface.
+* Crack branching along grain boundaries.
+* Preferential attack in HAZ due to higher sensitization and stress.
+* Accelerated crack growth during repeated shutdown cycles.
+
+### If Unmitigated
+
+* Through-wall cracking.
+* Sudden rupture under pressure.
+* Hydrogen release and fire hazard.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Design Tradeoffs
+
+* AISI 347 selected to avoid sensitization during welding.
+* No allowance made for long-term high-temperature exposure.
+* Shutdown corrosion protection treated as procedural rather than design-critical.
+
+### What Was Not Optimized
+
+* Resistance to PTA SCC during shutdown.
+* Monitoring and verification of neutralization effectiveness.
+* Stress relief and stabilization after welding.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Internal tube surface exposed to sulfur-bearing process gases.
+* External environment not causative.
+* Damage mechanism activated only when:
+
+  * Oxygen and moisture were introduced
+  * Sulfide scale was present
+* The most aggressive conditions occurred **off-line**.
+
+---
+
+## 9. Temporal Evolution
+
+### Observed
+
+* Long incubation period during service.
+* Crack initiation during shutdown.
+* Detection only after significant propagation.
+
+### Unaccounted
+
+* Cumulative effect of multiple shutdown cycles.
+* Crack growth rate per shutdown.
+* Progressive increase in sensitization over time.
+
+Failure is **time-dependent and cycle-dependent**, not load-dependent.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Observed Margins
+
+* Hardness gradient of ~70 HV between base metal and HAZ.
+* High residual stress not relieved.
+* No metallurgical robustness against shutdown chemistry.
+
+### Single-Point Vulnerabilities
+
+* Weld and HAZ regions.
+* Shutdown exposure without inert purging.
+* Sensitized microstructure near grain boundaries.
+
+### Failure Mode
+
+* **Silent and non-graceful**, with no external warning until advanced cracking.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Material chosen for high-temperature hydrogen service.
+* Assumed stabilization prevents sensitization.
+* Corrosion expected during operation, not shutdown.
+
+### Actual Operative Regime
+
+* Shutdown chemistry governs damage.
+* Polythionic acids dominate corrosion mechanism.
+* Residual stress and sensitization persist.
+
+### Robustness Assessment
+
+* The system operated **outside its corrosion-stability regime during shutdown**, not during normal operation.
