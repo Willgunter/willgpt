@@ -1,0 +1,129 @@
+1. Introduction
+In recent years, activities regarding wind energy projects in ice prone cold regions have increased due to availability of good wind resources, but atmospheric icing on wind turbine blades is considered as a potential hazard in proper utilization of these good wind resources. Atmospheric icing affects the wind turbine aerodynamic performance, which leads to a decrease in wind energy production (Muhammad S. Virk, 2011). Worldwide, installed wind energy capacity in ice prone regions is expected to reach 123 GW in year 2020 (Paul Dvorak, 2013). Wind energy production losses due to icing have been reported to lead up to a 17% decrease in Annual Energy Production (AEP) and 20–50% in aerodynamic performance (Yirtici et al., 2016). This highlights the importance of finding the innovative solutions for wind turbine operations in icing conditions. There is a growing need to improve knowledge about aerodynamic design and performance of large wind turbine rotor blades for optimal operations in icing conditions. The icing conditions within cold climate are insufficiently included in the design limits presently covered by the national and international standards for wind turbine design. The International Energy Agency (IEA) Task 19: ‘Wind energy in cold climates’ has also urged the development of new methods to enable better understanding of the effects of ice accretion on wind turbine performance and energy production (Laakso et al., 2009).
+Atmospheric ice accretion on wind turbine blades is caused by the impingement of super-cooled water droplets. Atmospheric ice is mainly classified as dry rime and wet glaze. Rime ice is soft and less dense and happens at very low temperatures, when 100% impinging droplets freeze, whereas glaze ice is harder and denser. Glaze ice happens close to freezing temperature, when freezing fraction of impinging droplet is not 100% and some droplets run along blade surface as very thin water film. Accreted ice has a range of shapes resulting from different temperatures and heat balance situations that causes different levels of aerodynamic performance losses. Duncan et al. (2008) made differentiation between rime and glaze ice shapes and found that glaze ice caused larger loss than rime ice. Virk et al. (2010) found that the ice mainly accretes along leading edge of the blade and reduces torque. This effects the wind turbine aerodynamic performance and results in Annual Energy Production (AEP) losses. The parameters causing wind turbine blade aerodynamic penalty can be divided into three categories: small-scale surface roughness, large-scale surface roughness and ice geometry. The shape of the accreted ice along the wind turbine blade depends upon many variables such as point of operation, the geometry of the wind turbine blade, relative wind velocity, atmospheric temperature, droplet diameter and the liquid water content (Drage Peter, 2009). Better understanding of ice accretion effects on the blade aerodynamics can help to optimize its design and reduce the AEP losses.
+Ice accretion physics and its effects on wind turbine's aerodynamic performance can be analysed using both experimental and numerical approaches. In recent years, advance CFD based numerical techniques have begun to play a significant role both in simulating and determining the performance of wind turbine blades under icing conditions (Tagawa et al., 2018; Virk et al., 2010; Jin and Virk, 2018; Liang et al., 2018; Sokolov et al., 2018; Timmer, 2010; Han et al., 2018). Lab based icing tunnel experimenters provide more accurate picture of ice accretion, however, it have limited insight of the air flow and droplet behaviour, whereas CFD simulations can provide the economical insight details of air flow physics and droplet behaviour, which is difficult to obtain from icing tunnel experiments.
+DU96-W-180 airfoil has been an attractive choice for large wind turbine blades and has been used for NREL 5 MW wind turbine. This is an asymmetric profile with 18% thickness and has aerodynamic features, such as high-lift-to-drag ratio, insensitivity to contaminations and low noise (Gao et al., 2017; van Rooij and Timmer, 2003; Timmer and Van Rooij, 2003). Many Researchers have carried out analysis to investigate DU series wind turbine blade profiles using experimental and numerical techniques (Virk et al., 2010; Timmer and van Rooij, 2001). Linyue Gao et al. have done the experimental study of ice mitigation for DU96-W-180 airfoil (Gao et al., 2018; Gao et al., 2017), but not much work has been carried out by the researchers to study the performance of DU96 airfoil under icing conditions. Matthew C. Homola et al. (Homola et al., 2012) have done CFD based numerical study to simulate the ice on DU96 airfoil as part of NREL 5 MW wind turbine study, but no published work is available regarding icing tunnel experimentation of DU96 airfoil.
+This paper is focused on better understating of ice accretion physics and its resultant effects on aerodynamic performance of DU96-W-180 airfoil. Both icing tunnel experiments and CFD based numerical simulations have been carried out to better investigate the ice accretion physics and resultant rate and shapes of accreted ice for both rime and glaze ice conditions. Icing tunnel experiments are carried out at Cranfield University UK, whereas CFD based numerical simulations are carried out using ANSYS-FENSAP ICE and FLUENT.
+2. Experimental analysis
+2.1. Experimental setup
+The experimental study is carried out at icing wind tunnel laboratory of Cranfield University (CU), UK. DU96 wind turbine blade profile model with a span of 758 mm and chord length of 500 mm was used. The surface of blade profile model was made of Galvanized steel (VGAL.V.D × SID + Z275) with an average surface roughness of 0.9 μm. Icing wind tunnel facility of CU is able to create natural icing conditions. This icing tunnel has test section (761 × 761 mm) and can operate for Medium Volume Diameter (MVD) ranging from 15 to 80 μm, Liquid Water Content (LWC) from 0.05–3 g/m3 and air temperature from −30 to +30 °C. Fig. 1 shows the icing wind tunnel setup and test cross section.
+Fig. 1
+Download: Download high-res image (224KB)
+Download: Download full-size image
+Fig. 1. CU icing wind tunnel setup.
+
+To closely monitor the ice accretion on the blade profile, three different High Definition (HD) cameras (one for side, one for top and one for top view) were used for video recording and images. Accreted ice shapes were extracted and sketched after each experiment. These experiments were carried out at Reynolds number = 3 × 106 for both dry rime and wet glaze ice conditions. Table 1 shows the operating conditions used for the experiments.
+Table 1. Icing tunnel operating conditions.
+
+Test	Ice type	Velocity (m/s)	Temperature (°C)	LWC (g/m3)	MVD (microns)	AOA (degree)	Icing time (mins)
+1	Glaze	77	−5	0.35	20	0	15
+2	Rime	70	−20
+To closely monitor the icing tunnel operations, various operating parameters of icing tunnel are closely monitored to make sure the smooth operations. MVD of 20 μm is used with the droplet distribution spectrum consists of 60 bins. Fig. 2 shows the droplet distribution spectrum, variation of icing tunnel air speed and total air temperature at tunnel test section for both rime and glaze ice conditions.
+Fig. 2
+Download: Download high-res image (116KB)
+Download: Download full-size image
+Fig. 2. Variation of wind speed, temperature and droplet distribution spectrum in CU icing tunnel.
+
+2.2. Experimental results
+Fig. 3 shows the experimental ice growth with time where results show a significant difference in ice growth for both rime and glaze ice conditions. Views from three different HD cameras were used to monitor the ice growth for this study.
+Fig. 3
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 3. Overview of experimental ice growth at various time steps for 15 min.
+
+Fig. 3 shows the ice accretion process at different time intervals for both rime and glaze ice conditions. Results show that ice mainly accreted along leading edge of the blade profile. Analysis shows that for rime conditions, accreted ice was dense and its shape along stagnation line was smooth. Further down from leading edge, tight grain hard rime ice with direction of feather growing parallel to the flow is observed. For rime conditions, ice accretion extended till 20–25% of the profile chord length. For glaze conditions, clear ice is observed along stagnation line with horn shape. Large individual feathery spikes, pointing perpendicular to the profile surface is observed. After each experiment, the ice shapes were extracted from center section of the blade profile. Experimental ice shapes with cut-outs and ice thicknesses are shown in Fig. 4. Streamline ice shapes are observed for the rime ice conditions, whereas complex horn type shapes are found in case of glaze ice conditions.
+Fig. 4
+Download: Download high-res image (784KB)
+Download: Download full-size image
+Fig. 4. Experimental ice shapes for glaze and rime ice conditions.
+
+3. Numerical analysis
+3.1. Numerical setup
+CFD based multiphase numerical simulations are carried out using ANSYS-FENSAP and FLUENT to study the airflow behaviour, droplet behaviour and to simulate the surface thermodynamics and resultant ice accretion. Aerodynamic coefficients (CL and CD) of clean and iced profiles are calculated and compared. Ice shapes form numerical simulations are compared with the experimental data. CFD simulations provided a detailed overview of the airflow and droplet behavior, which is not easy to study from experiments. Atmospheric ice accretion on blade profile can be numerically simulated by means of integrated thermo-fluid dynamic models, which involve the fluid flow simulation, droplet behaviour, surface thermodynamics and phase changes. Airflow behaviour is simulated by solving the nonlinear partial differential equations for the conservation of mass, momentum and energy.
+(1)
+(2)
+(3)
+where ρ is the density of air, v is the velocity vector, subscript α refers to the air solution, T refers to the air static temperature in Kelvin, σij is the stress tensor and E and H are the total energy and enthalpy, respectively. The sand grain roughness for the iced surface is calculated using following Shin et al. roughness model (Shin Jaiwon, 1992).
+(4)
+where MVD is the droplet Median Volume Diameter (in microns), whereas the corresponding value of sand-grain roughness is obtained:
+(5)
+Two phase flow (air and water droplets) is numerically simulated using the Eulerian approach, where the super cooled water droplets are assumed to be spherical. The Eulerian two phase fluid model consists of the Navier-Stokes equation with the water droplets continuity and momentum equation. The water droplet drag coefficient is based on the empirical correlation for the flow around the spherical droplets described by Clift et al. (1978).
+(6)
+(7)
+where α is the water volume fraction, Vd is the droplet velocity, CD is the droplet drag coefficient and Fr is the Froude number. The numerical study is carried out for custom droplet distribution spectrums at MVD of 20 μm. Surface thermodynamics is calculated using the mass and energy conservation equations, considering the heat flux due to convective and evaporative cooling, heat of fusion, viscous and kinetic heating.
+(8)
+(9)
+The coefficients ρf, cf, cs, σ, ε, Levap, Lfusion are physical properties of the fluid. The reference conditions 
+, V∞, LWC are the airflow and droplets parameters. 3D grid is generated by extruding a single cell layer in the span wise direction. ALE (Arbitrary Langrangian Eulerian) formulation is used for the grid displacement during ice accretion, which adds the grid speed terms to the Navier-Stokes equations to account for the mesh velocity (Manual, 2010). Mesh sensitivity study was carried out using coarse, medium and fine meshes to accurately determine the boundary layer characteristics (shear stress and heat flux). For each case, the mesh was automatically displaced after each time shot to account for the ice growth without any change in mesh size. During mesh sensitivity analysis, number of mesh elements and y + value < 1 for first cell layer was selected based upon the heat flux calculations, where a numerical check was imposed that the heat flux computed with the classical formulae dT/dn should be comparable with the heat flux computed with the Gresho's method. Mesh sensitivity study showed that the effect of mesh size on droplet solution was negligible, however some flow quantities including convective heat flux on the blade surface was sensitive to the mesh size, resulting in higher instantaneous ice growth in regions with higher convective heat loss. After mesh sensitivity analysis, O type structured numerical grid with y + value < 1 and total 48,450 hexahedral elements was used for final simulations, shown in Fig. 5.
+Fig. 5
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 5. Numerical grid for DU96-W-180 airfoil.
+
+K-omega SST turbulence model is used as a compromise between acceptable computational cost and required accuracy for simulating the turbulent flow. Sand grain roughness height for the iced surface was calculated with an empirical correlation described by Shin and Bond (1992). Numerical simulations are carried out at conditions specified in Table 2.
+Table 2. Numerical setup.
+
+Chord length (m)	0.5
+Angle of attack (AOA, degree)	0
+Air velocity (m/s)	70 (rime), 77 (glaze)
+Temperature (Celsius)	−20 (rime), −5 (glaze)
+MVD (microns)	20
+Droplet distribution	Custom distribution from CU (see Fig. 2)
+LWC (g/m3)	0.35
+Icing time (mins)	15
+3.2. Numerical results
+Numerical simulations have been carried out to study the ice accretion physics and its effects on airflow and droplet behaviour. In this numerical study, air flow and droplet behaviour is analysed at different time intervals during ice accretion, which is not easily possible during icing tunnel experiments. Quasi-steady state multi-shot numerical simulations approach is used where total icing duration (15 min) is divided in 23 time steps. Detailed analysis have been carried out to analyses the results at each time step.
+3.2.1. Airflow behavior
+Analysis of airflow behavior show a change in velocity and pressure distribution along pressure and suction sides of the blade profile. A shift in the position of stagnation point is observed as ice accretes along leading edge. Not much flow separation is observed in case of rime ice conditions as compared to the glaze ice conditions. Fig. 6 shows the velocity contours along leading edge for glaze and rime ice conditions at different time steps.
+Fig. 6
+Download: Download high-res image (801KB)
+Download: Download full-size image
+Fig. 6. Velocity magnitude at different time steps.
+
+During the ice accretion process, the surface roughness of the blade profile changes significantly, which effects the shear stresses and heat fluxes. This leads to a change in the boundary layer thickness which influences the convective heat transfer and droplet sticking efficiency along the blade surface. To better understand the effects of surface roughness change on shear stress and heat flux, analysis has been carried out. Fig. 7 shows the surface roughness change during the ice accretion process whereas Fig. 8 shows the heat transfer comparison for both rime and glaze ice conditions.
+Fig. 7
+Download: Download high-res image (896KB)
+Download: Download full-size image
+Fig. 7. Surface roughness variation during ice accretion.
+
+Fig. 8
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 8. Heat flux variation during ice accretion.
+
+Analysis shows that surface roughness and heat flux increases as ice accretion process progresses. Results show higher values of the surface roughness along leading edge of the blade profile, mainly due to higher droplet collision which leads to more ice accretion. Leading edge sections with higher surface roughness also shows higher values of surface heat transfer during ice accretion.
+3.2.2. Droplet behaviour
+The droplet behaviour at each time step is analysed, where results show a change in droplet collision efficiency with the change of blade profile shape during ice accretion process. Fig. 9 shows the droplet collision efficiency variation at five different time intervals for rime and glaze ice conditions. Results show that droplet collision efficiency is higher at start of the ice accretion process, but as ice accretes, a decrease in the droplet collision efficiency is observed. This change in droplet collision is mainly due to change in blade profile shape particularly at leading edge. Along leading edge significant ice accretes due to higher droplet collision efficiency, whereas water runback process also occurs during ice accretion particularly for glaze ice conditions which results in small patches/feathers of ice along other areas of the blade profile. This leads to a change in droplet collision efficiency along blade profile during ice accretion process. Fig. 9 shows the droplet collision efficiency variation during ice accretion process for both rime and glaze ice conditions.
+Fig. 9
+Download: Download high-res image (905KB)
+Download: Download full-size image
+Fig. 9. Droplet collision efficiency at different time intervals.
+
+3.2.3. Ice accretion
+Fig. 10 shows the water run back film thickness variation along blade profile surface during ice accretion process. Due to very low temperature for rime ice conditions, the droplet freezing fraction is 100% due to which no water run back phenomena is observed for rime ice conditions, whereas for glaze ice conditions, analysis shows water run back along profile section. Fig. 11 shows the ice shapes of DU96 blade profile obtained from experimental and numerical simulations. A reasonably good agreement is found for the ice shapes particularly for the ice growth along stagnation point of the blade profile for both rime and glaze ice conditions. For glaze ice conditions, due to water run back and high aerodynamic heat flux along leading edge, complex horn shapes are obtained during the experiments. These ice horns are not captured very well in the numerically simulated ice shapes. For glaze ice conditions, when high speed water droplets collide with the airfoil surface, they do not get enough time to freeze and following droplets hit. Incoming airflow pushes these droplets further away from the stagnation line which leads to accumulation of these droplets along upper and lower sides of the airfoil as thin water film. This phenomena is not easy to capture during numerical simulations. To better understand this, water film thickness was simulated at each time step, shown in Fig. 10, where results show a clear trend of thick water film along leading edge.
+Fig. 10
+Download: Download high-res image (497KB)
+Download: Download full-size image
+Fig. 10. Water runback film thickness for glaze ice conditions.
+
+Fig. 11
+Download: Download high-res image (934KB)
+Download: Download full-size image
+Fig. 11. Accreted ice shapes comparison for rime and glaze ice conditions.
+
+4. Aerodynamic analysis of experimental ice shape profiles
+Airflow and droplet behaviour along blade profile surface is influenced by the accreted ice shape. During ice accretion process the shape of the blade profile surface changes significantly, which also changes the flow behavior and leads to a change in aerodynamic performance of the blade profile. This section presents a detailed numerical study to analyze the change in aerodynamic performance of the DU96. Experimental ice shapes (after 15 min) are used for this study, where a comparison is made between aerodynamic characteristics of the clean and experimental iced blade surfaces. Fig. 12 shows the velocity streamlines along the experimental ice shape obtained from rime and glaze ice conditions.
+Fig. 12
+Download: Download high-res image (715KB)
+Download: Download full-size image
+Fig. 12. Velocity streamlines along iced DU96 blade profiles.
+
+To analyze the change in aerodynamics characteristics of the iced profile, a detailed parametric study has been carried out at different angles of attack. The iced profile shapes obtained from experiments are used where the flow is simulated at different AOA and comparison is made with the aerodynamic characteristics of clean DU96 airfoil. These simulations are carried out using ANSYS-FLUENT. Fig. 13 shows the lift and drag coefficients comparison.
+Fig. 13
+Download: Download high-res image (341KB)
+Download: Download full-size image
+Fig. 13. Comparison of lift and drag coefficients.
+
+Analysis of Fig. 13 shows a decrease in the aerodynamic characteristics of ice profile when it is compared with the clean profile. This change in the aerodynamic characteristics is mainly due to a change in the blade profile aerodynamic shape due to ice and surface roughness, which affects the boundary layer flow behaviour. At all angles of attack, a significant increase in the drag coefficient is observed due to flow separation. As an overall, higher drag coefficient is found for glaze ice shapes, which leads to higher aerodynamic performance loss.
+5. Conclusion
+This ice accretion study for DU96 airfoil showed more streamlined ice shape for dry rime ice conditions, whereas complex horn type ice shape was found for case of glaze ice. This is mainly due to difference in droplet freezing fraction, as due to low freezing fraction for glaze ice conditions, higher water run back and aerodynamic heat flux along leading edge is observed which resulted in complex horn type ice shapes. This phenomenon is difficult to capture during numerical simulations and requires further improvements in the existing numerical models of wet ice accretion. Numerical results showed that blade profile surface roughness and heat flux changes significantly during ice accretion process which effects the airflow and droplet behavior. The change in accreted ice shape effects the airflow behavior and aerodynamics performance. Analysis show a decrease in the aerodynamic characteristics of the iced airfoils when it is compared with the clean. This degradation in aerodynamic performance is higher in case of glaze ice, as compared to the rime iced profile. Icing tunnel experiments provided a good overview of the ice accretion process, but it is not easy and economical to study the airflow and droplet behaviour during ice accretion process in experimental study. Therefore CFD based numerical techniques can be a good tool to study the change in air flow and droplet behaviour during ice accretion process.
