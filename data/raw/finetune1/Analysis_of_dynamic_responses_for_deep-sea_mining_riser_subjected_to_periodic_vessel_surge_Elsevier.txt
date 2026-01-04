@@ -1,0 +1,268 @@
+Abstract
+The deep-sea mining riser serves as critical equipment for mineral hydraulic lifting. Its bottom and top end are respectively connected to the intermediate warehouse and the surface support platform. Under the incorporated effect of vessel surge and ocean currents, the riser may experience particular dynamic responses which differ from the traditional vortex-induced vibrations (VIV), endangering a threat to structural safety. This study employs a combined Wentzel-Kramers-Brillouin (WKB) and wake oscillator model approach to investigate the VIV characteristics under vessel surge. The accuracy of the numerical methods in this paper has been validated by comparing with experimental results. Considering the VIV of the riser with different intermediate warehouse masses under vessel surge, it could be observed that the vibration modal order decreases as the mass increases. Interestingly, the riser exhibits intermittent VIV features, and we find that the vibration can be divided into two stages: the distinct stage and the moderate stage. Under these two stages, the VIV characteristics expose obvious standing wave and traveling wave phenomenon respectively. When comparing the effect of vessel surge on the VIV characteristic, it could be noted that in the same vibration mode, the phenomenon that lower-order frequencies will appear near the dominant frequency due to the vessel surge. Under different mode, vessel surge could induce high-order modes. Furthermore, we discover two forms of VIV: continuous VIV and intermittent VIV. An increase in the surge amplitude causes a transition in the vibration response from continuous to intermittent VIV. It is observed that the intermittent VIV period coincides with the vessel surge period. The vibration frequency of the riser nodes demonstrates the involvement of lower-order frequencies, which align with the frequency of the vessel surge. The nodal trajectories alternate between crescent-shaped and “8”-shaped patterns as the KC number increases.
+Previous article in issue
+Next article in issue
+Keywords
+Vessel surgeVIVDistinct and moderate vibration stagesContinuous and intermittent formsMotion trajectory
+1. Introduction
+The vertical lifting riser is a critical component of deep-sea mining systems. Different from traditional pipelines applied in offshore oil and gas extraction, deep-sea mining risers are subject to unique constraints (Wu et al., 2020). Specifically, the top of the riser is connected to a surface support platform, while the bottom is attached to an intermediate warehouse, creating a weak constraint condition at the bottom and dynamic boundary condition at the top (as illustrated in Fig. 1) (Jin et al., 2023; Guo et al., 2025). During operation, the riser undergoes reciprocating motion at the top due to the oscillations of the support platform caused by wind and wave forces. This motion, combined with the incoming flow, can lead to structural damage, thereby compromising the safety and stability of the entire mining system (Li and Chen, 2025). Consequently, investigating the VIV characteristics of deep-sea mining risers, particularly under the influence of dynamic top boundary conditions and varying incoming flow conditions, holds significant engineering importance.
+Fig. 1
+Download: Download high-res image (437KB)
+Download: Download full-size image
+Fig. 1. Deep-sea mining system diagram (Jin et al., 2023).
+
+The research on the VIV characteristics of risers is primarily categorized into two approaches: numerical simulations (Huang et al., 2007) and laboratory testing (Liu et al., 2023). For instance, in the aspect of model experiments, VIV characteristics of a flexible riser in steady flow conditions are mainly investigated by many scholars in the past few decades. The VIV of a flexible riser hinged at both sides underneath a two degree of freedom horizontally oscillating platform is experimentally investigated by Gao et al. (2023) and they have reported the experimental results of the VIV response of an inclined flexible riser with various oblique angles ranging from 0° to 60°. A series of experiments are conducted to improve the understanding of the intrinsic relationship between the in-plane and out-of-plane responses of a flexible riser subjected to a sheared current under different velocities (Zhu et al., 2019). The effects of the tension amplitude ratio and tension frequency ratio on the dynamic characteristics of flexible riser fixed at both sides have been discussed by Ma et al. (2020). Guo et al. (2024) combine model testing with numerical analysis to exam the nonlinear dynamic behavior of a three-dimensional mining riser under the effects of gas-liquid-solid three-phase flow and platform heave.
+In terms of numerical simulation, CFD model and empirical model are the most universal numerical methods. The CFD method is to figure out the unsteady flow time domain information of the riser wake field with the Navier-Stokes (N-S) equation, and the finite element method (Yamamoto et al., 2004). The influence of the cylinder on the VIV of the riser is studied, and the empirical formula for calculating the natural frequency of the two-end articulated riser is given by Lin and Wang (2019). The suppression effects on VIV of the riser with different kind of additional structure are investigated on numerical and experimental method by Han et al. (2024), Liang et al. (2018), Li et al. (2023) and Song et al. (2023).The effects of inner fluid induced centrifugal force and Coriolis force on the parametric instability of deep water drilling risers is explored by Meng et al. (2018). In empirical modeling studies, researchers predominantly adopt the wake oscillator model to equivalently incorporate hydrodynamic forces into structural governing equations, thereby enabling numerical iterative solutions for structural dynamic responses. Notably, the integration of this empirical approach with the WKB approximation technique has proven to be a computationally efficient methodology for such fluid-structure interaction problems (Chatjigeorgiou, 2008). Especially when analyzing the dynamic response characteristics of risers in unsteady flow fields under different boundary conditions, the flexible applicability and high efficiency computing ability of this method show significant advantages. Cheng et al. (2002) employ the WKB-based dynamic stiffness method to analyze the linear vibration characteristics of marine risers, demonstrating its effectiveness in determining natural frequencies and dynamic responses under varying boundary conditions. Nishi and Doan (2015) employ the WKB method and wave oscillator model to investigate the optimal spatial arrangement of damping devices along riser pipes in sheared flow conditions. Zou et al. (2023) employs the WKB method to investigate the natural frequency characteristics of a deep-sea mining beam riser under the influence of a mixing pump, revealing that the pump-induced excitation frequencies significantly alter the riser vibration modes. A dynamic model for high-speed helical flow is developed to investigate the influence of key parameters of internal helical flow on the VIV response of the deep sea mining riser by Zhang and Chen (2022). Based on a two-way fluid-structure interaction model, Li et al. (2025) reveal the VIV response and key parameters of a rigid lifting pipe, highlighting the interaction between internal and external flow fields.
+In summary, current research on VIV of risers has been predominantly focused on structural response analysis under steady flow conditions. In contrast, the more complex operating condition involving vessel surge coupled with steady current - particularly concerning the global vibration response mechanisms of deep-sea mining risers with weak bottom constraints - remains substantially understudied (Liu et al., 2020). Currently, only a limited number of scholars have investigated the vibration of traditional risers (hinged at both end) under unsteady inflow conditions, and their studies are solely based on laboratory experiments. Wang et al. (2016) carried out a scaled model test to evaluate the hydrodynamic performance of a free-hanging water intake riser under vessel surge and developed a method for time domain modelling of VIV of free-hanging risers subjected to vessel surge based on a modified van der Pol wake oscillator. Kang et al. (2016) presents the results of VIV experiments on horizontal cylinders in two directions with three different sizes under conditions of different natural frequencies to analyze the motion trajectories. Based on the self-circulation experimental tank, Zhu and Liu (2024) tested the VIV response of the suspension linear flexible riser with the length-diameter ratio of 125 hinged at both ends under the platform movement. In order to investigate the effect caused by floating bodies on VIV of risers, a composite pipe with the aspect ratio of 250 fixed at both side is tested under coupled uniform and shear oscillatory flow by Zhang et al. (2020). However, the high cost of such experiments, coupled with issues related to manufacturing and measurement precision, makes it difficult to reproduce results reliably.
+In this study, an Euler beam model incorporating an intermediate warehouse is proposed. The beam equation is simplified using the WKB method, and the static characteristics of the deep-sea mining riser are analyzed for varying mass conditions in both the hollow and full warehouse states during the operation of the bottom intermediate warehouse. Additionally, by integrating the empirical wake oscillator model and dynamic boundary conditions, the VIV characteristics of the riser are calculated for two flow directions: cross-flow (CF) and in-line (IL). Furthermore, the two-dimensional motion trajectory of the intermediate warehouse at the base of the riser, influenced by vessel surge, is examined, and the VIV characteristics of the riser are compared for different amplitudes and periods of vessel surge.
+2. Method
+2.1. WKB model
+When calculating the deep-sea mining riser structure, it can be simplified as an Euler beam model, that is, the influence of shear and torsion effects can be ignored. The governing equation is shown in Eq (1) and Eq. (2).
+(1)
+(2)
+Among them, 
+ represents the mass per unit length of the riser, 
+ is the displacement in the IL direction, 
+ is the displacement in CF direction, 
+ is the position of the riser along the length, 
+ is the time item, 
+ is the damping item, 
+ represents the axial tension per unit length of the riser, including buoyancy, gravity and the effect of intermediate warehouse. 
+ is the bending stiffness of the riser, and 
+ is the external fluid force. The fluid force 
+ in the IL direction is denoted by 
+ and the fluid force in the CF direction is denoted by 
+.
+The solution of Euler beam model is calculated by modal decomposition method. Taking the CF direction as an example, the vibration response 
+ is decomposed into a time-dependent function 
+ and a displacement-dependent modal function 
+, as shown in Eq. (3).
+(3)
+Meanwhile, in order to simplify the Euler beam equation, all the coefficient expressions of the equation are dimensionless. The variable 
+, 
+, 
+ is selected as the main variable. 
+ represent the length of the riser. The Euler beam equation is transformed into the following Eq. (4).
+(4)
+Where 
+ denotes the dimensionless of bending stiffness, 
+ represents the dimensionless of axial tension, 
+ represents the dimensionless total mass of the riser.
+When solving the static state of the riser, it is not necessary to consider the external force. In practical applications, the parameters of the riser change slowly along the z-axis length. Therefore, this paper proposes a WKB approximation method to simplify the calculation by introducing a very small value 
+, 
+ ≪1. Assuming that 
+ (Zou et al., 2023). The modal function expression 
+ is further converted into an Eq. (5).
+(5)
+Among them, 
+, 
+, 
+, 
+ are the undetermined coefficients, when calculating under different boundary conditions, this paper analyzes the top vessel surge and the free riser at the bottom. The boundary conditions of IL and CF directions is shown as the following Eq. (6).
+(6)
+ denotes the amplitude and 
+ stands for the natural frequency of the vessel surge. Substituting the boundary conditions into the general term of Eq. (5), it can be expressed as a 4 × 4 order coefficient matrix. In order to obtain the specific form of the modal shape function, assuming that the determinant of the coefficient matrix is equal to zero, the coefficient array containing the characteristic frequency is solved.
+The influence of different initial values can be eliminated by the normalized characteristic function, as shown in Eq. (7). Finally, the modal shape function of the riser is obtained.
+(7)
+In order to obtain the vibration response of the riser in 
+ (IL) and 
+ (CF) direction, the following describes how to solve the Euler-Bernoulli beam model with external fluid force 
+, 
+, as shown in Eq. (8) and Eq. (9).
+(8)
+(9)
+Where 
+ represents the relative velocity between the coming flow and the riser. In this study, the coming flow accounts for the coupled effects of vessel surge and uniform ocean current, where the surge motion is characterized by a cosine function. Based on the velocity superposition principle, the resultant inflow velocity can be expressed by Eq. (10).
+(10)
+Where 
+ represents the uniform flow velocity, 
+ denotes the amplitude of the vessel and 
+ stands for the frequency of the vessel surge.
+In Eq. (8), (9), the meanings of the other parameters are as follows: the total resistance coefficient of the riser, which is equal to the sum of the average resistance coefficient 
+ and the pulsating resistance term 
+. 
+ indicating the lift coefficient.
+In this study, the wake oscillator model, proposed by Tamura and Matsui (1980), is used to calculate the 
+ and 
+ in the IL and CF direction, as shown in Eqs. (11), (12).
+(11)
+(12)
+This wake oscillator model is one of the forced van der Pol wake oscillator models and has been widely used in the study of VIV of rigid cylinders or flexible risers, such as (Iwan and Blevins, 1974; Facchinetti et al., 2004; Violette et al., 2007). Where 
+ symbol represents the characteristic frequency of the wake oscillator, which is consistent with the vortex shedding frequency around the fixed cylinder. 
+ is the self-excitation coefficient. In this paper, the value 
+ is 0.4, the value 
+ is 32, the value 
+ is 96. (Nishi and Doan, 2015; Xu et al., 2023).
+The 4th order Runge-Kutta method is employed to numerically iterate the wake oscillator variables 
+ and 
+. The obtained unsteady fluid loads are then coupled with the structural multi-modal shapes to solve for the time domain dynamic response of the structure.
+3. Method validation
+3.1. Method validation of steady flow
+To validate the reliability of the numerical method employed in this study, numerous scholars have conducted verification studies (Holmes et al., 2006; Xu et al., 2008) compared the experimental results of (Trim et al., 2005)). In the experiment, a flexible riser fixed at both sides with a length of 38m, a diameter of 27 mm, and a length-to-diameter ratio of 1407 was used to investigate the VIV characteristics under a uniform flow velocity of 0.4 m/s. The detailed physical parameters of the riser are provided in Table 1. The reliability of the proposed method is confirmed by comparing the root mean square (RMS) values and trends of the numerical simulation results with the experimental data. This confirms the robustness and accuracy of the WKB-based wake oscillator model employed in this study, demonstrating its suitability for modeling the riser dynamics. However, there still exist several differences between the experimental conditions and present numerical approach. The experimental study by employed a 38m horizontally submerged riser with hinged-hinged boundary conditions to investigate vortex-induced vibrations. In contrast, the current study focuses on a vertically suspended deep-sea mining riser, without accounting for axial gravity effects. Additionally, while the experimental top tension was reported to range from 4000 to 6000 N, the specific value was not provided. The use of 5000 N in our validation may therefore contribute to certain deviations. To further demonstrate the validity of the present numerical method, we have supplemented the analysis with a comparison of the root mean square of the average maximum displacement for the 38-m riser under various inflow velocities. As shown in Fig. 2, although some discrepancies between the present results and experimental data are observed in the velocity range of 0.2–0.6 m/s, the overall trend of the maximum RMS values agrees well with experimental observations. It can also maintain a high degree of consistency at other flow rates. Therefore, the present method is considered appropriate for subsequent numerical investigations.
+Table 1. Parameters of the 38m riser parameters (Trim et al., 2005).
+
+parameter	value	Unit
+Length of riser L	38.000	m
+Bending stiffness EI	598.500	N·m2
+External diameter D	0.027	m
+Quality per unit length m	0.940	kg·m−1
+Length-to-diameter ratio	1407.500	–
+Fig. 2
+Download: Download high-res image (417KB)
+Download: Download full-size image
+Fig. 2. Verification of the modified WKB method.
+
+Moreover, the numerical method developed in this study is specifically designed for deep-sea mining risers. The implemented boundary conditions are more suitable for a configuration with the hinged top and free bottom. This difference in structural constraints may explain the partial discrepancy in RMS values near the top region compared to the experimental data. In response, additional validation has been performed specifically for a riser model with the hinged top and free bottom. Since the boundary condition of the deep-sea mining riser is hinged at the top and free at the bottom, this study also references the model test results conducted by Bai et al. (2024) and Wang et al. (2024). The detailed physical parameters of the riser are provided in Table 2. The specific verification steps are elaborated in reference (Qian et al., 2025). The verification results are shown in Fig. 3.
+Table 2. Parameters of the 6.12m riser parameters (Bai et al., 2024).
+
+parameter	value	Unit
+Length of riser L	6.120	m
+Bending stiffness EI	28.140	N·m2
+External diameter D	0.029	m
+Quality per unit length m	1.369	kg·m−1
+Fig. 3
+Download: Download high-res image (228KB)
+Download: Download full-size image
+Fig. 3. Verification of 6.12 m cantilever riser.
+
+3.2. Method validation of oscillatory flow
+To evaluate the predictive capability of the numerical method employed in this study for VIV characteristics under time varying flow conditions, a comparative analysis is conducted with the oscillatory flow test results of a 4m riser model, as presented by (Fu et al., 2014). In the experiment, the riser model is laterally hinged and fixed at the bottom of the trailer, fully submerged in the towing tank, and subjected to oscillatory motion via fixtures at both ends. The physical parameters of the riser are provided in Table 3. The comparison includes the time history response and wavelet transform analysis of the vibration at the mid-span node of the riser, as shown in Fig. 4. The results indicate that the amplitude and period of the vibration at the node exhibit strong agreement with both the experimental data and the numerical simulations, thereby confirming the reliability and accuracy of the numerical method in predicting VIV behavior under time varying flow conditions.
+Table 3. Parameters of the 4m riser parameters (Fu et al., 2014).
+
+parameter	value	Unit
+Length of riser L	4.000	m
+Bending stiffness EI	10.500	N·m2
+External diameter D	0.024	m
+Quality per unit length m	0.690	kg·m−1
+Top tension Ttop	500.000	N
+Oscillation amplitude A	Case1 and 2: 0.68	m
+Oscillation period T	Case1: 16.5/Case 2: 10.2	s
+Fig. 4
+Download: Download high-res image (663KB)
+Download: Download full-size image
+Fig. 4. Verification results of riser node response under oscillating flow.
+
+4. Results and discussion
+4.1. Influence various mass of the intermediate warehouse
+This section investigates the effect of the intermediate warehouse at the bottom of the deep-sea mining riser on the VIV characteristics of the riser under vessel surge. The amplitude and frequency of vessel surge are represented by the Keulegan-Carpenter (KC) number, as shown in Eq. (13). Among them, 
+ represents the amplitude of the oscillatory flow velocity, and 
+ represents the oscillatory period; the flow velocity is represented by the dimensionless reduced velocity 
+, as shown in Eq. (14). Here, 
+ represents the first-order natural frequency of the riser, and in this paper, the value of 
+ is taken as 0.416 (Trim et al., 2005)).
+(13)
+(14)
+The riser parameters remain consistent with those of the 38m classical riser discussed in the previous section. The vibration characteristics of the riser under vessel surge conditions, with the KC number of 30 and a period of 20 s, are examined for mass variations of the intermediate warehouse M ranging from 100 to 500 kg. Fig. 5 illustrates the vibration response envelope and root mean square curve of the riser in the CF direction for different intermediate warehouse masses. Fig. 6 presents the vibration response envelope and root mean square curve of the riser in the IL direction under varying mass conditions of the intermediate warehouse. As the mass of the intermediate warehouse at the bottom of the riser increases, the vibration order of the riser decreases. Specifically, with mass varying from 100 to 140 kg of the intermediate warehouse in the CF direction, the riser exhibits a 4th order vibration. When the mass of the intermediate warehouse increases to 160–340 kg, the riser exhibits a 3rd order vibration. For a mass range of 360–500 kg, the riser demonstrates a 2nd order vibration. The vibration response follows a pattern of initial increase followed by a decrease as the mass increases. The vibration characteristics in the IL direction are similar to those in the CF direction; however, the overall vibration mode is of a higher order. As the mass of the intermediate warehouse increases, the mean vibration response in the IL direction decreases.
+Fig. 5
+Download: Download high-res image (836KB)
+Download: Download full-size image
+Fig. 5. Vibration response and RMS value of riser in CF direction.
+
+Fig. 6
+Download: Download high-res image (965KB)
+Download: Download full-size image
+Fig. 6. Vibration response and RMS value of riser in IL direction.
+
+In this section, the influence of different intermediate warehouse masses on the VIV characteristics of risers in each stage under vessel surge is further investigated. Fig. 7 illustrates the time dependent displacement of the riser in the CF and IL directions. The results are presented for intermediate warehouses with mass of 100 kg and 500 kg respectively. Focusing on the CF direction, the vibration modes of the riser are observed as fourth and second order modes under different mass. It is evident from the figure that the riser intermittent VIV characteristics in both directions are influenced by the vessel surge and intermediate warehouse mass. Interestingly, two different stages could be observed during the intermittent VIV process and we designate them as-the distinct stage and the moderate stage. Moreover, these two stages alternate in the intermittent VIV period. During the distinct stage of intermittent VIV process, the riser vibration exhibits the standing wave characteristics. Conversely, during the moderate stage of intermittent VIV process, the riser primarily presents traveling wave behavior and in this stage, lower order modes also participate in the vibration response.
+Fig. 7
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 7. Two direction vibration characteristic diagram of riser.
+
+To further explain these two stages, we provide the time-history curves of the vibration response at the bottom node of the riser and the vessel surge velocity under KC = 30, T = 20s, alongside the corresponding curves under uniform flow, presented in Fig. 8. Under a steady current, the riser is subjected to a constant inflow velocity, allowing the VIV of the node to persist. In contrast, when the vessel surges, the riser is dragged by the vessel to undergo a reciprocating motion in the flow direction, experiencing an oscillatory flow field with periodically changing velocity magnitude and direction. Vibration is only triggered and sustained when the vortex shedding frequency under the relative velocity is close to the natural frequency of the riser. However, the vibration decays or ceases during the phases of low relative velocity. This mechanism naturally leads to an alternation between distinct stage and moderate stage.
+Fig. 8
+Download: Download high-res image (563KB)
+Download: Download full-size image
+Fig. 8. Vibration response of a riser node under Uniform Flow and Surge.
+
+In deep-sea mining systems, the motion characteristics of the intermediate warehouse at the base of the riser play a crucial role in ensuring the smooth operation of the entire system. Fig. 9 illustrates the two dimensional motion trajectories of intermediate warehouses with mass ranging from 100 kg to 500 kg during the distinct stage of intermittent VIV under the influence of oscillating flow. The diagram reveals that the motion trajectories of the intermediate warehouse predominantly take the form of "8″ shaped and crescent shaped patterns. As the mass of the intermediate warehouse increases, the vibration modes exhibit progressive stabilization. In terms of motion trajectories: the displacement amplitude in the IL direction significantly increases, while the CF amplitude remains relatively unchanged. This results in a distinct transition of the trajectory morphology from a crescent shaped to a “8”-shaped pattern.
+Fig. 9
+Download: Download high-res image (458KB)
+Download: Download full-size image
+Fig. 9. Trajectory of bottom end of riser with different intermediate warehouse mass under top vessel surge.
+
+4.2. Influence of vessel surging on VIV characteristics of riser
+This section focuses on a comparative study of the VIV characteristics exhibited by a standard 38m long deep-sea mining riser under two flow conditions: uniform current only and the combination of uniform inflow and vessel surge. The vessel surge with a KC number of 30 and a period of 20 s, is calculated in this part.
+The first and third columns of Fig. 10, Fig. 11 illustrate the vibration responses of the riser in the CF and IL directions under uniform flow and superposition of vessel surge in the same order vibration mode, respectively. The second and fourth columns show the spatial distribution of vibration frequencies in both directions of the riser in the same order mode, respectively.
+Fig. 10
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 10. The vibration response in the CF direction of the riser (the 1st and 3rd columns) and the spatial distribution of frequency (the 2nd and 4th columns).
+
+Fig. 11
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 11. The vibration response in the IL direction of the riser (the 1st and 3rd columns) and the spatial distribution of frequency (the 2nd and 4th columns).
+
+From the figures, it is evident that when the riser exhibits vibrations in the same order mode, the dominant frequency remains stable under uniform flow. However, when vessel surge is applied, additional frequencies appear in proximity to the dominant frequency, and the involvement of low order vibration modes becomes more pronounced. Despite this, the primary vibration modes do not change, as shown in the 2nd and 4th columns of Fig. 11. Moreover, at the same reduced velocity of uniform flow, the order of vibration mode tends to increase, considering the vessel surge, as shown in Fig. 11(a and b) and (g, h). At a reduced velocity of 32, the riser demonstrates the 3rd mode vibration under uniform flow conditions, whereas the superposition of vessel surge excitation leads to a transition in the dominant response to the 4th vibration mode. This is attributed to the rise in the maximum relative reduced velocity of the riser induced by the vessel surge, which consequently leads to an increase in the dominant vibration mode.
+Fig. 12 (a) presents the RMS curves of the same order vibration mode of the riser at different incoming flow velocities. Fig. 12 (b) illustrates the time history curve of the vibration response of the bottom end under uniform flow velocity for the same order vibration mode. Fig. 12 (c) shows the time history curve of the vibration response of the bottom node when both uniform flow and vessel surge simultaneously.
+From the figure, it can be observed that as the reduced velocity increases, the riser exhibits a higher order vibration mode. Interestingly, we observe two distinct vibration patterns in the riser nodes. Under uniform flow conditions, the nodal vibrations exhibited continuous VIV characteristics. However, when oscillatory flow was superimposed, the nodes demonstrated intermittent VIV behavior and the maximum vibration amplitude of the riser node in the CF direction exceeds that under uniform flow conditions. In the IL direction, however, the maximum vibration amplitude at the bottom node decreases with increasing mode order, as is shown in Fig. 12(b and c). This attenuation originates from the fact that in the IL direction, the riser is simultaneously subjected to fluid inertial forces and the gravitational force of the bottom intermediate warehouse. When the vessel undergoes surge motion at the top, the energy of the vessel surge is primarily distributed in the middle section of the riser, while the bottom of the riser is mainly influenced by the gravity of the intermediate warehouse. As a result, the vibration response is more pronounced in the middle section and weaker at the bottom. Additionally, the RMS of the riser response under the combined influence of uniform flow and vessel surge in the same order vibration mode is significantly smaller than that under the action of uniform flow alone, as is shown in Fig. 12 (a). This reduction is attributed to the intermittent VIV characteristics of the riser under vessel surge. In light of this finding, a detailed discussion on the amplitude and frequency of vessel surge is provided in the next section.
+Fig. 12
+Download: Download high-res image (797KB)
+Download: Download full-size image
+Fig. 12
+Download: Download high-res image (809KB)
+Download: Download full-size image
+Fig. 12. Two-direction vibration RMS and node time history curve of riser.
+
+The trajectory variation of the intermediate warehouse at the riser bottom is shown in Fig. 13. It can be observed that when vessel surge is superimposed, the riser vibration exhibits intermittent vortex-induced characteristics. At low flow velocities of the coming flow, the trajectory displays a distinct “8”-shaped pattern, while at high flow velocities, the “8”-shaped motion trajectory becomes more flattened in the IL direction.
+Fig. 13
+Download: Download high-res image (395KB)
+Download: Download full-size image
+Fig. 13. Comparison of motion trajectories of intermediate warehouse under uniform flow and vessel surge.
+
+4.3. Influence of vessel surge amplitude and frequency on VIV characteristics of the riser
+To further clarify the influence of vessel surge on the VIV characteristics of deep-sea mining risers, this section investigates the impact of two boundary motion parameters—different vessel surge KC numbers and vessel surge periods—on the VIV behavior of suspended deep-sea mining risers. Specifically, the study compares the vibration characteristics of the riser under varying KC numbers, with a uniform incoming flow rate of 0.2 m/s and the increasing vessel surge KC number from 0 to 70.
+Fig. 14 presents the time history of the vibration response in the CF direction at the bottom node of the riser, under different vessel surge KC numbers of 0, 10, 20, and 30 in the left column. The corresponding wavelet transform results are shown in the right column. It is evident that, with an increase in the KC number, the vibration behavior of the riser transitions from continuous to intermittent VIV. The right panel of Fig. 14 further reveals that as the KC number increases, the dominant frequency of the riser vibration in the CF direction becomes more concentrated, with a reduction in the contribution of low order frequencies to the overall vibration.
+Fig. 14
+Download: Download high-res image (740KB)
+Download: Download full-size image
+Fig. 14. The time history curve (left) and wavelet transform spectrum diagram (right) of riser node motion under different KC vessel surge numbers.
+
+Additionally, the RMS diagram indicates that the rise in the KC number leads to an increase in the dominant mode of the riser vibration, which is shown in Fig. 15. This is attributed to the change in the traction frequency of the vessel surge, which results in an increase in the relative flow velocity amplitude experienced by the riser, thus altering the dominant vibration mode.
+Fig. 15
+Download: Download high-res image (791KB)
+Download: Download full-size image
+Fig. 15. The root mean square diagram of the vibration response in two directions under different KC numbers.
+
+Fig. 16 presents the variations of dominant vibration frequencies at nodal points in both CF and IL directions under different KC numbers. The left subplot (CF direction) shows that the maximum dominant frequency of the riser increases with rising KC numbers. When the riser exhibits different vibration modes, the accompanying frequency will reappear from the higher dominant frequencies which can be seen in Fig (16(a) KC35-40, KC60-65) and Fig (16(c) KC40-45). Furthermore, it is observed that for a certain vibration mode, as the KC number increases, accompanying frequencies grow at a slower rate until the dominant mode transitions. In the IL direction, the overall trend remains similar, though the frequency distribution appears more dispersed and the low frequency effect is no longer obvious.
+Fig. 16
+Download: Download high-res image (751KB)
+Download: Download full-size image
+Fig. 16. The relationship between the frequency distribution of the riser in two directions and the KC number.
+
+Fig. 17 shows the time history curve and overall vibration characteristics of the riser node in one period under the ship's longitudinal motion with KC = 50 and a period of 10s. It reveals the relationship between the dominant mode and the accompanying low order modes from both temporal and spatial perspectives. In Fig. 17(a), the black line represents the time history curve of the riser node, and the red line represents the inflow velocity superimposed with the vessel surge. Fig. 17(b) shows the overall vibration characteristics of the riser. The analysis found that the vibration response and mode of the node are maximum at the maximum flow velocity and minimum at the low flow velocity. Within an intermittent VIV period, the vibration response and mode alternate between high and low, and the change rule is consistent with the relative flow velocity. As observed from Fig. 17(b), the strong vibration phase shows standing wave characteristics with a stable mode, while the mild vibration phase shows traveling wave characteristics with a mode transition.
+Fig. 17
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 17. The time history curve and vibration characteristic of the riser.
+
+Considering the time history curves of the riser in the CF and IL directions under the vessel surge at various KC numbers, the motion trajectory of the VIV at the intermediate bin node at the bottom of the riser, subject to dynamic boundary conditions, is presented. Since the riser vibration under the vessel surge condition is intermittent, the low amplitude vibration stage has minimal impact on the structural safety of the deep-sea mining system. Therefore, only the motion trajectory of the node during the significant vibration stage is depicted, as shown in Fig. 18. The figure reveals that the KC number has minimal influence on the dimensionless vibration amplitude in the CF direction of the riser. However, in the IL direction, the vibration amplitude at nodal points gradually decreases with increasing KC numbers.
+Fig. 18
+Download: Download high-res image (491KB)
+Download: Download full-size image
+Fig. 18. Comparison of the motion trajectory of the intermediate warehouse under different KC numbers of vessel surge.
+
+The VIV characteristics of a riser under uniform flow with a velocity of 0.3 m/s in the neutral tube were compared with the vessel surge (KC = 50) over a period of 5–20 s. Fig. 19, Fig. 20 illustrate the time history curves and wavelet transform results for the bottom nodes in the CF and IL directions of the riser, respectively. From the figures, it is evident that the intermittent vibration period of the riser nodes closely matches the surge period of the vessel under the corresponding operating conditions. Additionally, multiple vibration frequencies contribute to the overall vibration, with a prominent peak near the dominant frequency.
+Fig. 19
+Download: Download high-res image (712KB)
+Download: Download full-size image
+Fig. 19. The time history curve (left column) and wavelet transform spectrum (right column) of the bottom node of the riser under different periods of vessel surge (a) T = 20s, IL (b) T = 15s, IL (c) T = 10s, IL (d) T = 5s, IL.
+
+Fig. 20
+Download: Download high-res image (868KB)
+Download: Download full-size image
+Fig. 20. The time history curve (left column) and wavelet transform spectrum (right column)of the bottom node in the IL direction of the riser under different periods of vessel surge.
+
+Moreover, it is noteworthy that the stable intermittent VIV phase in the IL direction clearly lags behind that in the CF direction. This delay is attributed to the periodic variation in the oscillating flow velocity, which leads to dynamic changes in the vortex shedding and vibration frequencies. As a result, the asynchrony of the vibration response in the IL and CF directions is further exacerbated.
+From the wavelet transform diagram in Fig. 20 and the Fourier transform diagram for the bottom node of the riser in Fig. 21, it is observed that under the influence of the top surge, the vibration frequency of the riser node exhibits participation from lower order frequencies, with the lowest order frequency matching the motion frequency of the top boundary condition.
+Fig. 21
+Download: Download high-res image (404KB)
+Download: Download full-size image
+Fig. 21. The dominant frequency distribution of vibration in two directions of the riser under different periods of vessel surge at the bottom node.
+
+5. Conclusion
+In this paper, the improved WKB approximation method and wake oscillator model are integrated to systematically investigate the dynamic response characteristics of suspended risers in deep-sea mining under the influence of top vessel surge. The main conclusions are as follows:
+The study investigated the influence of varying intermediate warehouse weights on the dynamic response of a riser under vessel surge conditions. Key observations revealed that increasing the weight of the bottom mounted intermediate warehouse masses led to a reduction in the dominant vibration modes in both IL and CF directions. We present the first observation of the intermittent VIV under vessel surge and creatively propose that phenomenon by the distinct stage and the moderate stage, which manifested as standing wave and traveling wave patterns, respectively. Furthermore, the motion trajectory of the intermediate warehouse undergo a progressive transformation from a crescent shaped to a “8”-shaped pattern with increasing mass.
+By comparing the influence of vessel surge on the dynamic characteristics of the riser, it can be found that when the riser is in the same-order vibration stage, the dominant frequency of the riser vibration remains stable only under the action of uniform flow. However, when vessel surge is introduced, additional frequencies appear near the dominant frequency, accompanied by the involvement of lower-order vibration modes. With increasing flow velocity, the riser exhibits higher-order vibration modes. For vibration modes of the same order, the maximum vibration amplitude of riser nodes in the CF direction increases under the influence of vessel surge. In contrast, the maximum vibration amplitude in the IL direction decreases with increasing mode order. Under combined uniform flow and vessel surge conditions, the RMS value of the riser response is significantly lower than that under uniform flow alone. Furthermore, the trajectory of the bottom intermediate warehouse demonstrates increasingly flattened “8”-shaped characteristics as flow velocity increases. Based on the above analysis, it is recommended to implement motion compensation systems in practical engineering applications to mitigate the impact of surge amplitude on the structural integrity of mining risers.
+An increase in the surge amplitude causes a transition in the vibration response from continuous to intermittent VIV. The dominant frequencies in both CF and IL directions become more concentrated. In the CF direction, the growth rate of lower-order frequencies is slower than that of the dominant frequency, with noticeable changes occurring during mode transitions. The lower-order frequencies are primarily governed by the variation in relative velocity between the riser and the incoming flow, induced by the surge motion. In contrast, lower-order frequencies in the IL direction exhibit greater dispersion, where the fundamental frequency coincides with the vessel surge frequency. This phenomenon is attributable to the coincidence of flow and surge directions. The lower-order vibration frequencies thus contain two contributing factors: those generated by relative velocity fluctuations and the intrinsic surge frequency component in the IL direction. The establishment of stable intermittent VIV in the IL direction lags behind that in the CF direction. Additionally, the nodal trajectories alternate between crescent-shaped and “8”-shaped patterns as the KC number increases. In deep-sea mining operations, if minor surge motions cannot be avoided, the oscillation period should be maximized to prevent the occurrence of high relative velocities and the consequent structural safety risks.

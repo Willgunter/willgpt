@@ -1,0 +1,362 @@
+Abstract
+The morphing structure's design, which can balance multiple performance indicators, has received widespread attention in the technology field of underwater gliders recently. This paper attempts to carry out the design and performance analysis of the arched morphing wings for the glider driven by modular deployable mechanisms. The morphing parameters include the wing's arc length and bending angle. First, the novel design scheme of the driving mechanism for the morphing wings, consisting of deployable mechanism modules, synchronously driving linkage, and flexible framework, is proposed and specifically introduced. Then, the kinematic analysis and static structural stiffness analysis are conducted for the driving mechanism to verify the rationality, and the principle prototype is also manufactured. Based on dynamic modeling and CFD simulation, the quantitative analysis of energy efficiency, voyage velocity, and static stability is achieved for the glider with the novel morphing wings. Finally, the optimal values of morphing parameters are determined by surrogate model technology and multi-objective optimization algorithm. This work may further enrich the design theory and method of morphing underwater gliders.
+Previous article in issue
+Next article in issue
+Keywords
+Underwater gliderMorphing wingModular deployable mechanismDynamic modelingPerformance analysis and optimization
+Nomenclature	θ	pitch angle
+cB	net buoyancy adjustment amount	V	voyage velocity
+cT	movable mass block's translation amount	g	gravitational acceleration
+cR	movable mass block's rotation amount	mb	glider body's mass
+γ	arc length of morphing wing	mp	movable mass block's mass
+β	bending angle of morphing wing	lb	glider body's length
+n	number of movable links	V0	inlet velocity of CFD model
+pL	number of lower pairs	dT	target depth
+pH	number of higher pairs	ηhm	horizontal voyage velocity ratio
+F	mechanism's degree of freedom	ηvm	vertical voyage velocity ratio
+ω1, ω2	driving angular velocity of driving link	lsm	dimensionless hydrodynamic center arm
+ψ1, ψ2	driving angle of driving link	ηse	specific energy consumption
+ψ0	initial value of driving angle of driving link	ηh	mean ηhm under different working conditions
+r	driving link's length of mechanism module	ηv	mean ηvm under different working conditions
+R	fixed link's length of mechanism module	ls	mean lsm under different working conditions
+α	attack angle	ηe	mean ηse under different working conditions
+1. Introduction
+In recent years, exploring the deep sea's mysteries and exploiting ocean resources have become two research hotspots in the field of science and technology around the world. Under this background, advanced underwater exploration robots are receiving increasing attention. In 1989, oceanographer Stommel (1989) proposed the concept design of an interesting underwater robot inspired by the principle of the hot air balloon, which is the prototype of an underwater glider. In the 21st century, this concept design has received widespread attention, and many excellent underwater gliders emerge as the times require, including the Sea-wing (Yu et al., 2011), Petrel (Wang et al., 2021), Sea-glider (Eriksen et al., 2001), Spray (Sherman et al., 2001), and Slocum (Webb et al., 2001). The typical glider mainly employs the net buoyancy and the hydrodynamic force exerted on the wings as the driving sources and can adjust the attitude by changing the movable mass block's position. Especially, the external active propulsion is unnecessary, which makes the glider have some excellent characteristics, such as low energy consumption and noise.
+At present, underwater gliders are devices mainly used for large-scale observation of hydrological environments, including climate variability observation, anti-cyclonic eddy investigation, and biogeochemical process analysis (Rudnick, 2015). In the vast ocean, the glider inevitably faces complex and various working conditions, and the different exploration missions often have different requirements for the glider's performance. For example, to resist the strong water current, carry out a high-accuracy exploration mission, and shorten the voyage time, the glider needs a higher voyage velocity (Wu et al., 2021). To ensure endurance and improve the voyage range, the glider should have higher energy efficiency. When working in an environment with many sources of disturbance, the glider needs higher stability to prevent the situation from losing course. Unfortunately, Wu et al. (2022) discovered that there were contradictory relationships among voyage velocity, stability, and energy efficiency for the conventional glider with fixed configuration, which means that the conventional glider has bad adaptability to various working conditions and application scenarios. Wu et al. (2010) and Yang et al. (2021) illustrated that the above key performance indicators were closely related to the hydrodynamic shape of the glider. Therefore, to expand the working condition's adaptability and application scenario of the single glider, the morphing underwater glider technology has been rapidly developed. The morphing underwater glider refers to the glider whose hydrodynamic shape can be adjusted, and it has better adaptability to various working conditions and application scenarios than the conventional glider with a fixed configuration. In 2009, Arima et al. (2009) presented the concept design of a glider whose main wings were rotatable to improve the maneuverability of the glider. Wang et al. (2017) studied the design scheme of the morphing wing to improve the glider's motion efficiency, specifically, the aspect ratio, attack angle, and sweepback angle of the wing can be changed by the driving mechanism. Sun et al. (2021) proposed a design scheme for the wing that can be morphed into the propeller and oar to improve the glider's cruising ability. Zhu (2022) presented a glider whose main wing edge was bendable, which can effectively improve the glider's gliding economy. Wu et al. (2023a) proposed the multi-objective optimization-based design method of morphing wings to balance the glider's energy efficiency, voyage velocity, and stability. Wu et al. (2023b) presented the concept design of the foldable wing module for air-launched underwater gliders to reduce the impact force during the water entry process. Wang et al. (2023, 2024) designed the glider with the movable bow and developed the corresponding prototype, and this scheme was inspired by the penguin's conformation and can improve the glider's maneuverability and motion stability. Wu et al. (2024) designed a morphing nose cone that can achieve length and bending angle adjustments to balance the multiple performance indicators of the glider during the diving and ascending processes. Han et al. (2024) designed a morphing wing that can achieve wingspan, sweep back angle, and chord width adjustments by the mechanism with two degrees of freedom, and this wing can adjust the glider's hydrodynamic coefficients and kinematic performance without changing the net buoyancy.
+In the development stage of the morphing underwater glider, one of the key links is to establish the glider's performance evaluation models. At present, there are many excellent performance evaluation models for the conventional glider with the fixed configuration, which can also provide certain theoretical guidance for the development of the morphing glider. Generally, the foundation of the performance evaluation model is the glider's dynamic model. Currently, the glider's dynamic model has been established by many effective methods, including the computational fluid dynamics (CFD) simulation (Zhang et al., 2013), the Newton-Euler method (Leonard and Graver, 2001), the Lagrange equation (Wang et al., 2022a), the differential geometry method (Wang et al., 2019), and machine learning technology (Lei et al., 2022a, 2022b). On this basis, Wu et al. (2010) defined the dimensionless hydrodynamic center arm to analyze the glider's static stability. Yu et al. (2013) and Song et al. (2020) proposed the glider's energy consumption models whose input parameters were the glider's feedforward control parameters. Lyu et al. (2019) employed the lift-to-drag ratio to characterize the glider's hydrodynamic performance. Yang et al. (2020) proposed the evaluation models and criteria of motion performance for the glider, considering the effect of seawater depth. Wu et al. (2020b) and Song et al. (2023) established the glider's motion accuracy evaluation models, considering the effect of ocean environmental factors. Yang et al. (2023a, 2023b) presented the fault diagnosis model and digital twin model for the glider, which effectively promoted the development of glider technology toward intelligence. Additionally, many excellent control strategies have emerged as the times require, which can make the glider achieve the path following (Mahmoudian et al., 2010; Zang et al., 2022), virtual mooring (Zhou et al., 2020), and attitude hold (Su et al., 2019; Petritoli et al., 2018). Control and structural parameter optimization is an important method to further improve the glider's performance. Scholars have carried out much relevant research work for both conventional and morphing underwater gliders. Li et al. (2018) and Wu et al. (2023c) optimized the hydrodynamic shapes of the conventional gliders by using the CFD simulation and surrogate model technology. Based on the dynamic model and RBF neural network, Wu et al. (2021) proposed the optimization method of control parameters for the conventional glider considering the energy consumption and motion accuracy. Wang et al. (2022b) optimized the structural parameters of the conventional glider's pressure hull to achieve a lightweight design and improve the buoyancy compensation capability by using finite element simulation and response surface method. On this basis, the optimization method for the configuration parameters of the morphing glider has been proposed and used for the design processes of morphing wings and nose cone (Wu et al., 2023a, 2024).
+According to the existing research work, it can be found that the innovative design of morphing wings is one of the research hotspots in the field of morphing underwater glider technology. Although many excellent design schemes for morphing wings have been proposed, there is still significant room for improvement at the relevant technology level, which is mainly reflected in the following points. The modular design and performance optimization of the morphing wings have not been widely studied, which leads to the weak scalability of the design scheme. The existing design process rarely focuses on the stiffness of the morphing wing's drive mechanism, which leads to the lack of performance constraints in the design scheme. Except for the rectangle and trapezium, the morphing wing with other basic profiles has rarely been reported before, which leads to the design scheme being confined to fixed geometric constraints. Comprehensively considering the advantages and disadvantages of the existing relevant research, the innovative points of this paper are given as follows. 1) The novel design scheme of arched morphing wings driven by a modular deployable mechanism is proposed. 2) For the novel driving mechanism of morphing wings, the performance analysis model is established, and the principle prototype is manufactured. 3) A dynamic simulation-based performance evaluation model of the glider with the novel morphing wings is established. 4) Optimal morphing parameter values are determined by surrogate model technology and multi-objective optimization. This work will further enrich the design schemes and research methods for morphing underwater gliders.
+The rest of this paper is organized as follows. Section 2 gives the design scheme of a novel morphing wing driven by modular deployable mechanisms for underwater gliders. Section 3 carries out the kinematic analysis and static structural stiffness analysis for the modular deployable mechanism and shows the corresponding principle prototype. Section 4 establishes the dynamic model of the glider with morphing wings, quantitatively studies the effect of the morphing wings on the comprehensive performance of the glider, and determines the optimal values of morphing parameters. Finally, Section 5 concludes the paper.
+2. Design of novel morphing wing for underwater gliders
+In this paper, the Petrel II underwater glider is selected as the basic prototype to carry out the research work, and Fig. 1 shows the whole configuration.
+Fig. 1
+Download: Download high-res image (269KB)
+Download: Download full-size image
+Fig. 1. Petrel II underwater glider.
+
+The control parameters of this glider mainly include the net buoyancy adjustment amount cB, and the movable mass block's translation amount cT and rotation amount cR. When cB, cT, and cR all equal 0, this glider can float horizontally on the water surface, which is defined as the original state. The adjustment of net buoyancy is achieved by changing the volume of the external bladder, and the adjustment of the movable mass block's position is used for changing the glider's attitude.
+2.1. Hydrodynamic shape and morphing parameters
+The hydrodynamic shapes of the hull and wings have a significant effect on the glider's performance (Li et al., 2018; Wu et al., 2023c). The hull shape of the Petrel II underwater glider is designed based on the Myring-type body, which can effectively reduce drag (Yang et al., 2021). In this research work, the arched flat plate wings are used for the glider, and the wing's configuration parameters mainly include the width, arc length, and bending angle. This wing's profile is similar to that of a fish fin, which may also reduce the drag. The values of basic shape parameters are shown in Fig. 2. Restricted by installation space, the wing's width is generally set as a constant value, and its thickness needs to be as thin as possible. Then, only the wing's arc length γ and bending angle β can be selected as the design variables to obtain the optimal hydrodynamic shape.
+Fig. 2
+Download: Download high-res image (202KB)
+Download: Download full-size image
+Fig. 2. Basic shape and morphing parameters of the glider.
+
+Recently, scholars have attempted to develop the underwater glider whose hydrodynamic shape is adjustable, which can better balance multiple performance indicators and deal with various mission requirements (Wu et al., 2023a, 2024). Especially, the morphing wing technology receives widespread attention, and many excellent design schemes have been proposed. Based on the background mentioned above, this paper will develop the arched flat plate wing whose γ and β are adjustable. When β equals 0, this wing's profile becomes the commonly used rectangular. This design scheme has not been presented before, so this research work is expected to further enrich the design technology of morphing underwater gliders.
+2.2. System design of morphing wings
+This paper presents a novel system design scheme of morphing wings to achieve the adjustment of γ and β, as shown in Fig. 3.
+Fig. 3
+Download: Download high-res image (327KB)
+Download: Download full-size image
+Fig. 3. System design scheme of morphing wings.
+
+This design scheme mainly consists of deployable mechanism modules, synchronously driving linkage of left and right wings, a flexible framework and its storage device, and elastic skin. The deployable mechanism modules are the key components used for driving the morphing wings to achieve the required motion form, and the design scheme will be specifically introduced in the next section. The synchronously driving linkage will ensure that the left and right wings are always in the same configuration. According to reference (Wu et al., 2023a; Liu et al., 2022), the synchronously driving linkage consists of two crank slider mechanisms, whose driving links are sliders 1 and 2, respectively. In actual engineering applications, the lead screw and electric motors can be used for the driving source of sliders 1 and 2, which can make the morphing wings have the self-locking ability. The flexible framework will passively deform during the motion of the deployable mechanism modules, which can ensure that the profiles of the wings are close to a circular arc. The storage device can tighten or release the flexible framework through the torsion springs and the motion of the deployable mechanism modules. The elastic skin is used for ensuring that the wings have good hydrodynamic shapes, and it is not drawn in Fig. 3.
+In this paper, a morphing wing is designed as consisting of 5 deployable mechanism modules, which is just an example. The module can be added or reduced according to the specific engineering requirement.
+2.3. Design of modular deployable mechanism
+To achieve the required motion form and sufficient structural stiffness, the deployable mechanism module shown in Fig. 4 is designed to drive the morphing wing.
+Fig. 4
+Download: Download high-res image (306KB)
+Download: Download full-size image
+Fig. 4. Kinematic diagram of deployable mechanism module.
+
+When the passive degrees of freedom (DOFs) are eliminated, this planar mechanism consists of 8 movable links, 8 revolute pairs, 2 prismatic pairs, and 2 planar higher pairs. Under the state shown in Fig. 4, this mechanism is symmetrical concerning the lines BE and GI. The lengths of lines AB and CD are denoted as r and R, respectively. According to the calculation formula for the planar mechanism's DOF, the deployable mechanism module's DOF is expressed as Eq. (1). Specifically, n, pL, and pH denote the numbers of movable links, lower pairs, and higher pairs, respectively. Then, links 2 and 3 are selected as the driving links, and the driving angular velocities are denoted as ω1 and ω2, respectively.
+(1)
+Further, the deployable mechanism module can be divided into 2 identical sub-mechanisms, as shown in Fig. 5.
+Fig. 5
+Download: Download high-res image (342KB)
+Download: Download full-size image
+Fig. 5. Kinematic diagram of sub-mechanisms.
+
+When the passive DOFs are eliminated, each sub-mechanism consists of 4 movable links, 3 revolute pairs, 1 prismatic pair, and 2 planar higher pairs. According to the calculation formula for the planar mechanism's DOF, the sub-mechanism's DOF is expressed as Eq. (2).
+(2)
+As shown in Fig. 5(a), the driving angles of links 1 and 4 are denoted as ψ1 and ψ2, respectively, and their specific expressions can be calculated as Eq. (3).
+(3)
+After ψ1 and ψ2 have been determined, l1 and l2 shown in Fig. 5(a) can be determined accordingly. For the sub-mechanism 2, the l1 and l2 can be regarded as the input parameters, as shown in Fig. 5(b). Since the configuration of sub-mechanism 2 is completely the same as that of sub-mechanism 1, the output angles of sub-mechanism 2 must equal ψ1 and ψ2. Therefore, the deployable mechanism module is always symmetrical concerning the line BE shown in Fig. 4. Because of this, points A and C are on the same circle whose center is the intersection of lines AF and CD, and points D and F are on the other circle whose center is the above intersection. Additionally, the difference in radius between these 2 circles equals R.
+The crank slider mechanisms are used for the motion transmission linkages between 2 adjacent modules, as shown in Fig. 6. Based on the geometric symmetry, this design can ensure that 2 adjacent modules have the same driving angles to make the morphing wing achieve the required motion form.
+Fig. 6
+Download: Download high-res image (383KB)
+Download: Download full-size image
+Fig. 6. Motion transmission linkages between 2 modules.
+
+In this paper, the values of key configuration parameters for the deployable mechanism module are designed as these shown in Table 1.
+Table 1. Values of key configuration parameters for deployable mechanism module.
+
+Parameter	R (m)	r (m)	ψ0 (°)
+Value	0.98	0.51	41.83
+Based on the above research work, the specific design scheme for the driving mechanism of the morphing wing is further obtained, as shown in Fig. 7. This design scheme employs the alternately stacking method to install all links, and the prismatic pair is designed as the flat configuration, which can reduce the thickness value of the driving mechanism as much as possible. The maximum and minimum values of the link's thickness equal 2 mm and 1 mm, respectively. On the whole, the thickness value of this design scheme except for the synchronously driving linkage equals 9 mm. Especially, the synchronously driving linkage inside the glider's hull is also designed as a flat shape, whose upper and lower space can be used for installing other devices. Through size parameter and space layout optimization, the above thickness value and space occupied can be further reduced, which will be achieved in the next step of this research work.
+Fig. 7
+Download: Download high-res image (464KB)
+Download: Download full-size image
+Fig. 7. Specific design scheme for driving mechanism of the morphing wing.
+
+3. Performance analysis of driving mechanism
+Section 2 presents the specific design scheme for the driving mechanism of the morphing wing. To fully verify the design's rationality, this section will analyze the geometric relationship among all links, carry out the kinematic analysis of the mechanism, and determine the value ranges of input and output parameters. Additionally, the static structural stiffness of the mechanism will be analyzed under the locked state, and the principle prototype will be manufactured and introduced.
+3.1. Kinematic analysis
+Because the adjustment of γ and β is directly achieved by the motion of the deployable mechanism modules, the kinematic analysis of this section focuses on the above modules, and the other components are not considered. When ψ1 and ψ2 have been determined, the deployable mechanism module conforms to the geometric relationship shown in Fig. 8.
+Fig. 8
+Download: Download high-res image (329KB)
+Download: Download full-size image
+Fig. 8. Geometric relationship diagram of deployable mechanism module.
+
+Specifically, d1 and d2 denote the distances from points B and E to line CD, respectively. d3 denotes the horizontal distance between points B and E, and d4 the distance from point E to line HI. Oγ denotes the intersection of lines AF and CD, and d5 the distance between points G and Oγ. Additionally, δ1 denotes the angle between line BE and horizontal line, and δ2 the angle between line AF and horizontal line. The trigonometric function relationship and geometric symmetry directly give Eq. (4).
+(4)
+On this basis, the tangent function relationship and geometric symmetry give Eq. (5).
+(5)
+The distance between points H and I denotes lHI, and the distance between points G and H denotes lGH. Further, the geometric relationship gives Eq. (6).
+(6)
+According to the arc length definition, the length of arc GI is expressed as Eq. (7).
+(7)
+According to the system design scheme of the morphing wing shown in Fig. 3, there are 5 wing modules, so β and γ can be expressed as Eq. (8).
+(8)
+Combining Eqs. (3), (4), (5), (6), (7), (8), the kinematic analysis for the driving mechanism of the morphing wing can be carried out. To avoid the motion interference among all links, the value ranges of ψ1, ψ2, γ, and β are determined as these shown in Table 2.
+Table 2. Value ranges of input and output parameters for driving mechanism.
+
+Parameter	ψ1 (°)	ψ2 (°)	β (°)	γ (m)
+Range	[40.54, 64.64]	[40.54, 64.64]	[0, 45]	[0.34, 0.44]
+Next, the kinematic analysis of the driving mechanism is executed under typical working conditions, and 3 cases with the simulation time of 5 s are given as follows. Case 1: the moment when β and γ, respectively, equal 0° and 0.34 m is defined as the time origin; ω1 and ω2 are, respectively, set to 3.552°/s and 3.552°/s; the driving mechanism will eventually become the configuration that β and γ, respectively, equal 0° and 0.44 m. Case 2: the moment when β and γ, respectively, equal 0° and 0.34 m is defined as the time origin; ω1 and ω2 are, respectively, set to 0.266°/s and −0.258°/s; the driving mechanism will eventually become the configuration that β and γ, respectively, equal 45° and 0.34 m. Case 3: the moment when β and γ, respectively, equal 0° and 0.34 m is defined as the time origin; ω1 and ω2 are, respectively, set to 4.562°/s and 2.854°/s; the driving mechanism will eventually become the configuration that β and γ, respectively, equal 45° and 0.44 m. After simulation calculation, the images of β and γ changing with t are obtained, as shown in Fig. 9.
+Fig. 9
+Download: Download high-res image (370KB)
+Download: Download full-size image
+Fig. 9. Kinematic analysis result of driving mechanism.
+
+The result shows that the driving mechanism has smooth motion processes and can make the morphing wing have the ability to freely transform configuration, which preliminarily verifies this design's rationality from a kinematic perspective.
+3.2. Static structural stiffness analysis
+Because the morphing wings need to experience the complex hydrodynamic environment during the glider's motion process, they will bear the variable hydrodynamic loads, which may cause the obvious deformation of the driving mechanism and further affect the glider's performance. Therefore, it is necessary to analyze the structural stiffness of the driving mechanism during the design stage. Since the wings mainly bear the water pressure perpendicular to their upper and lower surfaces, they especially exhibit bending deformation, but it is difficult to cause structural instability. Additionally, the water around the wings can act as a damper, so the wings usually do not experience vibration. Therefore, this paper will not analyze the structural vibration and stability. This paper employs the ANSYS software to study the static structural stiffness of the driving mechanism under different configurations. It should be noted that the synchronously driving linkage does not directly bear the hydrodynamic loads, and the flexible framework and elastic skin are not the main load-bearing components either. Therefore, the static structural stiffness analysis will not consider the effect of synchronously driving linkage, flexible framework, and elastic skin to reduce the simulation complexity. Additionally, because the left and right wings are always in the same configuration, this analysis only focuses on one of the wings.
+In this analysis, the materials of all links are set to aluminum alloy, whose density, elastic modulus, and Poisson's ratio equal 2.77 g/cm3, 71 Gpa, and 0.33, respectively. On the whole, the weight of the driving mechanism equals 0.333 kg. Through appropriate weight design, material selection, and liquid filling, the morphing wings can maintain neutral buoyancy and resist water pressure, which will be achieved in the next step of this research work. In the simulation process, the driving links of the first deployable mechanism module are set to be fixed to the ground. The tetrahedral grid is employed to divide the driving mechanism, and the obtained finite element models are shown in Fig. 10. For the wings whose β and γ, respectively, equal 0° and 0.44 m, the CFD simulation results in the following text illustrate that the pressure difference between the upper and lower surfaces of the wings does not exceed 15 Pa. To understand the wing's performance under adverse working conditions, a simplified surface-distributed force of 15 Pa is exerted on the upper surface of the driving mechanism to simulate the hydrodynamic load. Fig. 11 shows the analysis result of the static structural stiffness for the driving mechanism under the 4 different configurations.
+Fig. 10
+Download: Download high-res image (594KB)
+Download: Download full-size image
+Fig. 10. Finite element models of driving mechanism under different configurations.
+
+Fig. 11
+Download: Download high-res image (779KB)
+Download: Download full-size image
+Fig. 11. Analysis result of static structural stiffness.
+
+This result illustrates that the driving mechanism has the maximum deformation when β and γ equal 0° and 0.44 m, respectively. The maximum deformation occurs at the top of the fifth module, and its value equals 0.00117 m. When β and γ equal 45° and 0.44 m, respectively, the above value will become 0.00041 m, which decreases by 64.96% compared to the maximum value. Under the different configurations of the morphing wings, the deformation values at the top of the fifth module are only 0.15%, 0.27%, 0.16%, and 0.093% of the corresponding γ, which can be almost negligible. Because of this, the proposed design scheme of the driving mechanism has good stiffness performance under the reference hydrodynamic load.
+3.3. Principle prototype study
+To further verify the rationality of the driving mechanism's design scheme, the corresponding principle prototype is manufactured, as shown in Fig. 12. In theory, the materials of the deployable mechanism modules and synchronously driving linkage should be aluminum alloy entirely. However, to reduce the cost of the preliminary verification work as much as possible, the PMMA is selected as the material of some structural components. Additionally, polypropylene plastic and rubber are respectively selected as the materials of the flexible framework and elastic skin to ensure that they can bear large deformation and have the supporting ability. The elastic skin covers the whole wing to maintain a good hydrodynamic shape, and the good ductility of the rubber can ensure the free morphing of the wing.
+Fig. 12
+Download: Download high-res image (375KB)
+Download: Download full-size image
+Fig. 12. Principle prototype of the driving mechanism.
+
+The result illustrates that the driving mechanism can freely change the morphing wing's configuration and make the wing maintain a good hydrodynamic shape, which further verifies this design's rationality from a kinematic perspective. Nonetheless, the design scheme still needs further refinement and optimization to better meet the actual engineering requirement, especially in the aspect of material selection for flexible framework and elastic skin.
+4. Performance analysis of underwater glider with morphing wings
+This section starts to analyze the effect of the morphing wings on the comprehensive performance of the glider. The performance indicators mainly include voyage velocity, motion stability, and energy efficiency. Herein, all parts of the glider except the movable mass block are regarded as a whole, which is called the glider body. Especially, the glider body and movable mass block are defined as 2 rigid bodies. In actual engineering applications, the adjustment of net buoyancy will only generate a small volume change of the external bladder, and the mass and volume of morphing wings are much smaller than those of other parts. Therefore, this section neglects the effect of the changes of cB, β, and γ on the glider's mass distribution and buoyancy center position.
+4.1. Dynamic modeling
+This research work focuses on the straight motion of the glider, and the turning motion is not considered here. Therefore, to reduce the complexity of simulation calculation, cR is set to 0. After cB and cT have been determined, the glider will eventually achieve the steady-state motion in theory, namely, the linear velocity remains constant, and angular velocity always equals 0. Meanwhile, the force analysis result of the glider is expressed in Fig. 13.
+Fig. 13
+Download: Download high-res image (253KB)
+Download: Download full-size image
+Fig. 13. Force analysis result of the glider.
+
+Specifically, O denotes the glider's buoyancy center of the original state, Ob the glider body's barycenter, Op the movable mass block's barycenter, and Oe the external bladder's buoyancy center. Additionally, V denotes the linear velocity, θ the pitch angle, and α the attack angle.
+According to the force equilibrium condition, the relationship among the glider body's gravity Gb, the movable mass block's gravity Gp, and the glider's buoyancy Bn of the original state is expressed as Eq. (9). Specifically, mb denotes the glider body's mass, mp the movable mass block's mass, and g the gravitational acceleration. Herein, g equals 9.8 m/s2.
+(9)
+The hydrodynamic force components include the drag force D, lift force L, and pitch moment M. When V is regarded as constant, D, L, and M are all functions of β, γ, and α, and the generalized expressions are given as Eq. (10).
+(10)
+This research work focuses on the steady-state motion of the glider, so the specific expressions of D, L, and M can be obtained by using polynomial functions to fit CFD analysis results (Zhang et al., 2013). Because of the low voyage velocity of the glider, the fluid around the glider is regarded as incompressible viscous one here. The Fluent software is used for carrying out the CFD analysis calculation, and the Navier-Stokes equation is solved by the finite volume method. Fig. 14 shows the cylindrical computational domain and the key size. The glider's and computational domain's surfaces are defined as the no-slip and free-slip wall boundaries, respectively (Fu et al., 2018). The computational domain's inlet and outlet are defined as the velocity inlet and pressure outlet boundaries, respectively.
+Fig. 14
+Download: Download high-res image (217KB)
+Download: Download full-size image
+Fig. 14. Cylindrical computational domain.
+
+During the CFD analysis calculation, the inlet velocity V0 is set to 0.25 m/s, and the water viscosity μ and density ρ are set to 1 × 10−3 kg/(m•s) and 1020 kg/m³, respectively. Then, the Reynolds number is expressed as Eq. (11).
+(11)
+According to the above result, the k-ω SST turbulence model is used for analyzing the fluid motion, and the velocity and pressure fields are solved by the SIMPLE algorithm. During the numerical calculation, the convection term discretization is achieved by the second-order upwind difference scheme, the error tolerance values are all defined as 1 × 10−6, and the number of iterations is set to 1000. This paper automatically obtains the unstructured mesh of the CFD analysis model by the Workbench Meshing. Based on the mesh independence verification, the glider surface's and computational domain's grid sizes are set to 4 mm and 120 mm, respectively. To improve the calculation accuracy, the grid height of the first boundary layer near the glider's surface is set to 0.087 mm, the growth rate of grid size is set to 1.2, and the number of boundary layers is set to 10. The above settings can ensure that y+ values are close to 1 as a whole and obtain the analysis model with about 7 million grids, as shown in Fig. 15. Restricted by research conditions, this work does not conduct a hydrodynamic experiment to verify the accuracy of the simulation results. Fortunately, Zhang et al. (2013), Yang et al. (2021), and Han et al. (2024) have also used the same hydrodynamic analysis methods, and they have compared the simulation results with the experimental data, proving the effectiveness of these simulation methods. Additionally, in the previous work of our research team (Wu et al., 2023d), the dynamic model of the Petrel-II glider with the conventional fixed wings was established by the same methods, and the simulation results showed good consistency with the experimental results, which could further validate the rationality of the simulation results of this paper. Thanks to the computing power of the supercomputer, this work adopts high-accuracy grid sizes for CFD calculation, which further ensures the calculation accuracy.
+Fig. 15
+Download: Download high-res image (665KB)
+Download: Download full-size image
+Fig. 15. CFD analysis model.
+
+Then, this paper carries out the CFD analysis considering the different values of β, γ, and α. According to the actual operation characteristic of the glider, α is extracted from [−5, 5]°, and it is reflected in the CFD analysis model by rotating the glider. Fig. 16 shows the analysis result and velocity contour under the typical working conditions. Additionally, the iteration processes of corresponding D, L, and M are shown under the velocity contours, which can reflect whether the CFD calculation converges.
+Fig. 16
+Download: Download high-res image (633KB)
+Download: Download full-size image
+Fig. 16. CFD analysis result under typical working conditions.
+
+The iteration processes shown in Fig. 16 illustrate that the values of D, L, and M all eventually reach stability, which means that the CFD calculation reliably converges. Besides, the comparison result among Fig. 16(a), (b), and (c) illustrates that the changes of β and γ can cause certain changes in hydrodynamic force, which preliminarily demonstrates the necessity of design for morphing wings.
+Further, the optimized Latin hypercube experimental design is used for obtaining the 80 sample points consisting of different values of β, γ, and α. On this basis, 80 sets of D, L, and M are determined by carrying out the CFD analysis for the above 80 sample points, respectively. Finally, the approximate function expressions of D, L, and M are obtained by using the quartic polynomial to fit the above data based on the least square method, and the specific fitting results are given in the appendix. The root mean square error (RMSE) and coefficient of determination (R2) are used for quantifying the fitting accuracy of the quartic polynomial, and their expressions are consistent with those of reference (Wu et al., 2020a). The closer the RMSE is near to 0 and the R2 is near to 1, the higher the fitting accuracy is. Fig. 17 shows the fitting accuracy for the approximate function expressions of D, L, and M.
+Fig. 17
+Download: Download high-res image (455KB)
+Download: Download full-size image
+Fig. 17. Fitting accuracy for approximate function expressions of hydrodynamic force.
+
+The result illustrates that RMSE and R2 are very close to 0 and 1, respectively, and the CFD analysis result has good consistency with the approximate value, which means that the approximate function expressions can accurately reflect the mapping relationship between input and output parameters.
+Next, the trend images of hydrodynamic force changing with β, γ, and α are drawn by using the approximate function expressions, as shown in Fig. 18.
+Fig. 18
+Download: Download high-res image (829KB)
+Download: Download full-size image
+Fig. 18. Trend images of hydrodynamic force.
+
+The result illustrates that the smaller γ and the larger β correspond to the smaller drag force, the larger γ and β correspond to the larger lift force, and the smaller γ and β correspond to the smaller pitch moment. In summary, β and γ have a significant effect on the hydrodynamic force of the glider, which may also be reflected in other performance indicators.
+Generally, D, L, and M are considered proportional to V2 (Zhang et al., 2013), so Eq. (10) can be transformed into a more general expression, as shown in Eq. (12).
+(12)
+Fig. 19 gives the key configuration parameters of the glider required for establishing the mechanical equation of the steady-state motion.
+Fig. 19
+Download: Download high-res image (175KB)
+Download: Download full-size image
+Fig. 19. Key configuration parameters.
+
+The values of key configuration parameters are presented in Table 3.
+Table 3. Values of key configuration parameters.
+
+Parameter	xb (m)	xe (m)	zb (m)	zp (m)	mb (kg)	mp (kg)
+Value	0.0271	0.94	0.0199	0.016	54.5	16.4
+Based on the geometric relationship, the value of xp is closely related to cT and expressed as Eq. (13).
+(13)
+According to Fig. 13 and the force equilibrium condition of the glider's motion, the mechanical equation of the steady-state motion is obtained as Eq. (14), and the specific expression of hydrodynamic force is Eq. (12).
+(14)
+When the values of β, γ, cB, and cT have been assigned, the unknown variables of Eq. (14) are only α, V, and θ left and determined by the MATLAB software's ‘vpasolve’ function here.
+4.2. Performance evaluation model
+In actual engineering applications, the glider mainly employs the operation mode of gliding in the profile to carry out long-range exploration missions, and the whole motion process generally consists of many single profiles, as shown in Fig. 20.
+Fig. 20
+Download: Download high-res image (310KB)
+Download: Download full-size image
+Fig. 20. Motion process of the glider in a single profile.
+
+First, the glider floats on the water surface and waits for the control command of the communication satellite. After receiving the control command, the glider adjusts the net buoyancy and movable mass block's position and then starts to dive. When reaching the target depth dT, the glider adjusts the control parameter values again and starts to ascend. Finally, the glider resurfaces and completes this working cycle. The experimental result indicates that the actual feedback control can ensure that the glider's course is steady, and the glider's motion trajectory can be regarded as within a vertical profile (Wu et al., 2023a; Yu et al., 2013). Same as reference (Yu et al., 2013; Song et al., 2020), the control parameter values corresponding to the diving motion are defined as positive numbers. Additionally, the control parameter values corresponding to the ascending motion equal the opposite numbers of these corresponding to the diving motion. The value ranges of control parameters and target depth are given in Table 4.
+Table 4. Value ranges of control parameters and target depth.
+
+Parameter	cB (N)	cT (m)	dT (m)
+Value range	[2.5, 5.5]	[0.02, 0.05]	[100, 400]
+The glider's performance for the long-range exploration mission is directly determined by that of a single profile, so the following performance evaluation model will be established for a single profile. The horizontal voyage velocities corresponding to the diving and ascending motion processes are denoted as vhd and vha, respectively. Based on Fig. 13, the geometric relationship gives Eq. (15).
+(15)
+The vertical voyage velocities corresponding to the diving and ascending motion processes are denoted as vvd and vva, respectively. Based on Fig. 13, the geometric relationship gives Eq. (16).
+(16)
+On this basis, the time lengths of the diving and ascending motion processes are, respectively, expressed as Eq. (17).
+(17)
+The mean values of horizontal and vertical voyage velocities are denoted as vhm and vvm, respectively, and they can also be expressed as Eq. (18).
+(18)
+Then, the horizontal and vertical voyage velocity ratios are, respectively, defined as Eq. (19). The larger ηhm means that the glider can acquire the larger horizontal voyage velocity, and the larger ηvm corresponds to the larger vertical voyage velocity.
+(19)
+The dimensionless hydrodynamic center arm is used for quantifying the glider's motion stability, whose availability has been verified by reference (Wu et al., 2010). The center arms corresponding to the diving and ascending motion processes are denoted as lsd and lsa, respectively, and their expressions are Eq. (20).
+(20)
+Specifically, Md and Ld denote the pitch moment and lift force corresponding to the diving motion, respectively, and Ma and La denote these corresponding to the ascending motion. Meanwhile, the mean value of lsd and lsa is expressed as Eq. (21). The smaller lsm means the higher motion stability of the glider.
+(21)
+In actual engineering applications, the adjustment of net buoyancy is achieved by changing the volume of the external bladder. The buoyancy adjustment system reduces the above volume by opening the solenoid valve and letting the atmospheric pressure press the hydraulic oil from the external bladder into the pressure vessel. The solenoid valve's flow rate and power are denoted as qv and pv, respectively. The buoyancy adjustment system improves the above volume by opening the hydraulic pump and pumping the hydraulic oil from the pressure vessel into the external bladder. The hydraulic pump's flow rate and power are denoted as qp and pp, respectively. According to reference (Song et al., 2020), qp and pp are closely related to the target depth dT and expressed as Eq. (22).
+(22)
+According to the actual operation characteristic of the glider, the energy consumption of the buoyancy adjustment system can be expressed as Eq. (23).
+(23)
+The adjustment of the glider's attitude is achieved by changing the movable mass block's position. According to reference (Song et al., 2020), the power of the attitude adjustment system is closely related to the pitch angle θ and expressed as Eq. (24).
+(24)
+According to the actual operation characteristic of the glider, the energy consumption of the attitude adjustment system can be expressed as Eq. (25). Specifically, vm denotes the movable mass block's translation velocity, and θd and θa denote the pitch angles corresponding to the diving and ascending motion processes, respectively.
+(25)
+The power of the control-navigation-detection (CND) system is denoted as pcnd, and so the energy consumption of the CND system can be expressed as Eq. (26).
+(26)
+The total energy consumption for a single profile mainly consists of E1, E2, and E3, and then the specific energy consumption is defined as Eq. (27).
+(27)
+The smaller ηse means the less energy consumed by unit voyage time, namely, the glider has a higher energy efficiency. The key parameter values of the energy consumption model are given in Table 5. It should be noted that Song et al. (2020) has validated the accuracy of the energy consumption model using experimental data.
+Table 5. Key parameter values of energy consumption model.
+
+Parameter	pv (W)	qv (m3/s)	vm (m/s)	pcnd (W)
+Value	5	7.5 × 10−6	0.001	3.92
+Generally, the glider should have high motion stability to ensure voyage reliability, and high energy efficiency to ensure endurance. However, different exploration missions have different requirements for the horizontal and vertical voyage velocities of the glider. In the subsequent research work, ηhm, ηvm, lsm, and ηse will be selected as the performance indicators of the glider.
+4.3. Multi-objective optimization of morphing parameters
+Sections 4.1 Dynamic modeling, 4.2 Performance evaluation model illustrate that determining the values of ηhm, ηvm, lsm, and ηse requires solving nonlinear equations, which will consume certain iteration calculation time. If the numerically mechanical model is used for evaluating the glider's performance under a large number of working conditions, much calculation time will be required. To improve the analysis efficiency of the glider's performance, this section will establish the surrogate models of the numerically mechanical model to calculate the values of ηhm, ηvm, lsm, and ηse efficiently.
+First, the optimized Latin hypercube experimental design is used for obtaining the 200 sample points consisting of different values of β, γ, cB, cT, and dT. On this basis, 200 sets of ηhm, ηvm, lsm, and ηse are determined by the numerically mechanical model for the above 200 sample points. Finally, the surrogate models for calculating ηhm, ηvm, lsm, and ηse are obtained by using the quartic polynomial to fit the above data based on the least square method. The RMSE and R2 are used for quantifying the fitting accuracy of the quartic polynomial, and Fig. 21 shows the fitting accuracy of the obtained surrogate models.
+Fig. 21
+Download: Download high-res image (680KB)
+Download: Download full-size image
+Fig. 21. Fitting accuracy of surrogate models.
+
+The result illustrates that RMSE and R2 are very close to 0 and 1, respectively, and the numerically mechanical model's analysis result has good consistency with the surrogate model's prediction value. Therefore, the surrogate models can accurately reflect the mapping relationship between input and output parameters.
+To highlight the effect of morphing parameters on the glider's performance, this paper carries out the multivariate integration on the obtained surrogate models, and the mean value's expressions of performance indicators are determined as Eq. (28). Specifically, cBL, cTL, and dTL denote the lower bounds of cB, cT, and dT, respectively, and cBR, cTR, and dTR are the upper bounds of these. Additionally, there is Eq. (29).
+(28)
+(29)
+After the multivariate integration calculation, the specific expressions of ηh, ηv, ls, and ηe are given in the appendix. Based on the obtained expressions, the approximate function images of ηh, ηv, ls, and ηe, which can illustrate the effect of morphing parameters on the glider's performance intuitively, are drawn, as shown in Fig. 22.
+Fig. 22
+Download: Download high-res image (635KB)
+Download: Download full-size image
+Fig. 22. Approximate function images of performance indicators.
+
+The result illustrates that the function relationship between the morphing parameters and ηe is not monotonic. The value of ls increases with the increasing value of ηv, which means that there is a contradictory relationship between the above two performance indicators. Meanwhile, the value of ls decreases with the increasing value of ηh, which means that there is no obvious contradictory relationship between the above two performance indicators. In summary, β and γ have a significant effect on the comprehensive performance of the glider, and their optimal values need to be obtained by the multi-objective optimization method.
+According to the above analysis result, the mathematical optimization model is established as Eq. (30).
+(30)
+The non-dominated sorting genetic algorithm II (NSGA-II) is used for solving the mathematical optimization model. The NSGA-II integrates the Pareto optimality theory into the traditional genetic algorithm by the fast non-dominated sorting algorithm (Fu et al., 2018), which has been widely employed to deal with multi-objective optimization problems. To ensure that the optimization calculation can reliably converge, it will be independently run 3 times under the given parameter configuration of NSGA-II, and the parameter configuration will be adjusted until the steady Pareto frontier is obtained. Table 6 shows the final parameter configuration of NSGA-II that is determined by the trial calculation.
+Table 6. Parameter configuration of NSGA-II.
+
+Population size	Number of generation	Crossover probability	Crossover index	Mutation index
+12	100	0.9	10	20
+After optimization calculation, this section obtains a Pareto optimal set with 1004 non-dominated solutions, and the Pareto frontier is shown in Fig. 23.
+Fig. 23
+Download: Download high-res image (322KB)
+Download: Download full-size image
+Fig. 23. Pareto frontier obtained by optimization calculation.
+
+Then, Table 7 selects 4 non-dominated solutions from the Pareto optimal set as the optimal solutions, which correspond to the minimum ηe, the minimum ls, the maximum ηv, and the moderate objective function values, respectively.
+Table 7. Optimal solutions selected from the Pareto optimal set.
+
+Number	β (°)	γ (m)	ηe (W)	ls	ηv	ηh
+1	10	0.428	16.529	0.0913	0.812	1.264
+2	0	0.34	17.029	0.0669	0.804	1.276
+3	45	0.44	16.803	0.103	0.817	1.256
+4	15	0.430	16.539	0.0937	0.813	1.262
+The 4 optimal solutions correspond to the 4 configurations of the morphing wings. In actual engineering applications, when the glider requires high energy efficiency, configuration 1 is recommended. When the glider needs high motion stability and horizontal voyage velocity, configuration 2 is recommended. When the glider requires high vertical voyage velocity, configuration 3 is recommended. Generally, configuration 4 is recommended, because it well balances 4 performance indicators.
+Finally, the comparative analysis of the comprehensive performance between the morphing wings and conventional fixed wings is carried out. Since the different types of wings must produce different hydrodynamic characteristics, to ensure the effectiveness of comparative analysis, the basic shape of conventional fixed wings is also set as arched flat plate. On this basis, the optimal performance of arched wings with the fixed configuration can be directly determined by using the data in Table 7. Since configuration 4 in Table 7 can well balance 4 performance indicators, it is finally regarded as the arched wings with the fixed configuration. Then, compared to the key performance indicator's values for the glider with the morphing wings, these for the glider with the fixed configuration have the following change. Namely, ηe will increase by 0.06%, ls will increase by 40.06%, ηv will decrease by 0.49%, and ηh will decrease by 1.10%. The results illustrate that the glider with the morphing wings has better adaptability to various working conditions and application scenarios, and the performance advantage is particularly reflected in the static stability for this case. Additionally, if the values of β and γ are selected improperly, the performance of the glider with the fixed configuration may further deteriorate, which proves the necessity of morphing glider technology.
+5. Conclusions
+This paper proposes the design scheme of the arched morphing wings for underwater gliders driven by modular deployable mechanisms and carries out the corresponding performance analysis for this novel scheme. First, the driving mechanism of morphing wings, consisting of deployable mechanism modules, synchronously driving linkage, and flexible framework, is proposed, which can make the wings achieve the adjustment of arc length and bending angle. The whole driving mechanism is designed as a flat configuration to reduce the required installation space as much as possible. The deployable mechanism modules can be added or reduced according to the specific engineering requirement.
+Based on the geometric relationship and finite element method, the kinematic analysis and static structural stiffness analysis are conducted for the driving mechanism to verify the rationality. The results illustrate that the driving mechanism has smooth motion processes and can make the morphing wing have the ability to freely transform configuration. Under the reference hydrodynamic load and configuration, the maximum deformation value of the driving mechanism is only 0.27% of the corresponding arc length, which shows good stiffness performance. The principle prototype further verifies the rationality of the design scheme.
+Based on dynamic theory and CFD simulation, the dynamic model of the glider with the novel morphing wings is established. The results illustrate that the morphing parameters have a significant effect on the hydrodynamic force of the glider. On this basis, the quantitative analysis of energy efficiency, voyage velocity, and static stability is achieved for the glider, and the optimal values of morphing parameters are determined by surrogate model technology and NSGA-II. The results illustrate that the quartic polynomial can accurately describe the mapping relationship between the glider's performance indicators and morphing parameters. The function relationship between the morphing parameters and the energy efficiency is not monotonic. There is a contradictory relationship between the static stability and the vertical voyage velocity. There is no obvious contradictory relationship between static stability and horizontal voyage velocity. The morphing parameters have a significant effect on the comprehensive performance of the glider. Finally, 4 sets of morphing parameter values are selected from the Pareto optimal set as the optimal solutions.
+Of course, there are still many aspects of this research work that need to be improved. For example, the appropriate weight design and space layout optimization of the driving mechanism's components have not been completed. The machining accuracy and waterproof performance of the prototype need to be improved, and the corresponding hydrodynamic experiment has not been conducted. The completion of the above work will make the design scheme more in line with the actual engineering requirement. Additionally, the mathematical modeling and design method of the morphing glider considering material property will also be the focus of the next step of this research work. Nonetheless, the completed work has already enriched the design theory and method of morphing underwater gliders to a certain extent.
+CRediT authorship contribution statement
+Hongyu Wu: Writing – original draft, Project administration, Methodology, Investigation, Funding acquisition, Conceptualization. Xueao Liu: Software, Methodology. Yuxing Hao: Software, Methodology. Maolin Liao: Validation, Investigation. Wendong Niu: Writing – review & editing, Conceptualization. Yuling Zhang: Software, Investigation, Funding acquisition. Shaoze Yan: Writing – review & editing, Project administration, Funding acquisition, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+Acknowledgment
+This work is supported by the National Natural Science Foundation of China (Grant Nos. 12172188, 52305263, and 52305264), and the Natural Science Foundation of Beijing Municipality (Grant No. 3242007). The authors also thank the support of the center of high-performance computing, Tsinghua University.
+Appendix.
+The specific fitting results for the approximate function expressions of D, L, and M are given as follows.
+Function term	Coefficient value of D	Coefficient value of L	Coefficient value of M
+1	−2.0884527400	48.8528761128	−36.6531408295
+γ	25.4111123936	−467.3737843747	360.0513244706
+β	−0.0095938115	−0.6649885715	0.2762569142
+α	0.3931806010	−4.4182695098	2.0413900738
+γ2	−95.4737011034	1657.9133736418	−1317.7268342390
+β2	0.0000463498	−0.0005893853	0.0001043112
+α2	0.0023778735	0.0165414468	−0.0032056290
+γ3	162.8588111830	−2584.4684191220	2131.1198837597
+β3	−0.0000026766	0.0000040039	−0.0000028474
+α3	−0.0002420656	0.0052961803	−0.0025701467
+γ4	−103.7230702102	1492.5912362173	−1285.4450647430
+β4	0.0000000390	0.0000000737	−0.0000000059
+α4	−0.0000460440	−0.0000185067	−0.0000179945
+γβ	0.0692661253	5.2008793074	−2.1487031026
+γα	−3.0428108123	35.4049619176	−15.5847459370
+βα	0.0000835748	−0.0078207727	0.0022883707
+γ2β	−0.1746221201	−13.4272715760	5.5098342755
+γ2α	7.8188070871	−88.1310378905	39.0419528909
+β2α	−0.0000032847	0.0000776058	−0.0000243795
+γβ2	0.0001455966	0.0019347714	0.0000524424
+γα2	0.0142484303	−0.0807138248	0.0172608459
+βα2	0.0000175134	0.0000601810	−0.0000076986
+γβα	0.0000217838	0.0358748029	−0.0109219300
+γ3β	0.1401907281	11.4378062532	−4.6634785494
+γ3α	−6.7001593070	76.1630824993	−33.6468528534
+β3α	0.0000000560	−0.0000013998	0.0000005266
+γβ3	−0.0000028673	−0.0000250340	0.0000082836
+γα3	0.0006621465	−0.0296225861	0.0112492327
+βα3	−0.0000013696	0.0000731811	−0.0000240216
+γ2β2	−0.0000279397	−0.0002550669	−0.0008236657
+γ2α2	0.0033179518	0.1017623804	−0.0197160865
+β2α2	−0.0000001643	−0.0000003784	0.0000001398
+γ2βα	0.0000642652	−0.0453835094	0.0124907836
+γβ2α	−0.0000015991	−0.0000087663	−0.0000051518
+γβα2	−0.0000185690	−0.0001503163	0.0000223930
+The approximate function expressions of ηh, ηv, ls, and ηe are given as follows.
+Function term	Coefficient value of ηe	Coefficient value of ls	Coefficient value of ηh	Coefficient value of ηv
+1	497.1304544519	−3.4308235202	2.3821790815	−0.0664168141
+γ	−5130.9684907	32.1021819621	−10.1150899691	7.9580573837
+β	3.4051981858	0.0028898991	0.0033632030	−0.0006254114
+γ2	20581.129003776	−110.3532213942	34.7297638665	−27.2897145776
+β2	0.0075084054	0.0000107876	−0.0000132269	0.0000066778
+γβ	−27.4787231569	−0.0201695786	−0.0275872780	0.0060981980
+γ3	−36693.700912	168.2506749028	−53.0267938992	41.5364657164
+β3	0.0000787187	−0.0000007426	0.0000005241	−0.0000003644
+γ2β	74.1848642405	0.0496732737	0.0701079463	−0.0159692966
+γβ2	−0.0515066415	0.0000532991	0.0000199701	0.0000017587
+γ4	24504.1933328	−95.2676051492	30.0893563558	−23.4646734030
+β4	0.0000000050	0.0000000008	−0.0000000050	0.0000000033
+γ3β	−66.9261806504	−0.0399502250	−0.0587823509	0.0135595081
+γβ3	−0.0002021873	0.0000011714	−0.0000000705	0.0000000638
+γ2β2	0.0835671805	−0.0001303295	−0.0000405543	0.0000068757

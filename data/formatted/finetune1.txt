@@ -23066,3 +23066,3024 @@ The method is robust for **global stiffness tuning** but fragile to **local nonl
 
 * First-principles framework is robust within the tested regime.
 * Extrapolation beyond −12 °C to −28 °C or beyond laboratory scale is fragile without additional coupling physics.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### 1.1 Ice Material Properties
+
+* **Sea ice is modeled as quasi-brittle** with failure dominated by compression and bending.
+* **Strength values** are defined as the **90th percentile** of in-situ Arctic summer ice data:
+
+  * Compressive strength: **4.88 MPa**
+  * Bending strength: **0.27 MPa**
+* **Rate effects** are implicitly fixed by:
+
+  * Uniaxial compression crosshead speed of **0.1 mm/s**
+  * No explicit strain-rate dependence in the constitutive law during collisions.
+* Ice density is fixed at **900 kg/m³** for solid elements and cohesive elements.
+* Ice is assumed **homogeneous and isotropic** at the element scale.
+
+**Consequence**
+Ice strength variability beyond the 90th percentile is treated as a tail risk, not a design baseline.
+
+---
+
+### 1.2 Constitutive and Fracture Modeling
+
+* Solid ice uses **MAT_024 (piecewise linear plasticity)** with:
+
+  * Linear elasticity up to yield
+  * Plastic softening to a crushing stress of **0.01 MPa**
+  * Crushing strain fixed at **0.25**
+* Fracture is represented exclusively by **cohesive element failure** governed by:
+
+  * Linear traction-separation law
+  * Prescribed fracture energy values:
+
+    * Mode I: **80 J/m²**
+    * Mode II: **100 J/m²**
+* Cohesive elements are assumed:
+
+  * Massless
+  * Volume-negligible
+  * Deleted without violating conservation laws
+
+**Consequence**
+All macroscopic cracking, fragmentation, and load shedding are assumed to emerge from mesoscale cohesive failure rather than bulk damage evolution.
+
+---
+
+### 1.3 Geometry, Boundary Conditions, and Loading
+
+* Ice thickness, ship speed, and collision duration are treated as **deterministic inputs**.
+* Level ice geometry:
+
+  * Width: **80 m**
+  * Length: **480 m**
+* Hull is modeled as a **rigid body**.
+* Constant ship velocity is enforced using **prescribed rigid motion**.
+* Ice boundaries:
+
+  * One free edge
+  * Three non-reflective boundaries
+* Friction coefficients:
+
+  * Hull-ice: **0.2**
+  * Ice-ice: **0.1**
+
+**Consequence**
+Hull deformation, structural compliance, and feedback between ice loads and ship motion are explicitly neglected.
+
+---
+
+### 1.4 Fluid Interaction
+
+* Seawater effects are approximated using:
+
+  * Archimedes buoyancy
+  * High-Reynolds-number drag with fixed coefficient **Cd = 1.05**
+* Seawater velocity is assumed **zero**.
+* No wave, slush, or turbulence modeling.
+
+**Consequence**
+Hydrodynamics influence only post-fracture fragment motion, not ice failure initiation.
+
+---
+
+### 1.5 Statistical Treatment
+
+* Ice load peaks are assumed to follow a **three-parameter Weibull distribution**.
+* Peak extraction uses:
+
+  * Fixed thresholds (100 kN measured, 20 kN simulated)
+  * Rayleigh separation
+* Maximum likelihood estimation is assumed valid for parameter inference.
+* Sensor inversion assumes **linear strain-load superposition**.
+
+**Consequence**
+Statistical stationarity is assumed over the analysis window.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### 2.1 Manufacturing and Numerical Assumptions
+
+* Mesh quality is assumed sufficient because:
+
+  * Pentahedral elements with face size ≈ **2× ice thickness** are used.
+* Fracture energy regularization is assumed to remove mesh dependence.
+* Contact erosion does not introduce spurious momentum loss.
+
+**Evidence**
+Reliance on prior literature claiming mesh size 2–3× ice thickness yields stable loads.
+
+---
+
+### 2.2 Material Homogeneity and Aging
+
+* Ice porosity, brine volume, salinity gradients, and temperature gradients are ignored.
+* Ice properties are assumed time-invariant over the 5-minute simulation.
+* No fatigue, creep, or subcritical crack growth is modeled.
+
+**Evidence**
+Single set of material parameters used across all conditions.
+
+---
+
+### 2.3 Human and Operational Factors
+
+* Navigation is assumed straight-line and steady.
+* No steering, heave, pitch, or yaw motions are included.
+* Operator behavior does not affect collision dynamics.
+
+---
+
+### 2.4 Boundary Condition Idealization
+
+* Non-reflective ice boundaries are assumed to eliminate artificial stress waves.
+* Adjacent ice fields are assumed mechanically passive.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Conservation of Linear Momentum
+
+**Law**
+[
+\sum F = \frac{d}{dt}(m v)
+]
+
+**Application**
+Ice loads arise from momentum exchange between hull and ice elements during collision.
+
+**Validity Regime**
+
+* Explicit dynamics
+* No relativistic effects
+* Neglects hull compliance
+
+**Boundary Risk**
+Rigid hull assumption transfers all momentum change into ice fracture and contact forces.
+
+---
+
+### 3.2 Linear Elasticity and Plasticity
+
+**Law**
+[
+\sigma = E \varepsilon \quad (\text{elastic regime})
+]
+
+**Application**
+Solid ice deforms elastically up to yield, then softens plastically.
+
+**Limits**
+
+* Valid only for small strains
+* Ignores anisotropy and rate dependence
+
+---
+
+### 3.3 Fracture Mechanics and Energy Balance
+
+**Law**
+[
+G = \frac{dW}{dA}
+]
+
+Fracture occurs when energy release rate equals fracture energy.
+
+**Application**
+Cohesive elements dissipate fracture energy during crack growth.
+
+**Second-Order Effects**
+
+* Crack shielding
+* Fragment size distribution sensitivity to Gc
+
+---
+
+### 3.4 Contact Mechanics and Friction
+
+**Law**
+[
+F_t = \mu F_n
+]
+
+**Application**
+Controls tangential resistance during ice sliding and accumulation.
+
+**Limits**
+
+* Constant friction coefficients ignore pressure, temperature, and melt effects.
+
+---
+
+### 3.5 Fluid Forces
+
+**Buoyancy**
+[
+F_b = \rho g A h
+]
+
+**Drag**
+[
+F_d = \frac{1}{2} C_d \rho A v^2
+]
+
+**Limits**
+Assumes high Reynolds number, neglects vortex shedding and unsteady flow.
+
+---
+
+### 3.6 Extreme Value Statistics
+
+**Law**
+Weibull distribution models stochastic maxima of ice load peaks.
+
+**Assumption**
+Load peaks are independent and identically distributed after thresholding.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Fracture energy vs momentum transfer**
+  Higher fracture energy increases contact duration, increasing peak loads.
+* **Ice thickness vs bending stiffness**
+  Thicker ice increases bending rigidity, shifting failure from bending to compression.
+* **Speed vs strain rate**
+  Increased speed raises effective strain rate, but no rate sensitivity is modeled.
+* **Fragmentation vs hydrodynamics**
+  Fragment size affects drag, which affects recontact probability.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Assumption Violated         | Physical Breakdown                                   |
+| --------------------------- | ---------------------------------------------------- |
+| Homogeneous ice             | Stress localization invalidates cohesive calibration |
+| Constant friction           | Sliding forces misestimated                          |
+| Rigid hull                  | Load sharing and peak reduction ignored              |
+| Stationary water            | Drag and accumulation mispredicted                   |
+| Weibull parent distribution | Extreme load risk mischaracterized                   |
+
+---
+
+## 6. Hidden Failure Modes
+
+* Underestimated peak loads if:
+
+  * Ice temperature decreases
+  * Brine volume increases brittleness
+* Overestimated safety if:
+
+  * Hull flexibility reduces local stresses
+* Spurious crack patterns if:
+
+  * Mesh size deviates from cohesive length
+* Non-conservative results if:
+
+  * Ice ridges or floes replace level ice
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+* **Material choice**
+  Simplified plasticity chosen over viscoplastic models for computational tractability.
+* **Geometry**
+  Ice length chosen to match time window, not physical floe size distribution.
+* **Optimization target**
+  Load statistics prioritized over detailed stress fields.
+
+What is not optimized:
+
+* Energy efficiency
+* Propulsion–ice interaction
+* Structural fatigue accumulation
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Hull–ice interface is the sole load path.
+* No coupling to propulsion or control systems.
+* No feedback from ice loads to ship speed or heading.
+* Ice fragments are dynamically isolated from the parent ice field.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* No damage accumulation across impacts.
+* No evolution of ice properties with repeated crushing.
+* Statistical parameters assumed stable over time.
+* No memory effects in fracture behavior.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Applied Margins
+
+* 90th percentile ice strength
+* Conservative load thresholds
+
+### Gaps
+
+* No explicit safety factor on fracture energy
+* No redundancy in boundary condition assumptions
+* Single-point failure: cohesive parameter miscalibration
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Straight-line navigation
+* Level ice
+* Constant speed
+* Summer Arctic conditions
+
+### Likely Operative Regime
+
+* Variable speed
+* Mixed ice types
+* Temperature gradients
+* Maneuvers and turning
+
+**Robustness Assessment**
+First-principles framework remains valid, but parameter values and statistical conclusions are fragile outside the calibrated regime.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### 1.1 Propeller Geometry and Scale
+
+* The toroidal propeller is treated as a **closed-loop modification of a conventional Ka4-70 blade** with comparable diameter and rotational speed.
+* Performance comparisons assume **geometric similarity** between the toroidal and Ka4-70 propellers except for the tip closure.
+* Reynolds numbers achieved in experiments and CFD are assumed representative of **small-scale DPV operation**.
+
+**Consequence**
+All observed performance gains are attributed primarily to **tip-closure effects**, not blade camber, pitch distribution, or section shape differences.
+
+---
+
+### 1.2 Flow Regime
+
+* Flow is assumed:
+
+  * **Incompressible**
+  * **Newtonian**
+  * Predominantly **turbulent**, modeled using SST k-ω DES
+* Cavitation is **absent or negligible** in all experimental and numerical cases.
+* Free-surface effects are captured via deformation but **no air entrainment or multiphase breakup** is modeled.
+
+**Consequence**
+Noise reduction claims are inferred indirectly from vortex suppression and wake smoothness, not from acoustic source modeling.
+
+---
+
+### 1.3 Experimental Measurement (PIV)
+
+* 2D-3C PIV is assumed sufficient to:
+
+  * Resolve dominant wake structures
+  * Capture tip vortex evolution and dissipation
+* Time-averaged velocity fields are treated as representative of **propulsive momentum transfer**.
+* Hollow glass microspheres perfectly follow the flow with negligible slip.
+
+**Consequence**
+Out-of-plane vortex stretching and small-scale turbulence intermittency are implicitly neglected.
+
+---
+
+### 1.4 Numerical Modeling of DPV
+
+* DPV hull is rigid with **no structural deformation**.
+* Propellers operate at fixed RPM without feedback from motor torque limits.
+* Ocean current velocity is steady and uniform at **1 m/s**.
+* Roll motion is neglected as hydrodynamically insignificant.
+* Propeller-DPV interaction is fully captured via DES without explicit propeller-structure vibration coupling.
+
+**Consequence**
+Hydrodynamic forces are decoupled from control, compliance, and diver-induced disturbances.
+
+---
+
+### 1.5 Performance Metrics
+
+* Increased thrust and wake velocity are equated to **improved propulsion performance**, even when efficiency decreases.
+* Self-propulsion speed is treated as the primary success criterion, over endurance or power draw.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### 2.1 Reynolds Number Similarity
+
+* It is implicitly assumed that:
+
+  * Wake suppression mechanisms scale favorably at low Reynolds numbers
+  * Toroidal advantages observed here will persist across **different DPV sizes and speeds**
+
+**Evidence**
+No explicit Reynolds scaling analysis or nondimensional wake comparison is provided.
+
+---
+
+### 2.2 Surface Roughness Effects
+
+* Toroidal propeller roughness is acknowledged as influencing vortex core size, yet:
+
+  * Roughness is not controlled or matched between propellers
+  * Its contribution is not isolated from geometry effects
+
+**Hidden Tradeoff**
+Some wake changes attributed to toroidal geometry may actually arise from **manufacturing-induced roughness**.
+
+---
+
+### 2.3 Energy Budget Assumption
+
+* Increased thrust is treated as beneficial even though:
+
+  * Torque also increases
+  * Efficiency is sometimes lower
+
+**Implicit Constraint**
+DPV missions prioritize **maneuverability and speed** over endurance and battery life.
+
+---
+
+### 2.4 Statistical Stationarity
+
+* Wake structures and forces are assumed statistically steady over the observation window.
+* Transient burst events, intermittent separation, or low-frequency unsteadiness are not treated as dominant contributors.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Conservation of Momentum
+
+**Law**
+[
+T = \dot{m} (V_{out} - V_{in})
+]
+
+**Application**
+
+* Toroidal propellers generate higher thrust by accelerating a **larger effective mass of water**, both axially and circumferentially.
+
+**Limit**
+Momentum conservation does not guarantee efficiency, only force production.
+
+---
+
+### 3.2 Vorticity Transport
+
+**Law**
+[
+\frac{D\boldsymbol{\omega}}{Dt} = (\boldsymbol{\omega} \cdot \nabla)\mathbf{u} - (\nabla \cdot \mathbf{u})\boldsymbol{\omega} + \nu \nabla^2 \boldsymbol{\omega}
+]
+
+**Application**
+
+* Closed tips suppress radial vorticity flux and redistribute circulation circumferentially.
+* Increased adverse pressure gradients near toroidal tips accelerate vortex fragmentation.
+
+**Emergent Effect**
+Earlier vortex breakup reduces coherent far-wake structures but increases near-wake turbulence intensity.
+
+---
+
+### 3.3 Boundary Layer and Separation Physics
+
+* Tip closure alters:
+
+  * Pressure gradient at blade ends
+  * Separation onset location
+* Toroidal geometry induces **stronger circumferential induced velocity**, thickening shear layers.
+
+**Boundary**
+At higher J, separation-induced losses may offset thrust gains.
+
+---
+
+### 3.4 Free Surface Hydrodynamics
+
+**Law**
+Dynamic pressure–surface elevation coupling:
+[
+\Delta h \sim \frac{p}{\rho g}
+]
+
+**Application**
+
+* Toroidal propellers reduce surface disturbance by redistributing momentum below the free surface.
+* Faster wake recovery indicates reduced upward momentum flux.
+
+---
+
+### 3.5 Turbulence Modeling Limits
+
+* DES resolves large-scale vortices but:
+
+  * Relies on RANS near walls
+  * Is sensitive to grid alignment and y⁺ control
+
+**Risk**
+Wake instability and vortex merging may be grid-dependent.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Momentum vs Efficiency**
+  Higher thrust increases wake kinetic energy, raising power demand.
+* **Vorticity Suppression vs Separation**
+  Eliminating tip vortices intensifies pressure gradients, triggering earlier shear-layer breakup.
+* **Free Surface Interaction vs Thrust**
+  Higher thrust improves speed but can amplify surface-wave coupling if not well submerged.
+* **Attitude vs Wake Symmetry**
+  Pitch and yaw break wake symmetry, amplifying transverse forces and vortex shedding.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Violated Assumption     | Resulting Breakdown                                 |
+| ----------------------- | --------------------------------------------------- |
+| Reynolds similarity     | Wake mechanisms may invert at different scales      |
+| Negligible cavitation   | Tip benefits may vanish under cavitating conditions |
+| Rigid DPV               | Structural vibration could reintroduce noise        |
+| Steady current          | Unsteady inflow may destabilize wake suppression    |
+| Efficiency not critical | Battery endurance may drop below mission needs      |
+
+---
+
+## 6. Hidden Failure Modes
+
+* **Battery depletion risk** due to higher torque demand
+* **Increased mechanical stress** at toroidal blade roots
+* **Bottom-wall interaction amplification** in benthic operations
+* **Wake–instrument interference** from intensified near-wake turbulence
+* **Control instability** under combined yaw and pitch at high thrust
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Why Toroidal Geometry
+
+* Optimized for:
+
+  * Noise suppression
+  * Thrust stability
+* Not optimized for:
+
+  * Peak efficiency
+  * Manufacturing simplicity
+  * Fouling resistance
+
+### What Was Not Optimized
+
+* Acoustic spectrum
+* Energy per distance traveled
+* Diver fatigue from reaction forces
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* DPV is treated as hydrodynamically isolated.
+* No coupling to:
+
+  * Diver body
+  * Tether effects
+  * Control feedback loops
+* Surface modeled as deformable but not breaking.
+* Bottom treated as rigid, smooth wall.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* No fatigue accumulation in propeller or DPV structure.
+* No biofouling or surface degradation over time.
+* Wake statistics assumed invariant over mission duration.
+* No thermal or salinity gradients considered.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Present Margins
+
+* Grid convergence verification
+* Experimental validation within ±5 %
+
+### Missing Margins
+
+* No uncertainty quantification for turbulence model choice
+* No margin for manufacturing variability
+* No allowance for diver-induced disturbances
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Calm water
+* Controlled currents
+* Fixed RPM
+* Clean propeller surfaces
+
+### Likely Operative Regime
+
+* Unsteady currents
+* Proximity to divers, rocks, vegetation
+* Variable thrust demand
+* Fouling and wear
+
+**Robustness Assessment**
+The physics framework remains valid, but **performance claims are conditionally bounded** to low-Re, non-cavitating, controlled-attitude regimes.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### 1.1 Vehicle and Mission Model
+
+* The underwater glider operates in **steady, straight-line gliding motion**.
+* Turning dynamics and roll motion are neglected.
+* Each dive–climb cycle is treated as a **sequence of quasi-steady profiles**.
+* Feedback control is assumed to maintain the glider within a vertical plane.
+
+**Implication**
+Transient maneuvering, lateral disturbances, and coupled yaw–roll instabilities are outside the model validity.
+
+---
+
+### 1.2 Morphing Wing Degrees of Freedom
+
+* Only two morphing parameters are considered:
+
+  * Arc length γ
+  * Bending angle β
+* Wing width and thickness are fixed.
+* When β = 0, the wing reduces to a rectangular flat plate.
+
+**Implication**
+The design space is intentionally constrained. Other influential parameters such as twist, camber distribution, spanwise stiffness variation, and leading-edge curvature are excluded.
+
+---
+
+### 1.3 Structural Mechanics
+
+* The driving mechanism is:
+
+  * Planar
+  * Rigid-body dominated
+  * Free of backlash and joint compliance
+* Structural vibration and dynamic instability are neglected.
+* Hydrodynamic loading is approximated as a **uniform pressure of 15 Pa**.
+
+**Implication**
+The mechanism is assumed to remain in static equilibrium during operation, with negligible fluid-structure coupling.
+
+---
+
+### 1.4 Hydrodynamic Regime
+
+* Flow is:
+
+  * Incompressible
+  * Newtonian
+  * Low speed
+* Reynolds number is sufficiently high to justify **k-ω SST turbulence modeling**.
+* Lift, drag, and pitch moment scale with **V²**.
+
+**Implication**
+Laminar–turbulent transition effects and Reynolds-number-dependent profile changes are not explicitly resolved.
+
+---
+
+### 1.5 Mass and Buoyancy Distribution
+
+* Changes in γ and β:
+
+  * Do not alter total mass
+  * Do not shift the buoyancy center
+* Movable mass block and glider body are treated as rigid bodies.
+* Morphing wing mass is negligible relative to the hull.
+
+**Implication**
+Structural morphing is decoupled from hydrostatic stability and trim.
+
+---
+
+### 1.6 Energy Consumption Model
+
+* Energy usage is decomposed into:
+
+  * Buoyancy adjustment
+  * Attitude adjustment
+  * Control-navigation-detection electronics
+* Actuator efficiencies and losses are embedded in empirical constants.
+* Wing morphing energy consumption is not explicitly modeled.
+
+**Implication**
+Morphing is treated as energetically free once configuration is set.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### 2.1 Quasi-Steady Validity
+
+* Hydrodynamic forces derived from steady CFD are assumed valid during:
+
+  * Diving
+  * Ascending
+  * Configuration transitions
+
+**Hidden Risk**
+During active morphing, unsteady separation and transient lift spikes may violate equilibrium assumptions.
+
+---
+
+### 2.2 Polynomial Surrogate Fidelity
+
+* Quartic polynomials are assumed sufficient to represent:
+
+  * Strongly nonlinear fluid–structure interactions
+  * Cross-coupled effects of γ, β, and α
+
+**Hidden Tradeoff**
+High R² indicates interpolation accuracy, not extrapolation robustness.
+
+---
+
+### 2.3 Structural Load Envelope
+
+* A pressure difference of 15 Pa is assumed to bound all operational hydrodynamic loads.
+
+**Hidden Constraint**
+This implicitly assumes:
+
+* Calm ocean conditions
+* No wave-induced dynamic pressure
+* No rapid pitch excursions
+
+---
+
+### 2.4 Modular Scalability
+
+* Adding or removing deployable modules preserves:
+
+  * Kinematic symmetry
+  * Structural stiffness trends
+  * Hydrodynamic continuity
+
+**Hidden Assumption**
+Scaling effects on stiffness, backlash accumulation, and skin wrinkling are negligible.
+
+---
+
+### 2.5 Material Idealization
+
+* Aluminum alloy properties are assumed:
+
+  * Homogeneous
+  * Isotropic
+  * Invariant with pressure and temperature
+* PMMA prototype behavior is assumed qualitatively representative.
+
+**Hidden Gap**
+Creep, fatigue, corrosion, and long-term sealing effects are not considered.
+
+---
+
+### 2.6 Stability Metric Sufficiency
+
+* Static stability is fully captured by the **dimensionless hydrodynamic center arm** lsm.
+
+**Implicit Limitation**
+Dynamic stability, limit cycles, and disturbance rejection are not evaluated.
+
+---
+
+## 3. Governing Physical Principles
+
+### 3.1 Force Equilibrium
+
+Steady gliding is governed by:
+
+* Lift–buoyancy balance
+* Drag–gravity projection balance
+* Zero net pitching moment
+
+This directly constrains α, θ, and V via nonlinear coupling.
+
+---
+
+### 3.2 Hydrodynamic Scaling
+
+[
+D, L, M \propto \rho V^2
+]
+
+**Consequence**
+Small configuration changes in γ and β can amplify force differences quadratically with speed.
+
+---
+
+### 3.3 Stability Physics
+
+[
+l_s = \frac{M}{L}
+]
+
+* Smaller l_s implies stronger restoring tendency.
+* Increasing vertical velocity generally increases lift-induced moments, degrading stability.
+
+This explains the observed contradiction between ηv and ls.
+
+---
+
+### 3.4 Energy Budget Physics
+
+* Buoyancy adjustment energy scales with depth.
+* Attitude adjustment energy scales with pitch angle.
+* Hydrodynamic efficiency affects required time per profile, not instantaneous power.
+
+**Key Insight**
+Energy efficiency emerges from **trajectory shaping**, not propulsion.
+
+---
+
+### 3.5 Structural Mechanics
+
+* Bending deformation scales with:
+  [
+  \delta \sim \frac{F L^3}{E I}
+  ]
+
+Small deformation ratios indicate stiffness adequacy, but not fatigue safety.
+
+---
+
+## 4. Interdependency Map
+
+| Change          | Primary Benefit     | Secondary Cost               |
+| --------------- | ------------------- | ---------------------------- |
+| Increase γ      | Higher lift         | Higher drag, lower stability |
+| Increase β      | Lower drag          | Reduced stability margin     |
+| Maximize ηv     | Faster depth change | Larger pitch moment          |
+| Minimize ηe     | Endurance           | Reduced maneuver margin      |
+| Modular count ↑ | Shape fidelity      | Mass and complexity          |
+
+---
+
+## 5. Failure and Regime-Break Scenarios
+
+* **Unsteady ocean currents** invalidate steady CFD assumptions.
+* **Rapid morphing** introduces inertial and unmodeled hydrodynamic transients.
+* **Skin wrinkling or delamination** alters effective hydrodynamic shape.
+* **Depth-dependent material behavior** changes stiffness and sealing.
+* **Biofouling** alters drag and lift distributions.
+
+---
+
+## 6. Design Tradeoffs Revealed
+
+* Adaptability is gained by trading:
+
+  * Structural simplicity
+  * Modeling certainty
+  * Energy predictability
+* Morphing primarily improves **mission-level performance envelopes**, not point efficiency.
+
+---
+
+## 7. What the Paper Proves vs Assumes
+
+### Strongly Supported
+
+* γ and β materially affect lift, drag, and pitch moment.
+* Multi-objective optimization is necessary due to inherent tradeoffs.
+* Modular morphing can outperform fixed wings in adaptability.
+
+### Assumed but Unverified
+
+* Structural durability under cyclic loading
+* Hydrodynamic behavior during active morphing
+* Long-term energy cost of morphing actuation
+* Performance under disturbed flow conditions
+
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### 1.1 Regulatory and Operational Context
+
+* Inland shipping is assumed to be a **material contributor to regional air pollution**, justifying electrification.
+* Policy instruments such as **DECA, EEDI, SEEMP, and EEOI** are assumed to be effective drivers of technology adoption.
+* All-electric ships are assumed to be a **long-term dominant solution** rather than a transitional technology.
+
+**Consequence**
+The study implicitly optimizes within a regulatory future where zero-emission operation is mandatory rather than optional.
+
+---
+
+### 1.2 Ship Type and Mission Profile
+
+* The benchmark vessel is:
+
+  * A **low-speed inland tourist ship**
+  * Short-route, schedule-constrained
+  * Operating primarily in **normal inland waterways**
+* Maximum speed, endurance, and voyage length are fixed at:
+
+  * 18 km/h
+  * 8 h
+  * 100 km
+
+**Consequence**
+Results are not intended to extrapolate to high-speed craft, deep-sea vessels, or highly irregular duty cycles.
+
+---
+
+### 1.3 Energy System Architecture
+
+* The ship is powered by:
+
+  * **Lithium iron phosphate (LFP) batteries**
+  * A **photovoltaic system** mounted on available deck area
+* The electrical architecture is:
+
+  * DC battery → DC-DC boost → DC-AC inverter → PMSM → FPP
+* Two propulsion motors and propellers are assumed symmetric.
+
+**Consequence**
+Hybrid architectures with generators, fuel cells, or variable pitch propellers are explicitly excluded.
+
+---
+
+### 1.4 Modeling Choices
+
+* Electrical subsystems are modeled using **dimensionless data-driven models**.
+* Hull forces and ship motion are modeled using **first-principles hydrodynamics**.
+* Battery behavior is represented using a **second-order RC equivalent circuit**.
+* PV generation is modeled via a **single-diode equivalent circuit**.
+* Ship maneuvering is limited to **3 degrees of freedom**: surge, sway, yaw.
+
+**Consequence**
+Internal electrochemical, thermal, and structural dynamics are deliberately abstracted to preserve computational efficiency.
+
+---
+
+### 1.5 Verification Criteria
+
+* Model validity is asserted when:
+
+  * Component-level errors are within **5 %**
+  * Integrated system errors are within **10 %**
+* Similarity is established using **Froude number equivalence**.
+
+**Consequence**
+The model is calibrated for trend fidelity, not high-frequency transient accuracy.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### 2.1 Battery Physics Simplification
+
+* Battery degradation mechanisms are ignored:
+
+  * Capacity fade
+  * Internal resistance growth
+  * Temperature-dependent aging
+* Coulomb counting is assumed sufficient for SOC estimation.
+
+**Evidence**
+No thermal or aging state variables appear in the energy management logic.
+
+---
+
+### 2.2 Thermal and Safety Margins
+
+* Electrical components are assumed to:
+
+  * Remain within thermal limits
+  * Avoid derating under high load or low SOC
+* Fire, venting, and thermal runaway risks are not modeled.
+
+**Hidden Risk**
+Energy-optimal strategies may push systems closer to unmodeled safety boundaries.
+
+---
+
+### 2.3 Photovoltaic Reliability
+
+* PV performance degradation due to:
+
+  * Fouling
+  * Mechanical vibration
+  * Long-term erosion
+    is ignored.
+
+**Implication**
+Seasonal variability is modeled, but lifecycle variability is not.
+
+---
+
+### 2.4 Hydrodynamic Linearity
+
+* Resistance and maneuvering models assume:
+
+  * No wave-induced added resistance
+  * No squat or bank effects
+  * Limited shallow-water interaction
+
+**Contradiction**
+Later conclusions acknowledge the model is not valid for shallow or restricted waterways.
+
+---
+
+### 2.5 Control System Idealization
+
+* PID controllers are assumed:
+
+  * Perfectly tuned
+  * Free of actuator saturation beyond rudder angle limits
+* Control energy consumption is negligible.
+
+---
+
+### 2.6 Human Factors
+
+* Crew behavior is abstracted into predefined maneuver sequences.
+* No stochastic decision-making or delayed response is considered.
+
+---
+
+## 3. Governing First Principles
+
+### 3.1 Energy Conservation
+
+[
+E_{\text{battery}} + E_{\text{PV}} = E_{\text{propulsion}} + E_{\text{loss}} + E_{\text{residual}}
+]
+
+This balance underpins all voyage energy density calculations.
+
+**Limit**
+Loss terms are lumped and not state-dependent beyond SOC.
+
+---
+
+### 3.2 Electrical Circuit Laws
+
+* Kirchhoff’s laws govern:
+
+  * Battery equivalent circuits
+  * DC-DC and DC-AC conversion
+* Switching behavior is time-averaged.
+
+**Regime**
+Valid when switching frequency ≫ system mechanical time constants.
+
+---
+
+### 3.3 Motor Electromechanics
+
+PMSM torque:
+[
+T_e = \frac{3}{2} P \left[\lambda_{af} i_q + (L_d - L_q) i_d i_q \right]
+]
+
+**Implication**
+Torque production depends directly on current control quality and inverter stability.
+
+---
+
+### 3.4 Propeller Momentum Theory
+
+Thrust and torque derived from open-water characteristics:
+[
+T, Q = f(J)
+]
+
+**Assumption**
+Wake interaction, cavitation, and unsteady inflow are negligible.
+
+---
+
+### 3.5 Ship Resistance Physics
+
+* Frictional resistance ∝ Reynolds number
+* Residual resistance ∝ Froude number
+
+**Key Dependency**
+Environmental flow modifies resistance through relative velocity:
+[
+V_s = V_a \pm V_{\text{water}}
+]
+
+---
+
+### 3.6 Rigid-Body Dynamics
+
+Surge–sway–yaw equations enforce Newton’s second law.
+
+**Boundary**
+Heave, roll, and pitch are excluded.
+
+---
+
+## 4. Interdependencies Between Subsystems
+
+* **Water speed ↔ propulsion power ↔ battery current**
+  Higher upstream velocity increases electrical stress nonlinearly.
+* **Maneuvering ↔ power factor stability**
+  Turning induces reactive power fluctuations.
+* **Speed ↔ schedule adherence ↔ energy density**
+  Faster travel reduces time but increases energy per km.
+* **PV output ↔ voyage profile**
+  Low-speed, long-duration segments maximize PV contribution.
+* **Control actions ↔ electrical grid stability**
+  Acceleration phases dominate power quality risk.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Violated Assumption         | Resulting Breakdown                 |
+| --------------------------- | ----------------------------------- |
+| Constant battery parameters | SOC and voltage predictions drift   |
+| Negligible thermal effects  | Inverter and motor derating ignored |
+| Calm water resistance       | Energy consumption underpredicted   |
+| Ideal PV availability       | Overestimation of energy savings    |
+| Stable power factor         | Increased harmonic stress           |
+
+---
+
+## 6. Hidden Failure Modes
+
+* Accelerated battery aging due to high C-rate during maneuvers
+* Increased inverter losses during frequent acceleration
+* Rudder-induced electrical oscillations under high flow velocity
+* Overconfidence in negative energy density cases if PV output is transiently overestimated
+* Loss of control margin under compounded upstream flow and turning
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Why Equivalent Circuit Models
+
+* Chosen to balance:
+
+  * Real-time capability
+  * Computational tractability
+* Sacrifices:
+
+  * Thermal accuracy
+  * Degradation prediction
+
+### What Is Not Optimized
+
+* Battery lifespan
+* Component fatigue
+* Economic cost per cycle
+* Robustness to abnormal conditions
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Ship is treated as an isolated system.
+* No port charging constraints are modeled.
+* No grid interaction during docking.
+* PV integration does not influence ship stability or trim.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* System parameters are time-invariant over a voyage.
+* No learning, adaptation, or degradation.
+* Seasonal PV variability is captured, but multi-year trends are not.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Explicit
+
+* Power factor safety threshold of **0.85**
+* Harmonic distortion < **10 %**
+
+### Missing
+
+* Battery thermal margins
+* Electrical fault tolerance
+* Redundancy analysis
+
+Single-point vulnerability: battery model accuracy under high-current transients.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Low-speed inland ships
+* Normal water environments
+* Predictable voyage patterns
+
+### Likely Operative Regime
+
+* Variable hydrology
+* Human-driven deviations
+* Aging components
+* Partial PV availability
+
+**Robustness Assessment**
+The framework is **directionally robust** but **numerically fragile** outside its calibrated envelope.
+
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+These are directly stated or unambiguously implied in the text.
+
+### Geometry and Structural Configuration
+
+* Floating modules are **simple box-type barges** with identical geometry.
+* Modules are connected via **idealized hinge joints** that allow free rotation about the hinge axis.
+* Gap distance between modules is fixed at **0.1 m**, assumed sufficient to avoid contact.
+* Only **one-, two-, and three-module** configurations are considered.
+
+### Materials and Structural Properties
+
+* Upper plate is **Aluminum 6061**, providing vertical bending stiffness.
+* Lower plate is **polyethylene foam**, providing buoyancy.
+* Materials are treated as **linearly elastic**, with constant Young’s modulus.
+* Bonding between aluminum and foam is assumed to remain intact during testing.
+
+### Hydrodynamic Environment
+
+* Waves are **regular, head-on, long-crested waves**.
+* Linear wave theory is assumed at generation.
+* Water depth is constant at **4 m**, with no depth-induced nonlinearities.
+* Reflections are minimized and considered negligible after stabilization.
+
+### Mooring System
+
+* Moorings are **nylon ropes**, symmetric, pretensioned, and attached at equal elevations.
+* Mooring dynamics are assumed to mainly affect **low-frequency motions**, which are excluded.
+* Moorings are not designed to significantly constrain first-order wave-frequency motions.
+
+### Measurement and Data Processing
+
+* Motions are decomposed using **FFT**, with focus on **first-order harmonics** for RAOs.
+* Higher harmonics are explicitly considered only for hinge forces.
+* Transient behavior before 60 to 100 s is excluded from analysis.
+
+---
+
+## 2. Hidden or Implicit Assumptions
+
+These assumptions are not stated but are necessary for the analysis to hold.
+
+### Structural Idealizations
+
+* **Perfect hinge behavior** with no friction, backlash, clearance, or wear.
+* Hinges transmit forces but negligible bending moments.
+* No local stress concentration or plasticity at hinge pins or brackets.
+
+### Material Behavior
+
+* Aluminum and polyethylene are assumed **homogeneous and isotropic**.
+* No rate dependence, creep, or viscoelastic effects in polyethylene.
+* No degradation due to cyclic loading or water absorption.
+
+### Manufacturing and Assembly
+
+* Modules are assumed **geometrically identical** within tight tolerances.
+* Alignment errors between modules are negligible.
+* Sensor placement does not locally stiffen or weaken the structure.
+
+### Environmental Variability
+
+* No temperature variation affecting material stiffness or buoyancy.
+* No currents, wind, or wave directional spreading.
+* No biofouling, corrosion, or surface roughness effects.
+
+### Load Predictability
+
+* Wave loading is assumed **repeatable and stationary** over the test duration.
+* Load paths are assumed consistent across wave cycles.
+* Structural response is assumed weakly nonlinear except at hinges.
+
+### Scaling and Representativeness
+
+* Froude scaling is implicitly assumed valid.
+* Structural damping and material damping scale appropriately.
+* Results are assumed transferable to full scale despite connector fatigue being scale-sensitive.
+
+---
+
+## 3. Governing First Principles
+
+### Linear Wave Theory
+
+**Law**
+
+* Small-amplitude wave theory governs free-surface elevation and pressure fields.
+
+**Application**
+
+* Used to normalize responses and interpret wavelength dependence.
+
+**Validity Regime**
+
+* Valid for small wave steepness and non-breaking waves.
+
+**Boundary**
+
+* Violated locally by diffraction, radiation, and connector nonlinearities.
+
+**Second-Order Effects**
+
+* Difference-frequency loads excite low-frequency surge via moorings.
+* Sum-frequency components excite higher harmonic hinge forces.
+
+---
+
+### Rigid Body Dynamics
+
+**Law**
+
+* Newton–Euler equations for 6-DOF motion.
+
+**Application**
+
+* Surge, heave, and pitch RAOs of individual modules.
+
+**Validity Regime**
+
+* Valid when elastic deformation is small relative to rigid motion.
+
+**Boundary**
+
+* Competes with structural bending when wavelength approaches module length.
+
+---
+
+### Euler–Bernoulli Beam Theory
+
+**Law**
+
+* Bending governed by
+  ( EI \frac{d^4 w}{dx^4} = q(x,t) )
+
+**Application**
+
+* Interpretation of hogging and sagging.
+* Maximum deformation at mid-length when wavelength ≈ module length.
+
+**Validity Regime**
+
+* Small deflections, linear elasticity.
+
+**Boundary**
+
+* Connector constraints introduce discontinuities not captured by classical beam theory.
+
+---
+
+### Hydroelastic Coupling
+
+**Law**
+
+* Structural deformation modifies hydrodynamic pressure field, and vice versa.
+
+**Application**
+
+* Explains why middle module has low motion but high deformation.
+
+**Emergent Effects**
+
+* Constraint-induced bending amplification.
+* Phase differences between modules generate internal stress.
+
+---
+
+### Fatigue and Cyclic Loading
+
+**Law**
+
+* Damage accumulation depends on stress range and cycle count.
+
+**Application**
+
+* High-order harmonics in hinge forces increase fatigue risk.
+
+**Boundary**
+
+* Fatigue not quantified but implicitly critical.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Wave diffraction** alters pressure distribution, increasing bending moments.
+* **Hydroelasticity** couples rigid body motion suppression with deformation amplification.
+* **Hinge kinematics** reduce global pitch but increase local stress cycles.
+* **Mooring dynamics** introduce secondary frequencies affecting surge response.
+
+These interactions explain why adding modules reduces surge but increases connector fatigue risk.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Assumption Violated      | Consequence                                                     |
+| ------------------------ | --------------------------------------------------------------- |
+| Perfect hinge rotation   | Additional bending moments, invalid Euler–Bernoulli assumptions |
+| Linear material behavior | Underprediction of deformation and fatigue                      |
+| Negligible damping       | Overprediction of resonance peaks                               |
+| No clearance or backlash | Missed impact loads and impulse forces                          |
+| Head waves only          | Results invalid for oblique or quartering seas                  |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Connector-Driven Failures
+
+* High-frequency harmonic forces lead to **fatigue cracking**.
+* Clearance growth causes **impact loading**.
+* Pin wear induces **nonlinear stiffness jumps**.
+
+### Structural Failures
+
+* Middle module experiences **constraint-induced overbending**.
+* Local yielding at aluminum–foam interface.
+* Delamination due to cyclic shear.
+
+### System-Level Failures
+
+* Mooring fatigue due to ignored low-frequency drift.
+* Progressive misalignment of modules over time.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Material Choice
+
+* Aluminum chosen for stiffness-to-weight ratio, not corrosion resistance or fatigue life.
+* Polyethylene chosen for buoyancy, not long-term creep resistance.
+
+### Geometry
+
+* Box shape simplifies hydrodynamics but exaggerates bending compared to pontoon shapes.
+
+### Connector Design
+
+* Hinges optimized for motion decoupling, not load attenuation.
+* Fatigue life implicitly sacrificed for kinematic simplicity.
+
+### What Was Not Optimized
+
+* Oblique wave response.
+* Extreme or survival sea states.
+* Connector redundancy or fail-safe behavior.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Modules interact hydrodynamically via **radiation and diffraction**.
+* Hinges act as both kinematic constraints and force transmitters.
+* Moorings provide weak global restoring but strong low-frequency coupling.
+* No active control or damping is present.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* No accumulation of fatigue damage over test duration.
+* No stiffness degradation of hinges.
+* No change in mooring pretension.
+* No sensor drift or calibration loss.
+
+In real deployments, these assumptions would be violated early in service life.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Implied Safety Factors
+
+* Linear elastic material limits.
+* Ignoring extreme waves.
+* Short test durations.
+
+### Insufficient Margins
+
+* Connector fatigue resistance.
+* Sensitivity to higher harmonics.
+* Lack of redundancy in load paths.
+
+### Single-Point Failures
+
+* Failure of one hinge fundamentally alters system dynamics.
+* Loss of one mooring changes surge natural period.
+
+---
+
+## 11. Design vs Operative Regime
+
+### Design Regime
+
+* Regular head waves.
+* Linear to weakly nonlinear response.
+* Short-term operation.
+
+### Likely Operative Regime
+
+* Directional, irregular seas.
+* Combined wave, wind, and current loading.
+* Long-term cyclic degradation.
+
+### Robustness Assessment
+
+* Hydrodynamic conclusions are moderately robust.
+* Connector force and fatigue conclusions are **highly sensitive** to off-nominal conditions.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Structural Idealization
+
+* The deep-sea mining riser is modeled as a **slender Euler–Bernoulli beam**.
+* **Shear deformation and torsion are neglected**, implying a high slenderness ratio and bending-dominated response.
+* The riser is **vertically suspended**, with:
+
+  * **Top boundary**: hinged with prescribed surge motion.
+  * **Bottom boundary**: free, with a **lumped intermediate warehouse mass**.
+* The intermediate warehouse is treated as a **concentrated mass** affecting axial tension and boundary dynamics.
+
+### Flow and Excitation
+
+* The inflow consists of:
+
+  * A **steady uniform current**.
+  * A **harmonic oscillatory component** induced by vessel surge.
+* Relative velocity is obtained via **linear superposition** of current and surge velocity.
+* Vessel surge is modeled as **pure sinusoidal motion** with fixed amplitude and period.
+
+### VIV Modeling
+
+* Hydrodynamic forces are represented using a **forced van der Pol wake oscillator model**.
+* Wake dynamics are assumed to be captured by **fixed empirical coefficients**.
+* VIV is decomposed into **cross-flow (CF)** and **in-line (IL)** directions.
+
+### Mathematical Treatment
+
+* Modal decomposition is applied.
+* Structural coefficients vary slowly along the length, justifying **WKB approximation**.
+* Multi-mode structural response is retained.
+* Time integration is performed using **4th-order Runge–Kutta**.
+
+### Validation
+
+* Numerical results are validated against:
+
+  * Steady uniform flow experiments.
+  * Oscillatory flow experiments.
+* Agreement is judged primarily on **RMS amplitudes, trends, and dominant frequencies**.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Structural and Material Assumptions
+
+* Material behavior is **linear elastic**, with no yielding or plastic hinge formation.
+* No **material damping degradation** or fatigue stiffness reduction occurs.
+* The riser is **geometrically straight**, perfectly vertical, and free of initial curvature.
+* Axial tension variation due to large deflection is neglected.
+
+### Boundary Condition Idealization
+
+* The bottom warehouse provides **mass but no rotational stiffness**.
+* No impact, clearance, or contact occurs between the warehouse and seabed or buffer systems.
+* The top hinge transmits no bending moment and exhibits no friction.
+
+### Hydrodynamic Assumptions
+
+* Wake oscillator parameters are **universal**, unaffected by:
+
+  * Reynolds number variation.
+  * Oscillatory inflow reversal.
+  * Wake memory or turbulence intermittency.
+* Vortex shedding is assumed to remain **coherent and quasi-two-dimensional**.
+
+### Flow Regime
+
+* Flow is assumed subcritical, non-breaking, and free of turbulence modulation by surface waves.
+* No current shear, stratification, or directional veering is considered.
+
+### Scaling and Representativeness
+
+* Empirical coefficients calibrated on laboratory-scale cylinders are assumed valid for **deep-sea mining risers**.
+* KC number is assumed sufficient to characterize oscillatory flow effects.
+
+---
+
+## 3. Governing First Principles
+
+### Structural Dynamics of Slender Beams
+
+**Law**
+
+* Euler–Bernoulli beam equation
+  ( EI w'''' + T(z) w'' + m \ddot{w} + c \dot{w} = F_{fluid} )
+
+**Application**
+
+* Governs modal shapes, frequencies, and deformation patterns.
+* Explains reduction in modal order with increased bottom mass.
+
+**Validity Regime**
+
+* Small curvature, small strains, bending-dominated response.
+
+**Boundary of Validity**
+
+* Violated under large deflections or tension-bending coupling.
+
+---
+
+### Vortex Shedding and Fluid–Structure Lock-In
+
+**Law**
+
+* Vortex shedding frequency proportional to relative velocity
+  ( f_s = St \cdot U_r / D )
+
+**Application**
+
+* Determines lock-in regions and excitation bands.
+* Explains intermittent excitation when surge modulates ( U_r ).
+
+**Emergent Effects**
+
+* Mode switching due to time-varying lock-in condition.
+* Coexistence of multiple frequencies near dominant mode.
+
+---
+
+### Nonlinear Oscillator Dynamics
+
+**Law**
+
+* Forced van der Pol oscillator with structural feedback.
+
+**Application**
+
+* Models self-excited, amplitude-limited VIV.
+* Explains continuous versus intermittent oscillations.
+
+**Limitations**
+
+* Cannot capture chaotic wake breakdown or broadband turbulence.
+* Assumes single dominant wake frequency at each instant.
+
+---
+
+### Parametric and Boundary Excitation
+
+**Law**
+
+* Time-varying boundary motion introduces parametric excitation.
+
+**Application**
+
+* Vessel surge injects energy periodically.
+* Explains synchronization of intermittent VIV period with surge period.
+
+**Second-Order Effects**
+
+* Frequency modulation.
+* Subharmonic and superharmonic participation.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Surge-modulated relative velocity** governs wake excitation strength.
+* **Wake excitation** interacts with **time-varying modal frequencies** due to bottom mass.
+* **Dynamic boundary motion** alters lock-in conditions along the riser length.
+* **Gravity and bottom mass** suppress IL motion while CF remains wake-dominated.
+
+These couplings generate the observed **distinct and moderate stages** of intermittent VIV.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Assumption Violated                | Consequence                                   |
+| ---------------------------------- | --------------------------------------------- |
+| Linear superposition of velocities | Underestimation of peak relative velocity     |
+| Universal wake coefficients        | Incorrect prediction of intermittency onset   |
+| Negligible torsion                 | Missed torsional VIV or mode coupling         |
+| Ideal hinge behavior               | Additional stiffness alters modal transitions |
+| No fatigue degradation             | Overestimation of long-term stability         |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Fatigue-Driven Failures
+
+* Intermittent VIV causes **high stress range variability**, accelerating fatigue damage.
+* Low-order frequencies synchronized with surge produce **low-cycle fatigue**.
+* Mode switching introduces **non-stationary stress histories**.
+
+### Boundary and Attachment Failures
+
+* Bottom warehouse experiences combined gravity, inertia, and hydrodynamic loading.
+* “8”-shaped trajectories imply **biaxial cyclic loading** at the attachment.
+
+### System-Level Instabilities
+
+* Surge-induced parametric excitation may trigger:
+
+  * Mode jumping.
+  * Local resonance amplification.
+* Loss of motion compensation could cause runaway vibration.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Modeling Tradeoffs
+
+* WKB chosen for efficiency over exact spatial resolution.
+* Wake oscillator chosen over CFD to enable parametric studies.
+
+### Design Tradeoffs
+
+* Heavier intermediate warehouse reduces modal order but increases:
+
+  * Axial tension.
+  * Attachment loads.
+* Surge mitigation reduces CF VIV but may amplify IL dynamics.
+
+### What Is Not Optimized
+
+* Extreme surge events.
+* Coupled heave–surge–pitch vessel motion.
+* Long-term fatigue life and crack propagation.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Top boundary motion acts as **energy injector** rather than passive constraint.
+* Bottom mass acts as:
+
+  * Dynamic absorber for some modes.
+  * Stress concentrator for others.
+* Riser acts as a **distributed transmission line** for boundary-induced energy.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* No cumulative damage over multiple surge cycles.
+* No drift in natural frequencies due to fatigue or wear.
+* No degradation of wake coherence over time.
+
+In reality, intermittent VIV is **more damaging** than continuous VIV due to repeated re-excitation.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Implicit Safety Margins
+
+* Linear material response.
+* Moderate KC numbers.
+* Idealized boundary behavior.
+
+### Insufficient Margins
+
+* Fatigue resistance under intermittent excitation.
+* Sensitivity to surge period tuning.
+* Robustness to multi-directional vessel motion.
+
+### Single-Point Failures
+
+* Failure of motion compensation system.
+* Detachment or stiffening of intermediate warehouse.
+* Change in surge frequency near structural modes.
+
+---
+
+## 11. Design vs Operative Regime
+
+### Design Regime
+
+* Sinusoidal surge.
+* Uniform current.
+* Controlled KC numbers.
+
+### Likely Operative Regime
+
+* Irregular surge with broadband spectrum.
+* Combined surge, heave, and pitch.
+* Time-varying current profiles.
+
+### Robustness Assessment
+
+* Mode trend predictions are robust.
+* **Intermittent VIV onset is highly sensitive** to real-world deviations.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Geological and Geomorphological Context
+
+* Ambon Bay is treated as a **semi-enclosed basin** whose geometry is capable of supporting tsunami resonance.
+* Submarine slopes along the northern bay are assumed to be **composed of weakly consolidated sediments**, similar to those measured in Palu Bay.
+* Landslide initiation is assumed to occur primarily along **upper submarine slopes**.
+
+### Landslide Triggering and Geometry
+
+* Submarine landslides are assumed to be **gravity-driven slope failures**, not requiring explicit earthquake forcing.
+* All unstable slopes with **Safety Factor < 1** are assumed capable of **simultaneous full-depth failure**.
+* Landslide thickness ranges from **1–50 m**, determined directly from SHALSTAB soil depth input.
+
+### Hydrodynamic Modeling
+
+* Tsunami propagation is governed by **depth-averaged, non-dispersive shallow-water equations**.
+* A **two-layer system** is sufficient to represent:
+
+  * Upper layer: seawater
+  * Lower layer: fluidized sediment
+* Water and sediment layers are **immiscible** and remain stratified.
+* Sediment behaves as a **depth-averaged granular fluid**, not a solid block or debris flow.
+
+### Numerical and Spectral Analysis
+
+* A **30-m grid resolution** adequately captures bathymetric controls on resonance.
+* FFT-based spectral analysis is sufficient to identify dominant resonance periods.
+* Resonance periods are assumed to be **governed primarily by basin geometry**, not by landslide rheology.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Slope Stability and Geotechnical Assumptions
+
+* SHALSTAB, originally designed for **subaerial rainfall-triggered landslides**, is assumed valid for **submarine slope failure**.
+* Soil parameters derived from **Palu Bay** are assumed transferable to Ambon Bay.
+* **Dynamic earthquake shaking**, cyclic pore pressure buildup, and strain-rate weakening are ignored.
+* Failure is assumed **coherent and instantaneous**, not progressive or retrogressive.
+
+### Landslide Dynamics
+
+* Landslide motion is assumed to be **laminar and depth-averaged**, not turbulent.
+* No fragmentation, block sliding, or entrainment of additional sediment occurs.
+* Simultaneous failure of multiple zones assumes **perfect temporal correlation**, a worst-case but low-probability scenario.
+
+### Hydrodynamics
+
+* Shallow-water approximation neglects:
+
+  * Vertical velocity structure
+  * Frequency dispersion
+  * Non-hydrostatic pressure
+* Wave breaking, bore formation, and turbulence dissipation are ignored offshore.
+* Open boundary conditions are assumed to be **perfectly non-reflective**.
+
+### Spectral Interpretation
+
+* FFT assumes **stationarity and linear superposition**, despite landslide tsunamis being impulsive and nonlinear.
+* Identified spectral peaks are assumed to represent **physical resonance modes**, not numerical artifacts.
+* Edge waves are inferred indirectly, without modal decomposition.
+
+---
+
+## 3. Governing First Principles
+
+### Slope Stability Mechanics
+
+**Law**
+
+* Force equilibrium along a potential failure plane:
+  [
+  FS = \frac{c + (\gamma - \gamma_w m) z \cos^2\theta \tan\phi}{\gamma z \sin\theta \cos\theta}
+  ]
+
+**Application**
+
+* Determines spatial likelihood of slope failure.
+
+**Validity Regime**
+
+* Shallow, translational failure
+* Homogeneous soil
+* Quasi-static loading
+
+**Boundary of Validity**
+
+* Violated under seismic acceleration or deep rotational slides.
+
+---
+
+### Mass Conservation and Momentum Transfer
+
+**Law**
+
+* Depth-averaged continuity and momentum equations govern both layers.
+
+**Application**
+
+* Landslide motion displaces water, generating tsunami waves.
+
+**Emergent Effects**
+
+* Negative wave at slide head
+* Positive wave at slide toe
+
+**Limitations**
+
+* Cannot capture dispersive short-period waves or vertical jets.
+
+---
+
+### Long-Wave Tsunami Theory
+
+**Law**
+
+* Tsunami speed:
+  [
+  c = \sqrt{gh}
+  ]
+
+**Application**
+
+* Governs propagation, reflection, and resonance.
+
+**Validity**
+
+* Wavelength ≫ water depth
+
+**Boundary**
+
+* Short-period oscillations are under-resolved.
+
+---
+
+### Basin Resonance
+
+**Law**
+
+* Natural period depends on basin length, width, and depth.
+
+**Application**
+
+* Explains prolonged oscillations and amplification.
+
+**Emergent Phenomena**
+
+* Partial standing waves
+* Shelf-trapped edge waves
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Slope instability** determines landslide volume and geometry.
+* **Landslide kinematics** set initial tsunami spectrum.
+* **Basin geometry** selectively amplifies certain frequencies.
+* **Edge wave trapping** couples shoreline geometry to resonance.
+* **Non-dispersive hydrodynamics** bias energy toward longer periods.
+
+These interactions explain why resonance periods remain stable even when landslide parameters vary.
+
+---
+
+## 5. Assumption–Principle Failure Mapping
+
+| Assumption Violated          | Consequence                           |
+| ---------------------------- | ------------------------------------- |
+| SHALSTAB validity underwater | Mislocation of landslide source       |
+| Full-depth failure           | Overestimated tsunami amplitude       |
+| Two-layer immiscibility      | Incorrect energy transfer             |
+| Non-dispersive waves         | Underprediction of short-period modes |
+| FFT stationarity             | Misidentification of resonance peaks  |
+
+---
+
+## 6. Hidden Failure Modes
+
+### Geotechnical Failures
+
+* Progressive slope failure producing **multiple tsunami pulses**
+* Earthquake-induced liquefaction reducing shear strength suddenly
+
+### Hydrodynamic Failures
+
+* Resonant amplification causing **delayed but severe inundation**
+* Edge wave trapping leading to **localized extreme run-up**
+
+### Modeling Failures
+
+* Numerical diffusion damping higher modes
+* Artificial resonance from grid alignment or boundary treatment
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+### Why Two-Layer Instead of CFD
+
+* Computational tractability
+* Basin-scale focus over near-field accuracy
+
+### What Is Optimized
+
+* Resonance identification
+* Hazard hotspot mapping
+
+### What Is Not Optimized
+
+* Exact run-up heights
+* Landslide initiation physics
+* Nearshore turbulence and breaking
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Bay mouth treated as **open boundary with minimal reflection**
+* Shoreline treated with **wet–dry algorithm**, not structural resistance
+* No interaction with tides or background currents
+* No coupling to seismic wave field
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* Landslide occurs once, instantaneously.
+* Sediment stops moving after ~60–120 s.
+* Resonance persists for hours without energy decay beyond bottom friction.
+
+In reality, repeated slope failures or aftershocks could re-excite the system.
+
+---
+
+## 10. Safety and Robustness Margins
+
+### Conservative Elements
+
+* Simultaneous failure of all unstable slopes
+* Upper-bound sediment thickness
+
+### Non-Conservative Elements
+
+* No seismic triggering
+* Simplified sediment rheology
+* Coarse nearshore resolution
+
+### Single-Point Sensitivities
+
+* Landslide volume estimation
+* Bay mouth boundary treatment
+* Bathymetric smoothing
+
+---
+
+## 11. Design vs Operative Regime
+
+### Design Regime
+
+* Single landslide
+* Idealized sediment behavior
+* Calm background ocean
+
+### Likely Operative Regime
+
+* Earthquake-triggered failure
+* Multiple landslide pulses
+* Tides and background currents
+
+### Robustness
+
+* **Resonance periods are robust**
+* **Amplitude predictions are fragile**
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+These are assumptions the authors either state directly or clearly rely on in formulas, simulations, or experimental setups.
+
+### 1.1 Environment and Operating Regime
+
+* Operation is primarily **calm, open water** with negligible current and wind during testing.
+* Water is treated as **Newtonian, incompressible**, with constant density (ρ = 1000 kg/m³).
+* Air density is fixed at 1.2 kg/m³.
+* Free surface effects are modeled using **VOF**, implying well-defined phase separation and no entrained air bubbles or breaking waves beyond what VOF captures.
+* Temperature effects are neglected except in the appendix justification of Reynolds number bounds.
+
+**Consequence:** Any deviation toward turbulent wave breaking, debris-laden water, vegetation, or non-calm surface conditions lies outside the validated regime.
+
+---
+
+### 1.2 Structural and Material Assumptions
+
+* The spherical shell, frame, and pendulum are treated as **rigid bodies**.
+* Moments of inertia are constant and known precisely.
+* Mass properties do not change with battery discharge, temperature, or water ingress.
+* The shell is implicitly assumed **axisymmetric and homogeneous**.
+
+**Consequence:** Local shell deformation, internal sloshing, or asymmetrical mass shifts are excluded from the dynamics.
+
+---
+
+### 1.3 Propulsion System Assumptions
+
+* Propeller thrust from open-water tests can be transferred to the full robot via:
+
+  * Direct CFD modeling, or
+  * Virtual disk method without loss of fidelity.
+* Differential thrust produces zero-radius turning without coupling losses.
+* Propeller inflow is assumed sufficiently uniform despite proximity to hull and free surface.
+
+**Consequence:** Interaction losses between propeller wake, hull curvature, and free surface are under-resolved in simplified thrust mapping.
+
+---
+
+### 1.4 Pendulum Propulsion Assumptions
+
+* Only **longitudinal pendulum motion** matters during forward motion.
+* Lateral dynamics are negligible.
+* Effective rolling constraint: translational velocity is directly linked to shell rotation.
+* Buoyancy and gravity cancel for shell and frame during surface rolling.
+
+**Consequence:** This explicitly removes vertical heave, pitch, and coupled roll–yaw instabilities from the model.
+
+---
+
+### 1.5 Experimental Validation Assumptions
+
+* Errors under 5 percent are treated as validation of model correctness.
+* Measurement uncertainty is assumed smaller than modeling error at high RPM.
+* Field tests are assumed representative of real deployments.
+
+**Consequence:** Agreement is treated as structural correctness, not parameter compensation.
+
+---
+
+## 2. HIDDEN / IMPLICIT ASSUMPTIONS
+
+These are not stated but are necessary for the system to function as described.
+
+### 2.1 Manufacturing and Assembly
+
+* Tight tolerances on:
+
+  * Shell roundness
+  * Pendulum pivot alignment
+  * Propeller shaft concentricity
+* No imbalance-induced vibration significant enough to alter CFD or dynamics.
+
+**Evidence:** Use of rigid-body Lagrangian dynamics and clean thrust curves implies negligible eccentric mass errors.
+
+---
+
+### 2.2 Maintenance and Degradation
+
+* Bearings, seals, and pendulum joints retain performance over time.
+* No fouling, corrosion, or sediment ingress affects drag or inertia.
+* Propeller blades maintain geometry and surface finish.
+
+**Evidence:** No degradation terms appear in energy or resistance models.
+
+---
+
+### 2.3 Human and Control Factors
+
+* Operators or controllers can:
+
+  * Precisely regulate throttle percentages
+  * Maintain pendulum actuation within assumed limits
+* No delay, backlash, or actuator saturation significantly alters dynamics.
+
+**Evidence:** Control inputs are treated as ideal continuous signals.
+
+---
+
+### 2.4 Environmental Variability
+
+* Sediment, aquatic vegetation, floating debris are excluded.
+* Salinity effects on density and viscosity are ignored.
+* No wave reflection or shoreline effects in field testing.
+
+**Evidence:** Constant drag coefficients and fixed F_wave term.
+
+---
+
+### 2.5 Aging and Fatigue
+
+* Repeated pendulum oscillations do not induce:
+
+  * Frame fatigue
+  * Shell microcracking
+  * Joint loosening
+* Structural eigenfrequencies are far from actuation frequencies.
+
+**Evidence:** No fatigue life, damping evolution, or resonance analysis.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Newton–Euler Mechanics
+
+**Law:** ΣF = m a, Στ = I α
+**Application:** Overall motion resistance equated to thrust during steady motion.
+**Validity Regime:** Quasi-steady, low-acceleration surface locomotion.
+**Boundary:** Invalid during rapid throttle changes or wave impacts.
+
+---
+
+### 3.2 Lagrangian Mechanics
+
+**Law:** d/dt(∂T/∂q̇) − ∂T/∂q + ∂V/∂q = Q
+**Application:** Coupled shell–pendulum dynamics.
+**Validity:** Rigid bodies, holonomic constraints.
+**Failure Mode:** Breaks if shell slips significantly or deforms.
+
+---
+
+### 3.3 Hydrodynamic Drag Laws
+
+**Law:** F_d = ½ ρ C_d A v²
+**Application:** Viscous drag, air drag, residual resistance.
+**Assumption:** Constant drag coefficients (Cf = Cp = 0.47).
+**Boundary:** Invalid across Reynolds transitions or wave breaking.
+
+---
+
+### 3.4 Propeller Theory
+
+**Law:** Thrust and torque coefficients depend on advance ratio J.
+**Application:** Open-water efficiency curves.
+**Boundary:** Violated near free surface, hull interference, or ventilation.
+
+---
+
+### 3.5 Free Surface Hydrodynamics
+
+**Principle:** Wave-making resistance dominates bluff bodies.
+**Application:** Explains energy loss and resistance trends.
+**Second-Order Effects:** Wave reflection, spray, transient submergence.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Pendulum-induced rotation ↔ Boundary layer control**
+
+  * Increases wall shear stress
+  * Suppresses separation
+  * Reduces pressure drag
+* **Reduced pressure drag ↔ Increased friction drag**
+
+  * Net resistance decreases
+  * Energy consumption rises
+* **Propeller thrust ↔ Free surface deformation**
+
+  * Alters effective advance ratio
+  * Changes wave-making resistance
+
+These interactions explain why hybrid mode reduces resistance but increases energy usage.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTION FAILURES
+
+| Violated Assumption      | Resulting Breakdown                  |
+| ------------------------ | ------------------------------------ |
+| Effective rolling        | Lagrangian constraint invalid        |
+| Constant drag coeffs     | Resistance prediction error explodes |
+| Rigid shell              | Energy dissipation into deformation  |
+| Uniform propeller inflow | Thrust curves unusable               |
+| Calm water               | Wave drag dominates unexpectedly     |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### 6.1 Structural
+
+* Pendulum joint fatigue leading to loss of torque symmetry.
+* Shell cracking from cyclic shear stresses.
+* Frame loosening altering inertia tensors.
+
+---
+
+### 6.2 Hydrodynamic
+
+* Propeller ventilation near free surface.
+* Flow reattachment failure at higher RPMs.
+* Sudden drag crisis if surface roughness changes.
+
+---
+
+### 6.3 Control and System Integration
+
+* Mode coupling instability at specific throttle ratios.
+* Resonant oscillations between pendulum and wave-induced roll.
+* Energy runaway if hybrid mode is misused at low throttle.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### 7.1 Why a Sphere
+
+* Optimized for:
+
+  * Rolling on land
+  * Symmetric mass distribution
+* Sacrifices:
+
+  * Hydrodynamic efficiency
+  * Payload transport economy
+
+---
+
+### 7.2 Why Pendulum + Propeller
+
+* Pendulum chosen for:
+
+  * Internal protection
+  * Terrain adaptability
+* Propeller chosen for:
+
+  * Speed
+* Not optimized for:
+
+  * Energy efficiency
+  * Long-duration cruising
+
+---
+
+### 7.3 Why Fixed Pendulum Throttle in Hybrid Tests
+
+* Simplifies analysis
+* Masks optimal control coupling possibilities
+* Implies assumption of suboptimal but robust operation
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Load paths assume:
+
+  * No torsional compliance between shell and frame
+* Thermal dissipation of motors not modeled
+* Battery voltage assumed stable
+* No interaction with external manipulators or payload shifts
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No cumulative fatigue
+* No bearing wear
+* No performance drift
+* No battery degradation
+* No fouling accumulation
+
+The system is treated as **time-invariant**, which is a strong assumption for field robotics.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+### 10.1 Implicit Safety Factors
+
+* Mesh independence tolerance of <5–10 percent
+* Experimental agreement threshold of <5 percent
+
+### 10.2 Single-Point Failures
+
+* Pendulum actuator failure disables hybrid benefits
+* Propeller damage severely limits aquatic mobility
+* Seal failure compromises mass distribution
+
+No graceful degradation strategy is described.
+
+---
+
+## 11. DESIGN REGIME VS OPERATIVE REGIME
+
+### Designed For
+
+* Calm inland water
+* Controlled throttle
+* Short-to-medium missions
+* Known terrain transitions
+
+### Likely to Encounter
+
+* Waves
+* Debris
+* Partial grounding
+* Sensor noise
+* Asymmetric loading
+
+**Robustness:** Moderate.
+**Adaptability:** High mechanically, limited energetically.
+**Energy efficiency:** Explicitly traded away.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Environmental and stochastic modeling
+
+* **Seven long-term environmental variables** fully characterize the environment:
+  significant wave height, spectral wave period, wave direction, wind speed, wind direction, surface current speed, current direction.
+* **Joint probabilistic distribution** of these variables is prescribed and assumed known.
+* **Wind–wave directional dependence** is explicitly assumed, with wind direction conditionally centered on wave direction.
+* **Current is independent** of wave and wind processes.
+* **Sea states are stationary** over 0.5–3 h durations.
+* **Short-term wave process** is assumed:
+
+  * Gaussian
+  * Zero mean
+  * Linear superposition of harmonic components
+  * Governed by JONSWAP spectrum
+* **Unidirectional waves** within each sea state.
+* **Deepwater assumption** for wave kinematics with tanh(kd) ≈ 1.
+
+### Structural and dynamic modeling
+
+* Fully coupled **time-domain dynamic analysis** of vessel, moorings, and risers.
+* Wave loads decomposed into:
+
+  * Linear wave-frequency loads
+  * Quadratic low-frequency loads
+* Wave forces computed using **potential flow diffraction theory**.
+* Line forces computed using **Morison’s equation**, implying:
+
+  * Slender body assumption
+  * Empirical drag and inertia coefficients
+* **Dynamic wind effects neglected**, wind modeled as quasi-steady drag.
+* Stress response extracted from **OrcaFlex simulations** is assumed ground truth for training and benchmarking.
+
+### Reliability and fatigue modeling
+
+* Failure defined via **threshold exceedance** for extreme response.
+* Short-term responses across sea states are **statistically independent**.
+* Annual failure probability derived from short-term probabilities via multiplication.
+* Fatigue damage computed using:
+
+  * Rainflow counting
+  * Miner's linear damage rule
+  * Single-slope S–N curve
+* Mean stress effects corrected using **Goodman relation**.
+* Non-environmental fatigue uncertainties lumped into a **lognormal multiplicative variable** with median 1 and COV 0.3.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Statistical and probabilistic structure
+
+* **Correctness of joint distributions**
+  The entire method presumes the specified JPDF is accurate in the tails. Any mis-specification propagates directly into reliability estimates.
+* **Ergodicity**
+  Time averages within a sea state are assumed representative of ensemble averages.
+* **Stationarity across service life**
+  Environmental statistics do not evolve over decades.
+* **Independence between sea states**
+  No persistence or clustering of storms is modeled.
+
+### Metamodel assumptions
+
+* **Generalization sufficiency**
+  360 training sea states are assumed sufficient to generalize across a 7-dimensional stochastic domain.
+* **Response smoothness**
+  Structural response is assumed to vary smoothly with respect to environmental inputs, enabling interpolation by GE-NARX.
+* **No regime switching**
+  Structural behavior does not undergo qualitative changes outside the training envelope.
+* **Single-output sufficiency**
+  Predicting one response quantity does not omit coupled effects that could alter fatigue or extremes.
+
+### Numerical and computational assumptions
+
+* **Rosenblatt transformation fidelity**
+  Mapping from normal space to physical space preserves dependence structure accurately.
+* **MCMC mixing adequacy**
+  Modified Metropolis Hastings chains sufficiently explore conditional failure regions.
+* **Subset level probability optimality**
+  Chosen conditional probability values ensure efficiency and convergence.
+
+### Human and operational assumptions
+
+* Model calibration, parameter selection, and DOE tuning are assumed to be performed by **expert practitioners**.
+* No allowance for **operator error**, mis-parameterization, or incorrect boundary condition specification.
+
+---
+
+## 3. GOVERNING FIRST PRINCIPLES
+
+### Linear wave theory
+
+**Principle**
+Small-amplitude gravity waves obey linear superposition.
+
+**Governing relations**
+
+* Wave elevation as Fourier sum
+* Particle velocities from linear kinematics
+
+**Validity regime**
+
+* Small wave steepness
+* No wave breaking
+* Deep water
+
+**Boundary of validity**
+
+* Severe storms
+* Shallow water
+* Nonlinear wave–wave interactions
+
+**Second-order effects**
+
+* Ignored bound harmonics
+* Ignored wave drift forces beyond quadratic LF modeling
+
+---
+
+### Structural dynamics
+
+**Principle**
+Newton’s second law applied to a coupled multi-body system.
+
+**Form**
+M ẍ + C ẋ + K x = F(t)
+
+**Validity**
+
+* Lumped parameter representation
+* Linear stiffness for most components
+
+**Boundary violations**
+
+* Geometric nonlinearity in large riser excursions
+* Contact, slack–taut transitions
+
+---
+
+### Fluid–structure interaction
+
+**Principle**
+Morison equation balances inertial and drag forces.
+
+**Form**
+F = ρ C_M A u̇ + ½ ρ C_D D |u|u
+
+**Validity**
+
+* Slender members
+* Low Keulegan–Carpenter numbers
+* Empirical coefficients constant
+
+**Failure modes**
+
+* Vortex shedding
+* Reynolds-number dependence
+* Directional flow complexity
+
+---
+
+### Fatigue damage accumulation
+
+**Principle**
+Miner’s rule assumes linear cumulative damage.
+
+**Form**
+D = Σ (n_i / N_i)
+
+**Validity**
+
+* No load sequence effects
+* Constant material properties
+
+**Known violations**
+
+* Load interaction effects
+* Mean stress interaction beyond Goodman correction
+
+---
+
+### Reliability theory
+
+**Principle**
+Failure probability is a multidimensional probability integral.
+
+**Form**
+P_f = ∫ I[g(X) ≤ 0] f_X(X) dX
+
+**SS regime**
+
+* Rare event probabilities
+* High dimensionality
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Wave directionality ↔ structural modal excitation**
+  Direction determines which rigid-body modes dominate, altering stress paths.
+* **Short-term stochasticity ↔ fatigue accumulation**
+  Rare large cycles disproportionately influence damage.
+* **Thermodynamic independence assumption ↔ fatigue life**
+  Environmental correlation assumptions directly shape damage distributions.
+* **Metamodel error ↔ tail estimation**
+  Small bias in response prediction amplifies exponentially in extreme tails.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE FAILURE LINKS
+
+| Violated Assumption        | Consequence                        |
+| -------------------------- | ---------------------------------- |
+| Gaussian wave process      | Incorrect short-term extremes      |
+| Stationary environment     | Underprediction of lifetime damage |
+| Linear wave theory         | Missed nonlinear crest loads       |
+| Independence of sea states | Underestimated clustering risk     |
+| Accurate DOE coverage      | Metamodel extrapolation errors     |
+| Miner’s rule validity      | Misestimated fatigue life          |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Tail under-sampling in DOE**
+  Leads to non-conservative reliability estimates.
+* **Directional mis-specification**
+  Produces incorrect dominant load cases.
+* **Mean stress correction simplification**
+  Underestimates damage for asymmetric cycles.
+* **Neglected dynamic wind loading**
+  Critical for wind-dominated systems.
+* **Metamodel blind spots**
+  Rare resonance conditions never trained.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Material modeling**
+
+  * Optimized for seawater with cathodic protection
+  * Not optimized for corrosion–fatigue coupling
+* **Geometry**
+
+  * Slender risers favor Morison modeling
+  * Not optimized for vortex-induced vibration
+* **DOE limits**
+
+  * Training cost constrains tail resolution
+* **Computational trade**
+
+  * Accuracy sacrificed for speed in metamodeling
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Environmental loads enter as **kinematic boundary conditions**.
+* Structural response feeds back into relative velocity terms.
+* No feedback from structural damage to stiffness or damping.
+* No coupling to inspection or monitoring systems despite digital-twin claims.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No stiffness degradation over time.
+* No corrosion growth.
+* No mooring creep.
+* Fatigue damage accumulation assumed linear and memoryless.
+* Environmental statistics frozen over service life.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Safety factors embedded via:
+
+  * Design fatigue factor
+  * Conservative S–N parameters
+* No explicit robustness margin for:
+
+  * Metamodel error
+  * Distributional uncertainty
+* Single-point failure risk:
+
+  * Incorrect joint distribution
+  * DOE omission of critical regime
+
+---
+
+## 11. DESIGN VS OPERATING REGIME
+
+### Designed for
+
+* Stationary statistics
+* Gaussian waves
+* Known distributions
+* Smooth response behavior
+
+### Likely operating reality
+
+* Nonstationary climate
+* Directional persistence
+* Model uncertainty
+* Damage-induced response changes
+
+### Robustness
+
+* Strong to dimensionality
+* Weak to distributional error
+* Weak to physics regime shifts
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Ice loading and data treatment
+
+* Ice loads are **random, peak-dominated processes** suitable for probabilistic modeling.
+* Only **load peaks above 10 kN** are considered representative of ice interaction.
+* Loads below 10 kN are assumed to be dominated by **hydrodynamic and wave effects**.
+* Ice load peaks extracted via a **Rayleigh separation algorithm** are assumed to represent independent events.
+* Short-term load peaks are suitable as **parent distributions** for long-term extreme value analysis.
+
+### Measurement and instrumentation
+
+* Shear strain gauges on selected hull frames provide **accurate total ice force per frame**.
+* Conversion from strain to force is assumed **linear and calibrated** following Suominen et al.
+* Measurement noise at high loads is negligible compared to signal.
+
+### Environmental and operational conditions
+
+* Selected cases are assumed to have:
+
+  * Approximately constant ice concentration
+  * Approximately constant ship speed and heading
+  * Representative ice thickness and floe size categories
+* Visual ice observations are assumed sufficiently accurate for statistical correlation.
+
+### Statistical modeling
+
+* Exponential, Weibull, lognormal, truncated, and mixture distributions are assumed valid candidate models.
+* Maximum Likelihood Estimation is assumed appropriate when solutions exist.
+* Gumbel extreme value theory is assumed valid for long-term maxima.
+* Monte Carlo sampling is assumed to converge to correct extreme statistics.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Measurement physics
+
+* **Frame load is assumed spatially lumped**, ignoring local pressure distributions and stress concentrations.
+* Hull steel is implicitly assumed **linear elastic**, isotropic, and homogeneous under peak loads.
+* No allowance for **dynamic amplification**, strain-rate effects, or sensor saturation during high-energy impacts.
+
+### Contact mechanics
+
+* Ice–hull interaction is implicitly treated as a sequence of **statistically independent contacts**.
+* No explicit modeling of **contact duration, impact velocity, or contact area evolution**.
+* Ice failure modes such as crushing, bending, splitting, and ridge interaction are not explicitly parameterized, only inferred statistically.
+
+### Thresholding
+
+* The 10 kN threshold is assumed to:
+
+  * Fully separate wave loads from ice loads
+  * Not bias the tail of the ice load distribution
+* Implicit assumption that **truncation does not remove physically meaningful low-energy ice events**.
+
+### Exposure and scaling
+
+* Long-term exposure is assumed to scale purely with **number of contacts**, not with:
+
+  * Seasonal clustering
+  * Autocorrelation in ice fields
+  * Operational strategy changes over vessel lifetime
+* Fatigue and extreme loading are treated as **separable problems**, despite sharing the same load population.
+
+### Mixture distributions
+
+* Mixture components are implicitly assumed to correspond to **distinct physical interaction regimes**, even though no direct physical labeling is performed.
+* EM convergence is assumed to identify **physically meaningful components**, not numerical artifacts.
+
+---
+
+## 3. Governing First Principles
+
+### Contact and structural mechanics
+
+* **Force equilibrium**
+  Ice load equals the reaction force required to arrest or redirect ice momentum and fracture resistance.
+
+* **Linear elasticity (Hooke’s Law)**
+  Valid for converting measured strain to force:
+  [
+  \sigma = E \varepsilon
+  ]
+  Assumes elastic regime, no yielding at measured peaks.
+
+* **Fracture mechanics of ice**
+
+  * Ice failure governed by flexural strength, compressive strength, and fracture toughness.
+  * Strongly strain-rate and temperature dependent, neither explicitly modeled.
+
+### Probability theory
+
+* **Extreme value theory**
+
+  * Maxima of iid samples converge to Gumbel distribution under broad conditions.
+  * Assumes independence and identical distribution, marginally satisfied here.
+
+* **Truncation theory**
+
+  * Observed distribution X is a conditional distribution of the true process Y.
+  * Truncated PDFs preserve parent parameters if truncation is properly accounted for.
+
+* **Mixture models**
+
+  * Observed PDF is a convex combination of latent PDFs:
+    [
+    f(x) = \sum w_i f_i(x)
+    ]
+  * Assumes latent process switching without memory.
+
+### Monte Carlo sampling
+
+* Law of large numbers ensures convergence of simulated extremes.
+* Implicit assumption that **n is sufficiently large** and samples are independent.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Thresholding ↔ Statistical tail behavior**
+  Truncation changes the effective hazard rate, directly affecting extreme predictions.
+
+* **Mixture modeling ↔ Ice mechanics**
+  Multiple exponential components likely map to different failure mechanisms, such as bending versus crushing.
+
+* **Elastic response ↔ Load statistics**
+  If hull response becomes nonlinear at high loads, statistical inference based on elastic conversion breaks.
+
+* **Extreme value convergence ↔ Distribution class**
+  Weibull shape parameter < 1 causes E3 behavior, leading to increasingly flat extreme distributions with n.
+
+---
+
+## 5. Assumption–Principle Fragility Mapping
+
+| Assumption violated         | Physical consequence            | Statistical failure          |
+| --------------------------- | ------------------------------- | ---------------------------- |
+| Loads are independent       | Contact clustering in dense ice | Extreme value theory invalid |
+| Linear elasticity           | Local yielding or buckling      | Underestimated peak loads    |
+| 10 kN threshold unbiased    | Loss of low-energy ice contacts | Distorted exposure modeling  |
+| Stationary ice conditions   | Regime shifts in loading        | Invalid parent distribution  |
+| Single frame representative | Load redistribution ignored     | Non-conservative design      |
+
+---
+
+## 6. Hidden Failure Modes
+
+* **Tail underestimation** leading to structural under-design.
+* **Over-conservative design** if truncated Weibull over-predicts extremes.
+* **Sensor blind spots** during very high strain rates.
+* **Mode-switching fatigue** where different ice mechanisms dominate at different times.
+* **Exposure miscounting** leading to incorrect lifetime maxima.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+* Choice of Weibull and exponential families implies:
+
+  * Preference for analytical tractability over physical fidelity.
+* Use of frame-level loads implies:
+
+  * Design optimization around **global strength**, not local plating failure.
+* Avoidance of hypothesis testing implies:
+
+  * Engineering judgment prioritized over statistical purity.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Loads are transmitted from ice to:
+
+  * Hull plating
+  * Frames
+  * Longitudinal structure
+* No explicit coupling to:
+
+  * Global hull girder bending
+  * Propulsion loads
+  * Dynamic positioning or maneuvering forces
+* Thermal effects on steel and ice are not modeled.
+
+---
+
+## 9. Temporal Evolution
+
+* No explicit modeling of:
+
+  * Corrosion
+  * Fatigue crack initiation
+  * Material embrittlement
+* Assumes **time-invariant load statistics** across vessel life.
+* Implicitly assumes no learning or behavioral adaptation by crew.
+
+---
+
+## 10. Safety and Robustness Margins
+
+* Safety relies on:
+
+  * Correct tail modeling
+  * Conservative exposure estimates
+* Single-point failures:
+
+  * Wrong parent distribution choice
+  * Misclassification of distribution class (E2 vs E3)
+* No explicit robustness check against:
+
+  * Out-of-distribution ice conditions
+  * Ridged ice beyond sampled cases
+
+---
+
+## 11. Design vs Operative Regime
+
+### Design regime
+
+* Short-term, quasi-stationary ice conditions
+* Elastic hull response
+* iid load events
+
+### Likely operative regime
+
+* Clustered contacts in dense ice
+* Mixed interaction mechanisms
+* Long-term changes in hull condition and ice climate
+
+**Robustness assessment**
+The first-principles basis is sound, but the statistical framework is fragile to violations of independence, stationarity, and tail behavior. The paper correctly identifies that **distribution choice dominates long-term predictions**, which is the core systems-engineering risk.

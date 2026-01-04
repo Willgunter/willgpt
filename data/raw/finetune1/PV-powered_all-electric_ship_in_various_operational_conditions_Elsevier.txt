@@ -1,0 +1,477 @@
+As inland water transportation expands, environmental degradation in rivers, land and the atmosphere continue to intensify, exacerbating issues such as global warming, acidification, and eutrophication. In China, statistical results indicate that the air pollutant emissions from ships and ports in the Yangtze River Delta region account for approximately 28 % of the national total, whereas the ship emissions of SOx and NOx in Pearl River Delta region account for 14 % and 15 %, respectively (Chen et al., 2019). Although CO2 emissions from maritime transport are lower than those from road freight, inland shipping still produces substantial amounts of particulate matter (Bläsing et al., 2017). Consequently, governments have enacted numerous measures and regulations to mitigate air pollution and environmental degradation, compelling inland vessels to reduce energy consumption and pollutant emissions. In China, the Domestic Emission Control Area (DECA) was established in 2015 to curb the rising emissions from ships (Xu et al., 2021). Internationally, the International Maritime Organization (IMO) has introduced the Energy Efficiency Design Index (EEDI), Ship Energy Efficiency Management Plan (SEEMP), and Energy Efficiency Operational Index (EEOI) to enhance ship energy efficiency and lower emissions (Wang et al., 2020). In the context of environmental sustainability, ship electrification represents an irreversible trend. The zero-emission characteristic of all-electric ships, powered by lithium iron phosphate batteries, has led to the replacement of an increasing number of conventional diesel-powered vessels with electric counterparts. Compared to traditional mechanical ships, the efficient and stable operation of electric ships relies even more heavily on effective energy management. Therefore, this paper examines the impact of varying operating conditions on the energy performance of ships during navigation, thereby laying the groundwork for the development of improve energy management strategies.
+The all-electric ship presents several significant advantages over conventional vessels, primarily in terms of environmental impact, efficiency, and operational flexibility. The eco-friendliness of all-electric ships is a key attribute. For instance, the MF Ampere, recognized as the world's first electric-powered car ferry, has achieved a substantial reduction in carbon dioxide emissions, decreasing approximately 2670 tons of CO2 annually (Inal et al., 2023). Moreover, the integration of an Integrated Power System (IPS) significantly enhances flexibility and efficiency. By consolidating propulsion and service loads, the IPS facilitates superior management of electric energy thereby increasing the efficiency of prime movers. The electric motors utilized in these vessels can adjust speed by varying the frequencies of electric current, eliminating the need for controllable pitch propellers (CPP). Additionally, adopting advanced propulsors, such as variable vector propellers and podded propulsors, exemplifies a progressive strategy for improving propeller efficiency and maneuverability (Guo et al., 2023). Furthermore, the configuration of the electric propulsion system allows for a more streamlined design by minimizing the requirement for traditional components like shafts, gearboxes, and other auxiliary devices. This enables more flexible cabin layouts and optimized spatial utilization within the vessel. Additional advantages of electric ship systems include reduced noise and vibration levels, modular design, standardized production and serialized maintenance, and the capability to support high-power mission systems. Collectively, these benefits position all-electric ships as a promising alternative for the future of maritime transportation.
+Several studies have examined the modeling and optimization of ship electric systems from diverse perspectives. Perčić et al. calculated the life-cycle costs of various power system configurations for short-sea ships, concluding that the all-electric ship is the most promising and economical option for passenger vessels (Perčić et al., 2020). For battery-powered ships, electricity costs represent the primary operational expense, and the integration of solar energy can reduce these costs; however, this approach requires a higher initial investment (Hein, 2022). Yang et al. investigated ships that utilize batteries as the main power source, systematically analyzing the effects of potential factors on the fire hazards of electric ships using statistical data and the GT-FFTA model (Yang et al., 2025). In Hein et al.‘s study, battery-powered ships were chosen as the research focus, and an integrated simulation model concentrating on battery thermal dynamic characteristics was developed to address the collaborative optimization of energy management and thermal safety (Hein et al., 2022). Additionally, Liu et al. explored the coupled effects of electric energy storage and thermal energy storage in ships with various propulsion systems, using operational costs and emissions as key indicators (Liu et al., 2025). Yigit et al. propose an electrical energy management method for hybrid energy ships through theoretical modeling, simulation analysis, and empirical testing, taking the environmental sustainability of port cities and the operational economy of ships as indicators (Yigit et al., 2018). Ma et al. investigated the impact of adverse sea conditions on the dynamic performance of cruise ships' integrated power systems using time-domain simulations (Ma et al., 2024). Acanfora et al. developed the capacity configuration for energy storage systems to mitigate load fluctuations in diesel-electric ships operating through irregular waves (Acanfora et al., 2023). Guo et al. focused on hybrid ships, systematically reviewing existing research on their energy management systems and discussing trends toward low-carbonization, intelligence, and integration (Guo et al., 2024). Andersson et al. assessed airborne and underwater noise as indicators, demonstrating the noise reduction benefits of electric propulsion ships compared to traditional vessels (Andersson et al., 2024). In studies on ship design and operational optimization, various indicators such as safety, emissions, economy, and energy efficiency have been extensively applied, yielding significant results. However, most current methods aimed at conserving energy, enhancing efficiency, and improving operational stability target large ships, making them less effective for small, short-voyage vessels.
+Moreover, the adoption of new energy sources offers a promising strategy for energy savings and emission reductions, including solar energy, wind energy and fuel cells, with wind energy frequently utilized as auxiliary power. Solar energy stands out as the most promising renewable energy source owing to its simple technology and accessibility (Pan et al., 2021). Depending on the vessel type, solar energy can serve as either the primary or auxiliary power source. For instance, Karatuğ & Durmuşoğlu confirm the role of solar power as an auxiliary source in enhancing energy efficiency and reducing emissions in Ro-Ro ships (Karatuğ et al., 2020). Yuan showcases a successful implementation of a solar power system within green shipping practices (Yuan, 2016). However, limitations in the photon-to-electron conversion efficiency of solar panels and available deck space necessitate maximizing the utilization of captured solar energy and its electrical allocation to achieve energy savings. Additionally, the instability of solar energy generation requires that the IPS which integrates the photovoltaic system possesses more reliable control capabilities within the management system to ensure the safe operation of ship electricity. Cupelli et al. examine power flow control within the integrated power system of an all-electric ship, achieving effective energy management by mitigating large load dynamics and enhancing generator set intelligence through power electronics interfaces, thereby ensuring secure system operation (Cupelli et al., 2015). Sun et al. design a control circuit for integrating photovoltaic systems with ship power systems, based on solar resources, ship power requirements, and battery charging states to maintain dynamic energy balance and stable ship operation (Sun et al., 2019). Qiu et al. analyze the power quality of a ship power system integrated with a photovoltaic system (Qiu et al., 2018). Most existing research focuses on the design of solar-powered vessels, the integration of solar with other onboard energy sources, and the challenges that photovoltaic (PV) systems pose to shipboard power grids. However, the analysis of the energy-saving benefits of solar energy during actual voyages is limited. The navigational environments of inland ships are inherently complex and variable. These environmental factors dictate the ship's navigational dynamics and significantly influence operational energy consumption. Compared to marine settings, variables such as water flow direction, velocity, and water depth in inland waterways have a more pronounced impact on ships. Sun et al. collected operational data from container shipping under real navigation conditions summarizing the effects of unidirectional currents, varying water flows and flood discharges on energy efficiency (Sun et al., 2013). Fan et al. focused on an LPG carrier equipped with two diesel main engines and three generators, investigating engine consumption and emissions across multiple operating conditions, including departure, cruising, maneuvering, docking and anchoring, based on onboard testing data (Fan et al., 2023). Zhou et al. examined inland ship fuel consumption and emissions influenced by voyage distance, main engine power, seasonal flow fields, and the upstream and downstream currents of underway ships (Zhou et al., 2022). In summary, ship operating conditions and environmental conditions along the voyage are key focuses in the study of ship energy efficiency and emissions. However, these studies predominantly concentrate on electric ships powered by generators, with batteries serving solely as auxiliary energy sources. Zhang et al. developed a simulation model for an all-electric ship that incorporates environmental factors such as water speed, water depth, and cargo load to maximize voyage economic efficiency by optimizing the swapping schedule (Zhang et al., 2023). Yan established an energy efficiency optimization model that accounts for multiple environmental factors to determine the optimal engine speed for different voyage segments (Yan et al., 2018). Furthermore, these prediction and optimization studies rely on big data-based simulation models, which significantly limit the general applicability of the approach. Additionally, the photovoltaic generation system introduces variable power generation to the ship's power system because its electricity production is affected by environmental factors like weather, shading, dust, and erosion (Sun, 2013). In conclusion, effective ship energy management optimization during operation must consider these multiple and nonlinear factors.
+Predicting and accommodating changes in energy consumption during ship navigation is essential for achieving operational optimization and energy management. Chen et al. developed a rapid-response model for ship maneuvering, capable of completing short-term predictions within 10 s and long-term predictions within 60 s (Chen et al., 2023). Zhou et al. developed a predictive model for ship maneuvering motions to assess the posture of the vessel under stochastic rudder angles within seconds (Zhou et al., 2024). Hebner and colleagues constructed a large-scale power system simulation to evaluate its safety, achieving millisecond-level response times (Hebner et al., 2010). Similarly, Lee et al. compared various power system architectures using a waveform-level time-domain simulation model, also characterized by millisecond response times (Lee et al., 2012).Ship and electrical system dynamics evidently exhibit distinct temporal responses. Consequently, developing a time-domain simulation platform for marine integrated power systems—encompassing all components of the electrical system and the ship while balancing computational efficiency with simulation precision—is essential.
+In this study, an integrated simulation model for an all-electric ship, powered by lithium batteries and solar energy, was developed. A tourist ship operating on the Songhua River was selected as a case study to examine how environmental factors influence energy consumption during voyages. The integrated simulation model comprises a lithium battery, DC-DC converter, DC-AC inverter, motor, propeller, ship resistance, photovoltaic unit, and ship motion models. Among these sub-models, the models of electrical system are dimensionless data-driven models, whereas the ship force models are first-principles models, thereby ensuring that the integrated model maintains accuracy and universality. By utilizing this model and integrating the environmental factors and operational characteristics of tourist ship voyages, various simulation scenarios were developed to achieve the objectives of this paper: analyzing the energy consumption traits of an all-electric tourist ship under diverse voyage conditions and assessing the contributions of the photovoltaic power generation system during ship operations. Employing the integrated simulation model, this study conducted a comprehensive energy analysis of all-electric ships, focusing on energy consumption, sailing time, and safety across different water environments (e.g., water depth, flow velocity, and direction) and maneuvering conditions (e.g., turning and acceleration). This analysis provides systematic guidance for optimizing operations under varying conditions.
+2. Parameters of all-electric ship powered by photovoltaic and battery
+To investigate the impact of voyage environmental factors and ship operations on the electric and electric propulsion systems, an all-electric ship powered by a battery/PV system was selected as the research subject. The benchmark ship prototype is a battery-powered tourist vessel operating on the Songhua River, upgraded to a photovoltaic-supplemented version by installing PV panels on the vacant deck area, as shown in Fig. 1. This vessel is 26.84 m in length and 5.9 m in width and is equipped with a 600 kWh lithium battery system and a 54 kW PV system to support its operations. It has a passenger capacity of 59 and achieves a maximum speed of 18 km/h, an endurance of 8 h, and a single-voyage range of 100 km.
+Fig. 1
+Download: Download high-res image (307KB)
+Download: Download full-size image
+Fig. 1. Appearance diagram of “Pilot Star” ship.
+
+The electrical loads of the benchmark ship are primarily divided into propulsion and domestic categories. The propulsion load consists of a permanent magnet synchronous motor (PMSM) rated at 60 kW, whereas the domestic load—including air conditioning and lighting systems has a combined rated power of 12 kWh. Besides propulsion and continuous loads, the ship also accommodates intermittent loads that are utilized less frequently. The associated rated power and simultaneity factors are listed in Table 1. Because the domestic load constitutes a negligible fraction of the total ship load and does not exhibit peak-valley fluctuations in power consumption, it is disregarded. Fig. 2 illustrates the electric propulsion system of this ship type, which is composed of two sets of subsystems: a lithium battery group, a DC-DC converter, a DC-AC inverter, a permanent magnet synchronous motor, and a fixed pitch propeller (FPP). The lithium battery and photovoltaic generation system provide energy for the entire ship, supplying electricity for daily operations and propulsion. Initially, the 489 V direct current from the lithium battery is raised to 750 V. Subsequently, the DC-AC inverter transforms the 750 V direct current into 380 V alternating current, which is delivered to the propulsion motor, driving the propeller and propelling the ship forward. Regarding the battery system, two independent groups exist, with each group consisting of two battery banks connected in parallel. Each battery bank comprises 14 battery packs connected in series, which is 168 battery cells in total. The installation area of photovoltaic array depends on the available spare space on the ship deck. For tourist, ferry, and passenger ships, deck space restrictions are minimal. To maximize solar energy capture, photovoltaic panels cover the entire top deck and both sides of the top superstructure. Additionally, the ship is powered by two fixed pitch propellers and motors. Detailed specifications of the ship and its systems are listed in Table 2.
+Table 1. Ship-wide electrical load under navigation condition.
+
+Equipment	Propulsion motor	Air conditioning system	Lighting system	Electric Steering Gear	Axial fan	Ceiling-Mounted Ventilator
+Rated power (kW)	60	9	3	1.1	0.37	0.03
+Simultaneity factors (−)	1	1	1	0.4	0.4	0.4
+Fig. 2
+Download: Download high-res image (318KB)
+Download: Download full-size image
+Fig. 2. Composition of the ship electric propulsion system.
+
+Table 2. Main particulars of the benchmark all-electric ship.
+
+All-electric ship type	Particulars of electric ship	Value	Particulars of electric ship	Value
+Overall length (m)	26.84	Depth molded (m)	2.00
+Length between perpendiculars (m)	24.90	Design draught (m)	1.00
+Breadth molded (m)	5.90	Passenger capacity	59
+Ship electric system	Main parameters of battery system
+Type of battery core	Lithium iron phosphate (LF280)
+Connection method	2P168S
+Nominal voltage (V)	3.2	Nominal capacity	280Ah
+Nominal capacity of battery system (kWh)	602.1
+Main parameters of DC-DC inverter
+Nominal power (kW)	85	Output voltage (V)	750
+Main parameters of DC-AC converter
+Nominal power (kW)	60
+Main parameters of photovoltaic unit
+Rated power (W)	635	Voltage at maximum power (V)	41.39
+Total area (m2)	85	Current at maximum power (A)	15.34
+Total power of PV array (kW)	54	
+Ship propulsion system	Main parameters of permanent magnet synchronous motor
+Polar pairs (−)	8	Nominal power (kW)	60
+Maximum speed (rpm)	2250	Maximum current (A)	330
+Main parameters of fixed pitch propeller
+Diameter (m)	0.6	Blade number (−)	5
+Maneuvering device	Main parameters of rudder
+Area (m2)	0.47	Aspect ration	1.2
+3. Integrated simulation model of ship electrical, propulsion and maneuvering systems
+3.1. Ship electrical and propulsion system model
+To predict the electric energy consumption of the ship under various operational conditions and to optimize its operation and energy management, a simulation model of the propulsion system, resistance, and control has been established. The structure of the complete simulation model is presented in Fig. 3. As depicted in Fig. 4, the electrical system in the simulation consists of three components: the lithium battery, the DC-DC converter, and the DC-AC inverter. Each component is modeled based on relevant principles and interconnected by electric current and voltage. The electric propulsion system includes a permanent magnet synchronous motor and a propeller.
+(1)
+Lithium battery model
+Fig. 3
+Download: Download high-res image (405KB)
+Download: Download full-size image
+Fig. 3. The structure of electrical ship simulation model.
+
+Fig. 4
+Download: Download high-res image (287KB)
+Download: Download full-size image
+Fig. 4. The structure of ship electrical system.
+
+Lithium battery simulations primarily employ four models: electrochemical, energy, coupling, and equivalent circuit models. The electrochemical model, based on chemical reaction process, captures the internal characteristics of the battery (Dees et al., 2002). The energy model focuses on the thermal properties of the battery, providing the foundation for managing thermal effects during operation (Ménard et al., 2010). The coupling model integrates electrochemical and energy models (Xu et al., 2023), essential for simulating the detailed and comprehensive internal reactions of the battery, which results in complex and time-consuming calculations. In contrast, the equivalent circuit model disregards the chemical reactions in the battery, focusing instead on external characteristics where output voltage and current vary with external circuits (Hu et al., 2012). In the context of ship operation and management, the chemical reaction processes of the battery can be neglected. Instead, key parameters such as current, voltage, and state of charge (SOC) are crucial. Consequently, the equivalent circuit model has been selected to accurately reflect the state trends of the battery as ship operating conditions vary. In this study, a second-order RC equivalent circuit model is established for a lithium iron phosphate battery.
+Fig. 5 illustrates the equivalent circuit and the underlying modeling logic. The lithium battery model consists of three components: calculating the current state of charge (SOC) using the output current of the battery, determining the voltage of each equivalent element relative to the SOC, and computing the lithium battery's output voltage and current via the equivalent circuit.
+(1)
+where, SOC(t0) represents the initial state of charge; Cn denotes the nominal capacity (Ah), I denotes the charging/discharging current (A).
+Fig. 5
+Download: Download high-res image (322KB)
+Download: Download full-size image
+Fig. 5. Diagram of Lithium battery modeling principle Coulomb counting estimation is the industry-standard method for determining the SOC of lithium batteries, as defined by Eq. (1) (Rivera-Barrera et al., 2017).
+
+According to Kirchhoff's law, the mathematical representation of the lithium battery model is given by Eq. (2),
+(2)
+where, VE, R0, R1 and R2 are variables that fluctuate with the SOC. The relationships between these variables and the SOC are established through a hybrid pulse power characteristic test (Belt, 2010).
+The values of each equivalent element for various SOC levels are listed in Table 3 (Jiamei, 2018).
+(2)
+DC-DC converter model
+Table 3. Equivalent elements’ values about SOC.
+
+SOC (%)	0	10	20	30	40	50	60	70	80	90	100
+VE (V)	2.237	3.230	3.277	3.311	3.314	3.316	3.322	3.349	3.350	3.351	3.368
+R0 (mΩ)	–	94.815	96.296	93.333	85.926	81.481	78.519	80.741	77.037	74.074	–
+R1 (mΩ)	–	32.444	10.800	8.407	6.647	7.496	7.919	7.859	4.832	7.096	–
+R2 (mΩ)	–	29.370	18.481	15.511	12.504	13.156	11.585	12.852	13.430	10.837	–
+C1 (F)	–	54.960	121.674	146.389	425.919	229.405	195.097	443.340	277.612	167.920	–
+C2 (F)	–	498.253	1532.99	2513.58	1619.94	1471.42	1530.72	2878.65	1217.50	1672.88	–
+The DC-DC converter transforms the low-voltage direct current of the lithium battery into high-voltage direct current. Thus, the boost converter theory is used to design the DC-DC converter module, as shows in Fig. 6. This functionality can be realized by controlling over the relative durations of energy absorption from the source and injection into the load intervals, as illustrated in Eq. (3) (Lopa et al., 2016).
+(3)
+Fig. 6
+Download: Download high-res image (164KB)
+Download: Download full-size image
+Fig. 6. Diagram of boost converter.
+
+Here, Vin denotes the input voltage (V), Vout represents the average output voltage (V), ton is the IGBT's switching-on time (s), and toff is the switching-off time (s).
+(3)
+DC-AC converter model
+The DC-AC inverter transforms direct current into three-phase alternating current, playing a crucial role in motor speed regulation alongside the control system. This transformation is executed via six switches, depicted in the six-switch inverter configuration shown in Fig. 7. The three-phase voltages are defined by Eq. (4) (Abdel-Aziz et al., 2023),
+(4)
+where, Vout indicates the output phase voltage of the inverter (V), Vdc denotes the inverter's input voltage (V), S represents the switch state (1 for on, 0 for off). Because the two switches within the same bridge arm cannot be simultaneously on or off, the six switches can adopt eight distinct combinations, as listed in Table 4.
+Fig. 7
+Download: Download high-res image (180KB)
+Download: Download full-size image
+Fig. 7. Diagram of DC-AC inverter.
+
+Table 4. State of switches combination.
+
+Switch name	State
+Sa	0	1	0	1	0	1	0	1
+Sb	0	0	1	1	0	0	1	1
+Sc	0	0	0	0	1	1	1	1
+The d-q model of the permanent magnet synchronous motor is extensively utilized in industry, facilitating the analysis of motor transient behavior. The electric torque is calculated by Eq. (5) (Pillay et al., 1988).
+(5)
+P represents the number of pole pairs, whereas λaf signifies the mutual flux generated by the magnet (Wb), Ld and Lq denote the inductances of the d-axis and q-axis, respectively (H). The angular mechanical velocity of the motor is wm (rad/s), and the angular electrical velocity is we (rad/s). The stator currents for the d-axis and q-axis are denoted by id and iq, respectively (A). The currents id and iq are obtained by Park and Clarke transformations to the three-phase alternating current. The relationships between each current and voltage during the transformation are depicted in Fig. 8, Fig. 9. The transformation equations are presented in Eqs. (6), (7) (Chattopadhyay et al., 2011),
+(6)
+(7)
+where, θ represents the angle between the α-β axis and the d-q axis.
+(4)
+Propeller model
+Fig. 8
+Download: Download high-res image (186KB)
+Download: Download full-size image
+Fig. 8. Diagram of Clarke transformation.
+
+Fig. 9
+Download: Download high-res image (256KB)
+Download: Download full-size image
+Fig. 9. Diagram of Park transformation.
+
+The propeller model is based on the open-water characteristics of the MAU propeller, with the calculation formulations detailed in Eqs. (8), (9) (Tokgoz et al., 2017).
+(8)
+(9)
+Here, ∏ denotes the propeller pitch (m), D denotes the propeller diameter (m, and JV represents velocity coefficient.
+3.2. Photovoltaic unit model
+Photovoltaic cells, serving as the primary devices for converting solar energy into electric power, are connected in series and integrated with a control device to ensure the photovoltaic system supplies the required output power. When sunlight irradiates the surface of a photovoltaic cell, it generates photocurrent and dark current, which are affected by the operating temperature and solar irradiance. The output characteristics of a photovoltaic cell are modeled using an equivalent circuit composed of resistors and a diode, as portrayed in Fig. 10. Applying Kirchhoff's law, the output current of the PV cell is described by Eq. (10) (Ramos-Hernanz et al., 2012).
+(10)
+In this equation, Iph denotes the photocurrent, directly related to solar irradiance and calculated by Eq. (11). Io represents the saturation current, determined by Eq. (12).
+(11)
+(12)
+Additionally, Ish denotes the current through the shunt resistor, as defined by Eq. (13), and Irs signifies the reverse saturation current, computed using Eq. (14),
+(13)
+(14)
+where Voc denotes the open circuit voltage; K represents the Boltzmann's constant(=1.38 × 10−23 J/K); q indicates the electron charge (=1.60×10-19 C) ; n denotes the ideality factor modified; N indicates the number of cells; Ns denotes the number of cells in series; Rs is the series resistance; Rsh is shunt resistance; T is the working temperature; Tn is nominal temperature; Ki is the short circuit current of cell at 25 °C and 1 kW/m2; G is solar irradiance; Ego is band gap energy of the semiconductor, the value is 1.1 eV.
+Fig. 10
+Download: Download high-res image (200KB)
+Download: Download full-size image
+Fig. 10. Equivalent circuit of photovoltaic cell.
+
+3.3. Hull force and ship motion model
+This model delineates the variations in ship load influenced by environmental factors during voyages and operational parameters such as water speed, direction, depth, and ship maneuvering. To achieve this, the model, comprising a hull force module and a three-degree ship motion module, computes the actual hull force during the ship's navigation in water.
+(1)
+Ship resistance model
+Various estimation methods are available for calculating inland ship resistance, based on extensive ship model experiments and real ship trial tests. These include the Taylor method, which employs warships as the parent ship (Crudu et al., 2019); the Todd method, derived from 60 ships with diverse block coefficients (Todd, 1953); the Ayre method, suitable for medium and low-speed commercial vessels; the Eivankov method, which incorporates additional riverine environmental factors (Zhongqi et al., 2014); among others, all providing comprehensive empirical formulas and calculation procedures. Considering the inland river environments and ship types discussed in this paper, the Eivankov method is selected to determine water flow resistance.
+This method divides ship resistance into two components: frictional resistance and residual resistance. Frictional resistance is primarily related to the Reynolds number, whereas residual resistance is influenced by the Froude number. The Eivankov formula is Eq. (15) (Xiaotao, 2009).
+(15)
+Rv1 represents frictional resistance (kN), whereas Rv2 signifies residual resistance (kN).
+Specifically, frictional and residual resistances are defined by Eqs. (16), (17) (Xiaotao, 2009).
+(16)
+(17)
+In these equations, g denotes the acceleration due to gravity (m/s2; f1 denotes the frictional coefficient (0.17 for steel ships); As and Am represent the ship's wetted area and wetted area of the midship section (m2), respectively; Vs stands for ship speed (m/s); and Fr is the Froude number.
+Equations (18), (19) provide formulas for calculating As and Am, respectively (Xiaotao, 2009).
+(18)
+(19)
+where, Lw denotes waterline length (m); C1 represents form coefficients; T is draught (m); δ stands for the block coefficient; B is breadth (m); and β is the midship section coefficient.
+The Froude number can be expressed as
+(20)
+These equations pertain to scenarios where the ship sails in calm water. However, water currents significantly affect ship resistance. by altering the relative speed between the ship and the water. Consequently, the actual ship speed is calculated using Eq. (21) (Guangxiang, 2010).
+(21)
+where, Vs denotes the relative speed between ship and water (m/s), Vwater indicates the water speed (m/s); Va represents the ship speed in clam water (m/s).
+(2)
+3-degree ship motion model
+Beyond water flow resistance during straight sailing, maneuvers such as turning and acceleration, modify the hull's hydrodynamic characteristics, thereby affecting hydrodynamic forces. To simulate ship motions in surge, sway, and yaw, as illustrated in Fig. 11, and to evaluate the resulting changes in ship resistance from these motions, a 3-degree mathematical model for maneuvering is established. The ship motion equations are presented in Eq. (22) (Yoshimura, 2005).
+(22)
+where m represents the mass of the ship (kg); Izz denotes the moment of inertia of the ship in yaw motion (kg·m2); u, v, r represent the velocity components in the surge, sway, and yaw directions at midship (m/s); 
+, 
+, 
+ are the acceralation components in surge, sway, and yaw directions at midship (m/s2); xG indicates the ship's center of gravity location (m); X denotes the total force in the x-axis direction (N); Y represents the total force in the y-axis direction (N); N denotes the yaw moment of the ship (Nm).
+Fig. 11
+Download: Download high-res image (232KB)
+Download: Download full-size image
+Fig. 11. Diagram of ship motion decomposition.
+
+The total force in the x-axis is determined by Eq. (23).
+(23)
+where XP denotes the propeller thrust (N); Xh represents the hydromechanics force along the x-axis direction (N); XR indicates the rudder force components along the x-axis direction (N).
+The total force in the y-axis direction is determined by Eq. (24).
+(24)
+where, Yh represents the hydromechanical force in the y-axis (N), and YR denotes the rudder force in the y-axis (N).
+The turning moment of the ship is calculated using Eq. (25).
+(25)
+where, Nh denotes the moment generated by hydromechanics (Nm) and NR indicates the rudder-induced moment (Nm).
+The hydromechanical forces along the x-axis, y-axis, and the turning moment are computed by Eq. (26),
+(26)
+where, mx and my are the hydrodynamic masses in the x and y directions (kg), Jzz is the hydrodynamic moment of inertia (Nm), r’ denotes the dimensionless turning speed, abd X(u) is the ship resistance in calm water (N).
+The hydrodynamic masses mx, my, and the moment of inertia Jzz are determined by Eqs. (27), (28), (29).
+(27)
+(28)
+(29)
+The hydrodynamic force derivatives are calculated using Eq. (30) (Jiarun, 2020).
+(30)
+where k denotes the aspect ratio and k = 2d/Lwl.
+(3)
+Rudder model
+Ship maneuvering is accomplished via the propeller and rudder. While the propeller force calculation has been previously detailed, the rudder force is determined by Eq. (31) (Jiarun, 2020).
+(31)
+where AR is the rudder area (m2); λ is aspect of rudder; αR is the effective rudder angle (degree).
+The rudder force components along the x-axis, y-axis, and r-direction are presented in Eq. (32).
+(32)
+3.4. Control system model
+The control system for the all-electric ship simulation comprises three segments: electric system control, motor speed control, and rudder control., as illustrated in Fig. 12.
+Fig. 12
+Download: Download high-res image (538KB)
+Download: Download full-size image
+Fig. 12. Topological diagram of ship control system.
+
+The electric system control performs several functions: it monitors the battery's discharge current and voltage to ensure the current remains within safe limits. Additionally, it calculates the state of charge (SOC) of the battery and disables low-power batteries to sustain the normal and continuous operation of the battery system. Moreover, it plays crucial role in the boost circuit. By integrating the direct bus reference voltage, actual direct bus voltage, and the input voltage of the DC-DC converter, the electric control system determines an appropriate duty cycle signal for the DC-DC converter. The DC-AC inverter not only transforms direct voltage into three-phase alternating voltage but also manages motor speed. through vector motor control. The control system utilizes three-phase alternating current and motor speed as feedback signals, with the three-phase current being converted into id and iq via Park and Clark transformations. The reference value of iq correlates with the actual motor speed and the reference speed. In rudder control, the actual rudder angle provides feedback, whereas the rudder command serves as the reference value. The PID controller calculates the necessary angle adjustment for the rudder and limits the angle within a 35° range to facilitate the ship's 3-drgee motion.
+PID control is a crucial element of the control system, with its control law defined in Eq. (33) (Johnson et al., 2005).
+(33)
+In this equation, u(t) represents the output signal of the PID controller, e(t) denotes the error between the actual and reference values; Kp is the proportional gain, Kt is the integration time constant, and Kd is the derivative time constant.
+4. Verification of the integrated simulation model
+4.1. Verification of main components of the integration simulation model
+Given the complexity of the electrical system of the ship, obtaining state parameters for all components across various operating conditions and using them to validate the integrated simulation model is impractical. Consequently, to verify the integrated simulation model, a complementary approach is employed, combining individual verification of the main components with simulation-based verification of the overall model to evaluate the feasibility of the complete model.
+(1)
+Verification of the lithium battery model
+The accuracy of the lithium battery model is analyzed based on the test results of the constant current discharge condition and pulse discharge condition. Fig. 13 illustrates the constant current discharge voltage obtained through simulation and testing at a discharge rate of 1 C. Fig. 14 shows the error under this operating condition, consistently remaining within 5 %. In the pulse experiment, each cycle is configured with a pulse current of 1 C, a discharge time of 10 s, and a rest period of 40 s. The voltage from one cycle is used for simulation verification. Fig. 15 presents the voltages from simulation and testing, whereas Fig. 16 depicts the error, all within 5 %.
+(2)
+Verification of photovoltaic unit model
+Fig. 13
+Download: Download high-res image (310KB)
+Download: Download full-size image
+Fig. 13. Constant current discharge voltage curve.
+
+Fig. 14
+Download: Download high-res image (276KB)
+Download: Download full-size image
+Fig. 14. Constant current discharge error.
+
+Fig. 15
+Download: Download high-res image (293KB)
+Download: Download full-size image
+Fig. 15. Pulse discharge voltage curve.
+
+Fig. 16
+Download: Download high-res image (263KB)
+Download: Download full-size image
+Fig. 16. Pulse discharge voltage error curve.
+
+The photovoltaic unit model was validated using voltage–power characteristic curves under two irradiation conditions: 800 W/m2 and 1000 W/m2, as specified in the product manual. Fig. 17 displays the output characteristic curves from simulation results and product manual measurements. Fig. 18 shows the errors under these two irradiation conditions, remaining within 5 %.
+(3)
+Verification of the propeller model and ship resistance model
+Fig. 17
+Download: Download high-res image (392KB)
+Download: Download full-size image
+Fig. 17. Output characteristic curve of PV.
+
+Fig. 18
+Download: Download high-res image (332KB)
+Download: Download full-size image
+Fig. 18. Error curve of the output characteristic of PV.
+
+Fig. 19 illustrates the open water characteristics of the propeller, and Fig. 20 depicts the ship resistance curve calculated by the ship resistance model. Owing to the lack of trial tests for the simulation ship, a similar ship is required for the verification of the ship resistance module. According to the similarity criterion ships with identical Froude numbers are considered similar (Liu, 2004). Table 5 lists a verification vessel analogous to the simulation ship, as detailed in Jiang's study (Zhiwei, 2022). Table 6 and Fig. 21 depict ship speeds across three distinct main engine speeds. The comparison reveals that discrepancies between simulation outcomes and measured data remain below 5 %.
+Fig. 19
+Download: Download high-res image (429KB)
+Download: Download full-size image
+Fig. 19. Open water characteristic curve of MAU propeller.
+
+Fig. 20
+Download: Download high-res image (302KB)
+Download: Download full-size image
+Fig. 20. Ship resistance curve.
+
+Table 5. Compare between benchmark ship and verification ship.
+
+Ship Particulars	Simulation Ship	Verification Ship
+Length (m)	26.84	52.32
+Designed Speed (km/h)	15	21
+Froude Number (−)	0.257	0.256
+Table 6. Verification of ship resistance model.
+
+Test	Simulation
+Engine Speed (r/min)	Ship Speed (m/s)	Ship Speed (m/s)	Error (%)	Calculate Resistance (kN)
+584.0	3.79	3.96	4.48	22.22
+908.9	5.60	5.61	0.18	64.21
+1027.9	6.25	6.08	2.27	87.32
+Fig. 21
+Download: Download high-res image (300KB)
+Download: Download full-size image
+Fig. 21. Verification of ship resistance model.
+
+4.2. Verification of the integration property of the integrated simulation model
+To assess the inter-module cooperation and the precision of the integrated model, a steady-state operational condition of the ship, listed in Table 7 of the design report, was simulated. The design report specifies that a propeller speed of 750 rpm achieves a cruising speed of 18 km/h. Furthermore, the operational parameters for each component in the electrical system of the ship are listed in Table 2.
+Table 7. Steady state of ship sails at 18 km/h.
+
+Motor speed (rpm)	Propeller speed (rpm)	Ship speed (km/h)
+2250	750	18
+The simulation was configured with a duration of 500 sFig. 22 shows the ship's speed corresponding to a simulated motor input speed of 2250 rpm, whereas Fig. 23 displays the actual speeds of the motor and propeller. When compared to the ship design report data, the simulation exhibits errors of 1.33 % for ship speed, 0.01 % for motor speed, and 8.67 % for propeller speed. Fig. 24 illustrates the operating voltage of the lithium battery system alongside the output voltage of the DC-DC converter. Notably, the operating voltage of the lithium battery system remains stable within the normal range, indicated by the green dotted line. Additionally, the DC-DC converter elevates this voltage to the required 750 V.
+Fig. 22
+Download: Download high-res image (302KB)
+Download: Download full-size image
+Fig. 22. Simulation result of ship speed.
+
+Fig. 23
+Download: Download high-res image (333KB)
+Download: Download full-size image
+Fig. 23. Simulation results of motor and propeller speed.
+
+Fig. 24
+Download: Download high-res image (328KB)
+Download: Download full-size image
+Fig. 24. Working voltage of lithium battery system and output voltage of DC-DC converter.
+
+For the safe and efficient operation of electric systems, research must maintain appropriate current and voltage levels and ensure electric power quality. Common phenomena affecting electric power quality include voltage sag, voltage swell, short interruptions, long interruptions, voltage imbalance, and harmonics. These phenomena are categorized based on their duration and magnitude variations and can result in negative consequences such as device malfunctions and increased system losses (Mahela et al., 2015). The total harmonic distortion (THD) is a dominant identifier for electric power quality analysis (Mog et al., 2004). Fig. 25 illustrates a segment of the harmonic analysis results for a three-phase alternating current. The total harmonic distortion is 3.74 %, well below the 10 % threshold mandated by the standard.
+Fig. 25
+Download: Download high-res image (331KB)
+Download: Download full-size image
+Fig. 25. Part harmonic spectrum of alternating current.
+
+5. Energy analysis of ship under different navigation conditions
+5.1. Ship energy analysis under different navigation conditions
+Along the winding river, structures such as bridges and dams, channel width, bends, and other factors affect water depth and velocity. Additionally, inland rivers experience flood seasons due to seasonal precipitation or the melting of snow and ice, which significantly alter flow dynamics. Therefore, to examine the impact of the water environment on ship maneuvering and electrical performance, two simulation conditions were developed and tested.
+(1)
+Ship draught influence on electric system performance
+Influenced by river channel morphology, seasonal changes, and actual ship load, the draught of inland vessels is more variable compared to sea-going ships. Variations in draught affect ship resistance and modify ship load, thereby transmitting these changes to the electric system. Three ship draught groups were established to investigate the effect of draught on ship performance, with all simulation configurations listed in Table 8.
+Table 8. Simulation configuration of group 1 to 3.
+
+Group number	Ship speed (km/h)	Passenger capacity (person)	Ship draught (m)
+Group 1	18	59	0.5
+Group 2	1
+Group 3	1.5
+The three groups simulation results are shown in Fig. 26, Fig. 27. From Fig. 26, the ship resistance increases with the ship draught, and the ship speed is opposite. The navigation of the ship relies on the active power consumed by electric motors and power transmission and distribution devices to achieve propulsion. Moreover, the normal operation of the motor and transformers is ensured by the magnetic fields established through reactive power. To explore the relationships among reactive power, active power, and total consumed power under different working conditions, the definition of power factor is introduced, which is the ratio of active power to total consumed power. Although reactive power is necessary for the operation of an electrical system, ensuring it has minimal impact on the real power of a ship's electric propulsion system is essential. That means the quality of electric energy is closely related to the safe operation of the ship's electric system. From Fig. 27, as the ship's draught gradually increases, active power and reactive power exhibit an upward trend. Notably, a slight decrease in power factor indicates an increase in the proportion of reactive power within total consumed power. However, observed data indicate that the power factor consistently remains above the safety threshold of 0.85—a critical indicator ensuring the stable operation of the ship's electrical system. This demonstrates that although an increase in ship draught leads to higher ship energy consumption due to increased ship navigation resistance, such changes have a minimal impact on the operation of the ship's electrical system and do not cause substantial threats to the safe navigation of ships in conventional water environments.
+(2)
+Water speed influence on ship maneuvering and electric system performance
+Fig. 26
+Download: Download high-res image (318KB)
+Download: Download full-size image
+Fig. 26. Ship speed and resistance changes with draught.
+
+Fig. 27
+Download: Download high-res image (345KB)
+Download: Download full-size image
+Fig. 27. Power factor changes with ship draught.
+
+The river has a fixed direction of water; even if the ship sails along the same river, the hull forces differ while sailing upstream and downstream. In addition, the water speed is not similar in the different segments of the whole voyage owing to the geographical factors, buildings around the river and others. Aiming at exploring the influence of water current on ship energy performance, different simulation configurations with five water speeds (1 m/s, 2 m/s, 3 m/s, 4 m/s and 5 m/s) and two directions (upstream and downstream) are set. The ship operating condition is set as full load (59 persons) and maximum speed (18 km/h). Owing to the fact that the sailing distance with the same sailing time is affected by water conditions, the voyage energy density is defined as reflecting the energy consumption per kilometer of the whole voyage. All simulation configurations are listed in Table 9.
+Table 9. Simulation configuration of group 1 to 5.
+
+Group number	Water speed (m/s)	Water direction	Ship speed (km/h)	Passenger capacity (person)
+Group 1	1	Upstream	18	59
+Downstream
+Group 2	2	Upstream
+Downstream
+Group 3	3	Upstream
+Downstream
+Group 4	4	Upstream
+Downstream
+Group 5	5	Upstream
+Downstream
+Fig. 28 presents the ship's condition when it sails at maximum speed and the water speed it can withstand. In this figure, the red bar represents the upstream direction and the blue bar represents the downstream direction. Water direction evidently exerts a significant impact on ship energy consumption, and this effect intensifies with an increase in water speed. Fig. 29 presents the influence of water speed on the power factor. Initially, compared with the safety threshold of 0.85, the ship's electrical propulsion system maintains safe operation across varying ship speeds and water speeds. Secondly, at a constant ship speed, the power factor exhibits an increasing trend with rising water speed during downstream navigation, whereas an inverse relationship is observed during upstream navigation. This indicates that downstream flow has a positive effect on power factor improvement, whereas upstream flow tends to reduce it. Additionally, comparative analysis of power factor behavior at different ship speeds reveals that under the same water speed, the amplitude of power factor fluctuations expands significantly as ship speed increases. This phenomenon suggests that the sensitivity of the ship's energy performance to external water environment variations intensifies with increasing ship load. Moreover, as shown in Fig. 30, the downstream flow is beneficial for reducing the ship turning diameter.
+Fig. 28
+Download: Download high-res image (320KB)
+Download: Download full-size image
+Fig. 28. Voyage energy density changes with water speed.
+
+Fig. 29
+Download: Download high-res image (303KB)
+Download: Download full-size image
+Fig. 29. Power factor change with water speed.
+
+Fig. 30
+Download: Download high-res image (375KB)
+Download: Download full-size image
+Fig. 30. Ship track under three water conditions.
+
+5.2. Ship energy analysis under whole voyage
+The ship adjusts its behavior to accommodate environmental changes to more comprehensively meet the operational requirements. For example, it sails at lower speeds for economic operation and accelerates or decelerates to enhance operational performance. Thus, ship speed, maneuvering behavior, number of maneuvers and other human factors also influence ship performance. To study the ship performance with the changing working conditions, an entire voyage is designed, and some specific operation behavior orders are pointed out, as displayed in Fig. 31. The ship navigation process is segmented into four distinct environments: shallow water, areas with downstream and upstream water currents, and bend channels. In each segment, various maneuvering strategies can be employed. The ship starts its navigation and needs to accelerate to the required ship speed at first. Navigation commences with the ship accelerating to the required speed. In shallow water, there are two approaches: either accelerate to the required speed within the shallow area or traverse the shallow region at a reduced speed before reaching the desired speed. Thereafter, the ship goes into cruise mode. Following this, the ship transitions to cruise mode, offering three cruising speeds (10 km/h, 12 km/h, and 14 km/h) for sailing with the current. The final segment involves navigating a curvy channel, where the ship can adjust using two rudder angles (5° and 10°). Additionally, the ship may travel with or against the water current, depending on whether it is undertaking a round trip. These configurations result in 24 unique voyage conditions listed in Table 10.
+(1)
+Energy management analysis of all-electric ship powered by battery
+Fig. 31
+Download: Download high-res image (304KB)
+Download: Download full-size image
+Fig. 31. Ship behavior and environment division for a whole voyage.
+
+Table 10. Configuration of 24 cases.
+
+Voyage Segment	Shallow Water	Current	Bend	Case Number
+Downstream	Upstream
+Ship Operation	Direct accelerate and pass	Ship Speed = 10 km/h	Rudder Angle = 5°	Case1
+Rudder Angle = 10°	Case2
+Ship Speed = 12 km/h	Rudder Angle = 5°	Case3
+Rudder Angle = 10°	Case4
+Ship Speed = 14 km/h	Rudder Angle = 5°	Case5
+Rudder Angle = 10°	Case6
+Pass as lower speed then accelerate	Ship Speed = 10 km/h	Rudder Angle = 5°	Case7
+Rudder Angle = 10°	Case8
+Ship Speed = 12 km/h	Rudder Angle = 5°	Case9
+Rudder Angle = 10°	Case10
+Ship Speed = 14 km/h	Rudder Angle = 5°	Case11
+Rudder Angle = 10°	Case12
+Voyage Segment	Shallow Water	Current	Bend	Case Number
+Upstream	Downstream
+Ship Operation	Direct accelerate and pass	Ship Speed = 10 km/h	Rudder Angle = 5°	Case13
+Rudder Angle = 10°	Case14
+Ship Speed = 12 km/h	Rudder Angle = 5°	Case15
+Rudder Angle = 10°	Case16
+Ship Speed = 14 km/h	Rudder Angle = 5°	Case17
+Rudder Angle = 10°	Case18
+Pass as lower speed then accelerate	Ship Speed = 10 km/h	Rudder Angle = 5°	Case19
+Rudder Angle = 10°	Case20
+Ship Speed = 12 km/h	Rudder Angle = 5°	Case21
+Rudder Angle = 10°	Case22
+Ship Speed = 14 km/h	Rudder Angle = 5°	Case23
+Rudder Angle = 10°	Case24
+Fig. 32 depicts the time and energy consumption of an all-electric ship, solely powered by batteries, across the 24 defined cases. Based on the simulation settings in Table 10, comparisons between Case 1/Case 3/Case 5, or other similar combinations, such as Case 2/Case 4/Case 6, reveal that as the ship's speed increases, the sailing time decreases, whereas energy consumption rises correspondingly. Ship speed is the primary determinant of sailing time and energy consumption. Operating at reduced speeds effectively conserves energy without incurring additional costs. However, for short-distance voyages, sailing time is highly sensitive to ship speed, making this approach unsuitable for passenger ships, ferries or other vessels that must adhere to strict schedules. This indicates that during high-speed navigation, ship maneuvers require significantly more electrical energy to meet turning demands, a phenomenon exacerbated by the direction of water flow. At elevated speeds, the ship needs increased energy to generate the necessary torque or cover the distance required for turning. Furthermore, this effect is intensified by the direction of the water current.
+Fig. 32
+Download: Download high-res image (397KB)
+Download: Download full-size image
+Fig. 32. Sailing time and energy consumption in case 24.
+
+Fig. 33a, Fig. 33b, Fig. 33c, Fig. 33d illustrate the power factor variations across 24 operational environments. Specifically, (a) and (b) represent scenarios where the ship first sails downstream and then upstream, whereas (c) and (d) depict the opposite. Firstly, in all cases, the power factor curves fluctuate in response to changes in ship maneuvering and voyage conditions. Compared with Case 1/Case 3/Case 5, Case 13/Case 15/Case 17, and other similar combinations, with the ship speed increasing, the power factor of the ship electric propulsion system is more sensitive to environmental changes. Secondly, the highest power factor fluctuations consistently occur within the initial 1000 s across all scenarios, corresponding to the phase when the ship accelerates through the water flow zone. This indicates that acceleration of the ship and the orientation of the water current are the primary factors influencing the stability of the ship's electric propulsion system. However, direct acceleration into the water current, whether upstream or downstream, enhance the steady operation of the electric propulsion system. Third, regarding ship maneuvering, the fluctuations induced by turning motions upstream are smaller compared to those downstream, as observed in Case 1/Case 13, Case 2/Case 14, and other similar combinations.
+(2)
+Energy analysis of all-electric ship powered by PV/battery
+Fig. 33a
+Download: Download high-res image (345KB)
+Download: Download full-size image
+Fig. 33a. Power factor changes in case 1, 3, 5, 8, 10, 12.
+
+Fig. 33b
+Download: Download high-res image (349KB)
+Download: Download full-size image
+Fig. 33b. Power factor changes in case 2, 4, 6, 7, 9, 11.
+
+Fig. 33c
+Download: Download high-res image (345KB)
+Download: Download full-size image
+Fig. 33c. Power factor changes in case 13, 15, 17, 20, 22, 24.
+
+Fig. 33d
+Download: Download high-res image (348KB)
+Download: Download full-size image
+Fig. 33d. Power factor changes in case 14, 16, 18, 19, 21, 23.
+
+Owing to the uneven distribution of solar resources, the electric generation of the PV system varies monthly. Consequently, the energy-saving effect of the PV system on the all-electric ship fluctuates with the seasons. Fig. 34 illustrates the daily average power generation of the PV system during the operational months of the ship from April to October. Among these months, may exhibits the highest PV power generation, whereas October records the lowest. This variation is closely related to the average duration of sunshine. Fig. 35 displays the energy-saving ability of PV system in different ship operational months, compared with the ship longest duration (8 h) and mileage (100 km), the power generation of ship PV system cannot cover the energy consumption of ship propulsion by itself, but it still possesses large potential ability on energy saving in all operational months.
+Fig. 34
+Download: Download high-res image (348KB)
+Download: Download full-size image
+Fig. 34. Daily average generation in operational month.
+
+Fig. 35
+Download: Download high-res image (336KB)
+Download: Download full-size image
+Fig. 35. Energy-saving ability of PV system.
+
+To investigate explore the energy-saving potential of ship-mounted PV systems during actual voyages, we define voyage energy density as the ship's residual energy consumption per kilometer. Residual energy consumption refers to the energy required for propulsion after the contribution of the PV system. Fig. 36 illustrates the ship's energy consumption and PV power generation across 24 scenarios, whereas Fig. 37 displays the corresponding energy densities. In Fig. 37, points closer to the center of the circle indicate lower energy densities, signifying a higher proportion of propulsion energy supplied by the PV system. The ship PV system significantly contributes to energy savings role in Cases1, 2, 7, 8, 13, and 14, especially in Cases 19 and 20. Notably, the energy density in Cases 19 20 is negative, indicating that the power generation of the PV system surpasses the energy required for propulsion. Furthermore, the ship PV system can supply electric power to other onboard loads.
+Fig. 36
+Download: Download high-res image (518KB)
+Download: Download full-size image
+Fig. 36. Energy saving and consumption in 24 cases.
+
+Fig. 37
+Download: Download high-res image (587KB)
+Download: Download full-size image
+Fig. 37. Energy density per kilometer in 24 cases.
+
+6. Conclusions
+This study aims to establish a theoretical foundation for the energy management of electric ships powered by photovoltaic systems and batteries by analyzing energy consumption under various operational conditions throughout entire voyages and evaluating the energy-saving capacities of PV power generation systems. Compared with the inconvenient and high-cost acquisition of actual voyage data, using simulation is a convenient method to predict the energy consumption of arbitrary ships and voyages, and summarize the change laws of energy consumption and ship power consumption systems related to multiple factors. These methods are recommended for organizing ship operations and voyages. Initially, a comprehensive simulation model was developed, comprising eight components: battery, photovoltaic cell, inverter, motor, propeller, ship resistance, ship three-degree motion, and control system. Subsequently, 24 scenarios were designed using the Songhua River as a case study. After running the simulations, the results were analyzed. Finally, several constructive suggestions are presented.
+(1)
+An integrated simulation model of photovoltaic and battery powered tourist ship was developed and validated. The models for the battery, inverter, motor, photovoltaic unit, propeller and control system were based on fundamental principles. Each component of the ship's electric system was interconnected through current and voltage. The electric system integrates the propulsion system via two balances: rotational balance between the motor and propeller, and motion balance between the propeller and hull. The integrated model and its components were verified against real ship test data, with errors within 10 %, enabling accurate prediction of system characteristics.
+(2)
+The maneuvering state of the ship, encompassing changes in both environmental and operational conditions, affects the sensitivity of the electric propulsion system to environmental variations during voyages. Maintaining an optimal sailing speed is crucial for both energy conservation and safe operation. Moreover, during ship operations, monitoring changes in water flow direction is essential to prevent excessive fluctuations in the ship's electric propulsion system.
+(3)
+Instantaneous electric energy consumption represents a minor fraction of the total energy used during a voyage however, the long-term impacts of ship operations on the electric system of the vessel must be considered. These operations can cause significant fluctuations in the electric power grid of the vessel. If these fluctuations are not properly controlled and mitigated, the failure rate of electric devices may rise, grid efficiency may decline, and the economic efficiency of the electric energy used by the vessel will be reduced.
+(4)
+Reducing sailing speed is an effective method for conserving energy, but it is not suitable for inland vessels that operate on short voyages with strict schedules. In contrast, utilizing solar energy enables these vessels to conserve energy by providing most or even all of the energy required for propulsion under low-speed conditions. Therefore, relying solely on maintaining an economic sailing speed is not entirely effective for maximizing energy savings, especially for all-electric vessels. Moreover, for an inland ship, the load caused by the complex and changeable voyage environment cannot be avoided. Establishing an effective and flexible energy management system, which not only ensures ship operational safety but also plays a vital role in energyconservation.
+(5)
+Constraints in the maturity of core technologies, such as power batteries and electrical equipment, along with the level of industrialization, result in the initial investment costs of photovoltaic/battery-powered all-electric ships surpassing those of traditional vessels. Nevertheless, zero-carbon emission inland vessels have become an inevitable trend for the green transformation of inland shipping, driven by the continuous enhancement of environmental regulatory systems. Photovoltaic power can significantly optimize the energy efficiency of short-route inland ships, gradually offsetting the high initial investment by reducing operational energy consumption.
+Despite efforts to increase universality, the integrated simulation model has the following application limitations: (1) it is only applicable to ships with similar energy system configurations, specifically all-electric ships powered by lithium batteries and photovoltaic power generation systems or purely lithium batteries, utilizing electric propulsion; (2) the applicable ship types are restrictedto low-speed conventional inland ships, excluding catamarans, speedboats, and similar vessels; (3) the model is suitable solely for normal water environments, excluding shallow waters, narrow channels, and other restricted waterways. Notably, the universal interfaces between the resistance model and other sub-models allow future research to incorporate power source models with different energy types and extended resistance models, enabling the integrated simulation model for diverse ship types. To obtain simulation results that more accurately represent actual voyages, comprehensive hydrological data from the ship's operational trips are necessary as model inputs. In future research, a voyage environment clustering analysis model will be employed to extract representative hydrological data from various routes, thereby supplying more detailed inputs tothe resistance model. This approach aims to produce simulation outcomes with enhanced realism and greater practical significance.

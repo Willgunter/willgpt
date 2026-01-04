@@ -1,0 +1,322 @@
+Abstract
+This study investigates toroidal propeller applications on Diver Propulsion Vehicles (DPVs) to enhance hydrodynamic performance. Flow-field characteristics of a toroidal propeller versus a traditional Ka4-70 propeller were analyzed via 2D-3C PIV experiments. Hydrodynamic modeling of DPVs under ocean currents and varying attitudes (pitch/yaw) was conducted, followed by multi-scenario self-propulsion simulations covering semi-submerged navigation, near-free-surface (two depths), and benthic (two heights) operations. Results demonstrate that the toroidal propeller's closed-loop tip suppresses radial jet flow and redistributes circulation, significantly enhancing thrust. Pitching and yawing exhibit pronounced positive correlations with DPV hydrodynamic forces. The toroidal propeller improves the self-propulsion performance of the DPV, effectively reduces the water flow disturbance at the free liquid surface position, and substantially increases the navigation speed. This work pioneers transient wake quantification for small-scale toroidal propellers using 2D-3C PIV, establishes a multi-state self-propulsion performance prediction framework, and validates toroidal propellers' feasibility for DPV applications.
+Previous article in issue
+Next article in issue
+Keywords
+DPVToroidal propellerPIVCFDSelf-navigation test
+1. Introduction
+The Diver Propulsion Vehicle (DPV) is a highly integrated underwater propulsion device with exceptional quietness and maneuverability, holding significant research value. In civilian applications, DPVs facilitate underwater search and salvage, seabed mapping (Ventura et al., 2022; Scaradozzi et al., 2009), scientific expeditions (Walsh et al., 2014; Griffin et al., 2017), and underwater exploration (Rahman et al., 2019), substantially reducing operational risks and duration for most diving activities. In addition, the DPV itself can carry a variety of underwater scientific research equipment and complete multiple challenging underwater scientific exploration tasks in complex environments (Wang and Liu, 2012; Yang et al., 2015). As critical gear for underwater scientific exploration and covert research tasks, the propulsive efficiency and flow-field disturbance characteristics of DPVs directly impact their mobility and quietness (Chen et al., 2023). Conventional propellers suffer from energy loss and mid - to - high - frequency noise caused by tip vortex cavitation and turbulent separation (Ding et al., 2024; Seol and Paik, 2019), creating bottlenecks for underwater system performance. Particularly during low - speed, high - maneuverability operations, tip vortex flows and turbulent kinetic energy accumulation in propeller wake significantly increase risks of acoustic interference, a key concern for oceanic scientific instruments (Posa, 2023). Recently, toroidal propellers have emerged as a novel solution to this challenge, leveraging their closed-loop tip geometry and superior flow - field performance.
+Traditional propellers, due to the presence of blade tips, experience pressure variations in the surrounding flow during rotation. The pressure difference between the upper and lower surfaces leads to tip vortex shedding, accompanied by significant cavitation phenomena. This not only results in unnecessary energy loss but also adversely affects the propulsion efficiency of the thruster.
+In contrast, toroidal propellers eliminate the geometric feature of blade tips by connecting the tips of two conventional blades into a closed-loop annular structure (see Fig. 1). This design significantly suppresses the generation of tip vortices and cavitation effects during operation. Additionally, due to the unique ring-shaped structure of the toroidal propeller blades, the structural reliability is enhanced at high rotational speeds, while noise levels are comparatively reduced (Wang et al., 2024). It demonstrates significant advantages in vortex separation suppression and noise reduction, garnering widespread attention in marine propulsion and UAV domains. Sharrow Marine has enhanced vessel fuel efficiency by 20 % through toroidal blade design, with notable noise mitigation achieved, and has secured patents for marine toroidal propellers (Atlas, 2019). Experimental findings from PIV and underwater noise tests demonstrate that the toroidal propeller developed by Sharrow Marine achieves significant improvements in both cavitation resistance and acoustic performance. During actual operation, the toroidal propeller exhibits weaker vibration signatures compared to conventional propellers, while simultaneously enhancing propulsion efficiency. These advancements contribute to improved stealth characteristics and extended service life of the propulsion system. The Massachusetts Institute of Technology (MIT) developed a toroidal propeller for UAVs, aerodynamically verifying its superior broadband noise reduction (MIT Lincoln Laboratory, 2022). Thus, toroidal propellers exhibit unique potential for diver equipment requiring low noise and efficient propulsion. However, hydrodynamic performance and wake-field evolution mechanisms remain insufficiently explored for small-scale diver propulsion applications, with low - Reynolds - number flow characteristics and scale effects still unresolved.
+Fig. 1
+Download: Download high-res image (233KB)
+Download: Download full-size image
+Fig. 1. Schematic diagram of annular propeller structure (Qin et al., 2024).
+
+Three primary methods exist for predicting the hydrodynamic performance of underwater propulsors: potential flow theory - based performance prediction, hydrodynamic performance testing, and Computational Fluid Dynamics (CFD). Particle Image Velocimetry (PIV) is a widely used flow - field measurement technique that accurately captures transient flow data without flow disturbance, quantifying flow characteristics by calculating velocity fields via image processing. Felli et al. (2006) synchronized PIV measurements with propeller rotation angles to reconstruct pressure field evolution in non - cavitating marine propellers, demonstrating that tip vortex trajectory generation predominantly influences pressure fields in wake regions. Amini et al. (Amin et al., 2018) investigated steady wake fields in laboratory settings, finding that propeller rotational speed exerts the most significant influence on wake velocity distribution, followed by propeller inclination. Li et al. (2020) employed 2D PIV to analyze dynamic flow structures around propeller blades across planes, systematically resolving radial and axial velocity distribution characteristics.
+CFD methodology holds profound scientific value and practical significance in propeller performance prediction and structural design. Through CFD technology, it enables solving thrust variation patterns (Alzu'bi et al., 2018), flow - field pressure pulsations (Madabhushi and Mahesh, 2023), dynamic evolution of wake vortex structures (Di Mascio et al., 2022), surface pressure fluctuations, providing robust methodological and data support for analyzing complex fluid flows, predicting propulsor hydrodynamic performance, and investigating multi-physics coupling problems. Ge et al. (2020) numerically predicted cavitation and pressure pulsations of a five-blade propeller behind a container ship using commercial software STAR-CCM+ and open-source platform OpenFOAM, achieving close agreement with experiments; theoretical data offered valuable reference for pressure pulsation prediction induced by tip vortex cavitation. He et al. (2006) developed a wake impingement model (WIM) simulating propeller wake-field characteristics; comparisons show that when obstacles exist in the wake, this model yields blade-load predictions closer to experimental values. Muscari et al. (2013) examined discrepancies among turbulence models in propeller flow simulations, revealing that RANS methods predict global parameters efficiently with fewer grids, while DES models better resolve long-range vorticity tracking and wake instability phenomena.
+In summary, toroidal propellers have achieved significant advancements in aerospace and large-scale marine applications, yet their implementation in small-scale diver propulsion remains a blank area. Existing studies predominantly rely on numerical simulations, with no experimental investigations on microscopic flow-field mechanisms or systematic wake-field measurements. Additionally, DPVs commonly operate in benthic surveying, search/rescue, surface navigation, and underwater submersion, involving three states: semi-submerged, near-wall, and fully submerged. Current research lacks analysis of how these states influence fluid-structure interactions around DPVs, and the toroidal propeller - DPV interaction mechanisms across states remain unclarified.
+This study addresses the aforementioned issues through three research aspects, as illustrated in Fig. 2:
+(a)
+Taking the toroidal propeller and DPV as research objects, 2D - 3C PIV technology is employed to comparatively analyze microscopic flow-field characteristics of traditional and toroidal propellers. Subsequently, open - water tests are conducted to evaluate macroscopic hydrodynamic performance of both propellers, revealing their hydrodynamic properties and wake-field characteristics.
+(b)
+Considering actual operational scenarios of DPVs, numerical simulations first investigate the influence of steady currents on flow around DPVs under varying motion attitudes. Hydrodynamic forces of DPVs under different attitudes are identified to explore the impact laws of yawing and pitching on DPV hydrodynamics.
+(c)
+Self - propulsion performance of toroidal - propeller - driven DPVs and traditional - propeller - driven DPVs is numerically simulated and analyzed under multiple states, including semi - submerged, fully submerged, and benthic conditions.
+Fig. 2
+Download: Download high-res image (822KB)
+Download: Download full-size image
+Fig. 2. Process for performance analysis of toroidal propeller - DPV.
+
+The innovations of this study are manifested in two aspects. First, quantitative analysis of transient structures in small-scale toroidal propeller wake fields was achieved via 2D - 3C PIV technology, clarifying the physical mechanisms by which the annular geometry suppresses vortex structures. Second, the influence of ocean currents on flow around DPVs under different motion attitudes was simulated, and the impact laws of toroidal propellers on DPV wake structures across varied environments were elucidated through multi - state DPV self - propulsion simulations. This research provides experimental foundations for parametric optimization of diver propulsion vehicles, deepens understanding of toroidal propeller flow - field mechanisms, and delivers critical technical support for enhancing energy efficiency of underwater systems.
+The paper is structured as follows: Section 2 elaborates the experimental apparatus design methodology, detailing implementation processes and configurations for propeller PIV experiments. Section 3 specifies numerical simulation approaches, comprehensively describes simulation settings, analyzes multi - scale evolution characteristics of wake fields under propeller - DPV interactions using PIV results, and discusses intrinsic correlations between DPV hydrodynamics and flow - field disturbances. Finally, principal conclusions are summarized, and engineering application directions are proposed.
+2. Flow field and hydrodynamic testing of toroidal propeller
+Open water tests and PIV technology advance propeller research at macroscopic performance and microscopic flow field levels, respectively. This study employs open-water tests to investigate thrust and torque of toroidal and traditional propellers, then uses PIV to observe differences in microscopic flow mechanisms. Both methods compare mechanical properties and flow field data of ducted propellers pre- and post-optimization, exploring the impact laws of toroidal structure on hydrodynamic characteristics. Open water tests were conducted at the Marine Engineering Technology Research Center of Jiangsu Ocean University. PIV experiments were performed in the water tunnel laboratory of HF Agile Device Co., Ltd. (Hefei, China).
+2.1. Research objects
+Modeling references Sharrow Marine's toroidal propeller with longitudinally distributed blades; the traditional propeller adopts the Ka4 - 70 design, both utilized throughout this study, Fig. 3 shows 3D schematic. Propeller models were machined from gray steel material with black painting. The blade surface facing upstream is the back face, the opposite is the face. When rotating counterclockwise, the forward blade edge is the leading edge, and the trailing edge is the trailing edge. During operation, pressure rises on the face (pressure side) and drops on the back (suction side).
+Fig. 3
+Download: Download high-res image (161KB)
+Download: Download full-size image
+Fig. 3. 3D model schematic of (a) the toroidal propeller and (b) traditional propeller.
+
+2.2. PIV flow field testing
+This study employs 2D3C - PIV experiments to analyze wake velocity field structures of toroidal and traditional propellers. Test conditions are specified in Table 1. The recirculating water tunnel features a vertical power circulation design with a test section of 1.2 m × 0.3 m × 0.3 m, maximum flow velocity of 5 m/s, and variable - frequency speed control.
+Table 1. PIV design conditions.
+
+Parameter	Value
+Rotation speed Ω	11 r/s
+Advance coefficient J	0–1.0
+Density ρ	997.5 kg/m3
+Diameter D	0.1 m
+The PIV experimental setup is shown in Fig. 4 and Fig. 5, the imaging area for flow field evolution in PIV testing is set to 0.3 m × 0.15 m, two CMOS cameras (2560 × 1920 pixels, 15,000 fps maximum frame rate) are placed on one side of the observation window, the laser device is positioned at the bottom. The complete PIV system consists of two CMOS cameras, one high frequency dual-pulse laser (500 mJ at 15 Hz operating condition, 720 Hz laser frequency, 527 nm wavelength, 30 mJ single pulse energy), light guide arm, synchronization controller and RFlow particle image velocimetry software. Optimized and baseline ducts are manufactured from transparent acrylic material to ensure laser penetration, propeller models are fabricated from gray steel material with black surface painting applied.
+Fig. 4
+Download: Download high-res image (233KB)
+Download: Download full-size image
+Fig. 4. Schematic diagram of the PIV test setup for propellers.
+
+Fig. 5
+Download: Download high-res image (467KB)
+Download: Download full-size image
+Fig. 5. Schematic diagram of the PIV laboratory.
+
+Image acquisition references blade positions at 5° intervals from 0° to 85°, recording 10 images per position. Hollow glass microspheres (50 μm) serve as tracer particles. Image processing utilizes high performance workstations with acquisition/analysis software.
+Fig. 6 presents velocity contours of both propellers under different advance coefficients (J), rendered using time-averaged velocities. Each subfigure's upper half shows toroidal propeller contours; lower half shows traditional propeller contours. J is calculated as:
+(1)
+where VA, n and D represent the advance speed of the propeller, the rotational speed of the propeller (rad/s) and the diameter of the propeller (m), respectively.
+Fig. 6
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 6. Comparison of velocity distribution between toroidal propeller and traditional propeller when J = (a) 0.1, (b) 0.2, (c) 0.3, (d) 0.4, (e) 0.5, (f) 0.6, (g) 0.7, (h) 0.8, (i) 0.9, (j) 1.0.
+
+It can be observed that the near-wake flow velocity of the toroidal propeller is significantly greater than that of the traditional propeller, this indicates that the toroidal propeller accelerates fluid more effectively than the traditional propeller, thus according to the velocity contours it can be concluded that the reactive force of water flow on the toroidal propeller is greater than on the traditional propeller, due to the toroidal propeller exerting stronger influence on the tail flow field, its affected wake field range behind the propeller exceeds the traditional propeller, at low J, the inflow velocity is small, the propeller wake is mainly influenced by the propeller's effect on water flow, exhibiting initial contraction followed by radial outward diffusion along the + Z direction, as J increases, the inflow velocity increases, the influence of inflow velocity on the wake gradually becomes prominent, the radial diffusion phenomenon of the propeller wake progressively weakens, in the monitoring window the wake only shows gradual contraction, and the high-speed region near the propeller blades notably extends along the + Z direction, particularly for the toroidal propeller, additionally taking J = 0.6 as the watershed, when J > 0.6 for the traditional propeller, the variation of wake velocity with increasing J significantly weakens, at this point the thrust reduction amplitude of the traditional propeller increases, propulsion efficiency begins to decrease, while the wake velocity variation of the toroidal propeller remains relatively significant, the flow field near its blades maintains consistently higher velocities.
+Fig. 7 illustrates the evolution of x-direction vorticity 
+ for both toroidal and conventional propellers on the X = 0 plane, quantified using a chromatographic scale ranging from 0 to 800 s−1.
+Fig. 7
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 7. Comparison of vorticity distribution between toroidal propeller and traditional propeller when J = (a) 0.1, (b) 0.2, (c) 0.3, (d) 0.4, (e) 0.5, (f) 0.6, (g) 0.7, (h) 0.8, (i) 0.9, (j) 1.0.
+
+The figure clearly reveals the spatial evolution patterns of tip vortices and hub vortices. In terms of near-field vortex structural characteristics, the toroidal propeller exhibits more concentrated vortex cores at both tip and hub regions compared to the conventional propeller. The conventional propeller generates radial jets transferring from the pressure side to the suction side at the blade tip, leading to dispersion of vortex circulation. In contrast, the toroidal propeller's continuous structure at the tip suppresses the generation of radial jets, concentrating vortex circulation in the x-direction and thereby maintaining higher vortex core cohesion. Additionally, the vortex core size in the toroidal propeller's wake is larger than that of the conventional propeller, attributable to blade surface roughness and vortex structure fusion. Both propellers are manufactured from metal with painted surfaces, but the toroidal propeller's unique closed-tip structure at the blade tip exhibits greater surface roughness that more significantly influences the wake field compared to the conventional propeller. Unlike the radial jets of conventional propellers, the toroidal propeller shows increased circumferential induced velocity at the tip, drawing more fluid into the tip vortex and consequently enlarging the vortex core size.
+By observing the evolution process of the wake vortex structures of both propellers in the far field, it can be found that the evolution trajectories of the vortex cores (red dashed lines) of both propellers correspond to the flow field trajectories. The premature fragmentation position of the toroidal propeller's tip vortex is observed at J = 0.4 and 0.7. At J = 0.7, the tip vortex of the toroidal propeller fragments and dissipates near z/D = 2.5, while at J = 0.4, it fragments near z/D = 2.0. This corresponds to the flow field distributions of both propellers: the radial jet generated by the conventional propeller's tip during rotation can partially suppress the pressure gradient changes near the tip. The increased wake velocity of the toroidal propeller enhances the velocity gradient, forming a significant adverse pressure gradient near the tip, which induces flow separation at the tip location. Flow separation increases the disturbance growth rate of the separated shear layer, triggering tip vortex fragmentation. Additionally, the generation frequency of the toroidal propeller's tip vortex structures decreases, and the distance between adjacent tip vortices is significantly larger than that of the conventional propeller.
+2.3. Open water performance testing
+Flow field analysis alone cannot directly characterize the macroscopic hydrodynamics of toroidal propellers. Thus, this study conducts open-water tests on toroidal and traditional propellers to characterize their thrust and torque. The thrust coefficient KT, torque coefficient KQ, and propulsive efficiency η are calculated as:
+(2)
+(3)
+where T represents the thrust of the propeller (N), Q and η represent the torque of the propeller around the rotation axis (N · m) and the propulsion efficiency, ρ and n represent the calculated fluid density (kg/m3) and the rotational speed of the propeller (rad/s), respectively.
+Open water performance tests for ducted propellers were conducted in a towing tank. Table 2 lists test conditions. Full scale propellers were tested at 11 rad/s, with advance coefficients J ranging 0 to 0.8. The towing tank measures 50 m (Length) × 25 m (Width) × 1.5 m (Depth), with carriage speed range 0–6 m/s (Fig. 8).
+Table 2. The conditions of the open water test.
+
+Parameter	Value
+Rotation speed Ω	11 r/s
+Advance coefficient J	0–0.8
+Density ρ	997.5 kg/m3
+Diameter D	0.2 m
+Fig. 8
+Download: Download high-res image (1010KB)
+Download: Download full-size image
+Fig. 8. Diagram of (a) towing pool and (b) trailer.
+
+Inflow velocity was measured by an Acoustic Doppler Velocimeter (ADV). KQ was recorded using a torquemeter (max 20 N m). KT was measured by a dynamometer (50 kg capacity). Fig. 9 shows the ducted propeller test model installation and internal sensors.
+Fig. 9
+Download: Download high-res image (430KB)
+Download: Download full-size image
+Fig. 9. Installation location and internal structure of the open water test.
+
+Fig. 10 compares open water performance curves. Key findings.
+Fig. 10
+Download: Download high-res image (361KB)
+Download: Download full-size image
+Fig. 10. Comparison of open water performance between toroidal propellers and traditional propellers.
+
+As shown in Fig. 10, compared to the conventional propeller, the toroidal propeller exhibits a significant increase in both thrust and torque. Referring to the velocity field analysis of toroidal and conventional propellers in Section 2.2, it can be observed that higher thrust conditions exert a certain influence on the velocity distribution of the wake field, likely resulting in a more pronounced acceleration effect on the wake field. In the range of 0.1 < J < 0.3, the thrust coefficient of the toroidal propeller shows minimal variation, suggesting that under high-load conditions, the propulsion performance of the toroidal propeller may be more stable. Within this operational range, the amplitude of the velocity field around the conventional propeller is smaller than that of the toroidal propeller. The toroidal propeller's blade trailing edge accelerates the velocity field more significantly, and the fluid's reaction on the propeller results in distinctly higher thrust for the toroidal propeller compared to the conventional propeller at corresponding operational positions.
+Additionally, the influence radius of the high-speed region in the wake of the toroidal propeller is larger than that of the conventional propeller. The flow field velocity near the tip of the toroidal propeller is higher, and its unique annular structure increases the interaction area with water flow. Consequently, besides the axial direction, the toroidal propeller enhances interaction with water flow in the radial direction, thereby increasing its torque. Based on the variation in propulsion efficiency shown in the figure, the torque of the toroidal propeller is also elevated due to the increased thrust, resulting in relatively lower propulsion efficiency for the toroidal propeller. However, as J increases, the propulsion efficiency of the toroidal propeller continues to rise, while the propulsion efficiency of the conventional propeller reaches its maximum at J = 0.6. Referring to the velocity field variations of both propellers, the high-speed region in the wake of the conventional propeller is more noticeably affected by the inflow velocity, extending rapidly axially rearward as the inflow velocity increases. In contrast, the extension speed of the toroidal propeller's wake is relatively slower, making it less sensitive to changes in inflow load. Thus, the thrust and torque experienced by the toroidal propeller remain more stable, with torque decreasing more significantly with increasing J than the thrust coefficient.
+Due to experimental limitations, the maximum advance coefficient achieved during the open-water tests was J = 0.8. Furthermore, as the focus of this study is on the self-propulsion performance of the toroidal propeller-DPV system, future research will further investigate the open-water performance of the toroidal propeller.
+3. Motion prediction research and performance characterization of toroidal propeller - DPV
+Compared to traditional propellers, the toroidal propeller demonstrates improved thrust coefficient and more stable thrust under high load conditions, this indicates that the toroidal propeller can effectively enhance the self-propulsion speed and acceleration performance of DPVs, to systematically analyze the influence mechanism of DPV attitude changes on hydrodynamic coefficients and validate the self - propulsion performance of toroidal propeller - DPV systems, this study first predicts the performance of DPVs under different attitudes, completing the identification of the influence mechanism between attitude variation and hydrodynamic performance, then conducts self - propulsion motion prediction research for toroidal propeller/traditional propeller - DPV systems considering different submerged navigation depths.
+3.1. Research object and condition settings
+This study investigates hydrodynamic variations of DPVs under different attitudes and self-propulsion performance under various states, the research object adopts a self - designed DPV model shown in Fig. 11, the model employs a flat-body design with length 1.3 m and width 0.5 m, the propulsion system uses a dual - propulsion configuration where two propeller thrusters mounted at the stern provide power sources, with control handles and display screens arranged in the front section of the main body.
+Fig. 11
+Download: Download high-res image (289KB)
+Download: Download full-size image
+Fig. 11. Layout display of DPV.
+
+Table 3 provides specific condition settings, the first part of this study investigates the influence mechanism of ocean currents on hydrodynamics of static DPVs under different attitudes, considering two motion attitudes: pitching and yawing, Fig. 12 illustrates schematic diagrams of various DPV attitudes, where the pitching angle q ranges from −30° < q < 30°, the yawing angle r ranges from 0° < r < 30°, both with 5° step increments, current velocity is set to 1 m/s, considering the minor hydrodynamic influence of ocean currents on DPVs at different roll angles, this study excludes hydrodynamic exploration of DPVs under varying roll angles.
+Table 3. Setting of conditions.
+
+Parameter type/Condition	The influence of ocean currents on the DPV of different movement postures	Research on Multi-scenario Propeller - DPV Autonomous Navigation Performance
+Size of DPV (m)	1.3 × 0.5	1.3 × 0.5
+Rotational speed of the propeller (rpm)	0	2300
+Diameter of the propeller (m)	0.15	0.15
+Velocity of the flow field (m/s)	1	0
+Degree of freedom of DPV	Fixed	Translation and Rotation
+Fig. 12
+Download: Download high-res image (230KB)
+Download: Download full-size image
+Fig. 12. Illustration of different movement postures of DPV.
+
+The second part of this chapter conducts comparative analysis of flow field structures and hydrodynamics for traditional propeller - DPV and toroidal propeller - DPV systems under three states: semi-submerged navigation, near - free - surface, and benthic operation, aiming to determine whether toroidal propellers can enhance self-propulsion speed and performance of DPVs in different operational environments, Fig. 13 shows positional schematics of DPVs under various states.
+Fig. 13
+Download: Download high-res image (376KB)
+Download: Download full-size image
+Fig. 13. Schematic diagram of the simulated working conditions for the DPV self-propelled test.
+
+In Fig. 13, Case 1 represents DPV navigation on the water surface defined as semi-submerged state, Cases 2 and 3 feature DPV centroids at distances z/D = 0.5 and 1.0 from the free surface respectively defined as near-free-surface states, Cases 4 and 5 involve DPVs distant from the water surface with centroids at z/D = 1.0 and 0.5 from the bottom wall respectively defined as benthic states.
+3.2. The methods and settings for DPV performance calculation
+This study was conducted using the calculation in the commercial software platform STAR CCM+, and the calculation was solved using the Detached Eddy Simulation (DES) method based on the SST k-ω model. In the SST k-ω model, the turbulent eddy viscosity is calculated as:
+(4)
+where ρ, k and T represent the transport equation for turbulent kinetic energy, the dissipation rate ratio, and the turbulent time scale, respectively. In SST k - ω, T is expressed as:
+(5)
+where α∗ and a1 represent the model coefficients, S represents the average strain rate tensor, and F2 is a mixed function. The calculation formula is as follows:
+(6)
+where v, β∗ and d represent the kinematic viscosity, the model coefficient and the distance to the wall respectively. k and ω are expressed as:
+(7)
+(8)
+where 
+ represents the average velocity, 
+ represents the dynamic viscosity, 
+ and 
+ represent the model coefficients, 
+ and 
+ represent the production terms, 
+ represents the free-shear modification factor, 
+ represents the vortex-stretching modification factor, 
+ and 
+ represent the source terms, 
+ and 
+ respectively represent the ambient turbulence values that counteract turbulence decay.
+The numerical solution process employs the Semi - Implicit Method for Pressure - Linked Equations (SIMPLE) algorithm to solve the pressure - velocity coupling equations, the convection term, diffusion term and transient term are discretized using the second order upwind scheme, central differencing scheme and second order implicit time discretization method respectively.
+This study adopts numerical simulations to predict hydrodynamic performance of DPVs propelled by toroidal and traditional propellers, to ensure better conformity between numerical simulations and actual operating conditions, full scale DPV models are used for computations.
+The computational domain for solving DPV hydrodynamics is set as a rectangular cuboid shown in Fig. 14, wherein L represents DPV length, a fixed coordinate system O - XYZ describes DPV motion, the coordinate origin locates at the ducted propeller's center of gravity, Z points toward the inflow direction (velocity direction), Y is vertically upward, X is determined by the right-hand rule. To ensure that the flow field around the DPV can fully develop within the computational domain, the setting of the computational domain in this study is as follows: the domain diameter is 6 D with length 9 D, the ducted propeller center is positioned 3 D from the velocity inlet boundary and 6 D from the pressure outlet boundary, boundary conditions configured as follows: inlet, top and lateral sides apply velocity inlet with zero pressure gradient, the outlet side employs zero velocity gradient with fixed pressure (atmospheric pressure), the bottom and DPV solid surfaces are set as no slip walls.
+Fig. 14
+Download: Download high-res image (441KB)
+Download: Download full-size image
+Fig. 14. The settings of the calculation domain and the grid.
+
+This study partitions the computational domain into static and rotating subdomains, unstructured grids consisting of hybrid prismatic layers with polyhedral grids (rotating domain) or trimmed meshes (static domain) are generated, the region surrounding the DPV propeller is configured as the rotating subdomain, to accurately capture local flow field details, grid refinement is implemented on the free surface plane, DPV surfaces, and propeller surfaces to precisely resolve flow disturbances near the DPV, additionally 5 layer and 10 layer prismatic layers are applied to discretize the near wall regions of the DPV and propeller models respectively, the wall y plus value is controlled at y+ < 1.
+3.3. Convergence analysis of DPV performance calculation
+To ensure the reliability of CFD results, a grid convergence analysis is conducted following the framework established by Stern et al. (1999). Three successively refined grids (denoted as SG1, SG2, SG3) are employed, with the grid refinement ratio between adjacent grids defined as:
+(9)
+(10)
+where 
+ and 
+ represent the differences in the target parameters between the first and second grid resolutions, and the second and third grid resolutions, respectively. The expression for the convergence rate RG is defined as follows:
+(11)
+According to the convergence criterion, 0 < RG < 1, RG < 0, and RG > 1 denote monotonic convergence, oscillatory convergence, and divergence, respectively.
+To rigorously evaluate numerical uncertainty induced by grid spacing, a convergence study employs the benthic state (Case 4) as the specific research condition with ducted propeller rotational speed n = 2300 r/min, the base grid count being 19.42 × 106, four grid sets are generated based on the refinement factor with values referenced to the 2017 International Towing Tank Conference (ITTC), grid quantities are 9.04 × 106, 19.42 × 106, 29.09 × 106 and 46.27 × 106 respectively, the total simulated physical time is 10.0 s with 10 internal iterations per timestep, after testing, simulating 10 s of physical time was sufficient to ensure that the resistance experienced by the DPV converged with the thrust provided by the propeller. Computation utilizes a workstation equipped with an Intel(R) Xeon(R) Platinum 8180 CPU @ 2.50 GHz processor and 160 GB RAM, employing 64 processors per simulation run.
+Grid convergence study results are presented in Table 4, according to the convergence criterion, 0 < RG < 1, RG < 0 and RG > 1 represent monotonic convergence, oscillatory convergence and divergence respectively, Table 3 indicates grid convergence has been achieved, considering computational time cost and accuracy requirements, the grid with 19.42 × 106 cells is adopted for numerical simulations.
+Table 4. Result of grid convergence.
+
+Parameter type/Number	1	2
+Grid number (106)	Coarse grid	9.04	19.42
+Medium grid	19.42	29.09
+Fine grid	29.09	46.27
+RG	0.31	0.23
+To validate numerical simulation accuracy, identical grid and simulation settings are applied to perform numerical modeling of straight-line towing tests for a 1.5 m suboff model, comparing results with benchmark straight-line towing test data from the Taylor basin, Table 5 presents the comparative outcomes.
+Table 5. Comparison of CFD results with test values.
+
+Ship Speed/kn	Resistance/N	Error/%
+CFD results	Test values
+5.93	98.1	102.3	4.1
+10	272.9	283.8	3.8
+16	661.5	677.4	2.3
+Computational results in Table 5 demonstrate that the numerical simulation errors relative to experiments are less than 5 %, satisfying engineering practical requirements, to ensure accurate thrust provision by propellers during self-propulsion simulations, this study compares numerical results of Ka 4–70 propeller thrust with experimental data (Oosterveld, 1970, 1973), comparative results are presented in Fig. 15, numerical simulations configure total physical simulation time as 10.0 s with each iteration corresponding to 1° propeller rotation and 10 internal iterations per timestep, computational results show good agreement with experimental data while relative error is controlled within 5 %.
+Fig. 15
+Download: Download high-res image (275KB)
+Download: Download full-size image
+Fig. 15. The thrust coefficient of the Ka 4–70 propeller.
+
+3.4. DPV motion prediction research
+3.4.1. Motion prediction research for DPVs under different attitudes in steady ocean currents
+Fig. 16 demonstrates variation characteristics of macroscopic hydrodynamic forces on DPVs under different motion attitudes, and explores influence laws of varying pitching/yawing angles on macroscopic hydrodynamics via polynomial fitting methods.
+Fig. 16
+Download: Download high-res image (698KB)
+Download: Download full-size image
+Fig. 16. The distribution of hydrodynamic forces of DPV under different movement postures.
+
+Fig. 16 (a) and (b) display distributions of macroscopic forces along Y - axis (surge) and Z - axis (heave) directions under different pitching angles, Fig. 16(a) represents the variation of forces on the DPV in the surge and heave directions when the pitch angle is in the range of 5° < q < 30°. As q increases, the forces acting on the DPV in the surge and heave directions increase, showing a positive correlation with q. At q = 6°/-6°, the force in the Z-direction is approximately equal to that in the Y-direction. At this point, the accelerations of the DPV in the heave and sway directions are identical, and the displacement direction forms a 45° angle with the Z-direction. As q continues to increase, the rate of growth of the force in the Y-direction significantly exceeds that in the Z-direction. This indicates that, compared to surge motion, the sway motion of the DPV is relatively more influenced by changes in q.
+Fig. 16 (c) and (b) shows force variations along X - axis (sway), Y - axis (surge) and Z - axis under different yawing angles, forces in both directions are proportional to yawing amplitude, simultaneously it can be observed that third - order polynomial fitting effectively elucidates relationships between motion attitudes and hydrodynamic variations. It can be observed that under different yaw angles, the order of magnitudes of the forces in the three directions on the DPV is Fz > Fx > Fy. Therefore, the heave motion of the DPV is most significantly affected by the yaw angle, followed by the surge motion, while the sway motion is the least affected.
+Fig. 17, Fig. 18 demonstrate the periodic variations in the velocity field and X -direction vorticity around the DPV within the pitch angle range of −30° < q < −5°, respectively. The parameter T represents the period, defined as the duration from wake generation at the DPV to its complete dissipation in the far field. The observation area moves downstream with the flow over time.
+Fig. 17
+Download: Download high-res image (577KB)
+Download: Download full-size image
+Fig. 17. Periodic variation of the velocity field around the DPV when −30° < q < −5°.
+
+Fig. 18
+Download: Download high-res image (457KB)
+Download: Download full-size image
+Fig. 18. Periodic variation of the vorticity field around the DPV when −30° < q < −5°.
+
+At pitch angles of q = −5° and −10°, the DPV wake develops relatively steadily. Due to the flow obstruction effect caused by the DPV, a distinct low-velocity zone forms behind the DPV. This low-velocity region propagates downstream along the flow direction over time, with its velocity gradually recovering to the far-field velocity. Additionally, high-velocity zones emerge at both the top and bottom of the DPV, resulting from the acceleration of surrounding flow due to the DPV's configuration.
+As the pitch angle increases, the DPV wake develops with alternating high and low-velocity zones moving downstream. At q = −20°, the increased pitch angle enhances the interaction between the DPV top surface and the flow, creating a more pronounced flow obstruction effect. The low-velocity zone near the DPV top expands and merges with the wake's downstream low-velocity region. Meanwhile, the reduced flow impact on the DPV bottom generates a high-velocity zone that develops downstream along with the wake's low-velocity region.
+At q = −30°, wake fluctuations become significant with an expanded high-velocity zone and diminished low-velocity zone. Compared to other conditions, localized high-velocity zones generated near the DPV stern are clearly observable. At t/T = 2/4, the high-velocity zone detaches from the DPV and extends downstream within the observation area. By t/T = 3/4, the central region of the observation area shows higher velocities, and at t/T = 1, the high-velocity zone weakens toward the far-field velocity. Notably, with increasing pitch angle, the low-velocity zone near the DPV top expands while the stern low-velocity zone diminishes. The flow acceleration effect at the DPV bottom gradually enhances the high-velocity region in the wake, which eventually surpasses the low-velocity zone in spatial extent.
+Corresponding to the vorticity distribution of the DPV within the range of −30° < q < −5°, it can be observed that at q = −5° and −10°, two distinct vortex structures with opposite rotational directions appear in the DPV wake. The vortex structure at the top is formed by the merging of vortices shed from the DPV console and the region above the stern, while the bottom vortex structure is significantly influenced by the position of the stern propeller. As the pitch angle increases, the intensity of the wake vortices weakens. At q = −30°, the shedding and dissipation of vortex structures at the DPV stern occur earlier. Within the observation area, the complete process from vortex generation and shedding to gradual disintegration can be observed. With reference to the force distribution on the DPV, the forces acting on the DPV in the surge and heave directions also gradually increase with increasing pitch angle.
+Fig. 19, Fig. 20 respectively represent the periodic variation of the velocity field and the vorticity in the X -direction around the DPV within the pitch angle range of 5° < q < 30°. In the figures, T denotes the period, defined as the duration from the generation of the DPV wake to its complete dissipation in the far field. The observed area moves downstream along the flow direction over time.
+Fig. 19
+Download: Download high-res image (571KB)
+Download: Download full-size image
+Fig. 19. Periodic variation of the velocity field around the DPV when 5° < q < 30°.
+
+Fig. 20
+Download: Download high-res image (444KB)
+Download: Download full-size image
+Fig. 20. Periodic variation of the vorticity field around the DPV when 5° < q < 30°.
+
+At q = 5°, the low-velocity zone in the DPV wake is primarily influenced by the positions of the DPV console and the propeller. Fig. 20 shows that the main shedding locations of the vortex structures in the DPV correspond to the formation of the low-velocity zones. At q = 10°, the flow obstruction effect caused by the DPV console weakens. Due to the increased pitch amplitude, the high-velocity zone generated at the top becomes more pronounced. The influence of the low-velocity zone in the wake gradually diminishes, while the high-velocity and low-velocity zones intersect and merge, with the high-velocity zone progressively dominating as the pitch amplitude increases.
+Unlike the vortex distribution characteristics of the DPV within the −30° < q < −5° range, at q = 5°, the intensity of the vortices shed from the top of the DPV is significantly stronger than those shed from the region above the stern. However, the complete development process of the shed vortices can still be observed within the observation window. At q = 20°, a noticeable increase in the intensity of vortices shed from the DPV console and the vicinity of the stern can be observed. Correspondingly, the velocity distribution in this area indicates an enhanced flow obstruction effect near the DPV console. At q = 30°, the high-velocity zone in the DPV wake becomes significantly more pronounced, while the intensity of the shed vortices weakens.
+Fig. 21, Fig. 22 respectively represent the periodic variation of the velocity field and the vorticity in the X-direction around the DPV within the yaw angle range of 5° < r < 30°. In the figures, T denotes the period, defined as the duration from the generation of the DPV wake to its complete dissipation in the far field. The observed area moves downstream along the flow direction over time.
+Fig. 21
+Download: Download high-res image (610KB)
+Download: Download full-size image
+Fig. 21. Periodic variation of the velocity field around the DPV when 5° < r < 30°.
+
+Fig. 22
+Download: Download high-res image (472KB)
+Download: Download full-size image
+Fig. 22. Periodic variation of the vorticity field around the DPV when 5° < r < 30°.
+
+At r = 5° and 10°, the velocity distribution in the DPV wake is relatively stable. High-velocity zones appear on both sides of the DPV hull, while low-velocity regions are observed at the top and stern. The low-velocity zone at the stern is most pronounced, extending and stretching downstream along the flow direction, with its affected area gradually increasing and eventually approaching the far-field flow velocity.
+As the yaw angle increases, the flow obstruction effect of the DPV on the observed plane intensifies. Low-velocity zones emerge along the sides of the DPV and develop rearward. Consequently, the hydrodynamic interaction between the flow and the DPV strengthens, leading to a gradual increase in the forces acting on the DPV.
+At yaw angles of r = 5° and 10°, the wake of the DPV remains relatively stable, with no significant development of shed vortices observed. When r = 20°, high-frequency vortex shedding becomes clearly visible at the stern and sides of the DPV. Within the observation window, the complete evolution characteristics of the vortex structures-including generation, separation, extension, and dissipation-can be distinctly observed. At this yaw angle (r = 20°), the influence of the flow around the DPV stern on the surrounding flow field reaches its maximum extent. Correspondingly, the rate of increase in forces acting on the DPV in various directions shows a significant reduction. When r = 30°, the flow disturbance at the stern weakens, with particularly noticeable changes in the lateral vortex structures and velocity field. At this angle, the rate of increase in forces on the DPV rises again.
+3.4.2. Self-propulsion performance characterization of toroidal/traditional Propeller-DPV systems at different submergence depths
+Propeller thrust provision is critical for DPV self - propulsion performance, Fig. 22 presents hydrodynamic variations of toroidal and traditional propeller - driven DPVs at different submergence depths, Cases 1–5 correspond to conditions illustrated in Fig. 12, FT denotes propeller thrust on DPV, Ff represents DPV resistance in travel direction.
+Fig. 23 shows convergence of thrust and resistance with near equal magnitudes, under semi-submerged, near - free - surface and benthic states, toroidal propellers provide greater thrust than traditional propellers, at all states, a single toroidal propeller sustains thrust >150 N, outperforming traditional propellers by 16 %, under benthic conditions (Case 5), thrust from both propellers increases with toroidal propellers showing most significant improvement: total thrust exceeds 400 N, 33 % higher than other conditions and 50 % greater than traditional propellers, this might be due to the interaction between the bottom surface and the propeller - DPV, which exerted a positive thrust on the DPV. In the following study, a comprehensive analysis of the flow field structure of the annular propeller and the traditional propeller-driven DPV will be conducted.
+Fig. 23
+Download: Download high-res image (619KB)
+Download: Download full-size image
+Fig. 23. Hydrodynamic variation curves of DPV equipped with toroidal propeller and traditional propeller in self-propulsion test simulation: (a) Case 1, (b) Case 2, (c) Case 3, (d) Case 4, (e) Case 5.
+
+Fig. 24 display self - propulsion speed variations, under all states, DPVs driven by toroidal propellers achieve higher speeds than traditional propellers at identical RPM, Cases 1–2 maintain speeds >4 m/s, Case 3 shows reduced speed despite unchanged thrust/resistance, likely because Cases 1–2 experience reduced hydrodynamic resistance from air - water interface proximity, while Case 3 encounters higher pure-water resistance, reaching thrust - resistance equilibrium at lower speeds, benthic states show slight speed reduction, most pronounced in Case 5, probably due to bottom wall flow - field interference increasing resistance.
+Fig. 24
+Download: Download high-res image (476KB)
+Download: Download full-size image
+Fig. 24. Speed variations of DPVs equipped with toroidal propeller and traditional propeller in the self-propelled test simulation: (a) Case 1, (b) Case 2, (c) Case 3, (d) Case 4, (e) Case 5.
+
+To investigate wake velocity field impacts, Fig. 25 illustrates analysis sections: propeller wake section (Y = 0.1425) and center plane (Y = 0).
+Fig. 25
+Download: Download high-res image (323KB)
+Download: Download full-size image
+Fig. 25. Schematic diagram of the cross-section of the DPV wake field.
+
+The distribution of DPV vortex structures significantly influences overall hydrodynamic and velocity field characteristics, Fig. 26, Fig. 27 respectively present vortex structure distributions on Y = 0 and Y = 0.1425 planes for toroidal/traditional propeller - DPV systems at different submergence depths, rendered using X - direction vorticity. On the left side of the figure is the circular propeller - DPV, and on the right side is the traditional propeller - DPV. Fig. 27 displays wake vorticity field distributions on Y = 0 cross-section across all conditions, Fig. 28 shows wake vorticity field distributions on Y = 0.1425 cross-section for all operational cases.
+Fig. 26
+Download: Download high-res image (638KB)
+Download: Download full-size image
+Fig. 26. The distribution of the wake vorticity of the DPV on the Y = 0 plane.
+
+Fig. 27
+Download: Download high-res image (713KB)
+Download: Download full-size image
+Fig. 27. The distribution of the wake vorticity of the DPV on the Y = 0.1425 plane.
+
+Fig. 28
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 28. The distribution of vorticity in the Y-direction of the axial section of the DPV propeller wake field.
+
+Fig. 26 displays vorticity distributions around DPV on Y = 0 plane, vorticity evolution trajectories resemble velocity magnitude variations, under semi-submerged state (Case 1), partial flow moves from DPV bow to top then discharges at stern with irregular patterns, turbulent flow emerges at DPV top causing significant positive/negative vorticity interactions, under near - free - surface condition (Case 2), strong propeller thrust intensifies water-propeller interaction generating complex flow structures near surface with distinct vortex distributions, toroidal propellers produce greater thrust yielding wider wake vortex diffusion and higher intensity, Case 3 shows weakened surface fluctuations due to increased surface distance, Case 4 exhibits negligible bottom wall interaction, when descending to Case 5, shed vortex structures from stern experience significant bottom wall interference with expanded diffusion rang.
+Propeller rotation profoundly affects vorticity fields, Fig. 27 illustrates X - direction vorticity variations at propeller rotation axis plane (Y = 0.1425), enhanced vorticity occurs due to intensified propeller-fluid interaction, distinct vortex shedding emerges behind toroidal propellers, shed vortex structures dissipate through interactions with bottom wall opposite to DPV motion direction.
+For more precise analysis of spatiotemporal evolution patterns in vorticity fields behind propellers, vortex cloud diagrams at various positions aft of DPV stern propellers under different submergence depths are presented in Fig. 28. On the left side of the figure is the circular propeller - DPV, and on the right side is the traditional propeller - DPV.
+Fig. 28 reveals that regions of strong vorticity behind propellers primarily concentrate at propeller hubs and blade tip radii, as x/D increases, tip vortices and hub vortex intensity of traditional propellers gradually weaken, tip vortex shapes evolve from regular rings to irregular forms. Compared with traditional propellers, under various conditions, toroidal propellers exhibit stronger hub/tip vortices with larger hub vortex diameters, likely due to vortex structures generated by their annular geometry at blade roots interacting with hubs and merging into shed vortices, additionally toroidal propellers maintain stable thrust across states yielding larger wake velocity fields that positively influence vortex generation. Under semi-submerged (Case 1) and near-free-surface states (Cases 2–3), free surfaces significantly affect DPV wake fields resulting in irregular tip vortices. Under benthic states (Cases 4–5), traditional propellers display near-circular tip vortices while toroidal propellers show high-intensity vortex structures vulnerable to bottom wall interference. Thus in Case 3 vortex patterns on toroidal propeller stern planes remain relatively regular whereas in benthic states vortex shapes exhibit distinct irregular transformations.
+Tip vortices and hub vortices exhibit strong three-dimensionality making vortex core boundaries indistinguishable in 2D contours, Fig. 30 presents 3D vortex structures of toroidal/traditional propeller-DPV systems at different submergence depths, represented via Q - criterion iso - surfaces colored by velocity magnitude. On the left side of the figure is the circular propeller - DPV, and on the right side is the traditional propeller - DPV.
+Fig. 29 illustrates the interaction of a DPV with water/air media while semi-submerged. Strong hydrodynamic interaction is observed with the DPV structure, leading to turbulent phenomena mainly at the stern and upper sections. In Case 1, visible attached vortices and shed vortex patterns are present on the DPV. The water flows from the bow to the top of the DPV at high speed, with decreasing velocity over time on the vortex structures. The shed vortex structures at the stern of the DPV show higher velocity magnitudes due to the action of the stern thruster on the water flow. Toroidal propeller-driven DPVs exhibit narrower wake vortex diffusion compared to conventional propellers, but the dissipation of vortex locations extends backward due to higher wake velocities. In near-free-surface conditions, the influence of the free surface on the DPV diminishes, resulting in weaker shed vortex structures. Vortex structures are more concentrated near the DPV console and stern regions due to high curvature variations and intense propeller-water interactions. In benthic conditions, traditional propellers have limited thrust, while toroidal propellers provide increased thrust leading to intensified shed vortex structures. The DPV experiences minor bottom wall influence based on prior velocity contours, with ambient interference being minimal. The shed vortices from the DPV structure are relatively weak. However, with toroidal propellers, there is a significant increase in thrust, leading to notable bottom wall interference in the surrounding flow fields and intensified vortex structures shed from the DPV console and stern. The propeller-shed vortices experience premature dissipation due to wall interference.
+Fig. 29
+Download: Download high-res image (753KB)
+Download: Download full-size image
+Fig. 29. Iso-surfaces of Q criterion (Q = 300 s−1) around DPV under different conditions.
+
+Fig. 30
+Download: Download high-res image (449KB)
+Download: Download full-size image
+Fig. 30. The variation of water surface fluctuations for toroidal propeller/traditional propeller - DPV.
+
+Fig. 30 depicts free surface profiles for toroidal/traditional propeller - DPVs under semi-submerged (Case 1) and near - free - surface (Case 2) states, rendered by Y - direction wave height. On the left side of the figure is the circular propeller - DPV, and on the right side is the traditional propeller - DPV.
+Fig. 30 shows under semi-submerged state (Case 1), inflow moves upward over DPV causing significant deformation near console, propeller disturbance drives stern flow backward/downward drawing air into stern regions forming negative wave height zones. Toroidal propellers provide greater thrust accelerating stern flow more effectively thus contracting wave radiation range and reducing wave height amplitude compared to traditional propellers, along wake evolution direction, wave recovery occurs faster. Under near free surface state (Case 2), DPV motion generates positive/negative wave crests in wake, toroidal propellers produce smaller wave fluctuations with quicker calm - water recovery, collectively indicating toroidal propellers minimize surface disturbance.
+4. Conclusions
+This study first compared flow-field characteristics of traditional Ka4 - 70 and toroidal propellers through 2D - 3C PIV experiments. Considering ocean current effects, hydrodynamic model fitting was performed for DPVs under different attitudes. Finally, vortex field reconstruction and multi-condition self-propulsion simulations were employed to analyze toroidal propellers' impact on DPV self - propulsion performance, investigating flow-field characteristics and hydrodynamic laws across five states: semi-submerged navigation, near-surface navigation (two water depths), and benthic navigation (two heights). The principal findings are as follows:
+(1)
+Compared with traditional propellers, toroidal propellers significantly enhance flow acceleration at advance ratios J = 0.1–1.0, indicating superior thrust generation under identical conditions, which was confirmed in DPV self-propulsion simulations.
+(2)
+Under ocean currents, pitching and yawing substantially influence DPV hydrodynamics: surge and sway forces increase with pitching angles, while growing yawing angles amplify surge and yaw moments, demonstrating strong positive correlations.
+(3)
+Toroidal propellers provide greater thrust, improving self - propulsion speeds across all five operational states. During semi-submerged navigation, toroidal propellers yield gentler wave height variations and faster calm - water recovery in wakes.
+This research pioneered quantification of transient wakes from compact toroidal propellers via 2D - 3C PIV, revealing their flow mechanisms. Hydrodynamic influence laws of motion attitudes under currents were systematically fitted. We first implemented toroidal propellers on DPVs, establishing a multi - state self - propulsion prediction framework that validates their feasibility for DPV applications, providing critical references and technical foundations for future DPV maneuverability studies and propeller integration. However, in this study, research related to DPV noise is limited. In future work, we will combine noise experiments and acoustic numerical simulation methods to conduct a comparative study on the acoustic characteristics of DPVs equipped with toroidal propellers versus conventional propellers. Based on the measurement results, we will optimize the geometric configurations of both the toroidal propeller and the DPV to further enhance the DPV's maneuverability and reduce its noise emissions.

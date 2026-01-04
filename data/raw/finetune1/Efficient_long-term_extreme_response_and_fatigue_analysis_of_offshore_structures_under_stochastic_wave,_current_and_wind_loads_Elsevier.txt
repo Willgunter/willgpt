@@ -1,0 +1,599 @@
+raw text: Abstract
+Offshore structures face complex and stochastic loads from waves, current, and wind. An accurate long-term analysis is crucial for reliability assessment for overloading and fatigue failures. This problem is challenging due to the small probabilities and numerous uncertainties, thus existing methods mostly rely on simplifications or empirical rules. To address these challenges, this paper presents a new method for long-term extreme response and fatigue analysis, incorporating seven long-term environmental variables following a prescribed joint distribution and short-term uncertainties from irregular waves. The method combines subset simulation (SS) for efficient reliability analysis of rare events and an advanced metamodel GE-NARX for predicting the time series response for a wide range of environmental inputs. A new design-of-experiments scheme is developed to train the metamodel effectively. Another novel aspect is the application of SS to efficiently evaluate not only the failure probabilities but also the mean damage. The proposed method is tested on a floating system and shown to accurately predict the long-term extreme response and cumulative fatigue damage when compared with a time-consuming benchmark method, while offering a substantial computational speedup. The proposed method is highly efficient, allowing the investigation of diverse scenarios for better insight. Among other things, the results reveal the critical role of wave, current and wind directionality, and assuming deterministic values for wave, wind and current parameters can be substantially erroneous, highlighting the limitations of design codes. The proposed method is an effective tool for design and potentially for real-time risk assessment of offshore structures.
+Previous article in issue
+Next article in issue
+Keywords
+Long-termExtreme responseFatigue damageNARX networksSubset simulation
+1. Introduction
+Offshore structures are continuously subjected to complex and uncertain loads from waves, current and wind. There are long-term and short-term uncertainties in the ocean environment. The long-term random variables that characterize the varying sea state include the significant wave height 
+, spectral wave period 
+, wave direction, current speed and direction, as well as wind speed and direction [1]. For a particular sea state, irregular waves are treated as a stationary stochastic process, resulting in short-term uncertainties described by many random variables. To ensure the safety of offshore structures due to overloading and fatigue failures, an accurate prediction of the long-term extreme response and fatigue damage is crucial. This assessment is traditionally performed during the design stage, but increasingly the industry is witnessing a demand for continuous reassessment during operation.
+In practice, long-term extreme response analysis is based on evaluating the short-term extremes from one or several design sea states corresponding to a prescribed return period, say 100 years. The design sea states approach does not usually consider less extreme but more frequent sea states that also contribute to the failure probability. For two wave variables (e.g. 
+ and 
+), a popular approach for selecting the sea states is the environmental contour method (ECM) [2]. ECM is fast and easy to apply, but it is approximate and has limitations, such as the empirical treatment of the short-term uncertainties [3]. Gramstad et al. [4] proposed a sequential sampling approach using Gaussian process regression to account for short-term and long-term uncertainties, this approach has also been shown by Hong et al. [5] to be more accurate than ECM especially when short-term variability is significant. ECM is typically not amenable to all seven long-term variables because the sea states increase exponentially with dimension. To alleviate this drawback, Hafver et al. [6] proposed to use Voronoi cells to generate contours for higher dimensions.
+One simple design strategy is to adopt the extreme wave, current speed and wind speed, each of 100-year return period, although this will likely be highly conservative. Design codes typically prescribe a longer return period for one environmental variable and a shorter return period for the others. As an example, the BV code for permanent moorings [7] stipulates 100-year wave with 50-year wind and 10-year current; 100-year wind with 50-year wave and 10-year current, etc. Such load combinations constitute an application of Turkstra's rule [8], which has no rigorous statistical basis. Turkstra's rule can yield inconsistent results and is often unconservative [9]. Then, there is the issue of selecting the wave, current and wind directions for the design sea states. In practice, collinearity is often assumed in the name of simplicity and conservatism, however studies [[10], [11], [12], [13]] have revealed that the assumption of conservatism may be misinformed, for example a misalignment of wind and wave can be more onerous [11].
+The approach for fatigue damage prediction follows a different path since fatigue is an accumulative process. During the design phase, the mean fatigue damage is estimated, with safety factors applied to ensure a low failure probability. Design codes [14] recommend partitioning the 
+ scatter diagram into representative blocks, but this crude blocking strategy can be highly erroneous. More accurate methods have been proposed for evaluating the mean damage from the joint distribution of 
+ and 
+ [15]. Although less common, researchers [16] have included wave direction an additional variable. Dimension reduction methods [[17], [18], [19], [20]] have been proposed to improve the efficiency of evaluating the integral, which is of higher dimension when considering both wind-sea and swell, as well as their directions. While dimension reduction methods reduce the function evaluations, they provide no means to quantify the error. In any case, there are scarcely any studies that incorporate stochastic wind and current.
+The rigorous treatment of the short-term uncertainty presents another challenge on account of the high dimensionality. Though it is possible to simulate multiple realizations of the sea state via Monte Carlo simulation (MCS) to capture the short-term uncertainty, it is computationally costly. Most efficient methods rely on some form of approximation, such as making empirical assumptions or estimating the short-term statistics from a single realization using a statistical technique [[21], [22], [23], [24], [25], [26], [27], [28]].
+The most rigorous approach for both extreme response and fatigue damage prediction is a long-term analysis in the time domain considering the joint distribution of all the long-term and short-term variables, however this approach is fraught with numerous computational hurdles and is rarely considered hitherto. For offshore structural systems that are highly nonlinear, such as mooring and riser systems, the evaluation of a short-term sea state necessitates a time-domain analysis to accurately simulate the nonlinear dynamics. Owing to the high stochastic dimension, direct numerical integration can be ruled out. Although MCS is unaffected by dimensionality, it remains impractical. The 100-year response implies an exceedingly low on-site failure probability that necessitates a prohibitive number of samples. For fatigue analysis, MCS has been adopted to estimate the mean damage [12,[29], [30], [31]] for multiple environmental variables, but statistical convergence may not be achieved due to the large sample size required.
+Subset simulation (SS) [32] is a powerful reliability method whose efficiency far exceeds MCS, and it can tackle high-dimensional problems with low failure probabilities without requiring prior information. Unlike many approximate methods, SS is asymptotically unbiased, and the sampling uncertainty can be quantified. Because of these remarkable attributes, SS has enabled accurate analysis of the long-term extreme response analysis under multiple uncertainties, and researchers [33,34] have applied SS to obtain benchmark solutions for assessing approximate methods. Nonetheless, SS requires a sizeable number of function evaluations, and each evaluation entails a time-domain simulation. The CPU time for SS can amount to several weeks and therefore not ideal for practical applications.
+Recent years have seen a growth of research relating to machine learning in diverse engineering disciplines. Artificial neural networks (ANNs) have been applied for simulating the time series responses of offshore structures [16,[35], [36], [37], [38]], but many existing ANN techniques are not suited for the present long-term analysis as they are confined to one or small range of sea states. Another limitation is that the ANN models usually take the vessel motions as input for predicting the dynamic response of mooring lines or risers. Such models are inapplicable for fixed offshore structures as well as for coupled analysis of floating systems where the vessel, moorings and risers are integrated, because the vessel motions are also a response quantity. To predict the response for numerous sea conditions using only environmental inputs, the high dimension requires an ANN model to possess excellent generalization capabilities. To this end, Cheng and Low [39] recently developed an improved NARX model known as Gaussian Experienced NARX (GE-NARX) with the wave elevation as input. Subsequently, GE-NARX was extended to construct a metamodel to accurately predict the responses of offshore structures for seven long-term variables using only environmental information as input [40]. However, GE-NARX has not been tested for reliability analysis with low failure probabilities. Although GE-NARX can simulate response time-series very quickly, it is still time-consuming to use GE-NARX with MCS for the present application.
+To address the gaps in the literature, the objective is to develop a fast and accurate method for long-term extreme response and fatigue analysis of offshore structures with seven long-term variables. The proposed method combines SS and GE-NARX metamodel, considering that each technique is powerful but still inadequate on its own for the problem at hand. The method is implemented on a floating system for illustration, but it is versatile and applicable to other types of offshore structures.
+This paper has several novelties and contributions, the first of which is a comprehensive methodology for tackling both the long-term extreme response and fatigue damage considering waves, current and wind with directional effects, while also explicitly simulating the short-term uncertainties. This makes the proposed method a practical tool that can be applied for design or incorporated into a digital twin for real-time risk assessment. Although there are studies covering the extreme and/or fatigue limit states and considering directionality [12,[26], [27], [28], [29], [30], [31],41,42], these studies may focus more on specific aspects (e.g. wind turbulence, ice loads, bimodal sea states), and do not cover all the features of the proposed method; for example the short-term uncertainties may be neglected or approximated using extrapolation techniques. The accuracy and efficiency of the proposed method allows the exploration of scenarios not possible previously due to computational demands. The influence of different environmental variables is investigated, thus elevating the current understanding and improving the design process. This study appears to be the first to combine SS with metamodel for stochastic processes; prior studies that incorporate SS and metamodel [43] pertain to response variables rather than stochastic processes. Finally, SS is conventionally an analysis tool for evaluating small probabilities; this paper appears to be the first to demonstrate that SS can be effective for evaluating the expected value of a function, in this case the fatigue damage.
+2. Background
+2.1. Environmental uncertainties
+Waves, current and wind constitute the environmental loads under consideration. The ocean environment is commonly approximated as a sequence of sea states, each having a duration of 0.5 to 3 h. This section introduces the long-term and short-term environmental variables that characterize the sea states as well as the short-term wave statistics.
+For accurate long-term reliability analysis, it is important to consider the joint distribution of the environmental variables to obtain a more accurate description of the environmental loads [1]. Here, seven long-term environmental variables encompassing the wind, wave, current and their directionality are considered, namely the significant wave height 
+, wave spectral period 
+, wave direction 
+, wind speed 
+, wind direction 
+, current speed at surface 
+, and current direction 
+. They are represented by a random vector 
+(1)
+Table 1 summarizes the probability density functions (PDFs) of the long-term variables and the parameters adopted. The conditional modeling approach is used for 
+ and 
+ with parameters obtained from Ref. [44]. The wave direction follows the von Mises distribution with parameters following Ref. [16]. The wind speed 
+ conditional on
+ is modeled by a two-parameter Weibull distribution [45]. The prevailing wind direction is assumed to be dependent on the wave direction, 
+ follows a von Mises distribution with location parameter 
+ equal to 
+. The basis for this assumption is that waves are driven by wind, thus their directions are expected to be dependent. In the absence of additional data, the most likely wind direction is set to be 
+, but 
+ is still random to capture the wind-wave misalignment effect. Current is independent from waves and wind, as commonly assumed [34]. The depth varying current profile is assumed to vary from 
+ at the surface and decaying with depth according to the power law [46]. The current direction 
+ is an independent variable whose PDF is described by the von Mises distribution with the parameters shown in Table 1.
+Table 1. Probability distributions of environmental variables.
+
+Variables	Probabilistic description
+Long-term environmental variables
+Lognormal
+2P-Weibull	
+
+
+Lognormal	
+
+
+
+von Mises	
+2P-Weibull	
+von Mises	
+2P-Weibull	
+
+
+
+
+von Mises	
+
+Short-term variables
+Rayleigh	
+Uniform	
+Note: 
+ is the modified Bessel function of order zero.
+The joint probabilistic distribution function (JPDF) of the long-term variables is given as
+(2)
+The wind and current parameters vary over the long-term, but they are assumed to be constant within each sea state. Waves have both long-term and short-term uncertainties, and the latter will be introduced next.
+Within each stationary sea state, the waves are assumed to be unidirectional and modeled as a zero-mean Gaussian process that is characterized by a wave spectrum. The JONSWAP spectrum is adopted in the study with the following form
+(3)
+where 
+, peak parameter 
+, and 
+ is the gravitational acceleration. The values for peak shape parameter, 
+ are: 
+for 
+, and 
+ for 
+.
+Consider a local coordinate system (
+, 
+, 
+) that is rotated anticlockwise by an angle 
+ from the global axes (x, y, z). Unidirectional irregular waves are assumed to propagate in the 
+-direction. The wave elevation is commonly modeled as the summation of many linear waves with different wave amplitudes and phases. The stochastic wave elevation at time 
+ is expressed as
+(4)
+where k is the wave number, 
+ is the angular wave frequency, 
+ is the number of wave components that the wave spectrum is divided into equal frequency intervals 
+. The short-term random variables are the wave amplitudes 
+ and the phase angles 
+that follow the distributions given in Table 1.
+The horizontal (
+ and vertical (
+) water particle velocities in the local coordinate are given as
+(5)
+(6)
+To transform to global coordinates, it is noted that 
+ in Eqs. (5) and (6). Then, the water particle velocities (u, v, w) in global coordinates are then defined as
+(7)
+It is convenient to define the following vector to summarize the uncertainties in the short-term arising from random waves
+(8)
+There are 
+ variables pertaining to the short-term, supplementing the seven long-term variables defined in Eq. (1). The mathematical forms of the PDF of the short-term variables are summarized in Table 1.
+2.2. Dynamic analysis
+Fully coupled time-domain analysis is performed for a production floating system which consists of a vessel, mooring lines, and risers, to account for the interactions between all components. The environmental loads from wind, wave and current are considered. The wave loads on the vessel in the six rigid body modes is the sum of the linear wave-frequency (WF) forces and nonlinear low-frequency (LF) forces. The WF and LF forces are defined by the linear and quadratic transfer functions respectively, both of which are dependent on the frequency and direction of the wave and solved via a diffraction analysis based on potential theory. Steady current and wind drag forces are modeled by the relative velocities between the vessel and the water or air passing through it. The dynamic effect of wind is neglected in this study.
+The wave and current forces on the lines are calculated through Morison's equation to include the inertia and drag forces, by considering the relative motion between the structure and the fluid [47]. The forces are usually decomposed into normal and tangential directions to a line element. In the normal direction, the force per unit length is expressed as
+(9)
+where 
+ is the density of sea water, 
+ is the cross-sectional area, 
+ is the characteristic dimension, 
+ and 
+ are the inertia and drag coefficients, 
+ is the relative velocity between the fluid particle and structure, while 
+ is the fluid acceleration.
+2.3. Long-term extreme response analysis
+The long-term structural response is treated as multiple independent short-term processes, each corresponding to a stationary sea state. Let 
+ be the time series response obtained by a dynamic analysis, for a given sea state. The extreme response of 
+ in the short-term duration 
+ is defined as
+(10)
+where 
+ denotes all the random variables. In the context of extreme response analysis, occurrence of failure can be formulated as an exceedance event, wherein the extreme response in a long-term exceeds a predefined failure threshold 
+. The on-site failure probability 
+ is formulated as the following probability integral
+(11)
+where 
+ has been defined in Section 2.1, and 
+ is the indicator function that is unity if 
+ and zero otherwise.
+Direct numerical integration is infeasible due to the high dimension of 
+. The integral can be evaluated via MCS. The MCS estimator of 
+ is given as
+(12)
+where (k) indicates the kth sample, while 
+ denotes the number of samples. The MCS estimator will approach the true result for large 
+, and its efficiency is unaffected by the dimension of X. The accuracy of the MCS estimator measured by the coefficient-of-variation (COV) is approximated as
+(13)
+Assuming that the short-term conditions are independent, the annual failure probability 
+ is obtained as
+(14)
+where 
+ represents the number of sea states in a year. Assuming a short-term duration 
+ h, applicable for hurricane prone sites [48], then 
+.
+The analysis can be performed in either the forward or inverse manner. The forward analysis evaluates the failure probability for a predetermined threshold 
+. The inverse analysis seeks 
+, which is the extreme response for a predefined failure probability. The proposed method is applicable to both options. For a target 100-year extreme response corresponding to 
+, Eq. (14) gives 
+. This low on-site failure probability requires a very large sample size of 
+ to achieve a COV of 0.3, making MCS infeasible for fast reliability analysis. The proposed method aims to address this issue by providing a fast and accurate reliability analysis for the high-dimensional problem.
+2.4. Long-term fatigue damage analysis
+Rainflow counting is often used to derive the stress ranges from simulated stress time histories for nonlinear dynamic responses. The cumulative damage is then computed by Miner's rule, incorporating a single slope S-N curve. The damage 
+ accumulated in each sea state is the linear sum of the damage accrued from stress ranges 
+, i.e.
+(15)
+where 
+ denotes the number of cycles to failure for a particular stress range 
+, while 
+ and 
+ are parameters obtained by laboratory experiments.
+S-N curves are typically constructed under the assumption of zero mean stress. However, actual stress cycles cover a spectrum of mean stresses. Research has revealed that mean stress has an appreciable effect on the accumulated damage [49]. A common approach for incorporating this effect is to convert the stress cycle into an equivalent stress cycle with zero mean stress. Here, using the Goodman's model, the modified stress range 
+ is determined as
+(16)
+where 
+ is the actual stress range from rainflow counting, 
+is the mean of the two local points defining the stress range, and 
+ is the tensile strength of the material. The modified stress range 
+ is then applied to evaluate the cumulative fatigue damage in Eq. (15).
+Long-term fatigue damage assessment differs fundamentally from the evaluation of extreme responses. Unlike the extreme response that is solely determined by the maximum of the time series response, the fatigue damage depends on the entire time series, and the contribution to the total damage arises predominantly from load effects that are considerably lower than the extreme load case [47]. Current practice for fatigue assessment is based on predicting the mean fatigue damage, with all uncertainties accounted for by a design safety factor 
+ to ensure a low probability of fatigue failure [50]. Similar to the extreme response analysis, the mean damage is expressed as a probability integral over X, i.e.
+(17)
+The MCS estimator for 
+ with 
+ number of simulations is expressed as
+(18)
+The COV of 
+ can be estimated as
+(19)
+where 
+ is the standard deviation of 
+. Although MCS is not constrained by the dimensionality of the variable space, the convergence of mean estimation can be slow due to the high variability in short-term fatigue damage 
+.
+For design purposes, the long-term damage over the expected service life is assumed as
+(20)
+where N represents the number of sea states anticipated over the service life, and the design fatigue factor 
+ depends on various factors such as failure consequences, with design codes [50] recommending values as high as 10 for severe consequences. Violation of the fatigue limit state is assumed when the estimated 
+ by Eq. (20) exceeds unity.
+However, there are many uncertainties involved in fatigue damage estimation, including those related to Miner's rule, S-N curve, and the stress responses arising from stochastic loads [51]. These uncertainties can be addressed by adopting probabilistic methods, in which the long-term damage is treated as a random variable instead of a deterministic value. First consider the uncertainties in the environment captured by X are considered. The long-term damage D accumulated over N sea states is determined as
+(21)
+The other uncertainties are assumed to be of a multiplicative origin and hence represented by a lognormal variable 
+, as the lognormal distribution arises from the product of independent variables on account of the central limit theorem. Following Ref. [14], 
+ is assigned a median of unity and COV of 0.3. Fatigue failure is assumed to occur when 
+. Then, the probability of fatigue failure is written as
+(22)
+where 
+ and 
+ are assumed to be independent. To solve Eq. (22) requires the distribution of 
+, and this is challenging because the full distribution for 
+ must be known and moreover, the distribution of the sum of random variables has no analytical solution in general. These abovementioned difficulties motivate this study to develop a more efficient method for accurate fatigue assessment using both the deterministic (Eq. (20)) and probabilistic (Eq. (22)) approaches.
+3. Review of applied techniques
+3.1. Subset simulation (SS)
+The basic principle of SS [32] is to partition the low probability problem into a product of conditional probabilities across the intermediate failure levels as
+(23)
+where 
+ represents the failure probability, m is the number of levels, and 
+ are the intermediate failure events conforming to 
+ and defined as 
+, with the failure thresholds 
+. The estimator of 
+ for each level is evaluated as
+(24)
+where k is the number of samples per level. The indicator function 
+ is unity if 
+ or zero otherwise. The total number of samples 
+ in a single run of SS is thus 
+.
+In the first level, 
+ is obtained by MCS and samples of 
+ are independent and drawn from its JPDF. For subsequent levels, 
+ requires sampling from the conditional probability that depends on the previous level, 
+. This is done by invoking MCMC, specifically, the modified Metropolis hastings algorithm (MMA) [32,33]. The level threshold 
+ is determined according to the predefined conditional level probability 
+. Following the suggestions in [52], the optimal range of 
+ is between 0.1 to 0.3. Due to the correlation between adjacent samples in the chain, the samples are dependent, unlike MCS. To account for this correlation, Au and Beck [32] proposed to estimate the COV of 
+ and 
+ as follows:
+(25)
+where the correlation factor 
+ is estimated from the correlated Markov chain samples. As Eq. (23) evaluates the low probability problem multiplicatively, the number of evaluations required for SS increases linearly with reducing order of magnitude of 
+, instead of exponentially for MCS.
+3.2. GE-NARX network
+A key enabling technology for the proposed method is an advanced NARX neural network called GE-NARX [39]. Although NARX networks are widely used for modeling the relationships between input and output time series of nonlinear dynamic systems, they have several limitations such as slow computation and the propensity of the training to get trapped in local minima, resulting in poor generalization when the network is applied to unseen data. Hence, most prior studies [38,53] applying NARX network to offshore structures are restricted to only one sea state. To expand NARX to deal with increased data variability from multiple long-term environmental variables, Cheng and Low [39] recently proposed GE-NARX with better accuracy, computational efficiency and training stability. GE-NARX overcomes the limitations of conventional NARX networks through an amalgamation of several techniques including early stopping, k-fold cross-validation, data reconstruction, network ensembling, and the counterintuitive addition of noise in the training. GE-NARX was found to consistently and accurately predict the response of offshore structures with short-term uncertainties and random 
+, 
+, using the wave elevation as the exogenous input.
+In a sequel [40], GE-NARX was extended to seven long-term variables, and the most challenging aspect is the choice of exogenous input. Here, the wave elevation is not suitable as it lacks information pertaining to direction. The use of vessel loads or motions (to reflect the wave directional information) is inappropriate as these are resultant quantities that are a priori unknown. Cheng and Low [40] proposed the novel concept of using the fluid particle velocities in three directions at a reference location as exogenous inputs, which is found to perform exceedingly well. The use of particle velocities is obvious only in hindsight and has several advantages. They have a direct relationship to the wave process and together, the three-dimensional velocities contain the wave directional information. Moreover, fluid velocities affect the loads (through Morison's equation) and thereby the structural response, and they can be easily calculated a priori without first solving for the response. Current speed and direction are included by modifying the fluid velocities accordingly. However, wind speed and direction necessitate two additional inputs.
+Briefly, GE-NARX uses both the external excitation 
+ and the model output 
+ over a certain past time span to predict the next output value, and the model is described as
+(26)
+Here, 
+, where 
+, 
+, 
+ and 
+ represent the activation function, the input and layer weight matrices and the bias matrix of layer 
+ (
+), respectively. The excitation and output are 
+ and 
+, where 
+ is the time interval and 
+ and 
+ are the time lags or memories for 
+ and 
+, respectively. This metamodel consists of an ensemble of 
+ = 5 parallel NARX networks as described by Eq. (26) and illustrated in Fig. 1. Pseudo-parallel training is applied to train the networks, with Gaussian noise introduced during the training of the series-parallel NARX to establish a suitable starting point for training the parallel NARX.
+Fig 1
+Download: Download high-res image (713KB)
+Download: Download full-size image
+Fig. 1. GE-NARX metamodel.
+
+The model input 
+ is designed to represent all the environmental uncertainties. Let 
+, 
+, 
+ represent the wave particle velocities in global coordinates evaluated at the origin. Substituting (
+) into Eqs. (5)–(7) under deepwater condition (tanhkd≈1) yields
+(27)
+The time series for the exogenous inputs 
+ are defined as
+(28)
+The first three vectors represent the fluid particle velocities due to current and waves, whereas 
+ and 
+ capture the effect of wind based on the relative velocity between wave and wind. The exogenous inputs rely solely on environmental information, from which the uncertainties originate.
+4. Development of proposed method
+4.1. Basic considerations
+The proposed method synthesizes GE-NARX and SS. The basic principle is to use GE-NARX as a metamodel to replace the computationally demanding dynamic analysis. However, applying GE-NARX with conventional MCS for the extreme response and fatigue analysis is still time-consuming due to the large sample size required. Hence, the reliability analysis is expedited by replacing using SS in lieu of MCS.
+GE-NARX is chosen over other metamodels due to its robustness and ability to accurately predict the response of nonlinear dynamic systems under a wide range of data variability, with only a modest amount of training data. These qualities make it suitable for the present application with high-dimensional uncertainties from wave, current and wind. Other metamodels such as traditional NARX and the long short-term memory (LSTM) network have been compared in the prior work [39,40], and found to be inadequate for this challenging application. It should be clarified that GE-NARX is not necessarily the only metamodel up to this task. Other studies have endeavored to improve on the traditional NARX, such as mNARX [54], which decomposes the dynamics of complex systems into series of smaller subproblems. The development of improved metamodels is topical, and some advanced metamodels may be suitable for the present application, nevertheless the comparison of different metamodels is outside the scope of this paper.
+The reason for adopting SS [32] over other reliability methods is that SS is a powerful and versatile reliability technique that is asymptotically unbiased, able to handle high-dimensional problems, provides an error estimate, and it is significantly more efficient compared to conventional MCS, particularly for evaluating low failure probabilities. Besides, SS does not require prior domain information since the samples are generated using a Markov chain Monte Carlo (MCMC) algorithm. There are many efficient reliability methods such as the first-order and second-order reliability methods (FORM and SORM) [9],and dimension reduction methods [[17], [18], [19], [20]], but most methods are effective for particular applications, and have limitations such as being approximate, ineffective for high-dimensional problems, and not being able to quantify the error. Variance reduction methods such as importance sampling [55] are unbiased and can provide a speedup for MCS, but they can be difficult to implement as they require prior domain information that is challenging to acquire for complex high-dimensional problems.
+4.2. Design of experiments for GE-NARX
+The first step in the proposed method is to train GE-NARX metamodel from data generated by dynamic analysis. The process of selecting the training samples to generate data for building metamodels is known as design of experiments (DOE). Reliability problems involve rare events with a low probability of occurrence, posing a challenge for model training due to the scarcity of relevant training data if the samples are randomly selected from their original distributions. The quality and quantity of training data are crucial for building a model with good prediction performance. While increasing the sample size may enhance the performance of metamodel, the computational cost escalates substantially owing to the need to perform more dynamic analyses as well as the increase in training time. Therefore, the efficacy of the proposed method hinges on a good DOE that selects the minimum number of training samples that effectively covers the entire variable domain of interest.
+The random variables are the long- and short-term variables presented in Section 2.1. The short-term variables 
+ are randomly sampled according to their distributions (Table 1) to simulate stationary Gaussian processes for each sea state. In the prior work [40], all long-term variables were sampled from independent uniform distribution with an additional condition 
+ to avoid improbable sea states. As the prior work did not focus on reliability, the training and testing data were generated from the same distribution, which sufficed to demonstrate the prediction capabilities of GE-NARX.
+As this study focuses on reliability applications, the DOE warrants reconsideration. In principle, training data are needed most in important regions contributing to the probability integral (Eq. (11) for extreme and Eq. (17) for fatigue). Because the integrand depends both on the JPDF 
+ as well as the response function, it is difficult to ascertain the critical regions a priori. Although severe sea states are infrequent, the resultant response tends to be large, therefore they are potentially critical. In contrast, less training data will suffice for very mild sea states that are improbable as the associated response is relatively small. In addition, it is found that the criterion 
+ is too stringent, resulting in the omission of certain plausible regions that would be sampled during reliability analysis. Samples falling outside the training region may yield spurious results, potentially affecting the overall reliability assessment. Besides, the DOE for 
+ designed in the prior work [40] is uniformly sampled within a defined range, without considering the dependency between wind and wave. This may result in insufficient training samples with large
+ and large 
+ occurring simultaneously.
+After some experimentation, a novel effective sampling scheme is designed for both the extreme event and fatigue damage, as summarized in Table 2. The PDF for sampling 
+, denoted as 
+, is uniform from the statistical mode (identified as 1.4 m) to the upper bound of 18 m. Below the median, 
+ follows the shape of 
+, with a normalizing constant 
+ to ensure a proper PDF. Thus, very mild sea states are accorded less importance, but not entirely omitted. Next, considering that the distributions for 
+ and 
+ are conditional on 
+, these two variables are sampled from a conditional uniform distribution where the upper and lower bounds are determined by the sampled value of 
+. This ensures more realistic combinations of sea states for effective training. The directional variables are independently and uniformly sampled from 0 to 2π to cover the entire range. Current speed is assumed to be independent, and hence, the sampling follows a uniform distribution to cover all possible values for training.
+Table 2. Sampling scheme for design of experimenta.
+
+Environmental variables	Empty Cell	Sampling distribution	Limit
+M	
+[0,18]
+S	Uniform (limits depend on 
+)	[ 
+, 
+]
+Rad	Uniform	[0,2
+]
+m/s	Uniform	[0,1.4]
+Rad	Uniform	[0,2
+]
+m/s	Uniform (limits depend on 
+)	[
+, 
+]
+Rad	Uniform	[0,2
+]
+a
+Sampling scheme is for design of experiment, the distribution for reliability analysis follows Table 1.
+After GE-NARX has been trained with 360 samples, it will be tested before it is applied in the subsequent analysis using SS. The testing comprises another 360 samples generated from the same distribution as the DOE, to verify the metamodel's capabilities in predicting the time series response, fatigue damage, and extreme response for the full range of sea states. Finally, it is highlighted that the sampling scheme for DOE is solely for the purpose of training/testing, while the subsequent reliability analysis is based on the original distribution of the random variables (Table 1).
+4.3. Subset simulation for long-term extreme and fatigue damage evaluation
+The reliability analysis is performed via SS, while the necessary function evaluations are carried out using the trained and tested GE-NARX metamodel. Since SS was originally conceived as a reliability analysis tool for evaluating small failure probabilities, it can be directly applied for long-term extreme response prediction by evaluating 
+ for prescribed failure threshold 
+, or determining 
+ (which is interpreted as the extreme response) for a desired failure probability 
+.
+However, fatigue assessment traditionally involves evaluating 
+, which is fundamentally different from computing small probabilities. The proposed method uses SS for evaluating the expected value of a function, which is a novel concept to the authors’ knowledge. For highly skewed functions such as 
+, the mean value can be heavily influenced by the long tail of the distribution. Hence, MCS suffers from slow convergence due to infrequent samples with very large 
+ [56]. By exploiting the proficiency of SS in simulating the tail of the distribution, in principle mean damage can be estimated with reduced uncertainty.
+More specifically, SS is used to obtain the exceedance probability 
+ for various thresholds 
+. Subsequently, the CDF of 
+, denoted as 
+, is the complement of the exceedance probability, i.e.
+(29)
+The mean can be computed from the PDF that is the derivative of the CDF. However, it is more expedient to calculate the mean directly from the CDF as follows:
+(30)
+In addition to the above deterministic fatigue assessment procedure, SS also facilitates probabilistic fatigue assessment. The goal is to evaluate the probability of fatigue failure given by 
+ (Eq. (22)), which involves the CDF of the cumulative damage 
+. The first step is to acquire 
+ by SS as before. Next, generate random samples of 
+ by the inverse CDF method [9] from 
+to produce samples of D according to Eq. (21), and the empirical CDF of D can be obtained accordingly. This procedure is akin to MCS but here it is fast as the sampling does not involve any generation of time series, rainflow counting, etc. After obtaining the CDF of the cumulative damage 
+ (
+) based on the above steps, 
+ can be solved by rewriting Eq. (22) as
+(31)
+The variance error of the predicted probability by SS can be estimated by Eq. (25). As the use of SS for mean value evaluation is a new concept, there is currently no method to estimate the COV of the estimated mean, although this is an interesting area for future research. Herein, the COV of the estimated mean value by SS is determined by multiple independent runs.
+4.4. Implementation of proposed method
+The general framework proposed in this study for long-term reliability analysis for extreme response and fatigue evaluation is presented in Fig. 2. The framework comprises a few key components: the metamodel training and prediction, implementation of subset simulation, and the evaluation of long-term extreme and fatigue damage. The metamodel target output is generated by dynamic analysis performed in OrcaFlex software in this study. The benchmark result is generated directly from OrcaFlex. The details of each component are explained below.
+Fig 2
+Download: Download high-res image (532KB)
+Download: Download full-size image
+Fig. 2. Framework of proposed method.
+
+The steps for implementing the proposed method are provided below.
+Part 1. Metamodel training by DoE with GE-NARX networks
+(i) Generate 360 sets of the variables 
+ based on DoE outlined in Table 2.
+(ii) Generate time series of the wave particle velocities 
+, 
+, 
+ at origin for each set of 
+. This can be achieved efficiently by writing them in complex form and calculate the wave kinematics by applying inverse fast Fourier transform (IFFT):
+(32)
+where 
+ is the complex amplitude for the rth wave component. It can be observed from Eq. (32) that the IFFT is applied only once to generate the complex term 
+, as both the real and imaginary parts are utilized to produce the three-dimensional kinematics.
+(iii) The exogenous input 
+ is derived from Eq. (28).
+(iv) Conduct dynamic analysis with OrcaFlex model for each set of 
+ to obtain the corresponding time series response as training output 
+. In OrcaFlex, the short-term variables are specified by inputting 
+ as 'user-defined components' to fully characterize the amplitude and phase of each regular wave component. The remaining long-term variables 
+are input as constant values. The loadings and system response are generated using OrcaFlex software.
+(v) Normalize both the input 
+ and target output 
+ data by the zero mean/unit-variance transformation before being passed to the network.
+(vi) Apply the GE-NARX scheme with Levenberg-Marquardt dynamic backpropagation to train the networks (Section 3.2).
+(vii) The trained metamodel can then predict time series response for a given set of environmental variables 
+ with the input being the corresponding exogenous input U(t).
+(viii) Generate an additional 360 sets of the variables 
+ based on DOE for testing to check the prediction accuracy by the metamodel.
+Part 2. Implementation details of subset simulation
+(i)
+Preset the intermediate conditional probability 
+, samples per level 
+ and the target probability 
+. Here, they are selected as 0.1, 2000 and 
+ respectively for extreme response analysis. The total number of subset levels 
+ and the final conditional probability 
+ is determined by 
+. For fatigue analysis, the number of subset levels 
+ is set to be 7.
+(ii)
+For the first level, perform conventional MCS. Note that SS needs to be conducted in normal space 
+, hence random standard normal variables are generated first and convert to physical space X using Rosenblatt transformation [9] based on their respective distributions. Predict response values from the time series response using the developed metamodel (refer to Part 1). Lastly, sort the response values in descending order to find the first level threshold as the 
+th value.
+(iii)
+For subsequent levels, sort the response values from the previous level in descending order and select the sample points (in normal space) corresponding to the first 
+ response values as ‘seeds’ to initiate the Markov Chains. For each Markov chain, generate (
+ sample points using the MMA algorithm. Herein the proposal distribution for MMA is selected to be uniform distribution centered at the current sample, and the spread of the proposal distribution is adjusted adaptively to ensure the acceptance rate of the Markov chain samples is within the recommended range of 30–50 % [52]. Find the level thresholds in the same way as (ii).
+(iv)
+Repeat (iii) until level m for the target 
+.
+Part 3. Evaluate the long-term extreme response and fatigue damage
+(i)
+For extreme response prediction, determine the extreme value that corresponds to the failure threshold of the target 
+.
+(ii)
+For fatigue evaluation, determine the mean fatigue damage by Eq. (30). The intermediate 
+ for integration are calculated in each level for different thresholds 
+. The probability of fatigue failure is calculated by Eq. (31).
+The proposed method is carried out to evaluate long-term extreme response and fatigue damage through the steps outlined in Parts 1 to 3. It is important to note that SS can only be applied to solve one failure mode at a time. Therefore, for the two target failure modes, two SS evaluations are conducted independently. However, the training of the metamodel only needs to be done once for both failure modes since the output is the time series response, from which both response features (extreme and fatigue damage) can be extracted. To assess the accuracy of the proposed method, the benchmark result is obtained by SS with dynamic analysis performed by OrcaFlex, without the use of a metamodel. It is practically impossible to use MCS due to the prohibitive computational time. Nevertheless, SS is well established in the structural reliability community as a robust technique that yields practically unbiased results.
+5. Case study
+5.1. Description of model
+The floating system is a spar platform moored in a water depth of 1316 m via 16 taut mooring lines and connected to four flexible risers, as illustrated in Fig. 3. Table 3 provides an overview of the characteristics of the floater, moorings and risers. Fully coupled time-domain analysis of the floating system is conducted using OrcaFlex [57]. The target response quantity is the top-end axial stress of Riser 1. The environmental variables are characterized by the JPDF outlined in Section 2.1. The S-N parameters are 
+ and 
+, recommended for seawater with cathodic protection [50]. The ultimate tensile strength of the material is 300 MPa for fatigue evaluation.
+Fig 3
+Download: Download high-res image (339KB)
+Download: Download full-size image
+Fig. 3. Floating system modeled in OrcaFlex.
+
+Table 3. Characteristics of the floating system.
+
+Spar (
+1)
+Dimension	Total height	Hull diameter	Moulded depth	Moulded draft	Displacement	Water depth
+103 m	48 m	40 m	20 m	40,670 te	1316 m
+Mode	Surge	Sway	Heave	Roll	Pitch	Yaw
+Period	141 s	142 s	30.6 s	80.7 s	80.6 s	212 s
+Risers (
+4)
+Section	Flex joint	Lazy straked	Lazy bare	Lazy buoyed	Lazy bare	Flowline
+Length	2.74 m	820 m	435 m	370 m	480 m	376 m
+Number of line
+segments	5	189	83	242	77	15
+Mooring lines (
+)
+Section	Chain	Polyester	Chain
+Length	300 m	1560 m	300m
+Number of line
+segments	6	20	6
+Fig. 4 depicts the sea states with the corresponding 
+and 
+ selected for training and testing. The original sampling region proposed in the prior work [40] is also shown for comparison. It is evident that it does not sufficiently cover the variable domain required for the reliability analysis. To assess the performance of GE-NARX during testing, Fig. 5 shows scatter plots of the predicted versus observed stress, extreme response and fatigue damage. The coefficient of determination 
+ is shown in the plots, and the high 
+ indicates that GE-NARX has good prediction capabilities for the sea states selected by DOE, providing confidence for its subsequent use in reliability analysis.
+Fig 4
+Download: Download high-res image (241KB)
+Download: Download full-size image
+Fig. 4. Sampled sea states for GE-NARX training and testing.
+
+Fig 5
+Download: Download high-res image (544KB)
+Download: Download full-size image
+Fig. 5. Plots comparing the observed and predicted a) time series process b) extreme response and c) short-term fatigue damage of the test samples.
+
+5.2. GE-NARX training and testing
+The metamodel GE-NARX summarized in Section 3.2 is trained with data selected through DOE (Table 2). Table 4 summarizes the key parameters used in the training of GE-NARX, further details can be found in Ref. [40]. There are 360 samples for training and another 360 samples for testing the metamodel. The simulation duration for each sea state should be short to minimize the computational effort, but not too short as to compromise the prediction accuracy. After some experimentation, a simulation duration of 628 s is adopted, excluding an initial buildup duration of 600 s to suppress the transient effects. Once trained, the GE-NARX can be used to predict sea states of duration 
+ in the reliability analysis.
+Table 4. Key parameters used in GE-NARX training.
+
+Parameters	Empty Cell
+Number of parallel networks	5
+Number of hidden layers	3
+Number of neurons in each layer	10, 10, 1
+Optimization algorithm	Levenberg-Marquardt (adaptive learning rate)
+Number of iterations	120
+Fig. 6 compares the predicted and observed stress time series for sea states of different intensities. These sea states are selected to depict varying stress correlation for a better representation of the prediction accuracy. The skewness and kurtosis of the stress are shown. For a Gaussian process, skewness is zero and kurtosis is three, thus the stress is clearly non-Gaussian due to the nonlinearities in the loads and dynamic system. The diverse sea states and the extensive nonlinearities make it challenging for a metamodel to predict the response accurately, as demonstrated in the prior work [39] which compared other metamodels.
+Fig 6
+Download: Download high-res image (547KB)
+Download: Download full-size image
+Fig. 6. Plots of time series response comparison of different sea states.
+
+5.3. Results for long-term extreme response prediction
+The proposed method is first compared with the benchmark result for accuracy evaluation. The benchmark method involves dynamic analysis using OrcaFlex, and although SS provides a substantial speedup over MCS, the analysis is still extremely computationally demanding, hence the accuracy comparison considers only one baseline case with all seven long-term random variables following the original JPDF. All subset simulations are conducted with 2000 samples per level. Since the proposed method is fast, the results are averaged over 10 independent SS runs to facilitate convergence.
+Fig. 7 plots the extreme response for different return periods obtained by the proposed and benchmark methods, with error bars demarcating the 95 % confidence interval based on the variance estimated by Eq. (25). To showcase the importance of the DOE, the proposed method is carried out with the newly proposed DOE (Section 4.2) as well as the DOE adopted in the prior work [40]. Using the new DOE, the proposed method is found to be in good agreement with the benchmark result; the discrepancies at low probabilities are within sampling uncertainty as indicated by the error bars (see Fig. 7). Hence, the proposed method is shown to be an accurate and fast approach for long-term extreme analysis. When the prior DOE is adopted, the prediction is evidently less favorable.
+Fig 7
+Download: Download high-res image (333KB)
+Download: Download full-size image
+Fig. 7. Probability of exceedance of extreme response.
+
+Table 5 provides a breakdown of the computational time. The dynamic simulations can be performed using OrcaFlex or GE-NARX, whereas reliability analysis can be conducted via MCS or SS, resulting in potentially four possible methods. Methods that employ GE-NARX require additional time for generating 720 samples by OrcaFlex for training/testing, as well as GE-NARX training, but once trained, the CPU time for prediction is minimal. The GE-NARX + MCS method is too time-consuming to actually implement, hence the CPU time is approximated from the samples required to yield the same accuracy as SS. The COV of SS is calculated by Eq. (25) to be 0.3 for each independent run, thus for the same level of accuracy, MCS requires 
+ samples from Eq. (13). The cost for OrcaFlex + MCS is even more prohibitive, thus it is estimated according to the number of samples to achieve convergence. The proposed method provides a substantial speedup of 16 times over the benchmark method, and an overwhelming advantage over the other two methods. All CPU times reported are based on a single CPU core for an equitable comparison. In practice, all methods can be greatly expedited by utilizing more cores.
+Table 5. Computational time comparison.
+
+Empty Cell	Proposed method (GE-NARX+SS)	Benchmark (OrcaFlex+SS)	GE-NARX + MCS	OrcaFlex+
+MCS
+Number of function evaluations	14,000	14,000	
+CPU time per prediction/simulation (s)	0.354	220	0.354	220
+CPU time for all predictions/simulations (s)	4956	
+Generate 720 samples for training/testing (s)	158,400	–	158,400	–
+GE-NARX training time (s)	28,812	–	28,812	–
+Total computational time (h)	53	856	1960	
+Next, the proposed method is used to conduct sensitivity studies to understand the impact of the long-term and short-term variables to the extreme response. Fig. 8(a) investigates the influence of wave direction fixed at two angles (0 and 90 deg) while all other variables are random. The result shows that the extreme response is highly sensitive to the wave direction. Referring to Fig. 3, head waves (0 deg) are critical as they predominantly excite the vessel surge motion which is in-plane to the target riser, culminating in larger riser deflections and more extreme stresses. Conversely, beam waves (90 deg) mainly excite the vessel sway motion that is out-of-plane to the riser and have a mild effect.
+Fig 8
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 8. Sensitivity study of environmental variables on long-term extreme response: (a) wave direction; (b) wind; (c) current; (d) short-term wave uncertainties.
+
+Fig. 8(b) illustrates the influence of wind on the system. As wind speed is dependent on 
+, two cases are investigated by specifying the wind speed at the upper limit of the respective 
+ while wind direction 
+ is fixed at either 0 and 180 deg. Yet another case is considered when the wind is collinear with the wave, while the conditional distribution of the wind speed is unchanged. It is found that wind approaching at 180 deg causes higher riser stress, resulting in a higher extreme response. In the opposite direction at 0 deg, it exerts a lower load on the riser. Also, the collinearity assumption does not yield a conservative result; on the contrary, a higher extreme response is observed when wind and wave are noncollinear.
+The impact of current is investigated, as shown in Fig. 8(c), by fixing the direction and speed of current. In one scenario, the current speed and direction are fixed at 1.4 m/s and 0 deg, causing a pronounced increase in the extreme response compared to the baseline case. Another scenario is when the current speed is also 1.4 m/s but the direction is reversed to be 180 deg, resulting in an appreciable reduction in the estimated extreme response. This suggests that the common assumption that imposes a deterministic current speed and direction may introduce substantial errors.
+The short-term uncertainties arise from random wave phases and amplitudes. The impact of the short-term wave uncertainties is examined by fixing the seed to generate a set of short-term random variables and keep it to be the same for the entire subset simulation run. Five different sets of short-term variables are examined, with the performance compared in Fig. 8(d). The result indicates that the short-term variables have considerable effect on the extreme response, thus ignoring the short-term uncertainties may cause potential over or under design. The foregoing results pertain to this specific system, but nevertheless several general conclusions can still be drawn. This sensitivity analysis reveals the importance of a long-term analysis with the joint distribution of wave, wind, current specified as accurately as possible, to avoid an overly conservative or under conservative design. Assigning deterministic values to the environmental variables may lead to large discrepancies, and the assumption of collinear wave/wind/current is not necessarily conservative.
+5.4. Results for long-term fatigue analysis
+To assess fatigue damage, the initial step involves evaluating the exceedance probability of the single sea-state damage d(X). The proposed method is implemented with the previous and new DOE, and comparison is made with the benchmark method as shown in Fig. 9(a). The proposed method with new DOE is in generally good agreement with the benchmark, except for very low exceedance probability that is inconsequential, as will be discussed shortly. This indicates that the newly proposed DOE performs well for both extreme and fatigue damage prediction. In contrast, the old DOE is noticeably less accurate, thereby accentuating the importance of a good DOE.
+Fig 9
+Download: Download high-res image (488KB)
+Download: Download full-size image
+Fig. 9. Fatigue result: (a) Estimated distribution of d and (b) Prob. of exceedance of D (1-year).
+
+The exceedance probability of the long-term damage D over one year is derived (see Section 4.3) and shown in Fig. 9(b). Here, the proposed method (new DOE) is accurate, even for small exceedance probabilities. The reason is that the long-term damage is an accumulative process, and the more frequent mild to moderate sea states contribute more to the long-term damage. Conversely, an infrequent severe sea state producing a large d(X) has relatively little effect on D. In contrast, the proposed method with prior DOE in Fig. 9(b) shows substantial error. This is due to the imprecise estimation of d(X) caused by the inappropriate DOE, particularly in the more frequent region shown in Fig. 9(a). Fig. 10 shows the probability of exceedance of D (i.e. probability of fatigue failure) for different durations in years. In practice, such a plot is useful for scheduling maintenance. The effect of mean stress correction is explored. Fig. 11 shows the results that indicate a substantial increase in the damage d(X) when applying the correction.
+Fig 10
+Download: Download high-res image (305KB)
+Download: Download full-size image
+Fig. 10. Probability of fatigue failure with time.
+
+Fig 11
+Download: Download high-res image (289KB)
+Download: Download full-size image
+Fig. 11. Mean stress effect on fatigue damage.
+
+Next, the sensitivity of different variables related to wind, wave and current are examined in terms of the exceedance probability 
+ as shown in Fig. 12(a)–(c). In contrast to the extreme response analysis, here the effect of current and wind on the fatigue damage is relatively small by observing the discrepancies between the exceedance curves. In practice, time-domain fatigue analysis is often performed with limited simulation duration and realizations, which may result in errors due to the lack of convergence of the short-term uncertainties. Fig. 12(d) explores the effect of short-term wave uncertainties in the same manner as before by assigning a fixed seed for each set. There is wide variability among the different sets, highlighting the impact of the short-term uncertainties on the fatigue damage.
+Fig 12
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 12. Sensitivity study of environmental variables on fatigue damage: (a) wave direction (b) wind (c) current (d) short-term wave uncertainties.
+
+The above investigation relates to probabilistic fatigue assessment. Practical fatigue design is usually based on the mean damage, which is evaluated using the proposed method following the procedures in Section 4.3. The design long-term damage 
+ is calculated by Eq. (20), with design fatigue factor S = 10, and N = 350,400 sea states for 20 years. Table 6 summarizes the results of estimated 
+. The mean damage estimated by the proposed method closely aligns with the benchmark study for the baseline case, demonstrating its accuracy. From the sensitivity study, the mean damage is highly sensitive to wave direction and short-term uncertainties, whereas current and wind have much lesser influence.
+Table 6. Long-term damage over the expected service life.
+
+Empty Cell	Cases	
+Empty Cell	Benchmark (baseline case)	0.364
+Empty Cell	Proposed method with new DOE (baseline case)	0.356
+Empty Cell	Proposed method with new DOE (baseline case without mean stress correction)	
+Sensitivity analysis
+Wave	
+0.785
+Empty Cell	
+Wind	
+upper bound, 
+0.366
+Empty Cell	
+upper bound, 
+0.338
+Empty Cell	
+0.347
+Current	
+0.354
+Empty Cell	
+, 
+0.360
+Empty Cell	
+, 
+0.476
+Short-term	Sets 1 to 5	0.439, 0.200, 0.348, 0.520, 0.384
+This study appears to be the first to propose the use of SS to estimate the mean damage. To assess the efficiency of this approach, the COV of the estimated mean damage is obtained from 100 independent runs of SS. For comparison, one set of MCS is performed with the sample size as SS (i.e. 
+), and the COV is calculated by Eq. (19). Table 7 summarizes the COV comparison, and it is found that MCS has a COV that is 3.1 times that of SS. Since the COV of MCS converges with the square-root of the number of samples (Eq. (19)), it may be deduced that SS achieves a speed up of 3.12, implying that MCS requires almost an order of magnitude more samples to achieve the same COV. This impressive improvement in efficiency afforded by SS is ascribed to its ability to simulate more of the outliers that contribute substantially to the mean value.
+Table 7. Comparison of COV of mean fatigue damage.
+
+Empty Cell	MCS + GE-NARX	SS + GE-NARX
+COV of mean damage	0.0695	0.0225
+Speedup	–	9.55
+5.5. Further discussion
+The purpose of this section is to place this study in a broader context in light of the results, and to clarify the scope and limitations of the study. The proposed method integrates SS and GE-NARX, and its key strength is the computational speedup compared to methods relying on MCS and/or dynamic analyses. For extreme response prediction, Table 5 shows that the proposed method is 20,000 times faster than a method relying on OrcaFlex and MCS, and the speedup is substantial if either SS or GE-NARX is not used, showing that both are crucial for efficiency. For fatigue analysis, the advantage provided by GE-NARX over OrcaFlex would be similar, while SS affords close to a tenfold over MCS (Table 7). When performing both extreme response and fatigue analyses, the advantage of the proposed method is compounded as it requires only one set of GE-NARX training/testing for both limit states. This makes the proposed method an attractive strategy for a comprehensive reliability assessment of offshore structures.
+Owing to the extensive scope of this study, some aspects of the analysis have been simplified for expediency, however more sophisticated models can be incorporated into the proposed method in future. Currently, GE-NARX can only predict one response quantity under different loads for each training, and it is unable to model the dynamic effects of wind, hence wind load is constant for a sea state. Future work involves further developing GE-NARX to predict multiple response quantities for a generically trained network, and to extend GE-NARX to predict dynamic wind loads that are important for offshore wind turbines. For the uncertainties in fatigue assessment, all uncertainties except the environmental ones are lumped into a lognormal variable 
+ (Eq. (22)), but it is possible to consider the individual uncertainties separately such as from S-N curve, rainflow counting, and Miner's rule, as in other studies [51]. Miner's rule is simple and widely adopted in codes and practice, but it is known to have several drawbacks, such as neglecting the effects of load sequence and frequency. To overcome these limitations, other damage models may be considered, such as the models by Morrow [58] and Manson [59].
+A specific joint distribution for the environment variables is selected for illustrative purposes, but the proposed method may be implemented with any joint distribution for a particular application. Several joint distribution models have been suggested in the literature [[60], [61], [62]]. Herein, the two-parameter Weibull distribution for the wind speed conditional on 
+ may not accurately describe extreme hurricane conditions, for this purpose a three-parameter Weibull [46] or a piecewise Weibull/Pareto model [61] may be more suitable. There are other distribution models for wave/wind directions [1,61], however there is no restriction on their directions since the metamodel training covers all possible combinations. Besides, only wind seas are considered, bimodal sea states that include swell [62] can be studied in future.
+6. Conclusion
+This paper outlines an efficient and accurate method for long-term extreme response and fatigue analysis of offshore structures subjected to stochastic wave, current and wind loads. This problem has many challenging aspects including small failure probabilities and numerous long-term and short-term uncertainties, thus existing approaches often rely on approximations or empirical rules. The proposed method combines subset simulation (SS) and a recently developed advanced metamodel (GE-NARX) [40].
+The method comprises several steps. First, a new design-of-experiments (DOE) scheme is proposed to allow fewer training samples to effectively cover the variable domain, crucial for reducing the simulation time as well as training time. Second, dynamic analyses are performed using OrcaFlex to generate samples for training and testing. Third, GE-NARX is trained and subsequently tested to ensure its accuracy. Finally, reliability analysis is performed using SS and GE-NARX to obtain the exceedance probabilities for extreme and fatigue damage. This is the first study to apply SS for deriving the full distribution of the long-term cumulative damage, as well as the mean damage.
+The case study is a fully coupled floating system, with the top-end riser stress selected as the response quantity. The proposed method is compared with a benchmark method (SS with OrcaFlex simulations) for a baseline case where the environmental variables follow a joint distribution. The proposed method is found to be accurate for both the extreme and fatigue damage predictions, and it is significantly faster than the benchmark method. The importance of a good DOE is highlighted as the DOE proposed in the prior work [40] produces less accurate results. The efficiency of GE-NARX with MCS (i.e. without SS) is shown to be computational prohibitive for the reliability analyses, underscoring the need for both GE-NARX and SS for high efficiency. As the application of SS for evaluating the mean value is novel, it is interesting to find that SS is also efficient for this purpose, with an order of magnitude speedup over MCS.
+A notable feature of the proposed method is that after GE-NARX is trained, the reliability predictions via SS is fast and accurate. This provides the opportunity to examine the influence of various environmental factors on the long-term structural performance, by fixing target variables while keeping the remaining ones random. The sensitivity study reveals that assuming deterministic values for wave, current and wind can lead to substantial errors in the extreme response, illuminating the deficiencies in load combinations often recommended by design codes. Results show that directionality of different load types is also critical, and collinear wave/wind/current is not necessarily conservative. Moreover, short-term uncertainties from waves have appreciable impact. For fatigue damage, wave parameters including direction and short-term uncertainties are consequential, but the current and wind have lesser influence. Also mean stress correction substantially increases the estimated damage.
+In closing, this study bridges gaps in the literature by offering a robust and efficient solution for a comprehensive reliability analysis of offshore structures involving multiple environmental variables. Future work includes expanding the proposed method to more complex multi-component systems such as floating wind turbines, and to integrate the method into real-time digital twins or continuous monitoring systems for offshore structures, enhancing their operational safety.
+
