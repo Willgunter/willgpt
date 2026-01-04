@@ -21963,3 +21963,1106 @@ Failure beyond this threshold is rapid and non-graceful.
 ### Robustness assessment
 
 The blade is **statically robust but fatigue-sensitive**. Reliability depends on early crack detection and strict TSR control.
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### 1.1 Nature of ice loads
+
+* Ice loads are inferred **indirectly** from ice-induced strains measured on hull structures.
+* Ice loads act locally on discrete subpanels and can be **superposed linearly** to obtain total ice load.
+* Ice load time histories exhibit **triangular-like profiles**, justifying Rayleigh separation.
+
+**Consequence**
+The method assumes ice–structure interaction is dominated by short-duration, impulsive contact events rather than long-duration creep or global ice pressure.
+
+---
+
+### 1.2 Structural behavior
+
+* The hull structure behaves according to **linear elasticity**.
+* A proportional relationship exists between ice loads and measured strains.
+* All structural degrees of freedom in the FE model are **fully constrained**.
+
+**Consequence**
+Plastic deformation, local buckling, weld yielding, and stiffness degradation during repeated ramming are excluded from the identification process.
+
+---
+
+### 1.3 Measurement fidelity
+
+* Fibre optic strain sensors provide accurate normal strain measurements after:
+
+  * Zero-drift correction
+  * Noise reduction
+* Sampling frequency of **50 Hz** is sufficient to capture ice-induced dynamics.
+
+**Consequence**
+Higher-frequency stress waves, local shock effects, and sub-millisecond crushing phenomena are filtered out.
+
+---
+
+### 1.4 Identification methods
+
+* The Influence Coefficient Matrix (ICM) is valid only when measuring points lie within or near the load action area.
+* When sensors fail, far-field identification using an **RBF neural network** can reconstruct loads below the waterline using strains measured above it.
+* The RBFNN mapping is **time-invariant** once trained.
+
+**Consequence**
+The identification implicitly assumes stationarity of structural stiffness and ice–structure interaction mechanisms throughout the voyage.
+
+---
+
+### 1.5 Statistical treatment
+
+* Ice load events are independent after Rayleigh separation.
+* Duration and occurrence of peak loads are well represented by **lognormal** and **exponential** distributions, respectively.
+* Peak load statistics are derived from **902 selected icebreaking processes**, assumed representative.
+
+**Consequence**
+Long-range temporal correlations, memory effects, and seasonal evolution of ice properties are neglected.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### 2.1 Linear superposition under extreme loading
+
+* Ice pressures from adjacent subpanels are assumed additive even during high-concentration ramming.
+
+**Evidence**
+Total ice load is computed by summing subpanel pressures at each time step.
+
+**Risk**
+Nonlinear load redistribution through plate bending or frame interaction may invalidate linear superposition during extreme events.
+
+---
+
+### 2.2 Structural invariance over time
+
+* Hull stiffness and boundary conditions do not change over 79 days of operation.
+* No cumulative damage or loosening of structural connections occurs.
+
+**Risk**
+Repeated ice impacts can alter local stiffness, biasing strain-to-load mapping over time.
+
+---
+
+### 2.3 Ice homogeneity
+
+* Ice thickness is treated as approximately constant at **1.4 m**.
+* Variability in salinity, temperature, brine volume, and internal flaws is ignored.
+
+**Risk**
+Local ice crushing strength can vary substantially even at constant thickness, affecting peak pressure statistics.
+
+---
+
+### 2.4 RBFNN generalization
+
+* Training cases from numerical simulations and controlled experiments are assumed to span the full operational load space.
+* The mapping learned by the RBFNN remains valid for real, stochastic ship–ice interactions.
+
+**Risk**
+Out-of-distribution load patterns may be misidentified with deceptively low apparent error.
+
+---
+
+### 2.5 Sensor survivability bias
+
+* Failed measuring points are assumed random and not correlated with peak load locations.
+
+**Risk**
+Sensor failure is more likely where ice loads are highest, biasing training and identification toward lower-stress regions.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Structural equilibrium
+
+[
+\mathbf{K}\mathbf{u} = \mathbf{F}_{\text{ice}}
+]
+
+**Application**
+Relates ice-induced pressures to measured strains through the hull’s stiffness matrix.
+
+**Validity regime**
+Linear elastic response with small deformations.
+
+**Boundary**
+Violates reality if local yielding or plate instability occurs during ramming.
+
+---
+
+### 3.2 Linear elasticity
+
+[
+\boldsymbol{\sigma} = \mathbf{D}\boldsymbol{\varepsilon}
+]
+
+**Application**
+Justifies proportional mapping between ice loads and measured strains.
+
+**Limit**
+Ice loads approaching plastic capacity would invalidate the ICM and degrade RBFNN predictions.
+
+---
+
+### 3.3 Contact mechanics of ice crushing
+
+* Ice failure governed by localized compressive crushing, spalling, and non-simultaneous fracture.
+* Contact area evolution controls pressure magnitude.
+
+**Emergent behavior**
+
+* Reduction of contact area leads to **pressure spikes** even as total force decreases.
+
+---
+
+### 3.4 Statistical independence
+
+* Rayleigh separation assumes distinct load events once force drops below a fraction of the peak.
+
+**Limit**
+
+* Continuous interaction with intact level ice violates independence assumptions.
+
+---
+
+### 3.5 Kinematics of ship–ice interaction
+
+* Relative velocity between ship and ice governs penetration rate and load duration.
+* Ship speed reduction feeds back into load duration.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Ship speed** controls penetration rate, which affects:
+
+  * Duration of load events
+  * Peak pressure magnitude
+* **Ice concentration** constrains floe mobility, increasing contact duration.
+* **Contact area evolution** couples crushing mechanics with load time histories.
+* **Structural stiffness** filters contact forces into measurable strains.
+
+These interactions explain why duration dominates peak load magnitude more strongly than occurrence under real navigation conditions.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Violated assumption | Physical principle affected | Resulting failure         |
+| ------------------- | --------------------------- | ------------------------- |
+| Linear elasticity   | Structural equilibrium      | Load underestimation      |
+| Independent events  | Statistical mechanics       | Misleading fatigue inputs |
+| Constant stiffness  | Constitutive behavior       | Drift in identification   |
+| Ice homogeneity     | Contact mechanics           | Peak scatter inflation    |
+| Stationary mapping  | System identification       | RBFNN extrapolation error |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Progressive hull softening** shifting strain-to-load mapping over time.
+* **Extreme localized crushing** producing pressure spikes not captured at 50 Hz.
+* **Sensor survivorship bias** underrepresenting the most severe load zones.
+* **RBFNN overconfidence** under rare, high-nonlinearity ice impacts.
+* **Unobserved mixed-mode failure** where bending and shear interact.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Measurement design
+
+* Dense sensor arrays improve spatial resolution but increase failure probability.
+* Normal strain sensing prioritizes load magnitude over precise load location.
+
+### Identification
+
+* RBFNN trades physical interpretability for robustness under sensor failure.
+* Shallow architecture limits representational capacity for extreme nonlinear events.
+
+### Not optimized for
+
+* Long-term structural degradation modeling.
+* Rare ridge or bergy-bit impacts.
+* Real-time onboard decision support.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* FE model assumes fully fixed boundaries, implying infinite hull continuity.
+* No coupling with:
+
+  * Global ship motions
+  * Propeller–ice interaction
+  * Internal tank sloshing
+* Ice–hull friction treated implicitly via strain response, not explicitly modeled.
+
+**Implication**
+Identified loads represent **local structural demand**, not global ship response.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* Ice loads evolve over milliseconds to seconds.
+* Hull properties are assumed time-invariant over weeks.
+* Ice failure modes evolve during repeated ramming:
+
+  * Wide loads → narrow loads
+  * Continuous → detached interaction
+
+**Consequence**
+The system transitions between distinct interaction regimes without updating the identification model.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Redundancy provided by far-field sensing mitigates sensor failure.
+* Statistical characterization provides probabilistic margins for design.
+* Single-point vulnerabilities:
+
+  * Simultaneous failure of above-waterline sensors
+  * Out-of-distribution ice events
+  * Structural nonlinearity beyond elastic range
+
+Failure beyond these assumptions is **non-graceful**, with rapid loss of identification reliability.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design regime
+
+* Pack ice
+* Moderate ship speeds
+* Elastic hull response
+* Short-duration impacts
+
+### Likely operative extremes
+
+* Thick level ice with ramming
+* Reduced speeds with prolonged contact
+* Progressive structural wear
+* Ice ridges or spalling-dominated failure
+
+### Robustness assessment
+
+The system is **robust to sensor failure but sensitive to physical regime shifts**. Its reliability depends more on structural linearity and ice behavior consistency than on data quantity.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### 1.1 Nature of fuel consumption modeling
+
+* Ship fuel consumption is treated as a **deterministic function** of ship operational parameters and environmental variables once inputs are specified.
+* A **wide feed-forward neural network (FFNN)** can accurately approximate the nonlinear mapping between weather conditions, ship parameters, and fuel consumption.
+* The trained FFNN remains valid when driven by synthetic weather scenarios generated via Monte Carlo sampling.
+
+**Consequence**
+Fuel consumption physics such as propeller–hull interaction, added resistance, and engine efficiency are embedded implicitly in data rather than modeled explicitly.
+
+---
+
+### 1.2 Weather uncertainty representation
+
+* Long-term ECMWF ERA5 reanalysis data from **1940–2024** adequately captures the probabilistic variability of marine weather parameters.
+* Fitted probability distributions represent the **true climatological variability** at each route point.
+* Weather parameters at each route point are treated as **statistically independent** during sampling.
+
+**Consequence**
+Spatio-temporal coherence of weather systems is intentionally neglected, producing a spatial uncertainty envelope rather than a time-consistent meteorological realization.
+
+---
+
+### 1.3 Route discretization
+
+* The voyage can be discretized into **150 independent route points** for uncertainty analysis.
+* Fuel consumption uncertainty can be evaluated locally at each point without requiring continuity between points.
+
+**Consequence**
+Cumulative voyage-scale fuel uncertainty is inferred indirectly rather than simulated as an evolving dynamical process.
+
+---
+
+### 1.4 Ship operational parameters
+
+* Ambient temperature, ambient humidity, and ship speed are treated as **deterministic** during uncertainty analysis.
+* Passenger load is constant.
+* Engine behavior follows fixed **Specific Fuel Oil Consumption (SFOC)** curves.
+
+**Consequence**
+Human decisions, operational adaptations, and speed adjustments in response to weather uncertainty are excluded.
+
+---
+
+### 1.5 Monte Carlo methodology
+
+* Random sampling from fitted distributions is sufficient to propagate uncertainty through the FFNN.
+* A sample size of **100,000 scenarios per route point** ensures convergence of output statistics.
+* Statistical descriptors such as mean, standard deviation, confidence intervals, KDE, and box plots adequately characterize uncertainty.
+
+**Consequence**
+Rare but physically plausible compound extremes may still be under-represented.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### 2.1 Physical stationarity
+
+* The statistical properties of marine weather from 1940–2024 are assumed representative of future operational conditions.
+* Climate change effects are implicitly averaged into distributions rather than treated as non-stationary trends.
+
+**Risk**
+Future fuel consumption variability may be underestimated if climate-driven shifts alter wave or wind regimes.
+
+---
+
+### 2.2 Engine and propulsion invariance
+
+* Engine efficiency, hull roughness, and propeller condition are constant over time.
+* No degradation, fouling, or maintenance effects alter fuel consumption behavior.
+
+**Risk**
+Long-term operational variability unrelated to weather is excluded, biasing uncertainty attribution.
+
+---
+
+### 2.3 Independence of sampled variables
+
+* Wind speed, wave height, wave period, and wave direction are sampled independently once distributions are fitted.
+
+**Risk**
+Physical correlations such as high waves coinciding with long periods or strong winds are partially broken, possibly producing non-physical combinations.
+
+---
+
+### 2.4 Neural network extrapolation safety
+
+* FFNN predictions are assumed reliable for all sampled weather scenarios within the fitted distribution ranges.
+
+**Risk**
+Low-probability tails may drive the network into regions of feature space poorly represented in training data.
+
+---
+
+### 2.5 Deterministic ship response
+
+* Ship speed through water is unaffected by sampled weather conditions.
+* No control feedback exists between weather severity and operational decisions.
+
+**Risk**
+Real ships reduce speed in heavy seas, which would moderate fuel consumption peaks.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Conservation of energy
+
+[
+\dot{m}*{fuel} \cdot LHV = P*{propulsion} + P_{hotel} + P_{losses}
+]
+
+**Application**
+Fuel consumption ultimately balances delivered mechanical and electrical power demands.
+
+**Limit**
+The FFNN does not explicitly enforce energy balance, relying on learned correlations.
+
+---
+
+### 3.2 Hydrodynamic resistance
+
+[
+R_{total} = R_{calm} + R_{wind} + R_{wave} + R_{added}
+]
+
+**Application**
+Weather parameters influence added resistance, which increases required propulsion power.
+
+**Boundary**
+Added resistance physics are embedded statistically rather than mechanistically.
+
+---
+
+### 3.3 Engine efficiency and SFOC
+
+[
+\text{Fuel rate} = f(P_{engine}, \text{SFOC})
+]
+
+**Application**
+SFOC curves link engine load to fuel consumption.
+
+**Limit**
+Transient engine behavior and partial-load inefficiencies are not modeled dynamically.
+
+---
+
+### 3.4 Probability theory
+
+* Monte Carlo sampling propagates input uncertainty through nonlinear mappings.
+
+**Validity regime**
+Assumes sampled distributions reflect true uncertainty and independence assumptions hold.
+
+---
+
+### 3.5 Universal approximation theorem
+
+* A sufficiently wide FFNN can approximate continuous nonlinear functions.
+
+**Boundary**
+Approximation accuracy depends on training data coverage, not only network width.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Weather variability** drives **added resistance**, increasing **propulsion power demand**.
+* **Propulsion power** interacts with **engine efficiency**, amplifying fuel variability.
+* **Statistical independence assumptions** decouple physically linked processes, broadening uncertainty envelopes.
+* **Neural approximation** replaces explicit physics, trading interpretability for flexibility.
+
+These interactions explain why uncertainty spreads can reach up to **14 percent** in exposed route segments.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Violated assumption  | Physical principle affected | Consequence                |
+| -------------------- | --------------------------- | -------------------------- |
+| Weather independence | Hydrodynamics               | Non-physical scenarios     |
+| Stationary climate   | Energy balance              | Underestimated future risk |
+| Fixed ship speed     | Resistance balance          | Inflated fuel peaks        |
+| Engine invariance    | Thermodynamics              | Bias in mean estimates     |
+| FFNN extrapolation   | Approximation theory        | Unbounded prediction error |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Correlation collapse** producing unrealistic wind–wave combinations.
+* **Climate drift** invalidating long-term fitted distributions.
+* **FFNN tail instability** under rare extreme conditions.
+* **Operational feedback omission** overstating worst-case fuel consumption.
+* **Overconfidence in confidence intervals** due to structural modeling bias.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Modeling tradeoffs
+
+* Wide FFNN chosen for representational power over physical transparency.
+* Monte Carlo favored over analytical propagation for nonlinear complexity.
+
+### Data tradeoffs
+
+* Long climatological records prioritized over short-term forecast realism.
+* Ensemble reanalysis used instead of operational ensemble forecasts.
+
+### Not optimized for
+
+* Real-time routing decisions.
+* Time-consistent voyage simulation.
+* Climate-scenario sensitivity analysis.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Ship operates in open ocean without port interactions.
+* No interaction with traffic separation schemes or congestion.
+* No coupling with navigational risk or safety constraints.
+
+**Implication**
+Fuel uncertainty is isolated from operational risk and scheduling considerations.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* Weather variability is treated as **static distributions** at fixed points.
+* No memory or persistence between successive route points.
+* Fuel uncertainty is spatially resolved but not temporally accumulated.
+
+**Consequence**
+Results represent an **upper-bound envelope** rather than a realizable voyage trajectory.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Large Monte Carlo sample size provides statistical robustness.
+* Multiple goodness-of-fit metrics reduce distribution misselection risk.
+* Single-point vulnerabilities:
+
+  * Non-stationary climate effects
+  * Correlated extremes
+  * FFNN generalization limits
+
+Failure of these assumptions leads to **systematic bias**, not graceful degradation.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design regime
+
+* Long-term average climatology
+* Fixed ship speed
+* Stable propulsion system
+* Independent spatial uncertainty
+
+### Likely operative regime
+
+* Temporally correlated storms
+* Adaptive speed and routing
+* Engine degradation
+* Cumulative uncertainty across route
+
+### Robustness assessment
+
+The framework is **robust for strategic planning and sensitivity analysis**, but **not sufficient for operational forecasting** without temporal coupling.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### 1.1 Structural idealization of SFT
+
+* The SFT tube is modeled as a **beam element**.
+* **Axial deformation and shear deformation of the tube are neglected**.
+* Anchor cables are modeled as **linear springs** with axial stiffness only.
+* Joints are represented by **six independent stiffness components**: axial, vertical shear, horizontal shear, vertical bending, horizontal bending, and torsion.
+
+**Consequence**
+The structure is treated as bending-dominated. Load redistribution through axial force, membrane action, or shear lag is excluded.
+
+---
+
+### 1.2 Segmentation and symmetry
+
+* Midspan tubes experience **symmetric internal forces**.
+* Revetment tubes experience **asymmetric internal forces**.
+* After segmentation, each tube segment and its attached cables achieve **local force equilibrium**.
+
+**Consequence**
+Adjacent segments are weakly coupled in the midspan, enabling independent stiffness design of repeated segments.
+
+---
+
+### 1.3 Governing displacement criteria
+
+* Maximum allowable deflection for the full SFT is **L/4000**.
+* Maximum allowable deflection for a single tube is **l/4000**.
+* Maximum allowable joint shear deformation is **3 mm**.
+* Maximum allowable joint torsional rotation is **0.5 rad/1000**.
+* Railway comfort and safety criteria govern all stiffness decisions.
+
+**Consequence**
+The entire design process is displacement-driven rather than stress-driven.
+
+---
+
+### 1.4 Load representation
+
+* Loads considered include:
+
+  * Self-weight
+  * Buoyancy
+  * Regular wave loads
+* Dynamic wave loading is treated using **potential flow theory**.
+* Earthquake and indirect inertial loads are excluded.
+
+**Consequence**
+The design is valid for marine-environment-dominated loading but not for seismic-dominated scenarios.
+
+---
+
+### 1.5 Material behavior
+
+* Concrete tubes and steel cables behave as **linear elastic materials**.
+* No cracking, plasticity, creep, fatigue, or degradation is considered.
+
+**Consequence**
+Long-term service effects and extreme overload scenarios are excluded from the stiffness design logic.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### 2.1 Negligibility of axial and shear deformation
+
+* By neglecting axial and shear deformation, the model assumes:
+
+  * Large diameter-to-length ratios
+  * High axial stiffness relative to bending stiffness
+
+**Risk**
+For long spans or high BWR values, axial force and shear deformation may become non-negligible, invalidating displacement predictions.
+
+---
+
+### 2.2 Structural homogeneity
+
+* All midspan tubes are assumed identical in geometry and stiffness.
+* Cable properties are assumed uniform except where intentionally varied.
+
+**Risk**
+Manufacturing tolerances, construction deviations, or differential aging could break symmetry and invalidate segmentation assumptions.
+
+---
+
+### 2.3 Perfect load transfer at joints
+
+* Joint stiffness components act independently and linearly.
+* No coupling exists between bending, shear, and torsion.
+
+**Risk**
+Real joints exhibit stiffness coupling and nonlinear contact behavior, especially under cyclic loading.
+
+---
+
+### 2.4 Cable behavior
+
+* Anchor cables remain in tension at all times.
+* No slackening, snap loading, or geometric nonlinearity occurs.
+
+**Risk**
+Loss of tension under extreme wave troughs or accidental load redistribution could cause dynamic instability.
+
+---
+
+### 2.5 Prestress equivalence
+
+* Designing cable stiffness directly is assumed to be superior and equivalent to prestress optimization.
+
+**Risk**
+Prestress provides controllable initial force states that stiffness alone cannot replicate under variable loads.
+
+---
+
+### 2.6 Hydrodynamic simplification
+
+* Wave forces are applied directly as external loads.
+* Fluid-structure interaction feedback is neglected.
+
+**Risk**
+Resonance, added mass variation, and damping effects may be misrepresented.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Structural equilibrium
+
+[
+[K]{x} = {R}
+]
+
+**Application**
+The matrix displacement method enforces equilibrium between stiffness, displacement, and applied loads.
+
+**Validity regime**
+Linear elastic, small deformation regime.
+
+**Limit**
+Large rotations or geometric nonlinearity violate this formulation.
+
+---
+
+### 3.2 Euler–Bernoulli beam theory
+
+[
+EI \frac{d^4 w}{dx^4} = q(x)
+]
+
+**Application**
+Tube bending response governs displacement and moment distribution.
+
+**Assumption embedded**
+Plane sections remain plane. Shear deformation is negligible.
+
+---
+
+### 3.3 Spring mechanics
+
+[
+k = \frac{EA}{L}
+]
+
+**Application**
+Anchor cable stiffness relates geometry and material properties to displacement control.
+
+**Limit**
+Valid only for small strains and constant cable geometry.
+
+---
+
+### 3.4 Energy balance in dynamic response
+
+* Dynamic amplification arises from conversion between:
+
+  * Kinetic energy
+  * Strain energy
+  * Potential energy
+
+**Observation**
+Dynamic displacement slightly exceeds static design limits due to stored energy.
+
+---
+
+### 3.5 Compatibility and continuity
+
+* Rotation and displacement continuity at joints governs joint stiffness requirements.
+
+**Key result**
+Joint bending stiffness ≥ 3EI/l yields near-uniform bending moments.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Tube bending stiffness** interacts with **cable stiffness** to control displacement envelopes.
+* **Joint stiffness** redistributes bending moments between adjacent segments.
+* **Boundary conditions** dominate revetment tube response but weakly affect midspan behavior.
+* **Dynamic energy accumulation** amplifies displacement beyond static predictions.
+
+These interactions explain why stiffness ratios, not absolute stiffness, govern performance.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Violated assumption         | Principle affected | Result                    |
+| --------------------------- | ------------------ | ------------------------- |
+| Neglected shear deformation | Beam theory        | Underestimated deflection |
+| Linear joint stiffness      | Compatibility      | Joint overstress          |
+| Constant cable tension      | Spring mechanics   | Dynamic instability       |
+| Symmetry                    | Equilibrium        | Load localization         |
+| Linear material behavior    | Elasticity         | Progressive damage        |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Joint shear failure** if cable placement does not coincide with zero-shear locations.
+* **Cable force redistribution** causing localized overstress.
+* **Revetment tube moment reversal** under fixed boundary conditions.
+* **Dynamic amplification exceedance** under wave resonance.
+* **Construction sequence sensitivity**, where temporary states violate design assumptions.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Material utilization
+
+* Uniform bending moment improves material efficiency but requires higher joint stiffness.
+
+### Design philosophy
+
+* Displacement-controlled design sacrifices local stress optimization.
+
+### Excluded optimizations
+
+* Fatigue life
+* Redundancy under cable failure
+* Progressive collapse resistance
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Shore connections modeled as hinged, fixed, or elastic springs.
+* Elastic boundaries interpolate between free rotation and full fixity.
+* Boundary stiffness dominates local behavior but decays rapidly into the midspan.
+
+**System implication**
+The SFT behaves as a quasi-infinite periodic structure away from shore.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* No degradation of:
+
+  * Cable stiffness
+  * Joint stiffness
+  * Tube stiffness
+* No accumulation of fatigue damage.
+* Dynamic response assumed stationary after transient decay.
+
+**Consequence**
+Design is valid for initial service state, not end-of-life conditions.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+### Explicit margins
+
+* Displacement limits based on railway standards.
+* Joint deformation limits based on gasket watertightness.
+
+### Implicit margins
+
+* Overdesign of joint bending stiffness.
+* Conservative dynamic load selection.
+
+### Single-point vulnerabilities
+
+* Joint shear failure
+* Cable rupture
+* Boundary condition degradation
+
+No graceful degradation mechanisms are defined.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design regime
+
+* Linear elastic
+* Regular waves
+* Fully tensioned cables
+* Symmetric segmentation
+
+### Likely operative extremes
+
+* Irregular waves
+* Cable loss or slack
+* Joint nonlinear behavior
+* Construction stage asymmetry
+
+**Robustness assessment**
+The method is robust for **global stiffness tuning** but fragile to **local nonlinear failures**.
+
+---WILLGPTSTART---
+
+## 1. Explicit Assumptions
+
+### Materials and Microstructure
+
+* Ice is assumed to be **polycrystalline**, homogeneous at the specimen scale, with a **constant density of 920 kg/m³** across all temperatures.
+* The hydrogen bond network is treated as the **primary temperature-sensitive microstructural mechanism** controlling stiffness, strength, and brittleness.
+* Ice crystals are implicitly assumed to have statistically similar grain size distributions across samples and temperatures.
+
+### Geometry and Boundary Conditions
+
+* Cylindrical samples with **diameter 50 mm and height 125 mm** satisfy uniaxial compression validity based on Schwarz et al. (1981).
+* End faces are assumed flat to within **0.02 mm**, implying negligible bending or eccentric loading.
+* Platens are assumed rigid relative to ice, with no compliance effects considered.
+
+### Loading and Rate Effects
+
+* A **single strain rate of 1.33 × 10⁻² s⁻¹** is treated as representative of brittle ice behavior.
+* The strain rate is assumed sufficiently high to suppress ductile mechanisms such as basal slip at lower temperatures.
+* Loading is purely axial, with lateral confinement neglected.
+
+### Thermal Conditions
+
+* Ice samples are assumed to be **thermally equilibrated** after 24 h of conditioning.
+* Temperature within each sample is assumed spatially uniform.
+* Five discrete temperatures from −12 °C to −28 °C are assumed sufficient to capture temperature trends.
+
+### Measurement and Observation
+
+* High-speed camera observations at **500 Hz** are assumed adequate to capture crack initiation and propagation.
+* Fragment sizes obtained via sieving are assumed not to be significantly altered during handling.
+
+### Numerical Modeling
+
+* PFC2D is assumed capable of reproducing essential micromechanics of ice fracture despite being two-dimensional.
+* The **parallel bond model** is assumed to represent hydrogen bond behavior in ice.
+* Microparameters calibrated at each temperature are assumed physically meaningful rather than purely phenomenological.
+
+---
+
+## 2. Hidden and Implicit Assumptions
+
+### Manufacturing and Sample Preparation
+
+* Freezing produces **minimal residual thermal stresses**, despite staged freezing and bubble removal.
+* Ice purity and dissolved gas content are assumed consistent across samples.
+* Cutting and polishing do not introduce microcracks that bias results.
+
+### Material Symmetry and Homogeneity
+
+* Ice is treated as **statistically isotropic**, ignoring crystallographic texture or preferred grain orientation.
+* Grain boundary properties are assumed uniform and temperature-dependent only through scalar parameters.
+
+### Environmental Variability
+
+* No consideration of **temperature gradients during loading**, despite known sensitivity of ice to thermal heterogeneity.
+* Humidity, sublimation, and frost effects during handling are assumed negligible.
+
+### Human and Operational Factors
+
+* Manual fragment screening is assumed repeatable and non-destructive.
+* Operator skill variability is implicitly ignored.
+
+### Aging and Time Effects
+
+* Ice is assumed not to undergo significant **annealing, sintering, or microstructural evolution** during storage.
+* Creep and stress relaxation prior to peak load are neglected.
+
+### Numerical Calibration Philosophy
+
+* Trial-and-error calibration is assumed to converge toward a unique or near-unique parameter set.
+* Weak coupling between stiffness and strength parameters is assumed valid across temperatures.
+* Friction coefficient fixed at 0.1 is assumed temperature-invariant.
+
+---
+
+## 3. Governing First Principles
+
+### Linear Elasticity
+
+* **Hooke’s Law** governs pre-peak response:
+
+  * σ = Eε
+* Valid in the small-strain, crack-free regime.
+* Breakdown occurs near crack nucleation when damage localizes.
+
+### Brittle Fracture Mechanics
+
+* **Griffith energy criterion**:
+
+  * σ_c ∝ (Eγ / πa)¹ᐟ²
+* Crack propagation governed by energy balance between elastic strain energy release and surface energy.
+* Fractal crack paths modify effective crack length and energy dissipation.
+
+### Thermodynamics of Hydrogen Bonding
+
+* Hydrogen bond energy increases as temperature decreases.
+* Reduced vibrational entropy leads to higher lattice rigidity.
+* Valid below the ductile-to-brittle transition regime.
+
+### Contact Mechanics
+
+* Normal and shear contact laws govern particle interactions in PFC.
+* Parallel bond failure criteria represent tensile and shear decohesion.
+* Valid while particle overlaps remain small.
+
+### Statistical Fracture and Fractals
+
+* Fragment size distributions follow power laws:
+
+  * M(d)/M_t ∝ d^(3−D)
+* Assumes scale invariance over measured fragment sizes.
+* Breakdown expected at nano or grain scales.
+
+---
+
+## 4. Interdependencies Between Principles
+
+* **Thermal stiffening** increases elastic modulus, which raises stored elastic energy and promotes brittle instability.
+* **Reduced plasticity** at low temperature suppresses crack branching, reinforcing Griffith-type single-crack dominance.
+* **Fracture mechanics and fractal geometry** interact, as simpler crack paths concentrate energy and increase strength.
+* **Contact friction and bond strength** compete, determining whether cracks localize in tension or shear.
+* **End friction and platen constraints** interact with bulk strength, influencing fracture plane inclination.
+
+---
+
+## 5. Assumption–Principle Connections
+
+* If thermal equilibrium is violated, local modulus gradients invalidate uniform elasticity assumptions.
+* If ice is anisotropic, Griffith predictions based on isotropy fail and crack paths rotate unpredictably.
+* If friction coefficient varies with temperature, inferred dominance of tensile cracking may reverse.
+* If strain rate deviates, ductile mechanisms activate, invalidating brittle fracture models and fractal interpretations.
+
+---
+
+## 6. Hidden Failure Modes
+
+### Experimental
+
+* Residual thermal stresses may trigger premature crack nucleation.
+* End friction may induce shear bands unrelated to intrinsic material behavior.
+* Fragment breakage during screening biases fractal dimension downward.
+
+### Numerical
+
+* 2D confinement suppresses out-of-plane cracking and energy dissipation.
+* Parameter non-uniqueness may mask compensating errors.
+* Ignoring grain size effects may underpredict crack tortuosity.
+
+### Physical
+
+* At lower temperatures, microcrack coalescence may become unstable, leading to explosive fragmentation not captured here.
+* Hydrogen bond embrittlement may trigger cleavage along crystallographic planes.
+
+---
+
+## 7. Unstated Constraints and Tradeoffs
+
+* Choice of PFC2D favors interpretability over full 3D realism.
+* Fractal analysis prioritizes post-mortem fragmentation over in-situ crack topology.
+* Temperature range chosen avoids ductile regime complexity but limits generality.
+* Calibration accuracy prioritized over parameter transferability.
+
+---
+
+## 8. Boundary Conditions and System Context
+
+* Load transfer assumed purely axial with no lateral confinement.
+* No coupling to surrounding structures, fluids, or thermal reservoirs.
+* Implicit assumption that laboratory results extrapolate to sea ice and engineering scales.
+* No feedback from crack formation to thermal or moisture fields.
+
+---
+
+## 9. Temporal Evolution Assumptions
+
+* Damage accumulation assumed monotonic with strain.
+* Fatigue and cyclic loading ignored.
+* Crack nucleation assumed instantaneous relative to loading time.
+* No healing or refreezing of cracks considered.
+
+---
+
+## 10. Safety and Robustness Margins
+
+* Six repeat tests provide statistical smoothing but no formal safety factor.
+* Numerical validation margin of ~6.6 percent masks potential compensating errors.
+* Single-point failures include friction coefficient misestimation and temperature nonuniformity.
+* No graceful degradation modeled beyond peak stress.
+
+---
+
+## 11. Design Regime vs Operative Regime
+
+### Design Regime
+
+* Homogeneous, equilibrated ice
+* High strain rate
+* Pure uniaxial compression
+* Brittle fracture dominance
+
+### Likely Operative Regime
+
+* Temperature gradients
+* Mixed loading modes
+* Variable strain rates
+* Scale-dependent fracture behavior
+
+### Robustness Assessment
+
+* First-principles framework is robust within the tested regime.
+* Extrapolation beyond −12 °C to −28 °C or beyond laboratory scale is fragile without additional coupling physics.
