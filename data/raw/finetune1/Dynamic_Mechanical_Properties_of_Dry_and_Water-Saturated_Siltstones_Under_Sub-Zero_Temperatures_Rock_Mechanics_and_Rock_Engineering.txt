@@ -1,0 +1,380 @@
+Abstract
+The effects of low temperature and strain rate on the dynamic mechanical properties of dry and saturated siltstones under sub-zero temperatures were investigated and presented in this paper. The siltstone specimens were first frozen to different sub-zero temperatures (from − 10 to − 50 °C), and then were tested at those temperatures using a split Hopkinson pressure bar (SHPB) system. The results indicated that compared to the dry specimens, the saturated specimens exhibit a much shorter compaction phase in the dynamic stress–strain curve due to the presence of the pore water or ice at sub-zero temperatures. The dynamic elastic modulus (Ed) and dynamic uniaxial compressive strength (UCSd) monotonically increase with the increase in the strain rate for both the dry and saturated specimens, and the dry specimens are more sensitive to the strain rate effect with respect to the UCSd. Furthermore, for both the dry and saturated specimens, the Ed and UCSd first increase with the decrease in the temperature from 18 to − 30 °C, and then decrease with a further drop in the temperature from − 30 to − 50 °C. Manifold reasons are responsible for this phenomenon, including the shrinkage of mineral grains, enhancement of the ice strength and interaction of the water/ice mixture with rock as the temperature drops. Using the NMR technique, the mechanisms of the mixed water/ice weakening and strengthening effects on the dynamic mechanical properties of siltstones at sub-zero temperatures were discussed.
+
+Similar content being viewed by others
+
+Dynamic compression properties of a saturated white sandstone under ambient sub-zero temperatures
+Article 21 February 2023
+
+An energy based constitutive model of water-saturated frozen rock
+Article 04 October 2025
+
+Temperature effects on dynamic compressive behavior of siliceous sandstone
+Article 19 May 2020
+Explore related subjects
+Discover the latest articles, books and news in related subjects, suggested using machine learning.
+Elasticity
+Low Temperature Physics
+Mechanical Properties of Materials
+Soft Materials
+Soil and Rock Mechanics
+Geotechnical Engineering and Applied Earth Sciences
+1 Introduction
+With the further implementation of the “Belt and Road” strategic conception, an increasing number of key geotechnical engineering projects have been under construction or in plan in Northwestern China. The climate in this area is characterized by severe cold, in which the lowest temperature can be as low as − 41.5 °C, and statistically more than 3 months out of a year are at a sub-zero temperature of below − 20 °C (Guo and Shen 2016; Liu et al. 2019). Therefore, the rock masses in this area inevitably suffer from weathering action induced by the low temperature and different saturation conditions, which imposes great challenges on the construction and maintenance of the geotechnical infrastructure, as well as the rock stability (Lai et al. 2012; Weng et al. 2017; Huang et al. 2018b; Qu et al. 2018; Zhang et al. 2018; Li et al. 2019; Wu et al. 2019; Du et al. 2020). For example, upon the exposure to the freeze–thaw cycles, the sedimentary and metamorphic rocks or even igneous rocks can be weathered with remarkable degradations of physical and mechanical properties (Mutlutürk et al. 2004; Wang et al. 2016; Yang et al. 2017b). Extensive studies have been performed concerning the freeze–thaw effects on the deterioration of rocks in laboratory, which found that under the cycling freeze–thaw conditions, the uniaxial compressive strength (UCS), Brazilian tensile strength (BTS), point load strength (PLS) and Young’s modulus of the rock specimens all exhibit a similar exponential decay trend but to different extents (Mutlutürk et al. 2004; İnce and Fener 2016; Jamshidi et al. 2016; Cui et al. 2017; Fan et al. 2018; Lu et al. 2019). These results were obtained from the laboratory experiments conducted at room temperature. However, rocks exhibit different mechanical behaviors at ambient low temperature compared to those at room temperature.
+
+In terms of the mechanical and deformation characteristics of frozen rocks, Inada and Yokota (1984) conducted compression and tension tests on granite and andesite specimens after being frozen up to − 160 °C, and found that a reduction in temperature yielded an increase in the compressive and tensile strengths. Aoki et al. (1990) found that at a low temperature of approximately − 160 °C, the UCS and BTS for various types of rock specimens increased by 20–70% and 50–100%, respectively, compared with those at room temperature; and the Young’s modulus increased by about 20%. Yamabe and Neaupane (2001) found that the UCS and Young’s modulus increased with the decrease of the temperature from 20 to − 10 °C, whereas there was little effect on the Young’s modulus with a further decrease in temperature from − 10 to − 20 °C despite of the increase in UCS. Dwivedi et al. (2000) further investigated the temperature dependency of fracture toughness for various rocks, and found that the fracture toughness increased with the decrease of temperature. In addition, triaxial compression tests at low temperature were carried out by Tang et al. (2010) and Shan et al. (2014), based on which they found that the triaxial compressive strength and cohesion of the granite specimens increased with the drop in the temperature. Besides the temperature effect, another important factor that should be considered in understanding the variations in physical and mechanical behaviors of rocks under low temperature is the moisture content. Previous studies indicated that wet specimens were more prone to be influenced by the low temperature than the dry specimens (Aoki et al. 1990; Zhou et al. 2016a, b; Yang et al. 2017a). Specifically, the strengths, Young’s modulus and fracture toughness for the saturated specimens were lower than those for the dry specimens when tested at sub-zero temperatures (Inada and Yokota 1984; Dwivedi et al. 2000; Kodama et al. 2013; Wang et al. 2019). As indicated by Chen et al. (2004) and Huang et al. (2018a), the presence of water had a weakening effect on the rock integrity and the resistance to deformation, while the ice enhanced the compaction of rock so as to increase the rock strength. When the water and ice were co-existed in the pores, the mechanical responses of the specimens became complicated depending on whether the water-weakening effect prevailed over the ice effect or not. This may be the reason why diverse trends with respect to the rock mechanical properties against the low temperature were observed by Kurilko and Novopashin (2005). It was found by Kurilko and Novopashin (2005) that when decreasing the room temperature from 20 to − 5 °C, the UCS of the kimberlite specimens decreased 49% than the normal strength; whereas, a further temperature decrease (from − 5 to − 50 °C) led to a significant increase in the rock strength (even higher than the normal strength). Similar results were also presented by Zakharov and Kurilko (2014). However, Huang et al. (2016) found that when exposed to cryogenic liquid nitrogen (LN2) with an extremely low temperature of − 195.8 °C, a large amount of microcracks were induced among the boundaries of the mineral grains, which, hence, led to reductions in both the tensile and compressive strengths. Moreover, the saturated sandstone specimens sustained even lower strengths than the dry ones at sub-zero temperatures. The above works have reached a consensus that the moisture content plays coupled weakening and strengthening effects on the physical and mechanical properties of the rock specimens at low temperatures. However, the question whether the rock (dry or water-saturated) is weakened or strengthened upon the low temperature still remains uncertain, and the understanding of the mechanism of water/ice-to-rock interaction at sub-zero temperatures is far from thorough.
+
+On the other hand, most previous studies mainly focused on the mechanical behaviors of rocks at quasi-static loading conditions. For example, the uniaxial and triaxial compression tests, as well as the Brazilian disc test were conducted at a very low strain rate of roughly 10−4 s−1. As evidenced by many previous studies (Zhang and Zhao 2013, 2014; Wang et al. 2018; Yin et al. 2018; Jiang et al. 2019; Peng et al. 2019), the mechanical properties including the UCS, BTS and Young’s modulus of the rocks under dynamic loading were remarkably dissimilar to those derived at static loading conditions. However, for some particular geotechnical engineering projects including drilling, tunneling and mining, located in Northwestern or Northeastern China, rock masses inevitably suffer from the low-temperature weathering (Weng et al. 2019). Therefore, it is necessary to investigate the dynamic mechanical responses of rocks at low temperatures. This is also of great significance to practical projects in cold regions where the rock masses are subjected to blasting, seismicity, weapon attacks and other types of dynamic loadings. Nevertheless, few works were publically seen concerning the dynamic responses of rocks at low temperatures. Yang et al. (2019a) conducted a series of dynamic tests on red sandstone, marble and granite specimens which were frozen at various temperatures ranging from − 5 to − 40 °C. The results indicated that different rocks exhibited different strength variation tendencies with the drop in the temperature, and the saturated red sandstone specimens seemed to be more sensitive to the strain rate than the dry ones. Still, the effects of the low temperature and strain rate on the dynamic mechanical properties, as well as the weakening and strengthening mechanisms of the rock at high strain rate need further investigations.
+
+This study aims to investigate the dynamic mechanical properties of siltstones under various sub-zero temperatures and strain rates. The dry and saturated siltstone specimens were frozen to five levels of sub-zero temperatures, i.e., − 10 °C, − 20 °C, − 30 °C, − 40 °C and − 50 °C, and then were submitted to dynamic compression tests with various strain rates. The dynamic tests were also conducted on the specimens at room temperature for comparison. The effects of the low temperature and strain rate on the deformation characteristics, dynamic Young’s modulus and compressive strength were deeply investigated. Finally, the weakening and strengthening mechanisms of the mechanical properties for the saturated rocks at sub-zero temperatures were discussed.
+
+2 Experimental Material and Methodology
+2.1 Description of the Rock Material
+The siltstone used in this study was sourced from the western Qinling Mountains and was shipped to Jiaozuo City for sample preparation. X-ray diffraction (XRD) analysis was performed using an XPert MPD Diffractometer to obtain the mineral compositions. Based on the X-ray diffractograms, the siltstone consists mainly of four minerals, including quartz, feldspar, mica flakes and minor clay. Figure 1a presents a microscopic image of the siltstone using an electric microscopy. It is seen that the mineral grains are intact and compacted closely with one another. The optical microscopic image was processed using a MATLAB toolbox to extract the grain boundaries. A set of circles with various diameters were employed to cover the mineral grains. In doing this, the grain size distribution can be obtained and then statistically analyzed, as presented in Fig. 1b. The selected siltstone is coarse-grained with grain size mainly ranging from 7.7 to 434.8 μm. The average size of the mineral grains is 77.9 μm. A nuclear magnetic resonance (NMR) technique was used to identify the pore size distribution of the siltstone. Figure 2 presents the pore size distribution detected by the NMR measurement. It is observed that the pore radius varies from 2.4 nm to 65.9 μm, and most of the pores have a radius less than 100 nm. The porosity derived from the NMR measurement is 5.59%.
+
+Fig. 1
+figure 1
+Grain size distribution analysis of the siltstone by optical microscopy: a microscopic image of the siltstone; b grain size distribution
+
+Full size image
+Fig. 2
+figure 2
+Pore size distribution analysis of the siltstone by NMR measurement: a porosity component versus the pore radius; b ratio of the pores with a certain pore size to the total pores
+
+Full size image
+The siltstone specimens were diamond cored in the same orientation from an identical rock block. In doing so, the test specimens can be prepared with approximately equivalent physical properties, which helps to reduce the scatter of the experimental results. The specimens for the subsequent dynamic loading tests were polished with care to yield a nominal height of 50 mm and a nominal diameter of 50 mm, showing that the aspect ratio (1:1) is consistent with the International Society for Rock Mechanics (ISRM) suggested methods (Dai et al. 2010; Zhou et al. 2012). To prepare dry specimens, air-dried specimens were put in a desiccator at constantly 105 °C for 72 h. Saturated specimens were prepared by completely submerging them in distilled water for at least 72 h after keeping them in a vacuum device for an equal number of hours. Static uniaxial compression and Brazilian disc tests were conducted on both the dry and saturated specimens to obtain the necessary mechanical properties at room temperature (18 °C). The basic physical and mechanical properties of the dry and saturated specimens are listed in Table 1. It is seen that the P-wave velocity of the saturated specimen is roughly 3% larger than the P-wave velocity of the dry specimen. This is attributed to the presence of water in the pores, and hence reducing the diffraction of the P-wave between the interface of rock and pore surfaces. However, the mechanical parameters, such as the UCS, Young’s modulus and tensile strength for the saturated specimens, are all lower than those for the dry specimens. Two mechanisms may be responsible for the reductions: (1) grains connection weakening effect due to chemical and physical reactions between the water and clay minerals; (2) lubricating effect on the initial microcracks due to the water–rock interaction (Baud et al. 2000; Morrow et al. 2000; Vásárhelyi and Ván 2006).
+
+Table 1 Basic physical and mechanical parameters of the dry and saturated specimens (tested at room temperature)
+Full size table
+2.2 Dynamic Compression Tests at Ambient Sub-Zero Temperatures
+Dynamic compression tests were performed using a split Hopkinson pressure bar (SHPB) system. The SHPB system consisted of a gas gun, a striker, an incident bar, a transmission bar and an absorption bar. The sticker and bars (50-mm diameter) were made of high-strength 40 Cr steel having an elastic modulus of 210 GPa and a Poisson’s ratio of 0.3. Two pairs of strain gauges (SGs) were mounted on the incident and transmitted bars, and each pair was positioned diametrically opponent on the bar surface. The strain gauges can record the voltage signals generated in the bars through a Wheatstone bridge circuit with amplification. The configuration of the experimental set-up is shown in Fig. 3.
+
+Fig. 3
+figure 3
+Configuration of the SHPB system integrated with the cryogenic sub-system
+
+Full size image
+Based on the one-dimensional stress wave theory, the dynamic stresses at the two ends of the specimen tend to reach a stress equilibrium state after multiple transmissions and reflections. In this regard, the strain rate, strain and stress in the specimen can be calculated by (Zhou et al. 2012; Feng et al. 2018; Xu and Dai 2018):
+
+(1)
+(2)
+(3)
+where 
+, 
+ and 
+ are the incident strain signal, reflected strain signal and transmitted strain signal, respectively; 
+ is the 1D elastic bar wave speed; 
+ is the cross-sectional area of the sample; 
+ is the length of the sample; 
+ is the elastic modulus of the bars; and 
+ is the cross-sectional area of the bars.
+
+To test the rock specimens at ambient low temperature, a cryogenic system was developed to attain and maintain a desired sub-zero ambient temperature during the test. The cryogenic system consisted of an environmental chamber, a liquid nitrogen container, an air pump, a control panel and a thermocouple (see Fig. 3). The LN2 flow was gently pumped to the environmental chamber by the air pump to lower the ambient temperature of the cryogenic chamber where specimens were kept and tested. Once the ambient temperature reached the pre-set temperature as detected by the thermocouple, the air pump stopped working which was automatically controlled by the electromagnetic valve. In the meanwhile, the air pump can restart to work when the ambient temperature was higher than the pre-set temperature. In doing so, the ambient temperature can be continuously maintained at the desired level during the test. In this regard, the incident and transmitted bars were frozen together with the specimens in the environmental chamber, which may affect the physical and mechanical properties of the bars and then introduce possible changes to the stress wave propagation. However, the duration of the freezing process was quite short and only small parts of the bars were exposed to the sub-zero temperature. Therefore, the potential influence of the sub-zero temperature on the bars was simply ignored in this study.
+
+2.3 Test Scheme
+This study mainly focuses on two factors that may affect the dynamic mechanical properties of the dry and saturated specimens, i.e., the loading strain rate and low-temperature magnitude. Different loading strain rates for the specimens can be achieved by adjusting the gas pressure so as to inject the striker with different initial velocities. This will be further illustrated in the following sections. In terms of the low-temperature effect, five different levels for instance − 10 °C, − 20 °C, − 30 °C, − 40 °C and − 50 °C were taken into consideration. Additional dry and saturated specimens were also prepared and tested under the room temperature (18 °C) for reference.
+
+Regarding the tests for the specimens at − 10 °C, − 20 °C and − 30 °C, the specimens were first kept in a freezing chamber (Model XY-QDR-50) with the corresponding low temperature for at least 12 h, and then were straightforwardly moved to the SHPB system for tests. This procedure took roughly less than 10 s and therefore, the effect of the thermal diffusion was neglected. However, as for the tests for the specimens under the temperatures of − 40 °C and − 50 °C, the variations in the temperature cannot be simply ignored due to the large temperature difference between the specimen and the atmosphere. Therefore, the cryogenic system as previously described in Sect. 2.2 was used for these test scenarios. The specimens were first placed in the freezing chamber at − 30 °C for at least 12 h to reach isothermal equilibrium, and then were moved to the SHPB system and kept in the environmental chamber where they underwent further cooling. To ensure the specimen was maintained at the exact position during the tests, a tiny steel rod was installed to prevent the specimen from dropping. The ambient temperature of the environmental chamber was controlled to be lower than the desired temperature. In this regard, the specimens were allowed to remain in the chamber for a certain time during which the desired temperature level at both the surface and center can be attained. The elapsed time as required can be calculated by the following formula (Dwivedi et al. 2000):
+
+(4)
+where 
+ is the required time for the specimen to achieve an isothermal equilibrium state; 
+ is the density; 
+ is the specific heat; 
+ is the radius of the specimen; 
+ is the thermal conductivity; 
+ is the temperature distribution parameter which is a function of the temperature gradient ratio (
+) and the radial distance (
+), as determined in Fig. 4. The temperature gradient ratio was given by
+
+(5)
+Fig. 4
+figure 4
+Temperature distribution parameter at various radial distances and the temperature gradients [after Dwivedi et al. (2000)]
+
+Full size image
+where 
+ is the initial temperature of the specimen; 
+ is the desired temperature at which the specimen was tested; 
+ is the temperature of the environmental chamber.
+
+The temperature of the environmental chamber was set to − 42.5 °C and − 52.5 °C, respectively, for the test scenario under − 40 °C and − 50 °C. Therefore, the required time for attaining the isothermal equilibrium was calculated following Eq. (4) (see Table 2). Note that the thermo-physical parameters for the siltstone were sourced from Robertson (1988). It will take 200 s to achieve − 40 °C throughout the specimen while the environmental chamber is at − 42.5 °C, and 281 s to achieve − 50 °C throughout the specimen while the environmental chamber is at − 52.5 °C. The dynamic tests were conducted simultaneously at the moment of the desired temperature being achieved.
+
+Table 2 Thermo-physical parameters and the required time for attaining the desired temperature level
+Full size table
+Since the test procedure was changed for the case of − 40 °C and − 50 °C, it is necessary to check the discrepancies of the test results caused by the two different test procedures, i.e., direct freezing in the environmental chamber and pre-freezing in a refrigerator. Therefore, additional tests were conducted to verify the feasibility of the two procedures. Four saturated specimens with the similar P-wave velocity and water content were selected and then tested using the SHPB apparatus following the two different test procedures. The gas pressure for launching the striker was set to 0.20 MPa and 0.30 MPa, respectively. The test temperature was set to − 30 °C. Figure 5 shows the voltage signals of the incident and transmitted bars and the stress–strain curves of the specimens. It is observed from Fig. 5 that following the different test procedures, the shape and peaks of the voltage signals were quite similar, and the stress–strain curves of the specimens were also close with similar peak strains and strengths. These observations indicate that the two test procedures can derive almost the same test results, justifying the feasibility of the change in the test procedure for the case of − 40 °C and − 50 °C in this study.
+
+Fig. 5
+figure 5
+Comparisons of the experimental results derived by the two different test procedures: a voltage signals of the incident and transmitted bars; b stress–strain curves
+
+Full size image
+2.4 Verification of the Dynamic Stress Equilibrium
+According to the theory of one-dimensional stress wave, the basis for a successful dynamic test is that the dynamic stress equilibrium state has been achieved before the onset of the rock failure (Li et al. 2000, 2008; Xu and Dai 2018). To this end, the pulse shaping technique was widely used to facilitate stress equilibrium and constant strain rate deformation in the sample (Li et al. 2008; Fan et al. 2017). In this study, a vacuum sealing compound supplied by Yumen Oil Refinery (China) was used as a pulse shaper. The vacuum sealing compound has good plasticity and can be easily moulded by hand, yet firm enough to remain in position. Therefore, it is very suitable for modifying the profile of the incident pulse to produce a low initial loading rate. After several trial tests, it was found that the sealing compound moulded into a thin plate with 1.5-mm thickness and 10-mm diameter can produce an ideal incident stress wave. The incident stress wave exhibits a relatively flat rising phase which lasts approximately 120 μs, and the total loading time is approximately 300 μs. Figure 6 presents the voltage signals recorded by SG1 and SG2. The gas pressure was set to 0.15 MPa, 0.20 MPa, 0.25 MPa, 0.30 MPa and 0.38 MPa, respectively, to generate five distinct strain rates for the samples.
+
+Fig. 6
+figure 6
+Voltage signals recorded by SG1 and SG2 under different gas pressures (Saturated samples tested at − 10 °C)
+
+Full size image
+To quantitatively check the dynamic stress equilibrium for the SHPB test, the stress waves at the incident and transmitted ends were straightforwardly compared. A dynamic stress equilibrium factor (
+) was used to evaluate the degree of variation in the stress waves at the two ends, as expressed by:
+
+(6)
+where 
+, 
+ and 
+ are the incident stress, reflected stress and transmitted stress, respectively.
+
+Figure 7 illustrates the stress equilibrium for a typical dynamic compression test. The results show that the stress equilibrium factor was approximately zero over the period of 57 μs–219 μs (see Fig. 7b), indicating the dynamic stress equilibrium state was basically achieved within this time interval. It can be seen that the failure of the specimen occurred during the stress equilibrium stage, which justified the effectiveness of the SHPB test. The strain rate was obtained as the average value of the constant phase of the strain rate versus time curve, which was approximately 150.5 s−1 over 86 μs–151 μs (Fig. 7c). The loading rate was obtained as the slope of the linear phase of the transmitted stress wave, which was 2408 GPa/s (Fig. 7d). Therefore, the dynamic elastic modulus was calculated to be the ratio of the loading rate to the strain rate, i.e., 16.0 GPa.
+
+Fig. 7
+figure 7
+Verification of the stress equilibrium for the dynamic compression test: a stress waves; b stress equilibrium factor; c strain rate; d loading rate. The test was performed on the saturated sample at − 10 °C and the gas pressure was 0.25 MPa
+
+Full size image
+3 Changes in the P-Wave Velocity Upon Sub-Zero Temperatures
+Figure 8 shows the changes in the P-wave velocity of the specimens against the sub-zero temperatures. It should be noticed that the P-wave velocity values of the specimens at − 40 °C and − 50 °C were not obtained due to the limitation of the test device. It can be seen from Fig. 7 that the P-wave velocity increases with the drop of the temperature for both the dry and saturated specimens. Further, the saturated specimens show more substantial increases in the P-wave velocity than the dry specimens. This is because for the saturated specimens, apart from the positive influence on P-wave velocity due to the mineral grains shrinkage, the water-to-ice phase transition also significantly contributes to the increase in the P-wave velocity.
+
+Fig. 8
+figure 8
+P-wave velocities of the dry and saturated specimens at various temperatures
+
+Full size image
+4 Results of the SHPB Tests
+4.1 Dynamic Stress–Strain Curve
+Figure 9 presents the dynamic stress–strain curves for the dry and saturated specimens tested at room temperature (18 °C) and − 20 °C. In each case, the stress–strain curves for the specimens subjected to five different strain rates were plotted in the figures. The results show that the stress–strain curve can be generally divided into four phases, including initial compaction, elasticity, damage and post-peak phases. The spans of the four phases in the strain dimension are somewhat different, depending on the strain rate. As a general tendency for all the scenarios in Fig. 9a–d, the specimens which were subjected to higher values of strain rate can sustain higher values of peak stress. Two types of stress–strain curve shape are observed according to the distinct deformation behaviors in the post-peak phase, i.e., stress spring-back and strain softening. The former phenomenon occurs under relatively low strain rates, for example less than 70.8 s−1 in this study. This is mainly attributed to the release of the stored elastic energy accumulated in the rising phase of the dynamic loading, inducing a reverse compressive stress wave in the incident bar, as elaborated in Li et al. (2014). Nevertheless, under a relatively high strain rate (greater than 123.9 s−1 as indicated in Fig. 9), the specimen will be fractured during the rising phase and therefore, the elastic energy releases instantaneously as the form of kinetic energy and surface energy and so on. In this regard, the post-peak phase exhibits a strain-softening fashion for the specimen at a higher strain rate.
+
+Fig. 9
+figure 9
+Dynamic stress–strain curves for the dry specimens tested at a room temperature and b − 20 °C, and for the saturated specimens tested at c room temperature and d − 20 °C
+
+Full size image
+Figure 10 plots the dynamic stress–strain curves for the dry and saturated specimens tested at different temperatures while under roughly the same strain rate (i.e., 150 s−1). It can be seen that the peak stress first increases and then decreases with decreasing the temperature from 18 to − 50 °C, and the maximum value arrives at the temperature of − 30 °C. The peak strain (i.e., the strain corresponding to the peak stress), however, shows unclear changing trend against the temperature. One possible cause may be the heterogeneity among the individual specimens. Furthermore, the strains corresponding to the phases of initial compaction, elasticity and damage show various change tendencies in response to the different test conditions. This can be partially justified by Fig. 11, in which the dynamic stress–strain curves of the dry and saturated specimens tested at varying temperatures were presented. It can be clearly observed in Fig. 11 that the stress–strain curves for the saturated specimens show a much shorter compaction phase compared with the dry specimens. The difference becomes more pronounced at a lower temperature due to the water–ice phase transition. Such a phenomenon was also observed in quasi-static uniaxial compression tests as reported by Xu et al. (2006) and Wang et al. (2019). The compaction of the specimen during the initial loading is mainly attributed to the closure of the pre-existing pores. When the pores in the saturated specimen were filled with water or ice, there is less or no space for the pores to deform and hence resulting in a shorter compaction phase at the macroscopic scale. This mechanism will be specifically discussed in Sect. 5.1.
+
+Fig. 10
+figure 10
+Dynamic stress–strain curves for a the dry specimens and b the saturated specimens at the strain rate of roughly 150 s−1
+
+Full size image
+Fig. 11
+figure 11
+Comparisons of the dynamic stress–strain curves between the dry and saturated specimens under different strain rates and test temperatures
+
+Full size image
+4.2 Dynamic Compressive Strength and Elastic Modulus
+After a series of SHPB tests, the stress balance verification, strain rate, dynamic elastic modulus and dynamic compressive strength of the dry and saturated specimens tested at different sub-zero temperatures were obtained, as listed in Table 3. Four test results were discarded among the total 62 specimens. For the specimens DR-30-5, SA-10-4 and SA-50-3, dynamic stress equilibrium state was not reached at the onset of the failure in these specimens. For the specimen DR-10-4, the strain rate was scattered. Therefore, five levels of strain rate ranging from 60 to 230 s−1, i.e., 67.8 s−1, 124.7 s−1, 152.5 s−1, 193.7 s−1 and 225.8 s−1, were considered to investigate the strain rate effect in this study. They were averaged to be 67.8 s−1, 124.7 s−1, 152.5 s−1, 193.7 s−1 and 225.8 s−1 from the test data as presented in Table 3. A general trend observed from Table 3 is that with the increase in the strain rate, both the UCSd and Ed increase for all the test scenarios. Furthermore, under the identical test conditions (e.g., the same test temperature and strain rate), the UCSd and Ed for the dry specimens are apparently higher than those for the saturated specimens. These phenomena are closely related to the interactions of the rock with water or ice, and the explanations will be given in the subsequent sections.
+
+Table 3 Parameters and test results of the siltstone specimens at various sub-zero temperatures in SHPB tests
+Full size table
+5 Discussion
+5.1 Effects of the Low Temperature and Strain Rate on the Deformation Characteristics
+As illustrated in Sect. 4.1, four deformation phases including initial compaction, elasticity, damage and post-peak strain-softening phases were identified in the dynamic stress–strain curve. The compaction of the specimen demonstrated the closure of the pre-existing pores, and the elastic deformation phase reflected the elastic parameters such as the elastic modulus and elastic strain. Nevertheless, the damage phase prior to the peak stress indicated the plastic/ductile deformation during which the specimen was damaged and fractured. It can be seen from Figs. 9, 10, 11 that the deformation behaviors of the specimens for different test scenarios are significantly different from one another. Therefore, to clearly understand the contributions of the closure of pores, plastic and elastic deformations to the overall deformation behaviors for each test scenario, the following parts deeply investigated the changes in the strains including the crack closure strain (
+), plastic strain (
+) and elastic strain (
+) with different strain rates and test temperatures. The crack closure strain was defined as the strain that was caused by the crack closure or sliding in the initial deformation stage, but unaccounted for the linear elastic strain (Peng et al. 2015; Rong et al. 2018). The loading modulus was assumed to be consistent with the unloading modulus. Therefore, the crack closure strain can be generally determined by the reading of intersection of the elastic slope (marked as line AB) with the strain axis as shown in Fig. 12. The elastic strain was determined as the horizontally projected length of the elastic slope (line CD) through the peak stress point. Accordingly, the plastic strain was the residual of the peak strain subtracting the crack closure strain and elastic strain. Figure 12 schematically illustrated how to obtain these three strains for a typical dynamic stress–strain curve.
+
+Fig. 12
+figure 12
+A typical dynamic stress–strain curve illustrating the crack closure strain (
+), elastic strain (
+) and plastic strain (
+)
+
+Full size image
+Figure 13 plots the relations of the crack closure strain, plastic strain and elastic strain with the strain rate and temperature for both the dry and saturated specimens. The crack closure strain increases with ascending the strain rate as a general tendency for all the test scenarios. This tendency is significant only for the dry specimens but statistically insignificant for the saturated specimens. For example, the crack closure strain for the dry specimen dramatically increases with the increase in the strain rate following an exponential function; whereas, it shows a slightly linear increasing trend for the saturated specimen. Furthermore, the value of the crack closure strain for the saturated specimen is dramatically lower than that for the dry specimen in each temperature case (also indicated in Sect. 4.1). This is because, as abovementioned, the presence of the water/ice gives little space for the pores to close and, therefore, reduces the closure strain in the initial deformation stage. The values of the closure strain and plastic strain jointly define the brittle/ductile characteristics of the specimen to some extent according to Martino and Chandler (2004) and Peng et al. (2015). Therefore, it is indicated that the saturated specimens exhibit more prominent brittleness as compared with the dry specimens under the same test condition.
+
+Fig. 13
+figure 13
+Variations in 
+, 
+ and 
+ for the dry and saturated specimens which were tested at different strain rates and temperatures
+
+Full size image
+However, regarding the elastic strain and plastic strain, there seems no clear changing trend with the increase in the strain rate. Furthermore, it can be observed that the values of the elastic strain for the dry specimens are generally close to those for the saturated specimens. The results indicate that the elastic deformation behaviors are less affected by the water or ice in the specimens. Nevertheless, as will be discussed later, the dynamic elastic moduli of the specimens under various test conditions are different, indicating the discrepancies in the resistance to elastic deformation as a result of the sub-zero temperature and strain rate.
+
+5.2 Effects of the Low Temperature and Strain Rate on Ed
+As an important parameter for rock materials, the elastic modulus quantifies the capacity of resistance to being deformed elastically. In this study, the dynamic elastic modulus was obtained as the quotient of the loading rate divided by the strain rate at the constant strain rate stage, as illustrated in Sect. 2.4 and Fig. 7. Figures 14 and 15 present the relations of the dynamic elastic modulus with the strain rate and temperature for the dry and saturated specimens. It can be observed from Fig. 14 that for each scenario of the test temperature, Ed monotonically increases with increasing the strain rate. This is the case for both the dry and saturated specimens. Nevertheless, the Ed of the saturated specimen is clearly smaller than that of the dry specimen when comparing the data in Fig. 14a, b. The occurrence of this phenomenon is probably due to the weakening effect of the water in the siltstone. Regarding the temperature effect on the Ed, it is seen from Fig. 15 that for each scenario of the strain rate, Ed first increases and then decreases when the temperature drops from 18 to − 50 °C for the dry and saturated specimens. Specifically, for the dry specimens, the variation trend can be divided into two stages, i.e., increase stage (from 18 to − 30 °C) and decrease stage (from − 30 to − 50 °C) (see Fig. 15a). In terms of the saturated specimens, three stages including the slight increase stage (from 18 to − 10 °C), rapid increase stage (from − 10 to − 30 °C) and decrease stage (from − 30 to − 50 °C) can be featured in the variation curve of Ed versus the temperature (see Fig. 15b). The cause for this discrepancy lies in the different moisture contents between the dry and saturated specimens. Under the sub-zero temperature conditions, the deformation behaviors of the saturated specimens are largely affected by the ice which fills the pre-existing pores and, thus, enhances the stiffness. As the temperature drops to − 40 and − 50 °C, however, the values of Ed are observed to be lower than that at the temperature of − 30 °C. The generation of microcracks induced by the frost heave may be responsible for this change, and the water/ice–rock interaction mechanisms will be further discussed in Sect. 5.4.
+
+Fig. 14
+figure 14
+Variations in Ed against the strain rate for a the dry specimens and b the saturated specimens
+
+Full size image
+Fig. 15
+figure 15
+Variations in Ed against the temperature for a the dry specimens and b the saturated specimens
+
+Full size image
+5.3 Effects of the Low Temperature and Strain Rate on UCSd
+The changes in UCSd versus strain rate for the dry and saturated specimens under different test temperatures are plotted in Fig. 16. A simple exponential form was used to fit the data:
+
+(7)
+Fig. 16
+figure 16
+Variations in the UCSd against the strain rate for a the dry specimens and b the saturated specimens which were tested at different temperatures
+
+Full size image
+where a and b are the fitting parameters. Following this equation, the fitting curves and fitting parameters are presented in Fig. 16 and Table 4. It can be observed that the fitting functions match well with the trend of the data because the coefficients of determination (COD) are higher than 0.8 for all the test scenarios. In view of the fitting function, parameter a indicates the initial UCS when the strain rate is very small, for example an order of 10−4 s−1 for a quasi-static compression. Parameter b indicates the speed of the UCSd increment due to the strain rate effect. It is seen that the parameters a and b for the dry specimens are all higher than those for the saturated specimens in the same temperature scenario. These results suggest that under the identical test condition, the dry specimens exhibit higher UCSd than the saturated specimens. Furthermore, the dry specimens are more sensitive to the strain rate effect because their dynamic compressive strengths are accompanied with a larger increase speed when ascending the strain rate. Nevertheless, the opposite conclusion was drawn in Zhou’s work (Zhou et al. 2016b), in which they found that the saturated specimens showed stronger rate dependency than the dry ones. Since the dynamic tests in their work were conducted at room temperature, the strength-enhancing mechanism with respect to the high strain rate was attributed to the viscous behavior of water, including the meniscus effect, Stefan effect and Newton inner friction effect (Zhou et al. 2016b). In the present study, the specimens were tested at sub-zero temperatures when the water turned into ice. In this regard, when the specimen failed under the dynamic loading, the ice in the rock skeleton accelerated the initiation and growth of cracks, and hence leading to relative lower UCSd as compared with the dry specimens.
+
+Table 4 Fitting parameters for UCSd of the dry and saturated specimens as a function of the strain rate
+Full size table
+To illustrate the variation in UCSd against the temperature, Fig. 17 presents the UCSd versus temperature curves at the various strain rates. With the drop in the temperature from 18 to − 50 °C, the UCSd shows a first increase and then decrease trend, which is similar to the variation trend of Ed. Alternatively, the specimens, either dry or saturated, sustained the highest UCSd when they were tested at − 30 °C. The weakening and strengthening mechanism of the rock strength will be further illustrated in Sect. 5.4.
+
+Fig. 17
+figure 17
+Variations in the UCSd against the temperature for the dry and saturated specimens tested at different strain rates
+
+Full size image
+5.4 Mixed Water/Ice Weakening and Strengthening Mechanism
+The aforementioned results indicated that under the same strain rate and temperature conditions, the dry specimens exhibited higher UCSd and Ed than the saturated specimens. Such water-weakening effects on the mechanical properties have also been observed in previous studies, in which wet (or water-saturated) rocks were under quasi-static or dynamic loading tests at room temperature (Hadizadeh and Law 1991; Hawkins and Mcconnell 1992; Vasarhelyi 2005; Li et al. 2012; Zhou et al. 2016a, b), as well as under quasi-static loading test at sub-zero temperatures (Inada and Yokota 1984; Aoki et al. 1990; Xu et al. 2006). The reason can be attributed to the chemical and physical reactions between the water and clay minerals, which weaken the connections between the mineral grains and hence reducing the elastic modulus and overall strengths. On the other hand, at sub-zero temperatures, a fraction of water turns into ice and as such the increased volume due to the water-to-ice phase transition makes the rock more compact and harder. Nevertheless, as will be illustrated later, the freezing temperature for water-to-ice phase transition is related to the pore size. The pores having smaller size will be frozen at much lower temperature. In consideration of this point, the compaction enhancement effect due to the water-to-ice phase transition is not sufficient to compensate the water-weakening effect, and therefore the saturated specimens are weaker than the dry specimens at sub-zero temperatures.
+
+Regarding the low-temperature effects on the mechanical properties, it was indicated that the UCSd and Ed first increased and then decreased for the specimens in relation to the drop in the ambient temperature (see Figs. 15 and 17). Manifold reasons are responsible for this phenomenon, including the shrinkage of mineral grains, enhancement of the ice strength and interaction of water/ice with rock as the temperature drops. For the dry specimens, merely the inconsistent shrinkage of mineral grains matters. Specifically, it is assumed that at negative temperatures of − 10 °C to − 30 °C, the rock mineral grains shrink to make the grains more closely connected with one another, resulting in an increase in the rock strength (Yang et al. 2019b). With the further drop in the temperature, the initial microcracks in the specimen start to expand due to the inconsistent shrinkage rate of the rock components. This phenomenon is the main reason that the rock exhibits a decrease tendency of the strength at the temperature of − 30 °C to − 50 °C. However, all the three regimes contribute a lot for the saturated specimens, resulting in much lower UCSd and Ed compared to the dry specimens. This also explains, as presented in Fig. 14, that the Ed showed a slow increase in accordance with the drop in temperature from 18 to − 30 °C for the dry specimens. However, fast increases in Ed were observed for the saturated specimens when the temperature was lowered from − 10 to − 30 °C.
+
+Since the freezing temperature of pore water is depressed due to the pore size effect, a smaller pore size yields a lower freezing point as indicated in Ashworth and Abeles (1984) and Chen et al. (2004). Alternatively, when the temperature drops below zero, some amount of the pore water may remain unfrozen, inducing mixed water/ice interactions with rock. The unfrozen water in frozen rock sample can be detected using the nuclear magnetic resonance technique (Kozlowski 2016; Tian et al. 2018). In this study, we conducted NMR tests on the saturated sample during the process of freezing from room temperature to − 50 °C. Specifically, the rock sample was frozen to various sub-zero temperature levels and then submitted to the NMR tests at those temperatures. Since the rock itself and ice have no NMR signals during the tests, the intensity of the detected NMR signals can reflect the unfrozen water content in the sample. Figure 18 presents the curves of the NMR signal intensity against pore size of the saturated sample at different temperatures. According to Tang et al. (2016) and Weng et al. (2018), the pores with a size smaller than 100 nm were categorized as small pores, while those with a size larger than 100 nm were categorized as large pores. It can be seen from Fig. 18 that the curves of the signal intensity mainly consists of two peaks, which define the small pores and large pores. With the drop in the temperature from 18 to − 50 °C, the peak value of the signal intensity corresponding to the small pores decreases significantly, indicating that the unfrozen water content in small pores decreases. Nevertheless, the signal intensity corresponding to the large pores shows a huge decrease when the temperature decreases from 18 to − 5 °C, but shows an unapparent decrease or increase tendency when the temperature further decreases from − 5 to − 50 °C. This phenomenon indicates that at − 5 °C, most of the water in large pores has been frozen into ice. Nevertheless, at such a temperature, the rock exhibits much higher strength and stiffness compared to those at room temperature. Figure 19 explicitly shows the variations in the total water and ice contents against the ambient temperature. It can be clearly seen that when the temperature drops from − 5 to − 50 °C, the ice content increases from 53.8 to 89.7% due to the fact that more amount of pore water (particularly those water in small pores) is frozen. During the water/ice phase transition process, a 9% volume expansion will be theoretically expected, which is the cause for either the increase or decrease in rock strength, depending on the critical water content (i.e., theoretically 91%) according to Ince and Fener (2016) and Shen et al. (2018). As illustrated in Sect. 5.3, the saturated sample gets the highest strength at the temperature of − 30 °C; whereas at such a temperature, the ice content is 79.3% observed from Fig. 19. The experimental results indicate that exceeding such a critical ice content, for instance 85.9% at − 40 °C and 89.7% at − 50 °C, the rock will be damaged by the frost heave effect. In addition to this, the inconsistent shrinkage of mineral grains at low temperatures also contributes to the generation and propagation of new microcracks, and hence leading to deterioration of the rock strength and stiffness. These regimes are responsible for the decreases in the strength and stiffness of the specimens tested at the temperature of − 40 °C and − 50 °C.
+
+Fig. 18
+figure 18
+Curves of the NMR signal intensity against pore size of the saturated sample at different temperatures
+
+Full size image
+Fig. 19
+figure 19
+Variations in the water and ice contents against the ambient sub-zero temperature
+
+Full size image
+6 Conclusions
+In this study, the variations in the dynamic mechanical properties of dry and water-saturated siltstone specimens under different sub-zero temperatures and strain rates were discussed. Six ambient temperature including room temperature (18 °C), − 10 °C, − 20 °C, − 30 °C, − 40 °C and − 50 °C, and five levels of strain rate ranging from 60 to 230 s−11 were considered in the SHPB tests. Based on the experimental results, the following conclusions can be drawn:
+
+1.
+In terms of the dynamic stress–strain curves, the crack closure strain and plastic strain increase as the strain rate increases. Such tendencies are more significant for the dry specimens than for the saturated specimens. Further, the saturated specimens show a much shorter compaction phase due to the presence of the pore water or ice at sub-zero temperatures.
+
+2.
+For both the dry and saturated specimens, the Ed and UCSd monotonically increase with the increase in the strain rate. However, the dry specimens are more sensitive to the strain rate with respect to the UCSd. The Ed and UCSd of the saturated specimens are obviously lower than those of the dry specimens, irrespective of the ambient temperature and strain rate.
+
+3.
+Regarding the temperature effect, the Ed and UCSd first increase with the decrease in the temperature from 18 to − 30 °C, and then decrease with a further drop in the temperature from − 30 to − 50 °C. Alternatively, the specimens, either dry or saturated, can sustain the highest Ed and UCSd at the temperature of − 30 °C.
+
+4.
+The mixed water/ice weakening and strengthening effects are responsible for the variations in the dynamic mechanical properties of siltstones. At the temperature of 0 °C to − 30 °C, the ice content reaches 79.3% out of the total pores, and the presence of the water/ice makes the rock more compact and harder. Nevertheless, as the temperature drops to − 40 and − 50 °C, the ice content is as high as 85.9% and 89.7%, respectively, sparing less room for the ice expansion and hence inducing new microcracks to the specimens. The inconsistent shrinkage of mineral grains, enhancement of the ice strength and interaction of the water/ice mixture at sub-zero temperatures all contribute to the decrease or increase in the rock strength and stiffness.
+
+Using the NMR method, to quantify the ice content and the low temperature threshold for inducing microcracks of the water-saturated rocks at sub-zero temperatures will be the aim of our follow-up study.
+
+Abbreviations
+ :
+Cross-sectional area of the bar
+
+ :
+Cross-sectional area of the specimen
+
+ :
+P-wave velocity in the bar
+
+ :
+Specific heat of the specimen
+
+ :
+Diameter of the specimen
+
+ :
+Dynamic elastic modulus of the bar
+
+ :
+Dynamic elastic modulus of the specimen
+
+ :
+Length of the specimen
+
+s :
+Radial distance
+
+t :
+Required time to achieve an isothermal equilibrium
+
+T :
+Ambient temperature
+
+ :
+Environmental chamber temperature
+
+ :
+Desired temperature at which the specimen was tested
+
+ :
+Initial temperature of the specimen
+
+ :
+Crack closure strain
+
+ :
+Elastic strain
+
+ :
+Plastic strain
+
+ :
+Incident strain
+
+ :
+Reflected strain
+
+ :
+Transmitted strain
+
+ :
+Strain rate
+
+ :
+Dynamic stress equilibrium factor
+
+ :
+Temperature gradient ratio
+
+ :
+Thermal conductivity of the specimen
+
+ :
+Density of the specimen
+
+ :
+Incident stress
+
+ :
+Reflected stress
+
+ :
+Transmitted strain
+
+BTS:
+Brazilian tensile strength
+
+COD:
+Coefficient of determination
+
+ISRM:
+International Society for Rock Mechanics
+
+LN2 :
+Liquid nitrogen
+
+NMR:
+Nuclear magnetic resonance
+
+PLS:
+Point load strength
+
+SG:
+Strain gauge
+
+SHPB:
+Split Hopkinson pressure bar
+
+UCS:
+Uniaxial compressive strength
+
+UCSd :
+Dynamic uniaxial compressive strength
+
+XRD:
+X-ray diffraction

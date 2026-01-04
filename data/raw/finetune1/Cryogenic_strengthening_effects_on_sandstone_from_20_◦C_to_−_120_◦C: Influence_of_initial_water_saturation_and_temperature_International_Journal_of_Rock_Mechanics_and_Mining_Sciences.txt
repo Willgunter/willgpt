@@ -1,0 +1,625 @@
+ABSTRACT
+The underground storage of liquefied natural gas (LNG) is an emerging concept aimed at large-scale natural gas
+storage. A comprehensive understanding of rock mechanics at ultra-low temperatures is essential for the safe and
+efficient design of such storage facilities. This study conducted uniaxial compression tests on sandstones at
+temperatures ranging from 20 ◦C to − 120 ◦C to assess the effects of temperature and initial water saturation prior
+to freezing on their mechanical properties. Results indicate that sandstone strength increases progressively as
+temperatures decline under varying water saturation conditions. At − 40 ◦C and − 80 ◦C, the sandstone initially
+weakens at low water saturation levels but strengthens as saturation rises further. In contrast, at − 120 ◦C,
+strength correlates positively with higher initial water saturation, with fully saturated samples exhibiting a 425
+% strength enhancement compared to water-saturated sandstone tested at 20 ◦C. Micro-CT imaging indicates
+minimal changes in pore structure at − 120 ◦C, suggesting negligible frozen damage to the sandstone. The significant strengthening observed at ultra-low temperatures can be attributed to three main factors: (1) the
+enhanced mechanical properties of rock minerals at low temperatures, as confirmed by in-situ nanoindentation;
+(2) increased ice strength with decreasing temperature, allowing ice to bear compressive loads; and (3) the
+prestress provided by ice expansion to surrounding rock minerals, placing them in a multiaxial stress state that
+significantly enhances strength. These results suggest that rock strength, particularly under water-saturated
+conditions, improves substantially at ultra-low temperatures, which is advantageous for underground LNG
+storage applications.
+1. Introduction
+Liquefied natural gas (LNG), being increasingly favoured compared
+to non-clean energy such as coal and oil, is expected to play a more
+important role in the future energy system.1 Thus, the demand for LNG
+has rapidly increased in Europe, America and Asia.2,3 This trend is
+particularly evident in China, where the net LNG import is projected to
+grow significantly by 2050, approximately doubling from current levels
+to 120–130 million tonnes.4 This increase in LNG import draws attention
+to the problem of storage. Because ground tanks require a large area of
+land for construction and disaster prevention,5 this storage method is
+not the best, especially in urban or coastal regions where space is
+limited. Thus, significant interest has been attracted in recent years to
+the possibility of the storage of LNG in underground rock caverns.6,7
+Underground rock caverns provide larger storage capacity with lower
+construction and operational costs than traditional above-ground tanks,
+which is crucial for meeting peak energy demands.
+However, during underground LNG storage, due to the ultra-low
+temperature of LNG reaching − 162 ◦C, the surrounding rock temperatures at the storage site can be reduced to a range between − 50 ◦C and
+− 162 ◦C because of thermal conduction.6 Meanwhile, the rock surrounding the cavern needs to be drained during the first phase of construction to prevent unacceptable hydrostatic pore pressure and ice
+formation behind the cavern lining.8 The formation of ice ring due to
+cooling after LNG storage can be used as additional sealing barrier
+against LNG leakage (Fig. 1). The water saturation of the rock surrounding the cavern gradually increases from the pre-drained zone towards the fully saturated zone before freezing. Therefore, predicting
+how mechanical properties of frozen rocks with different initial water
+saturations will behave under ultra-low temperatures is essential to
+avoid leakage and ensure the long-term safety of storage sites.
+Since the 1970s, researchers have conducted extensive studies on the
+* Corresponding author.
+E-mail address: guowei.ma@hebut.edu.cn (G. Ma).
+Contents lists available at ScienceDirect
+International Journal of Rock Mechanics and Mining Sciences
+journal homepage: www.elsevier.com/locate/ijrmms
+https://doi.org/10.1016/j.ijrmms.2025.106183
+Received 7 March 2025; Received in revised form 24 May 2025; Accepted 12 June 2025
+International Journal of Rock Mechanics & Mining Sciences 194 (2025) 106183
+Available online 27 June 2025
+1365-1609/© 2025 Published by Elsevier Ltd.
+strength of different types of rocks at low temperatures. Rocks, including
+sandstone, limestone, granite, basalt, marble, andesite and tuff, are
+generally strengthened after freezing.5,9–14 The mechanical properties of
+rocks, including uniaxial compressive strength, tensile strength, and
+Young’s modulus, are reported to increase after freezing compared to
+those at room temperature.
+However, most previous research mainly focuses on mechanical
+properties of frozen rocks at temperatures above − 50 ◦C,15–21 whereas
+the research under ultra-low temperatures (referring to extremely low
+temperatures below − 100 ◦C22) conditions has mainly focused on both
+dry and saturated conditions.5,9,10,12,23 The strength variation of rocks
+with different water saturation at ultra-low temperatures is not
+well-defined. Fig. 2 summarizes up-to-date previous studies of strength
+variation of rocks at ultra-low temperatures. Mellor10 indicated that the
+strength of sandstone, limestone, and granite slightly increased as the
+temperature decreased under dry conditions, whereas in saturated
+conditions, all three types of rocks showed a significant increase in
+strength as the temperature decreased. However, after − 120 ◦C, the
+strength of all three rocks decreased. Inada and Yokota5 revealed that
+rock strength with varying water saturation levels increased almost
+linearly with decreasing temperature. Interestingly, rocks with higher
+water content had lower strength compared to those with less water
+content under the same conditions. Wang23 showed minimal strength
+variation for sandstone and dry tuff, but a significant increase in the
+strength of saturated tuff, highlighting the impact of water content on
+the mechanical properties of rocks under low temperatures. Conversely,
+Zhang et al.12 showed that when the temperature dropped from room
+temperature to − 180 ◦C, the strength enhancement of both saturated
+and dry sandstone was not significant. In summary, rock strength in
+general increases at ultra-low temperatures, but the strengthening effects vary with rock types. Moreover, the influence of initial water
+saturation on frozen rocks at ultra-low temperatures remains unclear.
+It is well known that water has weakening effects on the mechanical
+properties of rocks.24 However, the situation becomes complex when
+rock freezes at different low temperatures and with different compositions in pores (ice, air, and unfrozen water inside). Three key questions
+remain unsolved: 1) how the mechanical properties of rocks vary with
+different initial water saturation from room temperature to ultra-low
+temperatures, 2) what roles unfrozen water and ice play on rock
+strength at different low temperatures, and 3) what are the microscopic
+mechanisms of these influences.
+In this study, we investigated the effects of both temperature (from
+20 ◦C to − 120 ◦C) and initial water saturation (eleven saturation levels
+from 0 % to 100 %) on the mechanical properties of frozen sandstones.
+Moreover, the hardness variations of single rock minerals were
+measured by in-situ nanoindentation at ultra-low temperatures. Thermal
+strain observed under these conditions using microscopy was also analysed. Computed tomography (CT) was used to analyze the changes in
+pore structure and damage situation of sandstones before and after the
+ultra-low temperature treatment. The potential roles of unfrozen water
+weakening effects as well as the ice strengthening and damage effects on
+mechanical properties were discussed. The results are of great significance to the evaluation of the surrounding rock stability of underground
+LNG storage and provide suggestions for their safety design.
+2. Material and methods
+2.1. Sample preparation
+The sandstone samples used in the test were sourced from Yaan City,
+Sichuan Province of China, and exhibited a reddish-brown colour. To
+minimize differences in the original parameters of different sandstone
+samples, all samples were taken from the same intact rock block. The
+average porosity and dry density of the samples are 7.64 % and 2.39 g/
+cm3
+, respectively, and the properties of the dry sandstone are shown in
+Table 1. X-ray diffraction analysis (Fig. 3) reveals that the primary
+mineral components are quartz and albite, with minor amounts of
+calcite and other minerals. According to the recommendations of the
+International Society for Rock Mechanics and Rock Engineering, the
+rock samples were prepared as standard cylindrical samples with dimensions of Φ50 × 100 mm. The diameter deviation along the sample
+height does not exceed 0.3 mm, and the end-face distance deviation does
+not exceed 0.05 mm.
+In this study, samples with varying water saturation levels were
+prepared under four different temperature conditions: 20 ◦C, − 40 ◦C,
+− 80 ◦C, and − 120 ◦C. For each temperature, 11 groups of samples were
+created with water saturation levels ranging from 0 % to 100 % with 10
+% increment. Each group consisted of 5 samples with a total of 220
+samples.
+The samples were first dried by placing them in an oven at 105 ◦C for
+12 h. After drying, samples were taken from the oven and weighed after
+cooled to room temperature in a desiccator. After that, samples were
+submerged in water within a vacuum chamber. A vacuum pressure of
+100 kPa was applied for 12 h until no bubbles were observed on the
+sample surface. The pressure was then released, and the samples were
+saturated for another 12 h before their weight was recorded.
+The porosity of the samples was calculated using the dry and saturated weights. The mass of each sample corresponding to its water
+saturation level was determined. Fully saturated samples were prepared
+using the vacuum saturation method, while samples with high water
+saturation levels were partially dried in a well-ventilated area, weighed
+every 30 min until the desired saturation was achieved. For samples with
+lower water saturation levels, an oven at 80 ◦C was used, with weights
+Fig. 1. Schematic diagram of underground LNG storage.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+2
+recorded every 30 min until the required mass was reached. The preparation of fully dry samples followed the same drying procedure. After
+preparation, all samples were tightly wrapped in plastic wrap and
+sealed, then left to equilibrate for 10 d at room temperature to ensure
+uniform moisture distribution.
+2.2. Ultra-low temperature treatment
+The samples wrapped in cling film were placed in a cryogenic freezer
+(Guangdong Aoxue DW-150W42) for low-temperature pre-treatment.
+Before treating the samples, the temperature inside the freezer was
+calibrated, as shown in Fig. 4a. A rock sample of Φ50 × 100 mm was
+drilled at the center of its end face to a depth of 50 mm, where a T-type
+thermocouple was embedded. The hole was filled with a mix of rock
+powder and concrete, and after drying, another T-type thermocouple
+was attached to the sample’s surface. The sample was then wrapped in
+cling film.
+During calibration, a thermocouple was also attached to the inner
+wall of the freezer, which was then cooled to the corresponding testing
+temperatures. The cooling curves for the freezer wall, sample surface,
+and sample core are shown in Fig. 4b. Initially, the freezer wall cooled
+faster than the rock, with a temperature difference of about 25 ◦C. The
+temperature difference between the rock surface and core was less than
+3 ◦C, narrowing as the target temperature was approached. Due to the
+thermal insulation provided by the cling wrap and heat loss in the
+freezer, the temperature difference between the sample core and the
+freezer wall stabilized at around 8 ◦C. It took over 8 h for the samples to
+cool to − 120 ◦C, thus they were placed in the freezer 12 h in advance
+before uniaxial compression tests to ensure thorough cooling. The
+temperature treatment paths of the samples in the tests at different
+temperatures are shown in Fig. 4c.
+2.3. In-situ uniaxial compression tests at ultra-low temperatures
+The uniaxial compression strength tests were conducted using the
+electro-hydraulic servo control testing system at Hebei University of
+Technology, Tianjin (Fig. 5). The equipment is computer-controlled,
+with a maximum load capacity of 600 kN, load control precision of
+10− 6 kN, and displacement control precision of 10− 4 mm. A lowtemperature chamber, using liquid nitrogen cooling, was installed
+around the equipment, allowing temperature control from room temperature down to − 180 ◦C. For room temperature tests, the lowtemperature chamber was not used. For low-temperature tests, the
+Fig. 2. The uniaxial compression strength (UCS) variation of rocks at ultra-low temperatures. (a) Dry and saturated sandstone and tuff23; (b) Naturally dry and
+water-wetted andesite and two types of granite5
+; (c) Dry and saturated sandstones, granites and limestone10; (d) Dry and saturated sandstone.12.
+Table 1
+Properties of sandstone samples.
+Properties Density (g/
+cm3
+)
+Porosity
+(%)
+UCS
+(MPa)
+Young’s modulus
+(GPa)
+Value 2.39 7.64 73.45 6.94
+Fig. 3. X-ray diffractogram and mineralogical composition of the sandstone.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+3
+chamber was first cooled to the target temperature. The rock samples,
+taken from the cryogenic freezer and stripped of cling wrap, were placed
+at the center of the loading platform. The chamber was then sealed, and
+the loading axis was adjusted to contact the rock surface, maintaining
+this setup for a period to minimize the impact of temperature loss during
+sample transfer on the testing results.
+One rock sample with a thermocouple inside was placed in the lowtemperature chamber. The loading program was initiated once both the
+temperature of chamber and the calibration sample reached the target
+temperature. In accordance with ISRM recommendations, all samples
+were loaded at a constant rate of 0.2 mm/min. During the test, loaddisplacement data and failure modes of the samples were recorded.
+2.4. Microscopic experiments
+2.4.1. In-situ nanoindentation tests at ultra-low temperatures
+The pure mineral samples of quartz, calcite, and feldspar were
+sequentially ground into thin slices of 5 × 5 × 0.8 mm using 450 mesh,
+800 mesh, and 1200 mesh sandpapers. The samples were then polished
+to a mirror finish using alumina suspension (0.5 μm) and polishing cloth,
+followed by ultrasonic cleaning. The tests were conducted on a nanoindenter (Bruker TI 980) equipped with a low-temperature environmental chamber and cooling/heating stage (Fig. 6). The temperature of
+the cooling/heating stage is regulated through a combined system of
+liquid nitrogen cooling and resistance heating elements, operating from
+− 120 ◦C to 600 ◦C with a precision of ±0.001 ◦C. The testing temperature was the same as that used in the uniaxial tests, and six indentation
+points were selected for each mineral under each temperature condition.
+The sample holder was fixed on the stage, and the relative position of the
+load head and microscope was calibrated before the room temperature
+test, while also performing an air calibration to prevent interference
+Fig. 4. Ultra-low temperature treatment of samples. (a) The schematic of the temperature measurement setup; (b) Measured cooling curves of the cryogenic freezer
+as well as the rock surface and center; (c) The temperature treatment paths at different temperatures.
+Fig. 5. In-situ ultra-low temperature compression testing system.
+Fig. 6. Schematic diagram of in-situ nanoindenter at ultra-low temperatures.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+4
+with the pressure sensor. The indenter was adjusted to ensure it was
+level with the sample surface, and the smoothness of the sample surface
+was checked to meet the testing requirements.
+During the test, a maximum load of 10 mN was applied to quartz and
+feldspar, and a maximum load of 6 mN was applied to calcite. The
+loading scheme was as follows: load for 5 s, hold for 2 s, and unload for 5
+s. Before the low-temperature tests, the environmental chamber was
+sealed, and the cooling stage was filled with liquid nitrogen to lower the
+temperature to the testing conditions. Simultaneously, low-temperature
+nitrogen was introduced into the environmental chamber to cool the
+load head, thereby preventing excessive temperature differentials between the sample and the loading apparatus. The indenter was adjusted
+to make initial contact with the sample to ensure that the indenter and
+sample reached thermal equilibrium, while maintaining a drift rate of
+the indenter less than 2 nm/s. The indentation hardness can be derived
+from the O&P method25 and the calculation method can be found
+elsewhere.26
+2.4.2. X-ray micro-CT imaging
+The sandstone sample was polished into a cubic shape with dimensions of 5 × 5 × 10 mm. After ultrasonic cleaning and drying, it was
+scanned using YXLON FF35 X-ray micro-CT. The scanning parameters
+for the X-ray tube are shown in Table 2. The same sample was scanned
+three times: dry sample before freezing, sample after freezing at dry
+condition, and sample after freezing at water-saturated condition. The
+freezing conditions involved wrapping the sample in plastic wrap and
+placing it in a freezer at − 120 ◦C for 24 h. The sample was then removed,
+allowed to return to room temperature, and dried. CT images and pore
+structure changes in the same area of the sample before and after
+freezing were compared.
+2.4.3. In-situ DIC tests at ultra-low temperatures
+In-situ digital image correlation (DIC) under an optical microscope
+was used to analyze the thermal strain of sandstone samples at ultra-low
+temperatures. The sandstone sample was polished into thin slices of 10
+× 10 × 1 mm, then ultrasonically cleaned, dried, and saturated. One side
+of the sample was coated with white primer and sprayed with fine black
+speckles, then stored in an airtight environment for later use. An optical
+microscope (Emspira 3, Leica, Germany) equipped with a cooling stage
+(Instec, USA) was used to photograph the sample (Fig. 7). The sample
+was placed in the center of the cold stage, sealed, and nitrogen gas was
+introduced to prevent internal water vapor from forming frost. The cold
+stage was cooled using liquid nitrogen, adjusted to the desired test
+temperature (20 ◦C to − 160 ◦C), and held for 10 min to ensure uniform
+temperature across the sample. During testing, nitrogen gas was
+continuously blown onto the cold stage window to prevent frost from
+affecting the results. A photograph was taken at room temperature
+(20 ◦C) as the deformation starting point. At other temperatures, five
+consecutive photos were taken at 30-s intervals. VIC-2D software was
+used to analyze the captured images and calculate the thermal strain of
+the sandstone at different temperatures.
+3. UCS test results
+3.1. Stress-strain curves of sandstones at different temperatures
+The typical stress-strain curves of rock samples under uniaxial
+compression can generally be divided into four stages: initial compaction stage, linear elastic stage, plastic yielding stage, and post-peak
+failure stage. Some of the testing results are shown in Fig. 8. At room
+temperature, the stress-strain curves of sandstone exhibit the characteristics of typical curves, with a distinct compaction stage and a relatively long linear deformation stage. This is because the sandstone
+samples used in the test have a high porosity, making the compaction
+stage more pronounced. Meanwhile, the yielding stage is shorter, and
+the post-peak failure is abrupt. Most samples fail directly in the linear
+elastic stage, indicating high brittleness of the sandstone with almost no
+plastic deformation. Saturated sandstone is significantly affected by
+water weakening, making the yielding stage more pronounced.
+As the temperature decreases, the linear elastic stage of the rock
+samples progressively lengthens, while the yielding stage gradually
+shortens. At − 120 ◦C, there is almost no yielding stage, and failure occurs directly from the elastic stage. This is because, in water-containing
+sandstone below 0 ◦C, the phase transition of water in the pores leads to
+expansion, causing overall rock expansion and increased strain for pore
+closure. At the same time, the rock’s brittleness increases, making brittle
+failure more likely. As the temperature continues to drop, the contraction of the rock combined with the expansion due to the ice phase
+transition fills the pores with ice, making the rock more compact overall.
+The compaction stage shortens, and the overall brittleness of the rock
+increases, resulting in a shorter yielding stage.
+3.2. Mechanical properties of sandstones at different temperatures
+The mean and standard deviation of UCS, Young’s modulus, and
+peak strain of the sandstone samples calculated from the measured
+stress-strain curves for each temperature and saturation condition are
+shown in Table 3.
+Fig. 9a shows that the uniaxial compressive strength (UCS) of
+sandstone at room temperature decreases initially and then gradually
+stabilizes as water saturation increases. When the water saturation increases from 0 to 50 %, the average UCS of sandstone decreases from
+73.4 MPa to 48.4 MPa, a reduction of 34 %, and then stabilizes around
+50 MPa. This decline is due to the weakening effect of water on the
+sandstone, leading to a reduction in strength. The changes in Young’s
+modulus and peak strain follow a trend similar to the change in UCS.
+Under − 40 ◦C conditions, the UCS of sandstone exhibits an initial
+slow decrease followed by an increase as water saturation rises. When
+water saturation increases from 0 to 30 %, the strength of sandstone
+Table 2
+Scanning parameters of micro-CT.
+Scanning parameters Specifications
+X-ray energy 135 kV
+X-ray current 50 μA
+Total number of projections 3000
+Acquisition time 80 min
+Pixel size 5.9 μm
+Source-to-sample distance 25 mm
+Source-to-detector distance 700 mm
+Fig. 7. Schematic of in-situ micro-DIC tests at ultra-low temperatures.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+5
+decreases from 73.9 MPa to 63.3 MPa, a reduction of 13.9 %. Subsequently, the strength significantly increases until full saturation. The
+average strength of saturated sandstone is about 58 % higher than in the
+dry state. When water saturation is low, ranging from 0 to 50 %, the
+elastic modulus follows a similar trend to the strength. Beyond 50 %
+saturation, the elastic modulus stabilizes and does not increase along
+with the sandstone strength. The peak strain’s trend generally aligns
+with strength, increasing by 43.2 % under saturated conditions
+compared to the dry state.
+At − 80 ◦C, the strength of sandstone shows a three-stage variation
+with increasing water saturation: a slight decrease, a substantial increase, and then stabilization. When water saturation increases to 10 %,
+20 %, and 30 %, the strength decreases by 15 %, 13.3 %, and 7 %,
+respectively. When water saturation reaches 70 %, the average strength
+of sandstone reaches 176.3 MPa, an 80.4 % increase compared to the dry
+state, and stabilizes around 174 ± 5 MPa. The elastic modulus at this
+stage does not significantly change with water saturation, while peak
+strain maintains a strong correlation with UCS at lower water saturations. However, when water saturation exceeds 60 %, peak strain continues to increase.
+At − 120 ◦C, the strength, elastic modulus, and peak strain of sandstone all continuously increase with rising water saturation. The average
+strength of saturated sandstone reaches 263.6 MPa, a 71.4 % increase
+compared to the dry state, which is 3.6 times the strength of dry sandstone at room temperature and 5.2 times the strength of sandstone with
+the same saturation level at room temperature. The elastic modulus
+generally shows an increasing trend, correlating well with the strength,
+while peak strain increases initially and then levels off.
+4. Discussion
+4.1. Effects of water-weakening on rock mechanical properties
+Water in sandstone can react physico-chemically with the mineral
+components, increasing pore pressure and decreasing grain friction,
+which leads to a reduction in rock strength.27 Firstly, the presence of
+water causes the strong Si-O bonds in silicate minerals like quartz to
+transform into weaker hydrogen bonds.27,28 Carbonate minerals like
+calcite29 can dissolve in water, and the swelling of clay minerals30 due to
+water absorption can expand microcracks and generate new ones. Secondly, during uniaxial compression testing, water in poorly connected
+pores cannot be expelled quickly, leading to increased pore pressure,
+which promotes the expansion and formation of microcracks.31,32
+Lastly, as water saturation increases, the surface of minerals attracts
+water molecules, forming a thin water film with low frictional strength.
+This reduces the friction coefficient at grain boundaries, facilitating the
+initiation and sliding of shear cracks, further reducing rock strength.33
+Extensive research indicates that the effect of water-weakening
+significantly reduces the mechanical properties of rocks, including
+UCS and Young’s modulus, which aligns with our test results.34,35 Many
+researchers, such as Bell,36 have demonstrated that the strength reduction due to water presence is proportional to the rock’s porosity. However, this conclusion is quite broad, as different types of rocks are
+affected by water weakening to varying extents.
+Shakoor and Barefield37 collected nine sandstone samples from
+different locations in Ohio and Pennsylvania, testing the UCS of each
+sandstone at various water saturations. Regression analysis of the results
+showed that sandstone strength decreases approximately linearly with
+increasing water saturation. Cheng et al.38 measured the UCS of sandstone after different soaking times and fitted the strength change with
+water content using a linear relationship. Chen et al.39 prepared sandstone samples with different water contents using two soaking methods,
+finding that the strength reduction pattern varied with water distribution but was not linear in either case. In an earlier study,34 test results
+indicated a two-stage reduction in sandstone strength with water content: a rapid decrease when water content increased from 0 to 1.5 %,
+followed by a slower decline as water content continued to rise.
+Fig. 10 illustrates the trend of strength variation with water content
+for the samples tested in this study. We fitted the test results using both a
+two-stage linear model and an exponential model, with R2 values of 0.51
+and 0.7, respectively. This suggests that sandstone strength is more
+significantly affected by water weakening at lower water contents, and
+as water content increases, the strength gradually stabilizes, with the
+weakening effect approaching a threshold.
+Fig. 8. Stress-strain curves of the red sandstone at different temperatures. (For interpretation of the references to colour in this figure legend, the reader is referred to
+the Web version of this article.)
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+6
+4.2. Mechanisms of strengthening effect in frozen sandstone at ultra-low
+temperatures
+Fig. 11 shows that the strength of sandstone increases as the temperature decreases, with the magnitude of enhancement being greater at
+higher water saturations. Water-saturated sandstone exhibits a significant strength increase under ultra-low temperature conditions. A
+sharper increase is observed after − 80 ◦C and the strength of saturated
+sandstone at − 120 ◦C is 5.3 times that of saturated samples at room
+temperature. This phenomenon results from the combined effects of
+multiple factors. In this section, we will discuss the changes in sandstone
+strength under the dual influence of temperature and water saturation
+and the underlying mechanisms.
+4.2.1. Effects of mineral strengthening at ultra-low temperatures
+Fig. 11 shows that as the temperature decreases from room temperature to − 120 ◦C, the strength of dry sandstone can double. Additional test results10,12 indicate that under ultra-low temperatures, the
+strength of dry sandstone can increase by 20–80 %. This suggests that
+the intrinsic strength of dry sandstone slightly increases as the temperature drops, and that changes in the mechanical properties of the mineral grains within it cannot be ignored. However, calcite, feldspar, and
+other minerals are generally small and irregular particles, it is difficult to
+Table 3
+UCS test results.
+Temperature
+(◦C)
+Water
+saturation
+(%)
+UCS (MPa) Young’s
+modulus
+(GPa)
+Peak strain
+(%)
+20 0 73.45 ± 8.63 6.94 ± 0.28 1.35 ± 0.06
+10 64.69 ± 1.58 7.23 ± 0.44 1.25 ± 0.11
+20 60.64 ± 6.15 6.63 ± 0.12 1.21 ± 0.09
+30 58.12 ± 1.58 6.60 ± 0.08 1.24 ± 0.03
+40 55.52 ± 1.12 6.57 ± 0.08 1.23 ± 0.13
+50 48.45 ± 3.83 6.22 ± 0.21 1.16 ± 0.04
+60 54.25 ± 2.67 6.66 ± 0.09 1.09 ± 0.05
+70 54.53 ± 4.44 6.67 ± 0.14 1.08 ± 0.05
+80 50.25 ± 1.25 6.50 ± 0.08 1.10 ± 0.07
+90 54.16 ± 1.77 6.47 ± 0.07 1.08 ± 0.08
+100 50.25 ± 7.32 6.28 ± 0.32 1.07 ± 0.08
+− 40 0 73.89 ± 6.62 6.84 ± 0.26 1.59 ± 0.10
+10 81.50 ± 2.40 7.15 ± 0.08 1.50 ± 0.12
+20 71.72 ± 3.16 6.82 ± 0.16 1.55 ± 0.02
+30 63.63 ± 6.94 6.54 ± 0.24 1.48 ± 0.13
+40 65.63 ± 10.59 6.41 ± 0.41 1.54 ± 0.17
+50 89.72 ± 10.62 7.09 ± 0.13 1.77 ± 0.20
+60 85.82 ± 8.14 6.88 ± 0.18 1.75 ± 0.21
+70 90.61 ± 4.12 7.10 ± 0.16 1.85 ± 0.13
+80 107.18 ± 7.24 7.10 ± 0.10 2.00 ± 0.12
+90 112.76 ± 7.14 6.84 ± 0.08 2.18 ± 0.17
+100 116.61 ± 4.54 6.86 ± 0.08 2.27 ± 0.12
+− 80 0 97.71 ± 4.81 7.01 ± 0.25 1.87 ± 0.06
+10 83.01 ± 18.79 6.49 ± 0.69 1.63 ± 0.18
+20 84.69 ± 10.28 7.11 ± 0.25 1.60 ± 0.10
+30 90.89 ± 17.13 6.76 ± 0.15 2.02 ± 0.36
+40 114.02 ± 15.81 7.36 ± 0.22 2.07 ± 0.26
+50 127.68 ± 26.19 7.28 ± 0.35 2.20 ± 0.13
+60 154.60 ± 27.45 7.50 ± 0.16 2.55 ± 0.36
+70 176.29 ± 4.70 7.30 ± 0.07 2.86 ± 0.19
+80 179.82 ± 7.50 7.35 ± 0.20 2.99 ± 0.10
+90 169.03 ± 9.19 7.32 ± 0.11 2.99 ± 0.11
+100 174.08 ± 13.15 7.23 ± 0.23 3.13 ± 0.08
+− 120 0 153.80 ± 9.26 7.97 ± 0.14 2.40 ± 0.18
+10 163.12 ± 24.36 8.52 ± 0.47 2.40 ± 0.26
+20 183.66 ± 14.60 8.49 ± 0.34 2.79 ± 0.34
+30 186.01 ± 17.22 8.76 ± 0.18 2.64 ± 0.11
+40 199.57 ± 22.48 8.43 ± 0.18 2.94 ± 0.23
+50 217.35 ± 18.48 8.68 ± 0.49 3.06 ± 0.36
+60 213.06 ± 16.57 9.14 ± 0.60 2.99 ± 0.38
+70 231.23 ± 31.19 8.63 ± 1.31 3.11 ± 0.18
+80 257.93 ± 18.54 9.86 ± 0.35 3.06 ± 0.17
+90 255.24 ± 29.29 9.79 ± 0.50 3.03 ± 0.42
+100 263.62 ± 22.16 10.20 ± 0.23 3.10 ± 0.23
+Fig. 9. Variations of UCS, Young’s modulus, and peak strain of sandstone with
+water saturation at (a) 20 ◦C, (b) − 40 ◦C, (c) − 80 ◦C, and (d) − 120 ◦C.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+7
+directly measure their strength, Therefore, the strength of minerals is
+often estimated indirectly by measuring the hardness in engineering
+practice.40–42 To investigate this, nano-indentation tests were conducted
+on the primary mineral components of the tested sandstone under
+ultra-low temperature conditions, with the results also shown in Fig. 12.
+When the temperature decreased from room temperature to − 120 ◦C,
+the hardness of calcite, quartz, and feldspar increased by 56 %, 19 %,
+and 10 %, respectively, and the elastic modulus increased by 8 %, 13 %,
+and 1 %, respectively. This indicates that the strengthening of dry
+sandstone under low temperatures partially stems from the reinforcement of its mineral grains.
+4.2.2. Effects of ice strengthening at ultra-low temperatures
+Existing measurements indicate that,10 compared to dry sandstone,
+the strength enhancement of saturated sandstone under ultra-low temperature conditions is more pronounced. In this study, when the temperature decreased to − 120 ◦C, the strength of saturated sandstone
+increased by 425 %, much higher than the 109 % increase in dry
+sandstone. Additionally, in granite with relatively lower water saturation, the strength only increased by 30–50 % at − 160 ◦C.5 This suggests
+that the phase transition of pore water to ice is one of the key factors for
+the strength enhancement of water-saturated rocks.
+The strength of ice itself increases exponentially as the temperature
+decreases. Uniaxial compressive strength measurements of ice were
+conducted at different temperatures and loading rates,43 with the results
+shown in Fig. 13. At − 10 ◦C, the strength of ice was relatively low across
+all loading rates. As the temperature decreased and the loading rate
+increased, the strength of the ice increased quickly, reaching a peak
+strength over 60 MPa. Furthermore, due to the high porosity and good
+pore connectivity of the sandstone, ice can migrate within the pores to a
+large extent during freezing, leading to a more uniform distribution.
+This ice can fill the pores of the sandstone and serve as a framework,
+reinforcing the sandstone at the structural level.
+Ice can also act as a binder between mineral grains. Studies have
+shown that when the temperature decreases from − 10 ◦C to − 50 ◦C, the
+shear strength of the ice-rock interface with different interface roughness can increase by 20–50 %.44 As the temperature continues to
+decrease, the pore ice can enhance the crack initiation strength and
+crack propagation strength, as well as increase the friction between
+mineral particles, thereby improving the rock’s failure strength.
+Fig. 10. The strength variation with water content of the samples.
+Fig. 11. (a) Relationship of sandstone strength with temperature and water saturation; (b) Relationship between sandstone strength and water saturation at different
+temperatures; (c) Relationship between strength and temperature of sandstone at different water saturation levels.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+8
+4.2.3. Effects of expansion induced by water-ice phase transition
+During the freezing process, water undergoes approximately 9 %
+volume expansion. When the initial saturation in a confined space exceeds 91 %, the increase in volume due to the phase transition of water is
+restricted, leading to a rise in ice pressure. When ice forms within a pore,
+the expansion-resulted internal pressure can initiate cracks. Meanwhile,
+ice-filled pore networks of a rock, which can offer additional loadcarrying capacity in addition to rock minerals themselves, increase
+rock strength and stiffness. In other words, both strengthening and
+damaging effects exist for rock induced by ice formation.
+To determine the damaging effect on sandstone at ultralow temperatures (− 120 ◦C), a sandstone sample was CT scanned three times:
+dry sample before freezing, sample after freezing at dry condition, and
+sample after freezing at water-saturated condition (Fig. 14). No significant difference before and after freezing were found in the sandstone
+either in dry or saturated conditions. The CT-resolved porosities before
+freezing, after dry freezing, and after saturated freezing are 2.14 %, 2.14
+%, and 2.12 %, respectively. Moreover, the pore structure and connectivity remain largely unchanged after freezing (Fig. 14). The slight
+changes in pore connectivity are due to the closure of a few micropores
+and the formation of new ones. Thus, the strain induced by freezing
+expansion is primarily elastic, with a minor component of plastic strain.
+While plastic strain may accumulate and cause damage during freezethaw cycles, it is negligible during a single cycle of freezing.
+Therefore, in contrast to hydraulic fracturing, which promotes fracture expansion,45–47 thermal expansion of ice in frozen rock has obvious
+strengthening effects on rocks. A possible explanation is that the local
+compressive stress induced by the expansion of ice can provide prestress
+to the surrounding rock minerals, so that most regions of rock minerals
+are in a multiaxial stress state. This effect can be amplified with the
+decreasing temperature and the increasing water content. Under
+multiaxial stress conditions, the mechanical properties of rocks are
+improved.
+4.2.4. Effects of rock thermal deformation at ultra-low temperatures
+The DIC test results (Figs. 15 and 16) suggest a pronounced thermal
+deformation of the sandstone as the temperature decreases, and the
+difference in deformation characteristics between saturated and dry
+sandstone is obvious due to the expansion of the pore water phase
+transition. For dry sandstone, the contraction strain increases approximately linearly with decreasing temperature, and the contraction is
+relatively uniform and essentially isotropic in the x and y directions.
+Frozen contraction of the dry sandstone creates contraction stress within
+it, which increases the cohesion and intergranular friction of the sandstone and ultimately increases its strength.
+Instead, the thermal deformation of saturated sandstones at low
+temperatures exhibits a strong inhomogeneity. At the early stage of
+freezing (− 5 ◦C), the saturated sandstone produces local inhomogeneous expansion caused by the water-ice phase transition. Then, the
+expansion region continues to expand and reaches a maximum at
+− 20 ◦C, followed by linear contraction, reaching a balance between
+expansion and contraction around − 65 ◦C to − 85 ◦C. Subsequently, the
+contraction region gradually enlarges, but some regions remain in the
+expanded state up to − 160 ◦C. Contraction of water-bearing sandstones
+after freezing intensifies the multiaxial stress state between minerals,
+and the mechanical properties of sandstones are further improved.
+Moreover, the CT scans in Fig. 14 show that the internal pore distribution of the sandstone is inhomogeneous. The porous regions are more
+affected by the expansion of the water-ice phase transition and expand
+more significantly, while the relatively dense regions begin to contract
+shortly after freezing. The expanding and contracting regions are
+wrapped around each other, and the resulting interregional forces make
+the different regions more tightly embedded together, which also enhances the strength of the sandstone.
+In addition to phase transitions and sandstone contraction, ultra-low
+temperatures also induce changes in the crystalline structure of ice.
+Although crystalline ice has many phases, typically only the hexagonal
+phase (ice Ih) is stable under normal conditions.48 However, at temperatures below − 80 ◦C, a portion of ice Ih can transform into cubic ice
+(ice Ic). The coexistence of ice Ih and ice Ic leads to the formation of
+stacking disordered ice (ice Isd).49,50 Compared to hexagonal ice, cubic
+or stacking disordered ice is denser and occupies less volume, facilitating further contraction of the sandstone without significant damage.
+Therefore, the combination of the above factors results in a continuous
+increase in the strength of the water-bearing sandstone with decreasing
+temperature (Fig. 11c).
+Fig. 12. The variation of (a) hardness and (b) elastic modulus of sandstone minerals at different temperatures.
+Fig. 13. Strength of pure ice at different loading rates at low temperatures.43.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+9
+4.3. Influence of initial water saturation on frozen rock mechanical
+properties
+At temperatures of − 40 ◦C and − 80 ◦C, the strength of sandstone
+initially decreases slightly with increasing initial water saturation, then
+continuously increases as saturation continues to rise (Fig. 9). Factors
+influencing this behaviour may include the weakening effect of unfrozen
+water and the creation and expansion of nanopores during the freezing
+process. At low water saturation conditions, water fills smaller pores and
+corners (Fig. 17a). Additionally, the freezing point of pore water is
+influenced by pore size and surface curvature; smaller pores have higher
+surface tension, which lowers the freezing point of water,51 a
+phenomenon known as the Gibbs-Thomson effect.52 Nuclear magnetic
+resonance (NMR) test results show that although the unfrozen water
+content of porous media decreases to less than 10 % at − 5 ◦C,53–56 some
+water remains liquid at temperatures well below 0 ◦C. At temperatures
+as low as − 50 ◦C, about 3–7 % unfrozen water was also detected in
+sandstones,57 and even in small amounts in porous media at − 80 ◦C.58
+Furthermore, NMR testing results show that sandstone freezing also
+promotes the expansion and generation of nanopores (pore size: 10 nm)
+that exceed the CT resolution limit.59,60
+In contrast, for rocks with higher initial water saturation, larger
+pores are more likely to contain ice, and the strengthening effect of ice
+prevails (Fig. 17b). At − 120 ◦C, the strength continues to increase with
+higher initial water saturation, with no decline observed (Fig. 9d). This
+is because, at such low temperatures, less unfrozen water remains, and
+the ice-strengthening effect becomes dominant.
+5. Conclusions
+This study investigates the variation of frozen rock strength by
+conducting uniaxial compression tests on sandstones from 20 ◦C to
+− 120 ◦C and varying water saturation conditions. The effects of mineral
+and ice strengthening, water-ice phase transition, rock thermal deformation, (unfrozen) water weakening effects, and changes in pore
+structure on sandstone strength have been analysed in conjunction with
+microscopic experiments such as nanoindentation, DIC, and CT scans.
+The results provide a reference for the design and safety assessment of
+underground LNG storage projects. Major conclusions are as follows:
+• Increasing water saturation at room temperature nonlinearly degrades sandstone’s mechanical properties. UCS and Young’s
+modulus decrease by up to 30 % and 10 %, respectively, before
+stabilizing at higher saturation levels, reflecting the thresholddependent nature of water’s weakening effect.
+• Changes in the strength of frozen rock depend on both temperature
+and water saturation. As temperature decreases, the sandstone’s
+strength at different water saturation levels gradually increases, with
+Fig. 14. The micro-CT images and pore network of sandstone before and after freezing. (a) dry sample before freezing; (b) sample after freezing at dry condition, and
+(c) sample after freezing at water-saturated condition. Different colors indicate different pore clusters in pore network. (For interpretation of the references to colour
+in this figure legend, the reader is referred to the Web version of this article.)
+Fig. 15. Thermal deformation of dry and saturated sandstone from 20 ◦C
+to − 160 ◦C.
+G. Zhang et al. International Journal of Rock Mechanics and Mining Sciences 194 (2025) 106183
+10
+higher saturation levels exhibiting more pronounced enhancement.
+At − 40 ◦C and − 80 ◦C, sandstone experiences weakening at lower
+water saturation due to unfrozen water and nanopore formation
+during freezing. However, its strength resumes increasing as water
+saturation continues to rise. At − 120 ◦C, the weakening effect is
+counterbalanced by ice strengthening and mineral hardening,
+resulting in a consistent strength increase with higher water
+saturation.
+• Microscopic experiments indicate that at least three mechanisms are
+the main factors driving the strength enhancement of ultra-lowtemperature sandstones: 1) mineral hardening: in-situ nanoindentation confirms enhanced stiffness of rock minerals at low
+temperatures; 2) ice load resistance: high-strength ice directly bears
+external loads during initial compression; 3) prestress from ice
+expansion: ice formation induces confined multiaxial stress states in
+the mineral matrix, elevating macroscopic strength, and is further
+reinforced by the freezing contraction of the sandstone

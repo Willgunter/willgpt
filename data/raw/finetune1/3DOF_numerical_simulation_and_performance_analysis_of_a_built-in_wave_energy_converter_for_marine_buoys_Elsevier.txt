@@ -1,0 +1,242 @@
+1. Introduction
+Marine buoys are widely used in collecting marine environmental data and guiding maritime ship navigation, and are active in science, commerce, military, policy, and other fields (Centurioni et al., 2019; Branch et al., 2024). Buoys are usually powered by cables or batteries, with maintenance intervals ranging from months to years (Shaikh and Zeadally, 2016). With the development of marine research, the increase in the number of electronic components on the buoy has led to an increase in energy consumption, which has improved the battery life requirement of the buoy, and requires continuous maintenance of cables or replacement of the battery (Zhao et al., 2021). In special environments or remote waters, the cost of cable maintenance and battery replacement will also be further increased (Martínez-Osuna et al., 2021; Reabroy et al., 2019). Some researchers have improved the endurance of the buoy through power distribution and control strategies (Ma et al., 2019; Dash et al., 2023). However, these studies have not fundamentally solved the energy demand dilemma of buoys. The most reliable way to increase endurance is to achieve long-term and self-sufficient power supply for marine buoys.
+The marine environment where the buoy works is rich in clean energy, such as solar, wind, tidal, and wave energy (SeyedShenava et al., 2025; Borthwick, 2016). Some researchers provide energy to buoys through wind and solar coupling systems and have obtained applications (Jahangir et al., 2023). However, wind and solar energy are easily affected by the environment, and it is difficult to achieve a continuous power supply in environments with low wind volume and rainy days (Díaz and Guedes Soares, 2020). Wave energy reserves are high, widely distributed, and highly predictable, and have a stronger continuous supply capacity than wind and solar energy. Using wave energy to power buoys has irreplaceable research value (Rehman et al., 2023).
+WECs can be categorized into oscillating water column WECs, overtopping WECs, and oscillating body WECs (Zhang et al., 2021; Ahamed et al., 2020). However, the marine environment is extremely harsh, and the operation of WEC is subject to extreme wave loads and seawater erosion, which leads to the device being vulnerable to damage and further incurs expensive maintenance costs (Falcão, 2010; Zheng et al., 2022). The main components of BIWEC do not directly contact seawater, which is highly resistant to extreme marine conditions and seawater erosion, and reduces the difficulty of repair (McCabe et al., 2006). The BIWECs are mainly categorized as pendulum-based BIWECs and direct-drive-based BIWECs.
+For the pendulum-type BIWEC, Wang et al. proposed a multi-DOF WEC, integrating three capture subsystems into the enclosed buoy. The buoy prototype has a diameter of 45 cm, with pendulum masses of 4 kg, 1 kg, and 1 kg, respectively. It achieves an average power generation of 9.18 mW, which is 32.76 % higher than the 1DOF offshore test (Wang et al., 2024a). Wang et al. developed a gyro-type BIWEC, fixed onto the center of the unmanned surface vessel (USV). Through sea trials, the peak power output of the WEC reached 277.71 mW, 112.95 mW, and 101.27 mW during drag, propulsion, and floating states, respectively (Wang et al., 2024b). Graves et al. proposed a novel pendulum-type WEC featuring a mechanical rotary rectifier system, with a pendulum length of 22 cm and a weight of 1 kg. Bench tests resulted in an average power output of 0.72 W and a power density of 0.43 W/kg (Graves et al., 2020). Thomson proposed a gyroscopic WEC suitable for autonomous underwater vehicles (AUVs), with a flywheel mass and diameter of 3.6 kg and 11 cm. Average power and peak power can reach 0.8–1.2 W and 3.2–8 W, respectively. Average power per meter of wave amplitude can reach 20 W/m2 (Townsend, 2016). Shi et al. proposed a BIWEC driven by a rotating ball, with a diameter of 28 cm. An average power of 6.32 mW was achieved at an external excitation frequency of 0.9 Hz (Shi et al., 2022). Li et al. investigated the coupled model of BIWEC, USV, and mooring. The average power reached 324.89 mW under a wave height of 9 cm and a wave period of 1.72 s. The study demonstrated that pendulum length and mass significantly influence the resonance period and bandwidth (Li et al., 2024).
+For the direct-drive BIWEC, Chen et al. designed a BIWEC with a dual mass-spring-damping system, and the internal power take off (PTO) consists of a spring, sliding mass block, and buffer mechanism. Through tank testing, with a mass block weight of 34.5 kg, wave height of 100 mm, and period of 1.4 s, the BIWEC achieved a mechanical efficiency of 65.8 % and an average power of 12.46 W (Chen et al., 2018). Zhang et al. proposed a BIWEC based on a bistable mechanism. The tank test results show that the bistable design significantly improves the energy capture performance of low-frequency waves. At the 1 Hz excitation frequency, the peak voltage increased by 257.1 % (Zhang et al., 2025a). Lai et al. developed a BIWEC that can be integrated into floating platforms using a spring system with a stepped pulley structure. Bench tests show that, with a mass block of 10.5 kg, the device generated an average power of 7.5 W during external excitation with an amplitude of 125 mm and a period of 1.2 s (Lai et al., 2024). Wang proposed a direct-drive BIWEC based on a magnetic lead screw design. With a mass block of 15 kg and a pitch angle amplitude of 10°, the device generated an average power output of 1.4 W (Wang et al., 2023). Li and Wang investigated a BIWEC with two mass blocks. Simulation results show that, with a mass of 1000 kg each, the system can generate average powers of 777.50 W and 747.43 W under conditions of an amplitude of 1.6 m and a period of 7 s (Li and Wang, 2023). Dai et al. developed a BIWEC for USVs that drives the magnet flywheel to rotate unidirectionally through reciprocating mass motion. Simulation results show that under the operating conditions of a 1.66 kg mass block, an external excitation amplitude of 80 mm, and a period of 1 s, the BIWEC generated a power of 40.24 mW (Dai et al., 2022).
+Current research on BIWEC primarily focuses on its integration with small-to-medium-sized marine devices such as marine buoys, USVs, and AUVs. To analyze the energy capture performance of BIWEC often requires establishing a fully coupled mathematical model of the integrated system. For example, buoys in actual marine environments exhibit multi-DOF motion, so developing multi-DOF WECs can enhance power generation performance. Meanwhile, traditional 1DOF numerical models may lead to power prediction errors. Bao et al. proposed a multi-DOF WEC with a hybrid PTO system, corresponding to the heave and pitch motions. Research shows that the device's output power increased by 49.8 % compared to a 1DOF model, with a regular wave frequency of 0.42 Hz (Bao et al., 2023). Chen et al. developed a novel 3DOF WEC capable of generating power through the heave, pitch, and roll motions. Bench tests show that the device achieves a mechanical efficiency of 90 % and an electrical energy conversion efficiency of 57.6 % (Chen et al., 2021a). Zhang et al. proposed a multi-DOF WEC that achieves decoupling through a separate mechanism PTO. Numerical results indicate that in regular waves, the capture width ratio is 39.3 % higher than the multi-DOF parallel configuration WEC (Zhang et al., 2025b). Guo et al. further pointed out that, compared with a 1DOF motion system, the effective bandwidth and the peak efficiency of multi-DOF WEC are improved (Guo et al., 2020). In addition, the design of the end-stop mechanism of the WEC is also a key research direction, aiming to ensure operational safety in extreme sea conditions. Guo and Ringwood proposed a nonlinear vibro-impact mechanism. Numerical results conclude that this design can broaden the power capture bandwidth, and the system dynamics are sensitive to buffer parameters (Guo and Ringwood, 2021). Zhang et al. proposed a single composite hinged swing hydraulic PTO, which can improve efficiency by optimizing effective stroke and effectively restraining device movement (Zhang et al., 2024). Chen et al. modeled the end-stop mechanism as a linear spring-damper system, and found that an optimal limit spring stiffness exists in long-period waves (Chen et al., 2021b). Although many researchers have considered the multi-DOF and end-stop mechanism of WECs, the analysis of the BIWECs has not been fully studied. This paper establishes a 3DOF coupled dynamic model for the BIWEC, analyzing the impact of PTO parameters, center distance, and end-stop mechanisms on power generation performance. Furthermore, this study conducts validation through a bench test and a wave tank experiment, providing a reliable design foundation for the integrated energy system of marine buoys.
+The main contents of this paper are as follows. Section 2 presents the working principle of the integrated system with BIWEC and buoy. The 3DOF coupled dynamic model is established in Section 3. Section 4 introduces the bench test of the 1DOF BIWEC, analyzing the conversion performance of its internal mechanisms. The bench test will be used as a foundation for subsequent wave tank experiment. Section 5 introduces a wave tank experiment that validates the 3DOF coupled dynamic model and analyzes the impact of key parameters on power generation performance. Section 6 provides the conclusion.
+2. Model design
+2.1. Structural design and working principle
+The working principle of the integrated system is illustrated in Fig. 1(a–b). The BIWEC is fixed to the buoy deck, forming a dual resonance coupling system with the buoy. This system primarily harvests energy through the heave and pitch motions of the buoy under wave action. Wave energy is converted into mechanical energy within the BIWEC, which is then transformed into electrical energy by the power generation damping module. The buoy is 1.25 m radius, 0.8 m draft, 1018.5 kg total mass (including BIWEC), with a center distance of 0.7 m between BIWEC and the buoy.
+Fig. 1
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 1. (a) Integrated system of the BIWEC and the buoy (b) Working principle of the integrated system. (c) BIWEC. (d) Compartments of BIWEC.
+
+As shown in Fig. 1(c–d), the BIWEC comprises of stepped pulley, mass block, steel cable, spring, guide rail, and generator. The mass block is connected to the spring and generator by wire ropes, performing linear reciprocating motion constrained by guide rails. This linear motion is converted into rotational motion of the generator rotor by the bottom pulley mechanism, achieving the conversion of mechanical energy into electrical energy (detailed BIWEC structure is presented in Section 2.2). The BIWEC is 1 m total height, 0.2 m3 volume, 62–82 kg total mass, with negligible impact on the hydrodynamic performance of the buoy. It occupies only 2.6 % floor area of the buoy, providing excellent integration adaptability and engineering application potential.
+2.2. Built-in PTO design
+The BIPTO consists of a mass module, two spring modules, and a power generation damping module.
+The mass module comprises of steel base, linear bearings, suspended rings, and counterweight blocks, as shown in Fig. 2(a). Each counterweight block is 5 kg, allowing mass adjustment within the range of 20–40 kg by adding or removing blocks.
+Fig. 2
+Download: Download high-res image (708KB)
+Download: Download full-size image
+Fig. 2. (a)Mass module. (b)Spring module. (c)Power generation damping module.
+
+As shown in Fig. 2(b), the spring module comprises stepped pulleys, guide pulleys, wire ropes, and springs. The spring modules are symmetrically arranged, with the large pulley and small pulley of the stepped pulley coaxially rigidly connected, and the guide pulley used to adjust the spatial position of the wire rope. The spring module should satisfy three requirements: (1) incompressibility at the end positions, (2) safe maximum extension, (3) initial length constraint in the static state. Past research has shown that the optimal equivalent stiffness of WEC systems in actual wave conditions is often relatively low, necessitating maximum flexibility and extension travel in the spring modules (Lai et al., 2024). The stepped pulley design maximizes utilization of the space on both sides, achieving a smaller equivalent stiffness compared to spring arrangements without pulleys (Chen et al., 2018). Test results demonstrate that the spring maintains a linear extent-displacement relationship throughout its extension range.
+As shown in Fig. 2(c), the power generation damping module comprises of generator, a reducer, and a wire rope transmission subsystem. The reciprocating motion of the mass block is converted into rotational motion by the wire rope transmission subsystem. A reducer connects the generator to the bottom pulley to adjust the damping level. Test results show that the relationship between the damping force and the motion velocity can be accurately described by a combination of nonlinear functions, where the linear function corresponds to damping growth in the high-speed region, the constant function corresponds to the constant damping effect in the medium-speed region, and the exponential function corresponds to nonlinear dissipation in the low-speed region.
+3. Dynamic model of the integrated system
+In order to analyze the influence of key parameters on the energy capture performance of the BIWEC, a time-domain coupled dynamic model of the integrated system consisting of the BIWEC and a buoy is established in this section.
+3.1. Governing equation of motion
+Under single-wave incidence conditions, the motion of the buoy in sway, roll, and yaw is relatively small. Therefore, the influence of these three degrees of freedom on the buoy-BIWEC coupled system can be neglected. The integrated 3DOF dynamic model considering heave, surge, and pitch motion is shown in Fig. 3(b). The coordinate system O-xzθ is established with the center of the buoy's waterline surface as origin O, and the center of gravity of the buoy is located directly below the origin. The motion of the buoy and the BIWEC mass block can be expressed as:
+(1)
+where, x, z, and θ represent the surge, heave, and pitch motions of the buoy, respectively. y represents the motion of the BIWEC mass block mapped onto the Oz axis.
+Fig. 3
+Download: Download high-res image (422KB)
+Download: Download full-size image
+Fig. 3. (a) Hydrodynamic model in AQWA. (b) Dynamic model of the integrated system.
+
+The integrated system can be simplified to a dual mass-spring-damper system, where the dual masses represent the mass m of the BIWEC mass block and the mass M of the buoy, respectively. m and M being 1 × 1 and 3 × 3 dimensional matrix, respectively. Based on the Cummins equation and the dynamic model in Fig. 3(b), the time-domain dynamic equation for the integrated system can be established as (Lai et al., 2024):
+(2a-b)
+where, μ(∞) is the added mass coefficient matrix at infinite wave frequency. Ch represents the hydrostatic restoring force coefficient matrix of the buoy. h(t) represents the impulse response function matrix, which indicates the viscous effects of the fluid and can be expressed by the radiation damping λ(ω) as:
+(3)
+in frequency-domain, h(t) can be expressed as:
+(4)
+Fe represents the wave excitation force matrix, which is expressed as:
+(5)
+where, Aw and ω represent the amplitude and frequency of the incident wave, respectively. fe(ω) represents the wave excitation force amplitude matrix under unit wave amplitude. φ(ω) represents the phase angle matrix of the wave excitation force acting on the buoy.
+Fvis represents the fluid viscosity force matrix. Ignoring the influence of viscosity effects will lead to an overestimation of the power generation performance of the device. Common methods for modeling viscosity forces are expressed by a quadratic damping term (Sarpkaya, 1986):
+(6)
+where, Cd is the viscous drag coefficient, ρ is the fluid density, and S is the characteristic projection area corresponding to the degree of freedom.
+Fspring, Fdamping, and Fm represent spring force, nonlinear generator damping force, and friction force, respectively. FBIWEC represents the reaction force matrix exerted by BIWEC on the buoy during operation, which can be expressed by Fspring, Fdamping, Fm, and the gravitational term of the mass block. The above terms are relatively complex and are described in detail in Section 3.2.
+In Eq. (2), the convolution term represented by h(t) causes slow computation when solved directly numerically. It can be replaced by a state space form (Taghipour et al., 2008):
+(7)
+where, Ah, Bh, Ch, and Dh represent the state matrices, respectively. H(t) represents the state vector.
+The frequency-domain hydrodynamic parameters μ(ω), λ(ω), fe(ω), and φ(ω) are calculated using the hydrodynamic calculation software AQWA2023, where the hydrodynamic model is shown in Fig. 3(a). Since the BIWEC is located entirely inside the buoy, it does not affect the hydrodynamic parameters of the integrated system. The calculation results are shown in Fig. 4.
+Fig. 4
+Download: Download high-res image (767KB)
+Download: Download full-size image
+Fig. 4. Hydrodynamic parameters of buoy.
+
+3.2. Built-in PTO model
+Spring force, generator damping force, friction force, and the gravitational force of the mass block collectively constitute all the forces within the built-in PTO. Based on the displacement vectors of the buoy and mass block established by Eq. (1), the displacement qr and velocity vector vr of the BIWEC mass block relative to the buoy are derived as follows:
+(8)
+where, r is the center distance between BIWEC and the buoy.
+According to the test results in Fig. 2(b–c), the spring force Fspring and the damping force Fdamping can be expressed as follows:
+(9)
+(10)
+where, K, d2/d1, l0, c1, fc, c2, and α represent spring stiffness, stepped pulley diameter ratio, equivalent spring initial length, linear damping coefficient 1, constant damping coefficient, damping coefficient 2, and exponential damping coefficient, respectively, all of which are identified parameters. Since Fdamping has different forces in the forward and reverse directions, the relevant parameters are distinguished by ±.
+Friction is an important factor affecting BIWEC, but obtaining an accurate friction model is extremely difficult. It can be represented by a constant friction force fm:
+(11)
+where, fm is a constant. In particular, when the velocity vr(t) = 0 m/s, both Fdamping and Fm are 0 N.
+Based on the dynamic model in Fig. 3(b) and Eqs. 8–11, the reaction force FBIWEC exerted by the BIWEC on the buoy could be determined and expressed as:
+(12)
+where
+(13)
+Eq. 13(a-b) represents the unit direction vector of the buoy under the BIWEC force (Fig. 3(b)), where Pm denotes the point of action of the BIWEC PTO system at the bottom of the device, and Gm denotes the point of action of the mass block on the guide rail. Eq. 13(c-d) represents the direction vectors from O to Pm and Gm, where Pmz is the projection value of point Pm's initial state on the Oz axis, and V(θ) is the transformation matrix of arbitrary coordinates with respect to angle θ.
+3.3. Indicators of conversion performance
+The average generation power and captured wave power of BIWEC can be expressed as (Zheng et al., 2025):
+(14)
+(15)
+where, Tw is the period of the incident wave. t0 is the start time after the movement is stable, and n is the number of periods when the movement is stable. b = 2.5m is the diameter of the buoy, and g is the acceleration of gravity.
+The motion response amplitude operator (RAO) and capture width ratio of BIWEC can be expressed as:
+(16)
+(17)
+4. Experimental, simulation, and analysis of 1DOF-BIWEC
+To validate the performance and dynamic characteristics of the BIWEC, this section analyzed the mechanical efficiency, starting performance, and resonance frequency of the PTO from a 1DOF perspective, and validated the BIPTO model through bench testing.
+4.1. Bench test and BIPTO model verification
+The bench test simulates only the heave motion of the BIWEC, with the corresponding mathematical model as follows:
+(18)
+where, ar is the acceleration of the mass block relative to the BIWEC. a3 is the acceleration of the BIWEC frame, and the variation of a3 is controlled by the drive motor. The test bench is shown in Fig. 5, mainly composed of a support frame, a drive motor, and a wire rope transmission mechanism. The system can simulate the simple harmonic motion of BIWEC in the 1–2s motion period and the amplitude range of 0–125 mm. During the test, the real-time displacement of the mass block is monitored by a linear displacement sensor, while the power output is synchronized by a torque sensor.
+Fig. 5
+Download: Download high-res image (448KB)
+Download: Download full-size image
+Fig. 5. Test bench model.
+
+To verify the reliability of the BIPTO numerical model, the bench test results are compared with the numerical simulation results, as shown in Fig. 6. In the bench test, m = 30 kg, K = 1906/2413 N/m, and the drive amplitude A = 125 mm. The specific parameters of the BIPTO numerical model are shown in Table 1. Observe Fig. 6(a), the amplitude error under different conditions is controlled within 2 cm, and the variation trends are similar. Fig. 6(b) shows the comparison of motion curves at T = 1.4 s. The numerical simulation results maintain consistency throughout the entire time process (including the initial 0–5 s), verifying the accuracy of the BIPTO numerical model.
+Fig. 6
+Download: Download high-res image (502KB)
+Download: Download full-size image
+Fig. 6. Verification of the BIPTO numerical model.
+
+Table 1. Key parameters of the BIPTO model.
+
+Parameter	Symbol	Value	Unit
+mass block mass	m	20/30/40	kg
+spring stiffness	K	1909/2413	N/m
+step wheel diameter ratio	d2/d1	3/1	–
+equivalent spring initial length	l0	0.328/0.312	m
+linear damping coefficient 1	c1	22.784/24.077	N∙s/m
+constant damping coefficient	fc	8.454/-5.422	N
+damping coefficient 2	c2	16.144/-15.218	N
+exponential damping coefficient	α	14.132/-18.847	s/m
+constant friction force	fm	14.319	N
+center distance	r	0.7	m
+distance from Pm point to waterline	Pmz	0.25	m
+angle transformation matrix	V(θ)	
+–
+4.2. Mechanical efficiency and start-up performance
+Fig. 7 shows the conversion performance of the BIWEC, with the mechanical efficiency and the external excitation start-up amplitude, respectively. The start-up amplitude of BI-WEC during different drive periods is quantified by the friction force Fm and the constant damping coefficient fc, and can be expressed as in Eq. (19). As depicted in Fig. 7(a), the mechanical efficiency of the system ranges between 60 and 75 %, where the energy loss primarily occurs due to friction dissipation between the mass block and the guide rail. Observe Fig. 7(b), since the BIWEC is an inertial oscillator-based electromagnetic induction generator, its start-up amplitude is closely related to the drive period and the mass block mass. Increasing the mass block mass can effectively reduce the start-up amplitude.
+(19)
+Fig. 7
+Download: Download high-res image (383KB)
+Download: Download full-size image
+Fig. 7. Energy conversion performance of BIWEC.
+
+4.3. Mass and spring stiffness
+Mass and spring stiffness are key parameters influencing the resonant frequency of a coupled system. The dual mass-spring-damper system has two resonant frequencies, which can be expressed as (Cândido and Justino, 2011; Korde, 2003):
+(20)
+where, C33 = ρgπR2 is the heave restoring stiffness of the buoy, R = 1.25m is the radius of the buoy. ωM = [C33/(M + A33)]1/2 is the undamped natural frequency determined by the geometric shape of the buoy. In order to analyze the influence mechanism of resonance characteristics, the mass ratio and spring stiffness ratio are defined as m/(m + M) and 2K(d2/d1)2/mg, where 2K(d2/d1)2 is the equivalent stiffness of the spring module.
+As shown in Fig. 8(a–b), low resonance frequency ω0,1 is distributed in 2.8–3.9 rad/s, while high resonance frequency ω0,2 is distributed in 3.8–10.0 rad/s. This distribution characteristic is directly related to the hydrodynamic properties of the buoy (with a natural frequency of 3.72 rad/s), indicating that the system design must account for the buoy's dynamic response. The increase in spring stiffness ratio improves the dual resonance frequency, but the increase in mass ratio only improves ω0,2. Meanwhile, ω0,1 does not change significantly with variations in mass ratio. Fig. 8(c) shows the resonance frequency for m = 20/30/40 kg, where the spring ratio range of 1.0–3.0 represents the achievable spring stiffness range for the stepped pulley scheme. Results reveal that spring stiffness K exerts a significantly stronger influence on resonance frequency than mass block mass m. The primary reason for the high effect of spring stiffness K is the greater adjustable range of the spring module, with the range of m/(m + M) being only 2–4 %. By adjusting the stiffness ratio, the low frequency resonance range 3.2–3.7 rad/s and the high frequency resonance range 3.9–5.5 rad/s can be achieved.
+Fig. 8
+Download: Download high-res image (680KB)
+Download: Download full-size image
+Fig. 8. Dual resonance frequency with different mass ratios and spring stiffness ratios.
+
+Fig. 9 shows the motion response and power with different spring stiffnesses in the BIPTO model. In Fig. 9(a), the mass block motion RAO is positively correlated with the driving amplitude A. As A decreases, the optimal spring stiffness of the system increases. The real optimal spring stiffness increased by 20 %–50 % compared to the theoretical value in Fig. 9(b), with a greater increase occurring at lower peak velocities of the mass block. Consequently, the real value of optimal spring stiffness always differs from the theoretical value, and this difference is primarily caused by nonlinear damping and friction effects. The greater the nonlinear effect, the higher the actual optimum spring stiffness.
+Fig. 9
+Download: Download high-res image (476KB)
+Download: Download full-size image
+Fig. 9. Motion response and power under different driving conditions and spring stiffness.
+
+5. Experimental, simulation, and analysis of 3DOF-BIWEC
+In order to enhance the energy capture performance of the BIWEC-buoy integrated system, the influence of several key parameters is analyzed in this section. Firstly, the 3DOF coupled dynamic model is verified through wave tank experiment. Subsequently, the influence of key parameters such as center distance, mass block mass, spring stiffness, and damping on energy capture performance is analyzed. Finally, considering the influence of end-stop mechanism on power generation, the optimal design parameters for end-stop mechanism are studied.
+5.1. Wave tank experiment and model verification
+5.1.1. Wave tank experiment for the BIWEC-buoy integrated system
+The experiment of the integrated system was conducted in a wave tank at the National Marine Technology Center in Tianjin, China, as shown in Fig. 10. The length, width, and depth of the wave tank is 130.0 m, 18 m, and 4.5 m, respectively. A flap-type wave maker was installed at one end of the tank, which can generate regular waves with wave periods in the range of 0.5s–5.0s and the maximum wave height 0.6 m. The buoy was put at the test location, which was 70 m away from the wave-maker. The FZMotion motion capture system captures the 6DOF motion state of the buoy, and at the same time records the displacement of the mass block with the built-in line displacement sensor.
+Fig. 10
+Download: Download high-res image (694KB)
+Download: Download full-size image
+Fig. 10. Wave tank experiment at China National Marine Technology Center.
+
+5.1.2. 3DOF numerical simulation
+Fig. 11 shows the simulation schematic based on the 3DOF coupled dynamic model. This numerical model considers heave, pitch, and surge motions of the buoy, along with the reciprocating motion of the BIWEC mass block along the guide rail. It fully describes the motion characteristics of the integrated system under multi-DOF coupling.
+Fig. 11
+Download: Download high-res image (482KB)
+Download: Download full-size image
+Fig. 11. Numerical simulation results of the motion state of BIWEC and buoy at different moments.
+
+5.1.3. Verification of numerical and experimental
+To verify the reliability of the 3DOF numerical model, the wave tank experimental results are compared with the numerical simulation results, as shown in Fig. 12. In wave tank experiment, m = 30 kg, K = 1906 N/m, and wave amplitude Aw = 50–125 mm. Heave and pitch are key DOF that affect BIWEC energy capture performance. Observing Fig. 12(a–c), the heave amplitude, pitch amplitude, and phase difference in the numerical simulation and wave tank experiment have good consistency. The time-domain motion response in Fig. 12(d) also shows minimal error in the numerical simulation results when the motion stabilizes. Therefore, the 3DOF numerical model can be used to predict the motion of the integrated system under linear wave conditions.
+Fig. 12
+Download: Download high-res image (814KB)
+Download: Download full-size image
+Fig. 12. Comparative verification of wave tank experiment and numerical simulation.
+
+5.1.4. Comparison between 3DOF and 1DOF numerical simulation models
+To systematically evaluate the energy capture performance of the BIWEC, subsequent studies are conducted using simulated wave conditions with one-to-one correspondence between wave height and period, as shown in Fig. 13.
+Fig. 13
+Download: Download high-res image (208KB)
+Download: Download full-size image
+Fig. 13. The input wave condition in the simulation.
+
+Fig. 14 compares the simulation results of the 3DOF and 1DOF models, where the 3DOF motion data are obtained by the top observation points of BIWEC. The results show that: (1) Heave RAO is significantly enhanced in the range of T = 1.3–2.1s under the 3DOF model (Fig. 14(a)). (2) The pitch RAO peaks around the T = 1.7s, while the surge RAO is not sensitive to the period variation (Fig. 14(b)). (3) Compared with the 3DOF model, the 1DOF model systematically underestimates the motion amplitude and power of BIWEC, which is mainly due to its ignorance-pitch coupling effect (Fig. 14(c-d)). Therefore, the numerical simulation of the BIWEC-buoy integrated system needs to consider the muti-DOF coupling mechanism to ensure the accuracy of the evaluation.
+Fig. 14
+Download: Download high-res image (650KB)
+Download: Download full-size image
+Fig. 14. Comparison of numerical simulation results of 3DOF and 1DOF.
+
+5.2. Center distance between BIWEC and buoy
+Fig. 15 shows the time-domain displacement of the mass block at different center distances r. Simulation results indicate that the motion amplitude of the mass block increases nonlinearly with increasing r, while the stable period of the system shortens as r increases. Boundary condition analysis indicates that, the motion amplitude is only 5 % of the reference condition (r = 0.7m) at r = 0m, verifying the necessity of center distance for motion excitation.
+Fig. 15
+Download: Download high-res image (431KB)
+Download: Download full-size image
+Fig. 15. Movement of BIWEC mass block at different center distances.
+
+Fig. 16 shows the motion response and power generation for different center distances r. As r increases, the motion amplitude and power generation of the BIWEC significantly increase, with the resonance period consistently occurring around T = 1.7s. The effect of r on the resonance frequency of the integrated system is limited (with a deviation of less than 5 %), but power generation can be enhanced by increasing the direct drive amplitude of the buoy to the BIWEC.
+Fig. 16
+Download: Download high-res image (445KB)
+Download: Download full-size image
+Fig. 16. Integrated system motion response and power generation at different center distances.
+
+5.3. Mass and spring stiffness
+Fig. 17 shows the free-decay response characteristics of the coupled system of the buoy and BIWEC. The heave and pitch free decay curves of the buoy are shown in Fig. 17(a). Both decay periods are concentrated around T = 1.7s. The fluid radiation damping effect is more pronounced in heave motion, with the motion stabilizing after just 1.5T. Fig. 17(b) shows the free-decay response of the BIWEC mass block at different spring stiffnesses. It can be seen that the stiffness significantly affects the decay period (the greater the stiffness, the smaller the decay period). For example, when the stiffness is 2000N/m, the decay period reaches 1.9s, which is much smaller than the low-stiff conditions, reflecting the dominant role of stiffness on the system inertia and oscillation sustainability.
+Fig. 17
+Download: Download high-res image (400KB)
+Download: Download full-size image
+Fig. 17. Free-decay curves for buoy and BIWEC.
+
+Fig. 18 shows the motion amplitude and power generation under the combination of different mass block mass m and spring stiffness K. The results show that: (1) m has a significant positive effect on the motion amplitude and power generation. (2) The resonance period varies slightly for different combinations of m and K. Low stiffness (1906 N/m) has higher power under long periods (>3 s), while high stiffness (2413 N/m) has more advantages in short periods (<1.5 s) (see Fig. 8 for details on the mechanism). The stiffness adjustment range of the current stepped pulley scheme is still limited by materials, and future research can focus on the design of new variable stiffness mechanisms to expand adaptability.
+Fig. 18
+Download: Download high-res image (484KB)
+Download: Download full-size image
+Fig. 18. Integrated system energy capture performance under different combinations of m and K.
+
+5.4. PTO damping
+The motion amplitude and power generation of the integrated system at different damping ratios are shown in Fig. 19, where the damping ratio is a parameter adjustable via the reducer. The simulation results show that: (1) When m = 30 kg and K = 1906N/m, the system achieves the optimal power under the operating conditions of T = 2.0 s and damping ratio 0.5, with a motion amplitude of 0.34m and a power of 12.7W. (2) When m = 40 kg and K = 2413N/m, the optimal working condition is moved to T = 2.0 s and damping ratio 0.6, and the power is increased to 21.9W, with a motion amplitude of 0.41m. In addition, the power response curve generally exhibits a bimodal structure, and the power in short periods (<1.5 s) is more sensitive to damping changes.
+Fig. 19
+Download: Download high-res image (758KB)
+Download: Download full-size image
+Fig. 19. Integrated system energy capture performance under different PTO damping ratios.
+
+Damping adjustment has a dual effect on the performance of integrated system. Appropriately reducing damping can significantly increase power generation, but excessively low damping may cause the BIWEC mass block to move beyond mechanical constraints (such as displacement exceeding the design threshold of ±0.25m). Therefore, further consideration of the dynamic response characteristics of the end-stop mechanism is required.
+5.5. End-stop mechanism
+Schematic of the BIWEC with end-stop mechanism is shown in Fig. 20. The mechanism adopts a symmetrical arrangement, and a large stiffness spring (stiffness coefficient KX, stationary length LX) is installed at both ends of the guide rail as a mechanical limiting assembly. The mass block (height 0.2 m) can move in a vertical space of 0.7m, with an effective stroke of 0.5m (corresponding to the maximum motion amplitude ±0.25m). LX and KX jointly determine the collision buffering characteristics, and its design needs to balance the needs of energy capture efficiency and mechanical safety.
+Fig. 20
+Download: Download high-res image (175KB)
+Download: Download full-size image
+Fig. 20. Schematic of the BIWEC with end-stop mechanism.
+
+Fig. 21 shows the motion and power generation at five different end-stop springs in both the time domain and frequency domain. These five end-stop springs correspond to stiffness levels ranging from low to high. The simulation results show that: (1) The end-stop spring significantly changes the phase characteristics of motion, with peak power significantly reduced. Also, all spring schemes effectively limited the displacement of the mass block, with a maximum deformation ratio of 55–65 % (Fig. 21(a-b)). (2) The short-stroke end-stop spring (LX = 0.01m) performs the best, and its power generation power is increased by about 2.3W compared with the LX = 0.05m scheme at T = 2.0s (Fig. 21(c-d)), which is mainly due to the short-stroke design reducing energy loss.
+Fig. 21
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 21. Motion and power output of BIWEC under different combinations of KX and LX.
+
+To enhance power generation, consider the end-stop mechanism with LX = 0.01 m and KX = 1.22 × 105 N/m, where the average power and energy capture width for different m are shown in Fig. 22. Since both schemes maximize the utilization of the mass block's stroke at the resonance frequency, their peak power outputs are similar. However, the 40 kg mass block significantly broadens the effective bandwidth for energy capture. The 40 kg solution achieves a maximum peak power of 24.1W (corresponding to energy conversion efficiency of 50.03 %) under optimized operating conditions. In particular, when m = 40 kg and T = 2s, the system power output is 16.9W and the energy conversion efficiency η is 11.03 %.
+Fig. 22
+Download: Download high-res image (248KB)
+Download: Download full-size image
+Fig. 22. Integrated system energy capture performance with end-stop mechanism of LX = 0.1 cm, KX = 1.22 × 105 N/m and different m.
+
+6. Conclusion
+This study established a 3DOF coupling dynamic model for an integrated system composed of BIWEC and buoy. It comprehensively considered the fluid viscous effect and nonlinear PTO system characteristics, and verified the effectiveness of the model through bench test and wave tank experiment. The main conclusions are as follows:
+(1)
+BIWEC and buoy form a dual resonance coupling system, and the resonance frequency is closely related to the mass block mass and spring stiffness. When mass block mass is much smaller than the mass of the buoy, the system resonance behavior is mainly dominated by the natural frequency of the buoy.
+(2)
+The spring system is the core component of BIWEC, and its design requires incompressibility, extreme elongation and static length. Under long periodic wave conditions, lower stiffness springs help improve energy capture efficiency.
+(3)
+The center distance and mass block mass m of the integrated system have a significant positive effect on the capture width ratio. The power response under different damping ratios exhibits a bimodal characteristic, and the system is more sensitive to damping changes in shorter periods. The introduction of the end-stop mechanism will change the phase characteristics of the motion, and the use of short stroke, high stiffness end-stop springs can help reduce adverse effects and improve output performance.
+(4)
+In numerical simulation, the power and capture width ratio of BIWEC is 24.1W and 50.03 % under regular waves with a period of 1.7 s and a height of 0.18 m. The corresponding weight power density and volume power density are 0.293 W/kg and 120.5 W/m3, respectively.
+This paper completes the preliminary model design and theoretical analysis. Future research will focus on the optimization and testing of prototypes. Based on the performance analysis of this paper, the power generation control strategy and power generation performance in realistic oceanic scenarios are further analyzed.
