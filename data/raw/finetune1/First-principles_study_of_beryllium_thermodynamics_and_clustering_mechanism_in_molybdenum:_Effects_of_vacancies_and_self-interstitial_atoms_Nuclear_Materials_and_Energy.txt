@@ -1,0 +1,332 @@
+Abstract
+The clustering behavior of beryllium (Be) following plasma irradiation is of particular significance for molybdenum (Mo) in future fusion devices. Using first-principles calculations combined with thermodynamic models, the optimal configuration for Be clustering in Mo has been clearly determined, with a particular focus on the effects of vacancies and self-interstitials (SIAs). As the initial form of nucleation, the physical origin of Be-Be pair binding energy in Mo has been shown to be primarily dominated by the charge density at their location. Based on all of our computational results, a potential clustering mechanism for the formation of Be-rich regions in Mo is proposed: Be atoms first aggregate at interstitial sites, forming Ben clusters. When the number of Be atoms reaches six, they form an approximately “octahedral” structure, displacing a central Mo atom and generating a Be6V cluster and an SIA. They act as nucleation sites that continue to attract more Be atoms, growing into larger BenV and Ben-SIA clusters. As the Ben-SIA clusters expand, excess Be atoms displace more Mo atoms, creating additional SIAs and vacancies and further propagating the formation of Ben-SIA and BenV clusters. This cascading process ultimately results in the development of Be-rich regions within Mo. Our results provide significant data support for advancing Mo as a primary mirror material and also offer valuable theoretical insights into the aggregation behavior of impurities in metals under irradiation conditions.
+Previous article in issue
+Next article in issue
+Keywords
+MolybdenumBerylliumVacancySelf-interstitial atomFirst-principles calculations
+1. Introduction
+The clustering behavior of impurities in metallic materials has a considerable impact on their performance [[1], [2], [3]]. Especially under irradiation conditions, the interaction between irradiation defects and impurities leads to complex defect-induced clustering behaviors [4,5]. This issue is especially pronounced in plasma-facing materials [6,7] because they must withstand three types of plasma-induced irradiation: high temperatures, hydrogen/helium particles, and high-energy neutrons [8,9]. Tungsten (W) and Molybdenum (Mo) have been selected as candidate materials for plasma-facing applications due to their excellent thermodynamic properties, low sputtering and corrosion rates, and low hydrogen isotope retention [[10], [11], [12]]. Among them, Mo has been identified as the most promising candidate for the first-mirror material due to its better reflective properties compared to W [13,14]. In fusion tokamak devices, optical diagnostics are essential for detecting plasma behavior. In the future operation of International Thermonuclear Experimental Reactor (ITER), over 80 first-mirrors will be expected to be installed to observe the plasma's operational status [15]. The International Tokamak Physics Activity Task Group (ITPA-TG) has identified the first-mirror issue as one of the top five priority research topics [16].
+The sputtering effect of plasma particles introduces numerous impurities into plasma. Among these, beryllium (Be) is representative and noteworthy for study. Be has been selected by ITER as the inner wall material [17,18] and is also successfully implemented in the operating tokamak Joint European Torus (JET) [18,19], due to its favorable physicochemical properties: high thermal conductivity, low neutron absorption cross-section, large scattering cross-section, high plasma compatibility, high elastic modulus, and oxygen-gettering ability [20,21]. In addition, Be was selected as the solid neutron multiplier material for the ITER tritium breeder reactor cladding module and is also the preferred material for China's TBM program [[22], [23], [24]]. Due to its low melting point, high physical sputtering yield, and poor sputtering resistance [25], an elevated concentration of Be particles in the plasma is inevitable. These Be particles will gather on the surface of the first-mirror through redeposition. According to the detection results of deposited materials on the first-mirror surface in JET, Be is the main deposited element among all detected elements (including Be, C, D, N, O, Ni, and W) on the first-mirror surface [14,26]. The deposition of Be impurities on the Mo surface not only affects the optical performance of the first-mirror [14] but also leads to Be diffusion into the Mo substrate, where it interacts with lattice defects such as vacancies and self-interstitial atoms. These interactions can cause Be precipitation within the Mo, potentially degrading its performance and reducing its service life as a first-mirror material.
+Over the past decade, researchers have conducted extensive tests on multiple tokamak devices to understand the properties of deposited Be (chemical and morphological analysis) and its impact on the optical performance of the first-mirror [[26], [27], [28]]. For instance, Ivanova et al [27] found that Be deposition caused a substantial loss of reflectance in the first-mirror, with deposited layers up to 600 nm thick, depending on the position of the first-mirror in JET. In some cases, the reflectance drops to an unacceptable level for ITER (50–85 %). As the deposition thickness increases, the reflection curve of the first-mirror will gradually shift from that of the original first-mirror material to that of the deposited Be layer, severely impacting the first-mirror's performance.
+Yakovkin [29] theoretically investigated the adsorption behavior of Be on the Mo(112) surface, demonstrating that Be atoms preferentially absorb at surface grooves, which smoothens the Mo(112) surface and increases its work function. The primary lateral interaction of Be on Mo(112) is the attractive force between adjacent Be atoms, leading to the formation of p(1 × 1) islands at low coverages. Furthermore, Lasa et al. [30] systematically investigated the formation and dynamic behavior of W-Be composite layers under fusion-relevant conditions at the atomic scale. Computational simulations indicated that, under low-energy Be irradiation, a layer of Be is deposited on the W surface, thereby mitigating W erosion. Due to thermal mixing, when W atoms move into the Be atomic layer, W and Be atoms intermix. All mixed layers exhibit the underlying hcp-Be structure, and the Be-to-W ratio approaches that of an intermetallic phase (Be2W-Be12W). However, even after annealing, no crystalline alloy structure is formed. Zhou et al. [31] investigated the interactions between hydrogen and beryllium (H-Be) as well as the behavior of Be in tungsten (W). Their results showed that individual Be atoms preferentially dissolve at octahedral interstitial sites (OISs) rather than tetrahedral interstitial sites (TISs), and tend to diffuse along the OIS-TIS-OIS path. They also demonstrated that significant bonding energy (>1 eV) exists between Be atoms in W, leading to their tendency to aggregate. Additionally, He et al. [32] studied the interactions among W, Be, and H in W materials. They found that multiple Be atoms (up to 10) can dissolve in single vacancies in W to form nBe-VW complexes, which reduce the vacancy formation energy in the vicinity.
+To date, research on the behavior of Be in Mo has primarily focused on experimental studies of Be deposition on Mo surfaces, with limited theoretical investigations. However, there is a lack of systematic theoretical studies on the behavior of Be in Mo and its interaction mechanisms with vacancies and SIAs. This gap in knowledge is critical to understanding the physical behavior of Be in Mo and its implications for the material's application as a first-mirror. In this study, we systematically investigated the thermodynamic stability, diffusion, aggregation, and concentration distribution of Be in Mo, with a particular focus on the effects of vacancies and SIAs, using first-principles methods combined with thermodynamic models. We analyzed the dissolution and binding behavior of Be in interstitial sites, as well as the aggregation tendencies of Be atoms. Additionally, we explored how vacancies and SIAs influence Be behavior, providing a physical picture and theoretical analysis of the impact of vacancies and SIAs on Be aggregation and precipitation in Mo. Based on our findings, a cascade mechanism for Be aggregation in Mo is uncovered, which has significant implications for the material's performance in fusion environments, while also providing a theoretical reference for understanding the aggregation behavior of impurities in metals.
+2. Computational methods
+We performed systematic first-principles calculations using the Vienna Ab-initio Simulation Package (VASP) [33,34]. The generalized gradient approximation (GGA) using the Perdew-Burke-Ernzerhof (PBE) functional [[35], [36], [37]] was employed to handle electron exchange and correlation in the Mo-Be system. The projector augmented wave (PAW) method [38,39] was used to treat ion–electron interactions. The energy cutoff of the plane-wave basis was set to be 400 eV, which was sufficient for calculating the total energy and geometric structure of Mo supercells with and without Be. Throughout the calculations, we used a supercell containing 128 Mo atoms, denoted in the x, y, and z as [100], [010], and [001] directions, respectively. For bcc-Mo, the optimized lattice constant was 3.15 Å, which is consistent with the previously obtained experimental result of 3.15 Å [40]. The Brillouin zone of the supercell was sampled using the Monkhorst-Pack scheme [41] with a (3 × 3 × 3) k-point grid. The Methfessel-Paxton method [42] was used for Brillouin zone integration, with a smearing of 0.1 eV to account for partial occupancy near the Fermi level in metals. The optimization process was terminated when the supercell size and atomic positions were relaxed (ISIF = 3) to equilibrium, with forces on the atoms reduced to less than 0.01 eV/Å.
+The CI-NEB method [43,44] searches for the minimum energy path by creating a series of configurations between the initial and final states of diffusion. These configurations are connected by “springs”, simulating an elastic band. By optimizing the forces on each intermediate configuration, the elastic band is moved to the minimum energy path. Once the configuration with the highest energy is obtained, the forces are redefined to climb up the potential energy surface until the energy converges, obtaining the final configuration of the transition state. The CI-NEB method is an improvement over the NEB method, offering higher computational accuracy and stability.
+3. Results
+3.1. Behavior of Be in pristine Mo system
+3.1.1. Dissolution of Be atoms in Mo
+When Be atoms dissolve in a pristine Mo system, they can occupy interstitial lattice sites due to their relatively small size. In a bcc lattice, there are two typical interstitial sites: the tetrahedral interstitial site (TIS) and the octahedral interstitial site (OIS). The structural models of TIS and OIS are shown in Fig. 1. The dissolution energy of Be atoms at the interstitial sites of Mo is defined as:
+(1)
+where N is the number of Mo atoms in the supercell, n is the number of Be atoms in the interstitial sites, 
+ is the total energy of the supercell after placing Be interstitial atoms, 
+ is the total energy of the pristine Mo supercell, and 
+ is the energy of a single Be atom, calculated to be −3.75 eV. (Be has a hexagonal close-packed crystal structure as its most stable configuration in nature, so the energy of a single Be atom in a perfect hexagonal close-packed supercell is used for 
+.)
+
+Download: Download high-res image (78KB)
+Download: Download full-size image
+Fig. 1. Configuration diagrams of interstitial sites in a bcc-Mo unit cell: (a) OIS and (b) TIS. Purple and green spheres represent Mo and Be atoms, respectively. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+According to Eq. (1), the dissolution energies of a single Be atom in OIS and TIS are calculated to be 3.56 eV and 4.27 eV, respectively. It is evident that the dissolution energy of Be atom at OIS is 0.71 eV lower than that at TIS. Therefore, a single Be atom prefers to dissolve in OIS rather than TIS in a pristine Mo system. This result is consistent with previous findings for Be in W [31]. Furthermore, the dissolution energies of Be at both TIS and OIS are positive, indicating that the dissolution of Be at interstitial lattice sites in Mo is an endothermic process.
+To further explore the physical origin of Be dissolution behavior at interstitial sites in Mo, we present charge density maps of Be at two interstitial sites, shown in Fig. 2(a) and (b), and differential charge density maps, shown in Fig. 2(c) and (d). From these maps, we observe that interstitial Be causes positional shifts in neighboring Mo atoms and exhibits significant charge interactions. Therefore, we decompose the dissolution energy 
+ of Be at interstitial sites into two components: the structural contribution 
+ and the electronic interaction contribution 
+. The structural contribution 
+ represents the energy associated with the supercell structure changes induced by Be dissolution at interstitial sites, and it is defined as:
+(2)
+where 
+ represents the energy of the Mo supercell with the changes induced by Be, i.e., the energy of the supercell after artificially removing Be and running only one step. The electronic interaction contribution 
+ can be obtained by subtracting 
+ from the total dissolution energy 
+.
+
+Download: Download high-res image (209KB)
+Download: Download full-size image
+Fig. 2. Charge density maps of Be in a Mo supercell at two interstitial sites: (a) OIS, (b) TIS; and Special differential charge density maps: (c) OIS, (d) TIS. (The special differential charge density is defined as the total charge density of the Mo-Be system minus the charge density of Be in the interstitial sites. In this manner, the charge density at the location of Be can be derived from the special differential charge density maps.).
+
+According to the data listed in Table 1, the values of 
+ are 2.31 eV and 3.05 eV for OIS and TIS, respectively. We measured the average displacement distances of the neighboring Mo atoms caused by Be dissolution at OIS and TIS, which are 0.25 and 0.36 Å, respectively. This indicates that the lattice distortion of the Mo supercell caused by Be dissolution is greater at TIS than at OIS, resulting in a higher 
+ for Be at TIS, which is consistent with our computational results. From the differential charge density maps, the charge densities of Be at OIS and TIS are 0.06 e/Å3 and 0.05 e/Å3, respectively. Based on previous analyses of Be dissolution behavior in W [31], 
+ for Be at interstitial sites in Mo is likely related to its electronic deficiency, with lower charge density locations corresponding to lower 
+. Since Be has a higher charge density at OIS compared to TIS, 
+ for Be at OIS (1.25 eV) is slightly higher than at TIS (1.22 eV), which aligns with our theoretical analysis. However, the 
+ values for Be at OIS and TIS are nearly identical, indicating that the dissolution energy of Be at interstitial sites is mainly due to the structural contribution 
+, and the differences in dissolution energy at these two interstitial positions are primarily due to variations in 
+.
+Table 1. Dissolution energies of Be atoms in the Mo supercell at OIS and TIS, structural contribution 
+, electronic interaction contribution 
+, the average displacement distance of the four nearest-neighbor Mo atoms after adding an interstitial Be atom (
+), and the charge density at the position of the interstitial Be (
+).
+
+Empty Cell	OIS	TIS
+(eV)	3.56	4.27
+(eV)	2.31	3.05
+(eV)	1.25	1.22
+(Å)	0.25	0.36
+(e/Å3)	0.06	0.05
+3.1.2. Diffusion behavior of Be atoms in Mo
+The diffusion behavior of impurities in metals or metal alloys plays a crucial role in determining material properties. Be impurities deposited on the Mo surface will diffuse into the interior of the Mo material, leading to complex interactions with Mo atoms and defects. To analyze the diffusion path of Be in Mo and calculate the corresponding diffusion energy barrier, we employ the CI-NEB method [43,44].
+As shown in Fig. 3, according to the symmetry of the bcc lattice, we set two diffusion paths at the beginning of the calculation. Since the most stable position of the interstitial site of Be in Mo is the OIS, both the initial and final positions of these two paths are set at OIS positions. Path 1 involves a direct migration from the initial OIS, through a central interstitial TIS, to the first nearest-neighbor OIS. Path 2 involves a direct migration from the initial OIS to the second nearest-neighbor OIS. Upon calculation, we found that for Path 1, the diffusion follows our initial assumption: Be migrates directly from the initial OIS, through the center TIS, to the first nearest-neighbor OIS, with a calculated diffusion energy barrier of 0.72 eV. However, for Path 2, we found that the Be atoms did not follow the assumed path from the initial OIS directly to the second nearest-neighbor OIS at the bottom of the initial OIS. Instead, the Be atoms first diffuse from the initial OIS to the first nearest-neighbor OIS directly below it, and then to the second nearest-neighbor OIS at the bottom center of the OIS, as shown in Path2 (final) in Fig. 3(a). This effectively breaks Path 2 into two steps. Our results show that the optimal path for the diffusion of the interstitial sites of Be in pristine Mo is Path 1 (OIS → TIS → OIS), with a diffusion energy barrier of 0.72 eV.
+
+Download: Download high-res image (153KB)
+Download: Download full-size image
+Fig. 3. (a) Schematic diagram of the diffusion path of Be in a Mo supercell (The blue dotted arrow represents the initially non-existent path 2), (b) Diffusion energy barrier of Be along Path 1. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Next, we use the Arrhenius diffusion equation, 
+, to estimate the diffusion coefficient of Be in Mo. Here, 
+ represents the pre-exponential factor, 
+ is the diffusion energy barrier of Be in Mo, k is the Boltzmann constant, and T is the absolute temperature. According to Wert and Zener's diffusion theory [45], the pre-exponential factor 
+ can be obtained by 
+. where n and a represent the number of equivalent jump paths and the equivalent jump length, respectively, and 
+ is the vibration frequency of Be in OIS, given by 
+, where m is the mass of a single Be atom. Since there are currently no reports on the diffusion behavior of Be in Mo, we compared it with that of Be in W, as both elements belong to the same group and have similar lattice sizes. In Fig. 4, we compare the diffusion coefficients of Be in Mo and W, including both experimentally measured data [46] and theoretically results [31]). As shown in Fig. 4, the diffusion coefficient of Be in Mo/W increases with temperature, indicating that higher temperature promotes the diffusion of Be in Mo and W. Furthermore, we observe that within the calculated temperature range, the diffusion coefficient of Be in Mo is 2–7 orders of magnitude higher than in W, suggesting that the diffusion of Be in Mo is much faster than that in W. Moreover, as the temperature increases, the difference in the diffusion coefficient of Be in Mo and W decreases. From the perspective of changing trends, the calculated results of Be in both Mo and W show good agreement with experimental results.
+
+Download: Download high-res image (114KB)
+Download: Download full-size image
+Fig. 4. The diffusion coefficient of interstitial Be in W/Mo as a function of the reciprocal temperature.
+
+3.1.3. Binding behavior of Be atoms in Mo
+Next, we analyze the binding behavior of Be atoms in Mo. From the dissolution behavior of Be in the interstitial positions of Mo, it can be concluded that Be is energetically more favorable to dissolve in OIS in Mo. Therefore, as shown in Fig. 5, the first Be atom is placed at OIS 0, and the second Be atom is sequentially placed at OIS 1–5 based on their distance from the first Be atom, arranged from near to far. The binding energy between Be atoms is calculated using the following equation [47,48]:
+(3)
+where 
+ is the total energy of the Mo supercell with one Be atom placed at OIS, 
+ is the total energy of the Mo supercell with two Be atoms occupying OIS positions, and 
+ is the total energy of the pristine Mo supercell. A positive value indicates that energy is released during Be–Be pair formation, suggesting an attractive interaction, whereas a negative value implies energy absorption and a repulsive interaction.
+
+Download: Download high-res image (81KB)
+Download: Download full-size image
+Fig. 5. Schematic representation of Be atom positions at interstitial sites in the Mo supercell.
+
+To investigate how the interaction between Be-Be atoms varies with distance, we analyzed the distance between Be atoms before and after structural optimization. Table 2 lists the initial and final distances of different Be-Be configurations, as shown in Fig. 5. For example, the distance between Be atoms at positions 0 and 1 in the supercell is initially 1.58 Å. After structural and energy optimization, the distance between them increases to 1.86 Å; whereas when the second Be atom is placed at position 2, the distance between Be atoms decreases from 2.22 Å to 1.91 Å. This indicates that there is a strong interaction between interstitial site Be atoms in the Mo supercell.
+Table 2. Binding energy and initial/final distances of different interstitial Be-Be configurations in Mo.
+
+Empty Cell	Be-Be	Be-Be	Be-Be
+Configuration	initial distance (Å)	final distance (Å)	
+, 
+, 
+ (eV)
+0–1	1.58	1.86	0.03, −0.18, 0.21
+0–2	2.22	1.91	1.19, −0.28, 1.47
+0–3	2.73	2.03	0.95, −0.38, 1.33
+0–4	3.52	3.77	0.19, 0.1, 0.09
+0–5	4.46	4.40	0.17, −0.02, 0.19
+Fig. 6 illustrates the variation in binding energy for Be-Be pair as a function of the distance between the optimized final positions. The binding energy between two Be atoms does not change monotonically with distance, but rather shows a trend of first increasing and then decreasing. The maximum binding energy of 1.19 eV occurs when the Be atoms are located at positions 0 and 2, with a distance of 1.91 Å between them. The binding energy of Be-Be pair is only 0.03 eV when the positions are at the closest, namely 0 and 1. This suggests that the binding behavior of Be-Be pair at interstitial sites in the Mo supercell is significantly influenced by distance, with an optimal interaction distance existing for Be-Be pair in Mo. It should be noted that the binding energies of all calculated interstitial Be-Be pairs are positive, indicating a tendency for Be-Be to bind at interstitial positions in Mo.
+
+Download: Download high-res image (71KB)
+Download: Download full-size image
+Fig. 6. Binding energy of Be-Be pair at interstitial sites in Mo as a function of distance.
+
+To further investigate the binding behavior of the Be-Be pair at interstitial positions in Mo, charge density maps and differential charge density maps for various Be-Be configurations were plotted. As shown in Fig. 7, there are significant charge interactions between two Be atoms, and strong charge interactions also exist between Be atoms and the neighboring Mo atoms. The charge density map also reveals that the introduction of Be-Be pair induces a distortion in the Mo lattice structure. Therefore, as discussed in the previous analysis of dissolution energy, the binding energy of Be-Be pair 
+ is decomposed into the structural contribution 
+ and the charge interaction contribution 
+. 
+ represents the contribution to the binding energy caused by structural changes in the supercell due to the binding of Be in Mo, and 
+ is defined as:
+(4)
+where 
+ and 
+ represent the energy of the Mo supercell after retaining the structural changes caused by one Be atom and two Be atoms, respectively, i.e., the energy of the supercell after manually removing Be and running a single step. After that, 
+ can be obtained by subtracting 
+ from the total binding energy 
+. From the results in Table 2, we observe that two Be atoms together induce greater lattice distortion compared to when they are separated. For all configurations except 0–4, 
+ for Be-Be pair is negative. This indicates that, structurally, Be-Be pair is generally not inclined to bind together in the Mo supercell. Furthermore, Table 2 shows that the electronic interaction binding energy 
+ is positive in all cases and dominates the total binding energy, indicating that the binding trend between two Be atoms in Mo is primarily driven by electronic interactions.
+
+Download: Download high-res image (293KB)
+Download: Download full-size image
+Fig. 7. Charge density maps of Be-Be pair with different configurations in the Mo supercell: (a) 0–1, (b) 0–2, (c) 0–3, and special differential charge density maps: (d) 0–1, (e) 0–2, (f) 0–3.
+
+The electronic environment in metals can be approximately modeled using a uniform electron gas. To further investigate the contribution of electronic interaction 
+ to the binding energy of Be in the Mo supercell, we used a uniform electron gas model. Following the method of constructing a uniform electron gas model in the literature [49,50], we constructed a uniform electron gas model with dimensions of 20 × 20 × 20 Å. The binding energy of Be-Be pair in the uniform electron gas is defined as:
+(5)
+where 
+ and 
+ represent the total energy of the system in a uniform electron gas with electron density 
+ when the Be-Be pair is at an infinite distance and at the optimal distance 
+, respectively. In this calculation, we approximate the infinite distance between Be-Be pair by using the maximum distance (17.32 Å) of the constructed supercell. Additionally, calculations for charged systems are prone to errors caused by finite size effects [[51], [52], [53]]. However, in our binding energy calculations, we subtract the total energies of the system at infinite distance and at the optimal distance 
+ in the same uniform electron gas model. Therefore, the energy errors caused by finite size effects are largely canceled out, ensuring a certain level of accuracy in our results.
+As shown in Fig. 8, the binding energy and distance between two Be atoms in the uniform electron gas model are presented as functions of charge density. The binding energy between two Be atoms in vacuum is 0.43 eV, indicating that these pairs tend to bind even without external electronic influence at a distance of 2.43 Å. As the electron density increases, the Be-Be pair binding energy first increases and then decreases, accompanied by a corresponding decrease in distance. Within the scope of our calculations, the binding energy between two Be atoms reaches a maximum value of 1.18 eV at an electron density of 0.01 e/Å3, corresponding to a distance of 2.09 Å. According to the special differential charge density plot in Fig. 7, the charge density at the Be-Be pair site ranges from 0.04 to 0.05 e/Å3. Fig. 8 shows that the corresponding distance between two Be atoms in the uniform electron gas is approximately 2 Å. This result is consistent with the Be-Be pair binding energies calculated in Mo, as shown in Table 2. The electronic interaction binding energy (
+ at distances of 1.91 and 2.03 Å are 1.46 and 1.33 eV, respectively, which are significantly higher than the 
+ values at other distances. Our findings clearly explain the variation in binding energy with distance for Be-Be pair in Mo, demonstrating that the binding behavior of Be atoms in Mo is strongly influenced by the charge density environment surrounding the Be atom pairs. Under varying charge densities, Be-Be pairs exhibit different optimal binding distances, at which the binding energy is maximized. Deviations from this distance lead to a reduction in binding energy.
+
+Download: Download high-res image (118KB)
+Download: Download full-size image
+Fig. 8. The maximum binding energy and optimal distance between two Be atoms in a uniform electron gas vary with electron density.
+
+3.1.4. Configurations and thermodynamic stability of multiple Be aggregation in Mo
+In the previous section, we analyzed the binding behavior of two Be atoms in a Mo supercell. In this section, we investigate the interactions among multiple Be atoms within the Mo supercell. To study aggregation behavior of multiple Be atoms, we introduce two concepts: the total binding energy 
+ and the binding energy of the nth Be atom 
+, defined as follows:
+(6)
+(7)
+where 
+ denotes the total energy of a supercell consisting of N Mo atoms and n Be atoms, and 
+ is the total energy of a supercell consisting of N Mo atoms and n-1 Be atoms.
+To determine the most stable configuration of Ben clusters at interstitial sites of the Mo supercell, we first identify the most stable configuration of Ben-1, and then add the nth Be atom to this configuration. It is important to note that when adding the nth atom, we explore all possible positions for the Be atoms and calculate the total energy of each Ben-Mo supercell. The most stable configuration of Ben clusters in the interstitial sites is then selected based on the lowest energy principle. As shown in Fig. 9, due to the limited space of the interstitial sites, the insertion of Be atoms causes distortions in the surrounding lattice and displacements of neighboring Mo atoms. For example, from the Be2 configuration diagram, it is evident to see that the presence of two interstitial Be atoms causes significant displacement of the Mo atom at the center of the unit cell in the (1 1 1) direction. Moreover, as the number of Be atoms in the Ben cluster increases, the displacement of neighboring Mo atoms becomes more significant. As illustrated in Fig. 9(f), when the number of Be atoms in the Ben-Mo supercell reaches six, these six Be atoms form a nearly octahedral structure, pushing the central Mo atom out of its original lattice position and creating a single vacancy.
+
+Download: Download high-res image (342KB)
+Download: Download full-size image
+Fig. 9. Schematic diagram of the most stable configurations of Ben (n = 1–6) in the Mo supercell.
+
+Fig. 10 illustrates the total binding energy of the most stable configuration of Ben clusters in the Mo supercell and how the binding energy of the nth Be atom varies with the number of Be atoms. As shown in this figure, the total binding energy of Ben clusters remains positive and increases almost linearly as the number of Be atoms increases. This indicates that interstitial Be atoms in the Mo system prefer to cluster in the form of Ben rather than remain dispersed. Furthermore, despite some fluctuations due to the symmetry of the Ben cluster structure, the binding energy of the nth Be atom consistently falls within the positive range of 0.8 to 2.4 eV. This suggests that, within the current study range, any Ben-1 cluster energetically favors the addition of the nth Be atom to form a Ben cluster.
+
+Download: Download high-res image (104KB)
+Download: Download full-size image
+Fig. 10. Total binding energy of the most stable configuration of Ben clusters in interstitial sites of the Mo supercell, and the binding energy of the nth (n = 2–6) Be atom as a function of the number of Be atoms.
+
+3.2. The effects of vacancies and SIAs on Be aggregation in Mo
+3.2.1. The impact of vacancies on Be aggregation in Mo
+In this section, we examine the influence of vacancies on the aggregation behavior of Be in Mo. The formation energy of a vacancy in the Mo supercell is defined as:
+(8)
+where 
+ is the total energy of the Mo supercell containing one vacancy. Using Eq. (8), the calculated formation energy of a central vacancy in the Mo supercell is 2.72 eV, which agrees well with the reported value of 2.67 eV [54]. Next, we sequentially place Be atoms into the vacancy. To analyze the binding behavior of BenV clusters, we introduce the concepts of total binding energy of the vacancy and Be atoms 
+ and the binding energy of the nth Be atom 
+, defined as:
+(9)
+(10)
+where 
+ represents the total energy of the Mo supercell containing the BenV cluster, and 
+ represents the total energy of the Mo supercell containing the Ben-1V cluster. It should be noted that 
+ and 
+ are defined as generalized binding energies, indicating the energy differences between the dispersed configuration of interstitial Be and the vacancy, and the initial and final configuration of BenV clusters. A positive binding energy suggests that the formation of BenV clusters is energetically more favorable than the presence of dispersed interstitial Be atoms and a single vacancy, whereas a negative binding energy suggests the opposite.
+Be atoms are sequentially inserted into the single vacancy, followed by a full relaxation of the entire supercell to obtain the most stable BenV configuration in the Mo supercell. Fig. 11 presents the most stable BenV (n = 1–12) configuration in the Mo supercell. When the first Be atom is placed into the vacancy, it occupies the center of the vacancy after relaxation. This is consistent with the earlier discussion of the sparse electron behavior of Be in Mo, where Be tends to occupy positions with the lowest electron density. Additionally, since the vacancy provides sufficient space for the first Be atom, the introduction of the first Be atom does not significantly cause the surrounding Mo atoms to shift. When there are two Be atoms in the vacancy, the Be atoms form a Be-Be cluster with a distance of 1.83 Å in the < 111 > direction at the center of the vacancy. When three Be atoms are added, they form an equilateral triangle with a side length of approximately 1.88 Å on the {111} plane. With four Be atoms, the configuration becomes a tetrahedron with a side length of approximately 1.90 Å. As the number of Be atoms in the single vacancy increases, the Be atoms gradually disperse in the vacancy, forming polygonal structures with noticeable geometric symmetry. From the configuration diagram in Fig. 11, we observe that when the 11th and 12th Be atoms are placed into the vacancy, the Be atoms in the vacancy are squeezed out to the surrounding lattice interstitial sites. This result indicates that a single vacancy in Mo can accommodate up to 10 Be atoms.
+
+Download: Download high-res image (322KB)
+Download: Download full-size image
+Fig. 11. Schematic diagram of the most stable BenV configuration in the Mo supercell.
+
+Fig. 12 shows that the total binding energy of the BenV clusters increases almost linearly, and the binding energy of the nth Be atom is also always positive. This indicates that, within the scope of the study, Be atoms in the Mo supercell are energetically more likely to bind with the vacancy to form BenV clusters. The data indicates that the binding energy between a single vacancy and the first Be atom is as high as 5.89 eV, indicating that the vacancy has a very strong attraction to the interstitial Be atom. When we place a Be atom in the octahedral position adjacent to the vacancy, the interstitial Be atom cannot stably exist and spontaneously relaxes to the center of the vacancy. Subsequently, when the second Be atom binds with the Be1V cluster, the binding energy decreases to 1.96 eV, indicating that the presence of one Be atom in the vacancy significantly weakens the attraction of the vacancy to the second Be atom. As the number of Be atoms in the vacancy increases, the binding energy of the nth Be atom gradually decreases due to the increasing electron density within the vacancy. However, it is worth noting that due to changes in the symmetry of the configuration of multiple Be atoms in the vacancy and the influence of nearby Mo atoms, the binding energy of the nth Be atom varies significantly. For example, the binding energies of the 4th and 9th Be atoms increase to 2.64 eV and 3.51 eV, respectively.
+
+Download: Download high-res image (106KB)
+Download: Download full-size image
+Fig. 12. Total binding energy of the most stable BenV clusters and the binding energy of the nth Be atom as a function of the number of Be atoms in the Mo supercell.
+
+3.2.2. The effect of SIAs on the aggregation behavior of Be in Mo
+To investigate the effect of SIAs on Be aggregation in Mo, we first calculated the formation energies of SIAs along different crystallographic directions in the Mo supercell. The formation energy of SIA is defined as:
+(11)
+where 
+ is the total energy of the Mo supercell containing an SIA. Fig. 13 illustrates the SIA structures along the < 100>, <110>, and < 111 > directions. The calculated formation energies for the SIAs in three directions are 8.61 eV, 7.15 eV, and 7.05 eV, respectively. According to the principle of energy minimization, the < 111 > direction has the lowest formation energy, indicating that the < 111 > direction SIA is the most stable in the Mo system.
+
+Download: Download high-res image (86KB)
+Download: Download full-size image
+Fig. 13. Configurations of SIAs in a Mo supercell along the (a) < 100>, (b) < 110>, and (c) < 111 > directions.
+
+Next, we studied the interaction between interstitial Be and the SIA in the < 111 > direction. As shown in Fig. 14, we placed interstitial Be atoms in the 1–6 OIS positions, arranged from nearest to farthest. To analyze the effect of interstitial Be on the binding behavior with an SIA, the binding energy between interstitial Be atoms and the SIA is defined as:
+(12)
+
+Download: Download high-res image (123KB)
+Download: Download full-size image
+Fig. 14. Schematic diagram of the positions of interstitial Be atoms in a Mo supercell with an SIA in the < 111 > direction.
+
+The results calculated using Eq. (12) are shown in Table 3. It can be observed that the position of Be changes before and after optimization due to the presence of the SIA. It should be noted that, in all cases, the distance between Be and the SIA decreases after optimization, which could be due to the positive binding energy between Be and the SIA.
+Table 3. The binding energy between interstitial Be atoms and SIA in the Mo supercell, as well as the initial and final distances.
+
+Position	Be-SIA initial distance (Å)	Be-SIA final distance (Å)	Be-SIA
+binding energy (eV)
+1	1.58	1.43	1.52
+2	2.23	1.98	1.12
+3	3.53	3.22	1.11
+4	3.86	3.79	0.76
+5	4.74	4.65	0.76
+6	4.99	4.95	0.35
+Fig. 15 shows how the binding energy between interstitial Be atoms and the SIA changes with the final distance after optimization. The binding energy between Be and the SIA generally decreases as the distance increases. Furthermore, it is worth noting that across the calculated range, the binding energy between Be atoms and the SIA remains positive, suggesting that Be tends to bind with the SIA in Mo. The binding energy reaches its maximum of 1.52 eV when the distance between Be and SIA is 1.43 Å (with Be at position 1). As the distance between Be and the SIA increases, the binding energy between Be and SIA drops from 1.52 eV to 0.35 eV, indicating that the binding capability of the SIA for interstitial Be weakens with increasing distance. When the distance between the interstitial Be atom and SIA increases to 4.95 Å, the binding energy remains at 0.35 eV, indicating that SIA has a significant influence on interstitial Be atoms in Mo over a relatively larger range.
+
+Download: Download high-res image (72KB)
+Download: Download full-size image
+Fig. 15. Variations in binding energy between interstitial Be atoms and an SIA in the Mo supercell as a function of distance.
+
+Next, we investigated the interactions between multiple Be atoms and the SIA. As shown in Fig. 16, based on the principle of minimum energy, we identified the most stable configuration for Ben-SIA (n = 1–6) clusters. When one Be atom is placed in the OIS near the SIA, the SIA direction changes from < 111 > to < 100 > . As the number of Be atoms in the Ben-SIA cluster increases, the lattice distortion intensifies, eventually pushing the SIA out of the original unit cell and forming a localized Be aggregation region. To analyze the binding behavior of Ben-SIA clusters, we introduce the concepts of total binding energy between the SIA and Be atoms, 
+, and the binding energy of the nth Be atom, 
+, defined as:
+(13)
+(14)
+where 
+ represents the total energy of the Mo supercell containing the Ben-SIA cluster, and 
+ represents the total energy of the Mo supercell containing the Ben-1-SIA cluster. A positive binding energy indicates that Be atoms and the SIA are more energetically stable as a Ben-SIA cluster compared to when they are dispersed; a negative binding energy indicates the opposite.
+
+Download: Download high-res image (372KB)
+Download: Download full-size image
+Fig. 16. The most stable structural configurations of Ben-SIA (n = 1–6) clusters in the Mo supercell.
+
+As shown in Fig. 17, the total binding energy of the Ben-SIA cluster increases almost linearly with the number of Be atoms and remains a large positive value. This indicates that within the range of the study, Be atoms in the Mo supercell are energetically more likely to combine with the SIA to form Ben-SIA clusters. Additionally, we observe an intriguing phenomenon: the binding energy of the nth Be atom increases with the number of Be atoms. This indicates that as the number of Be atoms in the Ben-SIA cluster increases, the cluster's ability to bind additional Be atoms also strengthens. This results in a cascading mechanism for Be atom aggregation, where the greater the number of Be atoms in the Ben-SIA cluster, the stronger its ability to bind the next Be atom, leading to a higher likelihood of forming Be-rich regions in the Mo supercell.
+
+Download: Download high-res image (93KB)
+Download: Download full-size image
+Fig. 17. The total binding energy and the binding energy of the nth Be atom for the most stable configuration of the Ben-SIA cluster in the Mo supercell as a function of the number of Be atoms.
+
+3.3. Concentration of Ben and BenV clusters in Mo
+3.3.1. Concentration of interstitial Be and Ben clusters
+In this section, we use a combination of thermodynamic and statistical physical models with first-principles calculations to predict the concentration of individual interstitial Be and Ben clusters in Mo. The formation energy of OIS-Be and Ben clusters is defined as:
+(15)
+(16)
+Table 4 shows the formation energy data of Ben, calculated based on Eqs. (15), (16). Based on the thermodynamic statistical model of impurity concentration in metals given in references [[55], [56], [57], [58]], the concentrations of OIS-Be, Ben (n ≥ 2), and the total Ben in Mo can be expressed as:
+(17)
+(18)
+(19)
+where NOIS and N represent the total number of OIS and the total number of Mo atoms, respectively. Since Mo is a bcc structured crystal, NOIS/N = 3. 
+ is the maximum number of Be atoms in the largest Ben cluster considered, which is taken as 6 in this calculation. 
+ is the number of possible configurations of the Ben cluster, approximated as 
+.
+Table 4. Formation energies of OIS-Be and Ben (n ≥ 2) clusters in Mo supercells.
+
+Metal	Cluster	
+(eV)
+Mo	Be1(OIS)	3.56
+Be2	5.94
+Be3	6.99
+Be4	9.56
+Be5	10.95
+Be6	12.77
+From Fig. 18, it can be observed that the concentration of all Ben clusters increases with the increasing temperature, indicating that higher temperatures promote the formation of Ben clusters in Mo. Additionally, at any given temperature, the concentration of Ben clusters in Mo decreases by several to dozens of orders of magnitude as the number of Be atoms in the clusters increases. This result is attributed to the fact that Ben clusters with more Be atoms require higher formation energies. It is also important to note that the concentration of Be1 almost coincides with the total Ben cluster concentration curve, indicating that Be1 is the predominant form of Ben in Mo.
+
+Download: Download high-res image (183KB)
+Download: Download full-size image
+Fig. 18. Temperature dependence of the concentration of interstitial Be and Ben clusters in Mo.
+
+3.3.2. Concentration analysis of BenV clusters
+The formation energy of BenV clusters in Mo is defined as:
+(20)
+The concentrations of pure vacancies, BenV, and total BenV clusters in Mo are approximately defined as:
+(21)
+(22)
+(23)
+From the BenV structural analysis in the previous section, it is clear that a vacancy can accommodate 10 Be atoms. Therefore, in the calculation of BenV concentration, 
+ is set to 10. 
+ represents the number of possible configurations for the BenV clusters, which is approximated as 
+.
+Fig. 19 shows the variation of BenV clusters concentration with temperature in Mo. The data indicate that the concentration of BenV clusters in Mo increases with the increasing temperature. Additionally, the concentration differences between BenV clusters with varying numbers of Be atoms are more pronounced at lower temperatures and decrease with increasing temperature. Among the BenV clusters, Be1V clusters dominate due to their significantly lower formation energy compared to other BenV clusters. Moreover, the concentration of a single vacancy in Mo is lower than that of Be1V and Be2V clusters, which is attributed to the lower formation energy of Be1V and Be2V clusters compared to a single vacancy in Mo. Table 5 shows that the formation energy of a single vacancy in Mo is 2.72 eV, whereas the formation energies for Be1V and Be2V clusters are 0.31 eV and 1.97 eV, respectively. In addition, as the number of Be atoms in the BenV cluster increases from 3 to 6, the formation energy of the BenV cluster increases from 3.63 eV to 8.84 eV. A very interesting phenomenon is that the formation energy of Be1V and Be2V is lower than that of the monovacancy, indicating that Be1V and Be2V clusters are energetically easier to form in Mo than monovacancies. These results indicate that the presence of Be may promote vacancy formation in Mo, similar to the behavior of hydrogen as an impurity in various metals, where hydrogen is also known to facilitate vacancy formation [[59], [60], [61]].
+
+Download: Download high-res image (172KB)
+Download: Download full-size image
+Fig. 19. Temperature dependence of the concentration of BenV clusters in Mo at different temperatures.
+
+Table 5. Formation energies of BenV clusters in Mo.
+
+Metal	Cluster	
+(eV)
+Mo	Vacancy	2.72
+Be1V	0.37
+Be2V	1.97
+Be3V	3.63
+Be4V	4.56
+Be5V	6.21
+Be6V	8.84
+4. Discussion
+Single-crystal Mo is considered the most promising candidate for the first-mirror material in nuclear fusion reactors due to its excellent properties. As a component directly exposed to plasma, the first mirror must endure the deposition of impurity particles generated by sputtering on its surface. Of these impurities, Be has the most significant impact on the optical performance of the mirror. Be impurities deposited on the Mo surface diffuse into the Mo material, leading to complex interactions with Mo atoms and defects. This could significantly impact the performance of Mo, affecting its detection effectiveness and service life as the first-mirror material. However, there is currently a lack of research on the behavior of Be in Mo and its interactions with defects, suggesting that important factors may have been overlooked.
+This study systematically investigates the thermodynamic stability, diffusion, clustering, and concentration distribution of Be in Mo using first-principles calculations combined with thermodynamic models, emphasizing the effects of vacancies and SIAs. The calculations indicate that Be exhibits a strong tendency to aggregate within Mo. Furthermore, the optimal configuration for Be clustering in Mo, as well as the influence of vacancies and SIAs on this process, is presented. Summarizing all these results above, we propose an underlying physical mechanism for the clustering property of multiple Be atoms in Mo. Be atoms first aggregate in the form of interstitial self-association. Multiple interstitial Be atoms tend to aggregate in Mo to form Ben clusters. When the number of Be atoms reaches six, they will form an approximately octahedral structure of Be6 cluster, while the Be6 cluster displaces the Mo atom to form a local Be6V cluster and simultaneously generate one SIA. The unsaturated Be6V cluster will continue to capture Be atoms to form larger BenV clusters, while SIA will also capture Be atoms to form Ben-SIA clusters. When the Ben-SIA cluster grows sufficiently large, the excess Ben atoms will once again displace Mo atoms to create more SIAs and vacancies, and further form additional Ben-SIA and BenV clusters. This cascading process ultimately results in the development of Be-rich regions within Mo, which means that impurity Be atoms will severely affect the detection performance and service life of Mo as a first mirror material for nuclear fusion.
+The proposed mechanism can be also applied to explain the clustering and precipitation behavior of Be impurities in other bcc metals. For example, the findings of Lasa et al. [30] indicate that W-Be mixed materials exhibit a potential hcp-like Be structure under fusion-relevant conditions and do not form a crystalline alloy. The Be clustering mechanism proposed here can effectively explain these behaviors of Be in W. Furthermore, this mechanism may also provide theoretical insights into the clustering and precipitation behaviors of other impurities (e.g., Li, B, C, He, etc.) in other bcc metals. By way of illustration, Veen et al. [62] investigated the aggregation behavior of He in Mo using TEM and THDS, revealing the nucleation and growth mechanism of helium clusters at room temperature. The research showed that He clusters form in a two-dimensional platelet shape, and as helium accumulates, their thickness gradually increases, potentially evolving into small bubble clusters. Furthermore, He et al. [63] investigated the aggregation behavior of C and B in bcc-Fe. Computational simulations indicated that a mono-vacancy can stably capture up to three C or B atoms, forming VXn (X = C/B, n = 0, 1, 2 and 3) as well as complex defects such as VCB, VC2B, and VCB2 in bcc-Fe. Yu et al. [64] found that there is a significant attractive interaction between Li atoms in bcc-Fe. Their binding energies are all positive, indicating that Li atoms in bcc-Fe tend to spontaneously aggregate and form clusters.
+In this study, owing to the low solubility of Be in bulk Mo, our research focuses on the behavior of Be as a low-concentration impurity in bulk bcc-Mo. Consequently, potential phase transformations induced by high Be concentrations are beyond the scope of this work. In our subsequent work, we will systematically investigate the behavior of Be on Mo surfaces. The main topics will include the adsorption behavior of Be on different Mo surfaces, the behavior of Be–Mo alloy phase formation near the Mo surface under high Be coverage conditions, and the diffusion behavior of Be from the Mo surface into the bulk. This line of investigation strives to provide comprehensive data and theoretical guidance for experimental research on the behavior of Be in Mo.
+5. Conclusion
+Using first-principles calculations combined with thermodynamic models, we systematically studied the thermodynamic stability, diffusion properties, clustering behavior, concentration distribution, and interactions of Be atoms with vacancies and SIAs in Mo. The key findings of this study are summarized as follows:
+(I)
+The binding energy between two Be atoms in the pristine Mo does not change monotonically with distance, but first increases and then decreases. The maximum binding energy at a distance of 1.91 Å is 1.19 eV, indicating a strong tendency for clustering. Due to the limited space at the interstitial sites, the aggregation of multiple Be atoms displaces neighboring Mo atoms from their original positions to varying extents by the interstitial Ben clusters. When the number of Be atoms in the Ben cluster reaches six, a nearly octahedral structure is formed, expelling the central Mo atom and creating a vacancy that serves as the initial precipitation nucleus for the Be cluster. The total binding energy of the Ben clusters remains positive and increases almost linearly with the number of Be atoms.
+(II)
+The variation of the binding energy of the Be-Be pair in Mo with distance is clearly explained by our results, demonstrating that the binding behavior of Be atoms in Mo is significantly influenced by the charge density environment surrounding the Be-Be pair. At varying charge densities, the Be-Be pair exhibit distinct optimal binding distances at which the binding energy is maximized. Any deviation from these distances leads to a reduction in binding energy.
+(III)
+Both vacancies and SIAs show a very strong attraction to interstitial Be atoms, leading to the formation of BenV and Ben-SIA clusters. The total binding energies of BenV and Ben-SIA clusters increase almost linearly, and the binding energy of the nth Be atom remains positive. A single vacancy can accommodate up to 10 Be atoms, forming a Be10V cluster. As the number of Be atoms increases, the binding strength of Ben-SIA clusters also increases.
+(IV)
+Our results reveal a mechanism for the formation of Be-rich regions in Mo: Be atoms first aggregate at interstitial sites, and once a Be6 cluster forms, it displaces a Mo atom, generating a Be6V cluster and an SIA. They continue to capture more Be atoms, growing into larger BenV and Ben-SIA clusters. As the Ben-SIA clusters expand, excess Be atoms displace more Mo atoms, creating additional SIAs and vacancies and further propagating the formation of Ben-SIA and BenV clusters. This cascading process ultimately results in the development of Be-rich regions within Mo. Our proposed mechanism can be also used to explain the aggregation and precipitation behavior of Be impurities in other bcc metals, and may also provide theoretical insights into the aggregation and precipitation behavior of other impurities (such as B, C, Li, He, etc.) in other bcc metals.
+(V)
+The concentrations of both Ben clusters and BenV clusters increase with temperature, indicating that higher temperatures promote the formation of these clusters in Mo. However, as the number of Be atoms in the clusters increases, their concentration decreases by several orders of magnitude. Therefore, Be1 and Be1V are the predominant forms of Ben and BenV clusters, especially at lower temperatures.

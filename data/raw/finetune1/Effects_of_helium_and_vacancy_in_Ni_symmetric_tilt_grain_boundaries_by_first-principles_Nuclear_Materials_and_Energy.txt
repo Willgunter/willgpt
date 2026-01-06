@@ -1,0 +1,99 @@
+Abstract
+The vacancy and helium effects on eight low-Σ symmetric tilt grain boundaries (STGBs) of Ni were investigated by first-principles calculations. The simulations demonstrate that vacancies in Ni matrix could diffuse easily to the grain boundary and helium atoms are quite stable at the grain boundary vacancy sites. Vacancy accumulation at high-energy STGBs could enhance the binding strength while He defects are generally detrimental to grain boundary binding and interstitial helium defects can initiate more severe grain boundary cracking comparing to vacancy-bind-helium. Further electron charge analysis suggested the influence of grain boundary binding greatly relies on the grain boundary atomic structure and the interaction between Ni-d and He-p states. The polarized charge transfer induced by He helium occupation was predicted to be detrimental to the binding strength, which explains the experimentally-observed helium bubbles and helium-induced GB embrittlement.
+Previous article in issue
+Next article in issue
+Keywords
+Grain boundariesNi alloysHeliumFirst-principles
+Introduction
+Molten salt reactors (MSRs) are a class of nuclear fission reactors which use molten fluoride or chloride salts as their primary coolant [1], [2]. The MSRs are now recognized as a long-term alternative to solid fueled fast reactors due to their attractive features such as high-temperature power cycle, low operating pressure, and passive heat removal [3]. However, the liquid fuel salt brings great challenge to the corrosion resistance of the structural materials in primary circuit. Ni-based Hastelloy alloys with excellent resistance to alloy dissolution in molten salt and high temperature mechanical properties are considered as potential structural materials for MSRs [4], [5], [6]. However, the (n, alpha) reactions in the process of neutron-induced nuclear transmutations generate significant amount of helium and hydrogen atoms, while helium accumulation in nickel alloys generally induces ductile to brittle deformation mechanism of Ni [7], [8], [9]. Extensive experimental characterizations have demonstrated significant inter-granular embrittlement of nickel after neutron irradiation [10], [11], [12] and helium ion implantation [13], [14], [15], [16]. Therefore, a detailed understanding of the origin of helium- embrittlement in nickel-based alloys is essential in the assessment of material performance for structural component application.
+Extensive experimental and theoretical attempts have been made to elucidate the trapping and diffusion properties of helium in nickel-based alloys since 1960s. By in-situ heating experiment in transmission electron microscopy and small angle neutron scattering, the growth and elongation of He bubble along the grain boundary (GB) has been commonly characterized in nickel based Hastelloy N alloys and obvious brittle GB failure has been observed through mechanical property tests at elevated temperature [17], [18], [19]. Later TEM characterizations revealed the temperature effects of the formation of helium bubbles near the surface and in the bulk in nickel during post-implantation annealing [20], [21], [22], [23].
+Besides the macroscopic and mechanical-property data, very little is known experimentally concerning the atomic-scale behavior of He in Ni GBs. The formation and growth of the helium bubbles near the GBs can be much more complicated since GBs with complex structures can accommodate a large distribution of diverse trapping sites for impurities. There have been several studies using first-principle and molecular dynamics (MD) simulations to investigate how He bubbles segregate at grain boundaries in nickel. Helium atoms were initially predicted to be easily trapped at various GBs with meta-stable trapping sites [24]. Later, MD simulations have been used to understand the migration behavior of interstitial He inside Σ3(1 1 −2)[25] and Σ5(2 1 0) [26] symmetric tilt grain boundary (STGB) and to understand the correlation interaction between helium defects and grain boundary plane. Helium atoms prefer to cluster at the Σ3(1 1 –2) GB vacancy sites and maintain high symmetric geometry structures. However, the enlargement of small helium bubbles lying on grain boundary vacancy sites shall weaken the cohesive strength of GB results in the decrease of mechanical performance. More recent MD simulations on STGBs suggested that high-energy GBs can act as the two-dimensional diffusion channels for helium while the helium clusters at low-energy STGBs tend to grow into large helium bubbles and thus promoting the observed helium-induced GB embrittlement [27]. Despite the reported molecular dynamics calculations have given a fundamental understanding of the effects of He segregation at Ni GBs as well as their potential mechanical response, very few first-principles calculations [28] have been devoted to investigate the segregation and embrittlement properties of He at GBs. Previous DFT investigations mainly analyzed the effects of solute and impurity elements segregation on grain boundary strength in Ni-based alloys[29], [30], [31], [32]. The segregation of the embrittling species and the embrittling effect are closely related to the local atomic structure of the GB. Substitutional impurity elements like C, P, O and H at coherent twin boundaries were predicted to have strong embrittlement potencies Although the unexpected GBs-related helium embrittlement has shown to be critical for the performance of Ni-based superalloys, the physical origin of its mechanism is still elusive.
+Symmetric tilt grain boundaries have very interesting properties and are frequently observed experimentally. As a consequence, STGBs may play a fundamental role in modulating helium effects on the material properties. In the present study, we investigate systematically the interaction between He and STGBs in nickel using first-principles calculations. Eight representative high-angle low- Σ STGBs were considered, which possess significantly distinct structures and result in different He behaviors in the vicinity of GBs. Therefore, the reported findings can provide vital insight into the atomic mechanism of He effect on grain boundaries and enhance the understanding of helium effects in nickel-based alloys.
+Computational details
+All the DFT calculations were conducted using Vienna ab-initio Simulation Package (VASP) with the plane-wave basis sets and periodic boundary conditions. The electron-core interaction was described by the Blöchl projector augmented wave method (PAW) within the frozen-core approximation[33]. The generalized gradient approximation (GGA) of Perdew-Burke-Ernzerhof (PBE) was adopted for the exchange–correlation functionals[34]. All the ground-state configurations were optimized using a high energy cut-off of 550 eV for the plane-wave basis sets until the total energy was minimized and the total force on each ion converged to within 0.02 eV/Å. All calculations were fully spin-polarized with cell volumes undergo full relaxation. The grain boundary sandwich structures are constructed using the structural-unit(SU) model and eight low- Σ STGBs of fcc- Ni are considered as shown in Fig. 1. Σ is the degree of fit which is defined as the reciprocal density of coincidence sites of two interpenetrating lattices misoriented by a relative rotation. θ is the disorientation angle about the corresponding tilt axis [uvw]. There are two identical GB plane in each sandwich model. The number of atoms (N) for each model can be found in Table 1.
+
+Download: Download high-res image (435KB)
+Download: Download full-size image
+Fig. 1. The atomic SU models of eight low-Σ symmetric tilt Ni GBs. The dark blue and light blue balls denote Ni atoms on different planes respectively. The structural units of each GB are indicated by green and yellow polyhedron. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Table 1. Calculated formation energies of eight low- Σ Ni STGBs in comparison with other available calculations in literature.
+
+GB structure	θ(deg)	N	γGB(J/m2)
+this work	other calc.
+109.5	96	0.06	DFT: 0.07 [29], 0.09 [30],
+MD: 0.05 [35]
+70.5	184	0.92	DFT: 0.89 [29], 0.86 [32]
+MD: 1.34 [35]
+53.1	160	1.30	DFT: 1.25 [29], 1.30 [32],
+MD: 1.29 [36], 1.34 [35]
+36.9	152	1.26	DFT: 1.99 [29], 1.91 [30]
+MD: 1.93 [35]
+141.2	210	1.15	1.10 [37]
+50.5	176	0.45	0.47 [30]
+MD: 0.40 [35], 0.38 [37]
+67.4	200	1.17	−
+22.6	200	1.40	−
+The stability of concerned STGBs can be evaluated by calculating the grain boundary energies using the following equation
+(1)
+here, 
+ represents the total energy of a STGB supercell containing n atoms of Ni. 
+ represents the energy of a single atom in Ni bulk. A is the area of the GB model.
+Formation energy of vacancy at various grain boundary locations is calculated to predict the energetic favorable vacancy sites by
+(2)
+where, 
+ and 
+ represent the total energy of the supercell with or without vacancies, respectively. 
+ is the chemical potential of a Ni atom in its metallic state.
+Average binding energies of a He atom at a STGB are calculated to determine the preferable site of helium defects. For He atoms locating at the interstitial sites, the binding energy is evaluated as
+(3)
+Binding energy for He atoms occupying a pre-existed vacancy is evaluated as
+(4)
+here, 
+ represents the total energy of a GB supercell containing 
+ atoms of He and 
+ stands for the total energy of a GB supercell with identical number of Ni atoms. 
+ is the total energy of the corresponding GB supercell with a pre-existed nickel vacancy. 
+ is the chemical potential for a helium atom in its molecular state.
+Work of separation is calculated to evaluated the possible influence of helium defects of grain boundary binding strength, which is defined by the energy required to separate the GB structure into two surfaces:
+(5)
+here, 
+ and 
+ represents the total energies of two free surfaces that constructed grain boundary supercell, respectively.
+Differential charge densities of the STGBs with a (He)vac can be calculated as
+(6)
+where, 
+, and 
+ represents the charge densities of the identical GB with a (He)vac and a vacancy, respectively, while 
+ indicates the charge densities of the isolated He atom in a supercell size that is identical to the GB model.
+Results and discussions
+Table 1 summarizes the grain boundary energies in comparison with literatures, where well-agreement can be found between our calculations and previous reports. Coherent GB structures generally have lower grain boundary energies and thus can be frequently characterized in experiments. Σ3(1 1 1) has the lowest grain boundary energy since it is a typical coherent twin boundary in Ni, while Σ11 (1 1 3) coherent GB possesses an GB energy only higher than that of Σ3(1 1 1) GB.
+Despite the constructed perfect GB models, vacancies are inevitable in nickel matrix and can easily segregate to grain boundaries. Therefore, potential vacancy sites are considered at the GB region from L0 to ±L3 atomic layer as indicated in Fig. 1. The calculated formation energy for a vacancy in a Ni bulk is 1.42 eV, agreeing well with the reported values(1.44 [38], 1.47 [39], and 1.43 eV [40]). The calculated vacancy formation energies of the most favorable site at the eight GBs are plotted in Fig. 2 in comparison with their corresponding GB formation energies. As seen from Fig. 2, the calculated formation energies of vacancies at the GB regions are generally lower than that in a Ni bulk, which suggests higher vacancy concentration at the GB regions. And strong tendency of vacancies to segregate to GB regions from bulk phase can be expected. Most vacancies are found to be more energetically favorable to appear at L±1-layer instead of the L0-layer of the GBs, suggesting that vacancies are more likely to segregate to the sub-layers of GBs. It should be noted that energetically favorable vacancies can spontaneously segregate to 
+ GBs while the high grain boundary formation energies and the accumulation of vacancies may result in the collapse of the GB structures.
+
+Download: Download high-res image (111KB)
+Download: Download full-size image
+Fig. 2. Calculated GB vacancy formation energies versus GB formation energies of eight low-Σ Ni STGBs. The light orange dotted line denotes the vacancy formation energy in a Ni supercell. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Since the vacancies are energetically-favorable and inevitable in grain boundary structures, two potential sites are considered for the helium defects. One is the interstitial sites locate in the SU of GBs as indicated in Fig. 1, and the other one is the pre-existed GB vacancy sites. Both single helium and helium-pair defects at various STGBs are evaluated by calculating the average binding energies of a He atom as indicated in Fig. 3. For the eight constructed STGBs, helium atoms all show strong tendency to bind with the pre-existed vacancies instead of occupying an GB interstitial site directly except for 
+ GBs. Generally, binding energies of (2He)vac are higher than (He)vac, which can be owed to the large structural distortion caused by the helium binding. For interstitial helium atoms, He atoms prefer to cluster together than separate individually in adjacent interstitial sites with increasing the helium numbers. However, due to the low formation energies of helium defects and high grain boundary energies, the structure of 
+ GBs with He are predicted to be meta-stable. At low He concentration(one He atom), it prefers to occupy interstitial sites rather than binding to pre-existed vacancy sites in Σ13 GBs while the defect formation energy can be further reduced when two helium atoms are introduced to pre-existed vacancy sites.
+
+Download: Download high-res image (73KB)
+Download: Download full-size image
+Fig. 3. The calculated binding energies for He atoms locating at the interstitial sites and a pre-existed vacancy sites on concerned low-Σ STGBs.
+
+Work of separation of STGBs is investigated using Eq.5 to simulate the intergranular cleavage fracture caused by helium embrittlement. The mechanical performance of STGBs and the possible helium-induced influence is summarized in Fig. 4. For a pristine GB model, Σ9(−2 2 1) has the weakest binding strength while Σ11(1 1 3) is predicted to be the strongest one. The binding strength can be further enhanced with the presence of vacancies except for Σ3(1 1 1) which has the highest formation energies of the vacancy.
+
+Download: Download high-res image (134KB)
+Download: Download full-size image
+Fig. 4. The effects of helium absorption and vacancy segregation on GB binding strength of the concerned Ni- STGBs.
+
+He defects are generally detrimental to grain boundary binding and interstitial helium defects can initiate more severe grain boundary cracking comparing to vacancy-bind-helium with the obvious decrease of work of separation. Despite the grain boundary binding strength for (He)int@Σ5(2 1 0) is enhanced, the helium atom is energetically unfavorable to segregate at Σ5(2 1 0) GB. To further illustrate the influence of binding strength caused by helium defect, differential charge densities of the concerned STGBs with a (He)vac defect are calculated using Eq.6 as shown in Fig. 5. Helium absorption at grain boundaries is a chemical reaction rather than a physical process since obvious electron transfer can be found between the He and its nearest-neighboring Ni atoms, and the degree of such transfer apparently depends on the spatial separation of atoms. A larger Ni-He separation distance corresponds to a less amount of electron transfer. Both He interstitials and their first neighbor Ni atoms are strongly polarized as a result of the interaction between Ni-d and He-p states while for the He at symmetric vacancy site, the polarization is negligibly small.
+
+Download: Download high-res image (140KB)
+Download: Download full-size image
+Fig. 5. Differential charge densities of the defective low-Σ S TGBs with a (He)vac. The 2D plots are taken from the cross-sections of (1 0 0) via He atom.
+
+Based on our calculations, we could now give a more accurate understanding of the helium induced embrittlement in Ni-based alloys under severe conditions from atomic scale. The low-Σ grain boundaries are dominant structures in the Ni matrix under high temperature and neutron radiation. Ni vacancies are energetically favorable to segregate from the Ni matrix and absorb with the GBs, resulting in higher proportion of vacancies and voids in Ni GBs. These nickel vacancies can first act as a sink for the helium atoms, then form He clusters at GBs once the vacancies are saturated, gradually the clusters can grow into the experimentally observed helium bubbles and eventually lead to the grain boundary embrittlement in Ni alloys.
+Conclusions
+In the present study, we investigate systematically the interaction between eight low-Σ STGBs and defects including vacancy and He defects in nickel alloys using first-principles calculations. These STGBs possess significantly distinct structures and result in different He behaviors in the vicinity of GBs. Vacancies show strong segregation tendency towards the GB region than the Ni matrix and can spontaneously form on the Σ13(3 2 0) and Σ13(5 1 0) STGBs. The segregation of vacancy can enhance the binding strength of the pristine STGBs except for low-energy Σ3(1 1 1) twin boundary. With the presence of vacancies, helium atoms can easily accumulate on the GB vacancy sites and then occupy the GB interstitial sites once the vacancies are saturated. However, the helium accumulation is predicted to be detrimental to the binding strength and thus induced the observed helium embrittlement of Ni alloys. These results provide a fundamental understanding of helium behaviors in Ni alloys with various grain boundary structures.
