@@ -1,0 +1,263 @@
+Abstract
+FeAl/Al2O3 is considered the most promising candidate material for tritium permeation barrier (TPB) due to numerous advantages. γ-Al2O3 phase structure is commonly found in FeAl/Al2O3, and is crucial to its effectiveness. In fusion reactors, high-energy neutrons generate a large number of irradiation-induced defects, significantly affecting the performance of γ-Al2O3. The underlying mechanism is still unclear. This study focuses on the influence of irradiation-induced point defects on the dissolution and diffusion of H in γ-Al2O3 using first-principles theory. Our results show that the irradiation-induced point defect exhibit a strong ability to capture dissolved H atoms, leading to higher hydrogen retention. When dissolved H atoms are captured by vacancy-type defects, the diffusion barrier becomes so high that isolated vacancy-type irradiation-induced point defects can hinder the diffusion of H atoms. This in turn enhances the effectiveness of TPB in preventing H permeation. Furthermore, the impediment effect of Al vacancies on H diffusion in γ-Al2O3 is higher than that in α-Al2O3, whereas O vacancies have the opposite effect, impeding H diffusion in γ-Al2O3 less than in α-Al2O3. However, the diffusion barrier of O interstitial atoms and H as a bound entity is only 0.11 eV, which is even far lower than that in α-Al2O3 (0.44 eV). Therefore, O interstitial atoms can accelerate the diffusion process of H, which can reduce the efficiency of protection against H permeation through γ-Al2O3 TPB. The accelerating effect in γ-Al2O3 is higher than that in α-Al2O3. These findings provide valuable insights into the influence of irradiation-induced point defects on H behavior in γ-Al2O3, which is essential for improving the efficiency of FeAl/Al2O3 tritium permeation barriers.
+Previous article in issue
+Next article in issue
+Keywords
+Irradiation defectsγ-Al2O3Tritium permeation barrierHydrogen
+1. Introduction
+Achieving tritium self-sufficiency in reactors is the primary challenge for the commercial application of fusion energy [1], [2], [3]. A key technology to address this challenge is the tritium permeation barrier (TPB), which is crucial for the economic viability and safety of reactors [4], [5]. Among various materials, FeAl/Al2O3 is considered to be the most likely TPB for engineering application in reactors by numerous member countries of the International Thermonuclear Experimental Reactor (ITER), due to its efficient tritium permeation resistance, low thermal mismatch, excellent comprehensive properties, and self-healing ability [6], [7], [8], [9], [10]. Al2O3 exists in one stable phase (α) and many metastable phases such as β, γ and θ. α-Al2O3 has the highest thermodynamic stability and hydrogen permeation reduction factor (PRF). However, the formation of α-Al2O3 requires temperatures above 1000℃, which can significantly weaken the mechanical properties of substrate materials during preparation. Consequently, the preparation of FeAl/Al2O3 TPB often occurs at lower temperatures, leading to the formation of a substantial amount of the γ-Al2O3 crystalline phase (350℃-1000℃) [7], [11], [12], [13], [14]. γ-Al2O3 is less efficient than α-Al2O3 in preventing hydrogen permeation, which makes it a weaker part of these barriers. Ensuring the effectiveness of γ-Al2O3 in preventing H permeation is crucial to the PRF of FeAl/Al2O3 TPB [15].
+The deuterium–tritium reaction in future fusion reactors will generate a large number of 14 MeV high-energy neutrons, which will introduce a significant number of defects in TPBs, such as vacancies, interstitial atoms, dislocations and cavities [16]. These irradiation defects have a series of impacts on the effective efficiency of FeAl/Al2O3 TPBs and have been widely studied over decades [17], [18]. The most direct way to study the effect of fusion neutrons on the properties of H permeation through materials is by conducting neutron irradiation experiments in fusion reactors. However, due to the lack of fusion neutron resources or fusion reactors available for materials irradiation evaluation, ions, electrons, or fission neutrons are mainly used to simulate neutron-induced damages. Gordo et al. performed a series of sapphire irradiation experiments with swift Kr ions at room temperature over a broad fluence range to investigate the defect structure induced by irradiation [19]. They found that monovacancies are the dominant defects at small doses, while larger vacancy clusters or voids are formed at higher doses. Li et al. investigated irradiation damages in xenon-irradiated α-Al2O3 and observed the interstitial-type dislocation loops with Burgers vectors of b = 1/3 < 10–11 > on the {10–10} and (0001) habit planes [20]. Ziour et al. performed a series of irradiation experiments with only neutrons, with only 90 MeV Xe ions and with neutrons followed by 90 MeV Xe ions to investigate the radiation damage in Al2O3 single crystal [21]. They revealed that, due to ionization-induced recovery of the neutron damage, the concentration of irradiation-induced defects in Al2O3 irradiated only by neutrons is higher than in the other two samples. Liu et al. fabricated a FeAl/γ-Al2O3 TPB, performed a series of 6.4 MeV Fe3+ ion irradiations at 400 ◦C and found a large amount cavities in the barriers [22].
+These irradiation-induced defects are similar to those produced in the fabrication process and significantly influence H permeation behavior in materials. γ-Al2O3 is the weak part of FeAl/Al2O3 TPB, which is vital for the efficiency in preventing H through FeAl/Al2O3 TPB. Therefore, investigating how hydrogen interacts with irradiation-induced defects and their impact on hydrogen permeation through γ-Al2O3 under irradiation is crucial for designing and preparing FeAl/Al2O3 TPB. Fujita studied deuterium permeation through erbium oxide coatings under γ-ray irradiation, finding that deuterium permeation flux through erbium oxide increased with dose rate at lower temperatures (350–400 °C), resulting in a lower PRF [23]. Zhang et al. systematically examined deuterium permeation resistance of amorphous Al2O3 following 6 MeV Au2+ ion irradiation and observed a phase change from amorphous to crystalline γ-Al2O3. They noted that the efficiency of Al2O3 coatings in preventing deuterium permeation decreases with increasing irradiation fluence [24], [25]. Conversely, Muñoz applied an alumina coating on Eurofer steel using a pulsed laser deposition method to study deuterium permeation during 1.8 MeV electron irradiation, finding that ionizing radiation improves the PRF [26]. Similarly, Iadicicco et al. found that the PRF of amorphous alumina TPBs increases during electron irradiation, indicating variability in TPB performance under different irradiation conditions [27]. The discrepancies in these results can be attributed to the numerous irradiation-induced defects, which are highly influenced by the experimental irradiation parameters. The wide variety of defects formed in different irradiation experiments makes it challenging to investigate the effect of a single defect on hydrogen permeation behavior in TPBs experimentally. In this context, first-principles theory provides significant advantages over irradiation experiments.
+Previous studies have systematically investigated the dissolution and diffusion behavior of H in α-Al2O3, as well as the influence of alloying elements, irradiation-induced point defects, and other factors on this process [28], [29], [30], [31], [32], [33], [34], [35]. At the surface, hydrogen atoms form strong bonds with oxygen, diffusing via elementary reorientation and hopping steps, with migration barriers ranging from 1.58 to 1.41 eV [29]. These values are slightly higher than those calculated for H atom migration in bulk α-Al2O3, but lower than those calculated for H molecules [32], [34], [36]. Isolated vacancy-type irradiation-induced point defects can trap multiple H atoms, forming H-defect complexes that hinde the diffusion process. In contrast, O interstitial atoms can accelerate H diffusion [33].
+However, only a few studies have been focused on the behavior of hydrogen dissolution and diffusion in γ-Al2O3. The O–H vibration bands in γ-Al2O3 have been studied using infrared (IR) absorption techniques. IR absorption peaks around 3700–3800 cm−1 have been identified and assigned to isolated terminal hydroxyl groups [37], [38], [39], [40], [41]. Additionally, Tsyganenko et al. observed broad bands near 3500 cm−1 and 3300 cm−1 at different temperatures, which are attributed to hydrogen occupying tetrahedral or octahedral cation sites in bulk γ-Al2O3 [42]. We have explored the dissolution and diffusion behavior of H in two common γ-Al2O3 structures and found that the defective spinel model is more suitable for describing H behaviors in γ-Al2O3 [43], which is in well agreement with that in literatures [44]. In defective spinel γ-Al2O3, the native Al vacancies are arranged in a straight line along the 
+ direction, providing a rapid diffusion channel for H and resulting in higher H permeability. This is an important reason why the PRF of γ-Al2O3 is significantly lower than that of α-Al2O3. Nevertheless, the interaction between irradiation-induced defects and hydrogen, and their impact on hydrogen permeation behavior in γ-Al2O3, remains largely unexplored.
+In this paper, we conduct a series of calculations based on first-principles theory to investigate the influence of irradiation-induced point defects on hydrogen dissolution and diffusion properties in γ-Al2O3. Additionally, we compare the hydrogen dissolution and diffusion behavior in irradiated γ-Al2O3 with that in irradiated α-Al2O3, as calculated in previous work, to evaluate the impact of irradiation-induced point defects on the different alumina phases [33].
+2. Computation method and model
+We used first-principles density functional theory (DFT) with the generalized gradient approximation (GGA) proposed by Perdew and Wang, as implemented in the Vienna ab initio simulation package (VASP), to investigate the hydrogen dissolution and diffusion in γ-Al2O3 with irradiation-induced point defects [43], [45]. Interactions between electrons and ions were treated using the projector-augmented wave method. The γ-Al2O3 model has been systematically studied in our previous work [43]. The defective spine model, proposed by Menéndez-Proupin et al, was identified more suitable for describing H behavior in γ-Al2O3 and is widely applied in many first-principles calculations [46]. Based on a series of tests, we employed a 2 × 2 × 1 supercell with 160 atoms, a plane-wave cutoff energy of 500 eV, and a Monkhorst-Pack k-point mesh of 3 × 3 × 1, except for the geometry optimization calculation, which was carried out with 7 × 7 × 7 Monkhorst-Pack k-points. All atoms in the supercell were allowed to relax in all directions using the conjugate gradient algorithm until the Hellmann-Feynman forces were less than 0.02 eV/Å. The calculated lattice parameters of γ-Al2O3, a = 5.677 Å, b = 5.641 Å, and c = 13.667 Å, are in agreement with those in the literature [46].
+The formation energy of H-irradiation-induced defects complexes in γ-Al2O3 is defined as [33]:
+(1)
+The detailed derivation steps can be found in reference 32. The terms of 
+ and 
+ represent the total energy of a supercell with a H-irradiation-induced defects complex and an intrinsic defect, respectively. Here, q1, q2, and q3 denote the charge states of the intrinsic defects, H ions, and H-irradiation-induced defects complexes, respectively, while i indicates the species of the intrinsic defects. The symbols n and 
+ represent the number of atoms removed or added from the supercell, and their respective chemical potentials. EF is the Fermi energy, referenced to the valence-band maximum (EVBM) of a perfect supercell; 
+ is the finite-size correction term for charged defects according to the scheme proposed by Matsunaga [47]. The chemical potentials of different elements depend on the growth or annealing environment for γ-Al2O3 and the following equations must be satisfied:
+(2)
+(3)
+where Etot(γ-Al2O3) and Etot(H2O) are the total energies per formula unit of the γ-Al2O3 and H2O molecules. 
+, 
+ and 
+ are the chemical potentials of O, H, and Al atoms, respectively. 
+, 
+ and 
+ vary with the growth environment, yet their upper limits are determined by the total energies of molecular O2, molecular H2, and metallic Al, respectively. In Al-rich and H-rich growth environments, 
+=
+ and
+ = 1/2(Etot(H2)), leading to
+ = 1/3(Etot(α-Al2O3)-2 
+). For O-rich growth environments, 
+= 1/2(Etot(O2)), and 
+ and 
+ can be calculated from Eq. (2) and Eq. (3).
+All the transition barriers and saddle points of diffusion paths are calculated by the nudged elastic band method associated with climbing images (cNEB). The diffusion coefficient of H in γ-Al2O3 can be obtained by the Einstein–Smoluchow-ski relation [48], [49], [50]:
+(4)
+where l, v, n and Eb represent the jump length, attempt frequency, number of nearest neighbor sites and migration barrier, respectively [33]. The detailed calculation process of relevant parameters can be found in reference 32
+3. Results
+3.1. Formation energy of H-irradiation-induced defect complexes
+The formation energy of intrinsic point defects in α-Al2O3 and γ-Al2O3 with various charge states is systematically studied in our previous work [32], [33]. For α-Al2O3, all Al atoms are located at the octahedral interstitial sites (OIS). In γ-Al2O3, most of the Al atoms occupy the OIS, others are found at the tetrahedral interstitial sites (TIS). Consequently, we have investigated both types of Al vacancies located at OIS (
+) and TIS (
+). The most energetically stable charge states of different intrinsic defects were identified as 
+, 
+, O interstitial atoms (
+), O vacancies (
+) and Al interstitial atoms (
+), similar to those observed in α-Al2O3. The physical and chemical properties of irradiation-induced point defects are the same as those of the intrinsic defects. Accordingly, the charge states of irradiation-induced point defects also adopt these states. Previous studies have demonstrated that the influence of Al interstitial atoms on the permeation behavior of hydrogen in γ-Al2O3 is negligible [43]. In this paper, we systematically investigate the effect of 
+, 
+, 
+ and 
+ on H dissolution and diffusion in γ-Al2O3.
+Fig. 1 is the formation energy of different hydrogen irradiation-induced defect complexes as a function of Fermi energy, displaying only the lowest energy charge states. Since the bandgap of γ-Al2O3 is so high, the intrinsic Fermi level can be selected at half of the bandgap (EG/2) [30], [51]. The formation energy of an interstitial H atom and H2 molecules in perfect γ-Al2O3 are also shown for comparison. At EG/2, the formation energy of 
+ is lower than that of other defects under both Al-rich and O-rich environments, making it the most energetically stable defect under irradiation environments. Notably, under Al-rich conditions, its formation energy is negative, indicating that 
+ forms easily and that 
+ has a strong trapping capability for 
+. The formation energy of 
+ is similar to that of 
+ and significantly lower than that of 
+. Consequently, 
+ and 
+ are the second energetically stable defects under irradiation environments. The trapping capability of these defects for 
+ follow this order: 
+>
+>
+. The formation energies of all these hydrogen irradiation-induced defects complexes are lower than those of interstitial H atom and H2 molecules in perfect γ-Al2O3. Thus, hydrogen dissolves more readily into γ-Al2O3 under irradiation, resulting in higher H retention, similar to α-Al2O3.
+
+Download: Download high-res image (314KB)
+Download: Download full-size image
+Fig. 1. Formation energies of H-defect complexes in irradiated γ-Al2 O3 as a function of the Fermi level in Al-rich (left) and O-rich (right) growth environments. The slope of each line indicates the charge state of H in irradiation-induced point defects.
+
+In reactors, α-Al2O3 TPBs are adhered to the outer surface or inner wall of the structural materials in blanket and auxiliary tritium handling systems [17], [18]. In modern breeding blanket designs, TPBs are exposed to different environments. In the helium-cooled pebble bed concept, TPBs are in contact with H2O/T2 environments, whereas in the water-cooled lithium–lead (LiPb) concept, TPBs are subjected to LiPb and T2 environments [52], [53]. These TPBs must function effectively not only in high-temperature water vapor environments but also in environments where T2 is present. The T2 annealing process can be viewed as occurring in an Al-rich growth environment, while the water vapor environments are considered O-rich [54], [55]. Previous work indicates that the formation energy of dominant hydrogen defect complexes is lower under O-rich conditions than under Al-rich conditions [43]. Therefore, hydrogen more readily dissolves into γ-Al2O3 in a H2O environment than in a T2 gas environment under unirradiation conditions. However, since the formation energy of hydrogen irradiation-induced defect complexes is lower under an Al-rich environment than under an O-rich environment, hydrogen is easier to dissolve into γ-Al2O3 in a T2 environment than in T2O gas environment under irradiation conditions.
+Fig. 2 illustrates the local structure of 
+, 
+, 
+ and 
+, respectively. In 
+ and 
+, when an Al atom is removed from the model, six and four O dangling bonds are formed around Al vacancy, respectively. The added H atoms strongly interact with these O dangling bonds to form OH−. The calculated vibrational frequencies of OH− in 
+ and 
+ are 3608 and 3374 cm−1, respectively, which agree well with the experimental values [37]. For 
+, when an O atom is introduced into the model, the closest O atom will be squeezed out of its original lattice site to form a dumbbell shaped interstitial pair. The added H atoms can bind with these O interstitial atoms to form OH−. The calculated vibrational frequency of OH− in 
+ is 3443 cm−1. For 
+, due to the irregular arrangement of Al ions, some O ions are coordinated by three Al atoms, while others are coordinated by four. Thus, when an O atom is removed from the system, there will be three or four Al dangling bonds around the O vacancy. However, the added H atoms do not interact with these Al dangling bonds but rather occupy the original site of the O atom, acting as a substitute.
+
+Download: Download high-res image (747KB)
+Download: Download full-size image
+Fig. 2. Local structures of (a) 
+, (b) 
+, (c) 
+ and (d) 
+. The blue, light blue, gray and red spheres represent O, Al, Al vacancy and H atoms, respectively. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+In addition, in γ-Al2O3, O ions are arranged in cubic close-packed layers, with 5/8 Al ions occupying octahedral interstitial sites and 3/8 occupying tetrahedral interstitial sites. Thus, it can be inferred that most of the Al vacancies under uniform irradiation conditions are 
+. When H atoms are introduced into γ-Al2O3, they are first captured by 
+. However, the number of 
+ is much lower than that of 
+. The H atoms captured by 
+ will rapidly reach saturation. Subsequently, the introduced H atoms tend to be trapped by 
+ and 
+.
+3.2. Diffusion barrier of H-irradiation-induced defect complexes
+The diffusion of H in γ-Al2O3 is an important part of the H permeation process. As discussed above, irradiation-induced defects can interact with H to form complexes, which significantly influence H diffusion behavior in materials. To investigate the influence of irradiation-induced defects on H diffusion in γ-Al2O3, the diffusion barriers for different hydrogen irradiation-induced defect complexes migrating to their nearest neighbor (1NN) and second nearest neighbor (2NN) defects were calculated using the cNEB method.
+To evaluate the mobility of irradiation-induced point defects, which is a crucial factor for the migration of hydrogen irradiation-induced defect complexes, the diffusion behavior of different point defects is first simulated. The initial and final locations of these point defects are shown in Fig. 3. The most stable site of 
+ is TIS that the initial location of 
+ is 
+ and its 1NN and 2NN 
+ locate at OIS. The minimum diffusion barriers of 
+, 
+ and 
+ have been calculated to be 2.06, 2.91 and 0.22 eV, respectively. The diffusion barrier of 
+ is much lower than those of other two defects, indicating that it has the highest mobility.
+
+Download: Download high-res image (386KB)
+Download: Download full-size image
+Fig. 3. (a) The initial and final location of different irradiation-induced defects in γ-Al2 O3 . A, A1 and A2 indicate the original, 1NN and 2NN Al vacancy sites, respectively. B, B1 and B2 indicate the original, 1NN and 2NN O vacancy sites, respectively. C, C1 and C2 indicate the original, 1NN and 2NN O interstitial sites, respectively. (b) The local structure of α-Al2 O3 .
+
+The diffusion of H in γ-Al2O3 with irradiation-induced point defects include two ways: H and irradiation-induced point defects diffusion as a bound entity or H migration from one defect to another defect. The initial and final locations of hydrogen irradiation-induced point defects complexes are the same with those of the point defects, as shown in Fig. 3.
+3.2.1. Diffusion as a bound entity
+Firstly, we have studied the migration of the H atom and Al vacancies as a bound entity. The most stable site for an Al vacancy is TIS, and the formation energy of 
+ is lower than that of 
+. Therefore, the initial location of 
+ is at TIS, with its 1NN and 2NN site being OIS. The migration of 
+ as a bound entity can be studied by simultaneously swapping the positions of H and Al atoms. The energy profile when H swaps positions with an Al atom located at the 1NN and 2NN sites is shown in Fig. 4. Around the Al vacancies, there are many O dangling bonds with which the H atoms can bond to form OH–. When H moves away from the Al vacancy, it first revolves around the O atom, then jumps to the adjacent O atom to form a new OH–. Simultaneously, the Al atom located at the 1NN and 2NN sites begins its migration towards the Al vacancy, creating a new Al vacancy at the original site. Due to the repulsion between Al and H atoms, a structural deformation occurs during the migration process, resulting in a high diffusion barrier and a curved pathway. The diffusion barrier for 
+ migrating to the 1NN Al vacancy site is 3.6 eV, which is significantly lower than the barrier for migration to the 2NN Al vacancy site. Therefore, the minimum energy diffusion pathway for 
+ is to the 1NN Al vacancy site. However, the diffusion barrier is so high that diffusion in this case is hardly feasible.
+
+Download: Download high-res image (383KB)
+Download: Download full-size image
+Fig. 4. The energy profile of 
+ migration to the 1NN and 2NN sites as a bound entity. (a) 1NN (b)2NN.
+
+Similarly, the diffusion of 
+ can be achieved by simultaneously swapping the positions of H and O atoms. However, unlike Al vacancies, there are no O dangling bonds around O vacancies. H atoms can not bind with O vacancies but instead occupy the original site of the O atom as a substitute. The energy profile for the diffusion of 
+ to its 1NN and 2NN O vacancy site is shown in Fig. 5. The diffusion barrier for 
+ migrating to the 1NN and 2NN O vacancy sites are 4.02 and 6.12 eV, respectively, which are significantly higher than the diffusion barrier of H in perfect γ-Al2O3 [43]. Thus, diffusion in this manner is hardly feasible.
+
+Download: Download high-res image (294KB)
+Download: Download full-size image
+Fig. 5. The energy profile of 
+ migration to the 1NN and 2NN sites as a bound entity. (a) 1NN (b)2NN The yellow spheres represent O vacancy. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+As described above, 
+ exist in a dumbbell-shaped structure, and hydrogen atoms can bond with one of these oxygen atoms to form an O–H. The 
+ can diffuse through the structure as a whole entity by a “squeezing” mechanism. During the diffusion process, the 
+ moves towards its 1NN and 2NN oxygen atoms, squeezing them from their equilibrium positions to form new oxygen interstitial pairs, while the other O atom from the original interstitial pair reoccupies its equilibrium position. As shown in Fig. 6, the energy barrier for diffusion in the direction of the 1NN is only 0.11 eV, which is significantly lower than the barrier for hydrogen diffusion in the 2NN direction and 
+ in γ-Al2O3 lattice [43].
+
+Download: Download high-res image (292KB)
+Download: Download full-size image
+Fig. 6. The energy profile of 
+ migration to the 1NN and 2NN sites as a bound entity. (a) 1NN (b)2NN.
+
+3.2.2. Diffusion from one defect to another
+In fusion reactors, neutron irradiation can induce a large number of point defects in materials. These defects may aggregate to form clusters, dislocations or even cavities, significantly impacting H diffusion. Therefore, we have created pairs of irradiation-induced point defects to explore the mobility of hydrogen by examining its diffusion from one defect to the 1NN and 2NN defects.
+In Fig. 7., we present the diffusion barrier and pathway for a H atom moving from one Al vacancy to the 1NN and 2NN Al vacancies in γ-Al2O3. Similar to hydrogen diffusion between Al vacancy pairs in α-Al2O3, hydrogen atoms bind with and migrate based on O atoms around Al vacancies in γ-Al2O3, involving rotation and jumping along a curved migration pathway [30], [33]. However, unlike in α-Al2O3, there is no potential well for hydrogen atoms between the Al vacancy pairs. This absence may be due to the disordered structure of γ-Al2O3 compared to α-Al2O3. The diffusion barrier of H atom moving from 
+ (A) to the 1NN 
+ (A1) is 0.74 eV, which is 0.37 eV lower than the H diffusion barrier to 2NN 
+ (A2). It is also lower than the diffusion barrier of H in perfect γ-Al2O3 [43]. Therefore, when Al vacancies aggregate to form line defects that span the entire coating, they can provide a rapid diffusion pathway for hydrogen atoms.
+
+Download: Download high-res image (353KB)
+Download: Download full-size image
+Fig. 7. The energy profile of H migration to the 1NN and 2NN sites based on the Al vacancies (a) 1NN (b)2NN.
+
+Similarly, the diffusion behavior of H diffusion from an O vacancy to the 1NN and 2NN O vacancy can be achieved. Since there are no O dangling bonds around O vacancies, the pathway for H diffusion between O vacancies is straight. The energy profiles for H diffusion from one O vacancy to the 1NN and 2NN O vacancy are displayed in Fig. 8. The diffusion barrier of H diffusion from one O vacancy to the 1NN O vacancy is 1.67 eV, which is 0.18 eV higher than the diffusion to the 2NN O vacancy. These diffusion barriers are significantly lower than those of H and O vacancies diffusion as a bound entity. Thus, compared with diffusion as a bound entity, H atoms prefer diffusion based on O vacancies. However, these diffusion barriers are higher than the diffusion barrier of H in bulk γ-Al2O3 [43]. The O vacancies can hinder the diffusion of hydrogen, thereby enhancing the hydrogen barrier properties of the material.
+
+Download: Download high-res image (276KB)
+Download: Download full-size image
+Fig. 8. The energy profile of H migration to the 1NN and 2NN sites based on the O vacancies (a) 1NN (b)2NN.
+
+Additionally, we have investigated the diffusion of H based on O interstitial atoms. However, due to the unstable structure of the two O interstitial atoms at the 1NN and 2NN sites, we have calculated the diffusion barrier of H moving from one O interstitial atom to another in the dumbbell configuration as shown in Fig. 9. The diffusion barrier of H moving from O1 to O2 is calculated to be 2.03 eV, which is much higher than that in α-Al2O3 [32]. This increase is attributed to the presence of native Al vacancies, resulting in a much higher formation energy for O2H− compared to O1H−. The diffusion barrier is so high that diffusion in this manner is hardly feasible.
+
+Download: Download high-res image (209KB)
+Download: Download full-size image
+Fig. 9. The energy profile of H jumping from O1 to O2 in the dumbbell-shaped Oi pair.
+
+3.3. Diffusion coefficient
+The diffusion barriers and coefficients at 900 K of different hydrogen-related defects are calculated based on the Einstein–Smoluchow-ski relation and shown in Table 1, both as a bound entity and based on point defect. When H combines with irradiation-induced Al or O vacancies to form composite defects and diffuses as a bound entity, their diffusion coefficients are at least 15 orders of magnitude lower than the diffusion coefficient of Hi+ in bulk γ-Al2O3 [43]. Therefore, it is difficult for them to diffuse in this form. However, when H combines with O interstitial atoms, the diffusion coefficient of 
+ is 4 orders of magnitude higher than that of Hi+ in bulk phase, allowing it to migrate quickly under working conditions.
+Table 1. Summary of the migration barrier (Eb), diffusion coefficient prefactor (D0) and diffusion coefficient (D) at 900 K.
+
+Type of diffusion	Defects	Location	Eb(eV)	D0(m2/s)	D at 900 K (m2/s)
+Bound entity	
+1NN	3.6	1.1 × 10−6	7.75 × 10−27
+2NN	6.75	1.15 × 10−5	1.87 × 10−43
+1NN	4.20	1.99 × 10−4	6.11 × 10−28
+2NN	6.12	1.07 × 10−4	1.93 × 10−38
+1NN	0.11	8.59 × 10−8	2.08 × 10−8
+2NN	1.25	2.87 × 10−7	2.88 × 10−14
+
+Based on the defects	
+1NN	0.74	3.18 × 10−9	2.29 × 10−13
+2NN	1.11	1.06 × 10−8	6.53 × 10−15
+1NN	1.67	1.84 × 10−7	8.26 × 10−17
+2NN	1.49	4.29 × 10−7	1.95 × 10−15
+−	2.03	1.74 × 10−6	7.54 × 10−18
+
+Hi+ in γ-Al2O3 [43]	−	−	1.01	1.27 × 10−6	2.82 × 10−12
+For the diffusion of H based on irradiation-induced point defects, although the diffusion barrier of H between two Al vacancies is 0.27 eV lower than that of H in bulk γ-Al2O3, its diffusion coefficient is an order of magnitude lower than that of Hi+ in bulk γ-Al2O3 at 900 K. This is due to the lower D0 of H migration between Al vacancies. Therefore, Al vacancies will reduce the mobility of H in low temperature regions (<522 K) and accelerate the mobility of H in high temperature regions (>522 K). The diffusion coefficients of H atom based on O vacancies and interstitial atoms are 3 orders of magnitude lower than that of H in bulk γ-Al2O3. Thus, H can hardly diffuse in these forms.
+4. Discussion
+Among all the H-related defects, 
+ has the highest diffusion coefficient. Its diffusion barrier is even lower than 
+. This is because the combination of H with O dangling bonds weakens the interaction between 
+ and Al atoms along the diffusion pathway, thereby enhancing their mobility. Due to the strong mobility of 
+, they can easily combine with O vacancies and annihilate at high temperatures. However, during the operation of a fusion reactor, high-energy neutron irradiation, hydrogen dissolution and diffusion occur simultaneously, leading to a continuous generation of oxygen interstitial atoms. These oxygen interstitial atoms can combine with dissolved hydrogen atoms and diffuse collectively, thereby accelerating the hydrogen diffusion rate.
+For Al vacancies, due to the low diffusion coefficient, it can hardly for H diffusion with it as a bound entity. Isolated Al vacancies can capture H atoms, thereby enhancing the hydrogen resistance properties of the material. When Al vacancies gather together to be a line defect, the diffusion coefficient of H migration from one Al vacancy to its 1NN Al vacancy is lower than H in perfect γ-Al2O3 in the low temperature region and higher than that of H in perfect γ-Al2O3 in the high temperature region. Thus, the Al vacancy clusters can enhance the efficiency of preventing H through TPBs at low temperature and reduce the H resistance properties at high temperature.
+For O vacancies, the diffusion coefficients of H and O vacancies diffusion as a bound entity, and diffusion from one O vacancy to the 1NN O vacancy, are significantly lower than the diffusion coefficient of H in perfect γ-Al2O3. Therefore, whether O vacancies combine to form clusters or not, they can capture H and hinder its diffusion, thereby enhancing the H resistance properties of the γ-Al2O3.
+The formation energy of 
+ is lower than that of 
+ and 
+. When H is introduced to irradiated γ-Al2O3 TPBs, it tends to be trapped by vacancy-type irradiation-induced point defects first, increasing the PRF γ-Al2O3. Once these traps are saturated, the dissolved H atoms bond with O interstitial atoms and diffuse quickly as a bound entity, significantly reducing the TPB’s efficiency in preventing H permeation. However, due to the high diffusion barrier of H diffusion from one O interstitial atom to another in the dumbbell configuration, 
+ can only diffuse between the two oxygen atomic layers. As a result, H atoms diffuse fast in the direction parallel to the (0001) plane. Additionally, the fastest diffusion pathway of H in perfect γ-Al2O3 is the 
+ direction, which is also parallel to the (0001) plane. If the diffusion direction of H in the tritium barrier can be restricted perpendicular to the (0001) plane through some technical approach, we can not only improve the hydrogen barrier performance of the alumina coating but also reduce the weakening effect of O interstitial atoms on its hydrogen barrier performance during irradiation.
+Table 2 shows the formation energies and diffusion barriers for hydrogen-related defects in α-Al2O3 and γ-Al2O3 under irradiation conditions. The formation energy of 
+ in α-Al2O3 is similar to that in γ-Al2O3 under both Al-rich and O-rich environments. For Al vacancies and H diffusion as a bound entity, the diffusion barrier in α-Al2O3 is lower than that in γ-Al2O3, and both of them are much higher than the diffusion barrier of H in bulk materials. Therefore, in both α-Al2O3 and γ-Al2O3, isolated Al vacancies can capture hydrogen, thereby hindering its diffusion. Moreover, the effect of Al vacancies in preventing H permeation through γ-Al2O3 is stronger than through α-Al2O3. However, the diffusion barriers of H between Al vacancies in α-Al2O3 and γ-Al2O3 are lower than that of H in perfect crystals, respectively, and the diffusion barrier of H between Al vacancies in α-Al2O3 is significantly lower than that in γ-Al2O3. Thus, Al vacancy clusters can provide a rapid diffusion channel for H in both α-Al2O3 and γ-Al2O3, and the accelerating effect in α-Al2O3 is stronger than in γ-Al2O3.
+Table 2. The formation energies and diffusion barriers of different H-related defects in α-Al2 O3 and γ-Al2 O3 under irradiation conditions.
+
+Structure	
+Ef/eV	Eb/eV	Ef/eV	Eb/eV	Ef/eV	Eb/eV
+α-Al2O3	−0.44a, 1.12b	2.44c,
+<0.2d	−0.12a,
+1.44b	6.41c,
+1.47d	1.45a,
+3.01b	0.44c,
+0.83d
+γ-Al2O3	−0.48a, 1.08b	3.60c,
+0.74d	0.08a,
+1.64b	4.20c,
+1.49d	0.52a,
+2.08b	0.11c,
+2.03d
+a
+Al-rich environment (H2 gas environment).
+b
+O-rich environment (H2O vapor environment).
+c
+diffusion as a bound entity.
+d
+diffusion based on the defects.
+For O vacancies, the formation energy of 
+ in α-Al2O3 is lower than that in γ-Al2O3, which means that the capturability of O vacancy for H in γ-Al2O3 is lower than that in α-Al2O3. Moreover, the diffusion barriers of 
+ in α-Al2O3 and γ-Al2O3 are significantly higher than those in bulk materials. Thus, O vacancies can capture H and hinder H diffusion in both α-Al2O3 and γ-Al2O3, and the hinder effect in α-Al2O3 is much greater than in γ-Al2O3.
+For O interstitial atoms, the formation energies of 
+ in γ-Al2O3 is only approximately 1/4 of that in α-Al2O3. Therefore, compared with α-Al2O3, O interstitial atoms have a stronger capability for H in γ-Al2O3. The diffusion barrier of 
+ in γ-Al2O3 is far lower than that in α-Al2O3, and both of them are lower than that of H in bulk crystals. Therefore, O interstitial atoms can accelerate the diffusion of H in both α-Al2O3 and γ-Al2O3, and the accelerating effect in γ-Al2O3 is much greater than in α-Al2O3.
+In summary, due to structural differences, the effects of various irradiation-induced point defects on the dissolution and diffusion behavior of H in α-Al2O3 and γ-Al2O3 have both similarities and differences. In both α-Al2O3 and γ-Al2O3, isolated vacancy-type defects can capture multiple H atoms and hinder the diffusion process of H, while O interstitial atoms can capture H atom and accelerate the diffusion process of H. O interstitial atoms are a bottleneck factor in enhancing the efficiency in preventing H through alumina TPBs under irradiation conditions. The diffusion barrier of 
+ in γ-Al2O3 is far lower than that in α-Al2O3, making the weakening effect of O interstitial atoms on the hydrogen resistance of γ-Al2O3 is much stronger than that on α-Al2O3. However, the diffusion barrier of H migration from one O interstitial atom to another in γ-Al2O3 is much higher than that in α-Al2O3. Therefore, in α-Al2O3, H can diffuse along perpendicular and parallel (0001) plane rapidly with the aid of O interstitial atoms. In contrast, in γ-Al2O3, due to the anisotropy of the dumbbell-shaped Oi and higher diffusion barrier, 
+ can only diffuse between two O layers. Therefore, if the diffusion direction of H in γ-Al2O3 can be restricted to the direction perpendicular to the (0001) plane through certain technical means, the diffusion barrier of H through γ-Al2O3 will be as high as it through bulk α-Al2O3. The weakening effect of O interstitial atoms on the H resistance performance of γ-Al2O3 will be greatly reduced.
+5. Conclusions
+In this paper, we have systematically simulated the interaction between irradiation-induced point defects and H, the dissolution and diffusion behavior of H-related defects in γ-Al2O3 to investigate the influence of irradiation-induced point defects on the dissolution and diffusion properties of H in γ-Al2O3 by first-principles theory. Moreover, these results are compared with those in α-Al2O3 to evaluate the impact of irradiation-induced point defects on the different alumina phases. The main concluding remarks are summarized as follows:
+(1)
+Similar to α-Al2O3, the formation energy of H-related defects under irradiation environments in γ-Al2O3 is far lower than that of H in perfect γ-Al2O3 crystal. Thus, H can easily dissolve into γ-Al2O3 under irradiation environments resulting in a high H retention.
+(2)
+The vacancy-type defects can capture multiple H atoms and imped the H diffusion in γ-Al2O3, which could enhance the efficiency in preventing H through TPBs. However, the diffusion barrier of 
+ is so low that O interstitial atoms could accelerate the H diffusion, thereby decreasing the efficiency in preventing H through TPBs. O interstitial atoms are a bottleneck factor in enhancing the efficiency in preventing H through alumina TPBs under irradiation conditions.
+(3)
+Due to the anisotropy of the dumbbell-shaped Oi and the high diffusion barrier of H diffusion from one O interstitial atom to another in the dumbbell configuration, 
+ can only diffuse between two O layers. Therefore, if the diffusion direction of H in γ-Al2O3 can be restricted to the direction perpendicular to the (0001) plane through certain technical means, the weakening effect of O interstitial atoms on the H resistance performance of γ-Al2O3 will be greatly reduced.

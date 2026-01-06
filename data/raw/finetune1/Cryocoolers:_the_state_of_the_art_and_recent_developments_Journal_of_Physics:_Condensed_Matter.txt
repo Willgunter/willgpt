@@ -1,0 +1,365 @@
+1. Introduction
+Providing adequate radiation protection is one of the most difficult problems facing long duration, deep space, human exploration missions. Chronic radiation exposure from Galactic Cosmic Radiation (GCR) and acute exposure from Solar Particle Events (SPEs) pose serious health threats to astronauts as they venture away from the protection of the near-Earth environment (Durante and Cucinotta, 2011, Townsend, 2005a). Current exploration goals seek to enable mission durations of a year or more in order to reach high interest destinations, and adequate radiation protection must be provided to ensure the safety of the crew (ISECG, 2013). Unfortunately, because of the nature of the space radiation environment, providing this protection using passive shielding requires a significant amount of mass to achieve reasonable radiation exposure values (Singleterry, 2013).
+Over the last several decades, many shielding designs that actively deflect the incoming charged particle radiation have been proposed (Sussingham et al., 1999, Spillantini, 2010). These active shields have the potential to reduce radiation exposure to acceptable levels at a lower mass penalty than the equivalent amount of passive shielding. There are several general classes of active shielding (Townsend, 2005b), some of which include the use of magnetic fields to divert harmful radiation away from the crew, and a variety of different ways in which these designs may be configured. This analysis focuses on a solenoidal magnetic configuration, in which large magnetic fields are generated around the protected habitat such that the field lines run parallel to the central axis of the habitat; however, the general principles involved in the study may also be applied to other magnetic configurations.
+This paper explores the major systems which compose an active magnetic shielding design: superconductor, structure, thermal, and power. These systems are highly interdependent and significant mass drivers of the overall system design. A survey is conducted for each major system, and a study of the major design options is presented. This allows a narrowing in scope of possible system solutions and the identification of key technologies for the development of an active magnetic shield. These key technologies are categorized as either enabling (those that are required to facilitate the design) or enhancing (those that would significantly improve performance).
+Additionally, this study estimates how each system varies as a function of different design parameters. These results are used to analyze a solenoidal magnetic shield design over a large range of the two primary design parameters: magnetic field strength and magnetic field thickness (the difference between the inner and outer radius of the shield). This allows some of the basic characteristics of such a design to be observed as a function of these variables. Secondary parameters include design variables such as material selection, system operating temperature, coil design, and coil configuration. Performance characteristics for the two primary system mass drivers, structural and superconductor, are also examined to determine performance improvement goals for enabling technologies in these systems.
+2. General configuration
+In a solenoid shaped magnetic field design, the electromagnetic coils used to generate the field may be constructed in a variety of ways, as shown in Fig. 1. The coils in each of these designs are wound such that the magnetic field runs parallel to the central axis of the interior volume. The first configuration on the left uses irregular coils with a pie shaped cross section to create the solenoid magnetic field. While this configuration allows minimal gaps between the coils, and therefore minimal radiation leakage between these gaps, the irregular shape makes the necessary systems difficult to analyze. In the last configuration, on the right side of Fig. 1, a single ring of cylindrically shaped solenoid coils is used to create the magnetic field. This design greatly simplifies the following systems analysis, particularly for the superconductor and structural systems, and serves as an approximation of the other design options as well. This permits the analysis of a single cylindrical coil, where the diameter of the solenoid coil is equal to the magnetic field thickness analyzed. Therefore, this last configuration, using a single layer of cylindrically shaped solenoid coils, is utilized for the systems analysis in Section 3.
+
+Download: Download full-size image
+Fig. 1. End view of various solenoid field configuration options.
+
+3. Major systems
+There are four major systems which are critical to the design of an active magnetic radiation shield: superconductor, structure, thermal, and power. Each of these systems is presented and analyzed for the single layer coil configuration discussed in Section 2. This allows the determination of the overall system requirements, as well as highlighting the interdependence of these systems. For each system, key technologies are identified for the construction of such a shield design. Additionally, a mass estimate for each system is provided which is essential for determining system mass requirements and providing an accurate radiation exposure assessment over the design trade space. As the magnetic field strength or field thickness changes, so does the mass of each system, which contributes to the overall shielding of the design.
+3.1. Superconductor system
+There are three methods for creating a magnetic field which could be used for radiation protection: permanent magnets, standard electromagnetic coils, and superconducting electromagnetic coils. The ability of these fields to divert incident radiation away from the crew is a function of both the magnetic field's strength and size. Large field strengths have been achieved with permanent magnets; however, these are generally only practical on a small physical scale (Kumada et al., 2001). Additionally, on the scale desired for shielding a spacecraft, large volumes of magnetic fields are required. Creating the necessary shielding volume with large permanent magnets would require impractical quantities of mass and the same effect can be accomplished more effectively through the use of hollow bore electromagnetic coils. Standard electromagnetic coils are capable of achieving large field strengths and geometries; however, the high resistivity of conventional conductor materials makes them undesirable for active shielding applications. The high resistance losses would require a large thermal system to dissipate the resulting thermal energy and a large power system to compensate for these losses. Alternatively, superconducting magnetic coils have the capability of generating extremely powerful magnetic fields with a mass that potentially allows for feasible active shielding designs. Because these materials exhibit no, or negligible, electrical resistivity below a critical temperature, 
+, they enable the construction of powerful magnetic fields which are not constrained by the high power requirements and resistance losses associated with standard electromagnets.
+Superconducting materials are classified in two general categories: Low Temperature Superconductors (LTS), with a 
+ less than 
+, and High Temperature Superconductor (HTS), with 
+ values of up to 
+. LTS magnets are typically operated in the range of 4.2 K, the boiling point of liquid helium (Iwasa, 2009). As will be illustrated later for the thermal system, the overall requirements of a LTS magnet are prohibitive for use in a large scale, space based platform. HTS magnets allow a higher operating temperature and also allow for a greater thermal margin to be applied, reducing the risk of superconductor quench. This is a phenomenon where a localized section of the superconductor becomes non-superconducting, resulting in a cascading effect of high resistance losses and the potential for system damage. Therefore, HTS materials are best suited for active shielding designs. Fig. 2 shows a trade tree highlighting the major design options for the superconductor system and the down-selection to an HTS design.
+
+Download: Download full-size image
+Fig. 2. Superconductor system trade tree.
+
+3.1.1. HTS superconductor material
+Of the HTS material choices, the most prominent groups are known as Bismuth Strontium Calcium Copper Oxides (BSCCO); Rare Earth Barium Copper Oxides (REBCO), with the most popular being YBCO where the rare earth element is Yttrium (Y); and Magnesium Diboride (MgB2). These materials are commonly available in a wire or tape form (Fig. 3). The superconductor itself is layered or imbedded within a stabilizer material, usually copper, aluminum, or silver, and in the case of tape type conductors, an additional substrate material.
+
+Download: Download full-size image
+Fig. 3. Example YBCO tape (graphic provided courtesy of SuperPower Inc.), left; and example BSSCO multifilament round wire in Ag stabilizer (graphic provided courtesy of Oxford Instruments), right.
+
+3.1.2. Tape/wire electric current requirements
+The field strength at the center (radial and axial), 
+, of an ideal, thin walled magnetic solenoid coil is
+(1)
+where i is the current, N is the total number of windings, 
+ is the permeability constant, D is the solenoid diameter, and l is the solenoid length (Iwasa, 2009). By assuming that this field is uniform throughout the solenoid, and equal to the desired magnetic field strength, B, Eq. (1) can be rewritten to give current as a function of magnetic field strength and thickness,
+(2)
+Using Eq. (2), one can show that extremely high currents will be required, even for low magnetic field strengths and field thicknesses. For example, a 1 T, 10 m diameter, 20 m long solenoid, constructed of a single layer of 1 cm width tape, will require 8.9 kA of current.
+3.1.3. Tape/wire electric current capabilities
+The engineering critical current density, 
+, of the superconductor is essential to the design of the superconductor coil. This is the maximum current that the tape or wire can carry divided by its entire cross section. This is directly related to the critical current density, 
+, of the superconductor but accounts for the overall design of the wire by including non-current carrying mass. Current HTS tapes and wires utilize either a substrate and stabilizer, or stabilizer only designs. These are essential for the stability, robustness, and manufacture of these tapes and wires; however, they increase the overall mass of the system and reduce the engineering current density. Any improvements in superconductor technology manufacturing that increase 
+ or that increase the superconductor/non-superconductor ratio, will directly impact 
+ (Schwartz et al., 2008).
+Both 
+ and 
+ values are often reported at a reference state of 77 K, self-field (i.e. no externally applied field). State-of-the-art superconductor YBCO tape technologies have engineering current densities in the range of 
+ at 77 K and self-field (SuperPower Inc. website). State-of-the-art superconductor BSCCO wire technologies have current capabilities which are slightly higher. 
+, and therefore 
+, is a function of both temperature and magnetic field (Lombardo et al., 2011), which have competing effects. As temperature decreases, the critical current increases, and as the magnetic field increases, the critical current decreases. Additionally, the critical current is affected not only by the magnitude of the magnetic field, but also by its direction (Haugan et al., 2009). Since these current capability values are a function of temperature, magnetic field magnitude, and magnetic field direction, the maximum current capability will be dependent on the selected system operating temperature and overall system design.
+If the required current for a coil design exceeds the maximum superconductor current capacity, multiple layers of tape or wire can be used. This type of layering could be achieved in a manner similar to pancake coils, commonly used in large commercial magnetic coils. Alternatively, these tape layers could be bundled together using techniques such as Roebel cables (Turenne et al., 2010) or other wound techniques (van der Laan et al., 2011). For example, if 1 cm width YBCO tape is capable of carrying a maximum of 4.35 kA (see Section 4 for details) at the selected operating temperature and design, then for a 1 T, 10 m diameter, 20 m long solenoid, 2 layers of this tape would be required to achieve the desired field strength.
+3.1.4. Superconductor solenoid coil mass
+The current density, J, is the operating current divided by the cross sectional area of the entire tape or wire, 
+. This value accounts for the area of the tape/wire's non-superconducting material as well. Therefore,
+(3)
+The minimum number of layers of tape or wire required to achieve a given field, without exceeding the electric current capacity of the material, 
+, can be determined by dividing by the engineering current density of the material,
+(4)
+From this, the total superconductor mass per coil, 
+, can be determined to be
+(5)
+where 
+ is the density of the superconductor material.
+3.1.5. Wire/tape lengths and splicing
+An important aspect of superconductor wire and tape technology is the maximum manufacturing length and the technology available for splicing these lengths of tape or wire together. Combined, these technologies play a significant role in the thermal system due to resistive losses at splice junctions. Purely superconducting splice technology does not currently exist and state-of-the-art splices can only achieve resistance values of approximately 
+ (SuperPower Inc. website). While this may seem small, the large current values required can result in large resistance losses. This makes any splice a heat source that must be accounted for as part of the thermal system as well as a power loss that must be compensated for by the power system to maintain the required operating current.
+3.1.6. Superconductor system key technologies
+Based on this survey of the superconductor system, the following key technologies are identified for the development of an active magnetic shield:
+1.
+Improvements in the critical/engineering current density of superconductor material (metallurgical and manufacturing improvements to increase the critical current density of existing superconductor material or development of new higher performance superconductors). This would reduce the amount of superconductor mass required to achieve a given field configuration and reduce system complexity.
+2.
+Manufacturing improvements to increase the maximum achievable length of superconductor wires and tapes. This would reduce the number of splices required for a given design, reducing the heat removal requirements on the thermal system.
+3.
+Development of improved superconductor splice technology. This would reduce the heat load from superconductor splices, reducing the heat removal requirements on the thermal system, as well as the requirements of the power system which must compensate for these losses.
+3.2. Structural system
+The magnetic forces within a cylindrical solenoid coil can be divided into two primary categories: radial and axial. As a result of the Lorentz force, the interaction between the current in a solenoid and the magnetic field produces an outward radial force, often called the “magnetic pressure.” The Lorentz force also results in an axially directed, compressive force. Without adequate structural support, the superconducting elements of a design would expand outward and compress together like a spring. In addition to the forces within a coil, there are also coil-to-coil forces. These forces cause the coils to repel one another, much in the same way that two dipole magnets will repel one another when placed side-by-side with their poles aligned, and arise from the interaction of each coil with the fringe external magnetic fields resulting from the surrounding coils.
+The radial and axial forces within a cylindrical coil may be examined separately. Since the axial force is compressive, a rigid material with a high compression strength/weight ratio is required to keep the coil from collapsing. The radial force is an outwardly directed, tensile force, which requires a material with a high tensile strength/weight ratio to keep the coil from expanding outward. Rather than design the resulting support structure as a simple walled vessel out of a single material, similar to a simple pressure vessel, the structural design may incorporate an optimized mixture of high-strength, light-weight materials for both radial and axial support. Additionally, because the radial force is an outwardly directed, tensile force, this allows the option that instead of using a rigid material for the radial support structure, flexible material, such as high strength fibers, could be used to create a “semi-rigid” design. Such a design could allow movement of the coils in the radial direction when they are not in use. Therefore, the structure could potentially be collapsed, allowing it to be housed in a smaller launch vehicle fairing, as proposed by Westover et al. (2014). Such a design would allow the cylinder to be constrained radially with axial support structures running the length of the cylinder to prevent compression. Fig. 4 shows a trade tree highlighting the major design options for the structural system.
+
+Download: Download full-size image
+Fig. 4. Structure system trade tree.
+
+3.2.1. Radial forces and structural support mass
+The magnetic pressure, 
+, or radially directed outward pressure on an electromagnetic coil, for an ideal, thin-walled, long cylindrical coil is
+(6)
+(Iwasa, 2009). This magnetic pressure may then be translated into hoop stress, 
+, by substituting Eq. (6) into the standard equation for hoop stress using a long, thin-walled cylinder approximation, resulting in
+(7)
+where 
+ is the coil wall thickness. By solving for the required coil wall thickness, the radial structural mass required per coil, 
+, is
+(8)
+where 
+ is the density of the radial structural material, 
+ is the ultimate tensile strength of the radial structural material, and 
+ is the structural Factor of Safety.
+3.2.2. Axial forces and structural support mass
+The coil's axial force is greatest at the axial mid-plane of the coil, and reduces to zero at the ends of the coil (Iwasa, 2009). The equation for the maximum force at the mid-plane (axial center) for an ideal, thin-walled, long cylindrical coil, 
+, is given by Iwasa (2009) as
+(9)
+where the negative sign indicates the force is compressive. Eq. (2) can be rewritten to match the thin-walled, long cylinder approximation, where 
+, and substituted into Eq. (9), resulting in
+(10)
+Since the axial force is highest at the center and reduces to zero at the edges, the axial support structure can be sized appropriately to save mass. The subsequent analysis assumes that the necessary axial support structure is sized based on the average axial force, 
+, which is equal to some fraction of the maximum axial force, 
+, and related by the factor 
+.
+(11)
+By determining the average cross sectional area required for the axial support structure, 
+, the axial structural support mass required per coil, 
+, is
+(12)
+where 
+ is the density of the axial structural support material, and 
+ is the ultimate compressive strength of the axial structural support material.
+3.2.3. Coil-to-coil forces and additional support structure mass
+In addition to the structure required to contain the forces within a single coil, there are also coil-to-coil forces that must be accounted for. These are repulsive forces that arise from the interaction of each coil with the external magnetic field from the surrounding coils. A complete analysis of these forces is complex and far beyond the scope of this work; however, a preliminary analysis shows that the forces on an individual cylinder are a function of the spacing between the coils, and can be designed such that these forces are roughly on the same order of magnitude as the axial forces. Therefore, for the purposes of this analysis, the coil-to-coil forces are assumed to be equal to the average axial force derived previously.
+The mass of the coil-to-coil support structure for a single coil can be estimated by a single support that extends from the axial centerline of the shield to the center of the coil. The length of this support, 
+, is
+(13)
+where 
+ is the inner diameter of the magnetic field. Assuming that the coil-to-coil force is equal to the average axial force, the cross sectional area of this support can be determined, and the coil-to-coil structural support mass required per coil, 
+, is then given by
+(14)
+where 
+ is the density of the coil-to-coil structural material, 
+ is the cross sectional area of the support structure, and 
+ is the ultimate tensile strength of the coil-to-coil structural material.
+3.2.4. Structure system materials
+Eqs. (8) and (12) show that the required radial and axial support mass varies as a function of 
+ and 
+; therefore, the required structural mass can become substantial at higher strengths and thicknesses. This could make the use of standard structural materials, such as aluminum, impractical. Light-weight materials with high tensile strengths would be ideal for constraining the radial forces in any coil design. Additionally, light-weight materials with high compressive strength will also be required. Materials such as Kevlar, Spectra, or other carbon/aramid fibers have a tensile strength to mass ratio that is several times larger than aluminum and the mass savings provided by these materials can be substantial; however, as will be shown in Section 4, further improvements in structural materials will be required in order to make active shielding designs feasible.
+3.2.5. Structure system key technologies
+Based on this survey of the structural system, the following key technology is identified for the development of an active magnetic shield:
+1.
+Development of higher-strength (tensile and compressive), lighter-weight structural materials. Given the high mass contribution of the structural system, improvements in structural materials would greatly reduce the overall system mass.
+3.3. Thermal system
+The cryogenic temperatures required for superconductor operation have only limited space flight heritage. In order to ensure that the superconductor functions properly, the system's operating temperature must be kept below the superconductor's critical temperature, plus additional thermal margin to reduce the risk of quench. The greater the thermal margin, the less likely that a disturbance of the system will result in a section of the superconductor becoming non-supercritical, causing a quench (Iwasa, 2009). Cooling methods for superconductors are generally broken into two groups: “wet” or “dry/cryogen-free” (Iwasa, 2009). In wet systems, the superconductor is either placed in direct contact or thermal linked, via conduction or convection, to cryogenic fluid. Temperature is then maintained through the boil-off of this cryogenic fluid. The resulting boil-off gas is vented in an open-loop system, or may be condensed and recycled in a closed-loop system. In dry/cryogen-free systems, a cryocooler is used to remove heat via a refrigeration cycle. The superconductor is either conductively or convectively linked to the cryocooler, with the latter option commonly known as a cryocirculator system. Cryocirculator systems utilize a coolant loop, where the coolant fluid is usually cold hydrogen or helium gas, and heat is removed from the returning fluid by a cryocooler via a heat exchanger.
+A wet system would require a large vessel containing cryogenic fluid, also known as a cryostat, to surround each coil. For an open-loop design, excess cryogen would need to be provided for the lifetime of the system. The amount of excess cryogen required to enable long duration missions would be prohibitive; therefore, an open-loop system can be considered impractical for use in active magnetic shielding applications. To create a closed-loop system, cryocoolers are used to condense all of the cryogen boil-off, eliminating the need to include a life cycle reserve of cryogenic fluid. This would eliminate the need for excess cryogen capacity; however, the amount of mass required for the cryogen and its containment structure would be significant. Although this type of system is not the lowest mass option, it should not be eliminated from further consideration since the thermal capacity of the cryogen may provide advantages in quench protection that outweigh the associated mass penalty. However, mass estimates for this system will not be presented since this is not the lowest mass option.
+Like the wet, closed-loop system, a dry system would require cryocooler capacity sized to handle the maximum heat removal required by the superconductor system. The cryogen-free, conduction only option, i.e. cryocoolers with only conductively coupling to the superconductor, would require a large number of smaller cryocoolers. The addition of a convective heat transfer system, i.e. a cryocirculator system, would allow consolidation of heat removal capability into a smaller number of larger capacity cryocoolers. Since cryocooler efficiency is related to cooling capacity, with increasing capacity correlating to increased efficiency (Kittel, 2007), a cryocirculator system is more desirable. Therefore, the cryocirculator design is the only cryogen-free option considered further. However, a circulator system would require additional system mass in the form of the heat transfer fluid, fluid pumps/fans, system piping, and heat exchangers. A trade tree detailing the thermal system, and system down selection, is shown in Fig. 5.
+
+Download: Download full-size image
+Fig. 5. Thermal system trade tree.
+
+3.3.1. Heat loads
+There are three primary heat sources that must be mitigated and compensated for during steady state operation of the active shield: external, internal and superconductor losses. External sources include radiative heating from solar, planetary infrared (IR), and albedo flux sources. Internal heat sources are primarily due to the enclosed habitat module, which must be maintained at an operating temperature sufficient to allow human comfort. The active magnetic shield will be thermally coupled to the other modules and systems, including the habitat, but can be substantially thermally insulated from these heat sources while maintaining structural integrity. Superconductor losses are primarily due to resistance losses, which will occur in the splice joints between lengths of superconductor material, and thermal leaks from the superconductor power supply. The sum of these heat loads dictates the heat removal requirements and sizing of the thermal system.
+A conservative thermal analysis of the shield environment is first performed to determine the heat loads on the system due to the external and internal heat sources. This analysis is a function of the material selection, operating temperature, and shield geometry (i.e. field thickness) and independent of the magnetic field strength. The shield is assumed to be oriented so that its maximum cross sectional area is exposed to the incoming solar flux, with the sun perpendicular to the central axis, creating a design basis external thermal environment. By sizing the system so that it will function with this alignment, which results in the greatest amount of heat transfer from the sun, the design will result in no operational restrictions being placed on the system concerning attitude with respect to the sun. Additionally, optimal sun alignment could be used to minimize the solar heat input, and the resulting excess heat removal capacity can be used for transient cooldown of the system to operational temperatures. A sun shield could also be used to mitigate the external heat load; however, such a shield is not analyzed in this body of work. In order to simplify the analysis the following assumptions are made:
+1.
+Solar flux is determined at 1 AU from the sun;
+2.
+Planetary IR and albedo fluxes are assumed to be negligible for deep space operations;
+3.
+Heat losses through the side-walls are ignored, i.e. heat exchange only occurs in the radial direction (the side walls will likely be insulated to minimize thermal gradients within the coils);
+4.
+Conductive coupling between the shield and the habitat is assumed to be negligible (any conductive couplings will be heavily insulated to prevent thermal leakage into the superconductor system); and
+5.
+The system is assumed to have three layers of multilayer insulation (MLI): one surrounding the habitat, one on the inner surface of the shield (facing the habitat), and one on the external surface of the shield (facing the space environment).
+Fig. 6 shows a cross section view of the analysis configuration, including the relevant thermal property assumptions used in this analysis, where 
+ is the MLI solar absorptivity, 
+ is the MLI IR emissivity, and 
+ is the MLI effective emissivity.
+
+Download: Download full-size image
+Fig. 6. Thermal analysis configuration and properties (thermal surface properties from Brown, 2002).
+
+The results of the thermal network depicted depend, to a large extent, on the effective emissivity of the MLI material. The MLI dimensions for such a design will be large and the configuration will likely allow for low number of discontinuities (seams, penetrations, etc.). Therefore, a conservative value of 0.004 was selected based upon the MLI performance values given by Stimpson and Jaworski (1972).
+Solving the thermal network depicted in Fig. 6 for a range of superconductor operating temperatures and magnetic field thicknesses yields the external and internal heat loads, shown in Fig. 7. This demonstrates that these heat loads vary little as a function of the system operating temperature. The contribution to the total heat load from the habitat is approximately 370 W. The difference between the habitat contribution and the total heat load is the contribution from solar radiation. As the magnetic field thickness increases, which increases the shield's cross sectional area, the amount of heat removal required also increases as more heat is absorbed from the sun.
+
+Download: Download full-size image
+Fig. 7. Internal and external heat loads (
+, 
+).
+
+The heat load contribution from superconductor losses is a function of both the magnetic field thickness, which dictates the length of superconductor tape/wire, and the magnetic field strength, which specifies the electric current required and drives the resistance losses at each splice junction. By determining the number of splices required for coil design, based on the maximum manufacturing length of a piece of superconducting tape/wire, 
+, and assuming that the system is sized such that it is operating at the maximum electric current capacity of the superconductor tape/wire, the total heat dissipation per coil from resistance losses at splice junctions, 
+, can be determined from 
+ losses to be
+(15)
+where 
+ is the resistance of a splice junction and 
+ is the cross sectional area of the entire superconducting tape or wire. As an example, a shield composed of 
+ long coils, with a splice resistance of 
+ (SuperPower Inc. website), a maximum superconductor current capacity of 4.35 kA (i.e. 
+, see Section 4 for details), and a maximum tape/wire manufacturing length of 1 km would have 
+ of 48.6 W per coil. Fig. 7 shows that this configuration has a combined internal and external load of 
+.
+3.3.2. Cryocoolers: performance, and mass estimates
+There are five common cryocooler types used for cryogenic cooling: Joule–Thomson, Brayton, Stirling, Gifford–McMahon, and pulse tube cryocoolers. A discussion of these different types is beyond the scope of this study; however, an excellent review of their operation, applications, state-of-the-art capabilities, and a comparison between the different types is given by Radebaugh, 2004, Radebaugh, 2009 and de Waele (2011). While each type functions under a different principle of operation, they all rely on the basic refrigeration cycle. The thermodynamic efficiency, or Coefficient of Performance (COP), for a refrigeration device, 
+, is given by
+(16)
+where 
+ is the heat removed, 
+ is the net work input required, 
+ is the high temperature heat sink, 
+ is the superconductor operating temperature (identical to 
+ in the standard equation), and η is the cryocooler efficiency expressed as a percentage of Carnot efficiency.
+The mass of cryocoolers may be estimated as a function of their required input power (Kittel, 2007) by
+(17)
+where 
+ is given in kg and 
+ is given in W. Combining Eqs. (16) and (17) to solve for cryocooler mass as a function of the system heat removal requirements yields
+(18)
+A survey of cryocooler efficiencies, as a percentage of Carnot, has shown that these efficiencies are largely a function of the cryocooler heat removal capacity, with increasing capacity correlating to increased efficiency, and are not a strong function of 
+ (Kittel, 2007). As shown earlier, the heat removal requirements for the active shielding system discussed will be on the order of hundreds of Watts. Therefore, a corresponding efficiency of 10% of Carnot may be reasonably selected as a conservative estimate given the size of cryocoolers required (Kittel, 2007).
+3.3.3. Cryocooler spaceflight heritage
+Cryocoolers have been utilized onboard numerous space systems and an excellent review of their space applications is given by Ross and Boyle (2006), including the cryocooler systems utilized onboard the Alpha Magnetic Spectrometer (AMS) experiment and the Hubble telescope. However, the cooling capacity of these flight systems is limited, with most systems providing less than 10 W of cooling. Many terrestrial cryocoolers have capacities in the mid-100 W range, with some capable of the low kW range. Unfortunately, many of these terrestrial based systems do not meet the high reliability requirements necessary for space applications (Radebaugh, 2009). Therefore, the development of high capacity, low mass, and space qualified cryocoolers is essential for the development of active magnetic radiation shielding.
+3.3.4. Heat rejection requirements and radiator sizing
+The overall cryocooler efficiency is affected by the selected operating temperature, decreasing with lower operating temperature, as shown in Eq. (16). Additionally, the selected operating temperature will have a significant impact on the thermal and power systems. While lower temperatures are desirable for superconductor operation, resulting in higher critical current densities and larger thermal quench margins, they also drastically increase the thermal and power system requirements. Higher operating temperatures are desirable for efficiency in the thermal system, but sufficient thermal margin must be provided to protect the superconductor against quenching.
+The large heat rejection requirements of the thermal system will require large radiators to reject this energy. The International Space Station (ISS) radiators may be used as a point of reference for the radiator sizing requirements. The ISS uses 6 Heat Rejection System (HRS) radiators. Each radiator weighs approximately 1120 kg, is 
+, and can reject at least 11.8 kW (Lockheed Martin Corp. website).
+3.3.5. Thermal system key technologies
+Based on this survey of the thermal system, the following key technologies are identified for the development of an active magnetic shield:
+1.
+Development of space qualified, high capacity cryocoolers. These are essential for the operation of large scale superconductor systems in space. Additionally, the development of this technology has direct applications in other space related topics, such as high powered, cryogenic scientific instruments and long-term cryogenic propellant storage.
+2.
+Improvements in cryocooler efficiency. Even marginal improvements in efficiency can greatly reduce the overall thermal and power system requirements.
+3.4. Power system
+The power system must be capable of charging the superconducting coils, maintaining the desired operating current, and also provide for the high power requirements of the thermal system. Providing the necessary power for the thermal system is straightforward and simply a matter of sizing the solar arrays, or other source, to meet the system load requirements. However, providing power for the superconducting magnetic coils, which operate at extremely high currents, is a unique problem.
+3.4.1. Superconductor power system
+An LTS magnetic coil can be operated in what is known as “persistent” mode, where the lack of resistance would allow current to flow through the coil indefinitely. Unfortunately, the properties of HTSs are such that they are “intrinsically dissipative,” and a variety of conditions will result in system losses. These losses are generically termed “AC losses” and a thorough description may be found in Iwasa (2009). In addition to AC losses, any system of the scale presented here will inevitably require splices between lengths of superconductor cable. Although the resistance introduced by these splices is relatively low, the large currents required for high field operation can result in significant losses. Therefore, an HTS system will not be able to operate in a true persistent mode and a power supply will need to remain connected to the system in order to compensate for these losses.
+In terrestrial HTS systems a variety of power supply solutions are available and different techniques can be employed to accommodate heat leakage from the power supply lead connections. However, in a space environment these problems are not so easily remedied. Because a normal power supply will operate at non-superconducting temperatures, a significant heat leak is presented by the power supply leads. This thermal leakage is not easily compensated for in the space environment, requiring additional thermal system capacity and mass. Additionally, the high currents desired for use in active magnetic shielding designs would result in high resistance losses in the non-superconducting material on the power supply side, further compounding the associated thermal challenges. While these problems may be accounted for, their effects are undesirable.
+An alternative to a traditional power supply source is the use of flux pumps (Kervendal et al., 2009), which are devices capable of supplying the high direct current (DC) current required by the superconductor system. Flux pumps fall into three general categories: flux compressors, DC dynamos, and transformer rectifiers. A thorough review and discussion of each is given by van de Klundert and ten Kate, 1981a, van de Klundert and ten Kate, 1981b. The first two types require mechanical work to supply the necessary current; however, transformer rectifier flux pumps utilize a low alternating current (AC), non-superconducting source and can be constructed with no moving parts, making them ideal for space applications. Additionally, transformer rectifier flux pumps have the greatest success of the various flux pump designs, in terms of the maximum current achieved, and are the only type actively employed in an operational system. A trade tree detailing the power system, and the superconductor power supply down selection, is shown in Fig. 8.
+
+Download: Download full-size image
+Fig. 8. Power system: superconductor power supply trade tree.
+
+3.4.2. Flux pump operation and state-of-the-art
+A transformer rectifier flux pump operates by applying an AC current through a primary loop, which induces a current in a secondary loop. By opening and closing a set of switches in the secondary loop, in coordination with the AC cycle of the first loop, a “pumping” action is created in the secondary loop allowing the current to be incrementally increased. Mass estimates for these devices are difficult to obtain; however, the 60 kA flux pump design by Mulder et al. (1991) does show that these devices are rather small. Therefore, the mass of these devices is assumed to be 25 kg (estimate based on the diagram from Mulder et al., 1991) with one unit required per coil.
+Given the characteristics of flux pumps, utilizing these as power supplies for the superconductor coils would provide significant benefits in active magnetic shielding applications. Unfortunately, today most flux pump technology remains in the experimental stage. In the early 1990's, Mulder, van de Klundert, ten Kate and their colleagues developed a thermally switched, full-wave, transformer rectifier flux pump which was successfully tested up to 60 kA (Mulder et al., 1991). Since then, research and development of these high current designs seems to have largely languished. Therefore, further research and development efforts will need to be placed in the development of these devices and significant effort will likely be necessary in order to revive these programs and construct the necessary space qualified hardware.
+3.4.3. Solar arrays
+The power required for the operation of the thermal system, primarily the cryocoolers, will be the dominate power load for an active magnetic shielding design. Solar array mass and size requirements can be estimated using Triple Junction (TJ) GaAs rigid panel solar arrays, which are common for many space applications. These arrays typically have specific power values of 70 W/kg and provide 
+ of surface area (Bailey and Raffaelle, 2011).
+3.4.4. Power system key technologies
+Based on this survey of the power system, the following key technology is identified for the development of an active magnetic shield
+1.
+Development of high current, transformer rectifier HTS flux pumps. Because of the distinct advantages offered by flux pump technology over traditional power sources, high current capability transformer rectifier flux pumps are ideal for the operation of large scale superconductor systems in space. These devices would reduce the resistance losses and heat leaks from the superconductor power supply, reducing the requirements for the thermal and power systems.
+4. System selection and analysis
+Based upon the above system discussion, a solenoidal active magnetic shielding design is analyzed over the primary trade space variables of magnetic field strength and magnetic field thickness. The GCR induced dose equivalent is determined using the methodology outlined by the Analytical-HZETRN model given by Washburn et al. (2014). The GCR flux model used in this analysis is the Badhwar–O'Neill (BO'10) GCR model (O'Neill, 2010) with a solar modulation parameter value of 481 MV, corresponding to the 1977 solar minimum. The general shield geometry and configuration used is shown in Fig. 9. First, the flux in the barrel region, the region affected by the magnetic field, is determined as a function of magnetic field strength and thickness. Only the effects of the magnetic field within the cylindrical boundary of the annular shield volume, shown in Fig. 9, are considered. Effects of the “fringe field,” where the magnetic field lines close outside of this volume, are not considered in the current iteration of this model. Next, using the system mass estimates discussed in Section 3, the shield system mass for each material type is determined as a function of the magnetic field strength and thickness. This mass is smeared over a cylinder, selected to be located at the center of the magnetic field as shown in Fig. 9. This provides the average thickness of the various shielding materials that the flux in the barrel region will pass through. The barrel region flux is then transported using HZETRN 2010 (Wilson et al., 1995, Slaba et al., 2010a, Slaba et al., 2010b), through these average thickness values. The resulting flux output is then transported again through the habitat and the resulting dose equivalent is combined with the habitat end cap region dose equivalent contribution. Because the end cap region flux is unaffected by the magnetic field, the end cap dose equivalent contribution may be calculated separately. The HZETRN 2010 calculated dose equivalent accounts for the exposure contribution of neutrons and charged particles with 
+ through 
+. As discussed by Washburn et al. (2014), the dose equivalent is calculated at the worst-case location inside the habitat, i.e. along the axial centerline, at the edge of the habitat's end cap wall.
+
+Download: Download full-size image
+Fig. 9. Model geometry and mass locations.
+
+The results shown here are for an Analytical-HZETRN analysis of the lowest mass configuration described in Section 3. The following major assumptions are made for this analysis:
+1.
+Superconductor system: HTS
+a.
+Material: YBCO tape
+b.
+Dimensions: 5 cm wide, 0.1 mm thick
+c.
+: 
+, assuming 
+ at 77 K and self-field, with an average of 3× capability for operation at 40 K (Hazelton, 2012), and no capability reduction or limitations with respect to the generated field strength and geometry
+2.
+Structural system: Mixed-material
+a.
+Radial structural material: Kevlar 49
+b.
+Axial structure material: TorayCA M55J fiber with HexPly 954-6 cyanate epoxy resin (60% fiber by volume)
+c.
+Coil-to-coil structural material: TorayCA M55J fiber with HexPly 954-6 cyanate epoxy resin (60% fiber by volume)
+d.
+: 0.5
+e.
+: 2.0
+3.
+Thermal system: Cryocirculator type
+a.
+Additional system mass: circulator fans, heat exchangers, and piping are accounted for by adding three times the cryocooler mass
+b.
+Material: Aluminum 6061
+c.
+The radiators mass is not included in the barrel region mass since these will likely be located farther away, near the end caps
+4.
+Power system: Flux pump and solar arrays
+a.
+Flux pump material: YBCO tape
+b.
+The solar array radiators mass is not included in the barrel region mass since these will likely be located farther away, near the end caps
+5.
+Shield dimensions:
+a.
+b.
+6.
+Habitat dimensions:
+a.
+b.
+c.
+Cylinder wall thickness: 
+ Aluminum 6061, 
+ water
+d.
+Cylinder end cap thickness: 
+ Aluminum 6061, 
+ water.
+The selected habitat dimensions allow a pressurized volume of 
+. This is similar in size and dimension to what has been proposed for a 4 crew member, 380 day asteroid mission (Rucker and Thompson, 2012). Based on historical data, a habitat of this size corresponds to a mass of approximately 32 t (Heinemann, 1994). Smearing this mass over the surface area of the habitat results in a shielding thickness of 4.8 cm (
+), which is assumed to be entirely Aluminum 6061. The water mass for a long duration trip can provide substantial shielding and is also considered. For this scenario, it is assumed that a closed-loop water supply system is employed and that a sufficient water reserve is provided for a crew of 4 for 30 days. The daily consumption of water, for drinking and food rehydration, is assumed to be 2.5 kg/person-day (NASA, 2010) and additional water requirements, for hygiene and housekeeping, are assumed to be 25.4 kg/person-day (Reed and Coulter, 2000), for a total of 27.9 kg/person-day. This results in a total water mass of 3348 kg. Smearing this over the surface area of the habitat results in a water shielding thickness of 1.36 cm (
+).
+The end-cap regions of the active shield will make a likely location for additional items, and the shielding in this region will be substantially higher than the 
+ calculated for the habitat wall. These additional items may include units such as a crew module, service module, and docking stations. Therefore, the habitat end-cap thickness is roughly doubled, to 
+ of aluminum, to account for this additional mass.
+4.1. Mass and dose equivalent results
+The exposure analysis results for the system and habitat described are shown in Fig. 10. The exposure contribution for the end cap regions is constant, and determined to be 48 mSv. The contribution from the barrel region may be determined by subtracting this value from the total exposure value shown in Fig. 10. This plot also shows the total active magnetic shielding system mass, which is the sum of the superconductor, structural, thermal, and power systems masses, less radiator and solar array mass. It is assumed that the required radiators and solar arrays will be integrated into the larger thermal and power systems of the overall vehicle architecture; therefore, their mass is not included in this total. The mass is given in metric tons, and the color scale also shows this value in terms of the number of Space Launch System (SLS) launches required to place this mass in low-earth orbit. This assumes a maximum SLS capability to low earth orbit (LEO) of 70 t per launch for the Block I model and 130 t per launch for the Block II (SLS Fact Sheet, NASA website).
+
+Download: Download full-size image
+Fig. 10. Annual dose equivalent and active shielding mass in tons (less radiator and solar array mass) and number of SLS Block I and II launches required.
+
+Fig. 10 demonstrates that a higher field strength is more effective at reducing dose equivalent than a larger field thickness (e.g. 
+ yields 
+, 
+ yields 
+). However, this does not result in the lowest system mass. Fig. 10 shows that for this specific configuration, a low field strength, medium field thickness or medium field strength, medium field thickness design results in the lowest system mass, depending on the exposure value desired. For example, consider a design for a one year mission, with a point dose equivalent value of 150 mSv used as an acceptable exposure design baseline and no other restrictions other than minimizing system mass. Based on these criteria, according to Fig. 10, the optimal selection is approximately a 4 T, 4.75 m design, resulting in a system mass of approximately 150 t. This translates into the launch capacity of approximately 3 SLS Block I or 1.75 Block II launches to place this system mass in LEO. However, this figure only considers launch mass and does not account for volumetric constraints due to fairing size. Table 1 shows the masses for each system for a 
+ (150 mSv) case using the above parameters to provide a relative mass comparison.
+Table 1. System masses for a 4 T × 4.75 m (150 mSv) example case.
+
+System	Mass [t]
+Superconductor	80.5
+Structural: Radial	28.9
+Structural: Axial	33.2
+Structural: Coil-to-coil	6.0
+Thermal (less radiators)	5.6
+Power (less solar arrays)	0.2
+As discussed previously, the ISS radiators and solar array parameters may be used to estimate the size and mass of these components. Using the example above, a shield composed of 
+ coils would have a heat load of approximately 1280 W (combined internal and external load of 
+, Fig. 7, and superconductor losses of 
+, Eq. (15)). Selecting an operating temperature of 40 K, the thermal system would need to reject approximately 78.3 kW of heat. Therefore, this system would require radiators with a total mass of 7429 kg and a surface area of 
+ (equivalent to approximately 6.7 ISS HRSs). The power system would need to continuously supply 680 W to the flux pumps to compensate for superconductor losses and approximately 77.0 kW of power to operate the cryocoolers. Based upon the Triple Junction (TJ) GaAs rigid panel solar arrays performance stated earlier, and assuming a distance of 1 AU from the sun, this system would require solar arrays with a total mass of 1100 kg and a surface area of 
+.
+4.2. Structural and superconductor performance improvements
+The structural and superconductor system are the large mass drivers of the overall shielding system design, and performance improvements in both of these areas have been identified as key enabling technologies for the development of an active magnetic shielding design: improved strength/mass ratio, both tensile and compression, for structural materials and improved current capacity/mass ratio for superconductor materials. Fig. 11 demonstrates what levels of improvement are necessary in order to reduce the overall system launch mass to desirable values. This is examined by first constraining the system to meet two potential objectives: the magnetic field thickness is held at 2 m, which may be the case in order to meet launch vehicle fairing requirements, and the system must achieve no more than 150 mSv/yr of exposure for the crew. The above analysis is then conducted to determine the total system mass which achieves these goals for increasing structure and superconductor performance.
+
+Download: Download full-size image
+Fig. 11. Structural (strength/mass ratio) and superconductor (current/mass ratio) performance improvements effects on system mass for 2 m field thickness and 150 mSv exposure limit design.
+
+As structural material performance is improved it approaches an asymptotic limit above a 15× performance improvement. Above this, system mass is primarily driven by the superconductor system. Similarly, as superconductor material performance is improved it also approaches an asymptotic limit above a 15× performance improvement where system mass is primarily driven by the structural system. If both of these systems are improved equally, the system mass limit is driven by the thermal and power system. As shown in Fig. 11, performance improvements of 4× are necessary for both the structural and superconductor systems to achieve a total mass low enough to accommodate a single SLS Block I launch and 2× for a single Block II launch.
+5. Conclusions
+The survey of each major system required for the design of a solenoid shaped, active magnetic shield allowed the down-selection of major architecture options, as well as highlighting their dependence on the primary design parameters: magnetic field strength and field thickness. These results are summarized in Fig. 12.
+
+Download: Download full-size image
+Fig. 12. Active magnetic shield trade tree summary.
+
+The survey of these systems also allowed the identification of the key technologies listed below. These technologies are categorized as either enabling or enhancing. Enabling technologies are those that are required to facilitate the design based upon providing substantial mass reductions to the overall system or low technology readiness level (TRL) items that are essential to the operation of the system. Enhancing technologies are those that would significantly improve performance of a system or reduce the design requirements of an associated system.
+Enabling technologies:
+•
+Superconductor: Improvements in the critical/engineering current density of superconductor material (metallurgical and manufacturing improvements to increase the critical current density of existing superconductor material or development of new higher performance superconductors).
+•
+Structures: Development of higher-strength, lighter-weight structural materials.
+•
+Thermal: Development of space qualified, high capacity cryocoolers.
+•
+Power: Development of high current, transformer rectifier HTS flux pumps.
+Enhancing technologies:
+•
+Superconductor: Manufacturing improvements to increase the maximum achievable length of superconductor wires and tapes.
+•
+Superconductor: Development of improved superconductor splice technology.
+•
+Superconductor: Development of new, higher temperature superconductors.
+•
+Thermal: Improvements in cryocooler efficiency.
+Finally, the radiation exposure analysis performed allows some of the basic characteristics of such a design to be observed and identified necessary performance enhancements for the superconductor and structural systems to achieve lower launch mass goals.

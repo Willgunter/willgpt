@@ -1,0 +1,499 @@
+1. Introduction
+The approach to a practical solution of nucleon transport is to develop a progression of solutions from the simple to increasingly complex, allowing early implementation of high-performance computational procedures and establishing a converging sequence of approximations with established accuracy criteria and means of verification/validation. The first step leading to the lowest order solution used the straight-ahead approximation as guided by the nucleon transport studies of Alsmiller et al. (1965) using Monte Carlo (MC) methods (High Energy Transport Code, HETC) in which the differential production cross sections were approximated as if all secondary particles were produced in the same direction as the initiating particle resulting in dose and dose equivalent to be within the statistical uncertainty of the HETC result obtained using the fully angle dependent cross sections in slab geometry. The relation of angular dependent cross sections to spacecraft geometry was further examined by Wilson and Khandelwal (1974) using asymptotic expansions about angular divergence parameters, demonstrating errors in the straight-ahead approximation to be on the order of the square of the ratio of distance of divergence (few centimeters) to radius of curvature of the shield (few to several meters), resulting in a small error 
+ in most human rated space systems (Wilson and Khandelwal, 1974). Further study by Wilson (1977) using asymptotic expansion about the initiating ion direction revealed that off-axis contributions are vanishingly small. Introducing the straight-ahead approximation reduces the need of solving a Fredholm equation to that of solving a Volterra equation that can be solved using marching procedures (Wilson and Lamkin, 1975, Wilson, 1977, Wilson and Badavi, 1986). Considering the success of the straight-ahead approximation for nucleons encouraged its use in HZE transport where the mass of the heavier ions reduces even further the angle of scatter. The success of the straight-ahead approximation results from the fact that lateral diffusion from a given ray is fully compensated in a flat plate (i.e. slab with infinite lateral dimensions) by lateral diffusion along adjacent rays. The extension of this code to include the transport of heavy ions of the Galactic Cosmic Rays (GCR) became the next requirement for space radiation protection.
+HZE ion transport developed parallel to the experimental studies of Schimmerling et al. (1986) at the Lawrence Berkeley Laboratory and involved solving the Boltzmann transport equation for mono-energetic ion beams in the context of the continuous slowing down approximation (CSDA) (Wilson et al., 1984). The main purpose was to identify the sources of computational limitation. This was found in part to be the inadequacy of available nuclear data through comparing computational results with the experimental ionization data for a broad beam of 20Ne ions (Wilson et al., 1984). Emphasis was soon overtaken by the need to establish the scope of the GCR protection problem, and marching procedures were used to get first order estimates of shielding requirements (Wilson and Lamkin, 1975, Lamkin, 1974, Wilson and Badavi, 1986, Wilson et al., 1991). Testing the new computational marching model against atmospheric air shower data again pointed to the inadequacy of the available nuclear data (Wilson and Badavi, 1986), and development of a semi-empirical nuclear fragmentation model (NUCFRG) followed, leading to improved comparisons with experimental deep penetration data (Wilson et al., 1987a, Wilson et al., 1987b). This new NUCFRG model likewise improved comparisons with Schimmerling's laboratory experiments (Shavers et al., 1993, Wilson et al., 1991). The next dozen years emphasized spaceflight validation of the marching solution and nuclear fragmentation model improvements (Wilson et al., 1995, Wilson et al., 1998, Wilson et al., 2005, Wilson et al., 2006, Wilson et al., 2007, Badhwar et al., 1996, Shinn et al., 1998, Cucinotta et al., 1998, Hugger et al., 2003, Nealy et al., 2006, Slaba et al., 2011a, Slaba et al., 2013, Norman et al., 2012, Norman et al., 2013).
+Advanced solution methods of the Boltzmann equation continued to develop (Wilson et al., 1994a, Wilson et al., 1994b) but only slowly after NASA interest in deterministic transport code and related nuclear model development shifted in favor of MC methods (Armstrong and Colburn, 2001, Pinsky et al., 2001). Focus of the Langley Research Center activity turned to trade studies, flight validation, and development of engineering design methods including shield optimization processes for which deterministic methods are very successful (Wilson et al., 2004a). Renewed interest within NASA for deterministic code development is giving new emphasis for improved solution methods (Wilson et al., 2003, Wilson et al., 2006, Tweed et al., 2006a, Tweed et al., 2006b, Slaba et al., 2010a, Slaba et al., 2010b, Norman et al., 2013) with a focus on nuclear modeling activity as well (Cucinotta and Dubey, 1994, Cucinotta et al., 1998, Cucinotta et al., 2007, Norbury and Adamczyk, 2007, Adamczyk et al., 2012). As a result, these engineering and validation developments mainly utilized the older semi-empirical NUCFRG2 model with revisions (Wilson et al., 1994c, Wilson et al., 1995, Wilson et al., 2006) including energy downshifts and momentum dispersion (Tripathi et al., 1994). Comparison of NUCFRG2 with other models and nuclear fragmentation experiments are given by Zeitlin et al., 1997, Zeitlin et al., 2011, Golovchenko et al. (1999), Cucinotta et al. (2007), and Walker et al. (2006). The present development will use the more recent NUCFRG3 (Adamczyk et al., 2012) with an added light ion (
+) coalescence model and additional electromagnetic dissociation channels.
+To support the need for keeping records of astronaut exposures in space operations, considerable time has been spent in validating and testing in Shuttle flight operations with an array of instruments (Badhwar et al., 1995, Badhwar et al., 1996, Badhwar et al., 2001). As a result of the need to design and test new systems for future exploration, there has been renewed interest in flight validation using the International Space Station (ISS) as a measurements platform in low Earth orbit (LEO) (Hugger et al., 2003, Wilson et al., 2005, Wilson et al., 2006, Wilson et al., 2007, Nealy et al., 2006, Slaba et al., 2011a, Slaba et al., 2013). It is clear that the straight-ahead approximation provides accurate dosimetric results and a good approximation to the particle fluence in many circumstances (see Badhwar et al., 1995). One limitation of the straight-ahead approximation is near the front boundary on a flat plate where the calculated neutron fluence vanishes (unless they are part of the external radiation environment). This results from the straight-ahead approximation itself and can be improved by connecting to 3D corrections containing backward leakage to the front boundary (Foelsche et al., 1974, Marchuk and Lebedev, 1986). This limitation is resolved by treating the leakage that is an important process of neutron transport in space systems but of less importance to the charged particle transport that is limited by range/energy relations. This bi-directional approximation provides the first correction to the straight-ahead approximation and provides major improvements to the neutron fluence spectra.
+In the early transport studies of Wilson and Lamkin (1975) and Lamkin (1974), it was demonstrated that once neutrons are produced by a proton beam, the recoupling of neutrons back to the proton field is limited, but the neutron fields tend to build up with increasing penetration depth. This mainly occurs since many protons produced by neutron induced reactions are of lower energy than the forward components and are quickly removed by atomic interactions with only a few percent probability of nuclear reaction. The low energy neutrons on the other hand have no effective atomic interactions and propagate until a nuclear interaction occurs or they escape from the media through a boundary. Yet, these low energy protons and other light ions produced in tissue through neutron collisions contribute significantly to biological injury and must be included (Foelsche et al., 1974). This was the basis of bi-directional neutron transport studies starting with Clowdsley et al., 2000, Clowdsley et al., 2001 and Heinbockel et al. (2003). In this work, a bi-directional neutron transport code was developed by Clowdsley et al., 2000, Clowdsley et al., 2001 using multigroup methods and recoupling to the light ions using an analytic solution as a quadrature over the light ion collision source term. These types of approximations were further studied and improved by Slaba et al. (2010b) and later compared to MC simulations in slab geometry (Heinbockel et al., 2011a, Heinbockel et al., 2011b) and on the lunar surface (Slaba et al., 2011b). The model has been implemented into OLTARIS and is the basis of the ray-by-ray transport methodology (Slaba et al., 2011b, Singleterry et al., 2011). In that transport model, the charged particle components were first solved in the straight-ahead approximation with the neutron coupling represented only by the forward neutron component of the differential production cross section. The isotropically produced neutrons are then solved using a coupled bi-directional (forward/backward) transport to complete the neutron solution. These isotropically produced neutrons further collide with the media, giving rise to an isotropic source of ions that are transported assuming only atomic interactions as an approximation to the complete solution. Neglected in this solution is the minor coupling between low energy charged particles and any produced fragments. This assumption is generally accurate since the range of the low energy isotropic ions is much smaller than their nuclear mean free path lengths. This model has had wide acceptance and is the standard for current engineering and operational pratice. Still, to quantify the error of the bi-directional code requires evaluation of additional 3D effects in the model computations.
+The present report will review the salient features of the straight-ahead approximation and its generalization to a bi-directional formalism that is then extended to a 3DHZETRN. This development is done with an eye to making these three levels accessible with one code for easy inter-comparison and evaluation in differing geometries. In addition, the 3D code has a selectable angular convergence parameter for the number of angles that can likewise be tested for a converged 3D solution. These advances will use available MC codes Geant4 (Agostinelli et al., 2003, Geant4 Collaboration, 2012a, Geant4 Collaboration, 2012b), FLUKA (Fasso et al., 2005, Battistoni et al., 2007), and PHITS (Sato et al., 2013) to judge the veracity of these developments especially with regard to their 3D aspects. Upon completion, the 3DHZETRN code will be integrated into the web based OLTARIS (Singleterry et al., 2011) software system for general testing, validation against spaceflight data, and use in spacecraft design.
+2. Deterministic code development
+The relevant transport equations are the time-independent linear Boltzmann equations derived on the basis of conservation principles (Wilson et al., 1991) for the flux density 
+ of type j particles as
+(1)
+and solved subject to a boundary condition over the enclosure of the solution domain. The 
+ and 
+ are the media macroscopic cross sections. The double differential cross section, 
+, represents all those processes by which type k particles moving in direction 
+ with energy 
+ produce a type j particle in direction Ω with energy E (including decay processes). Note that there may be several reactions that produce a particular product, and the appropriate cross sections for Eq. (1) are the inclusive ones. Exclusive processes are functions of the particle fields and may be included once the particle fields are known. The total cross section 
+ for the medium may be written for each particle type as
+(2)
+where the first term (at) refers to collision with atomic electrons, the second term (el) is for Coulomb elastic scattering on the atomic nuclei, and the third term (nuc) describes nuclear scattering and reactions where the minor nuclear inelastic processes (excitation) have been ignored. The corresponding differential cross sections are similarly ordered. Many atomic collisions (
+) occur in a centimeter of ordinary matter, whereas 
+ nuclear Coulomb elastic collisions occur per centimeter, while nuclear processes are separated by a fraction to many centimeters depending on energy and particle type. Solution methods for Eq. (1) use perturbations based on the ordering of the physical cross sections with atomic interactions as the first physical perturbation; special methods are used for neutrons for which atomic cross sections are zero. Coulomb scattering is the second order physical perturbation process. The nuclear processes are treated in detail as the third order physical perturbation.
+The atomic/molecular interaction terms of Eqs. (1) and (2) may be written as (Wilson et al., 1991)
+(3)
+where 
+ is the mass of particle type j, and the stopping power 
+ is given by
+(4)
+In Eqs. (3) and (4), n denotes the electronic excitation levels, and 
+ refers to the corresponding excitation energies. Evaluation of the stopping power by Eq. (4) appears deceptively simple. However, all of the excited states including continuum states of the atomic/molecular system need to be evaluated. Furthermore, the projectile remains a bare ion except at low energies where the projectile ion atomic orbital states begin to resonate with the relative speed of the electrons of the media leading to electron capture and lowering of the ion charge (the stopping power is then related to RMS charge, called effective charge). These issues are further discussed in Wilson et al., 1991, Wilson et al., 2005, Wilson et al., 2006 and Tai et al. (1997). The higher order terms of Eq. (3) are neglected in the CSDA and are further discussed elsewhere in connection to mono-energetic ion beams (Wilson et al., 2005, Wilson et al., 2006). The second physical perturbation, Coulomb scattering, results in angular diffusion about the ion direction leading to small angular corrections that are of little interest in the nearly omnidirectional space environment (Wilson and Khandelwal, 1974, Wilson et al., 1991, Wilson et al., 2005, Wilson et al., 2006) and are therefore ignored. Henceforth, the total cross sections and the double differential cross sections appearing in Eq. (1) are the nuclear scattering and reaction values, and the superscript (nuc) will not be written.
+Eq. (1) can be written in the CSDA, ignoring multiple Coulomb scattering, as
+(5)
+where the differential operator on the left hand side is defined as
+(6)
+The right-hand side of Eq. (5) excludes the atomic/molecular processes now appearing on the left as the energy shifting operator in addition to the spatial drift and nuclear absorption terms. Neutral particles would have null atomic cross sections (except for negligible magnetic coupling) for which the stopping power term of in Eq. (5) is set to zero. Application of CSDA in both laboratory and space shielding has been wide and the resulting errors discussed elsewhere for space radiations (Tweed, 2006a, 2006a). Eq. (5) can be rewritten as a Fredholm equation (Wilson, 1977) given by
+(7)
+with
+(8)
+(9)
+In Eqs. (7) and (8), 
+ is the point on the boundary connected to x along 
+, ρ is the projection of x onto Ω, d is the projection of 
+ onto Ω, 
+ is the distance a type j ion with energy E will travel before losing all of its energy to excitation/ionization of atomic electrons, and 
+ is the probability that a type j ion with energy E will not have a nuclear interaction in coming to rest in the media (Wilson, 1977). The zero charge limit of Eq. (7) is discussed elsewhere (Wilson et al., 1991). One obstacle to solving either Eqs. (5) or (7) is the need to evaluate the integral 
+ at arbitrary locations within the media and development of methods to handle this limitation expediently in ways amenable to efficient computational practice.
+The nuclear reactive and scattering differential cross sections can be written in the following form
+(10)
+where the first term (iso) is isotropic and associated with lower energy particles produced, including target fragments, and the second term (for) is highly peaked in the forward direction (
+) and is associated mainly with direct quasi-elastic events and projectile fragmentation products (Wilson, 1977, Wilson et al., 1988). Surprisingly, even nucleon-induced reactions follow this simple form, and the isotropic term extends to relatively high energies (see Fig. 1). For nucleon-induced reactions, the following form of the differential cross section has been used in versions of FLUKA (Ranft, 1980) as follows
+(11)
+where 
+ is average multiplicity, 
+ is the energy spectrum of produced fragments, and the Ranft angular factor used in early versions of FLUKA is
+(12)
+with 
+ and
+(13)
+In Eqs. (12) and (13), 
+ is the mass of the target nucleus, and 
+ is a normalization constant. The Ranft formalism was modified by adding a quasi-elastic component (Wilson et al., 1988) and was instrumental in achieving the correct neutron KERMA (Wilson et al., 1991). The isotropic component of Eq. (10) is determined by integrating Eq. (11) over the back hemisphere (i.e. 
+) according to
+(14)
+where 
+ refers to the back hemisphere. The separation in phase space given by Eqs. (10), (11), (12), (13), (14) is exploited in obtaining corrections to the straight-ahead approximation for light particles (
+). The heavy ion (
+) projectile fragment cross sections may be further represented by
+(15)
+where m is the nucleon rest mass, 
+ is related to the momentum downshift, 
+ is related to the longitudinal momentum width, 
+ is related to the transverse momentum width, 
+ is the transverse normalizing factor, and the fragmentation cross sections, 
+ are obtained herein from NUCFRG3. Since the transverse width is small compared to the projectile-fragment energy, the transverse function is highly peaked about the forward direction (
+).
+
+Download: Download full-size image
+Fig. 1. Isotropic (iso) and forward (for) neutron spectra produced by 500 MeV protons in aluminum.
+
+Atomic interactions limit the contributions of charged particles in the transport process. For example, the protons and alpha particles produced in aluminum below 100 MeV/n contribute to the fluence only within a few centimeters of their collisional source and the heavier ions are even more restricted. This is an important factor in that the transported secondary charged particle flux tends to be small at low energies, and the role of additional nuclear reactions by these low-energy ions are likewise limited, an important fact to be implemented later in the current development.
+2.1. Straight-ahead solution (
+)
+As noted, the problem of evaluating the integral equation (7) is the evaluation of the integral over 
+. The approach to a practical solution of Eq. (5) is to develop a progression of solutions from the simple to increasingly complex, allowing early implementation of high-performance computational procedures and establishing a converging sequence of approximations with established accuracy criteria and means of verification/validation. The first step leading to the lowest order solution uses the straight-ahead approximation and marching procedures in which the differential cross sections were approximated as
+(16)
+resulting in dose and dose equivalent within the statistical uncertainty of the Monte Carlo result obtained using the fully angle dependent cross sections in slab geometry. Introducing approximation (16) into Eq. (7) reduces the Fredholm equation to a Volterra equation that can be solved using marching procedures (Wilson and Lamkin, 1975, Wilson, 1977, Wilson and Badavi, 1986).
+Initial quantification of the usefulness of the code evaluated dose and dose equivalent (as given by the ICRP 26, ICRP, 1977) in 30 cm slab of water behind a 
+ slab shield of aluminum (and alternately of iron) for the Webber (1966) approximation of the February 23, 1956 solar particle event (SPE) spectrum given as
+(17)
+with 
+. Comparisons were made against 3D Monte Carlo results (an early version of HETC) by Scott and Alsmiller (1967) evaluating both dose and dose equivalent. Statistical uncertainty of the Monte Carlo result is on the order of ten to fifteen percent, and the early version of HZETRN was certainly within these bounds (Wilson et al., 1991).
+The recently developed dynamic LEO environmental models, shield models, and transport algorithm are shown to have an end-to-end uncertainty estimated to be 20 percent by Badhwar et al., 1995, Badhwar et al., 1996, Badhwar et al., 2001. Aside from its accuracy, this version of HZETRN provides a computationally efficient procedure allowing rapid dosimetric evaluations and providing a basis for development of advanced engineering design methods capable of design optimization processes (Wilson et al., 2003, Wilson et al., 2004b). A sequence of corrections to the straight-ahead approximation is now taken up for light ions and neutrons. The heavy ion nuclear cross sections, represented by Eq. (15), indicate that the straight-ahead approximation is suitable for heavy ions for most applications, including space, as evidenced by laboratory validation with mono-energetic beams (Wilson et al., 1984, Shavers et al., 1993, Shinn et al., 1998, Walker et al., 2006).
+2.2. Bi-directional neutron transport (
+)
+It is clear that the straight-ahead approximation provides accurate dosimetric results and a good approximation to the particle fluence in many circumstances (see Badhwar et al., 1995). One limitation of the straight-ahead approximation is near the front boundary on a flat plate where the calculated neutron fluence vanishes (unless they are part of the external radiation environment). This results from the straight-ahead approximation itself can be improved by connecting to 3D corrections containing backward leakage to the front boundary. This limitation is resolved by treating the leakage that is an important process of neutron transport in space systems but of less importance to the charged particle transport that is limited by range/energy relations. This bi-directional approximation provides the first correction to the straight-ahead approximation and provides major improvements to the neutron fluence spectra. The governing equation in this approach is first given by Eq. (5). The solution methodology requires the neutron flux to be separated into forward (
+) and isotropic components (
+) according to
+(18)
+The differential cross section for neutron fragments (
+) is also separated into forward and isotropic components according to Eqs. (10) and (14). The differential cross section for charged fragments is treated in the straight-ahead approximation by Eq. (16). Upon substitution of the separated differential cross sections and particle fluxes into Eq. (5), the forward component of the charged particle (
+) fluxes is obtained by solving the straight-ahead equation
+(19)
+and the forward neutron component is obtained by solving
+(20)
+for which the stopping power term in the operator B is zero for neutrons. Note that the full cross section of Eq. (16) appears in the ion transport of Eq. (19), but only the forward component of the cross sections appears in the transport of neutrons in Eq. (20). Eqs. (19) and (20) are solved simultaneously using methods previously developed (Wilson et al., 2006, Slaba et al., 2010a).
+The forward fluxes give rise to an isotropic source of low energy neutrons which are treated by solving the equation
+(21)
+Whereas Eqs. (19) and (20) take on value only if an external source is present at the boundary, Eq. (21) has no external sources, and the resulting field develops from the internal isotropic neutron source induced by the forward solution. Development of an algorithm for solving Eq. (21) is expedited by separating the isotropic neutron fluence into forward and backward propagating components according to
+(22)
+and approximating the double differential cross sections as
+(23)
+(24)
+(25)
+(26)
+(27)
+In Eqs. (24), (25), (26), (27), 
+ and 
+ represent integration over the forward and backward hemispheres with respect to 
+, respectively. The subscript (f) and (b) in Eq. (22) refers to the forward hemisphere and backward hemisphere components of the isotropic neutron flux, respectively. Using Eqs. (23), (24), (25), (26), (27) in Eq. (21) results in
+(28)
+for the forward component of the isotropic neutron flux. The backward moving isotropic neutron field satisfies a similar equation
+(29)
+Note that 
+ in Eqs. (28) and (29). Eqs. (28) and (29) represent a coupled set of differential equations that are solved efficiently using a Neumann series approach as shown by Slaba et al. (2010b). This series is expected to converge quickly as 
+.
+The isotropically produced neutrons initiate isotropic light ion production in collisions with the media resulting in
+(30)
+for which a semi-analytic solution can be efficiently implemented (Slaba et al., 2010b). Eqs. (28) and (29) are solved simultaneously for no external fluence incident on the media directed along Ω. Note that the implicit assumption of Eqs. (28) and (29) is that lateral diffusion from the ray Ω is fully compensated by diffusion from adjacent rays. This is strictly true for a flat plate slab with infinite lateral dimensions as will now be demonstrated and represents the use of periodic boundary conditions as an importance sampling method common to Monte Carlo simulation practice.
+These two methods (straight-ahead (
+) and bi-directional (
+)) are now compared to values simulated by the Monte Carlo codes Geant4, FLUKA, and PHITS for the Webber SPE spectrum normally incident on a 
+ slab of aluminum with infinite lateral dimensions. All Monte Carlo fluence results presented herein are plotted as mean values with estimated statistical uncertainty shown as vertical error bars placed at the energy bin midpoint. The points are connected with lines to improve plot clarity. If not visible, vertical error bars are smaller than the symbols on the plot. Details of the Monte Carlo simulation setups are given in Appendix A. Results are shown in Fig. 2. The straight-ahead solution gives good agreement for charged components at most depths. Compare the left and right panels of Fig. 2. The neutron fluence reaches a broad maximum across 20 to 
+ wherein the neutron fluence is nearly isotropic at low energies and the straight-ahead (
+) fluence approaches the bi-directional (
+) fluence from below before the maximum and over estimates beyond the maximum. On the back face, leakage is an important process leaving the straight-ahead fluence as an over estimate at low neutron energies where the neutron fluence is reduced by about half of its interior value due to leakage through the back surface (compare left and right panels of Fig. 2). The resonance structure seen in the Monte Carlo neutron fluences below 1 MeV is a result of elastic cross section databases that have not been included in 3DHZETRN. It is clear that the bi-directional solution for the semi-infinite slab where lateral leakage is negligible is a reasonable approximation. The success of the straight-ahead approximation in validation in human rated systems (Shuttle, ISS) clearly meets the requirements for a useful solution of the transport problem. Attention is now given to transport in finite objects in which lateral leakage plays an important role.
+
+Download: Download full-size image
+Fig. 2. Comparison of fluence spectra at 
+ (left) and 
+ (right) in a 
+ aluminum slab (infinite in lateral dimensions) exposed to Webber SPE spectrum.
+
+3. 3D marching procedures
+A sequence of approximations is now sought that will span the formalism from the simple straight-ahead approximation to more complex propagation algorithms. With the demonstrated success of the bi-directional approximation, the solution is divided into forward and isotropic components, as before. The governing equation in the CSDA ignoring Coulomb scattering is given by Eq. (5). The particle flux is separated into forward and isotropic components, as in Eq. (18). Similarly, the double differential cross sections for neutron production are separated into forward and isotropic components given by Eqs. (10) and (14). The charged particle production cross sections are assumed to take the form of Eq. (16). Upon substitution of the separated fluxes and production cross sections into Eq. (5), the forward components are obtained by solving
+(31)
+for charged particles (
+), and for neutrons (
+),
+(32)
+The space environment (external source) is nearly uniform in position and varies slowly in angle (if not isotropic), and for the forward flux, each directional component of the boundary condition may be propagated according to Eqs. (31) and (32). Note that Ω enters Eqs. (31) and (32) as a parameter and can be evaluated according to the boundary condition we have set as the incident flux from direction 
+ (see Fig. 3). Once the forward flux is evaluated for direction 
+ over the domain of x and E, one must yet solve for the induced isotropic neutron flux within the shield configuration. Coupling to the isotropically produced neutron field is taken as
+(33)
+where the isotropic neutron source is given by
+(34)
+Note that the isotropic neutron source is generated by collisions between the forward flux and target media, for which the forward flux is a function of only the penetration depth z (Fig. 3) along the direction 
+. This is denoted by writing the isotropic neutron source as
+(35)
+where 
+ is the penetration depth along 
+ to the point x. Eq. (33) is now rewritten as
+(36)
+Eq. (36) also provides a basis for introducing anisotropic source terms as well. Note that while the forward propagating solution has its source fixed by the boundary condition, the isotropic solution (having no inbound fluence) is driven by internal sources generated by the collisions of the inbound fluence (as modified by the forward propagator in penetrating to x along direction 
+).
+
+Download: Download full-size image
+Fig. 3. Geometry of 3D marching procedure.
+
+To solve Eq. (36), the neutron fluence 
+ must be known at every x from all directions 
+ approaching x from adjacent locations as was the case of Eq. (21). Although the use of approximation (23), based on the assumption that losses along the ray Ω are compensated by diffusion from adjacent rays, is a demonstrated useful assumption in a semi-infinite slab, it is an approximate overestimate in a sphere. Yet, using Eq. (23) in evaluation of Eq. (36) seems a reasonable approximation in most human rated vehicles leading to an extension of transport along an arbitrary ray Ω as a solution to the bi-directional equations. The forward component of the isotropic neutron field satisfies
+(37)
+and the backward moving field satisfies
+(38)
+It is clear that Ω enters Eqs. (37) and (38) as a parameter and can be solved along an arbitrary number of rays used to construct a numerical representation of 
+ whose Ω dependence comes from distance to the boundary 
+ and the penetration depth z along 
+. The isotropic neutron source of Eq. (36) effectively decouples the incident direction 
+ from the neutron direction of propagation Ω.
+These isotropically produced neutrons produce isotropic light ions in collisions with the media resulting in a light ion fluence given by
+(39)
+Eqs. (37) and (38) are solved simultaneously for no external fluence incident on the media directed along Ω (see Fig. 3). Nonetheless, efficient numerical methods already developed for the bi-directional model may be utilized (Slaba et al., 2010b). Note also that the implicit assumption of Eqs. (37) and (38) is that lateral diffusion from the ray Ω is fully compensated by diffusion from adjacent rays. This has been demonstrated for slab geometry with results in Fig. 2. The first order lateral leakage in this case is found by solving Eqs. (37) and (38) along each 
+ over the ray limits 
+ for a given set of N directions 
+. The next sections address convergence in the isotropic neutron and ion fields as a function of the number of directions (N) chosen to represent the fields. Numerical solutions for Eqs. (37), (38), (39) are the same as in the bi-directional solution and described by Slaba et al. (2010b). The only difference here is that the isotropic source term in each case is computed as a function of penetration depth with respect to the incident source direction, 
+.
+The present transport formalism is somewhat related, but quite different from 
+ transport theory (Marchuk and Lebedev, 1986). The main difference between the two formalisms is that solutions along a set of directions 
+ are fully coupled to all other discrete directions in the 
+ treatment. While in the present formalism, coupling is only included through the isotropic source term and for transport along anti-parallel rays (i.e. 
+ and 
+). It is demonstrated below that the present formalism compares well to Monte Carlo simulations where such coupling is implicitly included.
+4. A simple geometry and source
+Simple geometry and source orientation are chosen to allow efficient Monte Carlo simulation for comparison with the calculation of quantities with the above formalism. In this way, the solution methodology is verified and experience is gained in the formalism in preparation for connecting to the general geometric descriptions generated by the engineering design process for which Monte Carlo simulation is impractical. The geometry herein is taken as a simple sphere of aluminum of 
+ diameter for comparison with the appropriate solutions of the current formalism. Target points (detectors) are placed at depths along the z-axis (
+, 
+). The external radiation environment (external source boundary condition) is assumed to be anti-parallel with the z-axis, uniform in the 
+ plane, positioned above the sphere, and directed down onto the top of the sphere as shown in Fig. 4.
+
+Download: Download full-size image
+Fig. 4. Spherical geometry and external source orientation for benchmark comparisons (not all detectors shown).
+
+The object geometry is specified at a point x where field values are to be evaluated, about which the thickness of material t is known over an array of directions 
+ (i.e. 
+). Note that each 
+ for i odd is backed by 
+. The remainder of the solution methodology lies in selection of the arbitrary directions of 
+ of propagation within the target material and evaluation of the penetration depth z for any transport depth 
+ along each 
+ for the given 
+ at the boundary. The N directions are taken as the central ray of an equal division of the unit sphere such that 
+. In this, the interest is in evaluating the omni-directional field function at an arbitrary location x about which the surrounding material is known as a thickness distribution of the various materials (in the present only homogeneous aluminum). The evaluation will be made for a single direction of incidence 
+ to highlight 3D transport effects, but this could include an array of incident directions for which the solutions would be integrated over all 
+ values. In that low-energy neutron transport is dominated by diffusive processes, it is anticipated that the solution will rapidly converge for low values of N (i.e. less than 20). The source of neutrons induced within the sphere by the Webber SPE is shown in Fig. 5. The resulting neutron fluence depends not only on the distance 
+ to the boundary, but the intensity of the source along the ray in reaching the boundary. Clearly for SPEs, the most intense regions must be adequately represented in the domain of the solution. The next three subsections describe how the penetration depth, z, is determined for 
+ and the general case (
+).
+
+Download: Download full-size image
+Fig. 5. Isotropic neutron source (E > 1 MeV) distribution induced by the Webber SPE spectrum in the spherical benchmark geometry.
+
+4.1. 
+, straight-ahead approximation
+For each 
+, only one value of 
+ is allowed and is taken to be that of the incident direction 
+. The transport distance x along 
+ and penetration depth z are the same, reducing complication in the formulation for 
+. In this case, leakage from the media is only through the distal face. The structure of this code is quite different than the original HZETRN code, although computational results are identical, and the original HZETRN code provides a verification test-case of the new 3DHZETRN code. For 
+, the comparisons in the prior sections describing the verification and validation of HZETRN is fully applicable. If one restricts interest to 
+, then the HZETRN code is preferred in that computational efficiency is higher but the added overhead of 3DHZETRN for 
+ is minimal. In the following sections, comparisons between 3DHZETRN and Monte Carlo simulations will also include results from the HZETRN code (
+) to highlight shortcomings of the straight-ahead approximation and improvements of the 3D corrections presented herein.
+4.2. 
+, bi-directional approximation
+The first step towards a full 3D code is the treatment of backward propagating particles. This was first accomplished by Clowdsley et al., 2000, Clowdsley et al., 2001 and later improved by Slaba et al. (2010b) with demonstrated improved results (Slaba et al., 2010b, Slaba et al., 2011b, Heinbockel et al., 2011a, Heinbockel et al., 2011b). In this case, propagation of the isotropic neutrons is represented in two directions by 
+ and 
+. Therefore, the penetration depth z is equal to x along 
+ and equal to 
+ along 
+. Note that lateral leakage is not represented in this approximation although leakage at the forward and backward boundaries is so represented. The neutron transport in semi-infinite slab geometry has extensive Monte Carlo results for verification for which this two-stream approximation, ignoring lateral leakage, is most appropriate as demonstrated in Fig. 2 and elsewhere (Slaba et al., 2010a, Slaba et al., 2011b). This approximation is appropriate for slab geometry and works well in applications in which the shield geometry is a collection of thin plates. The next step for treatment of lateral leakage is now discussed.
+4.3. 
+, N-stream approximation
+For general N, the transport formalism requires the penetration depth, 
+, to be known as a function of transport depth, 
+, along the propagation direction Ω for each 
+. In order to simplify algebraic manipulation and expressions, the center of the sphere is assumed to be positioned at the origin with the positive z-axis anti-parallel to the source direction, as shown in Fig. 4. Due to the simplified geometry and source orientation, an analytic expression for the penetration depth may be determined. The point 
+ may be written as
+(40)
+where t is the known thickness along direction 
+ from x to the boundary. The point 
+ may then be written in terms of 
+ as
+(41)
+The expression for 
+ is obtained by writing Eq. (41) in component form and substituting into the equation of a sphere with radius 
+. This yields
+(42)
+For preliminary testing and benchmark comparisons against Monte Carlo codes, the solutions for 
+, and 22 are considered separately, in addition to the simple 
+ and 
+ cases discussed above. The distributions for all N are shown in Fig. 6. Note that the 
+, and 22 cases include rays perpendicular to the z-axis (i.e. tangent to the sphere surface at the top and bottom detector locations). On the surface of the sphere, these rays correspond to zero shield thickness. This is corrected in the 
+ and 
+ distributions. The directional elements for each N are given in Appendix B, along with a brief description of how the elements were determined. For each N, the omni-directional flux is obtained by integrating the fluxes along each ray direction after the transport procedure.
+
+Download: Download full-size image
+Fig. 6. Directional components for N = 1,2,6,10,14,18, and 22.
+
+4.4. Preliminary testing
+A first quantity of interest is the average path length at each detector location where the solution is evaluated to the sphere boundary. For a given N, the average path length is computed over the material thicknesses traversed from the target point to the boundary along all rays. This quantity is expected to converge rapidly at most locations with increasing N. As shown in Table 1, convergence is reasonably rapid for all locations except on the sphere surface. It is clear that the results are reasonably converged at 
+, especially in comparison to 
+, as will be further demonstrated for transport quantities.
+Table 1. Average thickness traversed at different detector locations along z-axis of sphere. The left-most column is the distance from the top of the sphere to the detector.
+
+d (
+)	Average thickness traversed (
+)
+N = 2	
+N = 10	
+N = 18	
+0	0.0	20.0	6.7	10.4	9.4	10.1	9.8
+0.3	0.3	20.0	9.0	10.9	10.6	10.7	10.7
+5	5.0	20.0	15.5	15.6	15.6	15.7	15.7
+10	10.0	20.0	18.2	18.2	18.2	18.2	18.2
+15	15.0	20.0	19.6	19.6	19.6	19.6	19.6
+20	20.0	20.0	20.0	20.0	20.0	20.0	20.0
+25	25.0	20.0	19.6	19.6	19.6	19.6	19.6
+30	30.0	20.0	18.2	18.2	18.2	18.2	18.2
+35	35.0	20.0	15.5	15.6	15.6	15.7	15.7
+40	40.0	20.0	6.7	10.4	9.4	10.1	9.8
+The sequence of solutions for 
+ to 22 is used as a test on the convergence of the solution method. In addition, a Monte Carlo benchmark is defined for each of the indicated methods. Benchmarks for 
+ and 
+ are given in slab geometry in Fig. 2 to be later compared with 
+ benchmarks in spherical geometry.
+The first quantity of interest is the dose associated with the Webber SPE as given in Table 2 for all N. Dose is mainly driven by the proton fluence that still has a large contribution from the penetrating primary protons that improves the convergence rate (especially at shallower depths near the top of the sphere). The dose equivalent, receiving a large contribution from the other light ions for which the quality factor is large, will require convergence of all the light ions to ensure an accurate value for dose equivalent. The values of dose equivalent for the Webber SPE are given in Table 3 for various numbers of rays in the 3D evaluations. Again, rapid convergence is observed with increasing N. As expected, the dose equivalent converges most slowly near the bottom of the sphere. A second look at the convergence of the particle fluence spectra are shown in Fig. 7. The convergence of the fluence spectra at 
+ is typical for an interior location for which 
+ is clearly well converged. Even on the back surface of the sphere at 
+ the difference between 
+ and 
+ is very small in the graph even for alpha fluence; convergence is effectively obtained with 
+. The rate of convergence of the alpha fluence mainly affected the convergence of the dose equivalent in Table 3. The 
+ will be used in the Monte Carlo benchmarks discussed in the next section.
+Table 2. Dose (cGy/event) at different detector locations along z-axis of sphere for Webber SPE. The left-most column is the distance from the top of the sphere to the detector.
+
+d (
+)	Dose (cGy/event)
+0	43703.70	43703.77	43703.73	43703.84	43703.79	43703.82	43703.80
+0.3	1216.22	1216.28	1216.33	1216.35	1216.34	1216.34	1216.34
+5	69.95	69.98	70.03	70.02	70.02	70.02	70.02
+10	24.80	24.81	24.83	24.82	24.82	24.82	24.82
+15	12.23	12.23	12.23	12.23	12.23	12.23	12.23
+20	7.00	6.99	6.98	6.98	6.98	6.98	6.98
+25	4.37	4.36	4.34	4.34	4.34	4.34	4.34
+30	2.90	2.88	2.85	2.85	2.85	2.85	2.85
+35	2.01	1.98	1.95	1.95	1.95	1.95	1.95
+40	1.44	1.41	1.38	1.38	1.38	1.38	1.38
+Table 3. Dose equivalent (cSv/event) at different detector locations along z-axis of sphere for Webber SPE. The left-most column is the distance from the top of the sphere to the detector.
+
+d (
+)	Dose equivalent (cSv/event)
+0	737745.84	737746.95	737746.21	737748.11	737747.20	737747.89	737747.45
+0.3	2871.17	2872.15	2873.07	2873.31	2873.10	2873.17	2873.12
+5	109.95	110.33	111.15	111.05	111.02	111.00	111.00
+10	37.94	38.10	38.45	38.39	38.36	38.38	38.38
+15	19.01	19.01	19.04	18.97	19.00	19.01	18.99
+20	11.33	11.20	10.97	10.97	10.98	10.97	10.98
+25	7.54	7.27	6.85	6.92	6.90	6.90	6.91
+30	5.42	5.03	4.58	4.55	4.59	4.58	4.58
+35	4.15	3.63	3.18	3.13	3.13	3.15	3.15
+40	3.34	2.69	2.26	2.21	2.19	2.19	2.21
+
+Download: Download full-size image
+Fig. 7. Particle spectra at detector locations 
+ (left) and 
+ from top of aluminum sphere (diameter 
+) exposed to Webber SPE spectrum for different N in 3D transport solution.
+
+It is clear in the prior discussion that the main difference between 
+ and 
+ is the degree of lateral diffusion and the resulting leakage near boundaries. The ratio
+(43)
+is directly related to the representation of lateral losses for neutrons. The quantity 
+ is fixed by the shape of the object, the scattering angular distribution, and the fidelity of the transport solution represented by N. The quantity 
+ is shown in Fig. 8 for 
+, and 22. The value of zero at the highest energy is a result of the straight-ahead approximation for the forward component for which there is no lateral leakage. The largest relative difference between the 
+ and 
+ ratios is less than 3% at both depths, and the 
+ solution appears converged based on the results in Table 1, Table 2, Table 3 and Fig. 7, Fig. 8.
+
+Download: Download full-size image
+Fig. 8. The neutron leakage ratio at detector locations 
+ (left panel) and 
+ (right panel) from top of aluminum sphere (diameter 
+) exposed to Webber SPE spectrum for different N in 3D transport solution. The largest relative difference between the N = 10 and N = 22 ratios is less than 3% at both depths.
+
+5. Monte Carlo benchmarks
+In 2005, a systematic benchmark exercise was administered as a means of verifying various computational procedures resulting from the first phase of code development activity (1996–2004). Code verification uses established benchmarks as consisting of standard environments: the Webber SPE spectrum given in Eq. (17) and the 1977 solar minimum GCR environment.
+In earlier SPE benchmarking, the configuration was for a 30 cm semi-infinite slab of water shielded by 
+ of either aluminum or iron utilizing only dose and dose equivalent (ICRP 26 quality factor, ICRP, 1977) with HZETRN in substantial agreement. For the moment, focus is mainly given to the results for the neutron spectra at the aluminum/water interface as given by Slaba et al. (2010b). It was found that those codes with roots in the HETC code (HETC–HEDS and MCNPX) form a cluster of results including HZETRN at low energies (
+). In distinction, Geant4 and FLUKA form a cluster below HZETRN. All codes show improved agreement above 100 MeV. On the important range of 1–100 MeV there are broad disagreements among the MC codes with HZETRN often splitting the difference.
+It was generally concluded that HZETRN agreeds with the Monte Carlo codes as well as the various Monte Carlo codes agreed among themselves. There are currently no compelling reasons to attempt to use Monte Carlo methods in design and operational applications. However, it is further demonstrated below, the Monte Carlo codes provide an indispensable guide to development of the 3DHZETRN code (that does provide a useful basis for space radiation protection). Focus is now shifted towards benchmarking 3DHZETRN, in which the added complications of finite geometry are addressed. Details associated with Monte Carlo simulations presented in Fig. 9, Fig. 10, Fig. 11, Fig. 12, Fig. 13, Fig. 14 are given in Appendix A. One needs to be mindful of the intercode comparisons of Slaba et al. (2010b) when viewing succeeding benchmarks.
+
+Download: Download full-size image
+Fig. 9. Particle spectra at detector locations 
+ (left panel) and 
+ from top of aluminum sphere (diameter 
+) exposed to Webber SPE spectrum.
+
+
+Download: Download full-size image
+Fig. 10. The neutron leakage ratio factor at detector locations 
+ (left panel) and 
+ (right panel) from top of aluminum sphere (diameter 
+) exposed to the Webber SPE spectrum.
+
+
+Download: Download full-size image
+Fig. 11. Particle spectra at detector locations 
+ (left panel) and 
+ from top of aluminum sphere (diameter 
+) exposed to the 1977 solar minimum GCR hydrogen spectrum.
+
+
+Download: Download full-size image
+Fig. 12. Particle spectra at detector locations 
+ (left panel) and 
+ from top of aluminum sphere (diameter 
+) exposed to the 1977 solar minimum GCR helium spectrum. The proton and alpha results have been scaled by 0.1 and 0.01 to improve plot clarity.
+
+
+Download: Download full-size image
+Fig. 13. Particle spectra at detector locations 
+ (left panel) and 
+ from top of aluminum sphere (diameter 
+) exposed to the 1977 solar minimum GCR carbon spectrum. The proton and alpha results have been scaled by 0.1 and 0.01 to improve plot clarity.
+
+
+Download: Download full-size image
+Fig. 14. Particle spectra at detector locations 
+ (left panel) and 
+ from top of aluminum sphere (diameter 
+) exposed to the 1977 solar minimum GCR iron spectrum. The proton and alpha results have been scaled by 0.1 and 0.01 to improve plot clarity.
+
+5.1. Webber SPE benchmark
+The benchmark SPE spectrum is the Webber (1966) approximation of the February 23, 1956 SPE (not an accurate representation but a historically useful test spectrum, see Foelsche et al., 1974) as given in Eq. (17). The induced neutron and proton fluence spectra were evaluated in a 
+ diameter aluminum sphere by Monte Carlo codes (Geant4, FLUKA, and PHITS) and 3DHZETRN with the results at 35 and 
+ depths shown in Fig. 9. The proton fluences among the three codes are in reasonable agreement. The larger discrepancy lies with the neutron spectra. One interesting note is that 3DHZETRN agrees with Geant4 below 10 MeV and agrees with FLUKA above 10 MeV. FLUKA and 3DHZETRN exhibit a similar inflection in the neutron spectrum near 10 to 60 MeV that may be related to the use of an early FLUKA approximation to the secondary neutron spectrum used in HZETRN and carried over into 3DHZETRN. Some of the differences in proton spectra on the back surface may be associated with the simplified assumptions of the straight-ahead approximation in low energy isotropic light ion transport. A principle difference in the three codes is the computational efficiency, as discussed in more detail later in this section. It is also worth noting that the 3DHZETRN (
+) solution is a substantial improvement over the HZETRN (
+), indicating that lateral neutron leakage is more accurately described by the updated transport model.
+The definition of the leakage factor given in Eq. (43) is specific to the 3DHZETRN formalism presented herein; however, an analogous quantity may also be computed for Monte Carlo results by comparing the ratio of the fluences in a slab (Fig. 2) to those obtained in a sphere (Fig. 9) provided the slab thickness and sphere diameters are identical. The leakage factor evaluated by three Monte Carlo codes (PHITS, FLUKA, and Geant4) are shown in comparison with 3DHZETRN (
+) at 
+ and 
+ in Fig. 10. The leakage is related to the angular dependence of the cross section. For example, the near zero leakage in the 3DHZETRN results above 200 MeV is a result of the straight-ahead approximation. It is clear that the Monte Carlo results show significant differences in leakage as determined mainly by differences in angular scattering cross sections. The 3DHZETRN results appear at a slight disadvantage with respect to Monte Carlo evaluations. It should also be clear that the improvement of the 3DHZETRN cross sections could result in more trustworthy results. This would not only improve leakage estimates but also give better representation of the resonance structure seen in the neutron fluences at lower energies.
+The time required by the three codes to run these benchmarks is given in CPU seconds used and listed in the first column of Table 4. The 5 CPU seconds of 3DHZETRN allows for the development of affordable means of design optimization software on a commercial laptop while Geant4, FLUKA, and PHITS software requires a multiprocessing cluster environment to do a single design evaluation and would still be impractical for design optimization. The main limitation of the Monte Carlo methods is the number of particle histories required for reasonable convergence. It should be noted that source biasing, physics biasing, or other optimization strategies could significantly reduce the Monte Carlo runtimes shown in Table 4. However, the fully optimized run times would still be orders of magnitude larger than the 3DHZETRN run times and still require a multi-processor cluster computing environment.
+Table 4. Total CPU seconds required for benchmark calculations. Total number of histories ran in Monte Carlo simulations are shown in parentheses.
+
+Empty Cell	Webber SPE	GCR hydrogen	GCR helium	GCR carbon	GCR iron
+3DHZETRN (N = 1)	2	2	2	2	2
+3DHZETRN (N = 18)	5	8	8	8	8
+Geant4	9 × 107 (2 × 1011)	1 × 108 (2 × 1011)	3 × 108 (5 × 109)	2 × 108 (2 × 109)	4 × 108 (5 × 108)
+FLUKA	2 × 108 (3 × 1011)	2 × 108 (3 × 1011)	1 × 108 (1 × 1010)	9 × 107 (7 × 109)	2 × 107 (5 × 108)
+PHITS	5 × 1010 (6 × 108)	7 × 109 (1 × 108)	1 × 109 (3 × 108)	2 × 108 (1 × 108)	1 × 108 (3 × 108)
+5.2. Solar minimum GCR benchmark
+The present GCR benchmarks utilized the Badhwar–O'Neill 2010 (O'Neill, 2010) model to represent the 1977 solar minimum conditions (solar modulation parameter set to 475 MV). The hydrogen, helium, carbon, and iron spectra were considered separately as external source boundary conditions. The results for the neutron and proton fluence spectra within a 
+ sphere of aluminum for an incident solar minimum GCR hydrogen spectrum are shown in Fig. 11 at the two depths of 35 and 
+. The GCR hydrogen results are qualitatively similar to results obtained for the Webber SPE, only now the 3DHZETRN values favor Geant4 over the entire energy range except for the proton fluence below 100 MeV at the back surface (
+). The computation time used for transporting GCR hydrogen is slightly longer than for the Webber SPE transport in the same object. Still, the 3DHZETRN time is a very manageable 8 CPU seconds whereas the Monte Carlo codes take several orders of magnitude longer.
+The neutron, proton, and alpha spectra generated by GCR helium ions are shown in Fig. 12. A large contribution to the alpha fluence spectrum is from the incident helium ions. There is generally better agreement with Geant4 results than those generated by FLUKA and PHITS. The computer resources used in these calculations are given in Table 4. Similar results are shown for GCR carbon and iron ions in Fig. 13, Fig. 14 with the corresponding resources used in Table 4. The light ion and neutron production nuclear database is more limited in HZETRN (and 3DHZETRN) when the incident ion has 
+. First, the light ion and neutron fragments from the projectile are assumed to have the same velocity as the fragmenting ion itself. Second, the light ions and neutrons produced as target fragments have been ignored. Furthermore, the light ions are mostly treated within the straight-ahead approximation that mainly affects the light ion solution below 
+. The spectral results will improve as these additional nuclear databases and corresponding transport procedures are added to the 3DHZETRN code.
+Although it is difficult to favor one code over another on the basis of the veracity of the solutions obtained, there are vast differences in computational time required to evaluate fluence spectra even in this simplest of geometries (homogeneous sphere of a single elemental material). Still, Monte Carlo methods provide an important test point for developing codes capable of meeting operational and especially design requirements. Computational speed has proven to be important in spaceflight validation in LEO where the time structure of the environment can be used to test various environmental components as was done using ISS and the Liulin instrument (Wilson et al., 2007, Slaba et al., 2011a, Slaba et al., 2013). The main limitation on such studies remains the uncertainty in the environmental models (especially for the trapped environment) and uncertainty in nuclear cross sections.
+6. Conclusions
+The present version of 3DHZETRN shows improved agreement with Monte Carlo results in finite geometries where lateral leakage is non-negligible. Despite the improvements, the enhanced formalism and code has inherent limitations (aside from the simplified geometry of a homogeneous material) that carry over from the available bi-directional methods (Slaba et al., 2010b) in which the main share of light ions are still treated in the straight-ahead approximation as coupled to the forward propagating neutrons. Only the isotropically produced neutrons are first transported in 3D without the coupling to the isotropically produced light ion components. Once the isotropically produced neutrons are evaluated, the final coupling to the light ions is implemented (without further nuclear reactions) in a full 3D manner. Hence, only a fraction of the light ions have a 3D treatment, resulting in transport effects of unquantified magnitude. Future work will require extension to inhomogeneous media, complex geometries, and treatment of the cross-coupling of 3D neutron/light ion transport. Even so, the present expanded treatment of 3D effects shows great promise in the path to a fully 3D transport algorithm.
+The present benchmarks provide useful exercises for evaluation of computational procedures and atomic/nuclear database. It is now time for improving the physical description of the transport process that is still hampered by a lack of basic nuclear physics database developments. The codes for space design are still incomplete in both the physical description and corresponding implementation into computational procedures. Even so, the current development appears as state-of-the-art in computational procedures for spacecraft design.
+Acknowledgments
+This work was supported by the Human Research Program under the Human Exploration and Operations Mission Directorate of NASA and by NASA Grant No. NNX09AR20A.
+Appendix A. Monte Carlo simulations
+In this section, a brief description is given of the Monte Carlo codes Geant4, FLUKA, and PHITS used to simulate particle spectra shown in Fig. 2, Fig. 9, Fig. 10, Fig. 11, Fig. 12, Fig. 13, Fig. 14. A discussion of the source, geometry, and simulation setup used for the codes is also given.
+Geant4 version 9.4.6 (Agostinelli et al., 2003) was used in the present calculations with the physics list QGSP_BERT_HP. This physics list utilizes the quark gluon string model (QGS) for high energy interactions with nucleons, pions, and nuclei. Post-interaction nuclear de-excitation is handled by the precompound (P) model. The Bertini cascade (BERT) model is used for interactions below 10 GeV. A high-precision (HP) tracking model is used for neutrons below 20 MeV. Nucleus–nucleus collisions are represented by the native Quantum Molecular Dynamics (QMD) model (Koi, 2008). More information about the chosen physics list can be found at the Geant4 website (Geant4 Collaboration, 2012a). The QGSP_BERT_HP physics list has been recommended by the Geant4 Collaboration for high energy physics applications (Geant4 Collaboration, 2012b) and has been used, with some slight variation, in other space radiation related studies (Bernabeu and Casanova, 2007, Hayatsu et al., 2008, Martinez and Kingston, 2012, Slaba et al., 2013).
+FLUKA is a Monte Carlo program that contains fully integrated physics and performs the transport of elementary particles and ions through materials. It has the ability to transport and calculate interactions with all elementary hadrons, light and heavy ions, and electrons and photons over an energy range which extends up to 
+ for all particles, and down to thermal energies for neutrons (Battistoni et al., 2007). The nuclear models are integrated into the software for all particles and energies, with the exception of neutrons below 20 MeV, where standard international evaluated data files are used. This code has been extensively benchmarked against available accelerator and cosmic ray experimental data, at beam energies as low as a few MeV and as large as cosmic ray energies (Aarnio et al., 1993, Andersen et al., 2004).
+PHITS has been used extensively in space radiation transport. It simulates ionization through transport processes and uses the mean free path to determine when collisions occur (Niita et al., 2006, Sihver et al., 2007). Ionization transport can include angle and energy straggling, showing good agreement for Bragg peaks and fragmentation tails (Niita et al., 2006). Tabulated nuclear cross section data are used for neutron interactions below 20 MeV, and evaluated data are used for gamma and electron transport below 1 GeV (Niita et al., 2006). High energy neutron and heavy charged particle interactions are simulated through the Jet AA Microscopic transport model (JAM), which addresses hadron–hadron interactions, and the Japan Atomic Energy Research Institute (JAERI) Quantum Molecular Dynamics (JQMD) model, which addresses hadron–nucleus and nucleus–nucleus interactions, up to energies of 
+ (Niita et al., 2006, Sato et al., 2006, Sihver et al., 2007). Both JAM and JQMD are used for the dynamic portion of the nuclear reaction, and once the dynamics are completed, the General Evaporation Model is used to address nuclear de-excitation through particle emission in a statistical manner (Niita et al., 2006, Sihver et al., 2007). The total nucleus–nucleus cross sections used in PHITS are the same as those that have been used in versions of HZETRN (Niita et al., 2006).
+In Fig. 2, the geometry setup was for a 
+ aluminum slab with infinite lateral dimensions and the external source was applied normally to the front face of the slab. Particle spectra were tallied at a thin (
+) aluminum detector layer placed 
+ and 
+ from the front of the slab. In Fig. 9, Fig. 10, Fig. 11, Fig. 12, Fig. 13, Fig. 14, the geometry setup was for a sphere with diameter 
+, and the external source was applied uniformly onto the top of the sphere (covering the entire sphere) parallel with the z-axis as shown in Fig. 4. Particle spectra were tallied at spherical aluminum detectors (radius 
+) placed along the z-axis down through the sphere. Convergence tests on the detector radius were performed to arrive at the final choice. In general, the chosen detector radius is large enough to allow reasonable tally statistics, but small enough to effectively prevent fragmentation events from occurring within the detector.
+For all of the GCR simulations, the source energy spectrum was sampled directly from the input spectrum (i.e. no source energy biasing). For the SPE simulations, the source energy spectrum was biased so that source sampling was performed from a uniform distribution covering 0.01 MeV to 2500 MeV. This biasing technique places greater emphasis on the higher energy portion of the SPE spectrum improving tally statistics for secondary neutrons.
+Appendix B. Evaluation of 
+ for 
+The 
+ are herein evaluated with 
+ as the top hemispheric pole so that 
+, while the bottom pole is at 
+ and are the central rays of the two polar regions. The remaining directions denoted by 
+ for 
+ are symmetrically distributed about the mid-latitudes. Generally in application, the 
+'s must be rotated to the body coordinates of the transport media. This is accomplished by a rotation matrix 
+ determined from the polar vector 
+ relative to the body coordinate system (note, θ denotes co-latitude with values on 0 to π, and ϕ denotes longitude running from 0 to 2π). The regional boundaries are chosen such that
+(44)
+where 
+ denotes the ith region, N is the number of regions and is related to the number of 
+ segments of 
+ and the number of 
+ segments 
+ plus the two polar regions such that
+(45)
+and defined such that
+(46)
+The polar caps are bound by
+(47)
+(48)
+and the corresponding central rays 
+ and 
+ lie along the ±z axis. The middle latitudes are divided into 
+ regions extending from the polar cap to the equator in each hemisphere. The corresponding longitudinal boundaries are set by the 
+ such that the
+(49)
+Note that 
+ is generally greater than or equal to 4. The remaining boundaries in latitude are given as
+(50)
+For 
+, there is only one midpoint in latitude taken as
+(51)
+for 
+. The four longitudinal points are given as
+(52)
+The directional elements for each solid angle region are given by
+(53)
+and are given for 
+ in Table B.1. Similar results for other N used in this paper are given in Table B.2, Table B.3, Table B.4, Table B.5.

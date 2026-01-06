@@ -1,0 +1,145 @@
+1. Introduction
+In the past several decades, transition metal carbides (TMCs) have been not only selected as primary candidates of the future nuclear fission and fusion reactors, but also potentially utilized in the manufacture of cutting tools as well as optoelectronics and information storage fields [1], [2], [3], [4], mainly due to their high melting point, superior hardness, good wear, and corrosion resistance, etc [5], [6], [7], [8]. Among various TMCs, titanium carbide (TiC) with the rock-salt structure is of importance because of its role for multiple advanced reactor [9], [10], e.g., a promising candidate for plasma-facing components (PFCs) [9], and a potential cladding material for sodium fast reactors (SFRs) [10]. The reason is that the excellent properties of TiC, such as high temperature mechanical properties, thermal conductivity, irradiation tolerance, and so on, have met a series of rigorous criteria under the extreme fusion environments [11], [12], [13]. Nevertheless, the intrinsic brittleness of TiC derived from Ti-C covalent bond, which becomes drawbacks affecting the service life [14], [15], [16].
+One proposed solution to this problem is to add alloying elements in TMCs, and extensive researches have been focused on the aspect by means of theoretical investigations and experimental measurements [17], [18], [19], [20], [21]. For instance, the effects of Cr, Ta, Ti, V, W, Y, and Zr elements on the ductility of TiC and HfC are obtained by stacking fault energy of first-principles calculation [17], [18]. In experimental technologies, the TMCs-based ceramics have been synthesized by such various methods as in situ reaction sintering [19], magnetron sputtering [20], spark plasma sintering (SPS) [21], etc. It should be pointed out that just a limited temperature range was taken to consider in the experimental measurements [17], [18], [19], [20], [21]. As to the influences of alloying elements and doped concentrations on mechanical properties of TiC, however, there is rarely research reports in the literature to our best knowledge.
+By means of highly accurate first-principles calculation combining the quasi- harmonic approximation (QHA), and thermal electronic excitation (TEE), our work has been aimed to investigate systematically the effects of Zr, Nb, Ta and W elements on the thermodynamic and mechanical properties of TiC at finite temperatures. Accordingly to the thermodynamic model, we firstly calculated the elastic constants and moduli as a function of temperature, and the temperature-dependent mechanical behaviors of four TiC-based ceramics would be further revealed, including ductility, Vickers hardness, machinability damage tolerance, and so on. The computed results are discussed extensively and compared directly with available observations in the literature, which could provide a qualitative understanding of the additions of transition metal elements in TiC.
+2. Theoretical methods
+All first-principles calculations were carried out on the framework of density functional theory using the projector augmented wave (PAW) methods as applied in Vienna ab initio simulation package (VASP) [22]. The plane-wave basis sets were performed in the present work, which expressed electronic exchange-correlations by the generalized gradient approximation (GGA) of Perdew–Burke–Ernzerhof (PBE) [23], [24]. The results were derived in the converging of energy cutoff and k-points. The Kohn–Sham wave functions were expanded with an energy cutoff of 520 eV. The force criterion acting on each atom during relaxation reached 1.0 × 10-3 eV/Å, and the criteria of energy convergence were 2.0 × 10-6 eV/atom.
+A unit cell of 8 atoms (4 Ti and 4C atoms) was chosen for Ti4C4, and one Ti atom was randomly substituted to obtain a Ti3MC4 (M = Zr, Nb, Ta and W) model with the content 12.5 at.% M, as shown in Fig. 1(a) and (b). In order to investigate the effects of doped concentration, the models of Ti-6.25 at.% MC (16atoms) and Ti-1.56 at.% MC (64atoms) have also been constructed and displayed in Fig. 1(c) and (d). It should be pointed out, after a series of tests, that the cell size does not affect the thermodynamic and mechanical properties of TiC without any doping.
+
+Download: Download high-res image (484KB)
+Download: Download full-size image
+Fig. 1. Schematic illustrations of TiC and TiMC (M = Zr, Nb, Ta and W) models. (a) a TiC cell with 8 atoms, (b) a Ti-12.5 at.% MC cell with 8 atoms, (c) a Ti-6.25 at.% MC cell with 16 atoms, and (d) a Ti-1.56 at.% MC cell with 64 atoms. The small black, light blue, medium green balls denote C, Ti and M atoms, respectively. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+The Helmholtz energies of the TiC-based ceramics are derived through three major parts including QHA, as well as TEE as follows,
+(1)
+here F(V, T) signifies the Helmholtz energy as a function of volume V and temperature T, E0 is ground state total energy, Fph represents vibrational free energy obtained from quasi-harmonic Debye model [25], and Fel expresses electronic free energy obtained from Mermin statistics [26].
+In order to reduce numerical instability of the second derivative during the solving procedure, Helmholtz energies at various volumes of contraction and expansion are calculated through Vinet’s equation of states (EOS) [27],
+(2)
+in which B(V, T)0 is bulk modulus, and B’(V, T) expresses pressure derivatives of bulk modulus. The volumetric thermal expansion coefficient β is obtained according to the following formula:
+(3)
+The total isochoric heat capacity is calculated by the summation of vibrational (CVph), and electronic (CVel) contributions, which are calculated through the following equations [28], respectively.
+(4)
+(5)
+in which Sel(V, T) and D(T) are electronic entropy and Debye integral, respectively, which have been derived in the calculations of Fph and Fel. n denotes the number of atoms per unit cell, and Θ is Debye temperature. The isobaric heat capacity, CP, is then calculated by
+(6)
+where B expresses the bulk modulus of the TiC-based ceramics.
+3. Results and discussion
+3.1. Structural stability
+Prior to the investigations of thermodynamic properties, all the enthalpies of formation (
+) and phonon frequency spectrum for Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) are calculated to assess their structural stability from thermodynamic and dynamical laws. Fig. 2 shows the derived 
+ values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W), as well as the phonon dispersion curves of Ti3WC4 bulk at equilibrium volume and T = 0 K. The 
+ values are calculated according the following formula [29]:
+(7)
+here 
+ is total energy of the TiC-based ceramics, Ni expresses is the number of atoms in the supercell, and Ei denotes bulk energy of one atom in HCP Ti, diamond C, and the addition of transition metal, respectively. The phonon frequencies are derived by the PHONOPY package based on the finite displacement method [30].
+
+Download: Download high-res image (404KB)
+Download: Download full-size image
+Fig. 2. The derived structural stability of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W), (a) all enthalpies of formation, and (b) the phonon dispersion curves of Ti3WC4 bulk at equilibrium volume and T = 0 K.
+
+It can be observed clearly from Fig. 2(a) that the present 
+ value of Ti4C4 (-84.74 kJ/mol) agree well with the corresponding experimental data of −92.31 kJ/mol in the literature[31]. Moreover, the derived 
+ values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) are negative, suggesting the present configurations with and without alloying elements are thermodynamically stable. The 
+ values of Ti3MC4 (M = Zr, Nb, Ta and W) are higher than that of Ti4C4, and the descending sequent of which of four TiC-based ceramics is as follows: Ti3WC4 
+ Ti3NbC4 
+ Ti3ZrC4 
+ Ti3TaC4. The comparison reveals that the alloying elements of Zr, Nb, Ta, and W would decrease thermodynamic stability of Ti4C4, one most of which is the transition alloying W. In addition, the addition elements of Zr, Nb, Ta, and W increase the vibrational frequencies of Ti4C4 in the high-frequency band (See Fig. S1), however, there are no states associated with imaginary frequencies. For instance, the Ti3WC4 with the highest 
+ value shown in Fig. 2(b) keeps above the zero line along the high symmetry points of Brillouin zone. Such a coincidence suggests that the present Ti3MC4 (M = Zr, Nb, Ta and W) configurations are dynamically stable.
+In order to investigate the mechanical stability of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W), the corresponding crystal structures and elastic properties are calculated and listed in Table 1, which included lattice constants (a), elastic constants (C11, C12, and C44), and elastic moduli (B, G, and E). The elastic constants are obtained by the stain-stress method, and the polycrystalline bulk modulus (B), shear modulus (G) and Young’s modulus (E) are derived by the following formula [32], [33]:
+(8)
+(9)
+(10)
+(11)
+(12)
+Note that the present results agree well with the experimental and theoretical data in the literature [34], [35], [36], [37], [38]. For example, The B values of Ti4C4, Ti3ZrC4 and Ti3NbC4 are 244.22, 232.09 and 268.26 GPa, respectively, which have been close to the date of 254, 213 and 262 GPa from experimental measurements and other calculations [36], [37], [38]. It should be pointed out that the derived elastic constants of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) could satisfy the strain energy theory (C11 > 0, 
+, and C44 > 0), which means the additions of Zr, Nb, Ta and W should be mechanically stable. On the other hand, the transition metal elements have important effects on elastic properties of Ti4C4, i.e, the decrease of elastic constants and moduli by Zr, whereas increase by the elements of Nb, Ta, and W. To give a deep understanding of alloy's behaviors, the Bader analysis is used to calculate the charge transfers between transition metal and C atoms, and the bond charge of Ti4C4 is calculated to be 1.69 e. The value is smaller and bigger than those of Ti3NbC4 (1.92e) and Ti3ZrC4 (1.46e), respectively, suggesting the formed chemical bonds in Ti3NbC4 and Ti3ZrC4 are a little stronger and weaker. That may be a primary cause for the order of elastic properties of TiC-based ceramics.
+Table 1. Lattice constants (a), elastic constants (C11, C12, and C44), and elastic moduli (B, G, and E) of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W).
+
+Properties	Ti4C4	Ti3ZrC4	Ti3NbC4	Ti3TaC4	Ti3WC4
+This work	Exp.	This work	Cal.	This work	Cal.	This work	This work
+a (Å)	4.339	4.328a	4.446	4.346d	4.384		4.377	4.335
+C11 (GPa)	507.67	514.5b	484.96		563.63		577.25	641.15
+C12 (GPa)	112.49	106b	105.66		120.58		116.65	121.59
+C44 (GPa)	164.06	178.8b	161.84		174.66		185.63	183.52
+B (GPa)	244.22	254c	232.09	213d	268.26	262e	270.18	294.78
+G (GPa)	176.74	184c	172.44		192.11	192e	202.37	210.98
+E (GPa)	427.17	436c	414.64		465.26	463e	485.82	511.02
+a
+Ref[34].
+b
+Ref[35].
+c
+Ref[36].
+d
+Ref[37].
+e
+Ref[38].
+3.2. Thermodynamic properties
+We now discuss a bit more thermodynamic properties for Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W), and the heat capacities at finite temperatures are derived and shown in Fig. 3. Within the entire temperature range, it can be obviously observed from Fig. 3(a) that the derived CP values of Ti4C4 match well with the experimental measurements by Nayor et al. [39]. The nice predictions based on the present GGA-PBE method strongly supports the present predictive power of the combination of QHA and TEE. In this figure, we also plot the CV values of Ti4C4 from 0 K to 2500 K, as well as the corresponding CVph and CVel curves. The values of the two curves appear different change tendencies with increasing of the temperature. That is, the CVel value has a less noticeable increase with temperature, which is much smaller than the corresponding value of CVph at the same temperature. Such a comparison demonstrates that electronic contributions of the TiC-based ceramics to heat capacity are much less than lattice vibration. The CP values of Ti4C4, Ti3ZrC4, Ti3NbC4, and Ti3TaC4 plotted in Fig. 3(b) are close and crossed to each other, which are all below the curve of Ti3WC4 over the temperature range 0–2500 K. In other words, the addition of W in Ti4C4 has a most significant enhancement to the isobaric heat capacity. It is the possible reason that the addition of W in TiC has formed the smallest lattice constant as listed in Table 1, and thus the contributions of lattice vibration are a little more than that of the other TiC-based ceramics.
+
+Download: Download high-res image (632KB)
+Download: Download full-size image
+Fig. 3. Temperature-dependent heat capacities of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W), (a) total isochoric heat capacity (CV), isobaric heat capacity (CP) of Ti4C4, including vibrational (CVph), and electronic (CVel) contributions of CV, and (b) isobaric heat capacity (CP) of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W).
+
+The curves of V/Vx values and linear thermal expansion coefficients α at finite temperature for Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) are shown in Fig. 4, respectively, consistent with experimental data from Engberg et al.[40] and Spinner et al. [41]. Vx is the volume at room temperature, and the ratio of V/Vx is commonly adopted as a kind of criterion to describe the amplitude of change with rising temperatures [42], i.e., the bigger value, the less stable and lower melting temperature. It is noted from Fig. 4(a) that the curve of V/Vx for Ti4C4 is above the other TiC-based ceramics over the considered temperature range, predicting the alloying elements of Zr, Nb, Ta, and W would increase melting temperature of Ti4C4. Interestingly, the alloying element Ta has the strongest effect, since the Ti3TaC4 has the lowest V/Vx values among the four TiC-based ceramics.
+
+Download: Download high-res image (369KB)
+Download: Download full-size image
+Fig. 4. The (a) V/Vx, and (b) linear thermal expansion coefficients α of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W) as a function of temperature. Vx is the equilibrium volume at room temperature.
+
+The α values as a function of the temperature plotted in Fig. 4(b) predict that the linear thermal expansion coefficients of Ti4C4 are higher than the corresponding Ti3MC4 (M = Zr, Nb, Ta and W). The values of Ti3TaC4 are the lowest among the four, and followed in ascending sequent by Ti3WC4, Ti3NbC4, and Ti3ZrC4. Such an order indicates that the α value has definitely pertinence with the ratio of V/Vx, i.e., more smooth increase of V/Vx value should have a smaller α value, and vice versa. The α values start to increase rapidly for all the TiC-based ceramics from 0 K to 500 K, followed by an almost linear state due to the slopes being gradually flat.
+3.3. Temperature-dependent elastic properties
+The temperature-dependent elastic properties of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) were investigated through the approach reported by our pervious work [43], the main operation of which is described as follows. The elastic constants C11(V), C12(V) and C44(V) of rock-salt structure TiC-based ceramics are firstly derived at a series of volumes ranging from V/V0 = 0.8 to 1.2 with an interval of 0.025, and then the volume-dependent Cij(V) and B(V) can be obtained and used for further calculations. Here, V0 is the initial equilibrium volume at 0 K. Based on this, the isothermal elastic properties (Cij(T) and B(T)) at finite temperatures are obtained by the substitution of Cij(V) and B(V) using the acquired V(T)0 in the EOS fitting, individually. Finally, the Davies’ approximation has been employed for the temperature-dependent isentropic Cij(T), which were further calculated for the isentropic B(T) of polycrystalline Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) as a function of temperature according to Voigt–Reuss–Hill’s approximation [32], [33].
+Fig. 5 displayed the derived elastic properties of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W) as a function of temperature, respectively. It has been observed from our data of isentropic elastic constants and moduli agree well with other theoretical and experimental values shown in this figure [15], [44]. A detailed temperature-dependent elastic constants plotted in Fig. 5 (a-c) indicate that the values drop nearly linearly with the ringing of temperatures, and the alloying elements of Zr, Nb, Ta, and W have almost no effect on the decrease rate of elastic constants. For instances, the initial C11 values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W) at 0 K have the descending sequence of Ti3WC4 
+ Ti3TaC4 
+ Ti3NbC4 
+ Ti4C4 
+ Ti3ZrC4, which keep the same order when the temperature is up to 2500 K. The same results can be also observed for the C12 and C44 curves with increasing temperatures. On the other hand, it can be noticed from Fig. 5 (d-f) that the orders of B, E and G are the same and followed as: Ti3WC4 
+ Ti3TaC4 
+ Ti3NbC4 
+ Ti4C4 
+ Ti3ZrC4, suggesting that the alloying elements of Nb, Ta, and W would increase elastic properties of Ti4C4, and the addition of W is a best choice among all the alloying elements.
+
+Download: Download high-res image (853KB)
+Download: Download full-size image
+Fig. 5. Temperature-dependent elastic constants C11, C12, C44 (a-c), and elastic moduli B, E, G (e-f) of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W).
+
+The elastic modulus E of Ti4C4 decrease linearly when the temperature increases from 300 K to 2500 K, which is in excellent agreement with experimental findings [45]. It is of importance to give a deep understanding to the results at electron distribution scale, and the charge densities of Ti4C4 at different volumes are thus derived. As a typical example, Fig. 6 shows the charge densities of Ti4C4 with different volumes (V/V0 = 0.95, 1.00 and 1.05), and V0 is the same meaning as related before. One sees from Fig. 6 (a) and (b) that the distributions from Ti to C in contractive volume V/V0 = 0.95 are directional and dense, indicating that the stronger covalent bonds of Ti4C4 have formed under low temperatures (volume contraction). From Fig. 6 (a) and (c), the distributions from Ti to Ti or C to C in expansive volume V/V0 = 1.05 are significantly weaker than that of equilibrium volume V/V0 = 1.00, which means the decrease elastic modulus under high temperatures. The above analysis of charge densities could provide a reasonable interpretation to the mechanical properties of TiC-based ceramics at finite temperatures.
+
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 6. Charge density plots of Ti4C4 with different volumes and transition metal atoms. (a) Ti4C4 with V/V0 = 1.00, (b) Ti4C4 with V/V0 = 0.95, (c) Ti4C4 with V/V0 = 1.05. V0 is the equilibrium volume at 0 K.
+
+3.4. Alloying effects on mechanical properties
+We now turn to investigate the alloying effects on mechanical properties of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W), and the ductility, Vickers hardness, fracture toughness and machinability damage tolerance are calculated and expressed by G/B, HV, KIC, and M values, respectively. The Vickers hardness (HV) at finite temperatures is evaluated through the model reported by Tian et al., which proved to be more suitable for the evaluation of ionic crystals [14].
+(13)
+The temperature-dependent fracture toughness (KIC) can be calculated according the following formula [46],
+(14)
+in which V represents the crystal volume of the corresponding temperature, G and B have the same meanings as related before. Base this basis, the damage tolerance (M) at finite temperatures can be defined by [47]
+(15)
+After a sequence of calculations, Fig. 7 summarized the derived temperature-dependent G/B, HV, KIC, and M values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W), respectively. Several characteristics have been known from this figure. Firstly, the G/B values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) increase gradually with the rising of temperature. Noted that the values of G/B, defined from the literature survey, have been widely to serve as an empirical indicator to characterize the ductility, i.e., a smaller value express more ductility of materials [48]. As shown in Fig. 7(a), the value raise suggests more brittleness with temperatures, which is comparable with similar experimental phenomena in the literature [49]. More importantly, the values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W) are in descending order of Ti3TaC4 
+ Ti3ZrC4 
+ Ti4C4 
+ Ti3NbC4 
+ Ti3WC4 at a certain temperature. This means that the alloying elements of Nb and W can improve the ductility of Ti4C4, which is reduced by additions of Zr and Ta. Such an analysis is consistent with the effects of Ta, Zr and W elements on stacking fault energy at 0 K proposed by Li et al. [17], and the enhancement effects of the ductility have been able to persist over the temperature range through the present investigations.
+
+Download: Download high-res image (648KB)
+Download: Download full-size image
+Fig. 7. Temperature-dependent (a) G/B, (b) Hv, (c) KIC and (d) M values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta, W).
+
+Secondly, it can be clearly deduced from Fig. 7(b) that the temperature-dependent HV curves of Ti3MC4 (M = Zr, Nb, Ta and W) are all above the Ti4C4, suggesting that the additions of Zr, Nb, Ta and W would increase the hardness of Ti4C4. The Ti3TaC4, formed by addition of Ta in Ti4C4, possesses the highest hardness and biggest HV values among all the TiC-based ceramics, and this may be due to its biggest G/B values with the strongest brittleness. Interestingly, according to the above equation of the HV values, the Ti3WC4 possesses the smallest G/B values with the strongest ductility, but its biggest G value also leads to a greater hardness. Interestingly, the hardening effect of the addition of W in TiC has also been found in the experiments [50]. In addition, the temperature rise causes the decline of HV values of Ti4C4 and Ti3MC4 (M = Zr, Nb, Ta and W). It should be pointed out from Fig. 7(b) that the additions of transition metal elements lower the rate of hardness drops in Ti4C4, and therefore can promote the resistance to deformation at finite temperatures.
+Thirdly, for the temperature-dependent fracture toughness and damage tolerance curves in Fig. 7(c) and (d), and the KIC values decrease gradually with the increase of temperature, and a contrary tendency has been observed for M values with the influence of temperature. In general, a bigger KIC value means stronger resistance to crack expansion, and a smaller M value expresses better damage tolerance [46], [47]. Such a comparison indicates that the temperature has a same effect on the mechanical behaviors, i.e., the higher temperature, the weaker crack expansion resistance and damage tolerance. Moreover, it can be found from Fig. 7(c) that the KIC value of Ti3MC4 (M = Nb, Ta and W) are bigger than that of Ti4C4 under the range of temperatures, predicting the alloying elements of Nb, Ta and W would improve the resistance to crack expansion. Only the M values of Ti3MC4 (M = Nb and W) are smaller that of of Ti4C4 from Fig. 7(d), suggesting the addition of Ta in Ti4C4 increase the crack expansion resistance but the decrease of damage tolerance.
+To provide a convincing explanation from bond charge, Fig. 8 illustrates the charge density difference of Ti3WC4 and Ti3TaC4 as another typical example. It should be pointed out that the yellow and cyan regions represent the charge accumulation and lost, respectively. One can see that the charge lost and gain mainly occur in metal and carbon atoms, respectively. The charge transfer between W and C atoms (visualized as cyan area around W atom) is obviously bigger than that of Ta and C (visualized as cyan area around Ta atom), indicating the formation of W-C interaction has been stronger than that of Ta-C interaction in the alloyed TiC. The above comparison could a deep understanding to the better mechanical properties shown in Fig. 7.
+
+Download: Download high-res image (235KB)
+Download: Download full-size image
+Fig. 8. Charge density difference of (a) Ti3WC4 and (b) Ti3TaC4, and the small black, light blue, and central balls denote C, Ti, and W/Ta atoms, respectively. The isosurface value is set to 0.02 e/Bohr3. (For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+
+Finally, we analyze the effects of doped concentration on the mechanical properties of alloyed TiC. According to the derived elastic moduli (see Fig. S2), Fig. 9 plotted the temperature-dependent G/B, Hv, KIC and M values of Ti-12.5 at.%WC, Ti-6.25 at.%WC, and Ti-1.56 at.%WC. It can be observed from Fig. 9 (a) that the G/B of Ti-12.5 at.%WC has the lowest values from 0 K to 2500 K, followed in increasing order by Ti-6.25 at.%WC, and Ti-1.56 at.%WC. This means, below the concentration of 12.5 at.% W, that the higher the doped concentration, the greater the ductility. A similar trend has been observed in Hv, KIC and M values shown in Fig. 9 (b-d), indicating that the mechanical properties of TiC would be improved more greatly by doping more W. Specifically, it is clear from Fig. 9(a) that the G/B values of Ti-6.25 at.%WC and Ti-1.56 at.%WC are all bigger than that of TiC (as shown in Fig. 7 (a)), suggesting the less doped concentration is not enough to improve its ductility. Considering the importance of excellent ductility, a probably helpful prediction in the experiments should be the concentration of W in TiC should be increased to about 12.5 at.%.
+
+Download: Download high-res image (454KB)
+Download: Download full-size image
+Fig. 9. Temperature-dependent (a) G/B, (b) Hv, (c) KIC and (d) M values of Ti-12.5 at.%WC, Ti-6.25 at.%WC, and Ti-1.56 at.%WC.
+
+4. Conclusions
+To summarize, the thermodynamic and mechanical performances of TiC with additions of Zr, Nb, Ta and W have been systematically explored using the quasi-harmonic approximation (QHA), and thermal electronic excitation (TEE) by first-principles calculation. It is revealed that the values of Cp, V/Vx, and α values of TiC-based ceramics rise as temperatures increase, and all the alloying elements of Zr, Nb, Ta and W are able to increase melting temperature of TiC. However, the elastic properties of TiC at finite temperatures such as B, E and G are only improved by additions of Nb, Ta, and W, one best influence of which is the W. We also discuss the effects of different elements and doped concentrations on the mechanical properties of the alloyed TiC, including the temperature-dependent ductility, Vickers hardness, fracture toughness and machinability damage tolerance. The sufficient concentration of W is able to improve the ductility and damage tolerance, which is a probably helpful suggestion to experimentalists during the process of strengthening and toughening TiC. The calculated results not only agree well with similar experimental observations in the literature, but also could serve as a guiding reference for design of TiC-based high-entropy carbide.
