@@ -1,0 +1,401 @@
+Abstract
+The use of lithium-ion batteries (LIBs)-operated underground mining machinery has gained tremendous momentum as a result of their numerous advantages. This includes their high energy density, long cycle life, high voltage delivery, low heat release, stability, negligible memory effects, and low carbon footprint.  Battery  operated vehicles are also preferred in underground mines for their flexibility. They do not emit harmful pollutants during nominal operations, making the work environment safer for miners. However, thermal runaway (TR) incidents can occur which  presents risks to miners and underground infrastructure. Therefore, it is crucial to understand battery operations and their failure mechanisms. This article outlines the advantages of LIBs, the necessary precautions for their safe operations underground, the conditions and impact of  TR events, battery management systems, handling LIB fire emergencies, and the research opportunities to promote safer and widespread use.
+
+Graphical abstract
+
+Similar content being viewed by others
+
+Building Safe Lithium-Ion Batteries for Electric Vehicles: A Review
+Article Open access
+28 December 2019
+
+Strategies for Intelligent Detection and Fire Suppression of Lithium-Ion Batteries
+Article 15 October 2024
+
+Review on Thermal Runaway of Lithium-Ion Batteries for Electric Vehicles
+Article 05 November 2021
+Explore related subjects
+Discover the latest articles, books and news in related subjects, suggested using machine learning.
+Batteries
+Energy Access
+Energy Management
+Energy Conservation
+Mechanical and Thermal Energy Storage
+Underground hydrogen storage
+1 Introduction
+Rechargeable lithium ion batteries (LIBs), also called secondary lithium-ion batteries (LIBs), are used widely as energy storage devices due to for their high energy densities, excellent Coulombic efficiencies, low self-discharge, negligible memory effects, and long life-cycles (Kim et al. 2019; Deng 2015). They were first introduced by Sony Corporation in 1991 and have since revolutionized energy storage systems (Goodenough 2013). Contemporary LIB consists of a negatively charged electrode, called an anode, generally made of graphite, newer alloys, or transition metal compounds (Nzereogu et al. 2022; Goriparti et al. 2014). The cathode is, usually, made of a non-toxic lithium-oxide material (Yuan et al. 2011; Julien et al. 2014). A porous separator immersed in a non-aqueous electrolyte, made of lithium salts and organic solvents, allows restricted motion of the lithium ions from the anode to the cathode during the discharge cycle (Sheng 2007; Huang 2011; Lagadec et al. 2019). The ions move in the opposite direction during the charging cycle (Xie and Yi-Chun 2020). A schematic of the operations is shown in Fig. 1. The metal electrode in the electrolyte solution is covered with an insoluble thin film, called the solid electrolyte interface (SEI), which acts as an insulator for electrons but conducts the lithium ions (Shreenag et al. 2022; Wang et al. 2018). The homogeneity and stability of the SEI layer affect the retention of battery capacity and its performance parameters, including self-discharge characteristics (An et al. 2016).
+
+LIBs were originally designed for low-power electronic devices, but are now being used in various high-power equipment as well. This is due to the scalability of the development of battery materials and the versatility of the packing arrangements (Ko et al. 2016; Ge et al. 2013). Large-format LIBs consist of cylindrical, prismatic, and pouch cells. They have distinct advantages and disadvantages in terms of packaging, ease of connections, and monitoring (Saw et al. 2016). Many research works aim to improve electrode materials, electrolytes, and separator thinning for better voltage delivery, safety, and low-cost manufacturing and operations (Grey and Hall 2020). The rapid evolution of LIB's rapid evolution is also supported by extensive research and development in their safe recycling procedures (Zubi et al. 2018; Fan et al. 2020; Heelan et al. 2016). They are already being used in large-format configurations primarily for energy storage (Killer et al. 2020; Haruna et al. 2011). However, several critical problems must be addressed before the mining industry begins to implement them on a large scale (Meng et al. 2022). Some of the most important research areas are the development of battery management systems, better prediction methods, and an understanding of the evolution and suppression of LIB-related fire in thermal runaway events (Lan et al. 2022; Kamat 2019; Zhong et al. 2021; Panwar et al. 2021).
+
+Fig. 1
+figure 1
+Schematic diagram of operations of a LIB
+
+Full size image
+The safety of a battery is determined by its construction, configuration, operating conditions, electrochemical tolerance, and environmental conditions (Chen et al. 2021). Modern LIBs are safe under prescribed operating conditions, but a recent publication by the Occupational Safety and Health Administration (OSHA) reported approximately 25,000 LIB-related fire incidents spanning more than 400 different types of devices during 2012–2017 (Lee 2018). A thermal runaway (TR) is defined as a chain reaction in a cell with a rapid release of heat and smoke from a cell or a battery pack, that often transitions into a fire event (Finegan et al. 2015). This exothermic reaction occurs between the electrolyte and the electrodes (Wang et al. 2012; Chen et al. 2021; Wang et al. 2019). Usually, the reaction begins with a recombination of atomic hydrogen in the graphite anode that then leads to the destruction of the SEI layer (Galushkin et al. 2018). The degradation of the SEI layer could begin at a relatively low temperature of about 120 °C (Wen et al. 2012). It is often followed by cell rupture and explosive venting of combustion products. TR often occurs due to mechanical, thermal, or electrical abuse of the cell. Its propagation depends on the electrolyte properties, the power delivered by the battery, the charging rate, and the battery pack design. Large-format LIBs undergo TR with a complex, rapid, and violent exothermic reaction. Research on 50 Ah LIBs showed that their structural expansion is the first step in a TR. This is then followed by several cycles of jet flames and stable combustion. The ignition was observed to occur at about 175–180 °C (Ping et al. 2015). Since LIBs are designed to have a high energy density, controlling their dissipated heat is challenging (Balakrishnan et al. 2006). This paper summarizes the latest developments in battery technology that favor their implementation on underground mining equipment, TR thermal runaway events in underground mines, control systems, and the avenues of immediate research required for LIB safety.
+
+2 Battery-operated equipment in underground mines: safety and health issues
+Underground mining is an economical method of extracting deep-seated minerals and contributes to meeting the growing demands for renewable energy systems and other critical minerals for the sustainable energy transition (Nidhi and Atul 2022; Igogo et al. 2021; Laurence 2011). These mines are usually ventilated using artificial systems that move a regulated volume of air to dilute the generated dust and reduce the miners’ exposure to particulates. Strategies to alleviate dust exposure-related diseases continue to be the major objectives for ventilation (Petsonk et al. 2013; Hoy and Chambers 2020; Entwistle et al. 2019). Often, diesel engine-powered or electrical equipment, including excavators and haulage systems using trailing cables, are used for several unit operations underground. These heavy high-voltage trailing cables are dangerous to the miners working around them and severely constrain the movement of the machinery. Moreover, underground operations are often not conducive to ‘human thermal comfort’ (Sunkpal et al. 2018; Roghanchi and Kocsis 2018). Heat stress in mines is a major occupational hazard (Lazaro and Momayez 2021). Therefore, removing miners from the active working face and protecting them from hazards is critical. One of the key steps in this direction is the feasibility studies of extensive automation and the application of battery technology underground. LIBs, which are high energy storage and low emissions systems, can be used to power several of these mining equipment. LIBs have distinct advantages, but any failure that leads to fire or explosions can have disastrous consequences in these operations (Wang et al. 2012). The following paragraphs describe the advantages of battery-operated vehicles underground.
+
+2.1 Advantages of battery-operated equipment in underground mines
+LIBs have high energy density required for long-duration operations, offer operational flexibility, supply power consistently, and eliminate hazardous conditions for miners who work around trailing high-voltage cable-controlled machines. Since LIB-operated equipment also does not emit carcinogenic diesel particulates or excessive heat, it provides a favorable environment for miners. The following paragraphs explain the factors that support the implementation of LIBs in underground mines.
+
+2.1.1 High energy density
+High energy density is arguably the most important factor that has led to the rapid implementation of the LIBs in a wide range of small and large devices for energy storage (Aifantis Katerina et al. 2010). This, attributed to research on battery materials, has also enabled their rapid growth in transportation systems where weight is important for efficient long-distance travel (Bilgin et al. 2015; Turcheniuk et al. 2021). This will be critical for mining applications that will use large-format batteries, as the equipment is required to deliver high power for long hours. Transition metal oxides are usually used for their high energy density, notwithstanding some other drawbacks. For example, LiCoO
+ cathodes are now favored strongly in electronic devices despite their toxicity (Manthiram 2011). Research is now focused on the development of high energy-density electrode materials having a favorable operating voltage, and fast charging capabilities (Amine et al. 2010). For example, replacing 50.0% of graphite anode with SiO
+ increases the energy density from 513 Wh/L to 628 Wh/L in the pouch-cell configuration (Choi and Aurbach 2016). Research has also focused on the development of new electrolytes to enable higher energy storage and faster charging (Park et al. 2021; Freire et al. 2016). The other important factor is the shape and packing of the cells within the battery modules. Conventional 18650 cells have volumetric energy densities of 600–650 Wh/L. This is about 20% higher than pouch or prismatic cells, which are often preferred for their flexibility in packing (Duduta et al. 2011). However, modern LIB designs continue to follow the original design where power evacuation components occupy a substantial volume; this provides several opportunities for optimization.
+
+2.1.2 Operational flexibility
+Battery systems will also provide significant flexibility to machines that are restricted by the reach of electrical power cables. The deployment of these cables is regulated, especially in the underground coal mines (MSHA 2021). They also pose a safety hazard when damaged or not handled properly (Tripathy and Ala 2018). According to a NIOSH study, the most common equipment involved in electrical accidents are switchgear and trailing cables. More accidents were reported in coal mines compared to non-coal operations (Homce and Cawley 2013). In addition, untethered battery-powered vehicles are faster which enhances mine productivity. Powering excavators and trucks using LIBs would allow significantly better maneuverability in an underground operation (Paraszczak et al. 2014). In addition, the expenditure on developed infrastructure is significantly reduced since transformers, power centers, and other devices are not required. The installation of battery charging station underground allows the improvement of the operation efficiency of the equipment, as travel to the surface is minimized. Travel for charging does not contribute to actual production and lowers the machine productivity during the scheduled time (Rafi et al. 2020).
+
+2.1.3 Diesel particulate matter
+Traditionally, diesel-powered machines are used in underground mining operations for their efficacy and flexibility. However, they emit diesel particulate matter (DPM) as combustion products from their engine exhausts, which are dangerous compared to gasoline engine emissions (Ristovski et al. 2012a, b). DPMs are complex mixtures of solid particulates, liquid aerosols, and vapors (Eric and Hart Jaime 2020). They are formed as a result of incomplete combustion of diesel fuel. Their diameter is predominantly less than 2.5 
+μ
+m, making them respirable. Studies in animals indicate that their mass median aerodynamic diameter after agglomeration is about 0.2 
+μ
+m (Cheng et al. 1984). The primary mode of their transportation into the body is through inhalation (Jiaen et al. 2010). Their size, mass, large surface area to mass ratios, mixing rate, and coagulation properties influence their transportation ito the human respiratory system. They are hazardous and their toxicity is a factor of their physical and chemical characteristics (Mohankumar and Senthilkumar 2017). The surface  adsorption of organic compounds has been shown to initiate processes that can lead to respiratory diseases (Ristovski et al. 2012a). These airborne particles travel in the mine assisted by the ventilation air currents and could potentially impact miners working away from the source as well. This has necessitated several regulatory bodies to adopt measures to control their exposure (Chang and Guang 2017). This has further encouraged the battery electric vehicles’ usage.
+
+2.2 Critical prerequisites for LIB application underground
+The safe operations of the LIBs and the supporting infrastructure are crucial for their underground deployment. Since LIBs have high energy densities, it must be ensured that they do not become a source of fire ir explosion. They must be intrinsically safe, and their enclosures must be flameproof. A large-format battery for mining applications impacts the surrounding environment and vice versa (Fig. 2). Therefore, as shown in the figure, the battery management system (BMS) will process the weather elements (humidity, temperature, etc.) and the operating conditions (such as the mining terrain, speed constraints, etc.) so that the LIBs always operate within the prescribed parameters. The following paragraphs explain the challenges that need to be overcome before their deployment.
+
+Fig. 2
+figure 2
+Schematic of the interaction between the battery and the environment
+
+Full size image
+2.2.1 Intrinsic safety
+Intrinsically safe devices are incapable of igniting the surrounding flammable gases. This is done by restricting electrical or thermal energy that might escape the enclosure (Dubaniewicz Jr and DuCarme 2016). All equipment used in the mines must be unable to produce  a spark that could cause a fire (Magison 1972). Coal mines follow even more stringent regulations due to the presence of highly flammable methane and explosive coal dust mixture (Cashdollar 1996, 2000). Intrinsically safe devices are designed to quench the plausible onset of the worst-case fault scenario during operations. Several features are built into the LIB packaging to prevent a sudden energy release that could lead to ignition. A mechanical safety vent is the most common device that alleviates pressure build-up in a cell (Swart et al. 2006). Thermal fuses, despite their inability to be reused, are also used as a protection device and are usually set to operate at 30–50 °C above the nominal LIB operating temperature (Balakrishnan et al. 2006). The flammability characteristics of the electrolytes and the electrodes play a critical role. For example, contemporary carbonate-based and organic liquids electrolytes are volatile and break down to release CO
+. Inorganic and other polymers are significantly safe and alleviate lithium-dendrite growth (Chen et al. 2018). For example, a non-flammable fluorinated phosphate electrolyte (0.8 M LiPF
+/tris(2,2,2-trifluoroethyl) phosphate (TFEP)) is one of several proposed chemicals that shows excellent stability on the electrodes by forming an inert interface (Zeng et al. 2020). Although separators do not participate in the reactions within a cell, they are critical to their intrinsic safety, especially during any TR events (Liu et al. 2021).
+
+2.2.2 Flame-proof characteristics
+In explosive environments, LIB can act as a source of electrical ignition. NIOSH research showed that an internal short circuit in the spiral-wound Saft FRIWO M52EX LiMnO
+ cell posed a methane ignition hazard (Dubaniewicz Jr and DuCarme 2014). Any such TR events could be disastrous for a coal mine with a high methane concentration. Since a TR event could lead to the development of high-pressure conditions followed by a rapid release of several flammable gases outside of the enclosure, they must be installed in special chambers called flame-proof enclosures (Lingyu Meng et al. 2022). These enclosures have small gaps between the flanges that prevent the transfer of the effects of internal explosions to the external flammable environment. Holes are not permissible and all joints and threads must be corrosion-free (Keane et al. 2014). Usually, a test defined in IEC 600079 is performed to examine the ability of the enclosure to withstand high pressure (Krause et al. 2017). NIOSH researchers also provided recommendations for improvements of the LIB safety assessment criteria based on plastic wedge crush tests (Dubaniewicz Jr and DuCarme 2016).
+
+Although the structural integrity of the chamber is crucial for the flame-proof characteristics of the LIBs, the battery materials including the separators play important roles in flame suppression. Most of the separators with flame retarding capabilities use inorganic agents like metal hydroxides that inhibit the chain reaction. For example, the addition of Mg(OH)
+ to a polymer composite electrolyte improves the flame retarding properties. However, it is recommended that its concentration in the electrolyte is kept below 40 wt% to maintain the mechanical strength of the cell (Kim et al. 2017). Composite microfiber and nanofiber separators developed through the electrospinning process also show enhanced flame-retardant properties in LIBs in addition to enhancing electrochemical efficacy (Liu et al. 2017; Chen et al. 2020).
+
+3 Conditions leading to a battery thermal runaway in an underground mine
+Underground mines are dynamic environments in which several high-power machines work systematically in a constrained layout. High capacity LIBs are expected to be deployed on several of these pieces of equipment. The latest research on the development of Nickel-based cathodic materials, including LiNi
+.
+Co
+.
+Mn
+.
+O
+ (NCM811), LiNi
+.
+Co
+.
+Mn
+.
+O
+ (NCM622), and several others that pack a much higher energy density required for these applications has been successful (Feng et al. 2018). However, these materials could be hazardous and will enhance the TR severity (Fig. 3). TR could result from mechanical damage, exposure to temperature and humidity, and overcharging, in addition to several other factors described in the following paragraphs.
+
+Fig. 3
+figure 3
+Sources of thermal runaway and its consequences
+
+Full size image
+3.1 Mechanical damage
+A collision of mobile equipment underground may cause mechanical damage that could  lead to an internal short-circuit or failure of the casing failure. The different  components of a large-format battery, including the cells, modules, and packs, are most likely to be exposed to shocks and vibrations (Liu et al. 2020). This may lead to electrode damage and electrolyte leakage under hot conditions. Depending on its severity, this can quickly transition into TR events. They are incredibly difficult to reproduce in a laboratory setting. In a NIOSH research to investigate the failure of LIBs due to internal short circuit, cylindrical LiCoO
+ and LiFePO
+ cells were crushed using a plastic wedge in a 20.0 l methane chamber to mimic equipment collision. It was observed that LiFePO
+ cells were safer and did not ignite in a 6.5% methane concentration. Other cells failed through TR in the methane environment (Dubaniewicz and DuCarme 2013). Further crush tests on prismatic LiCoO
+ and primary spiral-wound LiMnO
+ cells led to their ignition due to an internal short circuit. This would be a very dangerous situation in an underground coal mine (Dubaniewicz Jr and DuCarme 2014).
+
+The nail penetration test is the most widely accepted approach to study the impact of mechanical damage to a cell (Chiu et al. 2014). Several research projects have focused on the studying the likelihood of explosions when a LIB is mechanically damaged. A research group built a 3D TR propagation model using empirical equations and validated it with experiments. The research showed that TR could be delayed by modifying the separator, improving heat dissipation, and introducing insulators between the batteries (Feng et al. 2016). Nail penetration tests on large-format LIBs, likely to be used on mining machines, are even more difficult to conduct due to the large volume of heat and gases that are released violently within a short period. A research group investigated the impact of nail penetration on a 6-battery module (25.0 Ah) with 47 thermocouples installed at strategic locations. The onset of TR was observed to take place at lower temperatures and at a faster rate compared to the tests where batteries were heated uniformly (Feng et al. 2015). It was also observed barely 12.0% of the total heat released in a battery can  lead to a TR event in the adjacent battery. Torsion also has a significant impact on the mechanical damage-related TR as was indicated in a study on the large-format battery (18 AHr LFP and 25 AHr NMC). Peripheral torsion led to a voltage drop but the battery recovered quickly without resulting in TR (Wang et al. 2017). Therefore, the extent of damage and transition into TR is complex and depends on several factors, many of which need significant research.
+
+3.2 Exposure to extreme temperature
+Underground miners and machines are often exposed to various challenging environmental conditions including a wide temperature distribution due to the mines’ geographical locations and altitudes. These conditions are not only detrimental to LIB performance, but they also restrict their applications (Hou et al. 2020). The most accepted temperature range suitable to LIB operations is often regarded as  −20 to 60 °C (Ma et al. 2018). Their performance is severely restricted at low temperatures because the ionic conductivity of the electrolyte decreases, the kinetics of the interfacial reaction is sluggish  , Li
+ diffusion is slowed, and Li is deposited on the anode causing a short circuit (Zhang et al. 2022). Research has established that there is no change in the charging characteristics in the 20–40 °C range, but they deteriorate at temperatures under 20 °C (Lu et al. 2019). At −20 °C, ionic conductivity diminishes, and the anode electrolyte resistance increases, severely reducing the power delivery (Ji et al. 2013). Another research showed that the state of charge of the LIBs also reduced to 7%–23% of the initial value at low temperatures (Aris and Shabani 2017).
+
+In contrast, even under nominal working conditions, it might not be possible to safely remove the heat generated in a large battery pack on a hot day. This results in a deterioration of LIB performance. The kinetics and exothermic nature of LIB chemical reactions favor the rapid increase in reaction rate with an increase in temperature. This increases the likelihood of TR (Hou et al. 2020). The collapse of SEI at high temperatures is followed by the short circuit of electrodes, melting of the separator, and other chemical reactions involving the electrodes and the electrolyte (Ping et al. 2014). The LIB electrolyte, LIPF
+ in organic carbonates, decomposes into carbon dioxide and other compounds at moderate (85–100 °C) temperatures; this was demonstrated in research using multinuclear magnetic spectroscopy and other tools (Campion et al. 2005). Studies were carried out on a 25 Ah NCM battery by heating it and terminating the heat supply at a temperature that does not force it to undergo TR. The module was rendered unusable once its temperature reached 140 °C due to an exponential rise in its Ohmic resistance. Further, the battery capacity can degrade by up to 20% when exposed to temperatures near 120 °C (Feng et al. 2014). Similar research on 50 Ah LiNi
+Co
+Mn
+ 
+ 
+ 
+ 
+O
+/graphite batteries with a 100% state of charge shows that TR could be avoided if heat is dissipated quickly before 126.5–132.5 °C temperature is reached. The research also showed that heating power strongly influences heat release, gas emissions, and total mass loss (Wang et al. 2019). Another research on Sony 18650 cells showed a systematic decay in the capacity when subjected to temperatures beyond nominal room temperatures due to progressive film formation on the anode surface. The capacity fade was observed to be about 70% after 490 cycles at 55 °C (Ramadass et al. 2002). LIBs are also observed to age rapidly at higher temperatures. High SOC encourages several undesirable reactions at the positive interface that lead to oxidation of the electrolyte components that affects the LIB capacity (Michel Broussely et al. 2005). This leads to increased cell impedance. Research on commercial 18650-type cells with Li
+Ni
+ 
+ 
+O
+Mn
+ 
+ 
+O
+Co
+ 
+ 
+O
+/Li
+Mn
+O
+ cathode and graphite anode showed them to rapidly age beyond 25 °C, dominated by SEI layer deposition on the anode (Waldmann et al. 2014). Therefore, battery deployment in both low and high temperatures leads to performance degradation.
+
+3.3 Exposure to humidity
+High humidity levels are unfavorable for the storage and operation of LIBs. Their electrochemical performance rapidly degrades and is attributed to the formation of surface impurity layers in the presence of moisture. This was demonstrated for LiNi
+.
+ 
+Co
+.
+Mn
+.
+ 
+O
+ cathode material stored at room temperature and 63% humidity for one year (Zhang et al. 2022). Structural deterioration of nickel-manganese-cobalt (NMC), widely used as the cathode material, was observed. Nickel reacts with moisture to lower its oxidation state, significantly diminishing the specific capacity. Carbonates and oxides are formed that have lower electronic conductivity and reduce the electrochemical efficacy of the LIBs (Busà et al. 2021). Impurity species are generated with CO
+ and H
+O affecting their storage and cycling. Research has also shown that even the newly developed cathode material with high energy density, such as LiFeSO
+ , degrade rapidly in the presence of humidity (Zhang et al. 2015). Electrode decomposition is rapid when the humidity exceeds 62%; this is not uncommon close to the active mining faces. Similar performance degradation was observed for LiNi
+.
+Co
+.
+Mn
+.
+O
+ cathodes when subjected to 80% humidity at 55 °C (Chen et al. 2017). Therefore, prolonged LIB operations in humid underground mine impact their performance.
+
+3.4 Overcharging
+The state of charge (SoC) of the battery indicates the energy stored in it, which, in turn, also determines the availability of the LIB-driven equipment. Depleting SoC is a major drawback of battery-operated equipment. A charging station is analogous to a closed-loop inventory system where depleted batteries are replaced by fully-charged batteries (Cui et al. 2023).  Currently, the battery swapping technique is utilized to minimize the delays involved in charging. A properly designed battery swap architecture can reduce operational delays to a few minutes (Ahmad et al. 2020; Vallera et al. 2021). However, it requires certain considerations such as heterogeneity in batteries, electrification, voltage transformation infrastructure, and monitoring instrumentation to approximate the SoC (Hao 2021).
+
+A healthy SoC is required for any task that requires substantial energy; however, overcharging a module could increase the internal cell temperature which could lead to a more violent TR (Ouyang et al. 2017). Overcharging research on commercial pouch LIB showed electrolyte decomposition on the cathode and dissolution of the transition metals. Failure of the pouch and separator melting resulted in TR (Ren et al. 2019). Overcharging a cell could also quickly lead to the solvated lithium ions penetrating the separator via the electro-conducting process. This results in its failure with the release of gaseous products that can quickly overwhelm the mine ventilation system (Belov and Yang 2008). Research on 32 Ah prismatic cells reveal significant gas generation when the cell is overcharged to 180% SoC. The inside temperature of the cell can reach 235 °C; which could lead to the melting of the lithium electrode. The temperature difference between the inside and outside of the cell can reach 140 °C (Yuan et al. 2015). Another research on a 38.0 Ah battery with LiNi
+ 
+ 
+Co
+ 
+ 
+Mn
+ 
+ 
+O
+/graphite electrode showed much more smoke when a module with a 100% SoC was subjected to TR compared to a module with a 50% SoC. Lowering the SoC to 50% also increased the propagation time of TR between adjacent batteries to 307.0 s from 87.0 s (Li et al. 2019).
+
+Larger battery packs dissipate significantly larger amounts of energy, depending on their capacity. Experiments on lithium-ion phosphate/graphite battery packs of 50 Ah capacity showed a sequence of events. Battery expansion was followed by two- stage jet flames and stable combustion. Combustion abatement and quenching were the last stages. While the ignition occurred at about 175 °C, the flame temperature was much higher (Ping et al. 2015). TR started when the separator melted. The heat release rate and mass loss also increase with an increase in the SoC. Therefore, proper installation of charging stations underground equipped with battery SoC monitoring terminals is critical.
+
+4 Consequences of thermal runaway in a mine
+A thermal runaway event in a large-format battery, likely to be used on mining machinery, is characterized by an uncontrolled rapid reaction leading to short circuits, combustion, deflagration, and explosion. This leads to a drop in the output voltage levels and often violent battery failure. Externally, the LIB becomes a source of intense heat and gas release in a short time. These are undesirable and can quickly lead to unsafe conditions in an underground mine. The following paragraphs describe the impacts of a TR event in a mine.
+
+4.1 Onset of thermal runaway-related fire
+While TR starts in the 150–200 °C range, the combustion of different components in a LIB produces very high temperatures (Tran et al. 2022; Feng et al. 2019). For example, the redox reaction between electrodes causes a substantial heat release within a battery with Li(Ni
+Co
+Mn
+)O
+ cathode following an internal short circuit (Feng et al. 2019). This could lead to a fire that can rapidly spread and cause disasters in mines. Several LIB explosion events followed by combustion have been reported in the literature (Zalosh et al. 2021). The temperature distribution dependence inside and outside the LIB is complex and is influenced by several factors. This is attributed to a high heat release rate, which is the most important parameter that describes the intensity of LIB’s impact on the surroundings. Research on TR of a pack of 32 units of 18650 LiCoO
+ type 2,600 mAh cells with 80% state of charge showed a peak heat release rate of 442.6 kW and temperature exceeding 400 
+C; this can easily ignite flammable materials (Chen et al. 2019). The flame temperature strongly depends on the state of charge. Maximum temperatures exceeding 700 
+C were observed across all states of charge (0, 50, and 100) (Huang et al. 2015). Research on 25 Ah large-format prismatic LIBs revealed a wide temperature distribution with a difference of 520 
+C within the battery, with the internal temperature reaching 870 
+C (Feng et al. 2014). Tests on lithium nickel manganese cobalt (NMC)/ lithium manganese oxide (LMO) cells in pouch configuration showed peak temperatures of 615 °C which is much (about 230 °C) higher than lithium iron phosphate (LFP) cells. Furthermore, the reactivity of transition metal oxide in NMC/LMO cells also led to higher vented gas temperatures compared to LFP cells (Sturk et al. 2019). Studies on LIBs using an accelerating rate calorimeter (ARC) at NIOSH showed that NMC batteries generate peak temperatures of up to approximately 800 °C, while LFP peak temperatures are around 400 °C.  Research showed that the intensity of LIB combustion is also a factor of the supplied power, with a larger incident heat flux resulting in more vigorous combustion. A maximum temperature of 797 
+C was observed, which can ignite adjacent cells leading to TR (Yangyang et al. 2015). Therefore, there are substantial differences in temperatures that in turn influence their impact on the underground surroundings (Tang et al. 2020).
+
+4.2 Toxic and other gas emissions
+Although the cathode could be made of lithium and transition metal oxides, the anode is predominantly made of graphite. Electrolytes are rich in salts. Most of these are flammable which can exacerbate the ambient working conditions in a mine in a TR event. Although gases, some of explosive nature, are released from the combustion of battery casings, electrolytes, electrodes, and other components (Baird et al. 2020; Jin et al. 2021). The characteristics of the LIBs determine both volume and types of gases (Jia et al. 2023; Huang et al. 2021). The gases emitted are studied  qualitatively and quantitatively in laboratory experiments under controlled conditions. An inert atmosphere is used during these tests to prevent the ignition of vented gases. Gas chromatography, mass spectroscopy, and FTIR spectroscopy are often used to identify them. The detected gases include H
+, CO
+, CO, CH
+, C
+H
+, and C
+H
+ (Baird et al. 2020; Li et al. 2021). Gas emission is strongly influenced by cell construction and type. LFP and NMC/ LMO cells produce CO
+, CO, and volatile organic compounds (VOCs). Acid gases, Hydrogen Fluoride (HF) and PO
+ are also produced. NMC/LMO cells produce significantly larger gas volume compared to the LFP cells (Sturk et al. 2019). HF is especially toxic; its concentration could be in the range of 20–200 mg/Wh for the LIBs (Larsson et al. 2017). For reference, exposure to HF even at low concentrations of the order of 3 ppm is harmful to human health while 30 ppm could be deadly (Krebs et al. 2022).
+
+Several cell eruption gases released during the TR sometimes react with air to generate other combustion products. The heat released during gaseous combustion could contribute to the severity of the TR (Mishra et al. 2022). The concentration of the gas components and their ignition temperature are some of the important factors that control the inflammability of the mixture (Li et al. 2021). The gas composition is independent of the volume released during a heat plate-triggered TR event on cells with graphite anode and NMC cathode. However, the volume and concentration of the released gas strongly depend on the energy density and cell capacity (Koch et al. 2018). One of the research projects at the National Institute of Occupational Safety and Health (NIOSH) involved the heating of a Li-ion cell using an accelerating rate calorimeter. The experiments demonstrated that the NMC cell showed sharp exothermic peaks at 159–174 °C and the largest volume of gases compared to the LTO and LFP cells (Yuan et al. 2020). Ventilation of the battery pack significantly helps in the alleviation of TR conditions by diluting the gas concentration. This reduces the duration of their exposure.  This has been shown by lumped network and computational fluid dynamics (CFD) models (Wang et al. 2023). Experiments on NMC and LFP cells have revealed the emission of particles of 5.6–560.0 nm size; the size is a function of TR mechanism, battery chemistry, and several other factors (Premnath et al. 2022).
+
+There have also been several attempts to quantify gas emissions during overcharging initiated TR. Gas chromatography (GC) and FTIR have indicated the presence of up to 14 gases. In one of such studies,  NCA cells were found to release a much larger volume of gases at 1,075 °C while LFP cells released lower gas volumes and attained a maximum temperature of 448 °C (Golubkov et al. 2015). This also includes a larger volume of CO and H
+ that increases the toxicity and flammability. The experiments also showed that the TR onset temperature of overcharged cells (SoC = 120%) decreased drastically from 140 °C to 65 °C. Another research on LFP cells using 
+μ
+-GC showed the presence of CO
+ (47%), H
+ (23%), and H
+H
+ (10%) gases predominantly in addition to other minor species; these form a flammable and toxic mixture. HF concentration was also found to increase towards the end of the TR event (Fernandes et al. 2018). Most of these gases are detrimental to human health and could significantly impact affected miners, especially in a confined underground environment.
+
+4.3 Drop in output voltage
+LIBs deliver their design voltage during their nominal operations. A change in their output voltage pattern is a strong indicator of battery instability. The voltage is rapidly reduced during failure and drops to 0.0 V in a TR event. To study this, NIOSH researchers subjected five commercially available LIBs to controlled heat in an accelerating rate calorimeter (ARC) in research. While LFP 18650 showed erratic changes in voltage patterns before failing, NMC and LTO batteries showed a sudden drop to 0.0 V (Tang et al. 2020). Research on NCM622, NCM811, and LFP batteries showed that the output voltage rapidly drops to 0.0 V about 2–8 s before the  quick temperature increase, indicating the TR event. TR onset could also be determined using the trend of the voltage change rate. The voltage reduction rate is low at the beginning which indicates the melting of the separator (Yang et al. 2022). Similar research on large-format LIB showed a sudden drop in voltage about 15–40 s before the occurrence of the TR (Feng et al. 2014). A recent TR research on hundreds of LIBs with various SoCs carried out using indentation tests showed rapid voltage changes indicating sudden energy release. The control NMC cell with 100% SoC showed the fastest voltage drop (Lin et al. 2023). Similar research on LFP batteries showed the temperature at which the voltage drop occurs at different SoCs is in the 162.3–173.2 °C range. This was lower than the TR onset temperature. These research works show that battery failure and voltage drop occur before uncontrolled TR reactions begin (Liu et al. 2020). Therefore, voltage monitoring can be used to determine the general health of the LIB.
+
+4.4 Enhanced thermal runaway pressure
+Elevated pressures could impact the integrity of the battery enclosures resulting in cases of sudden failure. Explosion-proof equipment is defined in 30 CFR 18 and requires the enclosure to withstand high explosion pressures and must not allow any ignition of surrounding methane-air mixture in an underground mine. Elevated pressures could impact the integrity of the LIB enclosures resulting in cases of sudden failure. A rapid rise in pressure is observed during the TR event and is attributed to the release of venting gases and impact forces due to rapid oxidation (Jia et al. 2022). Experiments on 18650 batteries have shown this pressure to reach 40 MPa when the material began to yield, although gas venting was observed at about 2 MPa at a surface temperature of about 138–151 °C (Mier et al. 2022). MSHA regulations require explosion-proof enclosures to have a pressure-bearing capacity of 150 psig (10.3 barg). The external surface temperature must not exceed 150 °C (302 °F). This is especially critical to any battery-operated vehicle deployment in an underground coal mine. However, in one of NIOSH’s research on a confined MH1 cell with 92.5 ml of free space, pressure  was observed to reach 232 bar. Inverse power relationships were observed between the free space and TR pressures. This will have significant implications for equipment safety underground (Dubaniewicz et al. 2022). Tests on lithium-iron-phosphate (LFP) cells also showed an inverse relationship between TR pressures and free space. Resultant pressure values were close to 294 bar (4,260 psi) which could easily trigger methane-air ignition (Dubaniewicz et al. 2021). These results indicate that the battery housings need to be carefully engineered for their safety in a TR event.
+
+5 Battery management/ control systems
+The Global Mining Group recommends that the battery management system, thermal management, conditions and usage profile of the batteries, automatic shutdown, and several other critical factors must be considered while building battery-based operations due to the larger weight of the vehicles and their high power requirements (Group 2022). Battery management and control systems (BMCS) are a class of software-based algorithms that perform various tasks during real-time battery operation (Bergveld et al. 2002; Plett Gregory 2015; Rahn Christopher and Chao-Yang 2013; Xing et al. 2011; Zhang et al. 2022). The algorithms typically operate based on feedback signals from measured quantities: terminal voltage, surface temperature, and applied current. These tasks range from monitoring, such as limit checking, internal state estimation, and fault diagnostics, to control, such as charging/discharging control and thermal management. Limit checking typically refers to testing whether the measured voltage, temperature, and applied current exceed their pre-defined safety limits. Upon crossing the limits, alarms are raised–sometimes followed by cutting off battery operations. Limit checking is solely a signal-based operation; no mathematical models are required. Internal state estimation refers to the process of estimating internal battery variables that are not measured, for example, State-of-Charge (SoC), State-of-Health (SoH), State-of-Power/Energy (SOP/E), and internal temperature. Fault diagnostics refers to detecting, isolating, and sometimes estimating anomalies in battery operation. These anomalies can range from over-charge/over-discharge type faults to internal electrochemical, thermal, and mechanical faults. On the controls side, charge control refers to applying a charging current to charge the battery to a desired state. Discharge control typically works to provide power/current demand by the operation—with some exceptions of intelligent constraint satisfaction type control. Within the battery pack, thermal and/or charge balancing of the battery modules or cells is also part of the control features. The thermal management task is to control the battery temperature within desirable limits–typically in conjunction with certain cooling mechanisms. Oftentimes, these algorithms work together to maintain battery safety. Internal state estimation, fault diagnostics, and intelligent controls are typically performed either by using models or data or a combination of both. A battery management system schematic is shown in Fig. 4.
+
+Fig. 4
+figure 4
+Schematic of a battery management system
+
+Full size image
+5.1 Battery thermal management/ cooling system
+Battery thermal management is a key functionality of battery management. A typical goal of thermal management is to monitor temperature across the battery pack, raise an alarm if temperature anomalies are detected, and actuate the cooling system to reduce temperature and/or its gradient. Such functionality is essential since battery performance and safety depend heavily  on temperature. Battery thermal management activities can be broadly categorized into two types. The first category focuses on developing real-time algorithms to monitor battery temperature and detect battery thermal faults. Examples of such algorithms can be found in several research (Lin et al. 2019; Sattarzadeh et al. 2021a, b). The second category focuses on designing efficient cooling strategies. Examples of different types of cooling systems include phase change materials, and air and liquid cooling (Feng et al. 2018; Olabi et al. 2022; Kim et al. 2019). Active temperature control and reciprocating cooling flows have been studied and have demonstrated to have better uniformity in temperature distribution (1.0 °C instead of 4.2 °C) in the battery module (He and Ma 2015).
+
+5.2 Emissions detection systems
+Thermal runaway events result in the emission of several gases. Along this line, another potential aspect of battery management is monitoring gas emissions from batteries under various anomalous scenarios. This is crucial for mining applications since such emitted gases can adversely affect the exposed personnel. Starting from thermal anomalies (which can be caused by electrochemical, mechanical, and thermal abuse conditions), overheating, and fire can potentially initiate the release of toxic gases, including carbon monoxide and carbon dioxide (Larsson et al. 2017; Lebedeva and Boon-Brett 2016; Sun et al. 2016; Nedjalkov et al. 2016). Furthermore, combustion of electrolyte and/or electrode binder contents can lead to gases like hydrogen and phosphoryl fluoride (Larsson et al. 2017). Such gas emissions can be monitored by embedding electrochemical, chemical, semiconductor, and optical-type gas sensors (Cai et al. 2021).
+
+5.3 Mechanical response detection systems
+Other than detecting emitted gases, monitoring the mechanical response such as pressure or force inside the battery can provide certain diagnostic capabilities. This  internal mechanical pressure has strong effects on battery performance and safety (Chen et al. 2023). The fact that the battery contracts and expands during charge and discharge leads to the stress/strain-related characteristics in the LIBs.  Such stress/strain behavior can potentially help to detect abnormal behavior arising from internal anomalies. This can be accomplished by utilizing in-situ thin film sensors or cell expansion sensors (Chen et al. 2023; Mohtat et al. 2019; Kwak et al. 2021).
+
+6 Battery safety features, personnel protection, and fire suppression agents
+TRs are low-frequency but high-impact events. Therefore, battery safety and thermal stability are critical for any application in underground mines. Although uncommon, fires are extremely difficult to extinguish once the battery is in the TR phase. This is because the fuel, ignition temperature, and oxygen for combustion could be provided by the battery itself. This leads to a highly exothermic reaction and generation of a large amount of gases (Ren et al. 2017). Therefore, smothering and cooling of fire cannot be implemented efficiently. Most research has focused on the development of battery materials for improvement in LIB performance and lowering of costs in commercial applications (Chombo and Laoonual 2020). The following paragraphs describe the inherent safety features in LIBs, fire suppression agents, and personnel protection to be used in cases of LIB fires in underground mines. Figure 5 shows a schematic of the built-in safety features of a LIB and the external chemical agents that can suppress the fire.
+
+Fig. 5
+figure 5
+Built-in safety features and external suppression agents
+
+Full size image
+6.1 Inherent safety features: battery component materials and sensors
+The large-scale commercial application of the LIBs will be driven by high-energy density and safe battery materials. LFP LIBs re commonly used for many applications  due to their superior thermal stability, low cost, environment friendliness, and long cycle life. For example, their  capacities have been further enhanced by controlling the constituent particle sizes, and their surface modification by coating with carbon nanostructures (Ahsan et al. 2021). Three-dimensional thermal models show that LiFePO
+ cells have the best thermal stability when compared to other cathode materials (Peng and Jiang 2016). Graphite and silicon composites, thermally stable materials, are commonly used in anodes (Xiangkun et al. 2019). Polymer separators with good mechanical and thermal stability have been developed that prevent short-circuits between the electrodes, yet allow the ions to move efficiently (Jiang et al. 2017; Mohanty et al. 2016). LIB electrolytes, with additives such as  lithium hexafluorophosphate (LiPF
+), are flammable. Therefore, electrolyte additives are used to improve the SEI layer, protect the cathode, and stabilize the LiPF
+ salt (Zhang 2006; Pushparaj et al. 2023). Stable lithium salts like lithium bis(oxalate)borate, flame retardants, overcharge protection additives, and several other chemicals are used to enhance its stability (Wang et al. 2019; Zhenrong et al. 2006; Yixuan et al. 2021). Additionally, there have been several efforts in the design and fabrication of the electrodes to improve the temperature distribution (Xiangkun et al. 2019). Reducing the risk of cell wall failure, efficient removal of heat through better heat sinks, protecting the adjacent cells from the failed cells, and restricting the flames within the battery enclosure are the most recommended to reduce hazards from a single-cell TR event (Darcy 2016).
+
+LIBs contain several devices and mechanisms like current interruption units, safety fuses, and positive temperature coefficient (PTC) thermistors to regulate the current (Balakrishnan et al. 2006; Tobishima and Yamaki 1999). Unwanted charging, which can lead to TR, could be prevented using diodes (Doughty Daniel and Peter Roth 2012). Safety vents are also provided to release excessive internal pressure while minimizing the rapid ejection of gases (Kim et al. 2017). The protection circuits integrated with the LIBs safeguard them against overcharge, over-discharge, and excessive currents and temperatures (Wang et al. 2014; Bin et al. 2021). In addition, passive fire suppression systems that work as barriers between the adjacent cells of the module have also been proposed. They dissipate heat and restrict the transfer of combustion products to limit the TR propagation. These will be critical in large-format batteries that will be used underground. A study has shown that a properly sized aluminum plate installed between two pouch cells in a battery module could prevent TR. While a 0.8 mm thick passive plate failed to prevent the TR propagation in the adjacent cells, a 3.2 mm thick plate did not result in TR (Li et al. 2019). Large-format LIBs in underground mines will require several of these safety features to alleviate TR occurrences.
+
+6.2 Fire suppression agents
+The noxious products of combustion resulting from a thermal runaway event dangerous underground. Therefore, an external agent must be applied to rapidly quench the fire. The most desirable suppression agent must have excellent fire extinguishing capacity and cooling performance to prevent re-ignition, low cost, good insulation properties, and should leave little or no residue (Zhang et al. 2022). The disappearance of the flames does not confirm the quenching of the fire since re-ignition can occur due to internal chemical reactions owing to higher temperatures (Park 2013). Therefore, the suppression agent must lower the battery’s internal temperature; this is usually extremely difficult since the LIBs are sealed and can explode violently during the TR. The suppression agents can be classified into solid (such as, dry powders), liquid (such as, water, liquid nitrogen, and several others), and gaseous ( CO
+, etc.) forms based on their states at nominal temperature. They are described in the following paragraphs.
+
+6.2.1 Solid agents to suppress the LIB fire
+Several solid agents have been proposed that can effectively suppress the LIB fire. They are also preferred because of their safe storage and low cost. Agents in the form of dry powder are the most widely accepted. Recently, a dry powder, NH
+Al(SO
+)
+O, in the form of an inorganic phase change material, was introduced. The powder decomposes as the temperature increases. The catalytic reaction of the active species suppresses the propagation of the LIB TR  (Xiutao et al. 2023). ABC-type dry powder extinguisher is usually preferred (Wang et al. 2018). Its main constituents are NH
+H
+PO
+ and (NH4)
+SO
+ (Zhao et al. 2021). The components suppress fire by interfering with the rapid chemical reactions and cooling the LIB. Dry powder also has some drawbacks and needs more research into its application. For example, a study on TR suppression in a lithium-iron-phosphate battery (22 Ah, 3.7 V) showed that the flame was extinguished. However, it has a limited cooling effect and could not quench the internal ongoing exothermic reactions. Several application parameters of the dry powder were studied. Increasing the spraying distance lowers its suppression efficacy, while increasing the duration proved to be effective. It is ineffective if it is applied from a distance exceeding 0.8 m. A larger spray angle proved to be favorable when the powder was sprayed on the cathode (Meng et al. 2020).
+
+6.2.2 Water and other liquid agents to suppress the LIB fire
+Water and mist are preferred, as they have excellent extinguishing and cooling capacity and do not pose any adverse environmental impacts. A large volume of pure water or foam sprayed for long periods is effective in LIB fire suppression, as it lowers the temperature (National Highway Traffic Safety Administration 2012; Ghiji et al. 2020). Water is recommended to be applied for a long period in a spot before moving to the next zone. Larger droplet and high spray velocity lower their suppression efficacy while large nozzle count, high flow, and early spray time favor better suppression (Changwei et al. 2022). Water mist is also an effective suppression agent. Water mist discharged at a rate of 1.95 x 10−4 Wh−1 showed a maximum cooling rate of 100 K−s and lowered the surface temperature of the module rapidly (Liu et al. 2020). The addition of 5.0% NaCl additive to the water mist has been observed to improve the inhibition effect of 18650 cylindrical cells at different states of charge. The suppression effect was more pronounced if the mist was sprayed for a longer duration (Liu et al. 2022). In another research, water mist was found to suppress a large-scale LiNi
+Co
+Mn
+O
+ (NCM)/graphite battery fire more effectively than HFC-227ea and CO
+. Water reduced the peak temperature of the cell by 133 °C, which was higher compared to the other two agents (Jiajia et al. 2020). The mist temperature and the state of charge of the batteries are other critical factors that control the suppression. Recent research on 18650 LIBs showed that the critical temperature at which mist must be released is approximately 186.5 °C (Liu et al. 2019). This is about 20 °C lower than the temperature at which TR begins.
+
+The chemical, F-500, manufactured by Hazard Control Technologies, Fayetteville, United States, and composed of fatty alkyl ethers, C6-C12 alcohols, and 2,2’,2" - nitrilotrisethanol aliphatic acid soap, is effective in suppressing LIB fire (Hazard Control Technologies 2023). This is non-toxic and fully biodegradable, which renders it safe to be used in underground mines. The unique micelle technology allows F-500 to encapsulate the fuel and vapors at the molecular level. Research using 3.0% F-500 solution showed that its cooling capacity is approximately three times that of water mist. Peak H
+ emissions were much lower at 14 ppm compared to 217 ppm with water mist (Yuan et al. 2022). Further research also showed that 3.0% F-500 effectively absorbs typical combustible gases (H
+ and CO) emitted during the TR process and quenches the fire more effectively (Yuan et al. 2022). Another liquid chemical called perfluoro-2-methyl-3-pentanone (C6F12O) belongs to the class of fluorinated ketones and is an efficient fire suppressant (Xing et al. 2022). It leaves the storage container in the form of a gaseous-liquid mixture and suppresses fire by rapid cooling and capturing the combustible products emitted from the fuel (Linteris et al. 2013). The presence of water mist was also shown to improve its performance. The peak temperature observeddiminished significantly from over 480 °C at 1.0 MPa to about 360 °C at 3.0 MPa (Liu et al. 2020). However, recent research on the application of C6F12O presented serious toxicity (Liu et al. 2022). Other studies, including the one carried out at the ‘Research Institutes of Sweden’ showed that water along with low or high-expansion foam could be used to extinguish the LIB fire by rapid cooling (Andersson et al. 2018).
+
+6.2.3 Gaseous agents to suppress the LIB fire
+Carbon dioxide gas, CO
+, usually considered an efficient fire suppressant is not effective in quenching LIB fire due to its weak cooling effect and inadequate smothering. However, it is still effective in controlling the uninterrupted TR progression. This was shown in research where CO
+ flooding could not quickly suppress a lithium titanium battery fire (Qingsong et al. 2018). The chemical, dodecafluoro-2-methylpentan-3-one (C
+F-ketone, boiling point of 49.2 °C at 1.0 atm.) was observed to suppress the fire within 30.0 s in the same research. The gaseous agent 1,1,1,2,3,3,3-heptafluoropropane (CF
+-CHF-CF
+) has been shown to suppress the fire resulting from the TR of a lithium titanate (50 Ah, 2.3 V) battery pack. This is a non-ozone-depleting agent. The research also showed that electrolyte spillage and flammable gas ignition promote fire (Wang et al. 2016).
+
+6.2.4 Mixture of several agents to suppress the LIB fire
+A synergistic mixture formed using several suppression agents is usually more effective than each of the components individually, since all components have their own advantages and drawbacks. This was shown in research where C6F12O, COO, HFC-227ea, and water-mist were used to form the suppression agent. Although water alone could not extinguish the flames of a 243 Ah large-scale LiFePO
+ battery fire, the mixture exhibited good quenching and cooling effects (Zhang et al. 2020). It is also critical to note that although the agents can put out a LIB fire depending on the battery capacity, alleviation of TR depends on their ability to remove heat effectively. In a research on 117 Ah LIBs, it was shown that HFC-227ea, C6F12O, and water could extinguish the battery module fire. However, with their very different heat dissipation values of 24.8 kJ, 111.0 kJ, and 459.8 kJ respectively, the water spray provided the best cooling effect (Sun et al. 2022).
+
+6.3 Personnel protection and handling of the affected equipment
+A recent survey in 50 US states reported that only about 40% of the first responders had received training on EV safety (Liu et al. 2023). The complexity of LIB fires in confined underground space increases manifolds despite the heat release rate being similar to that of a fossil fuel powered vehicle (Sun et al. 2020). The resulting toxic products of combustion and the tendency of re-ignition will impact the miners (Colella 2016). Research has shown that internal combustion engines and battery-operated vehicles release similar noxious gases such as CO2, NOx, HCN, CO, and HF (Lecocq et al. 2012). Peak heat-release rates of up to 6.51–7.25 MW have been observed in BEV fires with the LIB pack generating approximately 1.54 MW (Sungwook et al. 2023). However, the jet flames from the LIB pack caused a rapid spread of the fire.
+
+The literature lacks information on LIB-related firefighting techniques in underground mines due to their minimal deployment; most of the information is currently obtained from case studies of battery fires in passenger car battery fires. Firefighters responding to electric vehicle fires usually immobilize and disable the vehicle and extricate the persons before attempting to extinguish the fire (Park 2013). Since LIBs could have stranded energy, firefighters, while approaching them, must exercise the highest levels of caution and preparedness (Bisschop et al. 2020). Water, in a large continuous supply, or other agents, are required as discussed earlier. High-voltage batteries require more water. EV manufacturers also recommend continuous monitoring of battery temperature using thermal imaging cameras for at least an hour after the active fire is quenched (Välisalo 2019; NTSB 2020). Also, damaged LIBs are required to be moved away from any combustible material. Firefighters must be equipped with appropriate personal protective equipment, including boots, electrically insulated gloves, helmets, face shields, and self-contained breathing apparatus (SCBA) (Park 2013). Their exposure to high concentrations of LIB fire products in underground operations increases the importance of SCBAs manifolds (Dorsz and Lewandowski 2022; Said and Stoliarov 2021; Fent Kenneth and Evans 2011). PPEs must be able to offer protection from respiratory-related and electrical shock hazards. PPEs that can protect against water vapor to prevent the fumes from entering the skin are preferred (lisalo 2019). National Fire Protection Agency (NPFA) approved PPEs and SCBA must be used by personnel placed upwind of the fire (Long and Blum 2014).
+
+7 Summary and recommendations for future research
+Lithium-ion battery (LIB)-operated equipment shows immense potential for underground mining operations. LIB systems would make the equipment operation more flexible in constricted spaces. LIBs are also safer because they do not use acidic electrolytes that could harm human operators and the environment. They use several conventional safety devices and controls such as vents, thermal fuses, and safety casings. Several non-inflammable electrolytes and electrode materials have been developed to prevent TR incidents. Cathode materials such as LiCoO2, LiNiO
+, LiMn
+O
+, LiFePO
+, and others have been developed; they are often coated with metal oxides like MgO, Al
+O
+, and others to lower the phase transition phenomena and improve their stability. Similarly, several processes have been developed to treat conventional graphite-based electrodes to improve their surface structures. This prevents the thermal decomposition of Solid Electrolyte Interphase (SEI) layers. However, rapid exothermic reaction with the release of toxic gases, in a process called thermal runaway, is a threat to their safe operations underground. These events are detrimental to miners working in confined spaces supplied with a regulated airflow. Several fire suppression agents have been proposed, with different levels of efficiency. However, these might not be effective on a large-format battery that is expected to be used on large mining machines. Standard procedures to approaching and handling the damaged LIBs underground need to be developed. Furthermore, the impact of a large TR event on the strengths of surrounding natural and artificial supports needs to be investigated for preparedness in an active mine, should an event like this occur.
+
+Several areas need detailed investigation to alleviate the potential failure of LIBs in underground mines, which could also lead to rapid deterioration of the environment. These issues could be challenging in underground mines for both humans and machines. Their safety could be affected  by extreme temperatures as well as by high humidity (e.g., due to water influx and other rapidly changing environmental conditions).
+
+(1)
+Early warning systems: The battery temperature may increase much before the thermal runaway process begins. The battery voltage fluctuates and reaches 
+ V slightly before the rapid combustion. More research on sensing systems is required to predict the conditions that might result in their failure.
+
+(2)
+Passive defense systems: The outer shells of batteries should be strengthened to reduce the inward propagation of damage. These would also assist in alleviating the influence of the external environment on the battery. Well-engineered enclosures should also withstand the pressures developed during gaseous expansion in the event of a thermal runaway (TR).
+
+(3)
+Enhancing the intrinsic stability of battery materials: This issue is an active area of research, and further investigation is required to develop materials that are resistant to violent TRs.
+
+(4)
+Occurrence of secondary hazards like flame propagation: Since cell components are usually tightly packed in their enclosures, a TR event is usually accompanied by flames due to the combustion of gaseous flammable components, where the flames have enough energy to ignite the surrounding combustible materials. For example, the flames could easily ignite a coal-dust mixture that could almost instantaneously explode. Therefore, future research should focus on the development of flame-proof enclosures to quench the flame and thus restrict the outlet of emitted energy so that the LIBs themselves do not act as an underground fire source.
+
+(5)
+Parking and charging: The parking and charging stations should be built underground to lower the machine idling because a long trip to the charging bay would reduce the productivity of the equipment and that of the fleet. The underground construction of the charging bay will also require additional safety features, as delineated below:
+
+The electrical devices must be equipped with overcharging and other protection features.
+
+The charging bay should also be ventilated by using a separate air stream to prevent the impact of any TR event that may affect the entire mine environment.
+
+(6)
+Impact of TR on the strength of the surrounding rocks and supports: Underground mine openings are usually supported by a combination of natural and artificial devices. The intense and sustained heat generated during a TR event could impact the structural integrity of the surrounding rocks and supports.
+
+(7)
+Sustainable manufacturing of LIBs for mining of critical minerals: This issue is important because there are several minerals, classified as “critical", which are mined mostly in developing countries.
+
+(8)
+Recycling of batteries: This issue is important because the mining industry is expected to use large numbers of batteries if a significant part of the fleet is to be electrified.
+
+Data availability
+All the data and materials listed on the manuscript were obtained from publicly available sources.
+
+Abbreviations
+BEV:
+Battery electric vehicles
+
+BMCS:
+Battery management and control system
+
+BMS:
+Battery management system
+
+CFD:
+Computational fluid dynamics
+
+DPM:
+Diesel particulate matter
+
+EV:
+Electric vehicle
+
+HFC:
+Heptafluoropropane
+
+LFP:
+Lithium iron phosphate
+
+LIB:
+Lithium-ion battery
+
+LMO:
+Lithium ion manganese oxide
+
+LTO:
+Lithium titanium oxide
+
+NMC:
+Nickel manganese cobalt
+
+NIOSH:
+National Institute for Occupational Safety and Health
+
+OSHA:
+Occupational Safety and Health Administration
+
+PTC:
+Positive temperature coefficient
+
+SCBA:
+Self-contained breathing apparatus
+
+SEI:
+Solid electrolyte interphase
+
+SOC:
+State of charge
+
+TR:
+Thermal runaway

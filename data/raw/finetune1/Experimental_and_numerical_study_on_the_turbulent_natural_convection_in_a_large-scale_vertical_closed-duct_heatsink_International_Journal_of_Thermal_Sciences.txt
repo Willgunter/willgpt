@@ -1,0 +1,387 @@
+Keywords
+Closed duct heatsinkLarge eddy simulationTurbulent natural convectionTurbulence model
+Nomenclature
+
+A	area (m2)
+cp	specific heat (J/(kg·K))
+D	dissipation term (m2/s3)
+fw	dimensionless damping function
+g	acceleration of gravity (m/s2)
+GrH	Grashof number
+H	height of the heatsink (mm)
+h	convection heat transfer coefficient (W/(m2·K))
+I	turbulent intensity
+k	turbulent kinetic energy (W)
+kl	laminar kinetic energy (W)
+Lb	bottom extension length of domain (mm)
+Lf	fin length (mm)
+Lep	extension length from end plate (mm)
+Lt	top extension length of domain (mm)
+p	pressure (Pa)
+Q	heat transfer rate (W)
+q	heat flux (W/m2)
+Rayleigh number
+Re	Reynolds number
+hydraulic radius (m)
+S	fin spacing (mm)
+optimum fin spacing (mm)
+T	temperature (K)
+duct wall thickness (mm)
+duct wall temperature (K)
+environment temperature (K)
+ΔT	temperature difference between base and environment (K)
+U	uncertainty of a variable
+velocity component in i-direction (.)
+time-averaged velocity component (.)
+fluctuating velocity component (.)
+time-averaged air velocity over duct (.)
+W	heatsink width (.)
+y+	turbulence wall scale
+Greek Symbols
+α	thermal diffusivity (m2/s)
+β	thermal expansion coefficient (1/K)
+ε	energy dissipation rate (W)
+λ	thermal conductivity (W/(m·K))
+μ	dynamic viscosity (kg/(s·m))
+ν	kinematic viscosity (m2/s)
+ρ	air density (kg/m3)
+radiation reflectivity at sub-surface k
+ω	specific energy dissipation rate (W)
+Subscripts
+a	air
+avg	space-averaged
+in	inlet
+l	laminar
+nat	natural
+out	outlet
+s	solid (aluminum alloy Al 6061)
+T	turbulence
+w	duct wall
+environment
+1. Introduction
+1.1. Background
+As technology advances, the power consumption of electronic devices continues to rise. Effective thermal management becomes increasingly critical. Among various cooling strategies, natural convection is widely recognized as a fundamental passive heat transfer mechanism owing to its inherent simplicity, reliability, and cost-effectiveness. Consequently, the development of highly efficient natural convection heatsink not only addresses the heat dissipation challenges of electronic devices but also contributes to reducing energy consumption associated with passive cooling methods.
+Elenbaas [1] was the first to systematically examine natural convection heat transfer from vertical isothermal plates under laminar conditions, utilizing pairs of parallel square plates to measure the average convective heat transfer coefficient (h) for two-dimensional parallel plates with varying spacings (S). A concise survey of the related study is available in Wong et al. [2]. However, these studies did not consider the effects of finite channels. Floryan and Novak [3] numerically investigated natural convection in two-channel, three-channel, and infinite-channel configurations under isothermal conditions. They observed that when the GrH exceeds a certain value, recirculation zones form near the external walls at the entrance, causing a reduction in heat transfer rates within multi-channels. Furthermore, many numerical studies have neglected the buoyancy effect induced by the hot zone above the heatsink. To address this, Wong and Chu [4] not only accounted for the recirculation zone near the entrance for multi-channel configurations, but expanded the computational domain and indicated that the hot air region above the heatsink significantly increases buoyancy, thereby enhancing heat transfer. They called this phenomenon the “virtual chimney effect.”
+The foundational study of laminar natural convection from a closed-duck heatsink (CDHS) was again pioneered by Elenbaas [5]. A brief survey of the related study as well as the advantages and disadvantages of the CDHS is available in Wong et al. [2,6]. A CDHS and a traditional plate-fin heatsink (PFHS) each exhibits certain limitations in the performance of heat dissipation. Although a CDHS offers a larger surface area for heat transfer under an identical space restriction and maintain a stronger chimney effect compared to a PFHS, the small temperature difference near the outlet, however, results in a lower heat transfer rate near the outlet. Conversely, despite the continuous supply of ambient cold air in PFHSs, their smaller heat transfer area with open ducts limits the thermal performance and the chimney effect due to the insufficient temperature rise within the heatsink channels. Owing to these limitations of a CDHS and a PFHS, Wong et al. [2,6] proposed a novel vertical partially-open-duct heatsink (PODHS) to enhance natural convection heat removal performance. Numerical natural-convection results indicated that the PODHSs outperformed the CDHSs by approximately 5.8–14.4 % and the traditional PHFSs by 11.4–37.6 % at their respective optimal fin spacings (Sopt) for heatsink heights (H) of 100–700 mm and fin lengths (Lf) of 16–50 mm [6]. These performance improvements are achieved by introducing swirling upward airflow through mirror-symmetric partial openings, facilitating effective mixing with colder external air and consequently lowering the internal air temperature in the rear duct region. Additionally, this novel PODHS design maintains a pronounced virtual chimney effect due to the significant hot air plume above the heatsink, even with an optimum narrow opening width of 2 mm [6]. Furthermore, the PODHS allows a considerably wider range of optimal fin spacing (Sopt), approximately twice that of traditional designs, significantly reducing heatsink material usage, manufacturing cost, and overall weight [2].
+As fluid flows along a hot, tall flat vertical plate, the buoyancy tends to drive the flow from laminar to turbulent. The growth of turbulent kinetic energy (TKE) is closely related to flow dynamics, with shear producing TKE from the mean flow. The negative density gradient drives TKE generation through buoyant acceleration, creating turbulent structures. The viscosity converts TKE into heat at the smallest scales, bringing the turbulent cascade to an end. A complex energy budget thus forms to constantly redistribute energy between the mean flow and turbulence. Variations in viscosity, due to temperature and/or composition, can profoundly affect flow physics, generating instabilities and changing how TKE is created and dissipated [7]. Wang et al. [8] experimentally studied the influence of buoyancy on turbulent flow in a vertical plane passage with one wall heated and the opposite adiabatic. Their results clearly showed that the effectiveness of heat transfer was modified by the distortion of the mean flow in the vertical plane passage due to the influence of buoyancy.
+In the past, most studies of natural convection practically adopted the wall shear stress correlations originally developed for forced convection. To show the inappropriateness of this practice, Brdlik [9] proposed a modified correlation with better agreement with the experimental data for heat transfer and by modifying the Reynolds (Re) analogy and considering different boundary layer characteristics. Bayley [10] and Fujii [11] specifically investigated heat transfer on natural convection. In particular, Fujii [11] conducted theoretical analysis and constructed a model for turbulent natural convection heat transfer on vertical plates, as well as established predictive correlations on varying Prandtl numbers. Refs. [[12], [13], [14], [15]] conducted experimental investigations of natural convection on vertical plates. Goldstein and Eckert [12] explored the development of the boundary layer, temperature distributions, and heat transfer characteristics under steady-state and transient conditions. Cheesewright [14] provided comprehensive data on local heat transfer rates for vertical plates, overcoming previous limitations of measuring overall heat transfer rates. Inagaki and Komori [15] accurately measured the local heat transfer coefficient in the transition zone of a vertical flat plate. These studies not only enhanced fundamental understanding of natural convection on vertical plates but also provided benchmarks for subsequent numerical analyses. Kato et al. [16] provided innovative insights into the theoretical analysis and the transition criteria of turbulent natural-convection heat transfer on vertical plates. They treated natural convection as a special form of forced convection and derived theoretical velocity and temperature distributions for turbulent natural convection by adopting shear stress, heat flux, and eddy diffusivity models employed in forced convection. Furthermore, George and Capp [17] proposed the inner-outer structure of the natural-convection boundary layer. Yuan et al. [18] developed a comprehensive wall function specifically for natural convection on vertical plates, significantly enhancing the accuracy and computational efficiency of CFD simulation.
+These experimental and numerical studies on turbulent flow over flat plates established a solid foundation for subsequent experimental and numerical investigations of turbulent natural convection within the cavity between parallel plates. Turbulent natural-convection boundary layers over heated vertical plates are often characterized by low velocities, high levels of fluctuation, and strong thermophysical property variations in air, making it challenging to accurately capture the turbulent structures near the wall. A series of high-resolution experimental studies by Tsuji and Nagano [[19], [20], [21]] systematically investigated these features and the fundamentals of this complex flow regime. In Tsuji and Nagano [19], detailed measurements of the mean velocity and temperature fields were presented, highlighting the non-similarity of heat and momentum transfer. In the subsequent work, Tsuji and Nagano [20] simultaneously measured Reynolds stresses and turbulent heat fluxes for the first time. Their results demonstrated that near-wall shear stresses tend toward zero, indicating that the turbulence generation mechanism under buoyancy differs fundamentally from that in forced convection. Tsuji and Nagano [21] measured turbulence characteristics within a natural convection boundary layer along a vertical flat plate, including the near-wall region. Unlike forced convection, conventional concepts such as the existence of a viscous sublayer and the analogy between heat and momentum transfer do not hold in natural convection near-wall turbulence. The Reynolds stress and streamwise turbulent heat flux distributions near the wall differ significantly from those in forced convection, although the wall-normal turbulent heat flux displays a similar pattern. Notably, the mean velocity and velocity fluctuation profiles in the inner layer closely follow laminar boundary layer similarity variables, highlighting a distinctive feature of natural convection turbulence. In the outer layer, scaling with the integral thicknesses of the velocity and thermal boundary layers provides the most effective framework for correlating the measured profiles. Tsuji et al. [22] experimentally discovered that thermal fluctuations originated in the outer layer and temperature profile changes under the control of the thermal field in the outer region of boundary layer, thus contradicting the streak-structured turbulence observed in forced convection. Additionally, the distinct spatial correlation of the thermal field, absent in the velocity field, suggests that natural convection turbulence should not be directly interpreted through quasi-coherent structures such as bursts identified in forced convection. As a result, these studies highlighted that the viscous sublayer and near-wall heat transfer mechanisms must be redefined in turbulent natural convection. Moreover, the coupling between thermal and momentum transport, as well as the governing scaling laws and turbulence generation locations, differ fundamentally from those in forced convection. Their comprehensive data and empirical correlations have since provided benchmarks for the development and validation of turbulence models, including RANS and LES frameworks. Hattori et al. [23] further measured the turbulence characteristics up to a high wall temperature of 300 °C. Their data indicated that the effects of high heat on the turbulent behavior in the boundary layer are quite small.
+Dafa’Alla and Betts [24] conducted a detailed experimental investigation of turbulent natural convection in an air-filled cavity with a high aspect ratio (28.6), providing comprehensive velocity and temperature field data at high Ra numbers. Their results indicated circulations with heated airflow ascending along the hot side and descending along the cold side, resulting in nearly linear velocity profiles. Furthermore, both vertical and horizontal velocity fluctuations were notably high in the central region, with turbulence intensities exceeding 120 %. Subsequently, Betts and Bokhari [25] further examined the flow characteristics at Ra ∼ 
+, concluding that natural convection within the vertical enclosed cavity had reached fully developed turbulence. Their measurements showed the root-mean-square fluctuations of vertical and horizontal velocities approached 70 % of the maximum mean velocity, indicating substantial velocity disturbances in the mid-region of the cavity (vertical height y/H = 0.3–0.7). Additionally, the Reynolds stress distribution was smooth and symmetrical, suggesting effective transmission of turbulent shear stress throughout the flow field. Therefore, it confirmed a non-transitional, fully turbulent state. Finally, the flow visualization experiments revealed extensive interactions between large- and small-scale vortices within the flow. Although the results provided compelling evidence demonstrating the onset of turbulent flow at Ra = 
+, these findings cannot be directly generalized to square ducts with four heated surfaces without circulation.
+Numerically, Fedorov and Viskanta [26] investigated heat transfer in asymmetrically heated vertical parallel-plate channels and validated their results with experimental data. Their findings indicated that the low-Reynolds number (Re) k-ε model exhibited excellent performance in simulating heat transfer and flow-field transitions within such channels. Furthermore, Versteegh and Nieuwstadt [27], as well as Hölling and Herwig [28], developed specific wall functions for modeling turbulent natural convection in vertical parallel-plate configurations. Dizjeh and Brinkerhoff [29] applied direct numerical simulation (DNS) to a vertical channel with one heated wall. Their main target was the solar chimney, which cannot be modeled as a vertical buoyant boundary layer because the channel wall-to-wall spacing considerably influences the flow rate and the velocity distribution. Controlled sinusoidal perturbations in velocity, temperature, and pressure were introduced at the inlet. The growth of disturbances and their role in triggering transition are systematically analyzed. Two dominant spanwise and streamwise vortex structures were observed during transition. Results indicated a 14 % reduction in flow rate after transition due to increased friction. The turbulent Prandtl number near the heated wall deviated significantly from unity. These findings highlighted the need for modeling transition dynamics for reliable solar chimney designs. Badr et al. [30] investigated the flow field and heat transfer characteristics in vertical parallel-plate channels under various heating conditions and geometric configurations. They proposed an empirical correlation for predicting the Nusselt number and the results revealed that the low-Re k-ε model exhibited deviation in regions with high velocity gradients. Yilmaz and Fraser [31] performed a comprehensive comparison between experimental data and numerical simulations for turbulent flow. Following Yilmaz and Fraser's work, Abdollahzadeh et al. [32] examined turbulent flow along a two-dimensional vertical plate by comparing multiple Reynolds-averaged Navier–Stokes (RANS) turbulence models with the experimental data provided by Yilmaz and Fraser [31]. Their analysis showed that although both RNG k-ε and low-Re k-ε models accurately reproduced inlet velocity profiles, the low-Re k-ε model provided better predictions for the outlet velocity conditions. As most studies utilized RANS models for simulating vertical parallel-plate channels, inaccuracies arose in the transitional region. To solve this problem, Kumar and Premachandran [33] employed the large eddy simulation (LES) to examine the effects of transitional flow on natural convection under varying channel inclinations and analyzed the variation of the Nu associated with boundary-layer development. Their results demonstrated that increased channel inclination delays the transition to turbulence, and the LES model effectively predicts multi-scale turbulent structures and transitional flow phenomena.
+Although numerous studies have addressed turbulent natural convection such as flow over vertical plates and cavities with a single heated wall, there remains limited research focusing on heat transfer within a duct featuring four heated walls. Addressing this knowledge gap can provide essential reference data for future studies aimed at developing large-scale natural convection heatsinks. Therefore, this study aims to determine whether these RANS turbulence models can produce reliable results when simulating a vertical CDHS duct with an isothermal wall temperature. It is noted that the two side walls were insulated to resemble a single closed-duct in an infinite-duct heatsink. An LES analysis will also be conducted as a comparison basis. We will examine the steady-state heat transfer characteristics and thermal performance of a vertical CDHS duct in the transitional and turbulent regime both experimentally and numerically. Since there is no experimental data in the literature, we will measure the temperature characteristics of two combined square aluminum alloy ducts each with Lf = 56 mm, S = 52 mm, and H = 1800 mm (Fig. 1). Simultaneously, based on the favorable agreement between experimental data and numerical simulation for a single CDHS duct, the optimal RANS turbulence model will be used to evaluate the heat transfer performance of an infinite-duct CDHS.
+Fig. 1
+Download: Download high-res image (192KB)
+Download: Download full-size image
+Fig. 1. Geometric parameters of two combined vertical closed ducts to simulate an infinite-duct CDHS.
+
+This study focuses on evaluating the performance of the turbulence models in a single duct of a CDHS heatsink. It will be shown that the side length in our experimental square duct is much larger than the Sopt predicted using the RANS k–kl–ω model. This guarantees that the boundary layers developed on the four hot walls will not mutually interact.
+1.2. Problem statement
+This study evaluates the reliability of the turbulence models based on the RANS equations in simulating thermal performance of a vertical closed duct heatsink (CDHS). LES analysis will also be performed to provide a comparison benchmark, as LES is known to closely approach the DNS data for turbulent flow [[34], [35], [36], [37], [38]]. The steady-state heat transfer performance of a vertical CDHS duct will be thoroughly investigated using both experimental and numerical methods. To decrease the sideward reduction of the virtual chimney effect, experimentally two combined commercial square aluminum tubes were used to measure the temperature characteristics with dimensions Lf = 56 mm, S = 52 mm, and H = 1800 mm and tf = 8 mm, as shown in Fig. 1. Numerically, a single square duct suffices. The physical characteristics of the system will be examined using four RANS turbulence models and LES.
+1.3. Objectives
+Although many studies have investigated natural convection under turbulent conditions, most of them are limited to simple geometries such as flat plates or enclosures. To date, little attention has been paid to the development of heatsink specifically designed to operate under turbulent natural convection. Therefore, it is a challenge to accurately capture the flow and thermal behavior of a heatsink under passive cooling for electronic components, specifically in a large channel number or approximating infinite-number channels. This study experimentally and numerically investigates a novel configuration that approximates an infinite-channel heatsink by combining two heated vertical ducts, each 1.8 m in height, with symmetric (or adiabatic) side boundaries. This arrangement allows for a controlled investigation of heat transfer and flow structures representative of a CDHS under natural convection.
+The first objective of this work is to evaluate the predictabilities of various Reynolds-Averaged Navier–Stokes (RANS) turbulence models for the flow and temperature fields in comparison with the LES. The second objective is to utilize the LES, due to its superior resolution of unsteady turbulent structures, to examine the spatial evolution of velocity and temperature fields. This experimental and numerical study aims to reveal critical insights into the flow development, thermal boundary layer behavior, and transitional phenomena that influence the overall thermal performance of such CDHSs.
+2. Experimental setup
+Experimental verification was performed to validate the accuracy and reliability of the computational results. The experimental setup is illustrated in Fig. 2, where two combined commercial tall square tubes, each with 19 measurement points, were utilized with 9 heaters to heat the base plate isothermally. To obtain the total heat transfer rate of the duct, the temperature data were recorded after the system reached steady state, with the heating temperature stabilized at approximately 55 ± 1.0 °C above the ambient temperature (25 ± 0.5 °C). The total surface heat transfer required for the experiment is determined by summing the power output from all nine power supplies. Temperature measurements are set up at the base plate using K-type thermocouples (Omega, Inc.). Since heat radiation plays a crucial role in natural convection, the duct surfaces were sprayed with a thin layer of thermal radiation correction paint with an emissivity of 0.95, which has been calibrated using K-type thermocouples [2].
+Fig. 2
+Download: Download high-res image (822KB)
+Download: Download full-size image
+Fig. 2. Thermocouple layout and heating module of the testing system.
+
+2.1. The tall vertical square duct
+The commercial tall vertical square tubes, made of Al 6061 with a thermal conductivity of approximately 200 W/(m·K), were used. Simulation tests indicated that the fin efficiency of the duct was 99 %, allowing fin efficiency to be irrelevant in this study. Both tubes were secured on a 10 mm thick Bakelite® plate to reduce heat loss (Fig. 2).
+2.2. The heating module
+The heating module includes nine 120-mm wide polyimide film heaters and thermal pads, as shown in Fig. 2. The polyimide film heater primarily consists of a nickel-chromium alloy heating wire and a 1.5 mm-thickness high-temperature silicone rubber insulation layer. It offers rapid heating and uniform temperature distribution. The heating element enables a heating power of up to 1.2 W/cm2 with enhanced uniformity in heat distribution. The thermal pad used in this study was the T-Global TG-A3500 ultra-soft thermal silicone pad, having a thermal conductivity of 3.5 W/(m·K). The pads were adhered to the base plate to ensure uniform temperature distribution.
+2.3. Experimental measurement
+First, temperatures were measured using 38 K-type thermocouples placed at designated measurement points (Fig. 2). Then, a data acquisition system captured the temperature data and transferred it to a computer for storage every 2 s. Finally, the collected temperature data were averaged across the 38 measurement points to establish the boundary conditions for the numerical simulation. To ensure a steady state, measurements were started after 5 h, when the temperature variations at each point did not exceed ±1 °C. During the experiment, the laboratory environment was controlled to minimize outer disturbances, with no personnel movement and air conditioning, and maintained at a consistent ambient temperature of 25 ± 0.5 °C.
+The surface temperature 
+ was measured by 38 K-type thermocouples (Omega, Inc.) over 5 h. Similarly, the ambient temperature 
+​ was simultaneously measured using a K-type thermocouple. The uncertainty of the temperature measurement was ±0.1 K. Applying error propagation, the standard error was ±0.62 K for 
+), corresponding to a relative uncertainty of ±1.1 %, as explained below using Eqs. (1), (2), (3), (4), (5). The heat loss in the experiment is determined through numerical simulation, and will be further detailed in Section 4.2.
+(1)
+(2)
+(3)
+(4)
+(5)
+3. Numerical setup
+This study employs numerical methods to calculate the heat transfer performance of a tall vertical square duct of an infinite-duct CDHS. It investigated the flow and temperature field characteristics to identify the underlying reasons for differences in thermal performance.
+3.1. Computational domain
+Since a square tube is symmetric, the computational domain can be simplified by applying symmetry in ANSYS Fluent® 2022 R2. The computational domain in the numerical analysis is presented in Fig. 3. The top and bottom vertical boundaries extending from the base plate of the square duct are modeled using the slip condition, and the horizontal bottom boundary represents the table top or ground. The external airflow inlet is defined as a pressure inlet, while the outlet at the top is defined as a pressure outlet. The dimensions of the computational domain have a substantial impact on convergence performance and simulation accuracy. The extensions of the computational domain were set as follows (Fig. 3): the top extension length (
+) was 1000 mm, the extension length from the end plate (Lep) was 200 mm, and the bottom extension length (
+), representing the distance between the vertical square ducts and the table top or ground, was 125 mm.
+Fig. 3
+Download: Download high-res image (292KB)
+Download: Download full-size image
+Fig. 3. The computational domain and boundary conditions.
+
+3.2. Governing equations and boundary conditions
+The numerical simulation was conducted using the commercial CFD software ANSYS Fluent® 2022 R2. The following assumptions are made.
+(1)
+Since the RaH is 
+ at H = 1800 mm, the airflow field at the rear section is expected to be turbulent. It will be shown that no clear transitional phenomenon can be observed along the CDHS due to a strong recirculation zone near the inlet.
+(2)
+The temperature settings were based on experimental data, with the wall temperature fixed at 
+ and the ambient temperature maintained at 
+.
+(3)
+Since ΔT = (Tw - T∞) was 55 ± 1.5 °C, the air was modeled as an ideal gas with the density determined by the ideal-gas equation of state, instead of using the less accurate Boussenisq approximation.
+The governing equations are:
+Continuity equation:
+(6)
+Momentum equations:
+(7)
+(8)
+(9)
+Energy equation:
+(10)
+Radiation:
+(11)
+(12)
+Conduction:
+(13)
+‧
+Boundary conditions.
+(1)
+The pressure inlet is defined with a total pressure of zero, while the outlet is set as a pressure outlet with zero static pressure. Both the inlet and outlet temperatures are set as T∞. To improve model stability, the static pressure is set to 
+. In cases of backflow at the boundaries, the temperature is enforced to remain at 
+. But this does not actually happen according to the computation results.
+(2)
+All solid surfaces are subjected to the no-slip condition with
+(14)
+(3)
+The convection heat transfer coefficient is area-weighted as
+(15)
+3.3. Solution methods
+The finite volume method is used. For the LES simulation, Eqs. (6), (7), (8), (9), (10), (11), (12), (13), (14), (15) are adopted using the compressible LES framework in ANSYS Fluent. This approach solves the spatially filtered compressible Navier–Stokes equations. The filtering operation and numerical discretization are handled internally by the solver. The WALE (wall-adapting local eddy-viscosity) model was adopted for subgrid-scale turbulence modeling [39]. This model is particularly suitable for wall-bounded flows, such as natural convection along vertical heated surfaces, due to its capability to capture near-wall eddies without requiring dynamic coefficients. The computational mesh contains approximately 18 million cells. The mesh was refined near the heated wall to accurately resolve steep gradients in both velocity and temperature. For all of RANS turbulence models, the pressure-velocity coupling was handled using the Coupled algorithm. Body-force weighting was used for the pressure term. Second-order upwind spatial discretization was applied to the convective terms of the momentum, energy, and turbulence transport equations. Gradients were evaluated using the Least Squares Cell-Based method. The LES model employs Central Differencing for the momentum terms and Bounded Central Differencing for the energy equation to ensure both numerical accuracy and stability.
+For fluid-solid coupled simulations, the boundary layer near the air-solid interface required special attention, for the large velocity and temperature gradients. The grid independence test in this study was conducted using the experimental data of Yang and Wong [40], given the structural and numerical similarity between the present CDHS and the vertical closed duct. Therefore, as shown in Fig. 4, finer grids were applied in these areas. Additionally, the turbulence model employed in this study demanded a stringent grid resolution with 
+ values less than or equal to 1. The definition of 
+ is:
+(16)
+Fig. 4
+Download: Download high-res image (599KB)
+Download: Download full-size image
+Fig. 4. The grids near the solid-fluid surface of the closed duct.
+
+According to Table 1, y+ = 1 yields deviations less than 0.2 % from y+ = 0.5 for all the k–kl–ω, k–ω SST, and LES models. We finally selected y+ = 0.5 for all computations.
+Table 1. Grid independent testing results on 
+.
+
+Q by k-kl-ω (W)	Q by k-ω SST (W)	Q by LES (W)
+4	136.27	143.18	135.51
+1	136.82	136.82	135.80
+0.5	137.01	136.91	136.15
+Under fixed conditions for all other parameters, ensuring 
+ = 0.5 in the turbulent state requires the normal distance (x or z) from the wall to the nearest grid point to be equal 0.1 mm. Meanwhile, the longitudinal grid size must be optimized through grid independence testing to ensure accurate simulation results. Based on the grid independence test (Table 2), a longitudinal grid size of 0.7 mm is selected. All mesh elements maintained a quality factor above 0.5, meeting the turbulence models’ requirements and ensuring computational accuracy. Default relaxation factors were used. Convergence was set as the residuals were 10−7 for the continuity and momentum equations and 10−8 for the energy equation.
+Table 2. Grid independent testing results on longitudinal grid size.
+
+Grid size (mm)	0.5	0.7	1.0	1.2
+Q (W)	136.47	136.15	133.67	130.21
+It is noted that the symmetry of the closed duct may warrant a half of duct for simulation. But since 3-D turbulent flow emerges in the CDHS, we simulated a full CDHS duct to avoid the artificial boudary at the middle plane of the duct.
+3.4. Turbulence models
+This study used five RANS turbulence models (RNG k-ε, Realizable k-ε ewt, k-ω SST, k-kl-ω, and LES) to simulate the flow field and heat transfer. The results of the velocity and temperature distributions were then compared.
+RANS turbulence models simplify flow field fluctuations by applying time-averaging. It can significantly reduce computational resources in comparison with DNS. In the RANS methods, velocity and pressure are decomposed into a time-averaged component (
+) and a fluctuating component (
+). The velocity 
+ can be expressed as:
+(17)
+Substituting 
+ into the Navier-Stokes equations and taking the time average yields the RANS equations:
+(18)
+where 
+ is the Reynolds stress tensor, representing the additional stresses induced by turbulence. To close the RANS equations, these Reynolds stresses must be modeled using turbulence models. The following are the features of different RANS turbulence models used in this study.
+RNG k-ε is an improved version of the k-ε model that handles the turbulent energy dissipation through statistical renormalization. The standard wall function is suitable for high-Re flows and can use larger grid sizes near the wall.
+The Realizable k-ε ewt model modifies the eddy viscosity formulation and the dissipation rate equation to improve physical consistency. Enhanced Wall Treatment (EWT) provides improved near-wall predictions by adapting the treatment approach based on the local y + value.
+k-ω SST model combines the k-ω SST and k-ε approaches. It uses k-ω near the wall to process fine flow structures and k-ε to handle free shear flow away from the wall. The near-wall processing for low Re has been further improved, making it suitable for low-Re flow conditions.
+The k-kl-ω model is specifically designed to simulate the laminar-turbulent transition process. It employs three turbulence parameters: k, representing the turbulent kinetic energy; kl, representing the laminar kinetic energy; and ω, representing the specific dissipation rate. The transport equations for the k-kl-ω model are as follows:
+(19)
+(20)
+(21)
+where D is dissipation term, Rnat is natural convection source term, fw is dimensionless damping function, fω is correction function. This model captures the details of the transition from laminar to turbulent boundary layers, providing more accurate predictions of the transitional regime. It is noted that the steady-state RANS models are solved because of the steady-state physical situations.
+LES is an unsteady turbulence model that directly simulates large-scale eddy structures in turbulence while handling small-scale turbulence using a sub grid-scale WALE model to reduce computational costs. All the detailed equations used in the RANS and LES model follow the ANSYS Fluent@ codes. Even so, it is still rather time consuming, requiring about 7 days for a single case, while the other models only need about 2 h for a case. According to the results of [[29], [30], [31], [32], [33]], LES can very closely match the DNS results and experimental data. Also, the present study will show that LES exhibits a deviation of only −2 % from the experimental data of Q. Therefore, the LES results are used in this study as the benchmark for evaluating the local flow and temperature distributions predicted by different RANS models.
+3.5. Computation for experimental Qloss
+For an isothermal base plate, it is necessary to simulate the experimental Qloss, which includes heat loss through the back side of the system and the thermal loss from the insulation material placed at the duct sides and between the polyimide heating film and the Bakelite® plate, where it contacts external air, as illustrated in Fig. 5. At the back of the system, wooden plates were used to separate the space, forming several laminar circulation zones. Eight screws were employed to secure the Bakelite® plate, the polyimide heating film, and the thermal pad layer, with contact resistances neglected in the analysis. To accurately determine heat loss, simulations are employed. By assigning the temperature of the base plate of the closed duct, the temperature distribution over each solid surface is computed through heat conduction. Subsequently, the heat dissipation from each surface is calculated for natural convection and radiation.
+Fig. 5
+Download: Download high-res image (381KB)
+Download: Download full-size image
+Fig. 5. The structure for heat loss control at the back side of the system.
+
+A laminar flow model is utilized in the simulation because the structural dimensions are shortened by the wood plates so that the natural convection cannot grow into turbulence. The structural dimensions in the simulation are identical to the experimental setup. Regarding the boundary conditions, the outermost boundary of the computational domain is set to the ambient temperature, while the base plate temperature is assigned according to the experimental value. This simulation may introduce slight uncertainty in Qloss, contributing to discrepancies between the model predictions and the experimental heat transfer rates, which will be further discussed in Section 4.2.
+4. Results and discussion
+4.1. Simulation results
+The simulation results are shown for the outlet, middle, and inlet cross-sections in Fig. 6, Fig. 7, Fig. 8, respectively. The velocities presented in Fig. 6, Fig. 7, Fig. 8 are the vectorial sum of u, v, and w, with the vertical component v(y) predominating. The LES data corresponded to instant ones after the LES has converged for 20 s. As can be seen, the k-kl-ω model accurately predicts the velocity distribution within the duct, particularly near the walls where higher temperatures accelerate the flow, as illustrated in Fig. 6, Fig. 7. Also, recirculation flow shows in the inlet cross-section for the k-kl-ω model (Fig. 8), which partially blocks airflow and slightly decreases local heat transfer near the duct inlet. This observation aligns with the findings of Floryan and Novak [3] for the recirculation zone near the inlet. Furthermore, the k-kl-ω model results are highly similar to the velocity distribution of the benchmark LES model. While the k-ω SST model also exhibits a comparable similarity to the k-kl-ω and LES models at the inlet cross-section (Fig. 8), slight differences in velocity distributions are observed between the k-kl-ω, k-ω SST and the LES models at the outlet and middle cross-sections (Fig. 6, Fig. 7).
+Fig. 6
+Download: Download high-res image (396KB)
+Download: Download full-size image
+Fig. 6. Velocity fields at y = 1800 mm (the outlet) of different modeling results (heating applied at the lower side of each duct).
+
+Fig. 7
+Download: Download high-res image (358KB)
+Download: Download full-size image
+Fig. 7. Velocity fields at y = 900 mm (the middle section) of different modeling results (heating applied at the lower side of each duct).
+
+Fig. 8
+Download: Download high-res image (362KB)
+Download: Download full-size image
+Fig. 8. Velocity fields at y = 0 mm (the inlet) of different modeling results (heating applied at the lower side of each duct).
+
+Additionally, we also extracted the mean velocity, temperature, and turbulent kinetic energy profiles along Line a–a’ (Fig. 3) for different turbulence models. Fig. 9 presents the velocity profiles along Line a–a’. At the inlet section, the recirculation zone affects the inlet velocity, resulting in a noticeably low velocity region near the end plate (at x = 50–56 mm). Among all the turbulence models evaluated, the k-kl-ω and k-ω SST models show the closest agreement with the LES results near the wall. Although some deviations are observed in the central region, these two models still provide the most accurate overall predictions. At the middle section, the k-kl-ω and k-ω SST models continue to show strong agreement with the LES results near the wall. However, between x = 30–50 mm, there are noticeable deviations from the LES. It indicates that both models have slightly limited capability in predicting mixing and dissipation in the core region. At the outlet section, due to the elevated near wall temperatures to accelerate air velocity, the LES reveals a distinct double peak velocity profile. Both the k-kl-ω and k-ω SST models are able to reproduce this double-peak structure in spite of the higher peaks near the end plate. In general, these two models predict better than the RNG k-ε and the Realizable k-ε ewt models.
+Fig. 9
+Download: Download high-res image (437KB)
+Download: Download full-size image
+Fig. 9. Velocity profile along Line a–a’ (Fig. 3) predicted by various turbulence models.
+
+Similarly, the predicted temperature profiles at the cross-sections of different y-positions are shown in Fig. 10, Fig. 11, Fig. 12, respectively, for the five models. It is noted that the LES results are unsteady, rather than the steady-state results of other RANS models. For direct comparison of the RANS model with the LES model, the LES results must be time averaged, which would need a very long time. At the entrance section (y = 0 mm), the temperature distribution is influenced by the recirculation flow causing an uneven temperature distribution. Furthermore, at the outlet cross-section (y = 1800 mm) and middle cross section (y = 900 mm), the temperature near the corner is higher than at the center, leading to a distinct temperature distribution from those at the inlet cross-section. This phenomenon can be attributed to the stronger heat transfer in the corner regions of the heatsink. Also, the temperature in the inner sublayer of the boundary layer is heated and increases. Additionally, the higher local air temperature increases buoyancy, thereby enhancing the upward velocity near the four corners at the outlet (Fig. 6). The k-kl-ω model predicts the temperature distribution more accurately because it includes the laminar kinetic energy kl. This addition allows for a more precise description of the natural convection process, as the flow transits from the laminar phase and ultimately becomes turbulent. As a result, the k-kl-ω model more closely aligns with LES in both temperature and velocity profiles inside the CDHS.
+Fig. 10
+Download: Download high-res image (404KB)
+Download: Download full-size image
+Fig. 10. Temperature profiles at y = 1800 mm of different modeling results (heating applied at the lower side of each duct).
+
+Fig. 11
+Download: Download high-res image (408KB)
+Download: Download full-size image
+Fig. 11. Temperature profiles at y = 900 mm of different modeling results (heating applied at the lower side of each duct).
+
+Fig. 12
+Download: Download high-res image (337KB)
+Download: Download full-size image
+Fig. 12. Temperature profiles at y = 0 mm of different modeling results (heating applied at the lower side of each duct).
+
+Fig. 13 presents the temperature distributions along Line a–a’ predicted by various turbulence models. Among all models, the k-kl-ω model exhibits the best agreement with the LES results at both the near-wall and core regions in the inlet and middle sections. Although slight discrepancies are observed at the outlet, the k-kl-ω model still outperforms other RANS models. This highlights the superior predictability of the k-kl-ω model in predicting temperature fields.
+Fig. 13
+Download: Download high-res image (420KB)
+Download: Download full-size image
+Fig. 13. Temperature profile along Line a–a’ (Fig. 3) predicted by various turbulence models.
+
+To clearly understand the temperature and velocity profiles within the closed duct of a CDHS, the LES model was selected as the benchmark for observation. The computational domain was divided into 14 cross-sections, as shown in Fig. 14, to analyze how velocity and temperature change along the vertical direction, as reflected by Fig. 15, Fig. 16, respectively.
+Fig. 14
+Download: Download high-res image (249KB)
+Download: Download full-size image
+Fig. 14. The 14 cross-sections to display the flow fields.
+
+Fig. 15
+Download: Download high-res image (572KB)
+Download: Download full-size image
+Fig. 15. The velocity profiles over the 14 cross-sections by the LES (heating applied at the lower side of each duct).
+
+Fig. 16
+Download: Download high-res image (580KB)
+Download: Download full-size image
+Fig. 16. The temperature profiles over the 14 cross-sections by the LES (heating at the bottom of each duct).
+
+The velocity distributions of Fig. 15 reveal progressive development of natural convection. Initially, it begins to rise due to the pressure difference near the duct entrance. After the cold air is sucked into the duct, a marked acceleration is observed. Simultaneously, the entrance recirculation zone occurred to induce an uneven velocity distribution, leading to a localized increase in velocity near the heater to approximately 1.1 m/s. Consequently, as shown in Fig. 16, a steep temperature gradient is observed in the vicinity of the heater from y = 0–100 mm. Beyond y = 100 mm, the acceleration slows down due to the wall friction. However, after y = 600 mm the velocity is gradually accelerated. By y = 800 mm, the velocity of the flow has exceeded 1.1 m/s. The Re (≡ 2 
+ rh/ν) within the duct reaches 4042 at y = 600 mm and 4175 at y = 800 mm, indicating a transition of the flow field into a turbulent flow. From y = 800 mm to the outlet (y = 1800 mm), the velocity significantly grows because the air near the wall is heated. When the air exits the outlet, the air velocity is drastically increased due to the strong virtual chimney effect [4]. That is, the additional buoyancy accelerates the flow even beyond the duct outlet. From y = 800 mm–1800 mm, the velocity continues to increase due to the wall heating. It is noted that the hot air zone above the duct, from y = 2300 mm–2800 mm, shrinks with inward lateral flow.
+As shown in Fig. 16, a recirculation zone forms at the inlet section over the first 10–100 mm, resulting in elevated temperatures in this region. Beyond this stage, the boundary layers are gradually thickened so that the temperature difference decreases continuously. At about y = 200–400 mm, the disturbance induced by the entrance recirculation zone dissipates, primarily due to the thickened boundary layer, which inhibits effective heat transfer within the heatsink. Clearly, the closed-duct design does not effectively promote airflow mixing, even with turbulence at the rear section. As the.
+hot air exits the duct it continued to rise upward, driven by the virtual chimney effect [11]. For laminar conditions, Wong et al. [2,6] introduced outside cool air using partially-open ducts and succeeded in promoting airflow mixing and heat transfer. This method applied to large-scale vertical duct with transitional and turbulent flow is under investigation.
+Fig. 17, Fig. 18 respectively show the longitudinal velocity and temperature contours for various models. In Fig. 17, the hot air accelerates upon exiting the closed duct due to the virtual chimney effect. Notably, the LES model which serves as the benchmark for comparison aligns closely with the findings of Wong and Chu [11] for the virtual-chimney effect due to air buoyancy at the duct outlet. Except for the Realizable k-ε ewt, all RANS models exhibit similar acceleration behavior in the virtual chimney region compared to the LES benchmark. However, only k-kl-ω model closely resembles the LES model in both velocity and temperature distributions within the closed duct of a CDHS.
+Fig. 17
+Download: Download high-res image (528KB)
+Download: Download full-size image
+Fig. 17. The longitudinal velocity profiles of different modeling results.
+
+Fig. 18
+Download: Download high-res image (465KB)
+Download: Download full-size image
+Fig. 18. The longitudinal temperature profiles of different modeling results.
+
+In Fig. 18, the temperature distributions within the closed duct are generally consistent for all the turbulence models. However, in the hot virtual-chimney zone, only the k-kl-ω model closely resembles the LES model, whereas the other RANS turbulence models show significant deviations.
+To gain a deeper understanding of turbulence evolution, this study investigates the distribution of turbulence kinetic energy (TKE), as shown in Fig. 19. The evolution of TKE is closely coupled with the flow dynamics driven by buoyancy and viscosity. At the inlet (y < 100 mm), the strong shear generated by the recirculation zone induces high TKE (Fig. 20(a)). As the flow moves into the middle section, viscous dissipation within the developing boundary layers suppresses the turbulent fluctuations, causing a reduction in TKE (Fig. 20(b)). However, in the upper region (y > 1500 mm), the flow accelerates due to the accumulation of buoyancy forces. This acceleration, combined with the virtual chimney effect, re-energizes the flow, causing the TKE to expand into a wider region near the outlet, rather than dissipating completely (Fig. 20(c)).
+Fig. 19
+Download: Download high-res image (312KB)
+Download: Download full-size image
+Fig. 19. The longitudinal turbulence kinetic energy profiles of different RANS modeling results.
+
+Fig. 20
+Download: Download high-res image (464KB)
+Download: Download full-size image
+Fig. 20. Turbulence kinetic energy profiles along Line a–a’ predicted by various turbulence models.
+
+We further examine the TKE predicted by different turbulence models. Since LES is a transient model, the time-averaged velocity components 
+, 
+ and 
+ were computed over a quasi-steady period to obtain the mean flow field. In the LES framework, the instantaneous TKE was calculated from the resolved velocity field using the following expression: k = 
+ [(u-ū)2+(v-
+)2+(w-
+)2]. The turbulence intensity can be calculated by I = 
+/ 
+. As shown in Fig. 20, the TKE profiles along Line a–a’ are compared for various turbulence models at different heights. At the inlet section, the recirculation zone significantly influences the TKE distribution with I of approximately 19 % (
+, according to the LES using the data from Fig. 9, Fig. 20. Compared to the LES benchmark, the k-kl-ω model produce similar TKE profiles, corresponding to I of about 15 % (∼ 
+. In contrast, the k-ε RNG and Realizable k-ε ewt models tend to overpredict TKE, resulting in higher values throughout the domain. As the height increases, the TKE predicted by the LES and the k-kl-ω model gradually reduces to Imax of about 12 % (∼ 
+, due to the suppression by viscosity, but gradually expands with the similar I to a wider region, as shown in the CDHS outlet. It is noted that since the LES gives instant values, the TKE distribution shape may vary at different instants. Although the k-kl-ω and k-ω SST models exhibit some deviations from LES near the wall and in the central region, their overall trends remain consistent with the LES results. This consistency highlights the continued necessity of LES as a benchmark for validating turbulence models in natural convection studies.
+In summary, the k-kl-ω model effectively predicts the flow characteristics along the vertical direction within the isothermal CDHS, in which the inlet recirculation zone causes intense turbulence, is damped out by viscosity, and grows as the flow rises with buoyancy. It also accurately reproduces the virtual chimney effect near the outlet, and closely reflects the variation of TKE within the CDHS. Although minor discrepancies are observed in certain regions, the k-kl-ω model demonstrates significantly higher consistency with the LES results compared to the other RANS models. The k-kl-ω model is quite consistent at least with the expected magnitude of the time-averaged TKE results of the LES simulation at the three cross-sections.
+4.2. Heat loss results
+Heat loss in natural convection plays a critical role, necessitating detailed calculations in this study. The temperature distributions of the system illustrated in Fig. 21, Fig. 22 depict the temperature distributions over various solid surfaces, including the Bakelite® plate, steel plate, and wood plate. The thermal properties of the materials significantly influence the temperature profiles and heat loss. The steel plate, having a relatively high thermal conductivity (k ≈ 45 W/(m·K)), facilitates rapid heat conduction, resulting in a more uniform temperature distribution (Fig. 21) but a higher convective heat loss to the environment. In contrast, the Bakelite® plate and wood, with lower thermal conductivities, decrease lateral heat spreading. This results in significant temperature gradients, with higher temperatures concentrated directly behind the heated base plate and lower temperatures at the periphery, thereby limiting the local heat loss in those outer regions.
+Fig. 21
+Download: Download high-res image (324KB)
+Download: Download full-size image
+Fig. 21. The temperature profile at the back side of the system.
+
+Fig. 22
+Download: Download high-res image (392KB)
+Download: Download full-size image
+Fig. 22. The temperature distributions over (a) the vertical Bakelite® plate and (b) the horizontal wood plate at y = 850 mm.
+
+Table 3 presents the surface heat loss from each solid component. The Bakelite® plate exhibits the highest heat loss among all components. Furthermore, despite its smaller surface area compared to the wood plate, the steel plates demonstrate greater heat dissipation due to their higher thermal conductivity. While the insulation cotton has a significantly lower thermal conductivity and correspondingly lower heat loss, it still accounts for approximately 1.66 W.
+Table 3. The ratios of radiation loss for various insulation parts.
+
+Empty Cell	Insulation cotton	Bakelite® plate	Wood plate	Steel (black paint)	Insu-lator	Total Qloss (W)
+Emissivity (ε)	0.85	0.8	0.83	0.96	0.85	–
+Surface heat loss Q (W) (including radiation)	1.66	38.51	0.53	6.31	23.68	70.69
+Surface heat loss Q (W) (excluding radiation)	0.83	25.32	0.37	4.88	17.63	49.05
+Ratio of radiation loss (%)	49.6	34.2	29.3	22.7	25.5	–
+Table 3 also presents the proportion of heat radiation in the total heat loss of each solid component. These data reveal that the heat radiation contribution varies for different materials due to the differences in their emissivity. These variations highlight the influence of the material on heat radiation. Notably, heat radiation accounts for approximately 28 % (=(70.69–49.05)/70.69) of the total heat loss.
+4.3. Averaged convection heat transfer coefficient along the duct
+Fig. 23 shows the h, averaged over the duct inner surface as well as the RaH along the duct. It is noted that the values of h for the LES are the transient values. At the inlet (y = 0 mm), the coefficient is notably high due to the significant temperature difference at the thin boundary layer. Moving beyond the inlet, the heat transfer coefficient drops drastically with slight fluctuations attributed to recirculation flow. Along the duct, h gradually decreases due to the thickening of the boundary layer. However, near the duct outlet (y = 1800 mm), significant increases in airflow velocity and heat transfer because of the virtual-chimney-enhanced mixing. Obviously, the virtual chimney effect, first raised by Wong and Chu [4], exerts considerable influence on the velocity and heat transfer characteristics of heatsinks.
+Fig. 23
+Download: Download high-res image (222KB)
+Download: Download full-size image
+Fig. 23. Average convection heat transfer coefficients and Rayleigh number along the duct for the three turbulence models.
+
+Fig. 24 presents Tw-Ta,avg along the duct for the three turbulence models. The Ta,avg represents the average air temperature over the cross-section. The fluctuations between y = 0–200 mm is due to the transient recirculation flow, which marks a clear difference from a vertical flat-plate flow. As Tw-Ta,avg along the duct decreases significantly, the convective heat transfer remains low except near the outlet.
+Fig. 24
+Download: Download high-res image (240KB)
+Download: Download full-size image
+Fig. 24. Tw-Ta,avg along the duct for the three turbulence models.
+
+If the outside cold air can be properly introduced to enlarge Tw-Ta,avg [2,6] for the transitional or turbulent flow, the convective heat transfer may be enhanced. The experimental and numerical study on a large-scale vertical partially-open duct heatsink is underway to enlarge Tw-Ta,avg by inducing a swirling flow into the core flow from outside cold air.
+To further ensure that the boundary layers developed on the four walls would not mutually interact, the k-kl-ω model is employed to determine the optimal fin spacing for the CDHS under infinite channel conditions. As shown in Fig. 25, the results indicate that the Sopt, for which the boundary layers slightly overlap [1], are between 17 mm and 22 mm. However, the closed duct in this study adopts 52 mm between two side walls, significantly exceeding the optimal range. Thus, the boundary layers developing along the four hot walls would not affect each other's growth with increasing time and distance.
+Fig. 25
+Download: Download high-res image (185KB)
+Download: Download full-size image
+Fig. 25. Q versus S for CDHSs at H = 1800 mm and Lf = 60 mm with W = 1000 mm.
+
+4.4. On the most suitable RANS model
+Experimental verification provides the necessary data to determine the most suitable RANS turbulence model for accurately predicting total heat transfer rates for natural convection from a large-scale CDHS. Table 4 presents a comparison of experimental and simulation data. By subtracting the experimental heat loss from the total experimental heat transfer rate, the net heat transfer rate was calculated. Finally, the model accuracy was assessed by the errors between the simulated heat transfer rate and the experimental net heat transfer rate.
+Table 4. Comparison of the strengths and limitations of the experiment, LES and RANS (k−kl−ω) methods.
+
+Method	Time per Case	Accuracy	Key Strengths	Limitations
+Experiment	5 h for steady state	N/A (Benchmark)	Provides validation data including radiation and heat transfer results.	Difficult to measure detailed local turbulent velocity and temperature profiles inside the closed duct.
+LES (with sub-grid WALE model)	7 days	−2.00 %	WALE designed for transitional flow; Captures unsteady turbulent structures and recirculation zones and serves as a high-fidelity benchmark.	Computationally expensive.
+RANS (k−kl−ω)	2 h	−4.10 %	Models laminar-turbulent transition efficiently; Good balance between accuracy and cost; Ideal for optimization.	Steady-state approximation. Cannot capture instantaneous turbulent fluctuations.
+Specifically, the experimental Q was determined by summing the power output from the nine DC power supplies used to heat the base plate. For the numerical simulations, the total heat transfer rate was calculated by integrating the total surface heat flux over the fin base surface.
+The strengths and limitations of the experiment, LES and RANS (using k−kl−ω as an example) methods are compared in Table 4. As shown in Table 5, the LES model serving as the benchmark exhibits good accuracy in predicting the heat transfer rate. Among the RANS turbulence models investigated, the k-kl-ω and k-ω SST models yield results closest to both the net experimental heat transfer rate and the LES results. Conversely, the RNG k-ε demonstrates the largest discrepancy in simulated heat transfer. The k-kl-ω and k-ω SST models thus align most closely with LES, offering valuable guidance for subsequent studies.
+Table 5. Heat transfer rates predicted by different turbulence models and the deviations from the experiment.
+
+Turbulence model	Simulated Q (W)	Experimental Q including Qloss (W)	Qloss (W)	Net experimental Q subtracting Qloss (W)	Difference between simulated Q and net experimental Q
+363.8	335.9	70.7	266.2	36.7 %
+ ewt	300	12.7 %
+256.9	−3.5 %
+255.2	−4.1 %
+LES	260.9	−2.0 %
+5. Conclusions
+Using the experimental data and numerical analysis, including LES and a few RANS models, for the closed-duct heat sink (CDHS), we found very different physical features from the tall vertical flat plates and reached the following conclusions.
+1.
+The difference between the LES simulation and the experimental result is −2.0 % for predicting the heat transfer rate of natural convection from a large vertical CDHS. Since the experimental data tended to contain uncertainties, the LES prediction was used as a benchmark.
+2.
+Both the k-kl-ω and k-ω SST models are recommended for predicting the heat transfer rate of natural convection from a large vertical closed duct, as they are only −2.1 % and −1.5 %, respectively, from the LES results.
+3.
+As the modeling of the transition from laminar to turbulent flow is included, the k-kl-ω model especially excels in capturing velocity and temperature distributions accurately.
+4.
+A recirculation region attached to the inner surface of the end plate is clearly observed in the LES near the inlet while the outside cold air is sucked into the duct. The recirculation flow leads to reduced air speed and hotter wall and air due to the locally reduced heat transfer. Also, the air outside the recirculation region is locally accelerated.
+5.
+At the upper part (y > 800 mm), air near the four corners is surprisingly accelerated by the hotter walls due to heat accumulation.
+6.
+Near the outlet, air is accelerated with drastically increased heat transfer coefficients due to the strong virtual chimney effect.
+7.
+For the CDHS, the inlet recirculation zone causes intense turbulence, which is lowered by viscosity but grows as the flow rises with buoyancy. The physical situation is very unlike the tall vertical flat plates in which laminar flow first appears and the transitional phenomenon occurs around 109.
+By comparing the total heat transfer rates, the k-kl-ω and k-ω SST RANS models can significantly reduce computational time for the computation of heatsinks compared to high-fidelity but time-consuming approaches such as LES or direct numerical simulation. The k-kl-ω model will be used for calculating the optimum partial opening [2] for our future work on large-scale (1800 mm-tall) partially-opened duct heat sink with transitional to turbulent flow. Furthermore, although LES is employed as the benchmark in this study, future investigations incorporating direct numerical simulation (DNS) could provide even more detailed insights into the flow physics. DNS would serve as a more rigorous reference for validating turbulence models and enhancing the fidelity of numerical predictions, particularly in transitional natural convection.

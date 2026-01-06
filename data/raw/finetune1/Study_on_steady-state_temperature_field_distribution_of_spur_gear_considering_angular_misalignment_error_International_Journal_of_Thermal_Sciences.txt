@@ -1,0 +1,527 @@
+Keywords
+Spur gearTemperature distributionThermo-elastohydrodynamic lubricationLoaded tooth contact analysisAngular misalignment error
+Nomenclature
+
+A	The influence coefficient matrix of potential contacting gear pairs
+Ak	The cross-sectional area
+α	Barus pressure-viscosity coefficient
+αs	Pressure angle
+bi	Tooth width of the i-th tooth slice
+bHj	Hertzian half contact width
+c	Specific heat capacity of the gear
+cf	Lubricant specific heat capacity
+d	The residual clearance vector after contact
+E'	Equivalent elastic modulus
+Fj	The normal force at position rj
+F	The contact force vector of all tooth slices
+hm	Mean tooth height
+h00	Rigid body central film thickness
+Izk	The moment of inertia about the z-axis
+I	The unit vector
+L	Characteristic dimension
+Mb	The bending moment
+mr	Radial temperature distribution on the disk surface
+mn	Normal module of the gear
+pH	Contact pressure
+Pr	Prandtl number
+R	The equivalent radius of curvature
+Re	Reynolds number
+r	The moment arm vector for the contact point
+Sa,r	The separation distance between gears
+T0	Ambient temperature
+T	Lubricant film temperature
+u	Velocity component along x-direction
+μc	Friction coefficient
+v	Poisson's ratio
+vc	Relative sliding velocity
+vf	Lubricant kinematic viscosity
+vt	Tangential velocities
+V	Pitch line velocity
+θx	Agular misalignment error about the x-axis
+θy	Agular misalignment error about the y-axis
+Δs	Loaded static transmission error along the line of action
+ε	The initial separation distance vector at the onset of contact
+Γ	The interaction between adjacent slices on the same tooth
+λE	Linear elastic compliance influence coefficients
+λH	Nonlinear compliance influence coefficients
+τk	The shear stress
+γ	Thermal energy conversion coefficient
+β	Heat flux partition coefficient
+ρ	Material density of gear
+ρf	Lubricant density
+λ	Thermal conductivity of gear
+λf	Thermal conductivity of lubricating oil
+ω	Rotational speed
+η0	The ambient viscosity of the lubricant
+η∗	Equivalent viscosity of the lubricant
+τ	Local shear stress tensor at any point in the fluid
+ς	The dimensional coordinate
+1. Introduction
+Gear transmission systems are widely employed in new energy vehicles, aerospace, and marine applications due to their superior transmission stability, high efficiency, and extended service life [[1], [2], [3]]. However, angular misalignment errors, resulting from shaft deflection, bearing wear, and manufacturing or assembly inaccuracies, are prevalent in gearbox systems [[4], [5], [6]]. Such errors induce non-uniform load distribution across gear tooth surfaces, leading to localized temperature rises and overheating. These thermo-mechanical effects can trigger scuffing failures and adhesive wear, ultimately compromising the operational longevity of the system.
+In the realm of steady-state temperature field computation for gear tooth surfaces, Zhang et al. [7] developed a planetary gearset temperature field model incorporating tooth surface load distribution and air-oil mixture effects. Their methodology involved calculating the heat flux density at the meshing interface, followed by sequential determination of convective heat transfer coefficients for distinct tooth surfaces using empirical formulae. The steady-state temperature variation of individual teeth was subsequently solved via finite element method (FEM), enabling systematic investigation of the influence of rotational speed, applied load, and oil temperature variations on tooth surface temperature distribution. Sun et al. [8] proposed a steady-state temperature field computational model for gear-shaft-housing systems utilizing a thermal network approach. Their methodology incorporated the application of frictional heat flux on meshing tooth surfaces under thermo-fluid-structure interaction conditions, while accounting for the effects of tooth surface roughness and load distribution. This framework enabled the derivation of temperature distributions at multiple measurement points across the system. Lu et al. [9] developed a computational framework integrating Thermo-Elastohydrodynamic Lubrication (TEHL) theory with thermal network methodology to determine gear tooth surface temperature distributions. Their approach incorporated thermal expansion theory to derive updated tooth profile curves, while employing a load distribution model as the iterative core to systematically evaluate the effects of operational parameters and lubrication conditions on both temperature evolution and mesh stiffness characteristics. Zhou et al. [10] established an integrated thermal network model for gear temperature distribution analysis. The proposed model's validity was rigorously verified through Block flash temperature theory and ISO standards. Their systematic investigation quantified the effects of key design parameters on gear contact temperature characteristics. Li et al. [11] investigated the three-dimensional transient temperature field and conducted sensitivity analysis for gears. By computing the heat source distribution at different meshing nodes, they obtained the temperature distribution patterns across tooth surfaces during various meshing cycles. Furthermore, the study quantitatively evaluated the frictional heat flux and convective heat transfer coefficients on distinct surfaces of both spur and helical gears. Through ANSYS-based numerical simulations, the parametric influences on gear temperature fields were systematically analyzed, with experimental validation confirming the accuracy of simulation [12]. Shi et al. [13] developed an integrated analytical framework combining tribological principles, heat transfer theory, and Hertzian contact mechanics to compute both the frictional heat flux and convective heat transfer coefficients at gear tooth interfaces. Their method employed FEM to investigate the steady-state temperature distribution in locomotive gear systems, supplemented by Block flash temperature calculations to quantify transient thermal elevations during meshing events. Based on the Greenwood-Williamson model, Zhu et al. [14] derived time-varying oil film parameters and friction coefficients, and, by integrating principles of tribology, heat transfer, and the distribution of heat flow in adherent lubricants, developed a method for calculating the tooth surface contact temperature. Roda-Casanova V et al. [15] developed a novel numerical-analytical method for computing the temperature field in polymer gears. Their approach integrated loaded tooth contact analysis to determine frictional heat generation at tooth interfaces, which was subsequently applied as thermal loads within a finite element gear model to obtain comprehensive temperature distribution profiles. The methodology was validated through experimental testing. Murat Taburdagitan et al. [16] developed a finite element-based model for gear tooth surface temperature distribution that incorporates thermoelastic coupling effects. The model assumes a constant friction coefficient and utilizes experimentally determined convective heat transfer coefficients. Comparative analysis with experimental results showed that the simulated temperatures were slightly higher, which is attributed to the actual splash lubrication conditions present in the gearbox. Su et al. [17] theoretically calculated the heat flux distribution and convective heat transfer coefficients on the tooth surface, then employed finite element software to analyze the temperature field during gear form grinding. Wang [18] derived an analytical algorithm for computing dynamic gear load, oil film thickness, and heat flux, and subsequently analyzed the surface temperature distribution of spur gears using finite element simulations.
+In summary, computational methods for gear temperature field analysis can be primarily categorized into two approaches: thermal network-based methods and FEM. As illustrated in Fig. 1, the thermal network approach enables rapid determination of temperature at discrete nodal points, albeit with relatively limited accuracy. In contrast, while FEM achieves superior computational accuracy, its precision is highly dependent on mesh density and model simplification assumptions, and it is limited by low computational efficiency. Roda-Casanova V et al. [19] conducted a comparative analysis of analytical methods for computing temperature distributions in polymer gears, demonstrating that precise load distribution functions and time-varying friction coefficients are critical for precise tooth surface temperature prediction. Consequently, the development of an advanced hybrid analytical model, effectively integrating the computational efficiency of thermal network methods with the high precision of FEM, represents an urgent research imperative to address the current trade-off between accuracy and computational cost.
+Fig. 1
+Download: Download high-res image (329KB)
+Download: Download full-size image
+Fig. 1. Thermal network-based computational model for gear tooth surface temperature analysis.
+
+In recent years, numerous scholars have conducted extensive research on gear misalignment errors [[20], [21], [22]], as illustrated in Fig. 2. Among these studies, Che et al. [23] employed loaded tooth contact analysis to investigate the time-varying mesh stiffness characteristics under different angular misalignment conditions. By establishing a six-degree-of-freedom dynamic model, they systematically analyzed the influence of angular misalignment errors on the nonlinear dynamic behavior of gear systems under both light and heavy loading conditions. Zou et al. [24] simulated both parallel and angular gear misalignment error using eccentric sleeves. Through the slice method and lumped parameter approach, they systematically analyzed the effects of misalignment direction and magnitude on the vibrational characteristics of gear transmission systems. Furthermore, they achieved active vibration control of angular misalignment errors through the implementation of dual- and single-eccentric sleeve configurations. Chen et al. [25] developed a dynamic model of a herringbone planetary gear system incorporating misalignment errors, they systematically investigated the effects of varying misalignment magnitudes on load distribution and vibrational characteristics. The results demonstrated that misalignment errors significantly alter the system's load-sharing behavior. Wen et al. [26] proposed a multi-degree-of-freedom contact analysis model for misaligned gear pairs, which enabled the determination of tooth stress distributions under various misalignment conditions. The results demonstrated strong agreement with FEM, validating the model's accuracy. Tian et al. [27] investigated the load distribution characteristics and wear behavior of gear teeth under angular misalignment errors by integrating three-dimensional loaded tooth contact analysis with Archard wear theory. Their methodology enabled systematic evaluation of wear progression patterns across varying misalignment conditions. Hu et al. [28] investigated the effects of uncertain misalignment errors on the meshing characteristics and nonlinear dynamic behavior of gear transmission systems. The results demonstrated that misalignment errors in the x-direction significantly influence gear dynamic properties, whereas those in the y-direction exhibit negligible impact. Kumar et al. [29] experimentally investigated the effects of angular misalignment errors on gearbox performance. Utilizing time-synchronous averaging techniques, they systematically analyzed the influence of load and rotational speed variations on system vibration spectra and fault progression characteristics.
+Fig. 2
+Download: Download high-res image (322KB)
+Download: Download full-size image
+Fig. 2. Schematic diagram of gear considering angular misalignment error.
+
+In summary, extensive research has been conducted on the influence of gear angular misalignment error on system meshing characteristics and vibration response. However, the intrinsic mechanisms through which the uneven load distribution along the tooth width influences the transient variations of the friction coefficient, and thereby governs the formation of the steady-state temperature field, remain insufficiently elucidated. Furthermore, existing methods for calculating the gear temperature field are plagued by unresolved limitations: traditional analytical approaches are constrained by low calculation accuracy, while FEM are hindered by high modeling complexity and inadequate computational efficiency. To address these critical challenges, this study puts forward the following key innovative contributions.
+1.
+Developed a computational model of gear meshing characteristics incorporating angular misalignment errors, based on the loaded tooth contact model, to analyze the effects of misalignment magnitudes on load distribution patterns.
+2.
+A line-contact TEHL model incorporating angular misalignment error was established. This model enables the analysis of how angular misalignment affects the lubrication performance of gear pairs and the transient characteristics of the friction coefficient at the meshing interface.
+3.
+A steady-state gear temperature calculation model incorporating angular misalignment error was developed based on the thermal equilibrium method, to analyze their effects on both profile-wise and lead-wise temperature distributions.
+The structural of this paper is as follows: Section 2 presents the Loaded Tooth Contact Analysis (LTCA) model incorporating angular misalignment errors. Section 3 describes the calculation of tooth surface heat flux and convective heat transfer coefficients, while determining the transient friction coefficients under misalignment conditions through the TEHL model. Section 4 establishes an analytical steady-state temperature field model for gears considering angular misalignment errors, based on thermal equilibrium theory. Section 5 analyzes load distribution variations under different angular misalignment conditions, examines computational results of lubrication characteristics and investigates steady-state temperature field distributions under different operational conditions. In Section 6, the validity of the proposed model is performed according to finite element and experimental methods. Section 7 presents the conclusions.
+2. Formulation of LTCA model considering angular misalignment error
+The core objective of the current model in this study is to focus on revealing the fundamental mechanism by which the angular misalignment error of gears influences tooth surface load distribution, lubrication characteristics, and steady-state temperature field. The angular misalignment error considered in this paper is caused by shaft deviation, while the effects of thermal deformation of components such as gears and shafts, as well as other manufacturing and installation errors, are neglected.
+2.1. Angular misalignment error
+The angular misalignment error in three-dimensional space primarily manifest in three directions, namely the x-direction, y-direction, and comprehensive direction (combining x and y directions). As illustrated in Fig. 3, a coordinate system for spur gears incorporating angular misalignment errors has been established. Here, the angular misalignment error about the x-axis is denoted as θx, while that about the y-axis is denoted as θy. The comprehensive angular misalignment error is decomposed into two components: θ1 along the meshing plane and θ2 perpendicular to the meshing line, expressed as follows [30]:
+(1)
+where αs denotes the gear pressure angle at the reference circle.
+Fig. 3
+Download: Download high-res image (329KB)
+Download: Download full-size image
+Fig. 3. Gear coordinate system considering angular misalignment error.
+
+The tooth surface load distribution is solved by the slice method. For each tooth slice, the variation in tooth flank clearance em induced by angular misalignment error along the meshing plane direction is expressed as:
+(2)
+where bi represents the axial position of the i-th tooth slice, given by bi = B/n × i, with n standing for the number of slices, B for tooth width.
+2.2. LTCA model
+To establish a gear contact model incorporating angular misalignment errors, the slicing method is used for discretization, as showed in Fig. 4. For all potential contacting gear pairs, the combined effect of elastic deformation and initial clearance must satisfy the following condition: the resultant value must be greater than or equal to the rigid approach of the meshing gear pair.
+(3)
+where A denotes the influence coefficient matrix of potential contacting tooth pairs, expressed as A = [Γ1, Γ2, …, Γm], with m being the number of potential contacting tooth pairs. F represents the contact force vector of all tooth slices. A·F corresponds to the loaded elastic deflection vector. Δs denotes the loaded static transmission error along the line of action. I is the unit vector. d indicates the residual clearance vector after contact. ε is the initial separation distance vector, formulated as:
+(4)
+where Sa,r denotes the separation distance between gears without angular misalignment error.
+Fig. 4
+Download: Download high-res image (481KB)
+Download: Download full-size image
+Fig. 4. Gear contact model based on the slicing method.
+
+In the influence coefficient matrix, Γ represents the interaction between adjacent slices on the same tooth, expressed as:
+(5)
+where n denotes the number of potential contacting teeth. λij represents the compliance influence coefficient, defining as the deformation at contact point i induced by a unit force applied at contact point j.
+This study solely considers the linear elastic deformation at the gear-body interface. The influence coefficient between two arbitrary contact points is formulated as:
+(6)
+where λE and λH denote the linear elastic and nonlinear compliance influence coefficients, respectively. Subscripts 1 and 2 represent Gear 1 and Gear 2, respectively.
+Based on the force balance condition, the contact force vector F for all tooth slices must satisfy:
+(7)
+where r is the moment arm vector for the contact point.
+All potential contact points must satisfy the following contact criterion:
+(8)
+The elastic deformation of each tooth slice comprises four components: bending, shear, compression, and foundation deformations. The combined deformation from shear and compression is calculated as:
+(9)
+where Fj stands for the normal force at position rj, rk for the flank radius where tooth deformation occurs, αsj and αsk for the pressure angles at corresponding positions, Eʹ for the equivalent elastic modulus, v for the Poisson's ratio, and G′ for the equivalent shear modulus, Izk denotes the moment of inertia about the z axis, Ak the cross-sectional area, Mb the bending moment, and τk the shear stress.
+According to Weber and Banaschek [31], the calculation formulas for gear tooth fillet foundation deformation can be given as:
+(10)
+(11)
+where Δb denotes the width of the sliced tooth segment.
+Based on the above analysis, the elastic deformation influence coefficient λE,kj at point k under unit load is expressed as:
+(12)
+The normal contact deformation is derived from Hertzian contact theory as:
+(13)
+where h1j and h2j denote the contact depth of Gear 1 and Gear2, respectively. bHj denotes the Hertzian half contact width.
+The nonlinear compliance influence coefficient is calculated as:
+(14)
+The point force applied to a tooth not only induces deformation along the tooth profile direction but also causes deformation in the tooth width direction due to the damping effect and coupling interaction between adjacent tooth slices. This study adopts the general attenuation function proposed by Kunert [32]. Derived from finite element simulations (as shown in Fig. 5), this function can characterize the deformation variation in the tooth width direction under the action of a point force, while also accounting for the coupling effects between adjacent and non-adjacent tooth slices. Its key advantage lies in being unaffected by gear geometry and force amplitude, thus making it applicable to both helical gears and spur gears. The specific expression of this function is as follows:
+(15)
+where ς∗ = ς/mn denotes the dimensionless coordinate along the tooth width. ς represents the dimensional coordinate and mn is the normal module of the gear. The attenuation function 
+ satisfies the normalization condition, which is expressed as 
+.
+Fig. 5
+Download: Download high-res image (296KB)
+Download: Download full-size image
+Fig. 5. Diagram of attenuation behavior along the tooth width under a punctual force.
+
+The attenuation function presented in Equ.(5) is formulated on the basis of the principle that adjacent slices dissipate elastic potential energy. Nevertheless, when an external force is exerted in the vicinity of the tooth ends, the corresponding deformation fails to undergo complete attenuation along the tooth width, primarily due to the constraints imposed by boundary conditions. To overcome this limitation, a mirroring technique is employed: the virtual deformation that extends beyond the physical boundaries of the tooth is reflected back to its initial magnitude through the end faces, as illustrated in Fig. 5. By superimposing these reflected components onto the original attenuation values, a revised attenuation function, one that incorporates the influence of the tooth end effect is derived. Accordingly, if we assume that ς∗ initiates at the left end of the tooth, the adjusted value at point i resulting from a point force applied at point k can be expressed as follows:
+(16)
+This formula employs a single reflection calculation at both the left and right tooth ends. In the case of narrow teeth that meet the condition of b < 4mn, the consideration of multiple reflections becomes necessary.
+3. TEHL considering angular misalignment error
+3.1. Calculation of heat flux density
+To simplify the analysis, the meshing gear pair is discretized as illustrated in Fig. 6, with a gear pair incorporating angular misalignment error as the research subject. The temperature field is obtained by applying position-dependent frictional heat flux and convective heat transfer coefficients across the tooth surface, yielding the steady-state temperature distribution shown in Fig. 7.
+Fig. 6
+Download: Download high-res image (227KB)
+Download: Download full-size image
+Fig. 6. Schematic diagram of single-tooth meshing considering angular misalignment error.
+
+Fig. 7
+Download: Download high-res image (214KB)
+Download: Download full-size image
+Fig. 7. Schematic diagram of frictional heat flux and convective heat transfer coefficient distributions.
+
+The heat flux density at any tooth contact position is determined by the coefficient of friction μc, contact pressure pH, and relative sliding velocity vc. For Gear 1 and Gear 2, the frictional heat flux densities are respectively calculated as [10]:
+(17)
+(18)
+where vt1 and vt2 are the tangential velocities for Gear 1 and Gear 2, respectively. ω denotes the rotational speed of the gear. γ is the thermal energy conversion coefficient, set to 0.95. β is the heat flux partition coefficient, expressed as:
+(19)
+where ρ denotes material density of gear. λ and c are the thermal conductivity and specific heat capacity of gear, respectively.
+3.2. Calculation of convective heat transfer coefficient
+Formulation of a scientifically rigorous and practically applicable convective heat transfer coefficient model for the specific tooth surface C during gear meshing process [33], expressed as:​
+(20)
+where Re is the Reynolds number. Pr is the Prandtl number. λf is the thermal conductivity of lubricating oil. L denotes the characteristic dimension, taken as the pitch circle diameter. The Reynolds number Re is calculated as:
+(21)
+The Prandtl number Pr is calculated as:
+(22)
+where V denotes the pitch line velocity. hm is the mean tooth height. ρf is the lubricant density. cf is the lubricant specific heat capacity. vf is the lubricant kinematic viscosity.
+The convective heat transfer coefficient on gear end face F is simplified as a rotating disk model, where the fluid flow regime is classified into laminar, transitional, and turbulent based on the Reynolds number.
+When the Reynolds number satisfies Re < 2 × 105, the flow is​laminar, and the convective heat transfer coefficient of a rotating disk is given as [34]:
+(23)
+When the Reynolds number is in the range 2 × 105≤Re ≤ 2.5 × 105, the flow enters a transitional regime, and the convective heat transfer coefficient for the rotating disk is expressed as:
+(24)
+When the Reynolds number exceeds Re > 2.5 × 105, the flow enters a turbulent regime, and the convective heat transfer coefficient for the rotating disk is given by Ref. [35]:
+(25)
+where mr is a constant that defines the radial temperature distribution on the disk surface, with mr = 2. rc represents the radius at any point on the disk.
+The convective heat transfer coefficients for meshing gear surface A and non-meshing gear surface D are determined based on their geometric and operational conditions, as follows:
+(26)
+The convective heat transfer coefficient at the tooth tip (Surface B) is calculated as follows:
+(27)
+3.3. Calculation of friction coefficient based on TEHL
+After accounting for the angular misalignment error, the contact form of the tooth surface does not transition from line contact to point contact due to the presence of load; instead, only local adjustments in the contact state are observed. This study focuses on the scenario where the magnitude of the angular misalignment error is relatively small, and therefore, the line-contact TEHL calculation is adopted.
+3.3.1. Reynolds equation
+When considering the temperature-dependent viscosity and shear-thinning effect of thermo-non-Newtonian fluids in the lubricating interface under variable operating temperature conditions, the derived and modified expression of the generalized Reynolds equation is as follows [36]:
+(28)
+where h denotes the total gap between interacting solid surfaces along the film thickness direction. η∗ denotes equivalent viscosity of the lubricant. x denotes the coordinate variable along the contact length. uR denotes the entrainment velocity.
+3.3.2. Film thickness equation
+The expression of the dynamic lubricating film thickness calculation model for the gear meshing zone, which considers transient contact pressure, thermoelastic deformation, and lubricant rheological properties, is as follows:
+(29)
+where h00 denotes the rigid body central film thickness. R represents the equivalent radius of curvature.
+3.3.3. Load balancing equation
+The solution of contact problems at gear meshing interfaces must satisfy the equilibrium condition between lubricant film pressure p(x) and external loading forces w. The load balancing equation is formulated as:
+(30)
+where xin and xout represent the inlet position and outlet position of the lubrication area, respectively.
+3.3.4. Viscosity-Pressure-Temperature equation
+A modified and experimentally validated lubricant Viscosity-Pressure-Temperature relationship model is formulated using the Roelands empirical equation, which accounts for the combined effects of high contact pressure, wide temperature range, and lubricant composition heterogeneity in gear transmission or sliding contact interfaces. The expression of this model is as follows:
+(31)
+where A1 = lnη0+9.67, A2 = 5.1 × 10−9Pa−1, A3 = 1/(T-T0), and A4 = 138/(T0-138). Here η0 denotes the ambient viscosity of the lubricant. T0 stands for the ambient temperature and T for the lubricant film temperature. z0 = α/(A1A2), where α denotes the Barus pressure-viscosity coefficient. s0 = βoil/(A1A3), where βoil denotes the Reynolds temperature-viscosity coefficient.
+3.3.5. Density-pressure-temperature equation
+The density-pressure-temperature relationship is derived by augmenting the isothermal density equation proposed by Dowson and Higginson with a thermal expansion term, expressed as:
+(32)
+where C1 = 0.6 × 10−9, C2 = 1.7 × 10−9, and C3 = 0.65 × 10−3. ρ0 denotes the lubricant density at T0.
+3.3.6. Constitutive framework
+Due to the high pressure and sliding in gear transmission, non-Newtonian fluids are often used. To characterize their properties, the Ree-Erying model is adopted in this work, which has the form of:
+(33)
+where τ denotes the local shear stress tensor at any point in the fluid, τ0 denotes the characteristic shear stress, and u denotes the velocity component.
+Equivalent viscosity formulation for Ree-Eyring fluids can be expressed as:
+(34)
+3.3.7. Energy conservation equation
+Considering heat conduction, convection, and heat dissipation of the lubricant, the energy equation of the oil film for non-Newtonian fluid TEHL contact is given by:
+(35)
+where uz is the fluid velocity component in the film thickness direction.
+Temperature boundary condition at the upstream oil film boundary is expressed as:
+(36)
+No thermal boundary conditions are required in the upstream reverse-flow region of the oil film (u(xin,z) < 0) and in the downstream region.
+The energy equations for the two contacting teeth are written as:
+(37)
+where z denotes the vertical coordinate inside the gear body from tooth surface.
+The temperature boundary conditions at teeth surface are given as:
+(38)
+where d denotes the depth of the thermal penetration layer in gear tooth, with d = 3.15bH.
+The heat flux continuity condition at the solid-lubricant interface must satisfy the boundary of:
+(39)
+3.3.8. Friction coefficient
+The calculation method for the TEHL friction coefficient adopted in this study strictly adheres to the fundamental definition of tribology, taking the ratio of the total friction force on a single contact interface to the applied normal load as the core calculation criterion, and its mathematical expression is as follows:
+(40)
+4. Calculation of steady-state temperature field distribution in gears with angular misalignment error based on the thermal balance method
+First, the gear is discretized into a mesh grid to determine the domain size, with an Imax × Jmax grid division, as shown in Fig. 8. The temperature nodes are distributed as illustrated in Fig. 9. Based on the Laplace equation [37], heat balance equations are established for both internal nodes and boundary nodes, considering heat sources and convective heat transfer.
+Fig. 8
+Download: Download high-res image (692KB)
+Download: Download full-size image
+Fig. 8. Mesh discretization of gear.
+
+Fig. 9
+Download: Download high-res image (153KB)
+Download: Download full-size image
+Fig. 9. Schematic diagram of temperature nodes.
+
+(1) Internal nodes (i = 2∼Imax-1, j = 2∼Jmax-1)
+The heat balance equation, founded on the first law of thermodynamics and describing the equilibrium between lubricant viscous shear heating, heat conduction, and convection, is given by:
+(41)
+where, T(i, j) represents the temperature at the grid node. hF is the convective heat transfer coefficient, which is calculated in Section 3. AF denotes the heat-transfer area.
+(2) Nodes on surface A (Working surface, i = Imax, j = 2∼ Jmax-1)
+The heat balance equation is given by:
+(42)
+where lA denotes the heat-transfer length. h' denotes the boundary length.
+(3) Nodes on Surface C and Surface D (Non-working surface, i = 1, j = 2∼Jmax-1)
+The heat balance equation is given by:
+(43)
+(4) Nodes on Surface B (i = 2∼Imax-1, j = Jmax)
+The heat balance equation is given by:
+(44)
+(5) Nodes on Surface F (i = 2∼Imax-1, j = 1)
+The heat balance equation is given by:
+(45)
+where, ha denotes the convective heat-transfer coefficient at the bottom boundary.
+For each node, an equation is formulated according to the above expression and solved using the Gauss–Seidel method. The convergence criterion is defined as:
+(46)
+where n denotes the number of iterations. ɛ represents the set threshold.
+In summary, the computational workflow for the steady-state gear temperature field considering angular misalignment error is shown in Fig. 10. First, the basic gear parameters, the angular misalignment error, and the operating conditions are specified. The tooth surface load distribution is obtained via LTCA and fed into a TEHL model to determine the transient friction coefficient on the tooth surface. The heat flux and convective heat-transfer coefficients at different locations on the tooth surface are then computed and supplied to a heat balance model for the gear's steady-state temperature field. This model is solved by Gauss–Seidel iteration, and subjects to the prescribed convergence criterion, yields the steady-state temperature field distribution for the specified angular misalignment error.
+Fig. 10
+Download: Download high-res image (843KB)
+Download: Download full-size image
+Fig. 10. Flowchart of the computational procedure.
+
+5. Results and discuss
+This section investigates the load distribution over the full tooth profile, lubrication characteristics, and variations in the gear's steady-state temperature field in the presence of angular misalignment error. The gear parameters are listed in Table 1, and selected lubricant properties are given in Table 2.
+Table 1. Gear parameters.
+
+Parameter	Gear 1	Gear 2
+Number of Teeth	25	53
+Normal Module (mm)	3
+Pressure angle (°)	20
+Tooth width (mm)	60
+Addendum coefficient	1
+Dedendum coefficient	1.25
+Normal profile shift coefficient	0
+Center distance (mm)	117
+Table 2. Thermal property parameters of lubrication oil.
+
+Parameter	Oil
+Density (ρf/kg·m−3)	870 (20 °C)
+Kinematic viscosity (vf/mm2·S−1)	320 (40 °C), 38.5 (100 °C)
+Specific heat capacity cf/J·(kg·K)−1	2000
+Thermal conductivity λf/(W·(m·K))	0.14
+5.1. Analysis of the gear load-distribution results considering angular misalignment error
+As illustrated in Fig. 11, Fig. 12, Fig. 13, under varying magnitudes of angular misalignment errors in different directions, the load distribution is characterized by localized stress concentrations near the gear end face in both double-tooth and single-tooth contact regions, coupled with partial loss of contact along the tooth width. With an increase in the degree of misalignment, the nonuniformity of the load distribution becomes more prominent. In the double-tooth meshing region, the two pairs of meshing teeth share the transmitted load, resulting in a significantly higher load-bearing capacity compared to that in the single-tooth meshing region. However, as the magnitude of misalignment increases, more pronounced localized stress concentrations arise on the gear end face, and segments of the tooth trace gradually lose contact. Compared with angular misalignment in the x-direction, stress concentration is more severely intensified under the same degree of misalignment in the y-direction, indicating that the gear system is more sensitive to angular misalignment errors in the y-direction.
+Fig. 11
+Download: Download high-res image (608KB)
+Download: Download full-size image
+Fig. 11. Influence of varying degrees of angular misalignment error in the x-direction on load distribution.
+
+Fig. 12
+Download: Download high-res image (588KB)
+Download: Download full-size image
+Fig. 12. Influence of varying degrees of angular misalignment error in the y-direction on load distribution.
+
+Fig. 13
+Download: Download high-res image (623KB)
+Download: Download full-size image
+Fig. 13. Influence of varying degrees of angular misalignment error in the comprehensive direction on load distribution.
+
+5.2. Model validation
+To validate the correctness of the proposed load distribution model accounting for angular misalignment error, Fig. 14 presents a comparative analysis of load distribution results derived from the proposed model, empirical formulas, and the FEM. As illustrated in the figure, the proposed model exhibits superior agreement with FEM, with a maximum load deviation of only 1.96 % in the double-tooth contact region, whereas the deviation associated with the empirical formulas reaches 3.92 %. The close consistency between the proposed model and FEM verifies the model's validity.
+Fig. 14
+Download: Download high-res image (192KB)
+Download: Download full-size image
+Fig. 14. Comparison of tooth load distribution.
+
+5.3. Analysis of gear lubrication characteristics considering angular misalignment error
+The load distribution along the tooth width was calculated via the slice method, with distinct loading conditions in both the single-tooth and double-tooth contact zones integrated into the TEHL model accounting for angular misalignment error. For numerical analysis, the tooth width was discretized within the interval [−30, 30] mm, allowing for a detailed investigation of lubrication characteristics under varying contact conditions. This approach facilitates the assessment of pressure distribution, film thickness, and temperature rise during the operation of misaligned gears.
+5.3.1. Analysis of oil film pressure and lubrication characteristics under varying degrees of angular misalignment in the x-direction
+Fig. 15, Fig. 17, Fig. 19 illustrate the three-dimensional oil film pressure distributions in the single-tooth engagement region under angular misalignment errors of 5 μm, 10 μm, and 15 μm in different directions, respectively. The results indicate that as the magnitude of angular misalignment error increases, the oil film pressure along the tooth width decreases progressively. Specifically, in the x-direction, the maximum oil film pressure increases by 46.02 % and 20.2 % relative to the 5 μm misalignment case, while the contact area along the tooth width decreases by 15.04 % and 35.7 %. In the y-direction, the maximum oil film pressure rises by 11.54 % and 5.91 %, whereas the contact area along the tooth width reduces by 71.85 % and 35.52 %. In the comprehensive direction, the maximum oil film pressure increases by 7.14 % and 4.1 %, while the contact area along the tooth width decreases by 54 % and 38.82 %. Fig. 16, Fig. 18, Fig. 20 reveal that with the increase in angular misalignment error, the oil film thickness along the tooth width increases progressively. At the position of 5 μm along the tooth width, the minimum oil film thickness in the x-direction increases by 19.29 % and 1.17 % compared with the 5 μm misalignment case; in the y-direction, it rises by 46.18 % and 24.8 %; and in the comprehensive direction, it increases by 21.37 % and 20.44 %. Notably, the influence of angular misalignment on both oil film pressure and thickness diminishes progressively as the misalignment magnitude increases. These findings underscore the significant impact of angular misalignment on pressure distribution and lubrication performance, providing critical insights for gear design optimization and operational tolerance refinement.
+Fig. 15
+Download: Download high-res image (524KB)
+Download: Download full-size image
+Fig. 15. Oil film pressure distribution in the single-tooth contact region under varying angular misalignment magnitudes along the x-direction.
+
+Fig. 16
+Download: Download high-res image (545KB)
+Download: Download full-size image
+Fig. 16. Oil film thickness distribution in the single-tooth contact region under varying angular misalignment magnitudes along the x-direction.
+
+Fig. 17
+Download: Download high-res image (517KB)
+Download: Download full-size image
+Fig. 17. Oil film pressure distribution in the single-tooth contact region under varying angular misalignment magnitudes along the y-direction.
+
+Fig. 18
+Download: Download high-res image (552KB)
+Download: Download full-size image
+Fig. 18. Oil film thickness distribution in the single-tooth contact region under varying angular misalignment magnitudes along the y-direction.
+
+Fig. 19
+Download: Download high-res image (518KB)
+Download: Download full-size image
+Fig. 19. Oil film pressure distribution in the single-tooth contact region under varying angular misalignment magnitudes along the comprehensive direction.
+
+Fig. 20
+Download: Download high-res image (551KB)
+Download: Download full-size image
+Fig. 20. Oil film thickness distribution in the single-tooth contact region under varying angular misalignment magnitudes along the comprehensive direction.
+
+Fig. 21, Fig. 23, Fig. 25 present the three-dimensional oil film pressure distributions in the double-tooth engagement region under angular misalignment conditions of 5 μm, 10 μm, and 15 μm in different directions, respectively. The results demonstrate a progressive reduction in oil film pressure along the tooth width with increasing misalignment magnitude, accompanied by non-monotonic variations in the maximum pressure. Specifically, in the x-direction, the maximum oil film pressure increases by 7.78 % and 5.19 %, respectively, while the contact area along the tooth width decreases by 6.71 % and 0 %, respectively. In the y-direction, the maximum oil film pressure rises by 11.54 % and 5.91 %, respectively, whereas the contact area along the tooth width reduces by 49.15 % and 35.21 %, respectively. In the comprehensive direction, the maximum oil film pressure increases by 9.86 % and 7.26 %, respectively, while the contact area along the tooth width decreases by 11.82 % and 36.58 %, respectively. Fig. 22, Fig. 24, Fig. 26 illustrate the corresponding variations in oil film thickness, showing a gradual thickening along the tooth width with increasing misalignment magnitude. At the 5 μm position along the tooth width, the minimum oil film thickness in the x-direction increases by 0.76 % and 7.57 % under the 10 μm and 15 μm misalignment conditions, respectively; in the y-direction, it rises by 17.11 % and 16.56 % for the 10 μm and 15 μm misalignment cases, respectively; and in the comprehensive direction, it increases by 1.9 % and 11.57 % under the 10 μm and 15 μm misalignment conditions, respectively. These observations collectively indicate that the lubrication characteristics exhibit relatively low sensitivity to angular misalignment error in the x-direction, as evidenced by the modest variations in both pressure distribution and film thickness parameters within the investigated misalignment range. In the y-direction, the influence of angular misalignment on both oil film pressure and thickness diminishes progressively with increasing misalignment magnitude, and this effect is more pronounced compared to that in the single-tooth engagement region. Additionally, it can be concluded that the y-direction is the sensitive direction for angular misalignment error in the double-tooth engagement region.
+Fig. 21
+Download: Download high-res image (546KB)
+Download: Download full-size image
+Fig. 21. Oil film pressure distribution in the double-tooth contact region under varying angular misalignment magnitudes along the x-direction.
+
+Fig. 22
+Download: Download high-res image (552KB)
+Download: Download full-size image
+Fig. 22. Oil film thickness distribution in the double-tooth contact region under varying angular misalignment magnitudes along the x-direction.
+
+Fig. 23
+Download: Download high-res image (511KB)
+Download: Download full-size image
+Fig. 23. Oil film pressure distribution in the double-tooth contact region under varying angular misalignment magnitudes along the y-direction.
+
+Fig. 24
+Download: Download high-res image (559KB)
+Download: Download full-size image
+Fig. 24. Oil film thickness distribution in the double-tooth contact region under varying angular misalignment magnitudes along the y-direction.
+
+Fig. 25
+Download: Download high-res image (520KB)
+Download: Download full-size image
+Fig. 25. Oil film pressure distribution in the double-tooth contact region under varying angular misalignment magnitudes along the comprehensive direction.
+
+Fig. 26
+Download: Download high-res image (549KB)
+Download: Download full-size image
+Fig. 26. Oil film thickness distribution in the double-tooth contact region under varying angular misalignment magnitudes along the comprehensive direction.
+
+5.3.2. Analysis of the influence of angular misalignment error in different directions and magnitudes on gear friction coefficient
+Fig. 27 illustrates the variation of tooth surface friction coefficients under angular misalignment errors of different directions and magnitudes. Although the load distribution along the tooth width is non-uniform, the overall variation trends remain consistent; thus, the results obtained from the first sliced gear tooth were selected for detailed discussion. As revealed in the figure, the friction coefficient initially decreases from the tooth tip to the tooth root, reaches zero at the pitch circle, and subsequently increases again. With an increase in the magnitude of angular misalignment error, the friction coefficient at the same positions exhibits a decreasing trend. Compared to normally meshing gears, the friction coefficient in the y-direction undergoes a more pronounced reduction under equivalent misalignment conditions. This observation further confirms that the y-direction is more sensitive to angular misalignment errors.
+Fig. 27
+Download: Download high-res image (561KB)
+Download: Download full-size image
+Fig. 27. The variation of the full tooth profile friction coefficient under the influence of angular misalignment error.
+
+5.3.3. Model validation
+To validate the correctness of the proposed TEHL model incorporating angular misalignment errors, Fig. 28 presents a comparative analysis of film thickness and pressure distributions between the proposed TEHL model and the isothermal elastohydrodynamic lubrication (EHL) model developed by Wang [38]. The results demonstrate excellent agreement in both pressure profile characteristics and film thickness variation trends between the two models.
+Fig. 28
+Download: Download high-res image (289KB)
+Download: Download full-size image
+Fig. 28. Comparison of conventional gear oil film pressure and thickness methodologies.
+
+5.4. Analysis of tooth surface temperature field distribution considering angular misalignment error
+5.4.1. Analysis of tooth surface heat flux under angular misalignment in different directions
+Fig. 29, Fig. 30, Fig. 31 illustrate the heat flux distributions along different tooth profile positions under varying degrees of angular misalignment errors in different directions. The results indicate that angular misalignment induces a progressive decrease in heat flux along the tooth width. Along the tooth profile, the heat flux exhibits a gradual reduction from the tooth tip to the pitch circle, followed by an increase from the pitch circle to the tooth root. Specifically, in the x-direction, with an increase in misalignment magnitude, the peak heat flux increases by 17.62 % and 26.71 %, respectively. In the y-direction, as the misalignment magnitude increases, the peak heat flux rises by 19.38 % and 24.07 %, respectively. In the comprehensive direction, with increasing misalignment magnitude, the peak heat flux increases by 15.41 % and 17.86 %, respectively. Notably, the heat flux values under y-direction misalignment are significantly higher than those under equivalent x-direction misalignment, demonstrating that heat flux is more sensitive to angular misalignment in the y-direction.
+Fig. 29
+Download: Download high-res image (487KB)
+Download: Download full-size image
+Fig. 29. The heat flux distribution on the tooth surface under varying degrees of angular misalignment errors in the x-direction.
+
+Fig. 30
+Download: Download high-res image (471KB)
+Download: Download full-size image
+Fig. 30. The heat flux distribution on the tooth surface under varying degrees of angular misalignment errors in the y-direction.
+
+Fig. 31
+Download: Download high-res image (488KB)
+Download: Download full-size image
+Fig. 31. The heat flux distribution on the tooth surface under varying degrees of angular misalignment errors in the comprehensive direction.
+
+5.4.2. Comparative analysis of heat flux distribution models
+Fig. 32 presents a comparative analysis of heat flux calculations under varying angular misalignment conditions. The results indicate significant discrepancies between the proposed transient friction coefficient model and the conventional constant friction coefficient model, particularly at the tooth tip region. Under normal gear meshing conditions, the maximum observed deviation reaches 61.2 %. This discrepancy increases to 65.08 % under 5 μm combined angular misalignment and further rises to 66.92 % under 15 μm misalignment. The progressive enlargement of these discrepancies with increasing misalignment magnitudes underscores the critical role of transient friction characteristics in the thermal behavior of misaligned gear systems.
+Fig. 32
+Download: Download high-res image (500KB)
+Download: Download full-size image
+Fig. 32. Comparison of gear friction-induced heat flux results considering angular misalignment error.
+
+5.5. Analysis of steady-state temperature field on tooth surfaces under multi-directional angular misalignment error
+Angular misalignment error induces non-uniform load distribution on the tooth surface, which increases the local load at the end face. The calculated heat flux and convective heat transfer coefficients are accordingly assigned to each sliced tooth segment. This study focuses on the tooth surface analysis of end-face sliced gear teeth. Fig. 33, Fig. 34, Fig. 35 illustrate the steady-state temperature distributions on the tooth surface under varying degrees of misalignment in different directions. Since the right side is designated as the meshing surface in this study, the temperature decreases progressively from the tooth tip to the tooth root along the tooth profile direction, and from the meshing side to the non-meshing side along the tooth thickness direction. Compared with the 5 μm misalignment error in the x-direction, the peak temperature decreases by 5.07 % and 12.07 % with increasing misalignment magnitude. Relative to the 5 μm misalignment error in the y-direction, the peak temperature reduces by 18.79 % and 24.93 % as the misalignment magnitude increases. In comparison with the 5 μm misalignment error in the comprehensive direction, the peak temperature decreases by 12.31 % and 19.35 % with an increase in misalignment magnitude. Furthermore, compared with the steady-state tooth surface temperature distributions under equivalent x-direction angular misalignment errors, the temperature reduction effects in the y-direction and comprehensive direction are more pronounced.
+Fig. 33
+Download: Download high-res image (523KB)
+Download: Download full-size image
+Fig. 33. The steady-state temperature distribution on the tooth surface under varying degrees of angular misalignment error in the x-direction.
+
+Fig. 34
+Download: Download high-res image (488KB)
+Download: Download full-size image
+Fig. 34. The steady-state temperature distribution on the tooth surface under varying degrees of angular misalignment error in the y-direction.
+
+Fig. 35
+Download: Download high-res image (529KB)
+Download: Download full-size image
+Fig. 35. The steady-state temperature distribution on the tooth surface under varying degrees of angular misalignment error in the comprehensive direction.
+
+5.6. Analysis of the influence of angular misalignment error in different directions on the steady-state temperature field along the tooth width
+Fig. 36, Fig. 37, Fig. 38 illustrate the steady-state temperature field distributions along the tooth width under angular misalignment errors of varying magnitudes in different directions. The temperature exhibits a progressive decline along the tooth profile from the tip to the root, as well as across the tooth width. Compared with the 5 μm angular misalignment error in the x-direction, the peak temperature decreases by 5.01 % and 12.08 % with increasing misalignment magnitude. Relative to the 5 μm angular misalignment error in the y-direction, the peak temperature reduces by 18.79 % and 24.93 % as the misalignment magnitude increases. In comparison with the 5 μm angular misalignment error in the comprehensive direction, the peak temperature decreases by 12.42 % and 19.62 % with an increase in misalignment magnitude. In terms of the steady-state tooth surface temperature distribution, the temperature reduction in the y-direction is more significant than that observed under equivalent x-direction angular misalignment errors. The underlying reason lies in the systematic restructuring of heat generation and dissipation mechanisms under multi-physics coupling effects when angular misalignment errors are considered. As the degree of misalignment increases, although the heat flux density on one side of the gear intensifies, the overall contact area diminishes, thereby inducing changes in the heat conduction region.
+Fig. 36
+Download: Download high-res image (554KB)
+Download: Download full-size image
+Fig. 36. Steady-state temperature results of tooth orientation under varying degrees of angular misalignment errors in the x-direction.
+
+Fig. 37
+Download: Download high-res image (547KB)
+Download: Download full-size image
+Fig. 37. Steady-state temperature results of tooth orientation under varying degrees of angular misalignment errors in the y-direction.
+
+Fig. 38
+Download: Download high-res image (560KB)
+Download: Download full-size image
+Fig. 38. Steady-state temperature results of tooth orientation under varying degrees of angular misalignment errors in the comprehensive direction.
+
+6. Model validation
+6.1. Simulation validation
+To validate the accuracy of the proposed model, a FEM model was established, with heat fluxes and convective heat transfer coefficients assigned to different positions along the tooth profile. This approach yielded steady-state temperature distributions along both the end-face and tooth-width directions, as illustrated in Fig. 39. Comparative results between the proposed model and the FEM model are presented in Table 3, Table 4 for the gear end-face and tooth-width directions, respectively. The results demonstrate excellent consistency, with a goodness of fit exceeding 98 %. Furthermore, a comparison of the agreement in peak temperature distributions between the proposed model and the FEM model confirms the model's reliability.
+Fig. 39
+Download: Download high-res image (617KB)
+Download: Download full-size image
+Fig. 39. Finite element analysis of tooth surface temperature distribution.
+
+Table 3. Comparison between the proposed model and FEM for gear end-face temperature distribution.
+
+Type	Proposed method	FEM	Degree of similarity
+x5μmy5μm	74.392 °C	75.566 °C	98.45 %
+x10μmy10μm	65.235 °C	66.178 °C	98.57 %
+x15μmy15μm	59.999 °C	60.834 °C	98.63 %
+Table 4. Comparison between the proposed model and FEM for gear width direction temperature distribution.
+
+Type	Proposed method	FEM	Degree of similarity
+x5μmy5μm	74.77 °C	75.988 °C	98.39 %
+x10μmy10μm	65.481 °C	66.568 °C	98.37 %
+x15μmy15μm	60.1 °C	61.209 °C	98.19 %
+To further verify the accuracy of the proposed model, a comparative analysis was conducted on the calculation results derived from the FEM, the proposed model, and the thermal network method. The analysis was performed under the operating conditions of a normally meshing gear pair with a rotational speed of 1000 rpm and a torque of 100 N m. As illustrated in Fig. 40, the error of the maximum temperature calculated by the proposed model, compared with that obtained from FEM, is 1.48 %, which outperforms the 2.34 % error of the thermal network method. This finding further confirms the precision and reliability of the proposed model.
+Fig. 40
+Download: Download high-res image (333KB)
+Download: Download full-size image
+Fig. 40. Calculation results of the temperature of normally meshing gear teeth.
+
+To quantitatively verify the balance between computational efficiency and accuracy of the proposed method, a comparative analysis was conducted among the proposed method, the FEM, and the thermal network method under a unified hardware environment and consistent convergence criteria. The computer configuration utilized for the calculations in this study is detailed in Table 5. Table 6 presents the comparative results of the three methods in terms of computational efficiency and accuracy.
+Table 5. Computer configuration.
+
+Central Processing Unit	Graphics Processing Unit	Random Access Memory
+AMD Ryzen 7 7840H	NVIDIA® GeForce RTX™ 4060	16 GB DDR5 5600 MHz
+Table 6. Comparison of computational efficiency and accuracy among different methods.
+
+Computational method	Computational time	Number of convergence steps	Relative computational error compared to FEA
+Proposed method	Approximately 20 min	120 ± 5	Approximately 1.5 %
+FEM method	2–3 h	Dependence on mesh size	–
+Thermal network method	Approximately 15min	90 ± 5	Approximately 2.5 %
+As observed in Table 6, the FEM is constrained by mesh generation: its computational time reaches 2–3 h, and the number of convergence steps is dependent on mesh size. The thermal network method exhibits a computational time of approximately 15 min and a convergence step count of 90 ± 5, but its relative computational error compared to the FEM is about 2.5 %. In contrast, the proposed method achieves a computational time of roughly 20 min, a convergence step count of 120 ± 5, and a relative computational error of only approximately 1.5 % against the FEM. In summary, the proposed method demonstrates a computational time comparable to that of the thermal network method while maintaining computational accuracy closer to that of the FEM, thereby effectively achieving a favorable balance between computational efficiency and accuracy.
+6.2. Experimental validation
+To further verify the correctness of the proposed model, a gear test rig capable of accounting for angular misalignment error was established in this study. The steady-state temperature on the gear surface was measured using an infrared thermal imager to validate the model. The experimental gearbox system is illustrated in Fig. 41, which mainly comprises a magnetic powder brake, a speed-torque sensor, a gearbox, and a three-phase asynchronous motor. The parameters of the gears employed in the experiment are consistent with those adopted in the simulation.
+Fig. 41
+Download: Download high-res image (654KB)
+Download: Download full-size image
+Fig. 41. Experimental bench of spur gear considering angular misalignment error.
+
+In this study, gear angular misalignment errors were simulated by designing bearing end caps integrated with eccentric sleeves. Specifically, a standard bushing was used on one side of the gearbox, while the center of the inner hole of the bushing on the opposite side was offset. This eccentric end cap is illustrated in Fig. 42(a). The supporting bearing was fitted into the inner hole of the bushing, and the outer circumference of the bushing was mated with the hole of the gearbox housing; this configuration enables the simulation of 15 μm angular misalignment errors in both the x-direction and y-direction. Angular misalignment errors were assumed to exist in the pinion. An infrared thermal imager was employed to measure the surface temperature of the gears, as illustrated in Fig. 42(b).
+Fig. 42
+Download: Download high-res image (547KB)
+Download: Download full-size image
+Fig. 42. Experimental equipment.
+
+Fig. 43 presents the physical diagram of the gear temperature test and the corresponding thermal imaging results, respectively. As clearly observed from the figure, the temperature distribution across the entire tooth width is essentially uniform when the gears are in normal meshing. When angular misalignment error is introduced, the gear surface temperature exhibits a stepwise decreasing distribution trend from one end to the other. The measured results are highly consistent with the simulation results presented in Fig. 38(c).
+Fig. 43
+Download: Download high-res image (518KB)
+Download: Download full-size image
+Fig. 43. The results of gear temperature test.
+
+Table 7 summarizes the comparative results between the simulation and experimental data for gear teeth under normal meshing conditions and when angular misalignment error is considered. As indicated by the results, the errors of the maximum temperature, minimum temperature, and average temperature of the gear teeth under normal meshing are all below 4 %. When angular misalignment error is accounted for, the errors of the gear's maximum temperature, minimum temperature, and average temperature also remain below 4 %, with a temperature decreasing trend from one side to the other observed. This trend is consistent with the simulation results, thereby verifying the correctness and reliability of the proposed model.
+Table 7. Comparison of proposed method and experiment.
+
+Operating condition	Computational method	Experiment	Proposed method	Relative error compared to Experiment
+Normally meshing gear teeth	Maximum temperature	60.8	58.6	3.62 %
+Minimum temperature	59.3	57.1	3.71 %
+Average temperature	60.2	58.0	3.65 %
+Considering angular misalignment error	Maximum temperature	63.0	61.2	2.86 %
+Minimum temperature	52.4	50.7	3.24 %
+Average temperature	55.9	54.0	3.39 %
+7. Conclusion
+This study presents a novel computational model for accurately and efficiently determining gear temperature distributions induced by angular misalignment errors. The proposed methodology integrates three sequentially developed analytical models: (1) the loaded tooth contact analysis (LTCA) model, (2) the thermoelastohydrodynamic lubrication (TEHL) model, and (3) the steady-state thermal calculation model—all specifically incorporating the effects of angular misalignment errors. Through comprehensive comparative verification, the validity of each sub-model has been systematically confirmed. The principal findings are summarized as follows.
+1.
+When angular misalignment error is considered, localized stress concentrations occur at the gear end faces along the tooth width direction, resulting in partial loss of contact in specific regions of the tooth flank. This phenomenon is more pronounced in the y-direction.
+2
+The inclusion of angular misalignment error leads to a progressive reduction in oil film pressure along the tooth width. Furthermore, the minimum oil film thickness at any given position increases with increasing misalignment magnitude.
+3
+Under angular misalignment error, the steady-state temperature distribution decreases from the tooth tip to the root along the tooth profile, and from the meshing surface to the non-meshing surface along the tooth thickness. The overall temperature exhibits a decreasing trend with increasing misalignment magnitude. This thermal behavior is more pronounced in the y-direction.
+4
+For the calculation of the steady-state temperature of spur gears considering angular misalignment error, the model proposed in this study exhibits significant advantages in both computational efficiency and accuracy. In terms of computational efficiency, a single complete calculation using this model takes approximately 20 min, compared with the 2–3 hours typically required by the finite element method (FEM). Regarding computational accuracy, verification through comparison with FEM calculation results shows that the relative error of this model is only 1.5 %, which is significantly superior to the 2.5 % relative error of the thermal network method. Moreover, its deviation from experimental test results is controlled within 4 %, meeting engineering accuracy requirements.

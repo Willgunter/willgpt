@@ -1,0 +1,164 @@
+1. Introduction
+The precise manipulation and transportation of micro/nano particles are of great importance in advancing scientific and technological fields such as biomedical engineering, nanotechnology, materials science, and environmental science [1], [2], [3], [4]. Phenomenon on the micro/nano level is distinctly different from that at the macro scale. Some body forces, such as gravity and inertial forces, acting on micro/nano scale objects become negligible compared to the surface forces owing to the high surface area-to-volume ratio of these objects. The appropriate manipulation methods and strategies significantly depend on the microscopic or mesoscopic characteristics exhibited by tiny objects. Related technologies can be classified into field-controlled [5], [6], [7], mechanical/surface force-based [8], [9], and microfluidics methodologies [10], [11]. Field-controlled driving methods refer to the use of external fields to manipulate and control objects at micro/nano scale, and have attracted wide attention due to their outstanding abilities, such as small size, high precision, and strong controllability. Moreover, they avoid direct physical contact between the object and gripper, which makes it easier to the release of the object. Movement and positioning of manipulated objects are achieved through capitalizing on the interactions between them and the applied fields. Researchers have developed various methodologies based on different external fields, for example electrical [12], [13], magnetic [14], [15], optical [16], [17], and thermal fields [18], [19], [20].
+Thermophoresis is a powerful technique to control the motion of nanoparticles and molecules in the thermal field induced by a thermal gradient, typically from the high-temperature zone to low-temperature zone. Originally, it served to generate the driving force to propel molecules within fluid or gas phases, similar to thermal diffusion or Soret effect. The strength of thermophoretic effect is not determined by conventional bulk or surface properties of particles; instead, it appears to depend intricately on the microscopic characteristics of particle-solvent interface [21], [22]. This complexity makes thermophoresis significantly more challenging to comprehend compared to other field-controlled transport phenomena, like electrophoresis. In contrast to the wide applications of thermophoresis in liquid phases, the thermophoresis effect at solid–solid interfaces was proved and attracted great attentions within two decades. Schoen et al. first demonstrated thermophoretic motion of gold nanoparticles inside a CNT using molecular dynamics (MD) simulations [23], [24], and then experimentally Barreiro et al. confirmed a similar phenomenon in which one short CNT moves relative to another coaxial nanotube by imposing a thermal gradient along the inner nanotube [25]. In many subsequent studies on thermophoresis in solids, carbon-based nanomaterials, such as CNT and graphene, were frequently used as ideal nanoconveyors for transferring various nanoparticles due to their atomically smooth surfaces, excellent mechanical and thermal properties [26], [27], [28], [29], [30], [31]. The thermophoresis based on the CNT and graphene has great potential especially in nano-electromechanical systems and bioengineering applications.
+Towards a better understanding of mechanisms for the thermophoretic transport on molecular levels, MD simulations have been conducted to investigate the thermophoretic behaviors of different nano-objects, such as nanoflakes, fullerenes, metal clusters, nanotubes, nanofluids and small molecules, on the surfaces of graphene sheets and CNTs. Becton and Wang used MD simulations to explore thermophoretic motion of graphene nanoflakes on a graphene substrate. Their findings revealed that temperature gradients drive nanoflakes from hot to cold regions, with a threshold of 
+ distinguishing constant velocity from accelerated motion [31]. Lohrasebi et al. showed that a fullerene molecule on a graphene sheet can move linearly towards the cold end with velocity proportional to temperature gradient, and the decrease of its free energy confirms irreversible thermodynamic driving [32]. Savin found two distinct friction regimes for the motion of fullerene and nanoflake on a thermalized graphene sheet [33]: diffusion, where the friction decreases with increasing temperature due to thermal activation over local energy barriers, and ballistic, where the interaction of nanoparticles with out-of-plane bending vibrations of graphene cause deceleration thus leading to enhanced friction with increasing temperature. Moreover, the directional motion of carbon nanoparticles, with ballistic mode dominating at high temperature gradients, does not depend on particle shape and size. A gold cluster on a graphene sheet under the action of heat flux also shows a ballistic mode of directional motion due to the interaction of the cluster with flexural phonons of the sheet [34]. In addition, Schoen et al. reported that the trajectory of a gold nanoparticle within a CNT correlates with the CNT chirality [23]. The thermally driven mass transport of a CNT nested inside or outside of another coaxial CNTs was also confirmed by MD simulations [35], [36]. Zambrano et al. found that a nanodroplet moves along the CNT axis with terminal velocities linearly proportional to the temperature gradient [37]. Fast water transport confined in a CNT through imposing thermal gradients and immobilizing specific points can also be implemented based on asymmetric vibration of the CNT [38]. Wang showed that thermophoresis of small organic molecules on a free-standing graphene sheet exhibits selective conduction behavior [39]. Likewise, benzene molecules can be transported along a CNT subjected to a thermal gradient and undergo chirality-selective migration due to a diversity of stacking configurations of 
+-orbitals at the interface [40]. Although we have deepened understanding to the thermophoretic driving mechanism for molecular transport, the relationship of some parameters with the thermophoretic behavior still remains to be explained in detail and the driving force for many thermophoretic systems is also under debate due to the complexities of molecular structures and interactions.
+In terms of thermophoretically driven fluid and solid through CNTs, most of previous studies focus on the transport of nanoparticles or nanodroplets confined in CNTs and nanotubes relative to another coaxial nanotubes, while the thermophoretic motion of nanoparticles outside CNTs is paid less attention. In this work, we use nonequilibrium MD simulations to study the thermophoretic motion of graphene nanoflakes on the outer surface of a CNT. The effects of the aspect ratio of flakes and the CNT diameter on the thermophoresis of flakes are addressed. Due to the curvature effect of the CNT, the flakes show different thermophoretic behavior from that of flakes on the graphene. Our simulations provide insight into the underlying mechanism of the thermophoretic motion of nanoflakes on curved surfaces. In the following, we give details of the simulation method and methodology. Then, we present and discuss the obtained results. In the final section, we draw the conclusions resulting from our investigations.
+2. Methods
+We study the thermophoretic motion of graphene nanoflakes across a CNT based on MD simulations. The thermophoretic behavior of nanoflakes may be significantly affected by thermal boundaries when the nanotube length is too short, such as 
+. Here, we employ a 
+ long nanotube, comparable to those used in previous studies of thermophoresis with CNT or graphene as substrates [26], [27], [33]. Compared to the nanotube length, the thermophoretic force is mainly dominated by the temperature difference, which induces an unbalanced force on the contact edges [29]. Different diameters of CNTs with armchair chirality are involved: 
+, 
+, 
+ and 
+. For comparison, a 
+ graphene as the substrate is also studied. A single-walled CNT with a larger diameter such as 
+, in real situation is a highly unstable structure. We regard single-walled CNTs as a model system to investigate the curvature effect of substrates. It is assumed that the results obtained can reveal the influence of the diameter or curvature of substrate nanostructures with cylindrical surfaces on the thermophoretic behavior of nanoflakes to some extent, though the interfacial interactions depend on the atom type and molecular structure of the contact interface. To explore the effect of the size of a nanoflake on its thermophoretic behavior, three geometries of rectangular nanoflakes with sizes of 
+ (GF1), 
+ (GF2) and 
+ (GF3), are constructed while the number of atoms contained in the nanoflakes is remained approximately constant. In the simulations, the first 
+ for two free ends of the CNT or graphene in the 
+ direction is frozen to avoid drifting, and two 
+ long slabs close to the fixed ends are set as the heat source and heat sink. As an illustration, Fig. 1a-d shows the model systems of flakes with different aspect ratios on the CNT with 
+ and the configurations of the GF1 flake on the CNTs with different diameters.
+The interactions between carbon atoms on the CNT or graphene are modeled using the adaptive intermolecular reactive empirical bond order (AIREBO) potential [41], which includes the REBO, pairwise Lennard-Jones (LJ), and torsion potentials
+(1)
+where the REBO potential [42] is represented as following
+(2)
+where 
+ is the distance between atoms 
+ and 
+ and 
+ is the many-body coupling term. 
+ and 
+ describe the repulsive and attractive pairwise interactions, respectively. The 
+ term is used to model short-ranged Csingle bondC interactions (
+). To simulate longer-range interactions between carbon atoms, the LJ potential is adopted
+(3)
+where 
+ and 
+ denote the depth of the potential well and the equilibrium distance, respectively. The cutoff distance for the LJ term is 
+. The 
+ term in the AIREBO potential is used to model torsional potential for hydrocarbon dihedral angles. The LJ potential is also employed to describe the interactions between the nanoflake and substrate, and is shifted and truncated at 
+.
+Fig. 1
+Download: Download high-res image (888KB)
+Download: Download full-size image
+Fig. 1. (a-c) Illustration of MD simulation systems of graphene nanoflakes with different aspect ratios on the outer surface of a 
+ long CNT with diameter 
+. The initial and typical equilibrium configurations of nanoflakes are shown. (d) Axial views of the square GF1 flake on the CNTs with different diameters. (e) Temperature profiles of the CNTs and graphene sheet along the 
+ direction imposing a temperature difference with 
+ at the heat source and 
+ at the heat sink.
+
+The temperatures in the heat source and sink are maintained at 
+ and 
+ based on the Nos
+-Hoover thermostat with a coupling time constant of 
+. As shown in Fig. 1e, the linear temperature distribution across the substrates is consistent with the behavior predicted by Fourier’s law without considering thermal effect near the heat source and sink. The equations of motion are integrated using the velocity-Verlet scheme with a time step of 
+. All simulations are carried out in an orthorhombic box with periodic boundary conditions. The size of the simulation box in the 
+ direction is equal to the length of the CNT or graphene. The sizes along the other two directions are 
+ for the CNT, and are 
+ for the graphene which is placed at the xy plane.
+The simulations are performed using an open source software Large-scale Atomic/ Molecular Massively Parallel Simulator (LAMMPS) [43]. First, we conduct a nonequilibrium simulation for 
+. In this process, the heat source and sink are set to the specific temperatures to establish a steady temperature gradient. The 
+-directional momentum of nanoflakes is zeroed by subtracting from its center-of-mass (COM) velocity. Next, the simulation continues to run for 
+ to sample the trajectory data for obtaining the temperature distribution along the 
+ direction. We finally eliminate the constraint on the COM momentum of nanoflakes and perform the simulation of thermophoresis. The visualization of atomic configurations is conducted by the VMD software [44].
+3. Results and discussion
+To explore the migration behavior of the flake on the substrate, we first present the COM displacement of the flake in the 
+ direction as a function of time in Fig. 2. Due to the computational infeasibility of exploring the entire parameter space of initial conditions for precise statistical conclusions, we conducted five repeating simulations for each case to enhance the reliability and precision of the results. To mitigate the influence of boundary conditions at both ends of the nanotube and in consideration of the nanoflake dimensions, the sampled displacements of nanoflakes are constrained to be less than the nanotube length, for example, approximately 
+ for the GF1 nanoflake. The calculation of the average trajectory requires temporally overlapping segments from individual runs. However, different initial configurations lead to different motion trajectories, meaning that the time required for a nanoflake to traverse from one end of the nanotube to the other differs across individual simulations. Consequently, the trajectory displacements presented in Fig. 2 are comparatively shorter, particularly for the GF3 nanoflake, as its motion is more sensitive to the initial configuration. Different simulation trajectories for two representative cases are given in the supporting material. The temperature difference drives the motion of the flake on the CNT along the opposite direction of the thermal gradient. The flakes on the CNT with 
+ move more slowly, in particular for the GF2 and GF3 flakes. The thermophoresis of the GF3 flake is significantly suppressed and shows a intermittent motion similar to stick–slip phenomenon. The previous works demonstrated that the flakes, such as graphene nanoflakes [31] and phosphorene nanoflakes [45], travel with a constant velocity at small temperature gradients. It was reported that the graphene nanoflakes experience an accelerated motion when the temperature gradient exceeds 
+ [31]. In the present work, a temperature gradient of about 
+ is applied on the graphene substrate. Therefore, the flakes on the graphene show a non-linearly increasing displacement, which is in agreement with the reported results. As the CNT diameter increases, the flakes gradually speed up after relatively slow motion. The influence of the CNT diameter on the displacement of the flakes decreases at large CNT diameter. Note that the change in the aspect ratio of flakes leads to more distinct differences in the trajectories. Therefore, to achieve stable and controllable nanoparticle transport (e.g., targeted drug delivery) in relevant applications, it may be preferable to use large-diameter CNTs or planar graphene as substrates, along with near-square (low aspect ratio) nanoflakes. Conversely, to utilize dynamic intermittent behavior, small-diameter CNTs and high-aspect-ratio nanoflakes may be selected.
+To analyze thermophoretic dynamics of the flakes in details, we calculate their migration velocity along the 
+ direction. The evolution of the thermophoretic velocity is shown in Fig. 3. At 
+, the velocity profile of the GF1 flake exhibits an approximate linear increase with time, corresponding to a constant acceleration of 
+. The acceleration of the GF1 flake increases with the CNT diameter, 
+ at 
+ and 
+ at 
+. Contrary to expectation, the acceleration of the GF1 nanoflake on the graphene not only fails to increase but actually declines. Consequently, there is likely an optimal curvature at which the nanoflake’s speed reaches its peak. For the GF2 and GF3 flakes on the CNT with 
+, their velocities show obvious fluctuations and no constant acceleration is identified. The increase of the CNT diameter also leads to accelerated motion for the GF2 and GF3 flakes. However, in this process the GF3 flake does not exhibit stable acceleration. The driving mechanism of thermophoresis depends on the vibrational behavior of the CNT, which causes nonsymmetric phonon effects between the high and low temperature regions of the flakes. The present simulations also indicate that the CNT diameter has significant influence on the thermophoretic behavior.
+Fig. 2
+Download: Download high-res image (364KB)
+Download: Download full-size image
+Fig. 2. Displacement of the COM of nanoflakes along the 
+ direction as a function of the time for three different aspect ratios: (a) GF1, (b) GF2 and (c) GF3. Each curve represents the average of five simulations conducted with different initial conditions.
+
+Fig. 3
+Download: Download high-res image (472KB)
+Download: Download full-size image
+Fig. 3. Velocity profiles of nanoflakes along the 
+ direction on the CNTs with different diameters (a) 
+, (b) 
+, (c) 
+ and (d) on the graphene. Each curve represents the average of five simulations conducted with different initial conditions.
+
+The transport behavior of the flakes on the nanotubes under thermal gradient is related to the driving mechanism of thermophoresis. Guo et al. have developed a theory of lattice dynamics for a thermophoretic system of coaxial nanotubes, and revealed that there exist two distinct contributions to the driving force, namely the gradient force and the unbalanced edge force [29]. In terms of the present system, the gradient force can be assumed to act on all atoms of the flake, which stems from the variation of van der Waals interaction energy along the temperature gradient. The unbalanced edge force, which arises due to an abrupt change in the degree of atomic confinement at the contact edge, can be assumed to act exclusively on the perimeter atoms of the flake. The atoms on the substrate that are not covered by the flake experience less confinement. Consequently, they vibrate with larger amplitudes and are positioned farther from their equilibrium positions compared to the confined atoms beneath the flake. The larger the aspect ratio of the flake, the more its edge atoms. Therefore, the unbalanced edge force of the GF3 flake contributes more to the thermophoretic force. The edge atoms due to lower confinement have larger oscillation amplitudes. In combination of the curvature effect of CNTs, this may lead to unstable thermophoretic force on the GF3 flake, further causing larger fluctuations of thermophoretic velocity.
+We find that the flakes not only translate along the CNT axis, but also rotate about this axis. The work of Schoen et al. showed a gold nanoparticle confined in a CNT can rotate around its longitudinal axis [23]. Similar thermophoretic behavior was also observed for nanodroplets [37] and capsule-like nanotubes [46] inside the CNT. In addition, the rotational direction is not fixed in the translational motion for these confined objects. The general feature is attributed to the helical lattice symmetry of the CNT. The experiment also confirmed that one short CNT can rotate by applying thermal gradients along the inner nanotube [25]. In Fig. 4, we plot the rotation angle of the flakes on the CNTs with different diameters. The rotation angle is defined as the angle of the COM of the flake about its initial position around the CNT axis. As seen from these profiles, the rotation of the flakes is not constantly in single direction (clockwise or counterclockwise). In addition, the rotary motion also shows certain periodicity to some extent, but the rotational period is affected by random thermal fluctuations. The atoms on the CNT according to its chirality can be arranged in many different configurations, and the atomic interactions between the CNT and nanoparticles result in different modes of motion driven by phononic current originating from a thermal gradient. That is, the CNT chirality determines the angle and periodicity of helical motion orbit for nanoparticles. The armchair CNTs are considered in this work. Their thread lines are arranged with pitch angles of 
+ (helical) and 
+ (tube axis), respectively [23]. Guided by the minimal corrugation of the atom lattice of the CNT along the direction of threadlines, the nanoparticles tend to move along the directions of these lines. Compared to the confined objects, the flake has no complete contact with the outer surface of the CNT because the flake stiffness causes its marginal part to tilt upwards, as discussed below. As a result, the flake trajectory does not converge to the threadlines. For instance, the rotational motion of the GF3 flake is notably more irregular. The GF1 flake exhibits nearly negligible rotation on the CNT with 
+, which can be attributed to its encircling conformation around the nanotube surface. As the CNT diameter increases, the rotational amplitude becomes larger. Although the perturbative thermal effect on the edges can induce rotation of the flakes about their COMs on the graphene [31], we find that the curved surface of the CNT limits their self-rotating motion, in particular for flakes with high aspect ratio.
+Fig. 4
+Download: Download high-res image (412KB)
+Download: Download full-size image
+Fig. 4. Rotation angle of the flakes on the CNTs with different diameters (a) 
+, (b) 
+, (c) 
+ and 
+. Each curve represents the average of five simulations conducted with different initial conditions.
+
+The contact area between the flake and CNT is influenced by the nanotube diameter due to the bending stiffness, and the number of boundary atoms on the flake also depends on its aspect ratio. This will cause the change of molecular interactions between the flake and substrate. Fig. 5a shows the average potential energy 
+ between the flake and substrate for the flakes with different aspect ratios. Additionally, the evolution of the interaction energy for the GF1 flake is also given in Fig. 5b. The flake has higher van der Waals energy with the CNT near the hotter end, because the higher temperature causes the atoms to oscillate with greater thermal vibration amplitude, increasing their average displacements from equilibrium positions. The interaction energy has slight decrease as the flake migrates towards the heat sink. With decreasing the nanotube curvature, the flake/substrate contact becomes closer corresponding to lower energy (Fig. 5a). The increase in the curvature tends to cause a larger bending deformation of the flake. Substantially, no deformation is induced for the flake on the graphene surface, and thus the interaction energy reaches the minimum. 
+ increases with the aspect ratio of the flake, except on the CNT with 
+. Obviously, the interaction of the GF2 flake with the thinnest nanotube is significantly weakened. To visually check the conformational behavior of flakes, we present their simulation snapshots on the CNT of 
+ in Fig. 5c. Two opposite corners of the GF1 flake are folded to wrap around the CNT. The diagonal linking to other two corners is approximately parallel to the axial direction of the CNT. Such conformation for the square flake has a lower bending energy. The GF3 flake helically wraps around the nanotube, and is not in contact with itself. Its wrapping pattern resembles the conformation of a polymer chain on the nanotube [47]. The GF2 flake has less contact with the nanotube because its two corners tilt upwards and detach from the nanotube, leading to much weaker interaction between the GF2 flake and the CNT. From these simulation results, when designing thermophoretic transport nanodevices, the geometric curvature of the substrate should be treated as one of main design parameters to anticipate its impact on the conformation and binding forces of the transported objects.
+Fig. 5
+Download: Download high-res image (559KB)
+Download: Download full-size image
+Fig. 5. (a)Average potential energy of the flake–substrate interaction. The C1-C4 correspond to the CNT diameter 
+, 
+, 
+ and 
+, respectively, and G denotes the graphene substrate. (b) Evolution of potential energy of the flake–substrate interaction for the GF1 flake on different substrates. (c) Typical conformations of the flakes with different aspect ratios on the CNT with 
+. In (a) and (b), the potential energy is obtained by averaging the results from five simulations with different initial conditions.
+
+Fig. 6 shows the evolution of molecular potential energy of nanoflakes during the thermophoretic process. The initial potential energy decreases with increasing the nanotube diameter. However, we also find that initially the GF1 flake on the thinnest CNT has a lower potential energy due to its wrapping conformation. The potential energy decreases as the flakes migrate towards the low temperature end. It indicates that the migration direction of the flakes is along the most energetically favorable path. A lower potential energy represents a more stable state, which drives the flakes to move towards the heat sink of the CNT. Becton and Wang stated that there is a direct correlation between the variation in the potential energy of flakes and the number of edge carbons [31]. For tested geometries (circular, square, rectangular, and triangular) with the same surface area in their work, a flake with more edge carbons accompanies with a larger drop in potential energy as the flake moves towards the heat sink. When the flake on the CNT is thermophoretically driven, it no longer keeps a flat surface but undergoes deformation to fit the CNT surface and rotates around the CNT axis. The potential energy for the GF3 flake does not have a larger drop compared to the GF1 flake.
+Fig. 6
+Download: Download high-res image (551KB)
+Download: Download full-size image
+Fig. 6. Evolution of molecular potential energy of (a) GF1, (b) GF2 and (c) GF3 flakes on the CNTs with different diameter and the graphene. Each curve represents the average of five simulations conducted with different initial conditions.
+
+Further, we analyze the effect of the nanotube diameter on its vibrational behavior. The nanotube vibration can be decomposed into different vibrational modes with sinusoidal oscillations at specific frequency. The phonon modes can transfer momentum to the flakes. To obtain the vibrational amplitude and frequency of the CNTs with different diameters, the Fast Fourier Transform (FFT) is carried out for the trajectories of the CNTs [38], [48]. Due to axial symmetry of oscillation, we extract the 
+-directional trajectory of the COM of the bins into which the computational domain is divided along the axial direction of the CNT. Through checking the FFT spectrum for each bin, we can identify the vibrational modes and compute the corresponding amplitudes. After the FFT analysis is applied to all bins, the vibrational amplitudes can be plotted along the CNT axis. Here, we take the first four vibrational modes to analyze the effect of the nanotube diameter on its thermal vibration. Other modes have negligible influence on the vibrational amplitudes. Fig. 7 shows the curves of vibrational amplitudes at different vibrational modes. The vibrational amplitude of the CNT with 
+ is much larger especially at low frequency. However, for each mode the smaller the CNT diameter, the lower its vibrational frequency. Although the CNT of 
+ has larger vibrational amplitude, high aspect ratios seem to be unfavorable for the thermophoretic motion of flakes on such narrow CNT. By comparison, the high-aspect-ratio flakes, such as GF2 and GF3, can be driven more easily on the thicker CNT which vibrates with higher vibrational frequency. This indicates that the vibrational frequency can significantly affect the transport of the flakes. When the main vibrational modes are below a certain frequency, the migration of the high-aspect-ratio flakes will be suppressed to some extent. The GF1 flake with equal edge length can be transported on the CNTs with different diameters but its acceleration is reduced in the case of 
+. The coupling between the phonon modes of CNTs and the motion of flakes is a critical factor to control the thermophoretic behavior of flakes, but a deep analysis to the underlying mechanism from this perspective is complicated. Overall, when selecting a substrate for thermophoretic nanodevices, not only its dimensions and shapes but also its intrinsic vibrational properties should be considered. Similar mechanisms are also associated with a broad class of processes in which the collective dynamics of a system couples to a fluctuating source [49]. For example, the surface mobility and the friction of molecules in nanoscale contacts can be tuned by external excitations to the substrate [50], [51].
+Fig. 7
+Download: Download high-res image (665KB)
+Download: Download full-size image
+Fig. 7. Vibrational amplitudes of the first four modes for the CNTs with different diameters.
+
+Finally, we simulate the thermophoresis of the flakes under a smaller temperature gradient. The temperatures in the heat sink and source are set at 
+ and 
+, respectively. As an example, we present the simulation results of thermophoretic transport of flakes on the CNT with 
+. As shown in Fig. 8a, the vibrational amplitude for mode 1 is significantly reduced compared to that at the higher temperature gradient (
+) as discussed above. The maximum amplitude in the middle of the CNT is 
+ at 
+, while 
+ at 
+. However, the vibrations for modes 2–4 become slightly stronger at 
+. The vibrational frequency for each mode almost keeps constant at different temperature gradients. At 
+, the decrease of the vibrational intensity is also accompanied by a lower thermophoretic ability of flakes as shown in Fig. 8b and c. We note that the GF1 flake still can move along the CNT, but its thermophoretic velocity is remarkably reduced. For the GF2 and GF3 flakes, their thermophoretic mobility is considerably restrained.
+Fig. 8
+Download: Download high-res image (425KB)
+Download: Download full-size image
+Fig. 8. (a) Vibrational amplitudes of the first four modes for the CNT with 
+, (b) COM displacement and (c) velocity profiles of the flakes. The temperature in the heat source is set to 
+.
+
+4. Conclusions
+In summary, based on molecular dynamics simulations we investigate the thermophoretic motion of graphene nanoflakes on the outer surface of CNTs under a thermal gradient. Our simulations indicate that both the aspect ratio of flakes and the CNT diameter significantly influence the thermophoretic behavior. The curvature of nanotubes induces distinct conformational transition of the flakes, leading to changes in their contact property and interaction energy with the CNTs, and influences their vibrational modes, which couple with flake motion through momentum transfer. The decrease in the potential energy of flakes during the transport process confirms the thermodynamic favorability of directional motion. The flakes with larger aspect ratios exhibit unstable slippage motion, especially on CNTs with smaller diameters which vibrate with larger amplitudes but lower frequencies, due to enhanced edge effects and their conformational adaptation to the nanotube curvature. In contrast, the square flake moves in a more stable acceleration. Additionally, the helical lattice symmetry of CNTs imposes a rotational component on the motion of flakes, further complicating their trajectories. These results emphasize the importance of substrate curvature and flake geometry in nanoscale thermophoresis and provide an understanding of molecular transport on curved surfaces. The influences of other factors, particularly nanotube chirality, on the thermophoretic behavior of nanoflakes on nanotube surfaces remain unclear. The role of nanotube chirality has been discussed in some previous studies on thermophoresis [37], [40]. Compared with nanotubes with other chiralities, the transported nanostructures (such as nanodroplets and small molecules) inside or outside armchair nanotubes move with a higher velocity. Regarding the impact of nanotube chirality on the details of thermophoretic transport of nanoflakes, we intend to conduct a more systematic investigation in future work.

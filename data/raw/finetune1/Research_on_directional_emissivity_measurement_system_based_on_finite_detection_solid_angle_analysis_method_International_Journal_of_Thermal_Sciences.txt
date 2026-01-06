@@ -1,0 +1,123 @@
+Abstract
+High-precision directional emissivity data is a critical parameter for the optimization design and evaluation of thermal radiation characteristics. However, current emissivity measurement systems are limited by a finite detection solid angle and restricted spatial coverage, which hampers accurate characterization of materials over the full angular domain and thus undermines the reliability of thermal radiation property assessments. In this study, we present a systematic theoretical analysis coupled with experimental validation to quantify the impact of a finite detection solid angle on the accuracy of directional emissivity measurements. The results indicate that the error introduced by the finite detection solid angle can reach up to 12 % at large zenith angles. Building on this theoretical analysis, we developed a hemispherical directional emissivity measurement system with a controllable detection solid angle, and experimentally verified the influence of the detection solid angle on measurement accuracy. When the detection solid angle is kept below 3.14 × 10−4sr−1, the system's measurement uncertainty remains under 1.3 %. This work provides critical technical support for applications such as thermal management, infrared stealth and spacecraft thermal control.
+Previous article in issue
+Next article in issue
+Keywords
+Directional emissivitySolid angleHemispherical spaceExperimental apparatus
+1. Introduction
+Directional emissivity is defined as the ratio of radiative intensity emitted by a material surface in a specified direction to that of an ideal blackbody under the same conditions [[1], [2], [3], [4]], serves as a key parameter for characterizing the spatial distribution of thermal radiation. As a fundamental metric for the optimization, design, and evaluation of thermal radiation performance, directional emissivity plays an indispensable role in applications such as infrared stealth [5,6], space thermal management [7], optical device design [[8], [9], [10]], and radiative cooling [[11], [12], [13]]. Consequently, acquiring of high-precision directional emissivity data is essential for accurately characterizing material radiative properties and advancing thermal radiation technologies [[14], [15], [16]].
+To characterize the directional radiation behavior of a target surface, researchers have devoted extensive effort to developing directional emissivity measurement instruments based on radiometric techniques, continually achieving breakthroughs in both spatial coverage [[17], [18], [19], [20], [21], [22], [23], [24], [25], [26], [27]] and measurement accuracy [20,28,29]. For instance, Liu et al. [24] established a system realized precise directional spectral emissivity determination of solid materials under the atmosphere with 0°–60° zenith angles. A facility for the directional spectral emissivity in the temperature range from −40 °C to 450 °C and a zenith angle range of 0°–70° was established by the PTB [25]. Lucchesi et al. [26] developed an apparatus for measuring the spectral directional emissivity of optically thick materials with a Fourier transform infrared spectrometer at zenith angles from 0° to 80°. Koirala [27] developed a device capable of measuring the directional emissivity of solid materials with a coverage range of 0°–70° in the zenith angle and 0°–360° in the azimuth angle, and Meaker et al. [20] proposed a method to measure directional emissivity over the 0°–80° zenith angle and 0°–90° azimuth angle. With the expansion of spatial coverage, research on directional emissivity measurement has been further advanced. In terms of measurement accuracy, researchers have markedly enhanced emissivity precision by employing techniques such as background radiation modulation [[28], [29], [30]], multispectral temperature inversion [31], and vacuum or temperature controlled device [32,33]. Nevertheless, current high-precision directional emissivity studies still face two major limitations. First, existing systems possess a restricted angular range, preventing comprehensive assessment of radiative properties over the entire hemispherical domain. Second, they often neglect the effects of the finite detector solid angle and effective detection area, which introduce substantial systematic errors into emissivity characterization and consequently degrade measurement accuracy. Since both spatial coverage and measurement accuracy are critical for accurately characterizing the radiative behavior of materials. Therefore, systematically analyzing the impact of finite detection solid angle and developing measurement systems that reduce uncertainty while ensuring broad spatial coverage are crucial for achieving high-precision thermal radiation characterization.
+In this study, we introduce a theoretical framework for quantifying the impact of finite detection solid angles on directional emissivity, accompanied by a comprehensive analysis of error characteristics across various parameter regimes. Building on this framework, we independently develop a high-precision measurement system capable of hemispherical directional emissivity measuring (θ = −90° - 90°, φ = 0°–360°) over a temperature range of 673–1073 K. Silicon carbide is employed as a reference sample to experimentally validate both the proposed theoretical model and the system's spatial measurement capability. Finally, we conduct a systematic evaluation of the measurement uncertainty associated with the apparatus.
+2. Theoretical analysis
+Directional emissivity is defined as the ratio of the radiative intensity emitted from a material surface in a specified direction (θ, φ) to that of an ideal blackbody under the same conditions, as illustrated in Fig. 1(a). Here, θ and φ denote the zenith and azimuth angles, respectively. In principle, measuring directional emissivity requires capturing thermal radiation within an infinitesimal solid angle (Ω) from an infinitesimal surface element, implying that both the detection solid angle and the effective detection area (A) should ideally approach zero. However, in practice, the finite aperture size and detection distance inevitably impose a non-negligible solid angle (Fig. 1(b)), introducing systematic errors that can substantially affect measurement accuracy.
+Fig. 1
+Download: Download high-res image (266KB)
+Download: Download full-size image
+Fig. 1. Schematic diagram of the finite detection solid angle and effective detection area. (a) Geometric relationship. (b) Effective detection area.
+
+To quantitatively assess these effects, we establish the analytical expressions for the detection solid angle and effective detection area, and further derive the error components introduced by their finite sizes. The detection solid angle [34], can be expressed as:
+(1)
+where the half field of view angle ψ is approximately equal to r/h, r and h represent the detection aperture radius and detection distance, respectively.
+The measured radiance is denoted as L(θ, φ). The total detected signal can be expressed as:
+(2)
+where (θ0, φ0) represents the central measurement direction.
+The corresponding ideal unidirectional signal is given by:
+(3)
+and the relative error is defined as:
+(4)
+To evaluate this error, a local small-angle coordinate system (α, β) is established around the central direction, with α2 + β2 ≤ ψ2. In this coordinate system, any smooth angular function F(α, β) (where F = Lcosθ) can be expanded using the second-order Taylor series, enabling the calculation of the spherical average. The standard result for the spherical small-angle average is:
+(5)
+The relationship between the local operator and the spherical Laplacian is:
+(6)
+Substituting into eq. (4), one obtains:
+(7)
+Applying the spherical Laplace operator to 
+:
+(8)
+the relative error can be decomposed as:
+(9)
+The error contributions from the detection solid angle, effective detection area, and their coupling are then expressed as:
+(10)
+Applying the spherical Laplace operator to the projection factor cosθ yields:
+(11)
+thus,
+(12)
+According to the cosine-power law model [35], the radiance distribution is:
+(13)
+where m denotes the directionality factor, characterizing the anisotropy of the radiation distribution.
+The relevant terms can be computed as:
+(14)
+(15)
+Substituting into eq. (9) yields:
+(16)
+Accordingly, the individual error components are expressed as eqs. (17), (18), (19), respectively.
+(17)
+(18)
+(19)
+To provide a more intuitive analysis of the effects of finite detection solid angle and effective detection area on the accuracy of directional emissivity measurements, the dependencies of measurement error on detection solid angle, anisotropy index, and zenith angle were systematically investigated, as illustrated in Fig. 2. As shown in Fig. 2(a), for a given zenith angle, the error increases monotonically with the detection solid angle, and the effect becomes particularly pronounced when the solid angle exceeds 3.14 × 10−4 Sr−1, indicating that finite detection solid angle effects dominate large-angle measurements. Fig. 2(b) further demonstrates the role of spatial anisotropy in material radiation: under identical detection conditions, stronger anisotropy leads to more significant deviations, especially when θ > 60°. Fig. 2(c–f) present the variations of error contributions from the detection solid angle, effective detection area, their coupling effect, and the total error, respectively. The results indicate that at small zenith angles the error introduced by the solid angle is negligible, however, for θ > 60°, the error rises sharply and is strongly amplified with increasing Ω, reaching more than 30 % under strong anisotropy conditions. By contrast, the error introduced by the effective detection area is almost independent of θ and remains at a level of 0.1 % or less, far smaller than the solid angle effect, suggesting a negligible contribution to the overall uncertainty. The coupling effect, as shown in Fig. 2(e), only appears as a minor deviation (on the order of 10−3) at large zenith angles, with little dependence on the anisotropy index m, and can therefore be ignored. Overall, Fig. 2(f) reveals that the total error is primarily determined by the finite solid angle effect. When θ > 60°, the error increases dramatically with zenith angle and is further magnified under larger m values. For materials exhibiting strong anisotropic radiation distributions (e.g., m = 5), this effect may introduce considerable systematic deviations in large-angle measurements. These findings highlight that increasing anisotropy significantly enhances the sensitivity of directional emissivity measurements to zenith angle, while variations in detection solid angle further amplify error disparities, underscoring the critical importance of precise angular and solid angle control in high-accuracy emissivity characterization.
+Fig. 2
+Download: Download high-res image (583KB)
+Download: Download full-size image
+Fig. 2. Influence of finite detection solid angle on the high-precision directional emissivity measurements. (a) The error varies with the zenith angle under different detection solid angles. (b) The error introduced by the effective detection area. (c) The errors introduced by the detection solid angle. (d) The error introduced by the detection area. (e) The errors introduced by the coupling effect between the detection solid angle and the effective detection area. (f) The total error introduced by the detection solid angle and the effective detection area.
+
+3. Experimental verification
+3.1. Method and apparatus
+This study employs the energy comparison method, which was proposed in our previous work [36,37]that can be expressed as:
+(20)
+where, λ is wavelength, T is temperature, θ and φ represent the zenith angle and azimuth angle, respectively. The object spectral radiant luminance Ls(λ,T,θ,φ), blackbody spectral radiant luminance Lb(λ,T) and surrounding environment spectral radiant luminance Lsur(λ,T) are measured at the same temperature and wavelength.
+Ls(λ,T,θ,φ) and Lb(λ,T) are measured by a home-made apparatus. Fig. 3 illustrates the three-dimensional schematic diagram of the apparatus which composed of the rotation system, the heating and temperature controlling system, the blackbody and the detection system, and Table 1 presents the primary technical parameters and performance indicators of the measurement system. Fig. S3 shows the preparation process of the device.
+Fig. 3
+Download: Download high-res image (383KB)
+Download: Download full-size image
+Fig. 3. The three-dimensional schematic diagram of experimental apparatus. (OPM1, OPM2: Off-axis parabolic mirror, PRM1: Plane reflecting mirror).
+
+Table 1. The primary technical indicators of the measurement system.
+
+Technical Indicators	Level
+Wavelength Range	800–2500 nm
+Spectral Resolution	0.5 nm
+Temperature Range	673–1073 K
+Zenith Angle	−90°-90°
+Azimuth Angle	0–360°
+Rotational Accuracy	0.1°
+The sample is heated to the target temperature by the heater [37], and measurements commence once thermal equilibrium is achieved. The radiative signal emitted from the sample surface is first collected and collimated by the off-axis parabolic mirror (OPM1, Thorlabs OAP25. 4–203 - MAG), and is then sequentially redirected by the plane reflecting mirror (PRM1, Thorlabs PF10-03-P01) and the second off-axis parabolic mirror (OPM2). The beam is modulated by a mechanical chopper (Stanford Research Systems, SR540m) before entering the spectrometer (Zolix Omin-λ3007i). The spectrometer disperses the incident radiation into its spectral components, thereby resolving the wavelength-dependent distribution of the emission. The dispersed signal is detected by an electro-cooled InGaAs detector (DInGaAs2600-TE) and subsequently processed by a lock-in amplifier (Stanford Research Systems, SR860m), which effectively suppresses noise and enhances the signal-to-noise ratio by referencing the chopper frequency, enabling precise extraction of weak radiative signals. This process yields the sample radiance Ls(λ,T,θ,φ). The standard blackbody radiation source employed is the HFY-200C model, characterized by an effective emissivity exceeding 0.99. Under identical conditions, the radiance of a blackbody Lb(λ,T) is measured, allowing for the determination of the directional emissivity of the target material.
+For the rotation system, most reported directional emissivity systems employ a vertical-rotation heater and rotating sample, which may cause instability when testing fragile materials. To address this, we use a fixed-sample and rotating optical-path configuration with a dual-degree-of-freedom mechanism: an L-shaped optical-path turntable for zenith scanning from −90° to 90°, and a horizontal rotation table for azimuth scanning over 0–360°. This decoupled design enables hemispherical detection while maintaining sample stability, ensuring reliable and accurate emissivity measurements.
+3.2. Reliability and stability verification
+The measurement of spatial directional emissivity typically requires point-by-point scanning across extensive angular and spectral ranges, making the process exceedingly time-consuming. During the measurement, mechanical drift or optical path deviations may introduce significant errors, particularly when detecting subtle variations in directional thermal radiation. Consequently, ensuring both the stability and accuracy of the measurement system is of paramount importance.
+The long-term stability, repeatability, and reliability of the developed spatial thermal radiation measurement system were comprehensively validated, as shown in Fig. 4. Fig. 4(a) presents the time-dependent emissivity curves of the silicon carbide (SiC) sample at 1073 K under a fixed zenith angle (θ = 0°) and varying azimuth angles (φ = 0°–180° at 30° intervals). The curves exhibit nearly identical trends across different measurement durations, confirming outstanding temporal stability and repeatability. The emissivity distributions under varying zenith (θ = −80°-80°) and azimuth (φ = 0°–360°) angles, shown in Fig. 4(b) and (c), demonstrate excellent consistency across the spatial domain, thereby verifying reliable performance over a broad angular range. To further confirm measurement accuracy, the spectral emissivity of SiC was measured in the 1300–1600 nm band at 1023 K and 1073 K and benchmarked against reported literature values [[38], [39], [40], [41]] (Fig. 4(d)). The measured emissivity values fall within the established range for SiC (0.78–0.92) and agree closely with reference data, with minor deviations attributable to differences in sintering, surface treatment, and instrumental precision. Notably, the samples used here were obtained from the same supplier as in Tong et al. [41], and the results exhibit near-complete overlap, strongly substantiating the system's capability to accurately measure the emissivity of high-temperature materials in the near-infrared region.
+Fig. 4
+Download: Download high-res image (696KB)
+Download: Download full-size image
+Fig. 4. Verification of the stability and accuracy of the device. (a) The variation of measurement results at different azimuth angles with working time. (b) and (c) are the stability of measurement results under different zenith angles and azimuth angles, respectively. (d) Comparison of the measured emissivity of SiC with the literature.
+
+3.3. The directional emissivity of different finite detection solid angle
+To validate the theoretical analysis presented in Section 2, we still chose SiC as the sample and its emissivity was measured under different detection solid angles, as shown in Fig. 5. As illustrated in Fig. 5(a), when θ < 60°, the emissivity curves corresponding to various detection solid angles nearly overlap, indicating that the finite solid angle effect is negligible in this angular range. In contrast, for θ > 60°, larger detection solid angles yield higher emissivity values, with the inset highlighting the pronounced discrepancies in the large-angle region. Based on these measurements, the directional factor m of SiC was determined to be approximately 3. Fig. 5(b) further compares the experimental errors under different solid angles with theoretical predictions. It can be observed that the close agreement between experimental results and theoretical predictions demonstrates the robustness and reliability of the proposed analysis. Moreover, when Ω ≤ 3.14 × 10−4 sr−1, the error remains below 1 %. However, once Ω > 3.14 × 10−4 sr−1, the error increases monotonically with zenith angle, exhibiting a sharp rise in the large-angle region and eventually reaching a maximum of about 12 %. Therefore, to ensure high-precision measurements in subsequent experiments, the detection solid angle must be strictly controlled within Ω ≤ 3.14 × 10−4 sr−1.
+Fig. 5
+Download: Download high-res image (388KB)
+Download: Download full-size image
+Fig. 5. Measurement results and errors of the directional emission rate of SiC. (a) The measurement results of the directional emissivity of SiC. (b) The comparison of the measurement error with the theoretical calculation results.
+
+3.4. Measurement of the full-space emissivity of SiC
+To assess the capability of the measurement system in characterizing directional emissivity across the full spatial direction, hemispherical domain measurements were conducted on a SiC sample at 1073 K and a wavelength of 1550 nm. As shown in Fig. 6, the emissivity decreases gradually for θ ≤ 60° and decreases sharply for θ > 60°. Importantly, the emissivity's dependence on zenith angle is essentially independent of the azimuth angle, indicating excellent rotational symmetry and confirming that the sample surface exhibits strong uniformity under the test conditions. The spatial distribution characteristics are consistent with the classical thermal radiation theory of surface directional emission, thereby validating the physical soundness of the experimental results. Furthermore, the findings indicate that the developed system facilitates accurate resolution and reliable measurement of various directional radiation characteristics across the entire hemispherical space. Consequently, the system provides a robust experimental foundation and essential technical support for future investigations of the radiative thermophysical properties of materials at high temperatures.
+Fig. 6
+Download: Download high-res image (399KB)
+Download: Download full-size image
+Fig. 6. The spatial distribution of emissivity of silicon carbide sample at T = 1073 K, λ = 1550 nm: (a) Front view, (b) Top view.
+
+4. Uncertainty estimation
+The measurement uncertainty is a fundamental metric for assessing both the performance and the quality of experimental systems. According to the measurement principle, the overall uncertainty of the apparatus arises from multiple components, including the rotation stage, detection system, and heating system. To quantitatively assess the system performance, an uncertainty combination model was established using the root-sum-square method. The combined standard uncertainty is expressed as:
+(21)
+where ΔεRS and ΔεML denote the errors introduced by the rotation stage and the rotation arm in the angular positioning system, respectively. ΔεTC and ΔεPID correspond to the uncertainties arising from the thermocouple of heater and proportional-integral-derivative(PID) controller, as well as blackbody temperature instability (ΔεTB). Errors associated with the detection system primarily include the signal-to-noise ratio (ΔεSNR) and nonlinearity (ΔεNOD) of the detector, while ΔεΩ represents the systematic error induced by the finite detection solid angle. The contributions of each error source are summarized in Table 2. Substituting the corresponding values yields a combined standard uncertainty of:
+Table 2. Uncertainty estimations of spatial emissivity of measurement devices.
+
+Sources of error	Uncertainty	Relative uncertainty(%)
+Rotation system	Accuracy of rotary stage (ΔεRS)	0.028
+Accuracy of swing arm machining (ΔεML)	0.600
+Heater and Blackbody	Accuracy of the thermocouple (ΔεTC)	0.220
+Accuracy of PID controllers (ΔεPID)	0.058
+Stability of the temperature of the blackbody (ΔεTB)	0.018
+Detection system	Signal-to-noise ratio of the detector (ΔεSNR)	0.600
+Nonlinearity of the detector (ΔεNOD)	0.300
+Error introduced by the finite detection solid angle (ΔεΩ)	0.998
+5. Conclusions
+In conclusion, an analytical method to investigate the dependence of the accuracy of the directional emissivity on the finite detection solid angle has been proposed. By combining theoretical modeling, numerical simulation, and error analysis, we demonstrate that measurement accuracy is significantly influenced by the finite detection solid angle. At small zenith angles, the error introduced by the solid angle is negligible. However, for θ > 60°, the error rises sharply with increasing solid angle, reaching exceeds 12 %. Guided by this methodology, we independently develop a high-precision measurement system capable of hemispherical directional emissivity measuring (zenith angle −90°-90°, azimuth angle 0°–360°) covering temperatures from 673 to 1073 K, achieving a measurement uncertainty of less than 1.3 %. Validation experiments using a commercial SiC sample confirmed the theoretical predictions, verified the reliability of the apparatus, and demonstrated its capability for hemispherical emissivity characterization. The theoretical framework and measurement system provide a robust foundation for the precise evaluation of spatial thermal radiation properties, offering valuable experimental support for the design, optimization, and performance evaluation of materials in aerospace, thermal protection, and infrared stealth applications. Future work will extend this approach to structured surfaces, dynamic emissivity evaluation, and extreme-temperature environments to further expand its application scope in the corresponding fields.

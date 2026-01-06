@@ -1,0 +1,381 @@
+1. Introduction
+Lithium batteries have enormous potential for application in open-pit mines in western China, but they require high-strength, highly reliable safety management [1]. Although open-pit mining environments are relatively open, they still face harsh conditions such as extremely low temperatures and large temperature differences between day and night, which place special demands on the low-temperature performance and thermal management stability of lithium batteries. At the same time, lithium batteries' significant advantages in terms of energy density, cycle life, and green and low-carbon characteristics make them a key driving force in promoting the electrification and intelligent transformation of mining transportation [2]. With the continuous improvement of the national “dual carbon” strategy's requirements for green mine construction, lithium batteries are seeing broader and deeper application prospects in open-pit mining scenarios, especially in areas such as mining trucks, unmanned wide-body vehicles, and mining electric locomotives [3].
+The optimal operating temperature range for lithium-ion batteries is typically between 15 °C and 35 °C, and the temperature difference across the battery surface should not exceed 5 °C [4]. In low-temperature environments, the chemical reaction rate inside lithium batteries slows down and the viscosity of the electrolyte increases, hindering ion migration and increasing internal resistance, which significantly reduces battery performance [5,6]. Low-temperatures not only weaken the charging and discharging efficiency, useable capacity, and power output of lithium batteries, but also accelerate their aging and shorten their service life [7,8]. Therefore, when using lithium batteries in low-environment, appropriate insulation or heating measures (such as built-in heating systems, external insulation devices.) should be taken to improve their performance at low-temperature [9].
+There are many methods for heating batteries at low temperatures, which can be broadly divided into two categories: external heating and internal heating [10]. External heating includes heating systems based on air, liquids, phase change materials, heat pipes, as well as electric heating film heating and shell heating methods [11]. These methods transfer heat to the battery through heat conduction, but some of them have issues with low heating efficiency and uneven temperature distribution [12]. Internal heating includes resistance heating, AC excitation heating, and battery self-heating technology, which utilize the battery's own characteristics or internal structure to generate heat [13]. However, due to the high safety risks associated with the internal heating process, it is not suitable for use in coal mine environments. Given that the “Coal Mine Safety Regulations”and the “Safety Technical Requirements for Mine-Use Explosion-Proof Lithium-Ion Battery Power Supplies” formulated by the National Mine Safety Administration impose strict requirements on battery use, this paper adopts liquid circulation heating. Liquid circulation heating is divided into two types: direct contact heating and indirect contact heating [14]. Direct contact heating poses a risk of leakage and requires high sealing conditions, which reduces the reliability of the system. Therefore, this paper adopts a liquid circulation indirect heating method. To improve the overall performance of the battery thermal management system, it is crucial to optimize key system parameters [15]. Nie et al. [16] proposed a comprehensive multi-objective optimization framework for optimizing system parameters, using the Sobol method for global sensitivity analysis to identify optimization variables that have a significant impact on system performance, and comparing the errors of three proxy models: RSM, Kriging, and RBF. Afzal et al. [17] proposed a multi-objective optimization method for battery system thermal management based on a particle swarm optimization algorithm combined with a hybrid genetic algorithm and fuzzy logic. Wanittansirichok et al. [18] studied a BTMS cold plate based on multi-objective topological optimization. Compared with straight channels, the optimized flow channels can reduce pressure drop. Kalkan et al. [19] performed multi-objective optimization based on ANOVA with the objectives of minimizing battery temperature and cooling hydraulic head loss, and determined the optimal design parameters. Chen et al. [20] employed RSM and NSGA-II for multi-objective optimization of proton exchange membrane fuel cells, providing a novel multi-objective optimization approach for designing more efficient proton exchange membrane fuel cells. In particular, as reported by Slimani et al. [21] the controllable electromagnetic properties demonstrated by Sr0.5Ba0.5SnxFe12-xO19/CoFe2O4 nanocomposites provide a promising material solution for designing miniaturized magnetoelectric components in high-performance wireless transmission devices. The study by Gevorgyan et al. [22] utilized discrete vacuum thermal evaporation to optimize the morphology and structure of CdTe films. This approach demonstrates the power of experimental design and process parameter optimization for tackling complex engineering problems, thereby providing a methodological reference for the multi-objective optimization framework developed in our present study.
+In summary, the optimization of battery thermal management systems typically involves variable selection, proxy model construction, optimization algorithm solution, and determination of the optimal solution [23]. Current research focuses mainly on optimizing design variables, with little consideration given to the overall design framework and target safety range. To address the issue of performance degradation of lithium batteries in mining applications under low-temperature conditions, this paper proposes a novel liquid-based indirect preheating technology utilizing an S-shaped dual-channel parallel flow heating plate. This technology is integrated with an insulation layer to achieve both preheating and insulation functions in a single system. For the first time, targeting the low-temperature startup and stationary heat retention requirements of mining lithium batteries, an integrated system has been designed that deeply combines active liquid preheating with passive aerogel insulation, thereby overcoming the limitations of single-function systems in extreme cold environments. Based on response surface methodology (RSM) and non-dominant sorting genetic algorithm (NSGA-II). A Box-Behnken experimental design was adopted with the objectives of minimizing the maximum temperature difference and minimizing the pressure drop at the inlet and outlet. Flow velocity, inlet temperature, and insulation layer thickness were selected as design variables, and safety constraints were incorporated into the optimization algorithm. Numerical simulation studies were conducted on the temperature uniformity and flow channel pressure drop of the thermal management system. In addition, this paper provides new ideas for selecting the optimal optimization point based on actual usage costs and distance from the ideal point.
+2. Model building
+2.1. Subject of study
+This paper takes the 228 Ah mining-use square steel-shell lithium iron phosphate battery cell as the research object. This battery cell is mainly used in mining heavy trucks, driverless wide-body vehicles, electric locomotives, and other fields. Its main performance parameters are shown in Table 1.
+Table 1. Main design parameters of battery monomer.
+
+Parameter name	Numerical
+Nameplate capacity(Ah)	228
+Rated voltage(V)	3.2
+Charge cut-off voltage(V)	3.65
+Discharge cut-off voltage(V)	2.5
+Battery Size L × W × H(mm)	204 × 54 × 174
+Battery weight(kg)	4.2
+Anode material	Lithium iron phosphate(Li-FePO4)
+Cathode material	Graphite
+Discharge temperature(°C)	−20∼55
+Charge temperature(°C)	0∼55
+2.2. Geometric model
+The battery module studied in this paper consists of five battery cells connected in series. To simplify the model, this paper ignores the effects of the positive and negative terminals of the battery. Each battery cell has geometric dimensions of 154 mm in length, 54 mm in width, and 204 mm in height. Place a 5 mm-thick heat conduction plate between two adjacent battery cells to enhance heat conduction. In addition, two heating plates with identical structures are installed on both sides of the battery module. The entire battery module is wrapped in a layer of silicon-based aerogel insulation to reduce heat loss. The circulating fluid is a 50 % ethylene glycol solution. Fig. 1 show the detailed geometric model of the thermal management system and heating plate, while Table 2 lists the thermal properties of each material.
+Fig. 1
+Download: Download high-res image (756KB)
+Download: Download full-size image
+Fig. 1. Thermal management system workflow and geometric structure.
+
+Table 2. Thermal properties of materials.
+
+Material	Density 
+Specific heat 
+thermal conductivity 
+Battery	2202.95	1086.75	λy = λz = 28.3/λx = 1.86
+Heating plate	2719	871	235
+Silica-based aerogel	260	1300	0.025
+50 % glycol solution	1035	3500	0.35
+2.3. Channel layout design and comparative analysis
+Three-dimensional models of four flow channel structures were established, and numerical simulations were conducted under identical boundary conditions including inlet velocity, inlet temperature, and ambient temperature. The maximum temperature difference of the battery module and the pressure drop between the inlet and outlet of the flow channels were adopted as key performance indicators to comprehensively evaluate the temperature uniformity and flow resistance of each channel configuration. The inlet velocity was set to 0.16 m/s, the inlet temperature to 25 °C, the initial temperature to −10 °C, and the preheating duration to 20 min. The simulation results are summarized in Table 3, and the structural diagrams of each flow channel are presented in Fig. 2.
+Table 3. Performance comparison of different channel designs.
+
+Evaluation metrics	Parallel straight channel	serpentine channel	honeycomb channel	S-shaped channel
+ΔTmax	8.26	3.04	5.18	3.58
+ΔP	35.48	221.66	52.27	71.16
+Fig. 2
+Download: Download high-res image (350KB)
+Download: Download full-size image
+Fig. 2. Schematic diagrams of (a) straight parallel channel, (b) serpentine channel, (c) honeycomb channel, and (d) S-shaped channel.
+
+Fig. 3
+Download: Download high-res image (248KB)
+Download: Download full-size image
+Fig. 3. Numerical comparison of different flow channels.
+
+Based on comparative analysis of simulation results, the proposed S-shaped dual-channel configuration achieves an optimal balance between temperature uniformity and flow resistance in preheating performance (see Fig. 3). Compared to straight parallel, serpentine, and honeycomb channel designs, the S-shaped channel maintains excellent temperature uniformity while significantly reducing flow resistance through its unique symmetrical parallel layout with large-radius bends. The fundamental mechanism lies in its optimized flow field design, which ensures both uniform coverage and adequate disturbance of the coolant over the battery surface-effectively disrupting the thermal boundary layer-while simultaneously controlling system energy consumption by minimizing unnecessary local resistance losses. This design provides an effective engineering solution that addresses the coexisting requirements of temperature homogeneity and low energy consumption in thermal management systems.
+2.4. Heat generation model
+The composition and internal structure of lithium-ion batteries are relatively complex. When performing numerical calculations, the following assumptions are made.
+(1)
+Incompressible fluid medium;
+(2)
+The thermal properties of all materials are constant;
+(3)
+Uniform distribution of the fluid medium in the channel.
+Based on the above assumptions, the following three-dimensional, non-steady-state heat conduction differential equation with internal heat sources is established [24]:
+(1)
+Where 
+, 
+,T and q denote the density and specific heat, temperature and volumetric heat production rate of the cell, respectively. 
+, 
+ and 
+ denote the thermal conductivity in the x, y and z directions, respectively [25].
+Where q can be calculated based on the battery heat generation rate model proposed by Bernardi assuming that the internal heat source of the battery is uniform and stable, the heat generation rate of the battery is [26]:
+(2)
+In the formula, I is the battery charge and discharge current, V is the battery volume, and R is the internal resistance. 
+ is the temperature entropy coefficient. 
+ is the reversible reaction heat. 
+ is the effect of heat generation is small and is usually taken as a constant 11.16 mV in calculations [27].
+2.5. Control equation
+The mining battery pack is placed in a sealed explosion-proof box during operation. Heat is transferred from the interior of the battery to its surface and conducted through contact with the surface of the heating plate. There is a heat transfer process between the battery and the heating plate shell, while heat exchange between the heating plate and the fluid medium is achieved through convective heat transfer. The thermal behavior of the system can be described by the following continuity equation, momentum conservation equation, and energy conservation equation [28]:
+(3)
+(4)
+(5)
+Where ρw, c, v and P are the density, specific heat capacity, velocity, thermal conductivity and hydrostatic pressure of the fluid.
+The heating plate surface and insulation layer both undergo convective heat exchange with the air. According to the convective heat exchange formula [29]:
+(6)
+Where Φ is heat flow, h is the convective heat transfer coefficient, A is the heat transfer area, ΔT is the amount of change in temperature.
+2.6. Boundary conditions
+Considering the low-temperature environment of actual work, a 50 % ethylene glycol solution is used as the liquid, and an aluminum alloy is used for the heating plate. The convective heat transfer coefficient between the thermal management system and the environment is h = 5 W/(m·K), and the external ambient temperature is −10 °C. The Reynolds number is an important parameter for distinguishing between laminar and turbulent flow states of cooling media. The calculation equation is as follows [30]:
+(7)
+Where ρw, v, D and μ are the density, velocity, channel hydraulic diameter, and dynamic viscosity of the medium, respectively. When the inlet flow speed of 0.08 m/s produces a Reynolds number of 2686, which is greater than 2300, thus the choice of turbulent [31].
+2.7. Grid independence verification
+In this paper, the mesh partitioning and solution process of the model were performed using ANSYS Fluent software. In the simulation settings, the inlet flow velocity is 0.16 m/s, the inlet and outlet temperatures are set to 25 °C, and the ambient temperature is set to −10 °C. Fig. 4 shows the results of the grid independence verification. When the number of grids varies between 1,482,367 and 2,386,259, the maximum temperature difference and pressure drop at the inlet and outlet of the system remain at a relatively stable level, indicating that the simulation results are no longer affected by the number of grids. To ensure the reliability of the simulation and save computing time, this paper selects a grid number of 2,146,363.
+Fig. 4
+Download: Download high-res image (212KB)
+Download: Download full-size image
+Fig. 4. Verification of grid-independence.
+
+3. Model validation
+3.1. Battery thermal characteristics experiment
+In order to obtain accurate temperature change and thermal behavior data of batteries under different operating conditions to support model design and optimization [32]. This paper conducted battery thermal characteristic experiments, mainly including hybrid power pulse characteristic (HPPC) experiments and temperature rise experiments [33].
+3.1.1. Experimental equipment
+The test equipment mainly consists of: Power supply charging and discharging test cabinet (Guangdong HYNN technology Co., Ltd. manufacturing, current/voltage accuracy of 0.05 % FS+0.05 % RD). Constant temperature and humidity test chamber (Shanghai Bo Yi experimental equipment Co., Ltd. manufacturing, temperature range of −70∼150 °C, temperature fluctuation ±0.5 °C). Agilent 34970A Agilent data collector; computer (see Fig. 5). Five temperature sensors were positioned on the battery surface at locations marked in red in Fig. 1 to monitor the surface temperature variations in real time.
+Fig. 5
+Download: Download high-res image (373KB)
+Download: Download full-size image
+Fig. 5. Experimental platform for battery thermal characterization.
+
+To investigate the effect of temperature on battery internal resistance, this study tested batteries at four temperature conditions (0 °C,10 °C,25 °C, and 45 °C) using the hybrid pulse power characteristic test method. The test procedure is as follows [34].
+Step 1
+The battery was placed in a constant temperature environment at 25 °C and charged with a constant current of 1C until it reached its nominal voltage. The charging mode was then switched to constant voltage until the current decreased to 0.05C, completing the charging process.
+Step 2
+The battery was placed in a temperature and humidity chamber at 25 °C and allowed to rest for 2 h.
+Step 3
+A hybrid pulse power characterization test was performed as follows: the battery was discharged at 0.5C for 10 s, rested for 40 s, then charged at 0.375C for 10 s, followed by a 40-s rest. This sequence was repeated at higher rates: discharge at 1C for 10 s (rest 40 s), charge at 0.75C for 10 s (rest 40 s); discharge at 2C for 10s (rest 40 s), charge at 1.5C for 10 s (rest 40 s); discharge at 3C for 10 s (rest 40 s), and charge at 2.25C for 10 s (rest 40 s).
+Step 4
+The battery was discharged at a constant current of 1C for 6 min, followed by a 1-h rest period to bring the State of Charge to the next test point (decreased by 10 % each time). Step 3 was repeated at each SOC point (100 %, 90 %, 80 %, …, down to 10 %) to conduct the pulse test, and the data were recorded.
+Step 5
+After completing the test at 10 % SOC, the current and voltage data under different SOC levels and charge-discharge rates were compiled and analyzed. Relevant curves were plotted based on the analysis.
+In the study of curve fitting for the total internal resistance (R) of batteries, after comparing various fitting methods, polynomial fitting was ultimately selected. The experimental results indicate that this method provides the best fit, with the smallest deviation from the experimental data in the simulation, accurately reflecting the variation pattern of the battery internal resistance. Based on this, the relationship curve and formula (8) shown in Fig. 6 were obtained.
+Fig. 6
+Download: Download high-res image (581KB)
+Download: Download full-size image
+Fig. 6. (a)(b)(c) Show the internal resistance fitting curves at 1C, 2C and 3C, respectively. (d) Surface showing the fitting relationship between internal resistance and SOC and temperature at a discharge rate of 1C.
+
+In order to accurately simulate the heat generation process inside the battery, a battery internal resistance internal heat source program was written. This program was imported into the battery heat generation rate model in the form of a user-defined function (UDF) [35].
+(8)
+Five thermocouples are connected to the positive terminal 1, negative terminal 2, center of the surface 3, bottom of the battery 4, and side of the battery 5, respectively. As shown in Fig. 1, due to the poor thermal conductivity of the side of the single cell, measurement errors may be significant. To minimize this effect, this study collected temperature data from measurement point 4 at discharge rates of 1C, 2C and 3C. The specific testing steps are as follows [36].
+Step 1
+The battery was placed in a constant temperature chamber at 25 °C and allowed to rest for 1 h.
+Step 2
+It was discharged at a 1C rate to the cut-off voltage of 2.5 V, followed by a 1-h rest period.
+Step 3
+Once the battery temperature returned to 25 °C, it was charged at a 1/3C rate to the cut-off voltage of 3.65 V. This was followed by a constant voltage charge until the current dropped to 11.4 A, after which the battery was rested for 1 h.
+Step 4
+The discharge current in step 2 was changed to 2C (3C), and steps 1 through 3 were repeated. The battery's temperature change data was recorded throughout the process.
+The experimental and simulation results are shown in Fig. 7.
+Fig. 7
+Download: Download high-res image (352KB)
+Download: Download full-size image
+Fig. 7. Comparison between simulation and experiment of surface temperature of single cell battery.
+
+3.2. Analysis of results
+It should be noted that the temperature measurements in this experiment were limited to key locations on the battery surface. This approach was primarily adopted because implanting internal thermocouples would compromise the structural integrity and explosion-proof safety of the mining battery. Although surface temperature serves as a critical indicator for assessing the thermal behavior and safety of the battery, we acknowledge that it cannot directly characterize the internal temperature distribution.
+To address this limitation and enable a more comprehensive evaluation of the temperature uniformity across the battery module, this study relies on a high-fidelity numerical model that was rigorously validated against the surface temperature measurements described earlier. The strong agreement between the model predictions and experimental data for surface temperature provides a reliable basis for using the model to predict the internal temperature field and analyze the core-to-surface temperature difference.
+In the subsequent optimization analysis, all conclusions regarding temperature uniformity are derived from the overall temperature field calculated by this validated model. As shown in the figure, the errors (E1, E2, and E3) between the experimentally monitored data and the simulation data are all within 5 %. The primary reasons for these minor discrepancies include. (a) Experiments are conducted under specific environmental conditions (e.g., temperature, humidity), which may not be fully accounted for in the simulations. (b) In the battery simulation model, the heat source calculation may primarily consider the internal resistive heating effect, while potentially neglecting other heat sources, such as radiant heat transfer from the surrounding environment and other thermal exchanges. Given that the internal reactions of a battery are complex, and considering factors like model simplification, measurement uncertainties, and numerical discretization, a surface temperature validation error within 5 % demonstrates that this coupled model can accurately simulate the overall heat generation and transfer processes within the battery. This significantly strengthens our confidence in using the model to predict the internal battery temperature, which cannot be directly measured.
+Therefore, this validated model serves as a reliable tool for the subsequent optimization study of the battery module's thermal management, wherein the analysis of temperature uniformity is based on the temperature distribution across the entire battery domain (including both the interior and surface) obtained from the model calculations.
+3.3. Experimental validation of flow channel pressure drop
+To ensure the accuracy of the fluid simulation model, experimental validation of the pressure drop characteristics in the heater plate flow channels was conducted. The experimental setup, shown in Fig. 8, primarily consists of an electronically controlled pump, a differential pressure sensor (Range: 0–500 Pa, Accuracy: ±0.5 % FS), and a data acquisition system. During testing, the flow rate through the heater plate was varied by adjusting the power supplied to the electronic pump. The pressure drop across the inlet and outlet was recorded using the differential pressure sensor once the flow had stabilized. The experiments covered the entire flow rate range used in the simulations.
+Fig. 8
+Download: Download high-res image (319KB)
+Download: Download full-size image
+Fig. 8. Experimental setup for pressure drop validation.
+
+Fig. 9 presents a comparison between the simulated and experimentally measured pressure drop values. As observed, the simulation curve shows excellent agreement with the experimental data points across various flow rates. The calculated average relative error for all test conditions is 2.25 %, with a maximum relative error of 3.34 %. This strong correlation effectively validates the accuracy of the turbulence model and boundary conditions employed in this study for predicting the flow resistance within the channels, thereby establishing a reliable model foundation for the subsequent optimization analysis where pressure drop serves as an objective function.
+Fig. 9
+Download: Download high-res image (273KB)
+Download: Download full-size image
+Fig. 9. Comparison of simulated and experimental pressure drop in flow channel.
+
+4. Multi-objective optimization of battery thermal management systems
+4.1. Multi-objective optimization process
+Optimize thermal management of lithium-ion batteries in low-temperature environments, with the primary goal of reducing pressure drop at the inlet and outlet of the heating plate. That is, reduce the flow resistance inside the flow channel. Reduce the maximum temperature difference on the battery surface to improve the temperature uniformity of the heat exchange surface.
+Fig. 10 show the multi-objective optimization process. First, determine the design variables and objective function, and parameterize the battery thermal management system model based on the design variables. Secondly, a Box-Behnken experimental design (BBD) was used to perform response surface analysis on the design variables. Next, based on the data obtained from BBD, a response surface regression model was constructed. Then, perform analysis of variance to check the reliability of the constructed response surface regression model. At the same time, the interaction between each pair of design parameters is analyzed through response surface analysis. Finally, the NSGA-II algorithm is used to obtain the Pareto front optimal solution and determine the optimal design parameters under the design constraints.
+Fig. 10
+Download: Download high-res image (683KB)
+Download: Download full-size image
+Fig. 10. Multi-objective optimization process.
+
+4.2. Single-factor experiment
+The ΔTmax and ΔP of the thermal management system are both affected by the combined effects of the V, Ti, and H. Using single-factor analysis and control variable methods, the ranges of these variables were determined. Assuming that the ambient temperature and initial temperature are both −10 °C, perform a single-factor analysis at a discharge rate of 1C.
+As shown in Fig. 11, when the V increases from 0.08 m/s to 0.4 m/s, the ΔTmax change rate gradually levels off. During this process, the Tmax of the battery rose by 2.185 °C. When V = 0.08 m/s, the fluid velocity is low, and the ΔTmax across the battery module is greatest. As the V further increases, the ΔTmax gradually decreases. At the same time, the ΔP in the flow channel also gradually increases with the increase in flow velocity. When the V increases to a certain value, the effect on the Tmax and ΔTmax is no longer significant, but the ΔP in the flow channel will increase rapidly.
+Fig. 11
+Download: Download high-res image (221KB)
+Download: Download full-size image
+Fig. 11. Single-factor experimental analysis-V.
+
+As shown in Fig. 12, the increase in Ti significantly increases the temperature difference within the thermal management system. Due to the large initial temperature difference between the battery and the liquid in the initial stage, the higher the heat transfer rate, the greater the temperature difference in the system. This leads to uneven temperature distribution on the battery surface, which may have an adverse effect on battery performance and service life. In contrast, the Ti has almost no effect on the system ΔP.
+Fig. 12
+Download: Download high-res image (210KB)
+Download: Download full-size image
+Fig. 12. Single-factor experimental analysis-Ti.
+
+Fig. 13 shown that adjusting the thickness of the insulation layer within the range of 5–15 mm has almost no effect on the Tmax of the system. As the thickness of the insulation layer increases, the ΔP shows a trend of first increasing and then decreasing. It can thus be seen that increasing the thickness of the insulation layer can effectively reduce the ΔTmax and ΔP in the system, thereby improving the insulation effect and system stability.
+Fig. 13
+Download: Download high-res image (200KB)
+Download: Download full-size image
+Fig. 13. Single-factor experiment analysis-H.
+
+4.3. Response surface method
+Response surface methodology (RSM) is an experimental design method that combines experimental design, regression modeling, and statistical optimization to solve multivariate nonlinear process optimization problems [37]. Establish an approximate mathematical model between the design variables and the objective function based on experimental data, and find the combination of input variables that optimizes the response. This paper uses a second-order polynomial model because it is relatively simple, can effectively capture curvature and interaction, and can be effectively fitted through carefully designed experiments (such as central composite design and Box-Behnken design). The mathematical model between the objective function and the design variables can be expressed as [38]:
+(9)
+Among them, 
+ is a constant term, and the model is the baseline response prediction value at the center point of the independent variable. 
+ is the independent variable. 
+ is the linear term. 
+ is the linear effect coefficient of the i-th independent variable. 
+ is the square term. 
+ is the quadratic effect coefficient of the i-th independent variable. 
+ is the interaction term. 
+ is the interaction effect coefficient between independent variables 
+ and
+. 
+ is the random error term. It is usually assumed that the distribution follows a normal distribution with a mean of 0 and a constant variance 
+.
+4.4. Design variables and objective function
+Based on the results of the single-factor experiment, the Box-Benhnken central composite experimental design principle of the response surface method was adopted, with the ΔTmax and ΔP of the pool heat management system as the target functions. Select three factors that have a significant impact on the objective function: Flow velocity, inlet temperature, and insulation layer thickness are used as design variables. The design variable parameters are shown in Table 4, where −1, 0, and 1 represent the low level, center point, and high level of the design variable parameters, respectively.
+Table 4. Design variable parameters.
+
+Variable	−1	0	1
+V(m/s)	0.08	0.16	0.24
+Ti(°C)	20	25	30
+H(mm)	5	10	15
+This paper uses response surface analysis based on Box-Behnken design and analysis of variance (ANOVA) to test and diagnose the constructed model [39]. The design scheme was obtained based on the Box-Behnken design, and simulation calculations were performed simultaneously to obtain the corresponding results in Table 5.
+Table 5. BBD response surface experimental design and results.
+
+No.	V(m/s)	Ti(°C)	H(mm)	ΔTmax(°C)	ΔP(Pa)
+1	0.08	25	5	5.998	25.866
+2	0.16	20	15	3.033	69.524
+3	0.08	20	10	4.875	26.321
+4	0.16	30	15	4.521	69.044
+5	0.08	30	10	7.051	25.051
+6	0.24	30	10	3.578	131.441
+7	0.16	25	10	3.796	71.246
+8	0.24	25	5	3.023	130.792
+9	0.16	25	10	3.796	71.246
+10	0.24	20	10	2.355	132.241
+11	0.16	20	5	3.067	70.344
+12	0.16	25	10	3.796	71.246
+13	0.16	30	5	4.566	69.844
+14	0.16	25	10	3.796	71.246
+15	0.08	25	15	5.967	25.365
+16	0.24	25	15	2.982	128.429
+17	0.16	25	10	3.796	71.246
+5. Results and discussion
+5.1. Response surface analysis
+Response surface variance analysis is a core statistical tool for testing the reliability, significance, and applicability of models [40]. It systematically evaluates the contribution of various factors and their interactions to the response by decomposing the variance sources of the model and errors. Based on metrics such as F-values, P-values, and determination coefficients (R2, Adj-R2), it comprehensively determines the significance level, goodness of fit, and predictive ability of the model [41].
+To verify the applicability of the response surface model in subsequent optimization designs, this paper performed a variance analysis on the regression model of ΔTmax and ΔP to assess its reliability. As shown in Table 6, the P-value of the ΔTmax model is less than 0.0001, indicating that the model is highly significant. In the model, V, Ti, VTi, and V2 are all key factors that significantly affect the ΔTmax.
+Table 6. ΔTmax model variance analysis.
+
+Type	F-value	P-value
+Model	916.14	<0.0001
+V	5852.69	<0.0001
+Ti	1670.55	<0.0001
+H	0.934	0.366
+VTi	74.41	<0.0001
+VH	0.0082	0.9304
+TiH	0.0099	0.9235
+V2	642.27	<0.0001
+Ti2	0.2515	0.6314
+H2	0.2802	0.6129
+Table 7 shows that the P-value of the response surface model for ΔP is less than 0.0001, indicating that the model is highly significant. In the model, V, H, V2, and H2 are all key factors that significantly affect ΔP.
+Table 7. ΔP model variance analysis.
+
+Type	F-value	P-value
+Model	6496.42	<0.0001
+V	57788.7	<0.0001
+Ti	3.04	0.1246
+H	6.58	0.0373
+VTi	0.1445	0.7151
+VH	2.27	0.1758
+TiH	0.0003	0.9875
+V2	656.85	<0.0001
+Ti2	0.4552	0.5215
+H2	20.19	0.0028
+The model correlation coefficients shown in Table 8 indicate that the determination coefficients R2 for ΔTmax and ΔP are as high as 99.92 % and 99.99 %, respectively. The differences between the predicted R2 and adjusted R2 values were only 0.0117 and 0.0016, respectively, both of which were far below the critical threshold of 0.2. It can thus be seen that the fitted quadratic regression model has excellent correlation and robustness, and can fully capture and predict the overall change patterns of the system.
+Table 8. Correlation coefficient of the target model.
+
+Target model	ΔTmax	ΔP
+R2	0.9992	0.9999
+R2(Predicted)	0.9864	0.9981
+R2(Adjusted)	0.9981	0.9997
+Fig. 14(a)–(c) shows the interaction between V, Ti, and H on the ΔTmax. The results indicate that increasing the V and lowering the Ti can significantly reduce the ΔTmax. Because an increase in V increases the convective heat transfer coefficient between the liquid and the battery. At the same time, it increases the Reynolds number, thereby gradually reducing the ΔTmax in the battery module. A lower inlet temperature reduces the initial temperature difference between the battery and the liquid. According to the heat transfer formula, the smaller the initial temperature difference, the slower the heat transfer rate, which in turn reduces the temperature unevenness of the system. In summary, the interaction between V and Ti has the strongest effect on the ΔTmax, while the interaction between Ti and H has the weakest effect. V and Ti are the primary factors determining the ΔTmax, while H has no significant effect on the ΔTmax.
+Fig. 14
+Download: Download high-res image (904KB)
+Download: Download full-size image
+Fig. 14. Response surface of interaction parameters for ΔTmax.
+
+Fig. 15(a)–(c) shows the interaction between V, Ti, and H on ΔP. The results indicate that reducing the V and increasing the H can significantly reduce the ΔP. As can be seen from Bernoulli's equation, an increase in V leads to a decrease in static pressure, thereby increasing the ΔP. Overall, the interaction strengths between V and H, and between Ti and V, are similar. The interaction between H and Ti is the weakest. V is the primary factor determining ΔP, while Ti has a negligible effect on ΔP.
+Fig. 15
+Download: Download high-res image (951KB)
+Download: Download full-size image
+Fig. 15. Response surface of interaction parameters for ΔP.
+
+5.2. Response surface regression model
+Based on the above BBD test results, the response surface regression model equations (10), (11) shown below were used to fit the target function ΔTmax and ΔP with the design variables V, Ti, and H using the least squares method:
+(10)
+(11)
+Fig. 16 shows the measured values, predicted values, and contour lines of the design points in the second-order regression model. It can be seen that the prediction results of the quadratic regression model for the ΔTmax and ΔP are highly consistent, with almost all data points falling on the equipotential line. This indicates that the quadratic regression model has good fitting accuracy.
+Fig. 16
+Download: Download high-res image (264KB)
+Download: Download full-size image
+Fig. 16. Comparison of actual values and predicted values in the response surface regression model.
+
+Relative error (RE) is a core indicator for measuring the deviation between model predictions and experimental measurements, directly reflecting the reliability of the model in practical applications. The formula for calculating relative error is as follows:
+(12)
+Among them, the maximum relative error between the actual value and the predicted value of ΔTmax was 2.69 %, and the maximum relative error between the actual value and the predicted value of ΔP was 0.79 %. The results show that the predicted values closely match the actual values, indicating that the model has high predictive accuracy.
+Fig. 17 show the relationship between the external standardized residuals of ΔTmax and ΔP and the predicted response. All data points are randomly distributed around the 0 axis and maintain a consistent residual range throughout the response interval [42]. The variance of the residuals is uniform and does not change with increasing predicted values. Therefore, the established model has good predictive capabilities and can accurately capture the performance of actual thermal management systems.
+Fig. 17
+Download: Download high-res image (261KB)
+Download: Download full-size image
+Fig. 17. External standardized residuals and predicted response variables.
+
+5.3. NSGA-II optimization
+Based on the response surface regression mathematical model constructed above, the non-dominant sorting genetic algorithm-II is used as the optimization algorithm for ΔTmax and ΔP of the thermal management system.
+Fig. 18 show the workflow of NSGA-II. NSGA-II starts from a randomly generated initial population, first performs non-domination stratification on all individuals according to the Pareto dominance relationship and calculates the crowding distance, then generates offspring through tournament selection, crossover, and mutation [43]. Subsequently, the parent generation and offspring generation are merged, reordered, and truncated into the next generation population based on the elite strategy of “priority of rank, secondary priority of crowded distance.” This cycle continues until the termination condition is met, ultimately producing a set of optimal solutions that are evenly distributed and approximate the true Pareto frontier [44]. The mathematical model for multi-objective optimization can be expressed as:
+(13)
+Fig. 18
+Download: Download high-res image (651KB)
+Download: Download full-size image
+Fig. 18. NSGA-II workflow.
+
+The non-dominance sorting genetic algorithm-II was used for multi-objective optimization, with the relevant parameter settings shown in Table 9.
+Table 9. NSGA-II design parameters.
+
+Parameters	value
+Maximum number of iterations	200
+Population size	100
+Cross ratio	0.9
+Mutation ratio	0.1
+mutation rate	0.2
+Fig. 19 shows the distribution changes of the Pareto front during the iteration process. From Fig. 19(a) and (b), it can be seen that the distributions of the populations with 5 and 10 iterations are relatively chaotic and sparse, and have not reached the optimal solution. In Fig. 19(c), (d), and (e), as the number of iterations increases, the Pareto frontier distribution gradually becomes more uniform, forming a set of curve solutions. As shown in Fig. 19(f), after 200 iterations, the Pareto front distribution becomes more uniform, and NSGA-II has converged. The intervals with the ΔTmax and ΔP are 
+ and
+. Point E is not an ideal point. The temperature difference is smallest at point A, the pressure drop is smallest at point C, point B is the intermediate value point, and point D is the ideal point, but it is not within the solvable region.
+Fig. 19
+Download: Download high-res image (596KB)
+Download: Download full-size image
+Fig. 19. Changes in the distribution of the Pareto frontier during the iteration process.
+
+5.4. Multi-criteria decision-making for optimal solution selection
+Upon obtaining the Pareto-optimal solution set, a final solution must be selected for engineering application. Since the solutions on the Pareto front exhibit inherent trade-offs in performance, conventional single-objective decision-making methods are no longer applicable. To address this, a two-stage, criteria-based decision-making framework is adopted in this study to ensure the selected solution simultaneously meets the requirements of safety, performance, and economic efficiency. The decision-making process is illustrated in Fig. 20.
+Fig. 20
+Download: Download high-res image (611KB)
+Download: Download full-size image
+Fig. 20. Based on the multi-criteria decision-making process.
+
+The maximum temperature difference within the battery module is a critical factor affecting its cycle life and thermal safety. Excessive temperature differences can lead to uneven aging among cells and even pose a risk of local thermal runaway. To ensure the long-term reliable operation of mining battery power sources under harsh working conditions, this study establishes ΔTmax < 5 °C as a rigid safety constraint that must be strictly adhered to.
+Based on this constraint, we conducted a preliminary screening of the Pareto front shown in Fig. 19(f). Solution C (ΔTmax = 4.999 °C), being at the safety boundary limit and lacking sufficient performance margin, was therefore excluded. This screening stage narrows the candidate pool to solutions exhibiting excellent temperature uniformity, thereby laying the foundation for subsequent refined decision-making.
+Among the solution set that passed the initial screening, selecting the option with optimal comprehensive performance is required. To circumvent potential biases introduced by subjective pre-defined weighting, this study adopts the ideal point method as an objective mathematical tool for decision-making. In multi-objective optimization problems, different objective functions often have different dimensions and value ranges. It is usually necessary to normalize the target function value first, converting it to a relatively uniform and comparable scale (usually the [0,1] interval). This step aims to ensure that each target has roughly equal contribution in the distance calculation or weight allocation process. For each solution on the Pareto frontier, the target values ΔTmax and ΔP are normalized to 
+ and
+, respectively, using the following formula:
+(14)
+Among them, the coordinates of the ideal point are 
+, and the coordinates of the non-ideal point are 
+.
+As clearly shown in Table 10, Point B exhibits the shortest ideal point distance, objectively demonstrating that it achieves the best overall compromise between the two conflicting objectives of “temperature uniformity” and “flow resistance.”
+Table 10. Comparison of optimized points and initial points.
+
+Plan	O	A	B	C
+PEF	0.547	0.954	0.438	0.194
+Distance from ideal point	0.71	1	0.496	1
+Although Point A shows slightly better temperature uniformity, its extremely high flow resistance directly translates into significant pumping power consumption during system operation. To quantify this energy consumption, we introduce the Power Expenditure Factor (PEF) indicator. A comprehensive evaluation of the thermal performance for the three operating conditions A, B, and C is conducted using the following calculation formula:
+(15)
+Among them, 
+ is the fluid density; g is the gravitational acceleration; H1 is the pump head; Q is the volume flow rate; ΔP is the total pressure difference.
+5.5. Optimization results and analysis
+With V = 0.06 m/s,Ti = 20 °C,and H = 10 mm as the initial point O. To verify the reliability of the obtained Pareto optimal solution, the structural parameters and numerical simulation results of optimization points A, B, and C are listed in Table 11. The maximum deviation between the Pareto frontier predicted value and the simulation value is only 3.705 %, indicating that the obtained Pareto optimal solution is reliable.
+Table 11. Pareto optimal solution and simulation results.
+
+Proposal	O	A	B	C
+V(m/s)	0.16	0.234	0.138	0.08
+Ti(°C)	25	20	20	20.363
+H(mm)	10	14.504	12.06	15
+ΔTmax	3.796	2.484	3.351	4.891
+ΔP	71.246	121.668	57.272	26.236
+ΔTmax1	/	2.401	3.382	4.999
+ΔP1	/	124.222	57.047	25.264
+EΔTmax	/	3.341 %	−0.917 %	−2.160 %
+EΔP	/	−2.056 %	0.393 %	3.705 %
+The Pareto frontier consists of a series of “non-dominated solutions,” meaning that any improvement in a single objective necessarily comes at the expense of another objective. The ΔTmax at point A decreased by 36.75 % compared to the initial point, but the ΔP increased by 41.44 %. The ΔP between point C and the initial point decreased by 64.54 %, but the ΔTmax increased by 24.06 %. Based on the comprehensive PEF and its distance from the ideal point, this paper selects point B as the optimal optimization value point. Compared to the initial point O, the ΔTmax decreased by 8.51 %, the ΔP decreased by 16.97 %, and the PEF decreased by 19.93 %.
+6. Conclusion
+This study addresses the challenges of applying mining lithium-ion batteries in low-temperature environments by designing a heating plate with an S-shaped dual-channel parallel flow path. It investigates the effects of varying liquid flow velocity, inlet temperature, and insulation layer thickness on the maximum temperature difference and inlet-outlet pressure drop in the battery thermal management system. Using flow velocity, inlet temperature, and insulation thickness as optimization variables, with maximum temperature difference and pressure drop as the objectives, a multi-objective optimization design was conducted. The key findings of the study are as follows.
+(1)
+A novel integrated thermal management architecture combining preheating and insulation functions has been proposed, which effectively addresses the low-temperature operational challenges of mining equipment through the synergistic combination of active heating and passive insulation. An S-shaped dual-channel flow path specifically designed for preheating conditions was innovatively developed, and its comprehensive advantages in high temperature uniformity and low flow resistance have been validated through comparative analysis with multiple alternative designs, providing fundamental assurance for the system's low-energy-consumption and high-efficiency operation.
+(2)
+The range of design variables was determined through single-factor experiments, and a mathematical model linking the design variables and the objective function was established using the response surface method. The R2 values of the models are all close to 1, with a maximum relative error of 2.69 %, indicating that the response surface regression models constructed are highly accurate and have good predictive capabilities.
+(3)
+Based on the results of the analysis of variance (ANOVA) of the response surfaces of the two objective functions, the V has a significant effect on both the ΔTmax and the ΔP. The Ti has a significant effect on the ΔTmax, but little effect on the ΔP. The H has little effect on the ΔTmax, but it has a significant effect on ΔP.
+(4)
+To evaluate the merits of each solution on the Pareto frontier, it is necessary to calculate how close it is to the ideal point. The process first requires normalization of the solution set to ensure comparability across target dimensions. Subsequently, within the standardized unit hypercube, the shortest distance from each solution to the ideal point is calculated (usually using Euclidean distance).
+(5)
+The NSGA-II algorithm was used to perform multi-objective optimization on the response surface regression model, and the optimal values of the design variables (V, Ti, and H) were obtained. Compared with the initial design, the optimized solution reduced the ΔTmax by 8.51 %, ΔP by 16.97 %, and PEF by 19.93 %. It effectively improved the uniformity of the temperature distribution on the heat exchange surface while reducing the pump power requirement.

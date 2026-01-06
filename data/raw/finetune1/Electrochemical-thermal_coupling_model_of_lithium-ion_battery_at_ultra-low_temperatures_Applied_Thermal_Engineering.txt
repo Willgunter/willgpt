@@ -1,0 +1,334 @@
+Abstract
+Most models fail to describe the behavior of LiCoO2/graphite lithium-ion batteries at ultra-low temperatures, which limits the application of lithium-ion batteries in extreme climates. Model parameters at low temperatures must be accurately obtained to resolve this issue. First, the open-circuit potential curve and entropy coefficient curve of the electrode material were measured by assembling the half-cell. Secondly, to simulate the “fishhook curve” of the discharge voltage at low temperatures, corrections are made for liquid phase diffusion and reaction polarization parts, and the current excitation is designed separately to identify the model parameters at ultra-low temperatures. The accuracy of the model and parameters is verified by evaluating the model for galvanostatic discharge tests in the temperature range of −40 °C to 25 °C. The results show that the model can accurately predict the voltage and temperature curves and simulate the “fishhook curve” at ultra-low temperatures.
+Previous article in issue
+Next article in issue
+Keyword
+Lithium-ion batteryElectrochemical-thermal coupling modelUltra-low temperaturesParameter identification
+Nomenclature
+Initial electrolyte concentration (mol/m3)
+Cth
+Battery heat capacity(J/K)
+Dx
+Maximum variation range of stoichiometric number x (-)
+Dy
+Maximum variation range of stoichiometric number y (-)
+Eocv
+Open-circuit voltage, OCV (V)
+F
+Faraday constant (C/mol)
+G
+Heat generation rate (W)
+Gexchange
+Heat dissipation rate (W)
+I
+Applied current on battery(A)
+mi, i = n, p
+Intermediate variable of the equation
+Pact
+Coefficient of anode reaction polarization (mol0.5 s/ m1.5)
+Pcon
+Proportional coefficient of liquid-phase diffusion [mol/ (A m3)]
+Qi, i = n, p
+Capacities of effective active material in the electrodes (A s)
+Qir
+Irreversible heat generation rate (W)
+Qr
+Reversible heat generation rate (W)
+R
+Ideal gas constant (J mol−1 K−1)
+Rth
+Charge-transfer resistance(Ω)
+Rohm
+Ohmic resistance (Ω)
+T
+Battery internal temperature (K)
+T0
+Initial battery temperature (K)
+Ta
+Ambient temperature (K)
+t
+Time (s)
+t+
+Transport number (-)
+Uapp
+Terminal voltage of battery(V)
+Ui, i = n, p
+Open-circuit voltage (V)
+x0
+Initial stoichiometric number of negative electrode (-)
+xavg
+Solid-phase average stoichiometric number of negative electrode (-)
+xsurf
+Solid-phase surface stoichiometric number of negative electrode (-)
+y0
+Initial stoichiometric number of positive electrode (-)
+yavg
+Solid-phase average stoichiometric number of positive electrode (-)
+ysurf
+Solid-phase surface stoichiometric number of positive electrode (-)
+Electrolyte concentration deviation between two current collectors (mol/m−3(−|-))
+Deviations between xsurf and xavg (-)
+Intermediate variable of 
+(-)
+Deviations between ysurf and yavg (-)
+Intermediate variable of 
+(-)
+Solid-phase diffusion time constant of electrodes (s)
+Liquid-phase diffusion time constant (s)
+ηact
+Reaction polarization overpotential (V)
+ηcon
+Concentration polarization overpotential (V)
+ηohm
+Ohmic polarization overpotential (V)
+Subscripts
+act
+Reaction
+avg
+Average
+con
+Concentration
+h
+Hour
+max
+Maximum
+min
+Minute
+ms
+Millisecond
+n
+Negative
+ohm
+Ohmic
+p
+Positive
+s
+Second
+1. Introduction
+Lithium-ion batteries (LIBs) have been the most common choice for electric and electric aircraft because of their high power, excellent cycle life, and outstanding storage characteristics [1], [2], [3]. However, the working ability of LIBs deteriorates dramatically at low temperatures. When the temperature is lower than 0 °C, the energy and capacity of LIBs are significantly reduced [4], [5]. The capacity of the Sony VTC6 battery at −40 °C is only 16 % of the capacity at room temperature, while the energy and power density are close to zero [6].
+Fundamentally, three main problems limit the working ability of LIBS at low temperature: (i) For liquid phase diffusion, the viscosity of the electrolyte increases at low temperatures, resulting in a decrease in ionic conductivity. This limits the diffusion of Li+ in the electrolyte. (ii) For solid phase diffusion, the lithiation reaction is limited by the slow diffusion of Li+ within the electrode solid phase. (iii) For the solid–liquid interface, the increase in charge transfer resistance and the thickening of the SEI film at low temperatures limit the charge transfer at the electrode–electrolyte interface [7], [8]. In addition, due to the slow liquid phase and solid phase diffusion, the salt concentration on the electrode surface is too high[9]. These cause lithium plating to appear in the negative electrode [10]. The deposited metallic lithium reacts with the electrolyte to consume active lithium, resulting in aggravated battery capacity decay. At the same time, the dendritic lithium may pierce the separator, causing the battery to short-circuit and cause safety problems [11].
+The significant reduction in the working capabilities of LIBs due to cold weather has prevented the widespread adoption of battery-electric vehicles in cold countries (Iceland, Finland, Russia, and Scandinavia) [12]. In addition, aviation and military applications are likely to endure even lower temperatures [13]. Therefore, the low-temperature working ability of LIBs has become one of the leading technical bottlenecks in their application and development, which needs to be improved urgently. Under cryogenic conditions, less thermal kinetic energy is available than at room temperature, which creates a significant energy barrier in the chemical reaction paths followed during battery charge and discharge [4], [14]. After the battery is heated to a suitable temperature, the available capacity and charge–discharge rate performance can be completely recovered. Therefore, quickly and reliably heating the battery to an appropriate temperature before using it at a low temperature is a productive way to improve the low-temperature performance working ability of LIBs with low cost. There are two main methods of low-temperature heating of LIBs: the outside heating way and the internal self-heating way[15]. But these approaches add complexity, cost, regulations and weight to the system.
+To deal with the problem that the working ability of LIBs decreases in low-temperature environments and avoid the occurrence of safety accidents, it is necessary to effectively simulate and predict the behavior of LIBs in low-temperature environments. Establishing an accurate battery model can provide a favorable basis and method for the control and performance improvement of LIBs at low temperatures [16], [17]. Many researchers have established different electrochemical models for low-temperature conditions. Wang et al. analyzed lithium-ion batteries' heat generation and dissipation conditions and built a thermal model by updating specific parameters inside the model [18]. The model can accurately describe the battery heat production and temperature changes. Yi et al. proposed a method for modeling the temperature dependence of lithium-ion batteries in a low-temperature environment by correcting the model parameters at low temperatures with the Arrhenius formula and the Nernst equation [19]. Fan et al. proposed a reduced-order single-particle model for the internal process of batteries at extremely low temperatures [20]. The main content is to relate the diffusion kinetics in the electrolyte to the concentration and to correct the open circuit voltage by temperature. The results show that the model can accurately predict the battery characteristics at low temperatures and high rates. Li et al. established a simplified electrochemical thermal coupling model by classifying the model parameters and obtained the relationship between parameters and temperature by designing parameter identification tests at different temperatures [21]. Additional parameter identification was performed for ohmic resistance at different temperatures. The temperature range used for this model is −20 °C to −40 °C.
+According to the above literature review, there are still some things that could be improved in terms of low-temperature battery modeling. For one thing, obtaining the battery's open circuit voltage (OCV) and electrode entropy variations (EEV) curves is an essential part of battery modeling. Many works directly use curve expressions that have been tested in other literature, which will cause some unavoidable errors [21]. Therefore, replacing the reference curve with the OCV and EEV curves measured by the half-cell test is necessary. For another thing, parameter identification of the low-temperature electrochemical model is all within 0 °C to −20 °C. For ultra-low temperatures, there are still some research gaps. Moreover, the voltage exhibits a “drop-bounce-drop” trend at the initial discharge stage [22]. Explanation and simulation of this phenomenon are currently lacking.
+The contributions of this work are as follows: (i) The OCV and EEV curves of electrode materials are measured by assembling half-cells in the laboratory to improve the simulation results instead of references. (ii) Electrochemical and thermal model parameters are acquired for the excitation response of the battery to current at different temperatures. This paper is structured as follows: Section 2 illustrates the electrochemical-thermal coupling model. Section 3 designs the tests for parameter identification. Section 4 shows the relationship between parameter identification results and temperature. Section 5 demonstrates the model's accuracy and discussions, followed by conclusions in Section 6.
+2. Model development
+2.1. Simplified electrochemical model
+LIBs consist of an anode, a cathode, a separator, and current collectors at both ends of the electrodes [23], [24]. During the charging and discharging process of LIBs, lithium ions are extracted and embedded inside the particles of the positive and negative electrode active materials. They are transferred between the positive and negative electrodes and the separator area under a concentration gradient. Taking the discharge process as an example, the lithium ions gradually move from the center of the negative electrode active particles to the surface and come out, and the released electrons flow into the external circuit through the negative electrode current collector; the lithium ions entering the electrolyte diffuse to the positive electrode under the action of the concentration gradient; Lithium ions diffuse to the surface of the positive electrode through the separator, combine with the electrons transferred by the external circuit, and diffuse from the surface of the positive active particle to the center. The physical and chemical processes in the battery include: solid-phase diffusion of lithium ions in active particles, electrochemical reactions on the particle surface, liquid-phase diffusion in electrolytes, and battery heat generation. In the following sections, the above processes are described in detail.
+The creativity of the pseudo-two-dimensional (P2D) model lies in the modeling and analysis of the battery under the macro–micro, time–space multi-scale conditions through three-layer simplification [25]. In general, higher computational accuracy can be achieved. However, the disadvantage also comes from the influence of the three-layer simplification. For the complex shape of the actual battery, inevitably, there are still some deviations. Moreover, despite the three-layer simplification, the solution of the P2D model still needs to be simplified. The single particle(SP) model simplifies the model based on the above two assumptions and facilitates the original partial differential equation into an ordinary differential equation [26]. However, SP has a poor simulation effect at large magnification and high and low temperatures. In our previous study, through the modification of the SP model, the liquid phase diffusion process was accurately described inside the model [27], [28]. Table 1 shows the electrochemical model expressions and corrections used in this paper. For the solid-phase diffusion part, a single particle is assumed, and the concentration difference between different particles is ignored. After simplification, Eqs. (2)-(6) can describe the solid-phase diffusion part. Eqs. (7)-(8) can describe the diffusion part for the liquid phase. Eqs. (9)-(12) can describe the part for reaction and ohmic polarization.
+Table 1. Electrochemical model and modifications.
+
+Physics	Electrochemical model	Empty Cell	Modifications	Empty Cell
+Terminal voltage	
+(1)		
+Solid-phase diffusion	
+(2)		
+,
+(3)		
+,
+(4)		
+,
+(5)		
+,
+(6)		
+Liquid-phase diffusion	
+(7)	
+(13)
+(8)		
+Reaction polarization	
+(9)		
+(10)	
+(14)
+(11)	
+(15)
+Ohmic polarization	
+(12)		
+The liquid-phase diffusion time constant τe represents the time required for liquid phase transfer inside the battery. In the liquid phase diffusion part of the previous model, τe is considered invariant with temperature and magnification. At low temperatures, however, the time for liquid phase diffusion to build up becomes longer. Therefore, the parameter τe needs to be corrected. The corrected expression is Eqs. (13). It is assumed that above 0 °C, this parameter does not change. While below 0 °C, this parameter increases continuously as the temperature goes down. For the reactive polarization part, the electrolyte liquid phase Li+ concentration c in Eqs. (10) is approximately equal to the initial electrolyte concentration c0. In the actual state, the Li+ concentration c in the liquid phase of the electrolyte should include the concentration difference Δc due to liquid phase diffusion. The modified expressions are shown in Eqs. (14)-(15). Fig. 1(a) shows the schematic diagram of the model.
+
+Download: Download high-res image (396KB)
+Download: Download full-size image
+Fig. 1. Model diagram: (a) electrochemical model part (b) thermal model part (c) coupling relationship between the two models.
+
+2.2. Thermal model
+The heat production inside the LIBs can be described as [29]:
+(16)
+(17)
+(18)
+where 
+ and 
+ are the entropy change of positive and negative materials, Qir and Qr indicate irreversible and reversible heat production rates. In order to more accurately describe the heat generating of the battery, the electrode entropy variations are measured experimentally. The methodology and results are given in Chapters 3 and 4, respectively.
+Heat dissipation rate Gexchange can be given as [21]:
+(19)
+So, the temperature change of the battery is:
+(20)
+where T and Ta are the battery and outside temperature. Rth and Cth are thermal resistance and thermal capacitance.
+The changes in temperature change the rate of reaction and diffusion inside the battery. In this model, the variation of τp 、τn and Pact with temperature obeys the Arrhenius formula. Concentration and ohmic polarization have different effects at different temperatures, and the parameters Pcon and Rohm used to describe these two processes should also be functions of temperature.
+According to the physical meaning of the model parameters and their definitions, five parameters(τp、τn、Pact、Pcon、Rohm) for temperature correction using the Arrhenius formula are determined:
+(21)
+where Tref is 25 °C, Xref is the numerical value of X at 25 °C, and λX is the activation energy parameter for X.
+In addition to affecting the model parameters in the electrochemical behavior, the average temperature T inside the cell also directly affects the open circuit voltage. Eocv modified by the Nernst equation is:
+(22)
+where 
+ is the OCV at 25 °C.
+3. Experimental
+Table 2 shows the parameters of the LiCoO2 battery used. The battery voltage data were obtained by battery testing system (Neware BTS-5 V-6A, China, accuracy is ± 0.05 % of full scale), and the battery temperature data were obtained by equipment (Neware BTS-AUX, China, accuracy is ± 0.1 °C). The test is divided into two parts: the first part is the OCV and EEV measurements, and the second part is the parameter identification tests.
+Table 2. Battery descriptions.
+
+Specification	Value
+Size and geometry	18,650 cylindrical
+Rated capacity	2400 mA h
+Reference voltage	3.7 V
+Cut-off voltage of discharging	3.0 V
+Positive material	LiCoO2
+Negative material	Graphite
+3.1. OCV and EEV test
+The open circuit voltage (OCV) of LIBs is determined by the positive and negative materials, which represent the battery's voltage in the open circuit state. The accuracy of OCV directly determines the terminal voltage of the battery, so OCV is vital for battery voltage simulation. Meanwhile, the entropy coefficient of the electrode material determines the amount of heat generated.
+The LiCoO2/graphite battery was discharged to 2.5 V before disassembling within an argon-filled glove box. To begin the disassembly process, use needle-nose pliers to uncover the top cover of the cylindrical battery. Remove the steel shell surrounding the battery by following the edge of the top cover. Once the steel shell is removed, unfold the wound battery core and separate the positive and negative pole pieces. Next, soak the battery pole pieces in dimethyl carbonate for 30 min. Afterward, rinse them with dimethyl carbonate to eliminate any residual electrolyte salt present on the pole piece surfaces. Select those above positive and negative pole pieces. Using a medical cotton ball dipped in N-Methyl-2-Pyrrolidone, wipe off the electrode material from one side of the pole piece. Then, punch it into a circular shape with a 14 mm diameter, forming a shaped pole piece. During the assembly process, lithium foil is employed as the counter electrode, while the electrode material serves as the working electrode. The electrolyte used in the coin half-cell should be the same as in the full battery. The OCV test used a galvanostatic intermittent titration technique (GITT) [30]. Before the test, the cell needed to be activated and cycled at 1/5C for 3 cycles to ensure the formation of a stable solid electrolyte interface on the negative electrode surface.
+The specific experimental process was that the PE (LiCoO2) half-cell was thermally balanced at 25 °C for 3 h, and then charged at a constant current and constant voltage at a rate of 1/10C, with a cut-off voltage of 4.5 V and a cut-off current of 10 mA. After that, the voltage was relaxed for 1 h, and the constant current discharge was carried out at 1/10C. The discharge was terminated when the discharge reached 1/50 of the total capacity. Repeat the voltage relaxation and continuous current discharge steps until the discharge voltage reaches 3 V. The NE (graphite) half-cell was charged with constant current until the charging voltage reached 1.5 V. The open circuit voltages of the half-cells under different lithium intercalation amounts were recorded to draw the OCV curves. The EEV test process was that when the PE half-cell discharge capacity reached 1/10 of the total capacity, thermal equilibrium was carried out at different temperatures. When the charging capacity of the NE half-cell reached 1/10 of the total capacity, the thermal balance was carried out at different temperatures. Record the voltage differences of the half-cell at different temperatures, and draw the EEV curve of the electrode materials. Table 3 shows the procedures for OCV and EEV tests.
+Table 3. Experimental procedures for OCV and EEV tests.
+
+Cell type	Step No	Exp.step	Current rate	Limits	Temperature(℃)
+PE half-cell	1	Thermal equilibration		t > 3 h	25
+2	Constant current charge	C/10	V > 4.5 V	25
+3	Constant voltage charge	variable	I < 10 mA	25
+4	Voltage relaxation		t > 1 h	25
+5	Partial constant current discharge	C/10	ΔQ > Qall/50	25
+6	Voltage relaxation		t > 1 h	25
+7	Repeat steps 5 and 6		ΔQ5-6 > Qall/10	25
+8	Voltage relaxation		t > 1 h	25
+9	Thermal equilibration		t > 3 h	0
+10	Thermal equilibration		t > 3 h	−20
+11	Thermal equilibration		t > 3 h	−40
+12	Repeat steps 5 and 11		V < 3.0 V	
+NE half-cell	1	Thermal equilibration		t > 3 h	25
+2	Constant current discharge	C/10	V < 0.001 V	25
+3	Voltage relaxation		t > 1 h	25
+4	Partial constant current charge	C/10	ΔQ > Qall/50	25
+5	Voltage relaxation		t > 1 h	25
+6	Repeat steps 4 and 5		ΔQ4-5 > Qall/10	25
+7	Voltage relaxation		t > 1 h	25
+8	Thermal equilibration		t > 3 h	0
+9	Thermal equilibration		t > 3 h	−20
+10	Thermal equilibration		t > 3 h	−40
+11	Repeat steps 4 and 10		V > 1.5 V	
+3.2. Parameter identification test
+The parameter identification test includes two parts: the electrochemical and thermal models. All parameters are identified using 18,650 full batteries.
+According to the electrochemical impedance spectroscopy of the battery, there are differences in reaction, ohmic polarization response time, and solid–liquid diffusion processes under the current excitation. The rate of the electron conduction process and lithium-ion mass transfer process are different, and the speed of electron conduction is faster than that of lithium-ion mass transfer. According to the calculation formula of the internal process, it can be seen that there is no state variable in the reaction and ohmic polarization, and the corresponding polarization overpotential appears as the current excitation.
+The ohmic internal resistance of the battery can be measured using electrochemical impedance spectroscopy. The specific method is to apply a 1 kHz sinusoidal small voltage excitation after the battery is stationary, measure the current response, and calculate the ohmic resistance. The ohmic resistance changes with the temperature inside the battery. To accurately identify the ohmic internal resistance and its activation energy coefficient at the reference temperature, the battery was placed at four ambient temperatures of 25 °C、0°C、-20 °C, and −40 °C, respectively. Before internal resistance measurement, a rest shelving time of 1 h is needed to keep the internal temperature of the battery the same as the outside temperature. The battery terminal voltage reflects the internal state. Analyze the characteristics and changing laws of the terminal voltage under different current excitations. According to the difference in response time of varying reaction processes to the current excitation, the OCV and all polarization overpotentials can be separated. The functional relationship between the overpotential and electrochemical parameters realizes the step-by-step identification of the model parameters. Therefore, the pulsed discharge (PD) tests shown in Fig. 2(a、b) are employed to identify the electrochemical parameters. Before the test, the battery is charged at 25 °C. At 0 and 25 °C, the battery can withstand higher currents and requires less voltage relaxation time. At −20 and −40 °C, the battery's voltage will directly reach the cut-off voltage under the action of a large current and the battery needs an excessively long voltage relaxation time. Because of this situation, the pulse discharge conditions are divided into two types. The discharge cooling test identifies the thermal parameters. The parameters are obtained by recording the changes in the internal temperature of the battery during the resting process. The specific test process is shown in Table 4, and the corresponding test curve is shown in Fig. 2(c、d).
+
+Download: Download high-res image (385KB)
+Download: Download full-size image
+Fig. 2. Parameter identification tests: PD test (a) 0、25 °C (b) −20、-40 °C; Discharge-cooling test (c) voltage response (d) battery temperature response.
+
+Table 4. Designed tests for Discharge-cooling test.
+
+Test	Detail
+Discharge-cooling	1/5C for − 40 °C; 1/3C for − 20 °C; 1C for 0 °C; 3/2C for 25 °C
+At low temperatures, the initial discharge voltage exhibits a “drop-bounce-drop” trend. To better simulate this trend, the parameter τe must be re-tested at different temperatures, as described in Section 2.1. At −20 and −40 °C, the current excitation is designed separately to identify τe. The specific current and voltage responses are shown in Fig. 3.
+
+Download: Download high-res image (406KB)
+Download: Download full-size image
+Fig. 3. Specific current excitation and terminal voltage response: −20 °C(a、b)、 −40 °C(c、d).
+
+4. Parameter identification results
+4.1. OCV and EEV results
+According to the amount of lithium intercalation of the material and the fitting target OCV curve obtained by the measurement, the platform area of the OCV and the position of the transition between the two platforms are judged, and the entire OCV curve is divided into the platform transition and the potential sharp change section. Select the form of the hyperbolic tangent and exponential functions to fit the platform turning section and the potential sharp change section respectively. At the same time, the EEV curve is directly fitted by a polynomial function. All fittings were performed using the Least Square Fitting (LSF). Fig. 4 shows the fitting results of OCV and EEV. Table 5 shows the OCV and EEV curves.
+
+Download: Download high-res image (423KB)
+Download: Download full-size image
+Fig. 4. Fitting curves of electrode OCV and EEV (a) PE OCV (b) NE OCV (c) PE EEV (d) NE EEV.
+
+Table 5. OCV and EEV functions for different electrode materials.
+
+Empty Cell	Positive electrode	Negative electrode
+OCV	EP = 4.14992–0.43295tanh[(y-0.44)/0.20613]
++0.16665tanh[(y-0.98)/-0.04581]
+−0.00516exp{-[(y-0.45)/-0.04854]2}
+−0.00737exp{-[(y-0.75)/0.06057]2}
++0.01111exp{-[(y-0.93)/0.09287]2}
++0.01132exp{-[(y-0.96261)/0.00543]2}	EN = -0.12822 + 0.01933tanh[(x-0.492)/-0.03203]-0.08577tanh[(x-0.15)/0.13713]
+−0.33418tanh[(x-0.85)/0.03156] + 1.11036exp(-41.83732x)
+−0.03121tanh[(x-0.097)/-0.03728]-0.07808tanh[(x-0.05)/0.04023]
++0.18935tanh[(x-0.007)/0.03335]-0.15697tanh(x/0.00425)
++0.03298exp{-[(x-0.06)/-0.02724]2}-0.01776exp{-[(x-0.06523)/0.05276]2}
+−0.00501sin(8.025x-0.1463)
+EEV	dUP/dT = 19.82090y7-89.02644y6 + 168.101y5-172.726y4
++104.178y3-36.85764y2 + 7.08263y-0.57086	dUn/dT = 19.36799x9-81.65149x8 + 145.046x7-141.12463x6 + 81.74612x5
+−28.66759x4 + 5.91482x3-0.65962x2 + 0.03118x-0.00064
+4.2. Parameter identification of electrochemical model
+4.2.1. Parameter estimation of basic working process
+Fig. 5 shows the terminal voltage curves for PD testing at 25 °C. The OCV of the battery is represented by the voltage at the moment of the end of standing. According to Eqs. (2)-(4), the OCV expression of the battery can be obtained as follows:
+(23)
+
+Download: Download high-res image (103KB)
+Download: Download full-size image
+Fig. 5. Voltage response of PD test at 25 °C.
+
+Use the LSF to obtain parameter (x0、y0、Qp、Qn).
+4.2.2. Parameter estimation of ohmic and reaction polarization
+Due to the fastest response of the electronic conduction process, the magnitude of the ohmic resistance is obtained by testing the current response received at a sinusoidal voltage with a frequency of 1 kHz. When a current excitation is applied suddenly, the battery's terminal voltage changes instantaneously, as shown in Fig. 5. At this time, there is no difference in the average amount of lithium inside and on the surface of the solid phase of the electrode material due to the time transition required for solid-phase diffusion. The voltage reduction only includes ηact and ηohm. Since the ohmic resistance has been determined, the ηact can be obtained. The changes of Pact and Rohm with temperature were fitted by the LSF method. Fig. 6(a) and (b) show the curves of these two parameters with temperature.
+
+Download: Download high-res image (314KB)
+Download: Download full-size image
+Fig. 6. Curve of identification parameters with temperature (a) Rohm (b) Pact (c) τp (d) τn (e) Pcon.
+
+4.2.3. Parameter estimation of diffusion processes
+The τp 、τn and Pcon are identified using the steady-state data of solid–liquid phase diffusion. After both the solid and liquid phases enter the steady state stage, the following stable formula can be obtained:
+(24)
+(25)
+(26)
+The battery voltage satisfies the following formula:
+(27)
+Bringing Eqs. (7) into Eqs. (27):
+(28)
+The U in Eqs. (28) includes three known subparts: Uapp、ηact and ηohm. The changes of τp 、τn and Pcon with temperature were fitted by LSF method. Fig. 7 shows the curves of these three parameters with respect to temperature.
+
+Download: Download high-res image (340KB)
+Download: Download full-size image
+Fig. 7. Voltage responses of the battery and model under galvanostatic charge tests at four temperatures: 0 °C(a)、 −10 °C(b)、 −20 °C(c)、 −30 °C(d).
+
+By transforming Eqs. (7) to get the following formula:
+(29)
+By Eqs. (29), we get τe at different temperatures. The result is:
+(30)
+It can be seen from Fig. 6 that the parameters of Pact、Rohm、τp、τn and Pcon can follow the Arrhenius law. The fitting functions of the parameters are shown in Table 6.
+Table 6. Summary of parameters as functions of temperature.
+
+Parameters	Fitting functions
+Rohm	3.98 × 10-8exp(3728.45/T)
+Pact	3.20 × 10-4exp(5944.18/T)
+τp	4.34 × 10-5exp(4165.83/T)
+τn	7.91 × 10-7exp(5213.98/T)
+Pcon	1.60exp(1674.038/T)
+4.3. Parameter identification of thermal model
+The change of battery temperature with time during standing is as follows:
+(31)
+where T0 is the initial battery temperature, Ta is the ambient temperature. τth = RthCth is the characteristic time, Use the LSF method to fit τth. Knowing τth., the Rth and Cth are obtained by temperature change during discharge.
+5. Validation and discussions
+To verify the model's accuracy, Fig. 7 and Fig. 8 show the experimental and simulation data corresponding to four temperatures (−40 °C to 25 °C).
+
+Download: Download high-res image (735KB)
+Download: Download full-size image
+Fig. 8. Voltage and temperature responses of the battery and model under galvanostatic discharge tests at four temperatures: 25 °C(a、b)、 0 °C(c、d)、 −20 °C(e、f)、 −40 °C(h、i).
+
+Fig. 7 shows the charging simulation curve and experimental curve of the model at 0, −10, −20, and −30 °C. The model can accurately simulate the terminal voltage changes during charging at different temperatures. The error of the model is mainly reflected in the early stage of battery charging because the battery voltage changes significantly in the early stage of charging. From the charge and discharge curves at different temperatures, it can be obtained that the battery capacity of the LIBs decreases sharply with the increase of the charge/discharge rate C and the decrease of the temperature. Moreover, the maximum current the battery can withstand at different temperatures changes. The battery could discharge at 2C and 1.5C at 25 and 0 °C. However, at −20 and −40 °C, the discharge rates that the battery can withstand are 0.5C and 0.3C, respectively. If the discharge rate C increases, the battery voltage will rapidly drop to the cut-off voltage and cannot be discharged.
+When the temperature is 0 °C and the discharge rate is 1.5C, the voltage exhibits a “drop-bounce-drop” trend at the start of discharge. This is because the battery generates apparent heat with little heat dissipation at the beginning of the battery discharge. The internal temperature rise is considerable and the polarization overpotential is significant, resulting in the rapid decline of the terminal voltage. After a period of discharge, the battery's internal temperature reaches an exceptionally stable state and enters the stable region. Higher temperatures make reactions and diffusion inside the battery faster, reducing the resistance and restoring the battery voltage. The difference between the heat generation rate of the positive and negative electrodes at low temperatures and room temperatures is also the cause of the phenomenon[31]. This phenomenon is more pronounced with decreasing temperature and increasing discharge rate. At the same time, the temperature test results can also reflect this change. When the battery terminal voltage has a “drip-bounce-drip” trend, the battery temperature will plateau in the early discharge stage. With lower temperatures and higher discharge rates, the length of this plateau will continue to increase. As the discharge continues, the voltage decrease exceeds the voltage increase caused by self-heating, and then the overall battery voltage begins to decrease over time.
+To quantitatively evaluate the model's performance, Table 7 shows the simulated errors at all temperatures. The mean absolute error (MAE) range is 31.3–47.1 mV (25 °C), 23.5–28.4 mV (0 °C), 33.3–35.2 mV (-20 °C), 27.9–34.3 mV (-40 °C) and 0.4773–1.6969 °C (25 °C), 0.6526–1.3820 °C (0 °C), 0.2748–0.6007 °C (-20 °C), 0.3907–0.8911 °C (-40 °C). The terminal voltage errors are all within 50 mV, indicating that the model accurately simulates the terminal voltage. The maximum temperature error exceeds 1 °C at 25 °C and 0 °C, because the discharge current is significant at this time and the battery generates much heat, resulting in a larger temperature. Enormous heat will also lead to a substantial deviation between the battery surface and internal temperature, resulting in higher voltage simulation errors relative to low-temperature environments.
+Table 7. The MAE and RMSE at all temperatures.
+
+T∞	Discharge current	V (mV)	T (℃)
+MAE	RMSE	MAE	RMSE
+25 °C	0.5C	31.3	45.4	0.4773	0.5727
+1C	41.2	53.8	0.8200	0.9978
+2C	47.1	58.0	1.6969	1.9822
+0 °C	0.5C	23.5	28.9	0.6526	0.7593
+1C	24.8	33.1	0.8738	1.3236
+1.5C	28.4	40.0	1.3820	1.6062
+−20 °C	0.1C	33.3	40.8	0.2748	0.3327
+0.2C	34.9	45.2	0.3256	0.3900
+0.5C	35.2	48.8	0.6007	0.6741
+−40 °C	0.1C	27.9	33.9	0.3907	0.4345
+0.2C	30.5	37.6	0.7779	0.8590
+0.3C	34.3	40.7	0.8911	1.0220
+The root mean square error (RMSE) range is 45.4–58.0 mV (25 °C), 28.9–40.0 mV (0 °C), 40.8–48.8 mV (-20 °C), 33.9–40.7 mV (-40 °C) and 0.5727–1.9822 °C (25 °C), 0.7593–1.6062 °C (0 °C), 0.3327–0.6741 °C(-20 °C), 0.4345–1.0220 °C (-40 °C). When the discharge rate C is small, the voltage and temperature simulation results are consistent with the experimental data. At high discharge rate C, the voltage and temperature simulation errors are significant. We speculate that the reasons are: (i) Simulation accuracy at low temperatures and high rates C may be limited by the liquid phase diffusion formulation, and previous assumptions about the uniform distribution of all particles may not be valid. (ii) Due to the significant temperature changes under working conditions, there is a temperature difference between the surface temperature and the internal temperature. However, the thermal model approximates that the two temperatures are equal. (iii) At low temperatures, the instantaneous voltage drop of discharge includes both ohmic polarization, electrochemical reaction polarization, and partial diffusion polarization voltage. Identifying working conditions based on existing parameters may lead to inaccuracies in some model parameters.
+6. Conclusions
+This paper presented a simplified electrochemical-thermal coupled model. Adapt to the ultra-low temperature environment by modifying the model liquid phase diffusion and reaction polarization expression. All parameters were related to temperature, and the model's applicability under different working conditions was verified by simulation. The model can accurately simulate the discharge process to varying rates at ultra-low temperatures (-20 °C, −40 °C). The root mean square error of the voltage is about 50 mV, and the root mean square error of the battery is about 1 °C. The simulation error at low temperatures comes from the assumption of the model itself for the uniform distribution of all particles and the neglect of the inhomogeneity of the internal temperature of the battery. So, modifying the model to obtain better accuracy is the next task.
