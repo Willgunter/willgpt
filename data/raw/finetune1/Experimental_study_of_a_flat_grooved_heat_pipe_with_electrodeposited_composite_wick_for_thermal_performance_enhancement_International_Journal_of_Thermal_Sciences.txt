@@ -1,0 +1,420 @@
+Abstract
+To enhance capillary and thermal performance in flat grooved heat pipes (FGHP) for electronics cooling, a composite wick combining electrodeposited copper forest with rectangular grooves (CF-FGHP) is proposed. Capillary rise and heat transfer experiments verified its superiority. Visualization experiments revealed the copper forest enhances nucleation and accelerates internal circulation during heating. Effects of electrodeposition area and time on temperature uniformity and heat transfer limit were studied. Results show CF-FGHP achieved a capillary performance parameter 
+ of 1.96 μm. During startup, it stabilized 66 s faster with a 5.9 °C lower evaporator temperature than FGHP. CF-FGHP#2 (electrodeposited area:25.0 × 37.5 mm2) achieved a total thermal resistance of 0.12 °C/W at 50 W, which is 63 % lower than the minimum total thermal resistance of FGHP. Optimizing electrodeposition time for CF-FGHP#2 produced CF-FGHP#2–250 (electrodeposited time:250 s), achieved a 70 W heat transfer limit and a total thermal resistance of 0.11 °C/W at 65 W, representing a 66 % reduction in the minimum thermal resistance compared to FGHP, along with a 27.3 °C decrease in the evaporator temperature at 40W. This work provides new insights for dynamic thermal management of electronic devices.
+Previous article in issue
+Next article in issue
+Keywords
+Flat heat pipesHeat transferComposite wickElectrodeposition
+Nomenclature
+axial cross-sectional area, 
+DO
+outside diameter, mm
+filling rate
+capillary rise height, mm
+channel depth, 
+current, 
+K
+permeability, mm2
+characteristic length, 
+m
+quality, g
+channel number
+P
+pressure, Pa
+total heat power, 
+r
+curvature radius, mm
+total thermal resistance, 
+capillary radius, mm
+t
+time, s
+temperature, °C
+voltage, V
+V
+volume, mm3
+groove width, 
+fin width, 
+Greek letters
+porosity 
+ surface tension, N/m
+density, g/cm2 
+ viscosity, Pa 
+ s
+electrodeposited thickness, mm
+Subscript
+e
+evaporator 
+ electrodeposition
+c
+condenser a adiabatic section
+eff
+effective coefficient t total
+l
+liquid v vapor
+dry
+dehydrates
+1. Introduction
+With the advancement of modern microelectronics technology, the improvement of electronic chip (such as CPU) performance is accompanied by an increase in power consumption and the risk of shortened lifespan of electronic components due to local hotspots [1]. Hence, there is an urgent need for more effective thermal management solutions to address these challenges [[2], [3], [4], [5]] Heat pipes, as a kind of high-performance phase-change heat transfer element [[6], [7], [8], [9]], have already become a critical solution in the field of thermal management for electronic equipment by advantage of their remarkable high thermal conductivity and strong stability. At present, the commonly utilized types of heat pipes encompass flat heat pipes [[10], [11], [12], [13]], pulsating heat pipes [14] loop heat pipes [15], and vapor chambers [16]. The flat heat pipe, owing to its excellent adaptability and flexibility, has progressively become one of the most spotlighted types of heat pipes.
+Flat heat pipes are divided into flat grooved heat pipes (FGHP) [17,18], sintered wick heat pipes [19], and wire mesh heat pipes [20,21] according to different wick structures. Compared with flat sintered wick and wire mesh wick heat pipes, flat grooved heat pipes have lower flow resistance and improved load limitation. However, larger capillary radius is often the main factor limiting its capillary pressure and affecting their heat transfer performance. Therefore, the improvement of capillary wick in flat grooved heat pipes has great research value [22].
+Composite capillary wicks exhibit superior capillary performance and thermal performance [23]. For instance, Feng et al. [24] prepared a segmented composite capillary wick, which showed a 16.7 % improvement in performance compared to a single capillary wick. Yang et al. [25] used foam copper with surface treatment to enhance the capillary pressure of the flat heat pipe, thus enhancing the heat transfer performance, the lowest thermal resistance is only 0.08 °C/W. Wong et al. [26] prepared a composite mesh-groove wick flat heat pipe, its capillary performance and heat transfer limit are 4 times that of a single sintered wick. These studies fully demonstrate the superiority of composite capillary wicks in heat pipes, so simpler and more efficient preparation methods are worth becoming future research directions.
+Recent researches have increasingly focused on enhancing the capillary performance and pool boiling characteristics through electrodeposition of micro structures. Lu et al. [27] fabricated a rectangular composite capillary wick by electrochemical electrodeposition. Compared with the smooth rectangular channel before electrodeposition, its capillary performance parameter 
+ increased by over 20 %. Kalita et al. [28] prepared a micro porous copper structure via combined chemical etching and electrodeposition of copper. Pool boiling experiments revealed that its critical heat flux (CHF) was 71 % higher than that of bare copper. Studies have shown that electrodeposition can be used to fabricate structures with highly interconnected pores [[29], [30], [31], [32]], which provide a large solid-liquid interfacial area to enhance heat transfer, supply sufficient capillary pressure for passive liquid wicking, and create pathways for vapor escape. The high pore density in these porous structures also increases the number of potential bubble nucleation sites [33]. The staggered arrangement of micro pin structures can not only increase the heat transfer area but also accelerate bubble detachment without significantly increasing the pressure drop [34]. It can follows that the composite capillary wicks prepared by electrodeposition, a relatively simple method, also has excellent heat and mass transfer performance. Therefore, it has the potential for application in FGHP.
+In order to further utilize the advantages of electrodeposited structures while improving their performance. Wang et al. [35] fabricated a biomimetic copper dendrite structure by applying a linearly increasing current over time during electrodeposition. This structure features numerous interlaced copper dendrites forming a porous region, where each individual copper dendrite acts as a single micro pin structure. Boiling experiments demonstrated that the heat transfer coefficient of this structure is 260 % higher than that of ordinary copper surfaces. Previously, Luo et al. [36] employed this structure to construct ultra-thin heat pipes with a thickness of only 0.6 mm and the minimum axial temperature difference of it is only 1.2 °C, demonstrating the feasibility of this structure in heat pipe applications. This simple electrodeposition method can not only fabricate porous copper regions but also endow fin structural functionalities.
+To date, limited studies have explored the enhancement effects of electrodeposited structures on the flow and heat transfer of FGHP. It is anticipated that electrodeposited copper forest structures will significantly improve the heat transfer and capillary performance of flat grooved heat pipes, thereby holding exceptional research value. Consequently, this paper proposes a composite wick structure combining electrodeposition and groove to enhance the performance of flat grooved heat pipes. Conducted capillary rise experiments and heat transfer experiments, and explored the effects of different electrodeposition areas and times on heat and mass transfer.
+2. Experimental method
+2.1. FGHP structure and dimensions
+The flat grooved heat pipe in the experimental setup is illustrated in Fig. 1(a). It is mainly composed of a copper base, a sealing ring, and a polycarbonate board for visualization purposes. Through-holes are provided around the copper plate and the polycarbonate board to insert screws for firmly attaching the two components, and in conjunction with the sealing ring, they ensure a proper seal. There are two holes with a diameter of 2.0 mm on each side of the polycarbonate board near the evaporator and condenser, which are used for vacuuming and filling with flowing working fluid. At the bottom of the copper base liner, a semicircular aperture measuring 0.5 mm in diameter is carved to accommodate the thermocouple. Fig. 1(b) shows the external and internal groove dimensions of FGHP, the detailed dimensional information of the flat grooved heat pipe is provided in Table 1. Water is environmentally friendly, safe, inexpensive, and has a high latent heat for heat transfer, making it a feasible working fluid, so in this paper, water was selected as working fluid.
+Fig. 1
+Download: Download high-res image (665KB)
+Download: Download full-size image
+Fig. 1. FGHP structure diagram.
+
+Table 1. FGHP size detailed parameters.
+
+Component	Working condition	Parameters
+Wicks	Length	75.0 mm
+Width	25.0 mm
+Height	0.5 mm
+Vapor space	Length	75.0 mm
+Width	25.0 mm
+Height	1.5 mm
+Temperature measuring hole	Length	20.0 mm
+External diameter	0.5 mm
+Sealing groove	Width	2.0 mm
+Height	1.7 mm
+FGHP	Length	90.0 mm
+Width	40.0 mm
+Height	3.0 mm
+2.2. Electrodeposition experimental apparatus
+In the electrodeposition experiment, the electrodeposition device was powered by programmable power supply. The electrolyte was a blend of 0.6 M CuSO4 and 0.75 M H2SO4. The anode was made of copper with a thickness of 1.0 mm and a purity of 99.9 %, while the cathode was FGHP. Prior to the electrodeposition process, the cathode and anode were sequentially cleansed with ethanol, a 10 % sulfuric acid solution, and deionized water, and control the electrode spacing to 4.0 cm during electrodeposition. Fig. 2(a) presents the electrodeposition setup, the formation of copper forest structure during electrodeposition depends on linearly increasing current and higher copper ion concentration, in this study, an increasing current density J of 0.1 A/cm2-0.3 A/cm2 was used for electrodeposition for 200 s [35] as shown in Fig. 2(b). Fig. 2(c) shows the comparison of FGHP before and after electrodeposition process, as well as the microstructure of copper forests. When the electrodeposition time is 200 s, the height of the copper forest structure can be evaluated from the magnified image as 40–70 μm, dendrite density is 196 mm−2. FGHP with electrodeposited copper forest structure will be referred to as CF-FGHP.
+Fig. 2
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 2. Electrodeposition experiment of FGHP.
+
+2.3. Capillary rise experiment
+The primary driving force for the liquid in the condensation section of the heat pipe to flow back to the evaporation section is the capillary pressure. Only when the capillary pressure is greater than the flow resistance can the heat pipe successfully complete the self-driven cycle. Fig. 3 presents the measurement module and the recording & monitoring module involved in the capillary rise experiment. Transparent and sealed polycarbonate sheet creates a saturated environment inside. The flat grooved heat pipe was fixed by an alligator clip, which was threaded through the circular aperture on the polycarbonate enclosure. The rubber ring enabled the fixation and facile adjustment of the vertical height of the alligator clip. Liquid was introduced via a syringe, ensuring the liquid level made contact with the capillary wick. During the experiment, the ambient temperature was maintained at 25.0 °C.
+Fig. 3
+Download: Download high-res image (234KB)
+Download: Download full-size image
+Fig. 3. Capillary rise experimental device.
+
+2.4. Heat transfer experimental apparatus
+In the heat transfer experiment, a polytetrafluoroethylene base was utilized in conjunction with the heat pipe. As depicted in Fig. 4, grooves designed for accommodating a ceramic heating plate, thermal insulation cotton, and a water-cooling block were engraved on the base. The ceramic heating plate measured 25.0 mm × 25.0 mm, and its heating power was supplied by a DC power source. The dimensions of both the thermal insulation cotton and the condensation water head were 25.0 mm × 25.0 mm. The temperature of the cooling water was regulated at 20.0 °C by a low-temperature constant temperature water bath. To reduce the contact thermal resistance between the FGHP and the heat source as well as the cold source, a thermal conductive silicone grease possessing a thermal conductivity of 19.3 W m−1 °C−1 was applied atop the heat source and atop the cold source. At the same time, to make the connection of thermocouples more convenient, eight semi-circular holes with a diameter of 0.5 mm were opened in the base. During the experiment, the FGHP was tightly secured to the base by means of screws and nuts, non-condensable gases were removed from the working fluid prior to the experiment.
+Fig. 4
+Download: Download high-res image (358KB)
+Download: Download full-size image
+Fig. 4. Operation diagram of FGHP.
+
+The entire experimental system also comprised a peristaltic pump employed for liquid injection, which was capable of achieving a liquid filling rate ranging from 0.01 to 2.3 ml/min, as well as a vacuum pump for evacuating the heat pipe. Eight ultra-fine K-type thermocouples with a diameter of 0.2 mm were arranged at the bottom of the heat pipe. The distribution of the thermocouple positions is illustrated in Fig. 5, the temperature data collected by the thermocouples were transmitted to the computer terminal via an data acquisition instrument. When the temperature fluctuation was within ±0.5 °C within 1 min, the heat pipe was regarded as having reached an stable state. A high-speed camera was placed above the flat heat pipe to record and process images through a computer. Fig. 6 shows the schematic diagram of the experimental system.
+Fig. 5
+Download: Download high-res image (323KB)
+Download: Download full-size image
+Fig. 5. Distribution of temperature measurement points in FGHP.
+
+Fig. 6
+Download: Download high-res image (275KB)
+Download: Download full-size image
+Fig. 6. Heat transfer test system.
+
+During the heat transfer experiment, the heating power of the ceramic heating plate is the product of voltage and current, which is represented by Eq. (1) as follows:
+(1)
+The evaporator temperature 
+, adiabatic section temperature 
+, and condenser temperature 
+ are the arithmetic averages of the temperature measurement points in each section, which are represented by Eqs. (2)–(4):
+(2)
+(3)
+(4)
+The evaporator thermal resistance 
+, condenser thermal resistance 
+, and total thermal resistance 
+ are determined by Eqs. (5), (6), (7):
+(5)
+(6)
+(7)
+The filling ratio of the working fluid is defined as the ratio of the volume of the liquid to the volume of the void inside the heat pipe, calculated by Eq. (8).
+(8)
+Where 
+ is the volume of the liquid and 
+ is the volume of the void. Table 2 presents the physical properties of water at 25 °C.
+Table 2. Physical parameters of working fluid at room temperature and pressure.
+
+Working fluid	Liquid Density (kg/m3)	Surface Tension (N/m)	Liquid Viscosity Coefficient (μPa·s)	Latent Heat of Vaporization (kJ/kg)
+Water	1000	0.072	1000	2260
+3. Theoretical analysis
+3.1. Theoretical analysis of capillary rise
+In the process of enhancing the heat pipe performance, the influence brought by the change of permeability also needs to be considered. The condition that must be satisfied by the capillary pressure in the capillary rise experiment is given by Eq. (9):
+(9)
+Where, 
+ represents the flow pressure drop during the capillary rise experiment, 
+ represents the pressure drop due to gravity.
+According to the Laplace-Young equation, the capillary pressure is calculated by Eq. (10)
+(10)
+According to Darcy's law:
+(11)
+Eq. (12) is used to calculate 
+:
+(12)
+Where, 
+ is the gravitational acceleration of 9.8 m/s2.
+By modifying Eq. (9), the following equation can be obtained [37]:
+(13)
+By fitting the curve of capillary rise height 
+ with time 
+, the corresponding capillary rise velocity 
+/ 
+ can be obtained. Then, by linearly fitting 
+/ 
+ and 1/ 
+, the linear relationship between the two can be obtained. Since 
+, 
+, 
+, 
+ and 
+ are known constant values, the permeability 
+ and effective capillary radius 
+ can be calculated accordingly.
+3.2. Flow pressure drop analysis
+The main factors affecting the heat transfer capacity of the heat pipe are the capillary pressure and the flow pressure drop. The flow pressure drop includes the gravitational pressure drop, vapor phase pressure drop, liquid phase pressure drop, etc. In this paper, as the experiments were conducted entirely in a horizontal state, the influence of the gravitational pressure drop is not considered. The vapor pressure drop and liquid pressure drop are determined by the following equations [24]:
+(14)
+(15)
+where 
+ and 
+ represent the vapor viscosity and liquid viscosity, respectively; 
+ and 
+ represent the vapor density and liquid density, respectively; Q is the input heat load; 
+ is the latent heat of vaporization; 
+ is the vapor flow area; 
+ is the liquid flow area; Where 
+ is the effective length determined by the following equation:
+(16)
+where 
+ is the length of the evaporator, 
+ is the length of the condenser, 
+ is the length of the adiabatic section. 
+ denotes the hydraulic diameter, which can be expressed as:
+(17)
+where 
+ represents the channel width and 
+ represents the channel height.
+The permeability 
+ of a rectangular groove is determined by the following equation:
+(18)
+The 
+ and 
+ for rectangular slots are determined by the following equation:
+(19)
+(20)
+among them, 
+ represents the slot width, 
+ is the slot depth, the value of 
+ depends on the aspect ratio of the channel.
+The parameter 
+ is used here to characterize the relative relationship between the capillary pressure and the flow pressure drop [38], and it is defined as follows:
+(21)
+The porosity of the composite wick cannot be easily determined through theoretical calculations. Therefore, this study employs the Archimede's infiltration method to measure the porosity 
+,with the calculation method given by Eq. (22):
+(22)
+where, 
+ and 
+ represent the mass of the wick when saturated and dried, respectively. 
+ is the number of channels, 
+ is the axial cross-sectional area of a single channel, and 
+ is the density of liquid.
+3.3. Uncertainty analysis
+The measurement errors generated in the experiment can be attributed to the manufacturer. The experimental uncertainty mainly comes from the heating system, condensation system, temperature acquisition system, and capillary rise experimental system, these errors are shown in Table 3. The uncertainties of thermal resistance and capillary performance parameters are calculated as follows:
+(23)
+where 
+ is the measurement error of the variable 
+ and 
+ is the maximum measurement error of each section defined as 
+. The errors of evaporator thermal resistance, condenser thermal resistance, and total thermal resistance are 3.8 %, 4.1 %, and 3.6 %, respectively. According to the standard error analysis method, the groove error of CNC machining is ±0.02 mm, and the calculated error of porosity 
+ is 2.8 %, the parameter 
+ used to evaluate capillary performance has an error of 4.2 %.
+Table 3. Equipment accuracy.
+
+Device	Model	Precision
+Programmable power supply	KEYSIGHT B2901A	current accuracy 0.01 A
+voltage accuracy 0.10 V
+Thermocouple	K-type	0.10 °C
+Temperature acquisition card	Agilent 34970A	0.03 °C
+High-speed cameras	VEO 410L	0.05 s
+Electronic balances	Lenqi CZ	0.001 g
+Water cooling system	XHDC-3020	0.20 °C
+Length measurement	Digital Caliper	0.01 mm
+4. Results and discussions
+4.1. Capillary performance enhancement
+The velocity of capillary rise is frequently employed as an indicator of the quality of capillary performance [39]. As depicted in Fig. 7(a), the capillary rise experiment using water as the working fluid revealed distinct dynamic characteristics. During the initial 1.3 s, the working fluid exhibited a relatively rapid ascent within the composite capillary wick, followed by a gradual transition to a stabilized permeability. Notably, at 10.0 s, the liquid interface achieved axial uniformity, reaching a height of 56.50 mm. At 51.0 s, the liquid level rose to a height of 75.00 mm, reaching the same length as the channel. Fig. 7(b) quantifies the results of capillary rise experiments,this temporal disparity in permeation kinetics highlights the critical role of capillary wick pore size in modulating capillary transport phenomena within heat pipes.
+Fig. 7
+Download: Download high-res image (910KB)
+Download: Download full-size image
+Fig. 7. Capillary rise experiment results.
+
+The porosity 
+ of the porous part is calculated to be 49.5 % according to Eq. (22). Fig. 7(c) shows the linear fitting plot of 
+/ 
+ versus 1/ 
+, from which the capillary performance parameter 
+ of 1.96 μm, permeability 
+ of 4.30 × 10−10 m2, and effective capillary radius 
+ of 2.19 × 102 μm were determined by simultaneously solving the slope and intercept. Table 4 compares its 
+ with other structures, it can be found that the copper forest structure has excellent capillary performance improvement when using water as the working fluid.
+Table 4. Comparison of capillary performance.
+
+Source	Work content	Working fluid	
+
+(μm)
+This work	Copper Forest composite capillary core	Water	1.96
+Jiang et al. [33]	Ultrathin aluminum wick with dual-scale microgrooves	Water	1.30
+Tang et al. [37]	Ultrathin nylon mesh wick	Water	1.20
+4.2. The influence of electrodeposition on heat transfer
+Fig. 8 shows the temperature response characteristics of the FGHP and CF-FGHP at a 20 % filling ratio under different heating powers. From Fig. 8(a), it can be seen that the FGHP experiences a sudden increase in evaporator temperature and a sharp drop in condenser temperature at 45 W, indicating that the heat transfer limit has been reached. The figure clearly shows that the CF-FGHP can handle higher heating power and dries out at 50 W. In addition, under the same working conditions, CF-FGHP has a lower average evaporator temperature. From the comparison in Fig. 8(a) and (b), it can be seen that with the increase of power, CF-FGHP has a smaller evaporator temperature step, the evaporator temperature (
+) of FGHP reached 69.6 °C at 40 W, while the 
+ of CF-FGHP was only 59.3 °C. Fig. 8(c) shows the evaporator temperature start-up characteristics of FGHP and CF-FGHP at a heating power of 10 W. Due to the enhanced capillary performance provided by the electrodeposited copper forest structure based composite wick, which promotes the internal circulation, the stabilization time of the CF-FGHP was reduced by 66.0 s compared to the FGHP. Furthermore, the copper forest structure increases the heat transfer area, enabling more efficient utilization of the working fluid's latent heat. Consequently, the evaporator temperature 
+ decreased by 5.9 °C.
+Fig. 8
+Download: Download high-res image (775KB)
+Download: Download full-size image
+Fig. 8. Temperature thermal response.
+
+As shown in Fig. 9(a), comparative analysis of condensation thermal resistance 
+ reveals that although 
+ of the CF-FGHP decreases with increasing power, its reduction is less pronounced than that of the FGHP, which stems from the inherent trade-off between capillary pressure and flow pressure drop in the electrodeposited wick. While the smaller pore size enhances capillary pumping and internal circulation—thereby alleviating liquid slugging and poor condensation at lower heat fluxes [40]—it also increases flow resistance, which becomes dominant at higher powers and impedes liquid return. This is further evidenced by the parameter φ (capillary-to-flow pressure drop ratio), which decreases with power for both structures, approaching unity near 40 W,as shown in Fig. 9(b), indicating flow resistance as the primary limiting factor. Additionally, the high surface roughness of the copper forest is unfavorable for ideal dropwise condensation. The combined effects of increased flow resistance and suboptimal condensation mode result in the larger 
+ observed in the CF-FGHP at higher power.
+Fig. 9
+Download: Download high-res image (395KB)
+Download: Download full-size image
+Fig. 9. Analysis of condensation thermal resistance.
+
+4.3. Visualization of vapor-liquid distribution
+At a heating power of 40 W, intense boiling was observed inside the flat heat pipe. As shown in the figures, both the FGHP and CF-FGHP underwent a flow pattern transition from bubble flow to annular flow. Fig. 10(a) visually illustrates the heat transfer enhancement mechanism of the copper forest structure. Although bubble formation occurred in both types of heat pipes during the initial stage, bubble development progressed more rapidly in the CF-FGHP, indicating superior bubble growth characteristics endowed by the copper forest structure.
+Fig. 10
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 10. Visualization analysis.
+
+In the FGHP, bubbles with diameters ranging from 2 to 4 mm were generated initially. As the superheat increased, slug flow became the dominant flow pattern, where vapor columns failed to disrupt the liquid slugs, resulting in poor condensation heat transfer until a transition to annular flow occurred at 28.1 s. In contrast, the smaller effective radius in the CF-FGHP promoted uniform liquid distribution over the wick surface. A rapid transition from bubble flow to annular flow enabled fast evaporation, sufficient vapor pressure, and reliable capillary action, establishing continuous flow as early as 10.1 s. By 18.5 s, the emergence of 0.4–0.5 mm diameter bubbles in the evaporator of the CF-FGHP further confirmed enhanced nucleation, which contributed to lower evaporator temperatures.
+Fig. 10(b) and (c) present the thermal response curves of the FGHP and CF-FGHP, respectively, at 40 W. During flow obstruction, the condenser temperature rose slowly. Once continuous flow was established, vapor rapidly reached the condenser, causing a sharp temperature increase and accelerating internal circulation. These results strongly demonstrate that the copper forest structure effectively shortens the startup time and reduces the evaporator wall temperature.
+According to studies by Zuber et al. [41], bubble departure diameter and frequency can be quantitatively characterized. To investigate this, we measured the contact angles of deionized water on both the copper forest structure and pure copper, as shown in Fig. 11. The results demonstrate that while the contact angle on pure copper is 70°, the liquid completely spreads over the copper forest structure, achieving a contact angle of virtually 0°.
+Fig. 11
+Download: Download high-res image (146KB)
+Download: Download full-size image
+Fig. 11. Contact angle measurement.
+
+The calculation methods for bubble departure diameter and frequency are as follows:
+(24)
+(25)
+Where, 
+ represents the bubble departure diameter, 
+ is the contact angle in degrees, 
+ denotes the surface tension, and 
+ is the departure frequency. This indicates an inverse correlation between the surface contact angle and the bubble departure frequency. The measured departure frequency for the FGHP is 24.4 s−1. Owing to its smaller bubble departure diameter, the CF-FGHP exhibits a departure frequency more than ten times greater than that of the FGHP. This intensified frequency of bubble activity significantly enhances the boiling heat transfer, thereby resulting in a lower evaporator temperature.
+4.4. Effect of copper forest structure area on heat transfer
+Fig. 9 conclusively demonstrates that the electrodeposited copper forest structure effectively mitigates the localized hot spot issue in the FGHP under high power conditions. However, this structure appears to have a negative impact on condensation performance at higher power, leading to a degradation in temperature uniformity. Therefore, the focus of this section is to examine evaporator temperature variation and improve temperature uniformity, while utilizing the beneficial effects of the electrodeposited copper forest structure. Four distinct electrodeposition configurations were designed, as presented in Table 5, to investigate the influence of electrodeposition location on heat transfer performance.
+Table 5. Different electrodeposition locations.
+
+Name	Electrodeposition area (mm2)	Image
+CF-FGHP#1	25.0 × 25.0	Image 1
+Image 2
+CF-FGHP#2	25.0 × 37.5	Image 3
+CF-FGHP#3	25.0 × 50.0	Image 4
+CF-FGHP	25.0 × 75.0	Image 5
+4.4.1. Thermal response characteristics
+The thermal response curves of different structures after changing the electrodeposition area are shown in Fig. 12 (a), (b), and (c). The results show that both CF-FGHP#1 and CF-FGHP#2 reach a heat transfer limit of 55 W. However, CF-FGHP#3 shows dry-out at 50 W. This is because its larger electrodeposited area hinders liquid reflux. Still, all three structures show excellent temperature uniformity because of the hydrophobicity of the condensation section, which is a significant improvement over the CF-FGHP. Moreover, the temperature of the evaporator of the three structures also decreased to varying degrees compared to CF-FGHP. Therefore, the new electrodeposition attempt not only enhances the evaporator's heat dissipation capacity but also improves condensation performance in CF-FGFP under high-power conditions.
+Fig. 12
+Download: Download high-res image (779KB)
+Download: Download full-size image
+Fig. 12. Thermal response characteristics of different structures.
+
+It should be noted that CF-FGHP#2 shows wall temperature overshoot [8] at 50 W. This phenomenon is attributed to the intensification of nucleate boiling. Research by Bongarala et al. [42] found that microlayer evaporation is the dominant mechanism for heat transfer enhancement during boiling, and microstructures can further strengthen this mechanism. Indeed, on microstructured surfaces, both microlayer evaporation and contact line evaporation are essential [43]. At higher heat fluxes, the electrodeposited composite wick provides numerous nucleation sites while ensuring sufficient liquid supply to the evaporator. Consequently, the liquid within the channels disperses into the corners, leading to an extended three-phase contact line and enhanced evaporation. Furthermore, this structure provides an efficient pathway for vapor-liquid separation(see Fig. 13). These enhancement mechanisms mutually reinforce each other, ultimately manifesting as the boiling inversion phenomenon [44], which is also referred to as the wall temperature overshoot observed in this study.
+Fig. 13
+Download: Download high-res image (292KB)
+Download: Download full-size image
+Fig. 13. Evaporation mode transition.
+
+4.4.2. Temperature variation and thermal resistance
+While monitoring thermal response, the evaporator temperature is also an important parameter to observe. Under identical operating conditions, a heat pipe with a lower evaporator temperature is desirable. Fig. 14 shows the evaporator temperatures of the different structures at various power levels. Notably, CF-FGHP#2 achieves a lower evaporator temperature, with a Te of just 54.5 °C at 45 W. In comparison, the Te values for CF-FGHP, CF-FGHP#1, and CF-FGHP#3 were 62.5 °C, 63.1 °C, and 61 °C, respectively. To analyze the influence of the electrodeposited area on evaporator temperature, the heat pipe can be further subdivided. Abolmaali et al. [45] proposed the concepts of effective evaporation length and effective condensation length within heat pipes. As illustrated in Fig. 14(b), axial heat conduction causes not only evaporation within the heat source area E1 but also enables evaporation participation in region E2. Similarly, region C2 participates in condensation. The visualization results for CF-FGHP#2 reveal the presence of liquid droplets in parts of the adiabatic section. Due to the electrodeposited copper forest structure in the E2 region of CF-FGHP#2, the liquid spreads into a thin film at this location. The dense copper forest enhances nucleation rates and promotes bubble detachment, increasing evaporation efficiency. This explains its lower Te compared to CF-FGHP#1. Although CF-FGHP and CF-FGHP#3 also enhance evaporation in E2, their larger electrodeposited areas create higher flow resistance at high power. While their Te values are lower than CF-FGHP#1, the dominant effect of flow resistance brings their evaporators closer to dry-out.
+Fig. 14
+Download: Download high-res image (902KB)
+Download: Download full-size image
+Fig. 14. Evaporator temperature variation and visualization.
+
+Axial temperature distribution reflects a heat pipe's heat transfer capability. More uniform axial temperature profiles indicate superior thermal performance. Fig. 15 shows the axial temperature distributions of different structures under 20 °C cooling water at various power levels. Data reveal that CF-FGHP#1, CF-FGHP#2, and CF-FGHP#3 achieve considerably better temperature uniformity compared to FGHP and CF-FGHP. As discussed in Section 4.2, CF-FGHP shows larger axial temperature differences than FGHP because flow resistance grows at high power. Among them, the maximum axial temperature difference of CF-FGHP#1 is only 5.6 °C at 50 W. At this time, CF-FGHP#2 has a maximum axial temperature difference of 7.1 °C after the wall temperature overshoot. In CF-FGHP#3, due to the smaller vapor flow space under high power, there is a large shear stress between the vapor and liquid, which hinders the vapor flow. The vapor is basically condensed when flowing to the end of the condensation section, resulting in the maximum axial temperature difference of CF-FGHP#3 reaching 14.0 °C at 45 W. Nevertheless, CF-FGHP#3 still has remarkable temperature uniformity. It can be seen that CF-FGHP#1, CF-FGHP#2, and CF-FGHP#3 are more suitable for heat transfer under higher power.
+Fig. 15
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 15. Axial temperature distribution.
+
+Thermal resistance serves as a key metric for evaluating the thermal performance of heat pipes. As shown in Fig. 16, the variations of evaporator thermal resistance 
+, condenser thermal resistance 
+, and total thermal resistance 
+ with power are compared across different structures. CF-FGHP#1 achieves the lowest 
+ of 0.017 °C/W at 50 W, attributed to the enhanced boiling heat transfer in the evaporator due to the localized copper forest structure, which reduces the temperature difference between the evaporator and adiabatic sections.
+Fig. 16
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 16. Thermal resistance of different electrodeposited regions.
+
+While 
+ generally decreases with increasing power, FGHP exhibits a temporary rise at low power, caused by liquid plug blockage that impairs condensation heat transfer—a phenomenon consistent with the visualization results in Section 4.3. In contrast, CF-FGHP#2 attains the lowest 
+ of 0.053 °C/W at 50 W. The copper forest located in the adiabatic section promotes additional evaporation, lowering the adiabatic temperature and shortening the vapor flow path, thereby enhancing overall thermal transport, as depicted in Fig. 16(d). CF-FGHP#1 also exhibits the lowest 
+ of 0.09 °C/W at 50 W, owing to its reduced flow resistance and the contribution of axial heat conduction at high power. Meanwhile, CF-FGHP#2 demonstrates strong performance with an 
+ of 0.12 °C/W. At 40 W, compared to FGHP (
+ = 0.33 °C/W), CF-FGHP#1, #2, and #3 reduce total thermal resistance by 43.3 %, 57.5 %, and 47.1 %, respectively, underscoring a significant improvement in thermal performance.
+In this study, the enhancement effect of the copper forest structure on the heat transfer performance of the FGHP was further validated through a comparison of thermal resistance with other enhanced structures, such as sintered composite wicks, mesh composite wicks, and nanofluids. Fig. 17 depicts the variation of thermal resistance with heat flux under the same working fluid conditions. Table 6 summarizes the operating conditions of these studies, where the thermal resistance corresponds to the minimum value recorded at the maximum heating power.
+Fig. 17
+Download: Download high-res image (354KB)
+Download: Download full-size image
+Fig. 17. Compared with other enhancement methods.
+
+Table 6. Comparison of thermal resistance.
+
+Method	Heating area(cm2)	Heating power(W)	
+ (°C/W)
+This work	6.25	50.00	0.12
+Li et al. [46]	10.95	26.00	0.21
+Zhu et al. [47]	5.60	9.00	0.54
+Jiang et al. [48]	66.60	50.00	0.14
+Luo el al [38].	3.00	31.50	0.14
+Chen el al [49].	16.00	30.00	0.66
+Tang el al [50].	5.00	20.00	0.15
+4.5. Effect of electrodeposition time
+Based on the preceding analysis, CF-FGHP#2 demonstrates lower evaporator temperature and reduced thermal resistance, confirming the rationality of this electrodeposited area design. Electrodeposition time critically determines the thickness of the deposited layer, which governs the cross-sectional flow area for the working fluid. This directly affects capillary pressure and flow resistance, this section will optimize the benefits of the copper forest structure by adjusting electrodeposition time.
+The copper forest structures formed during electrodeposition are irregularly arranged, so assessing their thickness requires the concept of average thickness. Lu et al. [27] developed a calculation method to estimate the average electrodeposited layer thickness:
+(26)
+Where 
+ denotes the mass difference between post-electrodeposition and pre-electrodeposition, 
+ represents the density of copper, 
+ indicates the axial length of electrodeposition (37.5 mm herein), and 
+ and 
+ respectively stand for the channel width and fin width.
+At the same time, the liquid flow area will also change, and the cross-sectional area of a single channel 
+ is calculated by the following formula:
+(27)
+The variation of electrodeposition thickness over time is reflected in Table 7.
+Table 7. Different electrodeposition time.
+
+Name	Electrodeposition time (s)	Weight of electrodeposition (mg)	Thickness of porous layer (mm)	Liquid flow cross-sectional area (mm2)
+CF-FGHP#2	200	92.6	6.0 × 10−2	1.9 × 10−1
+CF-FGHP#2-250	250	116.1	7.6 × 10−2	1.5 × 10−1
+CF-FGHP#2-300	300	140.1	9.1 × 10−2	1.3 × 10−1
+CF-FGHP#2-350	350	164.7	1.1 × 10−1	1.0 × 10−1
+Fig. 18 shows the axial temperature distribution under different electrodeposition times, revealing their effects on the heat transfer limit and temperature uniformity. As shown in Fig. 18(a), CF-FGHP#2–250 achieves an extended heat transfer limit of 70 W, with dry-out initially occurring at the T1 measurement point. When the electrodeposition time increases to 300 s, Fig. 18(b) indicates that CF-FGHP#2–300 exhibits a reduced heat transfer limit of 55 W and significantly degraded temperature uniformity compared to CF-FGHP#2. Fig. 18(c) further demonstrates that extending the time to 350 s leads to additional performance deterioration: severe flow channel blockage restricts effective heat exchange in the evaporator, lowering the heat transfer limit to 45 W. Fig. 18(d) illustrates the variation in evaporator temperature across these four conditions. The results show that the evaporator temperature of CF-FGHP#2–250 is only 42.3 °C at 40 W, representing a 27.3 °C reduction compared to the FGHP. At 65 W, its temperature rise is merely 49.7 °C. The above analysis confirms that CF-FGHP#2–250 achieves a higher heat transfer limit while maintaining a lower evaporator temperature and ensuring excellent temperature uniformity.
+Fig. 18
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 18. The impact of different electrodeposition times.
+
+As observed in Fig. 18(e), within the operating range, CF-FGHP#2–250 exhibits a total thermal resistance of only 0.11 °C/W at 65 W. Due to the further reduction in flow cross-sectional area, flow obstruction intensifies, leading to a decline in heat transfer performance. For CF-FGHP#2–300, its thermal resistance remains at 0.22 °C/W at 50 W, and consistently maintains a high level. CF-FGHP#2–350 shows a minimum total thermal resistance of 0.33 °C/W at 40 W, indicating weakened condensation heat transfer capability. In summary, CF-FGHP#2–250 achieves a higher heat transfer limit while maintaining a lower evaporator temperature and ensuring temperature uniformity.
+5. Conclusions
+This study proposes a composite wick structure combining electrodeposited copper forest and rectangular groove (CF-FGHP) to enhance the capillary and thermal performance of FGHP. Capillary rise experiment, heat transfer tests, and visualization studie were conducted to systematically investigate the effects of electrodeposition. At the end of the paper, the influence of electrodeposition area and electrodeposition time on heat and mass transfer was explored. The key conclusions are as follows.
+(1)
+The small pore size characteristics of copper forest structure enhance capillary transport performance 
+ measuring 1.96 μm when using water as the working fluid. Capillary rise experiments demonstrate that the composite wick achieves axial uniform liquid penetration within 10.0 s, with a maximum rise height of 75 mm (equal to the channel length) at 51.0 s, confirming its excellent liquid transport capability.
+(2)
+CF-FGHP exhibits enhanced thermal response: at 10 W, the liquid uniformly spreads on the surface of the wick it shortens startup stabilization time by 66.0 s and reduces evaporator temperature by 5.9 °C compared to FGHP, attributed to increased nucleation sites and accelerated bubble detachment from the copper forest structure.
+(3)
+The optimized electrodeposition area (CF-FGHP 2, 25.0 × 37.5 mm 2) exhibits excellent thermal performance, achieving the lowest condensation thermal resistance (Rc = 0.053 °C/W) and total thermal resistance (Rt = 0.12 °C/W) at 50 W.
+(4)
+Electrodeposition time of 250 s (CF-FGHP#2–250) yields the highest heat transfer limit (70 W) with low total thermal resistance (Rt = 0.11 °C/W at 65 W) and stable temperature uniformity. Excessive time can cause channel blockage and affect performance.

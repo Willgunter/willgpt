@@ -1,0 +1,403 @@
+1. Introduction
+As the core component of energy conversion, electric motors have been widely used in new energy vehicles, aerospace, high-end equipment manufacturing and other fields [[1], [2], [3]]. As electric motors rapidly evolve toward higher power density and torque density, various losses generated during operation, including copper losses, iron losses, eddy current losses, and mechanical losses, are converted into significant amounts of heat [4,5]. If the cooling system fails to achieve efficient heat dissipation, it will not only accelerate the aging of winding insulation and cause irreversible demagnetization of permanent magnets but also exacerbate thermal deformation and precision degradation of mechanical components such as the rotor and stator, significantly shortening their service life [6,7]. Consequently, developing precise motor thermal analysis methodologies, establishing scientifically sound thermal analysis models to accurately predict temperature distributions [8], and creating efficient heat dissipation technologies to overcome thermal management bottlenecks have become key research priorities in the field of high-power density motors [9].
+Currently, the commonly used methods to calculate the temperature field of permanent magnet synchronous motors include the lumped parameter thermal network (LPTN) method, the finite element method, and the hydrodynamic method [[10], [11], [12]]. Bandarkar et al. [13] proposed a multiphysics analysis method for switched reluctance motors based on bidirectional coupling between FEA and CFD, achieving a winding temperature prediction error of ≤4 % and a 40 % improvement in computational efficiency compared to single method approaches. Liang et al. [14] proposed a hybrid thermal model that combines the lumped parameter thermal network and a two-dimensional analytical thermal model, obtaining a two-dimensional analytical solution by solving Poisson's equation and simplifying the computation by using Fourier series, which improves the prediction accuracy of the average and maximum temperatures. This model separately considers the effective windings and end windings, thereby avoiding errors in multidimensional thermal analysis inherent in traditional LPTN approaches, though it involves higher computational complexity. Liu et al. [15] proposed an improved three-dimensional hybrid thermal network model, which can quickly and accurately predict the global temperature distribution of the motor. Compared to the calculation fluid dynamics method, computational time is reduced by over 70 %, temperature error is ≤ 4 %, and it is suitable for complex operating conditions such as variable loads and variable speeds. Ryu et al. [16] presented an improved two-dimensional semi-analytical magnetic circuit model. By modifying the magnetic circuit model to fit the temperature nonlinearity characteristics by parameters such as the d/q-axis inductance, they coupled the loss model to the LPTN. Through iterative solution of the inductance characteristics and thermal network, they enhanced the accuracy of motor temperature prediction. Liu et al. [17] proposed a two-dimensional semi-analytical thermal network model, which can accurately realize the prediction of the global temperature distribution of the built-in permanent magnet synchronous motors and the monitoring of the hot spots, this provides a reference for establishing a thermal network model for the modular stator in this paper. Song et al. [18] adapt two thermal models, namely, the thermal equivalent circuit and the finite element method, to conduct transient thermal analysis of an open synchronous reluctance motor, and the thermal model is used in the thermal analysis of the open synchronous reluctance motor, transient thermal analysis and verified the feasibility of the two thermal models.
+With the continuous improvement of motor power density, it will cause the motor temperature rise is too high, so the motor heat dissipation research is also very important. Polikarpova et al. [19] proposed a hybrid cooling system for axial flux permanent magnet motors, wherein copper bars are embedded in the stator teeth to directly contact the coolant, enhancing heat transfer in the stator tooth region. Lindh et al. [20] conducted tests on both direct and indirect cooling for axial flux motors. Results indicate that direct water-cooling structures achieve superior cooling performance, demonstrating that cooling structures directly targeting heat source regions enhance cooling efficiency. Chen et al. [21] proposed an air - heat pipe composite cooling system, the U-shaped heat pipe arranged in the bottom of the motor stator slot cooling effect is better, and can effectively improve the motor power density, but this U-type heat pipe structure increases the axial dimensions of the motor. Qiao et al. [22] used high-speed switched reluctance motors as the object of study, put forward a kind of electromagnetic-thermal-fluid multi-field coupling analysis method, compared with the helical, axial Z-type, three kinds of circumferential water-cooling structure, to determine that the helical waterway is the optimal program, but this waterway structure is difficult to manufacture and cannot directly dissipate heat from the motor's heat source area. Vansompel et al. [23] proposed a C-shaped thermal insert to address the cooling problem of end windings in high-power-density motors. This design expands the thermal contact area with the housing, which effectively reduces the temperature of the end windings. Sandip Garud et al. [1] studied the thermal management characteristics of electric vehicle drive motors under different oil injection cooling configurations. They proposed a multi-nozzle oil injection cooling scheme, comparing the effects of external injection, front-rear injection, and combined injection layouts, as well as the influence of different cooling media on temperature. This novel multi-nozzle oil injection cooling solution can significantly enhance the thermal management efficiency of electric vehicle drive motors. Hu et al. [24] proposed a novel cooling structure based on oil injection cooling, designing two cooling configurations: rotor injection and end cover injection. By optimizing parameters such as nozzle diameter, quantity, and flow rate through genetic algorithms, this approach effectively reduces the operating temperature of permanent magnet synchronous motors while enhancing their operational stability. But both oil injection schemes require complex oil circuit designs and high machining precision. Wang et al. [25] developed an integrated modular motor drive system featuring a stator segmented design and Leeds-type windings to reduce losses. Through a three-stage series modular architecture, PAO medium fluid cooling, and carbon fiber sleeve protection, the integrated modular motor drive system achieves high power density operation.
+In the above studies, many scholars have conducted numerous research on the temperature field calculation and heat dissipation of the motor, and for the traditional motor stator built-in waterway structure, there are problems such as reduced motor output performance, low heat dissipation efficiency, and difficulties in the arrangement of the waterway. Therefore, this paper proposes a novel built-in waterway structure, which can be integrated into the modular stator of the motor. This structure enhances the motor's heat dissipation performance without increasing its overall volume. Meanwhile, it shortens the magnetic path through the magnetic concentration effect of the modular stator, thereby increasing the output torque.
+Firstly, the modular stator built-in circular waterway permanent magnet synchronous motor (MCW-PMSM) model and the modular stator built-in square waterway permanent magnet synchronous motor (MSW-PMSM) model are established to compare and analyze with the traditional permanent magnet synchronous motor (TPMSM).The core loss and eddy current loss generated by three kinds of motors under rated working conditions are compared; the heat dissipation and motor temperature distribution law of the two kinds of motors are also studied; MCW-PMSM with better performance is selected as the object of study, and a 3D thermal network model is constructed to predict the temperature of the motor. A comparative analysis is carried out with the results of the finite-element simulation to validate the accuracy of the model, and a prototype is fabricated together with an experimental platform is built for experiments.
+2. Motor structure and multi-objective optimization
+2.1. Motor performance analysis based on the equivalent magnetic circuit method
+Modular stator permanent magnet synchronous motors are characterized by high fault tolerance and high torque density compared to traditional permanent magnet synchronous motors. The permanent magnet synchronous motor has the problem of high temperature during operation, which affects the output performance and service life of the motor. Therefore, a modular stator built-in waterway permanent magnet synchronous motor is proposed, and Table 1 shows the basic parameters of the motor.
+Table 1. Basic motor parameters.
+
+parameters	parameter value
+Rated power	5 kW
+Rated voltage	72 V
+Rated speed	3000 r/min
+Stator outer diameter	145 mm
+Stator inner diameter	89.5 mm
+Airgap length	0.5 mm
+Motor axial length	120 mm
+Based on the parameters in Table 1, a two-dimensional model of the permanent magnet synchronous motor is established, and two structures of circular waterway and square waterway are proposed, the outer diameter of the circular waterway is 5 mm, the outer side length of the square waterway is 5 mm, and the thickness of the waterway is 0.5 mm. The contact area between the waterway and the stator is used as a constraint to ensure that both have the same contact area as the stator, and the gap between the two modular stators adjacent to the circular waterway is calculated to be 3 mm, and the circular waterway and the square waterway are arranged in the same position. Fig. 1 shows the 2D model of the motor. The modular stator is a combination of 6 E-type structures.
+Fig. 1
+Download: Download high-res image (451KB)
+Download: Download full-size image
+Fig. 1. 2D model of PM synchronous motor. (a)TPMSM. (b)MCW-PMSM and MSW-PMSM.
+
+To further demonstrate the advantages of modular stator motors in terms of output performance, the mechanism behind the enhancement of their output torque is explained using the equivalent magnetic circuit method. Fig. 2 shows the 1/6 equivalent magnetic circuit model of the TPMSM and modular stator permanent magnet synchronous motor at no load, Fig. 3 shows its simplified magnetic circuit. The total reluctance of the two magnetic circuits is expressed as equations (1), (2), and the flux of the two magnetic circuits is expressed as equations (3), (4). Due to the stator split-block structure, the stator teeth produce a coalescing effect and shorten the flux path, so the total reluctance of the modular stator is smaller than that of the conventional stator [[26], [27], [28]], and the modular stator permanent magnet synchronous motor has a higher flux amplitude from equations (3), (4), which produces a higher amplitude of the no-load back EMF. The output torque produced by the surface-mounted permanent magnet synchronous motor is the electromagnetic torque, and from Equation (5), the modular stator permanent magnet synchronous motor will produce a higher output torque.
+(1)
+(2)
+(3)
+(4)
+(5)
+where Rg is the air gap equivalent reluctance, Rs is the stator equivalent reluctance, Rr is the rotor equivalent reluctance, RsT is the stator tooth equivalent reluctance of conventional motor, RsE is the split stator tooth equivalent reluctance, Rm is the internal equivalent reluctance of the permanent magnet, Φr is the permanent magnet flux, m is the number of current phases, p is the number of pole pairs, E0 is the no-load back EMF, ω is the motor rotational speed, iq is the current rms value.
+Fig. 2
+Download: Download high-res image (282KB)
+Download: Download full-size image
+Fig. 2. 1/6 equivalent magnetic circuit model of motor. (a) Conventional Motor Magnetic Circuit. (b) E type split stator motor magnetic circuit.
+
+Fig. 3
+Download: Download high-res image (219KB)
+Download: Download full-size image
+Fig. 3. Simplified equivalent magnetic circuit. (a) Simplified magnetic circuit for conventional motors. (b)Simplified magnetic circuit for modular stator motors.
+
+During simulation, ensure that all dimensions of the three motors are identical except for the stator structure, and apply identical excitation to guarantee operation under rated conditions. Fig. 4 shows the no-load back EMF waveforms of TPMSM, MCW-PMSM and MSW-PMSM at rated speeds. The no-load back EMF amplitude is 33.48 V for TPMSM, 37.48 V for MCW-PMSM, and 37.05 V for MSW-PMSM, and the MCW-PMSM and MSW-PMSM have a slight increase in the no-load back EMF amplitude compared to TPMSM.
+Fig. 4
+Download: Download high-res image (255KB)
+Download: Download full-size image
+Fig. 4. Comparison of the no-load back EMF.
+
+Fig. 5 shows the output torque waveforms of TPMSM, MCW-PMSM and MSW-PMSM at rated load. The average output torque of TPMSM is 16.50 Nm with 7.54 % torque ripple; the average output torque of MCW-PMSM is 18.31 Nm with 7.83 % torque ripple; and the average output torque of MSW-PMSM is 18.07 Nm with 16.31 % torque ripple. The output torque of MCW-PMSM is increased by 10.97 % compared with TPMSM, and the torque ripple is not significantly increased; the output torque of MSW-PMSM is increased by 9.52 % compared with TPMSM, but the torque ripple is significantly increased, which is enlarged by 116.18 %.
+Fig. 5
+Download: Download high-res image (299KB)
+Download: Download full-size image
+Fig. 5. Comparison of output torque.
+
+2.2. Multi-objective optimization
+Through the preliminary finite element analysis, it is found that the output torque difference between MSW-PMSM and MCW-PMSM is very small, but MSW-PMSM has the problem of excessive torque ripple, so MCW-PMSM is selected as the base model for multi-objective optimization.
+The temperature rise of the motor is related to the losses generated internally. Therefore, reducing stator core loss and permanent magnet eddy current losses are set as optimization objectives. Simultaneously, to ensure the motor's output performance, output torque is designated as the third optimization objective, with torque ripple set as a constraint condition. The specific optimization process is illustrated in Fig. 6.
+Fig. 6
+Download: Download high-res image (607KB)
+Download: Download full-size image
+Fig. 6. Multi-objective optimization flowchart.
+
+To further improve the performance of the permanent magnet synchronous motor, the motor is modeled parametrically, the parametric model is shown in Fig. 7. Determine the range of values and constraints for optimization parameters through single-variable scanning, and Table 2 shows the optimized parameters and value ranges. The objectives of optimization and constraints are as follows:
+(6)
+where PFe is the core loss, PPm is the permanent magnet eddy current loss, Tavg is the average output torque, Tripple is the torque ripple.
+Fig. 7
+Download: Download high-res image (87KB)
+Download: Download full-size image
+Fig. 7. Parameterized model of stator slot.
+
+Table 2. Optimization parameter value range.
+
+Optimization variables	Ranges
+Bs0/mm	[3,4]
+Bs1/mm	[10,12]
+Bs2/mm	[12,15]
+Hs0/mm	[0.5,2]
+Hs1/mm	[1,3]
+Hs2/mm	[13,16]
+After the optimization process, the set of Pareto solutions obtained is the set of discrete points in the boundary region in 3D space. To show the Pareto front more clearly and intuitively, we project the originally complex 3D optimization data onto a plane, with the horizontal coordinate as the core loss, the vertical coordinate as the permanent magnets eddy current loss, the size of the torque by the color scale, and the size of the torque ripple by the area of the point, to obtain the 2D optimization results, as shown in Fig. 8.
+Fig. 8
+Download: Download high-res image (321KB)
+Download: Download full-size image
+Fig. 8. Multi-objective optimization results.
+
+From Fig. 8, the optimization results show good convergence, and the optimal point of the optimization results can be obtained at the point near the Pareto frontier curve. We choose the point with less motor loss and good output performance as the final optimization results, and the final selected optimization results are shown in Table 3.
+Table 3. Optimization results.
+
+Optimization variables	Final value
+Bs0/mm	3
+Bs1/mm	10.8
+Bs2/mm	13.5
+Hs0/mm	0.7
+Hs1/mm	1.2
+Hs2/mm	13.9
+After obtaining the optimization results, to improve the reliability of the comparison, the finite element models of MCW-PMSM and MSW-PMSM are established according to the same structural parameters after optimization, and the finite element comparison analysis is carried out. Fig. 9 shows the output torque waveforms of the two motors; the losses of the motors are analyzed below. The average output torque of MCW-PMSM is 18.53 Nm and torque ripple is 7.38 %, while the average output torque of MSW-PMSM is 18.6 Nm and torque ripple is 9.68 % obtained by simulation. The optimized MCW-PMSM improves the output torque by 1.2 % and reduces the torque ripple by 6.09 % compared with the pre-optimization; the output torque is only reduced by 0.37 % compared with the MSW-PMSM, but the torque ripple is reduced by 31.17 %.
+Fig. 9
+Download: Download high-res image (242KB)
+Download: Download full-size image
+Fig. 9. Output torque.
+
+3. Multi-dimensional analysis of permanent magnet synchronous motor loss characteristics
+The losses of permanent magnet synchronous motors are mainly divided into the following categories: core loss, winding copper loss, permanent magnet eddy current loss and mechanical loss.
+3.1. Fractional domain deconvolution of core loss and comparison of properties
+According to the classic Bertotti's theory of iron separation, core loss consists of hysteresis loss, eddy current loss and additional loss [29]. The expression is as follows:
+(7)
+where ƒ is the magnetic field frequency, Kh is the hysteresis loss coefficient, B is the magnetic flux density, Kc is the eddy current loss coefficient, Ke is the additional loss coefficient.
+From equation (7), it is evident that the magnitude of core loss is directly proportional to the magnitude of magnetic flux density. Equations (1), (2), (3), (4) indicate that the modular stator structure increases the magnitude of the motor's magnetic flux. According to equation (8), magnetic flux density B also increases. Therefore, the core loss in a modular stator motor will be higher than those in a traditional permanent magnet synchronous motor.
+(8)
+where Φ is the magnetic flux magnitude, S is the magnetic flux area.
+Calculation of motor core loss using this model requires fitting the correct hysteresis, eddy current and additional loss coefficients to the different types of silicon steel wafers [30]. In this paper, the yoke and tooth parts of the stator are divided according to the special E-type stator structure, and Fig. 10 shows the schematic diagram of the stator core division, with the red line as the demarcation line, stipulating that the upper half is divided into the yoke part of the stator, and the lower half is divided into the tooth part of the stator. The flux density amplitude at the center point of each chunk is calculated by finite element simulation, and the yoke loss of the MCW-PMSM stator is 61.52 W and the tooth loss is 77.32 W by using the equations, it is used in the following modeling of thermal networks with aggregate parameters. The total core loss obtained by the equation is 138.84 W and the average core loss obtained by finite element simulation is 140.96 W with an error of 1.53 %, which is within the acceptable range.
+Fig. 10
+Download: Download high-res image (150KB)
+Download: Download full-size image
+Fig. 10. Stator core division diagram.
+
+Fig. 11 shows the core loss waveforms of TPMSM, MCW-PMSM and MSW-PMSM. It can be concluded that the average core loss is 118.80 W for TPMSM, 140.96 W for MCW-PMSM and 140.03 W for MSW-PMSM. Finite element simulations also indicate that the core loss in modular stator motor is slightly higher compared to traditional permanent magnet synchronous motors. Therefore, enhancing the motor's heat dissipation performance through integrated waterway is crucial.
+Fig. 11
+Download: Download high-res image (209KB)
+Download: Download full-size image
+Fig. 11. Core loss.
+
+3.2. Permanent magnets eddy current loss
+Due to the slotting design of the stator, various time and space harmonics are generated in the air gap magnetic field, so eddy currents are induced in the permanent magnets, which is the main cause of eddy current losses in permanent magnets. The formulae are as follows:
+(9)
+where V is the eddy current loss space integration region, σ is the conductivity of the permanent magnet material, E is the electric field strength, J is the eddy current density.
+Fig. 12 shows the waveforms of permanent magnet eddy current losses for the three motors at rated operating conditions. It can be concluded that the average permanent magnet eddy current loss is 61.33 W for TPMSM, 62.71 W for MCW-PMSM and 64.16 W for MSW-PMSM.
+Fig. 12
+Download: Download high-res image (231KB)
+Download: Download full-size image
+Fig. 12. Eddy current loss.
+
+3.3. Temperature response solution for winding copper loss
+The copper loss of a permanent magnet synchronous motor is the energy loss that is converted to heat due to the resistance of the copper wires during the operation of the motor. The resistance of the wind increases with temperature and the effect of temperature on the copper consumption of the winding needs to be considered. The formula for calculating the copper consumption of the winding is as follows:
+(10)
+where ρ is the resistivity of copper, Rcu is the resistance of each phase of the winding at the operating temperature, Ra is the resistance of the winding at the initial temperature, Lcu is the length of the copper wire, Scu is the effective cross-sectional area of the copper wire, α is the temperature rise coefficient of the winding, T is the operating temperature of the winding, T0 is the initial temperature of the winding. The copper loss of the winding is calculated to be 228.71 W.
+3.4. Bearing loss
+During the rotation of the motor, there is a frictional torque inside the bearings, thus generating bearing losses [31]. The expression is as follows:
+(11)
+where μ is the bearing friction coefficient, F is the bearing load, Db is the inner diameter of the bearing. The bearing loss during motor rotation is calculated to be 30.25 W.
+4. Temperature field analysis of fluid-solid coupled motors based on built-in waterway structure
+Fig. 13 shows a three-dimensional model of the motor structure inside the housing. Since the loss density of the stator tooth is higher compared to that of the stator yoke, the heat generated by the rotor and permanent magnets will be preferentially transferred to the stator tooth part, so the inner pipe close to the stator tooth part is set up as a water inlet.
+Fig. 13
+Download: Download high-res image (161KB)
+Download: Download full-size image
+Fig. 13. 3D modeling of MCW-PMSM.
+
+Based on the loss distribution characteristics of each component of the motor, a differentiated meshing strategy is adopted: the armature windings and permanent magnets, as the main heat source region, are set to a mesh accuracy of 1 mm; the stator core and rotor core regions are set to a mesh accuracy of 2 mm, taking into account the characteristics of their structural dimensions; for parts such as motor casing, end caps, rotating shafts and bearings, the grid accuracy is set to 3 mm due to their relatively uniform temperatures. The final mesh comprises 1,022,543 nodes and 215,518 elements. With an average element quality of 0.83, the mesh ensures the accuracy and reliability of the simulation.
+Fig. 14 shows the structure of a circular waterway and a square waterway. Copper is chosen as the material for the waterway because of excellent thermal conductivity (up to 387 W/(m·K)), relatively low cost, and non-magnetic properties, which prevent interference with the motor's electromagnetic performance.
+Fig. 14
+Download: Download high-res image (124KB)
+Download: Download full-size image
+Fig. 14. Waterway Structure Diagram. (a) circular waterway. (b). square waterway.
+
+Convective heat transfer coefficients are set for each part of MCW-PMSM and MSW-PMSM, and different waterway inlet flow rates are set to solve the motor temperature. As can be seen from Fig. 15, both square waterway or circular waterway inlet water flow velocity in less than 0.75 m/s, the import and export pressure difference growth is relatively flat, too large a pressure difference requires high-power pumps, so choose 0.75 m/s as the waterway inlet flow velocity; Fig. 16 shows the cloud diagram of water velocity in the circular waterway and square waterway when the inlet flows velocity is 0.75 m/s. The water flow velocity distribution in the circular waterway is better uniformity. Currently, the average temperature of MCW-PMSM is reduced from 131.4 °C to 80.3 °C, which is 63.6 % lower; the average temperature of MSW-PMSM is reduced from 133.2 °C to 82.7 °C, which is 61.1 % lower, which indicates that the cooling effect of the circular waterway is better.
+Fig. 15
+Download: Download high-res image (308KB)
+Download: Download full-size image
+Fig. 15. Pressure difference between inlet and outlet at different inlet flow rates. (a). circular waterway(b). square waterway.
+
+Fig. 16
+Download: Download high-res image (316KB)
+Download: Download full-size image
+Fig. 16. Velocity cloud map of water flow. (a) circular waterway. (b) square waterway.
+
+Fig. 17, Fig. 18, Fig. 19 show temperature clouds of various components of the motor before and after passing water to the waterway. Table 4 shows the comparison of the average temperature of the motor before and after the waterway passes water. The modular stator built-in circular waterway structure can effectively reduce the stator tooth temperature and permanent magnet temperature, further improving the reliability of the motor operation.
+Fig. 17
+Download: Download high-res image (462KB)
+Download: Download full-size image
+Fig. 17. Stator Temperature Cloud. (a) Without water. (b) With water.
+
+Fig. 18
+Download: Download high-res image (444KB)
+Download: Download full-size image
+Fig. 18. Winding Temperature Cloud. (a) Without water. (b) With water.
+
+Fig. 19
+Download: Download high-res image (438KB)
+Download: Download full-size image
+Fig. 19. Permanent magnet Temperature Cloud. (a) Without water. (b) With water.
+
+Table 4. Average temperatures.
+
+Component	Without water	With water	temperature drop
+Stator	132.7 °C	84.53 °C	48.17 °C
+Winding	135.4 °C	87.68 °C	47.72 °C
+Permanent magnet	133.0 °C	83.55 °C	49.45 °C
+Rotor	132.1 °C	82.71 °C	49.39 °C
+5. Modular stator-waterway integrated 3D thermal network model
+Based on the above analysis results, it is known that MCW-PMSM has advantages of good output performance, small loss and good heat dissipation compared with MSW-PMSM. Therefore, we selected MCW-PMSM as our research subject and constructed a modular stator-waterway integrated 3D thermal network model (MSWI-3DTNM) for its special topological structure.
+5.1. Heat convection and heat transfer
+The convection heat dissipation coefficient of a permanent magnet synchronous motor is calculated by the following empirical equation [32].
+(12)
+Where α1 is the convective heat dissipation coefficient on the surface of the housing, V1 is the air flow velocity on the outer surface of the housing, α2 is the convective heat dissipation coefficient on the end of the rotor, V2 is the linear velocity on the outer surface of the rotor, α3 is the convective heat dissipation coefficient on the end of the stator, α4 is the convective heat dissipation coefficient at the end of the winding, α5 is the convective heat dissipation coefficient inside the endcap and housing.
+The coefficient of forced convection heat dissipation for water flow is calculated as:
+(13)
+where λf is the thermal conductivity of the cooling fluid, de is the equivalent diameter of the flow channel cross-section, Nu is the Nussle number.
+During simulation, the convective heat transfer coefficient map and its average value for the channel wall are obtained by calculating the ratio of the wall heat flux to the temperature difference across the waterway. Fig. 20 shows a cloud of forced convection heat dissipation coefficients for the inner wall of a circular waterway. The average convective heat transfer coefficient of the inner wall obtained from the simulation was 268.9 W/(m^2K). The calculation formula is as follows:
+(14)
+where αw is the convective heat dissipation coefficient of the inner wall of the waterway, ΔQ is the wall heat flux, T2 is the steady state temperature of the waterway, T1 is the initial temperature.
+Fig. 20
+Download: Download high-res image (187KB)
+Download: Download full-size image
+Fig. 20. Convection heat dissipation coefficient.
+
+Convective thermal resistance is a physical quantity that characterizes the convective heat transfer capability between a fluid and a solid surface [33], and the expression for convective thermal resistance Rα is:
+(15)
+where αn is the convection heat dissipation coefficient of each part of the motor, Sα is the convection heat dissipation area of each part of the motor.
+For the air in the air gap between the stator and rotor of the motor, the effective thermal conductivity of the air in the air gap is calculated to simulate the heat transfer paths between the stator and rotor as well as the permanent magnets during rotor rotation [34].
+Conduction thermal resistance is a physical quantity that measures the ability of heat transfer within a solid or at a contact interface between solids [35], and the basic formula for conduction thermal resistance Rd is:
+(16)
+Where λd is the thermal conductivity of various materials of the motor, Sd is the thermal conductivity area, L is the length along the direction of heat conduction.
+5.2. Establishment of MSWI-3DTNM
+The stator slot of the motor is a complex multi-material structural system, which consists of copper wires, insulating varnish with electrical insulation and thermal conductivity, and insulating paper for insulation protection. The air gap between the windings in the stator slot inevitably exists, and the existence of the air gap results in a high degree of randomness and uncertainty in the heat conduction path in the three-dimensional space of the slot. To effectively solve the above problems, the slot windings and various types of insulating materials are reasonably simplified and equivalent.
+Fig. 21 shows an equivalent as well as a simplified diagram of the stator and the winding. Three nodes are established for the simplified stator yoke, two nodes are established for the stator teeth, and one node is established for the windings, the pipe, and the water flow inside the pipe. The distance between the selected nodes and the thickness of the insulation layer are discounted according to the dimensional parameters of the stator slots of the motor design. The equivalent thermal conductivity of the armature windings in the stator slot is:
+(17)
+where δi is the thickness of the copper wire and insulation layer along the heat transfer direction, λi is the thermal conductivity of the copper wire and insulation layer.
+Fig. 21
+Download: Download high-res image (186KB)
+Download: Download full-size image
+Fig. 21. Simplified equivalent diagram of stator and winding.
+
+Regarding the grid division of the axial distribution of the motor, it is necessary to set up nodes in the center of each region to ensure the regularity of the grid dissection, which in turn ensures the accuracy of the calculation. The node distribution of the axial thermal network model of the prototype is shown in Fig. 22. This design thoroughly considers the thermal conduction relationships between stator teeth, stator yokes, and windings. It constructs three-dimensional heat transfer pathways in axial, radial, and circumferential directions tailored to the unique topology of modular stators. The model also fully accounts for the direct interaction between the integrated cooling channels and the stator teeth and yokes. This approach more closely approximates the actual heat transfer processes occurring during motor operation.
+Fig. 22
+Download: Download high-res image (185KB)
+Download: Download full-size image
+Fig. 22. 1/2 section of motor.
+
+Based on the above analysis, the connection relationship between the nodes is determined, and based on Fourier's law and the principles of heat conduction and convection heat transfer, the heat transfer path between the units is analyzed, and the thermal resistance and heat capacity models between the nodes are established, and the temperature rise of each node is calculated by the above calculated thermal resistance and the heat capacity parameters of different materials.
+The following assumptions are given before modeling to model the lumped parameter thermal network for easy calculation.
+(1)
+It is assumed that the temperature field distribution of the motor in the radial direction satisfies geometric symmetry, i.e., the temperature distribution along the circumferential direction is uniform and consistent.
+(2)
+Neglect the effect of skin effect on resistance and heat source distribution caused by alternating current in the winding.
+(3)
+Neglecting the heat transfer between various parts of the motor in the form of electromagnetic radiation, only heat conduction and convection heat transfer are considered as the main heat transfer methods.
+Fig. 23 shows the modular stator-waterway integrated 3D thermal network model applicable to MCW-PMSM. In the figure, the nodes are connected to each other by contact heat resistance, conduction heat resistance and convection heat resistance, and the color differences of the nodes are used to represent the different components, and a single-colored rectangle is used to represent the conduction heat resistance, and a non-single-colored rectangle is used to represent the contact heat resistance among the different components; in order to simplify the complexity of the MSWI-3DTNM, two conduction heat resistances between the nodes of the different components connected with the contact resistance are simplified to one contact thermal resistance in Fig. 23.
+Fig. 23
+Download: Download high-res image (429KB)
+Download: Download full-size image
+Fig. 23. Modular stator-waterway coupling 3D thermal network model.
+
+5.3. Calculation result
+By analyzing the above contents, we can get the loss data of each part of MCW-PMSM, as well as the calculation parameters of conduction thermal resistance, convection thermal resistance, and contact thermal resistance; according to the law of energy conservation, the equations of all the nodes are associated, which can be expressed in the form of a matrix:
+(18)
+where Ci is the heat capacity matrix, the diagonal element is the heat capacity of each node, Gi is the thermal conductance matrix, Ti is the temperature vector of each node, Qi is the loss vector of each node.
+Table 5 shows the temperatures of the components of the motor, and the results of the MSWI-3DTNM method have an error of 4 % compared to the finite element, which is within the acceptable range.
+Table 5. Temperature calculation results.
+
+Component	MSWI-3DTNM	FEA	Error
+Housing	80.432 °C	83.681 °C	−3.9 %
+Stator yoke	83.531 °C	86.221 °C	−3.1 %
+Stator teeth	81.786 °C	83.596 °C	−2.2 %
+Winding	89.135 °C	87.681 °C	+1.7 %
+Rotor	80.139 °C	82.712 °C	−3.1 %
+Permanent magnet	83.211 °C	83.549 °C	−0.4 %
+Bearing	76.185 °C	78.655 °C	−3.1 %
+Axle	73.562 °C	73.976 °C	−0.6 %
+Endcap	75.563 °C	77.675 °C	−2.7 %
+6. Experimental verification
+To verify the simulation results and the correctness of the MSWI-3DTNM, a prototype was fabricated on a trial basis, and the waterway was installed internally. Due to technical constraints, the waterway ends were connected using a hose, and the structure of the prototype is shown in Fig. 24. First, the prototype no-load counter potential experiment, the experimental platform shown on Fig. 25, three-phase windings and oscilloscope connected to the prototype are fixed in the experimental frame by the servo motor drag. The measured no-load back EMF waveform at 3000 r/min is shown on Fig. 26, and the no-load back EMF waveform is in good agreement with the simulation results.
+Fig. 24
+Download: Download high-res image (419KB)
+Download: Download full-size image
+Fig. 24. Prototype structure.
+
+Fig. 25
+Download: Download high-res image (354KB)
+Download: Download full-size image
+Fig. 25. Prototype and no-load experimental platforms.
+
+Fig. 26
+Download: Download high-res image (216KB)
+Download: Download full-size image
+Fig. 26. Measured no-load back EMF waveforms.
+
+To further validate the motor's output performance, a motor load test platform was built. Fig. 27(a) shows the servo motor control platform; Fig. 27(b) shows the load test platform, which primarily consists of a DC power supply, controller, control pedal, and servo motor, with an external torque sensor attached to the servo motor. The DC power supply provides operating voltage to the controller. The controller supplies three-phase sinusoidal current to the motor and issues control commands based on sampled motor current feedback. Current magnitude is controlled by controlling the pedal opening, with current magnitude detected by the current source control cabinet. The servo motor maintains the prototype's rotational speed at 3000 r/min, while the torque sensor measures the output torque provided by the prototype under different current magnitudes. Fig. 28 shows the output torque measured by the load test platform for the prototype at different input currents. At a rated current of 45A, the prototype's average output torque measured in the experiment was 18.1 Nm, reaching 97.7 % of the simulation results. As the current input increases, the motor's output torque exhibits near linear growth, showing attenuation when the magnetic circuit approaches saturation. Due to experimental equipment limitations, the test current could only reach 65A. The measured output torque values were slightly lower than the simulation results due to machining errors and electromagnetic interference.
+Fig. 27
+Download: Download high-res image (508KB)
+Download: Download full-size image
+Fig. 27. Load experiment platform. (a) Servo motor control platform. (b) Load experiment platform and torque sensor.
+
+Fig. 28
+Download: Download high-res image (261KB)
+Download: Download full-size image
+Fig. 28. Comparison of FEA and experimental average torque.
+
+To further validate the rationality of the built-in water channel design, prototype temperature rise tests were conducted. The temperature rise experiment platform of the prototype is shown in Fig. 30, and the temperature probes of the temperature tester are pre-buried in the windings, stator, housing, and endcap of the prototype, and two probing points are set up in each part; To ensure accurate results, we positioned the two temperature probes for the motor stator and windings at axially symmetric locations, as shown in Fig. 29. The 6 waterway outlets are introduced into the tank through hoses, and the 6 waterway inlets are connected to the pump through a splitter and hoses. During the temperature rise test, the ambient temperature is first controlled at 25 °C. A rated current of 45A is applied to the motor, and the servo motor is used to maintain the prototype's rotational speed at 3000 r/min. This ensures the motor operates under rated conditions identical to those in the simulation. Simultaneously, the water flow rate within the motor's cooling channels is matched to the simulation conditions. Multiple temperature sensors monitor changes in the motor's temperature, and the temperature tester data is shown in Table 6. Take the average value of temperature rise data of each probe point of the temperature tester to get the average temperature rise curve of the motor as shown in Fig. 31. The maximum temperature of the prototype temperature rise stabilization is 82.7 °C in experiment; the maximum temperature of the prototype temperature rise stabilization is 80.3 °C in simulation, with an error of 2.9 %; the maximum temperature of the prototype temperature rise stabilization is 79.8 °C in MSWI-3DTNM method, with an error of 3.5 % validated the accuracy of the MSWI-3DTNM.
+Fig. 29
+Download: Download high-res image (235KB)
+Download: Download full-size image
+Fig. 29. Internal temperature detection point of the motor.
+
+Fig. 30
+Download: Download high-res image (346KB)
+Download: Download full-size image
+Fig. 30. Prototype temperatures rise experimental platform.
+
+Table 6. Steady state temperature data.
+
+Detection position	Detection Point 1	Detection Point 2
+Stator	84.2 °C	86.7 °C
+Winding	87.1 °C	88.3 °C
+Housing	81.1 °C	82.5 °C
+Endcap	75.3 °C	76.6 °C
+Fig. 31
+Download: Download high-res image (267KB)
+Download: Download full-size image
+Fig. 31. Temperature rise curves.
+
+7. Conclusion
+Aiming at the heat dissipation problem during the operation of permanent magnet synchronous motor, this paper proposes the modular stator built-in waterway permanent magnet synchronous motor, and carries out the simulation as well as the temperature analysis of it, and the specific conclusions are as follows.
+(1)
+The output performance of the permanent magnet synchronous motor with modular stator built-in waterway is significantly improved compared with that of the TPMSM; and the multi-objective optimization is carried out with the MCW-PMSM as the object of study, and the average output torque of the optimized MCW-PMSM is further improved by 1.2 %, the torque ripple is reduced by 6.09 %.
+(2)
+The flow field analysis of the circular waterway and the square waterway was performed to determine the inlet flow velocity of 0.75 m/s; based on the motor loss data and the fluid-solid coupling simulation analysis, the average temperature of the MCW-PMSM was obtained to be reduced by 63.6 % from 131.4 °C to 80.3 °C, and the average temperature of the MSW-PMSM was reduced by 61.1 % from 133.2 °C to 82.7 °C.
+(3)
+Based on the analysis, it is proved that MCW-PMSM is better than MSW-PMSM in terms of output and heat dissipation performance, so the thermal network model is constructed with MCW-PMSM as the research object to predict the temperature of the motor, and the error is less than 4 % compared with the simulation results, which are within a reasonable range.
+(4)
+An experimental platform for no-load and loaded conditions, and a prototype temperature rise test platform have been established. The average temperature of the motor is detected to be 82.7 °C. The error of the simulation compared with the experiment is 2.9 %, and the error of the MSWI-3DTNM compared with the experiment is 3.5 %, which is within the reasonable range.
+The study validated the effectiveness of modular stator built-in waterway motors, offering a novel thermal management solution for high-power-density compact motors. The efficient water-cooling structure and precise temperature field calculations play a crucial role in enhancing motor performance and longevity. Future developments can further optimize motor performance based on different motor materials. Simultaneously, further exploration of integration solutions with other cooling technologies can address issues such as degraded output performance and reduced service life caused by temperature rise in high power density motors. This will provide more comprehensive support for the engineering implementation of motor thermal management technologies.
+Nomenclature
+
+RT1	Total reluctance of the magnetic circuit of traditional motor
+RT2	Total magnetic circuit reluctance of E-type split stator motor
+Rg	Air gap equivalent reluctance
+Rs	Stator equivalent reluctance
+Rr	Rotor equivalent reluctance
+RsT	Stator tooth equivalent reluctance of traditional motor
+RsE	Split stator tooth equivalent reluctance
+Rm	internal equivalent reluctance of the permanent magnet
+Φ1	Total magnetic flux of the magnetic circuit of traditional motor
+Φ2	Total magnetic flux of the magnetic circuit of E-type split stator motor
+Φr	Permanent magnet flux
+Tem	Electromagnetic torque
+m	Number of current phases
+p	Number of pole pairs
+E0	No-load back EMF
+ω	Motor rotational speed
+iq	Current rms value
+PFe	Core loss
+PPm	Permanent magnet eddy current loss
+Tavg	Average output torque
+Tripple	Torque ripple
+ƒ	Magnetic field frequency
+Kh	Hysteresis loss coefficient
+B	Magnitude of magnetic flux density
+Kc	Eddy current loss coefficient
+Ke	Additional loss coefficient
+Φ	Magnetic flux magnitude
+S	Magnetic flux area
+V	Eddy current loss space integration region
+σ	Conductivity of the permanent magnet material
+E	Electric field strength
+J	Eddy current density
+Pcu	Copper loss
+ρ	Resistivity of copper
+Rcu	Resistance of each phase of the winding at the operating temperature
+Lcu	Length of the copper wire
+Ra	Resistance of the winding at the initial temperature
+Scu	Effective cross-sectional area of the copper wire
+α	Temperature rise coefficient of the winding
+T	Operating temperature of the winding
+T0	Initial temperature of the winding
+Pb	Bearing loss
+μ	Bearing friction coefficient
+Db	Inner diameter of the bearing
+V1	Air flow velocity on the outer surface of the housing
+V2	Linear velocity on the outer surface of the rotor
+α1	Convective heat dissipation coefficient on the surface of the housing
+α2	Convective heat dissipation coefficient on the end of the rotor
+α3	Convective heat dissipation coefficient on the end of the stator
+α4	Convective heat dissipation coefficient at the end of the winding
+α5	Convective heat dissipation coefficient inside the endcap and housing
+αw	Coefficient of forced convection heat dissipation for water flow
+λf	Thermal conductivity of the cooling fluid
+ΔQ	Wall heat flux
+T2	Steady state temperature of the waterway
+T1	Initial temperature
+de	Equivalent diameter of the flow channel cross-section
+Nu	Nussle number
+Rα	Convective thermal resistance
+αn	Convection heat dissipation coefficient of each part of the motor
+Sα	Convection heat dissipation area of each part of the motor
+Rd	Conduction thermal resistance
+λeq	Equivalent thermal conductivity of the armature windings
+δi	Thickness of the copper wire and insulation layer along the heat transfer direction
+λi	Thermal conductivity of the copper wire and insulation layer
+Ci	Heat capacity matrix
+Gi	Thermal conductance matrix
+Ti	Temperature vector of each node
+Qi	Loss vector of each node
+Abbreviation
+MCW-PMSM	Modular stator built-in circular waterway permanent magnet synchronous motor
+MSW-PMSM	Modular stator built-in square waterway permanent magnet synchronous motor
+TPMSM	Traditional permanent magnet synchronous motor
+LPTN	Lumped parameter thermal network
+FEA	Finite element analysis
+CFD	Computational fluid dynamics
+MSWI-3DTNM	modular stator-waterway integrated 3D thermal network model
+Definition of terms
+Modular stator	Stator structure consisting of 6 E-type modular structures
+Built-in waterway	The cooling channels embedded in the stator are made of high thermal conductivity copper, which is used to efficiently export the heat generated by the motor operation.

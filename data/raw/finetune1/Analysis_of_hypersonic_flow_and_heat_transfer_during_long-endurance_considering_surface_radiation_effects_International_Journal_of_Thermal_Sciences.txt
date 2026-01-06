@@ -1,0 +1,238 @@
+1. Introduction
+The development of hypersonic vehicles represents a significant focus within the field of aerospace technology. These vehicles are required to withstand conditions of extreme velocity, exceeding five times the speed of sound. The resulting aerodynamic thermal environments present significant challenges to the design of vehicle structures and materials [[1], [2], [3]].
+Aerodynamic thermal effects are not only related to the flow field, but also to the heat transfer in the structure. In previous vehicle thermal protection designs, a “cold wall heat flux” design input, representing the most demanding aerodynamic heating environments, was commonly used to decouple the flow field from the wall material response. A genuine thermal protection system (TPS) is comprised of both heat conduction within the structure's interior and heat radiation towards its exterior. Moreover, the external flow field interacts strongly with the vehicle structure through the fluid-solid interface, a phenomenon often referred to as the fluid-thermal coupling problem (also known as the conjugate heat transfer problem) [[4], [5], [6]]. In long endurance hypersonic flows, the temperature of the vehicle wall material increases rapidly with the influx of energy, and the wall thermal boundary conditions cannot simply be considered isothermal or adiabatic [7]. Accurate information on wall heat fluxes and structural temperature fields can reflect the operating conditions inside the vehicle, which is essential for the optimal design and operation of thermal protection systems. Moreover, the accurate prediction of the surface temperature directly affects the computation of the basic flow and the subsequent boundary layer stability analysis [8,9]. In Ref. [10], the hypersonic flat plate boundary layer is analyzed with and without radiation, employing a combination of flow stability theory and direct numerical simulation. It is found that the flow stability characteristics of the hypersonic boundary layer with and without radiation are significantly different, with the instability interval shrinking and the maximum growth rate increasing when surface radiation is considered. Once both the flow and structural heat transfer have reached a steady state, the surface of the vehicle should be at the radiation equilibrium temperature, which is established when the heat flux conducted to the surface by the flow field and the radiation heat flux transmitted outward from the surface have reached equilibrium [11].
+The aerodynamic thermal characteristics of the hypersonic boundary layer have been the subject of extensive investigation. In the context of thermal protection design for hypersonic vehicles, the aerodynamic thermal analysis conducted in the region surrounding the vehicle's stationing point typically includes consideration of surface radiation [[12], [13], [14]]. In the context of the vehicle's fuselage, surface radiation is only taken into account when considering high Mach number or high enthalpy cases. Conversely, the influence of surface radiation is typically neglected in cases involving low Mach numbers [15,16]. For flight experiments, although some tests can achieve flight times of hundreds of seconds, they cannot maintain a high Mach state for long times during flight. The wall temperature and heat flux in the fuselage region were notably lower than those in the nose region, which led to a reduced influence of surface radiation. For example, in previous flight experiments, the HIFiRE-5 [17,18] vehicle demonstrated a peak Mach number of 3.1, a total flight time of approximately 230s, a fuselage wall temperature of less than 450K, and relatively low surface heat flux. While the MF-1 [[19], [20], [21]] vehicle's thermal protection design referenced the radiation equilibrium temperature, the maximum Mach number was 5.32, the total flight time was approximately 300s, and the majority of this time was spent with the wall heat flux below 
+. Thus, the fuselage did not reach a high temperature. X-43A [22] vehicle has a maximum Mach 7, near the vehicle head region, has reached 1000K at 100s, and the radiation heat flux reaches 
+, while the temperature of the horizontal tail area is 470K, and the radiation heat flux is only 
+. Moreover, overlooking surface radiation may result in inaccuracies during the inversion of wall heat flux from experimentally obtained wall temperature data. In wind tunnel experiments, while high Mach and high heat flux conditions can be achieved, the duration of these tests is typically abbreviated due to the experimental environments. The maximum test time for conventional hypersonic wind tunnels is approximately tens to hundreds of milliseconds. Consequently, the coupling characteristics between the external flow field and the internal structure cannot be responded to during the running time [[23], [24], [25]]. For example, the effective test time of the 2.0m wind tunnel of China Aerodynamic Research and Development Center (CARDC) is 2∼18 ms; the effective test time of the FD-20 wind tunnel of China Academy of Aerospace Aerodynamic Technology (CAAA) is 25∼60 ms; and the effective test time of the JF-12 high enthalpy excitation wind tunnel of Institute of Mechanics, Chinese Academy of Sciences, is up to 120 ms. The wall temperature of the experimental model is typically that of the surrounding environment, with a surface heat flux of only 
+, which is almost negligible. The contemporary generation of hypersonic cruise vehicles is distinguished by long-endurance and a reusable design, featuring pronounced interactions between the external flow field and the internal structure. Given these prolonged interactions, it is imperative to examine the influence of surface radiation on the fuselage region of the vehicle, to determine whether it can be considered negligible, and under what conditions it becomes negligible. However, current high altitude flight experiments and wind tunnel are not capable of meeting the dual requirements of hypersonic velocities and long-endurance simultaneously. Consequently, this study employs numerical simulation to explore the influence of surface radiation during actual long-endurance flights.
+This work examines the influence of surface radiation on the basic flow field and structural heat transfer over time according to the characteristics of long-endurance hypersonic vehicles, with the objective of enhancing the precision of aerodynamic thermal design and aerodynamic layout. A new methodology is provided, tailored to the actual flight conditions of hypersonic vehicles, which accounts for surface radiation, material thermal conductivity, and other factors influencing wall temperature. This method overcomes the limitations imposed by the simplified boundary conditions in traditional N-S equation simulations and achieves a coupled solution for the flow field and wall heat transfer process. Specifically, when solving the N-S equations, the wall temperature boundary conditions are derived from the solutions of the transient heat transfer equations. Conversely, when solving the transient heat transfer equations, the heat flux boundary conditions at the wall are determined based on the solutions of the N-S equations. The vehicle fuselage is simplified as a flat plate model, utilizing a 10 mm thick C/SiC composite for the structural material. The freestream conditions are derived from atmospheric parameters at a flight altitude of 30 km, with Mach numbers of 6, 10, and 15. A loosely coupled method is used for the fluid-thermal coupling analysis [25,26]. The research delves into the flow field and structural heat transfer characteristics of a hypersonic flat plate during long-endurance flight. To reflect the cumulative thermal effects of surface radiation, comparative analyses are conducted with and without accounting for surface radiation. The variation of radiation onset time with Mach number was analyzed.
+2. Numerical methods
+This study employs a loosely coupled fluid-thermal analysis framework that advances conventional approaches in several key aspects to address the challenges of long-endurance hypersonic flight.
+(1)
+Transient-Conjugate Coupling: Unlike conventional steady-state conjugate heat transfer (CHT) analyses, the present approach couples the transient heat conduction in the solid with a series of quasi-steady flow solutions.
+(2)
+Computational Efficiency: A loosely coupled strategy is adopted, which significantly reduces computational cost compared to tightly coupled schemes.
+(3)
+Surface Radiation Effects: Surface radiation, a critical heat dissipation mechanism, is explicitly incorporated into the surface energy balance. This effect is often neglected in CHT simulations at moderate Mach numbers.
+(4)
+Physically Boundary Conditions: The method moves beyond idealized isothermal or adiabatic wall assumptions by solving a conjugate heat transfer problem with actual material properties.
+The detailed formulations and implementations of these key aspects are described in the following subsections.
+2.1. Governing equations for fluid phase
+Laminar flow is assumed for the flow in this study. Therefore, the two-dimensional laminar Navier-Stokes (N-S) equations in conservation form are used as the governing equations. They are represented in the Cartesian coordinate system as follows:
+(1)
+(2)
+(3)
+Where U is the conserved flux, t is the time, E and F are the convective flux vectors in the streamwise direction and normal direction, respectively, Ev and Fv are the viscous flux vectors. ρ is the gas density, p is the gas pressure, u and v denote the gas streamwise velocity component and the gas normal velocity component, respectively.
+e is the total energy, given by
+(4)
+Where γ = 1.4 is the specific heat ratio for gases.
+τ is the viscous stress, defined as
+(5)
+Where μ is the coefficient of viscosity, calculated from Sutherland's law:
+(6)
+The reference viscosity μref = 1.716 × 10−5 kg/m·s2, the reference temperature Tref = 273.15 K, and the Sutherland constant c0 = 110.4 K.
+Re is the Reynolds number, calculated in this paper using the unit Reynolds number(Re/m) for freestream flow.
+q is the heat flux, defined as
+(7)
+Where Pr = 0.72 is the Prandtl number for ideal gas, Ma is the Mach number, and T is the gas temperature.
+The governing equation has been dimensionless in this way: density ρ∞, velocity U∞, temperature T∞, pressure 
+, viscosity μ∞, length Lref = 0.001m and time Lref/U∞. The subscript ‘∞’ denotes that the free-stream flow parameters.
+The governing equations are discretized using the finite volume method and the discretized equations are solved using the LU-SGS method. A third-order Monotonic Upstream-centered Scheme for Conservation Laws (MUSCL) scheme is applied to discretize the inviscid flux derivatives and a fourth-order central scheme to discretize the viscous flux derivative.
+2.2. Heat conduction equation for solid phase
+This study focuses on the heat transfer characteristics of hypersonic flat plates, which are characterized by a significantly higher wall normal temperature gradient than the flow gradient. Therefore, heat conduction equation can be simplified to a one-dimensional form. One-dimensional transient heat transfer equation given by
+(8)
+Where ρ,c and λ denotes solid density, specific heat capacity and thermal conductivity, respectively. T is the solid temperature and t is the time. c and λ usually vary with temperature. However, detailed and accurate data on the thermophysical properties of the studied materials at different temperatures are currently limited and particularly scarce at extreme temperature conditions. Therefore, in this work, these properties are assumed to be constant values measured at 300 K.
+The heat conduction equation is discretized using the finite volume method. The time marching uses the second-order Runge-Kutta method. The spatial discretization uses the second-order central scheme.
+Fig. 1 shows the energy balance relationship at the fluid-solid interface during hypersonic flight.
+Fig. 1
+Download: Download high-res image (126KB)
+Download: Download full-size image
+Fig. 1. Surface energy balance.
+
+The energy balance equation for the interface given by
+(9)
+Where qgw is the heat flux from the gas to the vehicle, qrad,e is the radiation heat flux from the environments to the surface of the vehicle, qrad,w is the radiation heat flux from the surface of the vehicle to the outside, and qcond is the heat flux into the vehicle.
+According to Fourier's law of heat conduction, the aerodynamic heat flux qgw can be written as
+(10)
+Where kf is the thermal conductivity of gas, and Tw,f is the gas temperature at the wall. The subscripts ‘f’ and ‘w’ denote the fluid phase and wall parameters, respectively.
+According to Stefan-Boltzmann law, the Radiation heat flux qrad can be written as
+(11)
+Where 
+ is the Stephen Boltzmann constant, and ε is the surface material radiation coefficient. The environmental radiation coefficient is the same as the surface material. Te = T∞ is the environmental temperature outside the vehicle, and Tw,s is the solid temperature at the wall. The subscripts 
+ denote the solid phase parameter.
+Thus, the conduction heat flux 
+ into the vehicle can be written
+(12)
+At the fluid-solid interface, the temperature and heat flux from the fluid N-S equations and the solid heat transfer equations must be equal to maintain continuity.
+(13)
+In this study, the outer surface of the flat plate is heated by the conduction heat flow; the inner wall surface is assumed to be an adiabatic wall surface due to the long heating time. The boundary conditions of the heat transfer equation can be written as
+(14)
+Where D denotes the thickness of the vehicle wall.
+The conduction heat flux expression with and without radiation is as follows
+(15)
+Unless otherwise indicated, results without radiation are shown as ‘No-Radiation’ and results with radiation are shown as ‘Radiation’ in the results charts below.
+2.3. Loosely coupled methods for coupled fluid-thermal analysis
+The numerical simulation of fluid-thermal coupling can be classified into two methods: tightly coupling and loosely coupling. Tightly coupling means that the fluid and solid phases are solved using a uniform time step and interact with each other through the fluid-solid interface [27]. The tightly coupled approach, while it more accurately captures the physical reality, entails a significant computational resources. The loosely coupled assumes that the characteristic time of the flow field is small and the time for the flow field to reach steady state is negligible compared to the characteristic time of the solid-phase heat transfer. Therefore, the N-S equation and the heat transfer equation can be solved separately.
+The characteristic time of flow is given by
+(16)
+The characteristic time of heat transfer from solid is given by
+(17)
+In hypersonic flow, the characteristic time of heat transfer from solids is much bigger than the characteristic time of flow, i.e., 
+. Therefore, in the context of hypersonic fluid-thermal coupling analyses, the flow field can be considered as a series of steady states. It is reasonable to combine steady-state flow calculations with transient solid calculations, employing a loosely coupled method. In this paper, the characteristic time for the Ma = 6 condition is 5.5 × 10−4s, and for the Ma = 15 condition, it is 2.2 × 10−4s. The characteristic time for solid heat transfer is t = 30.4s. Therefore, even under the Ma = 6 condition, the requirement that 
+ is still satisfied.
+The Loosely coupled method for fluid-thermal coupling is shown in Fig. 2. It can be summarized in the following steps.
+(1)
+In the initial moment t0, the solid temperature field is assigned an initial constant temperature, typically the free stream temperature T∞. Subsequently, the wall temperature is transferred to the fluid domain as a Dirichlet boundary condition through the fluid-solid interface.
+(2)
+The steady flow field is calculated based on the specified wall temperature condition, and the converged wall heat flux is obtained.
+(3)
+Transfer of wall heat flux through the fluid-solid interface to the solid domain as a Neumann boundary condition.
+(4)
+Transient thermal conductivity calculations are performed based on the imposed wall heat flux boundary conditions until the heat conduction solver reaches the specified time from t0 to t0+Δtc, obtaining the wall temperature at t0+Δtc.
+(5)
+The wall temperature at t0+Δtc is transferred to the fluid domain as a Dirichlet boundary condition through the fluid-solid interface. Subsequently, the steady flow field is calculated, and converged wall heat flux is obtained.
+(6)
+Repeat steps (3) to (5) until the flow field and structure temperature field are obtained over the preset time.
+Fig. 2
+Download: Download high-res image (161KB)
+Download: Download full-size image
+Fig. 2. Loosely coupled method for fluid-thermal coupling.
+
+In this study, it is assumed that the surface of the vehicle is exposed to ambient radiation at the temperature T∞. The initial temperature of the structure is defined as the temperature at the beginning of the hypersonic vehicle's cruise, and is designated as T∞.
+3. Problem description and numerical validation
+3.1. Problem description
+In this study, a computational analysis of hypersonic flow around a flat plate is presented. The characteristics of the flow field are illustrated in Fig. 3. The total length of the flat plate is 1000 mm. To eliminate the numerical errors caused by the leading edge of the plate, the flow field and structure temperature field after 50 mm from the leading edge is mainly analyzed.
+Fig. 3
+Download: Download high-res image (152KB)
+Download: Download full-size image
+Fig. 3. Flow field characteristics of a hypersonic flat plate.
+
+The free-stream parameters were selected as the gas parameters at an altitude of 30 km. The gas parameters for 30 km are T∞ = 226.51 K, c∞ = 301.71 m/s, p∞ = 1.19 × 103 Pa, ρ∞ = 1.84 × 10−2 kg/m3, μ∞ = 1.4753 × 10−5 kg/m·s2, Re/m = 2.26 × 106 m−1. The flow field was calculated for Ma = 6,10,15 cases. To conserve space, the analysis is focused on the results at Ma = 6.
+The numerical simulation of the flow field is based on the assumption of laminar flow. This assumption is justified by the fact that for hypersonic vehicles, the transition from laminar to turbulent flow is usually caused by natural transition induced by small disturbances. The natural transition process usually occurs far from the leading edge of the boundary layer, and the computational domain of this study is limited to 1m, which is insufficient to cover the transition region. Therefore, it is reasonable to use the laminar flow assumption for numerical simulations.
+We adopted a wall temperature (Tw)-based control strategy. To mitigate numerical instability induced by the sharp leading edge and ensure solution accuracy, a wall temperature monitor was installed 10 mm downstream of the flat plate leading edge (x = 10 mm). In hypersonic flat plate flow, the aerodynamic heat flux (qgw) decays along the streamwise direction, making the temperature field at this location exhibit greater sensitivity compared to further downstream. A criterion was set such that when the relative change in wall temperature at the monitoring point exceeds 5 %, the flow field is recomputed and qgw is updated accordingly. This threshold has been validated to effectively balance computational efficiency and numerical accuracy.
+The mesh resolution in the fluid and solid domains is shown in Fig. 4 (grid dilution by a factor of 5 is shown). The fluid domain grid is nx × ny = 2000 × 300 and for accurate prediction of wall heat flux, the first layer grid height is 
+. There are approximately 100 grids within the boundary layer in order to accurately resolve the boundary layer. The solid domain grid is nx × ny = 2000 × 80, the first layer grid height is 
+.
+Fig. 4
+Download: Download high-res image (449KB)
+Download: Download full-size image
+Fig. 4. Computational domain grid (grid dilution by a factor of 5).
+
+3.2. Numerical validation
+The grid independence of the fluid domain has been validated in Ref. [10]. This subsection gives the numerical validation of the fluid-thermal coupling analysis.
+In this paper, the NASA Langley 8-ft High Temperature Tunnel test by Wieting et al., in 1989 is used as a numerical validation test case. As shown in Fig. 5(a), the fluid domain grid is nx × ny = 200 × 200, where the first layer grid height is 1 × 10−6 m; the solid domain grid is nx × ny = 200 × 127, where the first layer grid height is 5 × 10−5 m. r = 25.4 mm and R = 38.1 mm are the inner and outer radii of the cylinder, respectively. θ = 0 represents the stationary position. The free stream Mach number is 6.47, the static pressure is 648.1Pa, the static temperature is 241.5K, and the wall temperature is 294.4K. The test model was stainless steel 321 with physical properties as shown in Table 1. Details of the test configuration etc. are given in Ref. [28]. The surface pressure and heat flux distributions, which have been calculated, are presented in Fig. 5(b) and (c). In these figures, p0 and q0 represent the stationary-point pressure and heat flux at t = 0s, respectively. As Fig. 5(b) illustrates, the calculated surface pressure distribution are in good agreement with the experimental data. The stationary-point pressure differs from the experiment is within 10 %. As Fig. 5(c) illustrates, at t = 0s, the calculated heat flux are in good agreement with the experimental data, and the difference between the calculated surface heat flux and the experimental data is within 1 %. At t = 5s, the surface heat flux decreases and the difference between the simulation results and the experimental data increases, but the maximum difference remains within 4 %. The aforementioned results are sufficient to illustrate the accuracy of the numerical simulation.
+Fig. 5
+Download: Download high-res image (924KB)
+Download: Download full-size image
+Fig. 5. (a) Cylinder computational domain grid, (b) Comparison of surface pressure distributions, (c) Comparison of surface heat flux distributions, (d) Comparison of wall temperature.
+
+Table 1. Material physical properties of stainless steel 321 at 300K
+
+ρ(kg/m3)	c(J/(kg·K))	λ(W/(m·K))	ε
+8030	502.48	16.27	0.85
+The wall temperature obtained by the loose coupled method is given in Fig. 5(d), where the loose coupling time step is taken as Δt = 0.5s and compared with the tight coupling method and Chen's loose coupled results [29]. As can be seen from the figure, the difference between the different resulting wall temperature distributions is small, with the maximum difference occurring at the stagnation point and increasing with time. When t = 4s, the maximum error of the loosely coupled compared to the tightly coupled results is 0.4 %; the maximum error of the results with Chen is 0.6 %, which may be due to a small difference in the initial heat flux. The results presented above illustrate the efficacy of the loosely coupled method employed in this study.
+3.3. Selection of vehicle material
+The structural requirements of hypersonic flight are closely related to the aerodynamic-thermal environment of the vehicle, and the thermal loads depend on the geometry and position of the vehicle [30]. Therefore, vehicle structures, wing leading edges and thermal protection systems need to use different materials to accommodate different thermal loads. Hypersonic flat plate models are typically used as the fuselage region on the vehicle, which have a lower heat flux compared to the head area and are usually passively cooled using materials with a lower thermal conductivity. For long endurance hypersonic vehicle, the fuselage structure needs to be able to serve at medium to high temperatures (1000–1600 K) for a long period of time (3000s), and C/SiC materials have been attracting attention in recent years as a kind of low/non-ablative heat protection material [31].
+The C/SiC material was selected for investigation with a thickness of 10 mm. The physical properties of the C/SiC material are given by Table 2 and their data are taken from public Information [32].
+Table 2. Material physical properties of C/SiC at 300K
+
+ρ(kg/m3)	c(J/(kg·K))	λ(W/(m·K))	ε
+2080.00	586.00	4.01	0.80
+4. Results and discussions
+During long endurance flight, the vehicle's surface is subjected to continuous aerodynamic heating, which exerts influence on both the fluid and solid domains. The influence of surface radiation on fluid-thermal coupling during long-endurance flights was analyzed using results from five different moments: t = 100,200,300,400,500s. For brevity, the subsequent analysis primarily centers on the results of the calculations for Ma = 6.
+4.1. Influence on solid domain
+The variation of temperature at the fluid-solid interface with respect to time is given in Fig. 6 for the case with and without radiation, respectively, where (a) temperature without radiation, (b) temperature with radiation, and (c) temperature difference with and without radiation. As illustrated in the figure, the temperature without radiation condition gradually increases with the time, and gradually converges to the adiabatic temperature from the upstream; the temperature with radiation condition increases with the time less than the without radiation condition, and gradually converges to the radiation equilibrium temperature from the upstream. The temperature difference between the conditions with and without radiation continues to increase over time, while the temperature difference along the streamwise gradually decreases. This evidence demonstrates that the surface radiation effect continues to increase over time and is stronger upstream of the flat plate than downstream.
+Fig. 6
+Download: Download high-res image (671KB)
+Download: Download full-size image
+Fig. 6. Variation in temperature over time at the fluid-solid interface: (a) temperature without radiation, (b) temperature with radiation, (c) temperature difference with and without radiation.
+
+The comparison of wall temperatures with and without radiation are given in Fig. 7 for the time t = 100∼500s at upstream x = 100 mm and downstream x = 800 mm of the plate, respectively. As Fig. 7(a) illustrates, the intense aerodynamic heating upstream of the flat plate results in a precipitous rise of temperature. As time increases, the temperature without radiation continues to increase and the temperature with radiation is converging to the radiation equilibrium temperature at t = 300s. As Fig. 7(b) illustrates, the rate of temperature increase with time is markedly diminished in the downstream region in comparison to the upstream of the flat plate. The temperature continues to increase with and without radiation, and the wall temperature difference begins to be significant at t = 300s. While the radiation equilibrium temperature is lower downstream of the plate, the time required to reach radiation equilibrium temperature is longer in this region than upstream of the plate. The wall temperature shows a more strongly nonlinear increase over time due to surface radiation.
+Fig. 7
+Download: Download high-res image (294KB)
+Download: Download full-size image
+Fig. 7. Comparison of wall temperatures with and without radiation at t = 100∼500s: (a) x = 100 mm, (b) x = 800 mm.
+
+Fig. 8 shows the temperature distribution inside the structure, with and without radiation, at x = 100 mm and x = 800 mm, respectively. As can be seen from the figure, the temperature decreases gradually from the outer surface to the inner surface, and the temperature difference with and without radiation also increases gradually with time inside the structure. At x = 100 mm, the temperature gradient within the structure diminishes with time. It can be seen that at t = 400s, the temperature field within the structure with radiation has reached thermal equilibrium, while the temperature field within the structure without radiation is higher and there is still a temperature gradient. The temperature distribution inside the structure at x = 800 mm is similar to that at x = 100 mm. The temperature inside the structure increases gradually with time, but the temperature gradient inside the structure and the temperature difference with and without radiation are smaller than the x = 800 mm results.
+Fig. 8
+Download: Download high-res image (472KB)
+Download: Download full-size image
+Fig. 8. Comparison of internal temperatures of structures with and without radiation at t = 100∼500s (y = 0 mm for fluid-solid interface): (a) x = 100 mm, (b) x = 800 mm.
+
+Fig. 9 gives the distribution of the conduction heat flux along the streamwise with and without radiation at different times. As can be seen from the figure, the conduction heat flux decreases with time. The influence of radiation heat flux on conduction heat flux is significant. As time increases, the conduction heat flux decreases rapidly due to the fact that the radiation heat flux is correlated with T4. When the time reaches 500s, the conduction heat flux considering surface radiation drops to less than 5 kW/m2, while the conduction heat flux without radiation effect remains above 10 kW/m2 in most of the region, thus fully substantiating the significance of the surface radiation effect in the design of thermal protection.
+Fig. 9
+Download: Download high-res image (369KB)
+Download: Download full-size image
+Fig. 9. Distribution of conduction heat flux at the fluid-solid interface.
+
+Fig. 10 presents the quantitative analysis of the heat flux at various times at x = 100 mm and x = 800 mm. Fig. 10(a) gives the conduction heat flux at two locations with and without radiation. As can be seen from the figure, in the case of no radiation, the conduction heat flux is completely supplied by the aerodynamic heat flux as time increases, and the difference between the conduction heat flux upstream and downstream of the plate is decreasing. The conduction heat flux shows a significant nonlinear reduction after taking surface radiation into account. The conduction heat flux upstream of the flow field is initially higher than that downstream. Over time, the conduction heat flux downstream surpasses that upstream. In order to explain the above phenomenon, Fig. 10(b) gives a quantitative analysis of the conduction heat flux, radiation heat flux and aerodynamic heat flux for the case of radiation at different moments at two locations. As illustrated in the figure, at x = 100 mm, the rate of temperature increase with time is accelerated, the reduction in aerodynamic heat flux is more pronounced, and the rise in radiation heat flux is more significant. After an extended period of heating (t = 500s), the magnitude of radiation and aerodynamic heat flux is almost equal. At x = 800 mm, the aerodynamic heat flux shows a slight decrease over time, and the increase in radiation heat flux is less pronounced than upstream due to the lower rate of temperature rise. Therefore, after a long period of heating, the conduction heat flux shows an increasing phenomenon along the streamwise. The variation of conduction heat flux with time at Mach 10 and Mach 15 is analogous to the pattern observed at Mach 6.
+Fig. 10
+Download: Download high-res image (501KB)
+Download: Download full-size image
+Fig. 10. Quantitative analysis of heat flux at x = 100 mm and x = 800 mm at t = 100∼500s: (a) Comparison of conduction heat flux with and without radiation, (b) Comparison of heat flux with radiation.
+
+4.2. Influence on fluid domain
+Fig. 11 gives the thickness of the boundary layer with and without radiation at t = 100∼500s. As illustrated in the figure, the boundary layer thickness increases gradually along the streamwise and increases with time. The rate of wall temperature at upstream increase is faster, but the change in boundary layer thickness at downstream is more significant. As time increases, the thickness of the boundary layer with radiation is thinner than the boundary layer without radiation. The development of the boundary layer has a pronounced impact on the wall temperature gradient, which influences the aerodynamic heat flux and consequently the wall temperature. Concurrently, the development of the boundary layer is influenced by the wall temperature.
+Fig. 11
+Download: Download high-res image (364KB)
+Download: Download full-size image
+Fig. 11. Thickness of the boundary layer at t = 100∼500s: (a) without radiation, (b) with radiation.
+
+Fig. 12 gives the information of the flow field with and without radiation at x = 100 mm. As illustrated in Fig. 12(a) and (b), the temperature profile within the boundary layer demonstrates a gradual increase over time. In the case without radiation, the wall temperature tends to be close to the adiabatic temperature, and the temperature peak in the boundary layer is gradually close to the wall, and the temperature gradient at the wall surface is significantly reduced; in the case with radiation, the wall temperature tends to be close to the equilibrium temperature of radiation, and at the same time the temperature distribution in the boundary layer tends to be in the steady state. From Fig. 12(c), it can be seen that with the increase of time, the wall temperature gradient continues to decrease and the thermal conductivity continues to increase, and the decrease of the wall temperature gradient with time is significantly larger than the increase of the thermal conductivity, so the aerodynamic heat flux 
+ shows a decreasing trend. With the increase of time, the wall radiation produced a significant inhibition of the change in temperature gradient and thermal conductivity, and the magnitude of the change in temperature gradient and thermal conductivity of the wall after considering the radiation was reduced by 62.42 % and 26.34 %, respectively.
+Fig. 12
+Download: Download high-res image (694KB)
+Download: Download full-size image
+Fig. 12. Information of the flow field at x = 100 mm: (a) Temperature profile without radiation, (b) Temperature profile with radiation, (c) Wall temperature gradient and thermal conductivity.
+
+Fig. 13 gives the information of the flow field with and without radiation at x = 800 mm. As illustrated in Fig. 13(a) and (b), in the downstream region of the flow field, the rate of temperature increase with time within the boundary layer is less than in the upstream region. Additionally, the thickness of the boundary layer increases significantly, and the location of the temperature peak within the boundary layer gradually moves towards the outer edge of the boundary layer with increasing time. The inhibitory effect of surface radiation extends not only to the increase in wall temperature, but also to the growth of boundary layer thickness. As illustrated in Fig. 13(c), the wall radiation has been observed to reduce the temperature gradient and thermal conductivity of the wall by 11.13 % and 12.24 %, respectively, with the increase in time. Thus, the influence of surface radiation on aerodynamic heat flux is insignificant.
+Fig. 13
+Download: Download high-res image (707KB)
+Download: Download full-size image
+Fig. 13. Information of the flow field at x = 800 mm: (a) Temperature profile without radiation, (b) Temperature profile with radiation, (c) Wall temperature gradient and thermal conductivity.
+
+4.3. Relative change analysis with and without radiation
+This subsection addresses the comparative analysis of the flow field and structural temperature field variables. The objective is to quantify the relative change with and without radiation conditions and thus to calibrate the surface radiation onset time. The surface radiation onset time is defined as the moment when the relative change with or without radiation reaches a preset critical threshold from the initial moment. At this time, coupled flow-thermal analyses must take into account the effect of surface radiation, as neglecting this effect results in an inaccurate solution.
+The relative change in the case with and without radiation were quantified as follows:
+(18)
+Where: R is relative change, V is variable, VNo-Radiation is variable without radiation and VRadiation is variable with radiation.
+The relative changes in wall temperature and conducted heat flux are given in Fig. 14. As can be seen from the figure, the relative change between wall temperature and conduction heat flux increases with time and decreases along the streamwise. At the same instant of time, the relative change of the conduction heat flux is higher than that of the temperature, which proves that the conduction heat flux has a higher sensitivity to the surface radiation. Therefore, this paper suggests that the change in conduction heat flux be used as a basis for calibrating the surface radiation onset time when solving the solid heat transfer equation.
+Fig. 14
+Download: Download high-res image (332KB)
+Download: Download full-size image
+Fig. 14. Relative change along the streamwise direction at t = 100∼500s: (a) wall temperature, (b) conduction heat flux.
+
+Fig. 15 gives the distribution of the relative changes of the flow field density, temperature, streamwise velocity, pressure, and total energy of gas at the flow position x = 100 mm, which is normal to the wall. As illustrated in Fig. 15(a) and (b), the relative changes in density and temperature demonstrate a decreasing and then increasing trend along the wall normal. Furthermore, the magnitude of these changes is more significant within the boundary layer as time progresses. The peaks of the relative changes are observed at the wall and in the region near the outer edge of the boundary layer, respectively. It is noted that the density relative change is consistently higher than the temperature relative change. As illustrated in Fig. 15(c), the relative change of the streamwise velocity at the wall is zero, which is a consequence of the no-slip boundary condition. After exiting the wall, the relative change in the streamwise velocity exhibits a rapid initial increase and then a gradual decrease along the wall normal. This phenomenon demonstrates that surface radiation has a significant impact on the streamwise velocity, particularly in the near-wall region. Additionally, it is evident that this effect intensifies with increasing flight time. As illustrated in Fig. 15(d), the surface radiation effect has little effect on the pressure within the boundary layer. Although the relative change of the pressure also shows a tendency to increase with time, the relative change within the boundary layer is still below 0.02 at t = 500s. As illustrated in Fig. 15(e), the relative change in the total energy of gas demonstrates a decreasing trend along the wall normal, followed by a slight increase and finally returns to zero. The relative change in the total energy of gas increases gradually with time.
+Fig. 15
+Download: Download high-res image (593KB)
+Download: Download full-size image
+Fig. 15. Distribution of relative change along the normal direction of the wall at t = 100∼500s: (a) relative change of density, (b) relative change of temperature, (c) relative change of streamwise velocity, (d) relative change of pressure, (e) relative change of total energy of gas.
+
+Table 3 presents a summary of the relative change data for the flow field surface parameters at t = 100∼500s. As the velocity at the wall is zero, the relative changes in flow velocity and total gas energy are not presented in the table. The data demonstrate that the density relative change exhibits the greatest variation over time, while the pressure relative change displays the least significant variation. Therefore, this paper suggests that the change in density be used as a basis for calibrating the surface radiation onset time when solving N-S equation.
+Table 3. Relative change for the flow field surface parameters.
+
+t(s)	Rρ	RT	Rp
+100	0.0278	0.0261	0.0009
+200	0.1313	0.1142	0.0020
+300	0.2835	0.2228	0.0025
+400	0.4331	0.3093	0.0102
+500	0.5660	0.3731	0.0183
+In general, the relative changes with and without radiation demonstrate an upward trend with increasing time. This trend further substantiates the characteristic that surface radiation effects are intensified over time.
+4.4. Analysis of radiation onset times at Ma = 6, 10, 15
+In considering the three Mach numbers of Ma = 6,10,15, the variation rule of radiation onset time with Mach number is determined by a comparison of the relative change of conduction heat flux and the relative change of wall density. In this study, the threshold for radiation onset time is defined as 0.1.
+Fig. 16 gives the relative change of the conduction heat flux and the relative change of the surface density vary over time. As illustrated in the figure, the relative change demonstrates an increase with increasing Mach number for the same time. The calibrated radiation onset times for the solid domain, in terms of conduction heat flux, are 16s, 38s, and 93s, respectively. The calibrated radiation onset times for the fluid domain, in terms of surface density, are 27s, 64s, and 177s, respectively. It can be observed that the onset time of surface radiation decreases with increasing Mach number in both the solid and fluid domains. In addition, the response to surface radiation is faster in the solid domain than in the fluid domain.
+Fig. 16
+Download: Download high-res image (323KB)
+Download: Download full-size image
+Fig. 16. Variation in relative change over time: (a) conduction heat flux, (b) wall density.
+
+5. Conclusion
+For long-endurance hypersonic vehicles, a persistent interaction occurs between the external flow field and the vehicle's structure. In this study, the surface radiation effect is considered for the flow-thermal coupling analysis under long-endurance flight. The heat transfer properties of real vehicle structures are considered and elucidating the cumulative influence of surface radiation on the flow and structural temperature fields. The law of variation of the surface radiation onset time with Mach number is clarified. The following conclusions are drawn.
+(1)
+The onset time of surface radiation is observed to decrease as the Mach number increases, necessitating the consideration of surface radiation effects at moderate Mach numbers. The conduction heat flux is particularly sensitive to surface radiation. The onset times for radiation at Mach numbers of 6, 10, and 15 are 93s, 38s, and 16s, respectively. The onset time at Ma = 15 occurs 82.80 % earlier than at Ma = 6. As time progresses, the influence of surface radiation on both the structure temperature field and the flow field becomes more pronounced. For hypersonic vehicles designed for long-endurance, the cumulative thermal effects of surface radiation must be considered.
+(2)
+The vehicle's surface transfer the heat flux to the external environment through radiation, thus reducing the conduction heat flux into the interior structure. Surface radiation induces a nonlinear decay of the conduction heat flux over time, particularly in the initial phase of the flight. In the upstream region of the flow field, the decay rate of the conduction heat flux is more rapid. For the case of Ma = 6, the conduction heat flux exhibits a decreasing trend along the flow direction at t = 100s. Upon reaching t = 500s, the conduction heat flux demonstrates an increasing trend along the flow direction.
+(3)
+Surface radiation has a significant influence on flow field characteristics. The rate of increase in boundary layer thickness and wall temperature is lower in the case with radiation compared to the case without radiation. In the presence of surface radiation, the temperature peak is consistently observed within the boundary layer. Consequently, the aerodynamic heat flux asymptotically approaches a constant, non-zero value over time. The vehicle's surface attains heat equilibrium upstream of the flow field more rapidly. For the case of Ma = 6, the flow field attains stability at the position x = 100 mm after t = 400s. However, at x = 800 mm, the flow field exhibits ongoing variability over the time range studied.
+It is worth noting that at Ma = 6 and higher, the surface temperature of the vehicle upstream of the flow field can exceed 1500K. When the temperature reaches approximately 1100K [33], the C/SiC material chemically reacts with oxygen to form a solid SiO2 oxidation film on certain regions of the vehicle surface. This leads to changes in the thermophysical properties of the surface material in contact with the external flow field. Therefore, future studies should further consider the oxidised nature of the surface material to improve the fluid-solid interface model for more accurate simulations.

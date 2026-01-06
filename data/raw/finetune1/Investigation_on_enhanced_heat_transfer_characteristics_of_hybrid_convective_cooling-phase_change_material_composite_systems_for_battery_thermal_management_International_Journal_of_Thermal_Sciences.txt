@@ -1,0 +1,224 @@
+Keywords
+Hybrid thermal management systemEnergy storage batteryNumerical simulationConvective heat transferPhase change material (PCM)
+Nomenclature
+
+Empty Cell	T	Average temperature (K)
+Latin alphabet	Vb	Volume of single cell (m3)
+Uj	Average Velocity Component (m⋅s−1)	I	Battery charging and discharging current (A)
+t	Time (s)	E	Battery open-circuit voltage (V)
+xj	Space coordinate component	U	Battery operating voltage (V)
+v	Molecular kinematic viscosity (m2⋅s−1)	q	Heat generation rate per unit volume of battery (W⋅m−3)
+vt	Turbulent eddy viscosity coefficient	Rj	Joule internal resistance (Ω)
+Velocity vector of phase change material (m⋅s−1)	Rp	Polarization internal resistance(Ω)
+k	Turbulent kinetic energy (m2⋅s2)	PPCM	Static pressure of phase-change material (Pa)
+Pb	Battery heat generation power (W)	Greek alphabet
+ρ	Density (kg⋅m−3)	ε	Turbulent kinetic energy dissipation rate (m2⋅s−3)
+Cp	Specific heat capacity (J⋅kg−1⋅K−1)	σk, σε	Turbulent Prandtl number
+kb, kPCM	Thermal conductivity of battery and phase change material (W⋅m−1⋅K−1)	cε1, cε2	Empirical coefficients of dissipation terms
+1. Introduction
+The increasing installed capacity of wind and photovoltaic renewable energy generation poses significant challenges to stable grid operation. Energy storage technologies can effectively facilitate renewable energy utilization, while simultaneously mitigating daily peak-valley load differences, smoothing loads, and reducing power supply costs. Among these, battery energy storage has become one of the most widely deployed technologies due to its high integration, compact footprint, large storage capacity, and convenient transport ability [1,2]. However, densely arranged battery modules generate substantial heat during charging/discharging cycles. Accumulated thermal energy causing uneven temperature distribution or exceeding safe thresholds will precipitate capacity degradation, accelerated aging, and potential thermal runaway hazards [3]. Therefore, an efficient thermal management system (Battery Thermal Management System, BTMS) serves as an essential safeguard for the performance and safety of battery energy storage installations.
+Currently, the main battery thermal management methods include air cooling [4,5], liquid cooling [6,7], phase change material (PCM) cooling [8,9] and heat pipe cooling [10,11], among these methods, air cooling offers structural simplicity but exhibits limited heat dissipation efficiency; liquid cooling provides superior thermal performance yet carries leakage risks; heat pipe cooling faces challenges of higher manufacturing costs and shorter service life; meanwhile, PCM leverage high latent heat storage capacity to absorb/release heat through solid-liquid phase transitions, enabling precise temperature control and emerging as a key research focus in passive thermal management [12]. Huang et al. [13] revealed that PCM with enhanced thermal conductivity and elevated latent heat capacity enable significantly superior thermal management performance in battery systems. HÉMERY et al. [14] experimentally compared air cooling and phase change material (PCM) cooling, demonstrating that PCM coupled with natural convection achieves superior battery temperature uniformity. However, PCM typically suffer from low thermal conductivity, necessitating the addition of high-conductivity materials (e.g., metals or graphite) to enhance their thermal performance. Concurrently, PCM undergo volume changes during phase transition, potentially leading to leakage issues. Additionally, their limited phase change temperature range restricts application scenarios [15,16].
+As active thermal management technologies, both air cooling and liquid cooling belong to convective heat transfer techniques, characterized by high heat transfer efficiency and rapid response speed [17]. Wang et al. [18] demonstrated through air-cooling simulations that increasing airflow velocity and inlet numbers significantly reduces the maximum temperature and temperature difference within battery modules. Mahesh et al. [19] conducted direct liquid cooling experiments, revealing that liquid cooling effectively curbs thermal runaway propagation in battery packs compared to natural convection. However, active technologies exhibit inherent limitations: additional pumping power consumption is required to maintain convective flow during operation, leading to elevated energy costs.
+To integrate the advantages of passive and active technologies, hybrid thermal management systems combining phase change materials (PCM) with convective heat transfer have emerged as a key research focus: PCM enhances temperature uniformity across the battery module, while convective heat transfer dissipates generated heat to the external environment [20]. Wang et al. [21] proposed a PCM-corrugated microchannel cooling plate hybrid system. Numerical simulations demonstrated that this system maintains battery module temperatures significantly lower than those achieved with standalone PCM or air cooling. Yang et al. [22] investigated the thermal characteristics of battery packs using a hybrid system integrating PCM and air cooling. Their study revealed that under the synergistic effect of both components, the PCM continuously absorbed heat generated by the batteries, while the air cooling system rapidly dissipated the heat stored in the PCM, thereby enhancing overall battery performance. Zhang et al. [23] demonstrated that a hybrid BTMS integrating PCM and liquid cooling can fully meet thermal dissipation requirements in extreme operating conditions.
+Notably, in enhancing battery thermal management performance, the combination of fin structures with rational battery arrangement can significantly increase the heat dissipation area of the battery module [24] while improving the convective heat transfer efficiency of both air and liquid cooling systems [25,26]. Mohammed et al. [27] investigated the use of metal fins for passive cooling of lithium-ion batteries and demonstrated that employing six copper fins with a height of 11.67 mm can reduce the peak battery temperature by 8 °C compared to a fin-free configuration. Sharma et al. [28] discovered that by optimizing fin design, the maximum surface temperature of batteries under PCM heat pipe (HP) coupling was lower than that without fins. Shen et al.[29 [][][]developed a BTMS incorporating honeycomb-structured fins to enhance PCM, numerical analysis revealed that this modified PCM system reduced battery temperature by 26.52 % and improved PCM utilization efficiency by 47.6 %.
+However, current research in this field predominantly focuses on relatively single cooling methods, while studies that integrate the advantages of multiple battery thermal management solutions with engineering application-oriented design principles remain scarce. To address this gap, this study combines multi-physics coupling analysis with practical engineering design concepts to propose a novel active air/water cooling-phase change material (PCM) hybrid thermal management system for large-capacity energy storage battery modules. Through transient fluid-thermal numerical simulations, the dynamic coupling mechanisms of multiphase and multi-physics fields in the composite system were systematically revealed. The study specifically investigates the optimization effect of fin arrangement on the heat transfer path of PCM, as well as the differential impact of cooling medium type on temperature uniformity and heat dissipation efficiency. In terms of technical practicality, the integrated fin-flow channel design achieved a temperature reduction of approximately 7 °C in the air-cooling system and about 5 °C in the water-cooling system. Furthermore, the optimized four-fin configuration reduced the peak temperature non-uniformity of the battery by approximately 50 %. This study provides valuable insights for the future design of high-efficiency, high-uniformity battery thermal management systems.
+2. Physical model
+The energy storage battery module considered in this study (Fig. 1) consists of 24 Lithium Iron Phosphate (LFP) cells arranged in a 4 × 6 array. Each cell has a capacity of 117 Ah, with dimensions of 149 mm × 115 mm × 71 mm and a nominal voltage of 3.2 V. The designed battery thermal management system comprises a PCM zone, an upper convective heat transfer zone, and a lower convective heat transfer zone. The PCM with a thickness of 34 mm is encapsulated within a sealed enclosure made of Aluminum Alloy 7075-T6.The upper convective heat transfer zone features an air flow channel with a height of 10.47 mm and an air velocity of 1 m s−1.The lower convective heat transfer zone has a flow channel height of 10.53 mm, accommodating either airflow (velocity: 1 m s−1) or water flow (velocity: 0.1 m s−1). The cooling medium flows in counter-flow directions between the upper and lower zones. To enhance the thermal conductivity and temperature uniformity in the PCM zone, some thermal management schemes incorporate fin structures into the PCM zone. The configurations include 2 fins and 4 fins, both with a fin thickness of 0.5 mm. Additionally, the impact of extending fins into the lower convective heat transfer zone on battery thermal management performance was analyzed, with a protrusion height of 4 mm. The numerical simulation cases are detailed in Table 1.
+Fig. 1
+Download: Download high-res image (313KB)
+Download: Download full-size image
+Fig. 1. Overall structure schematic diagram of BTMS.
+
+Table 1. Numerical example.
+
+Battery Box Structure	Number
+Air cooling-Phase change material-Air cooling-0 fins	AA00
+Air cooling-Phase change material-Water cooling-0 fins	AW00
+Air cooling-Phase change material-Air cooling-2 fins	AA02
+Air cooling-Phase change material-Water cooling-2 fins	AW02
+Air cooling-Phase change material-Air cooling-4 fins	AA04
+Air cooling-Phase change material-Water cooling-4 fins	AW04
+Air cooling-Phase change material-Air cooling-2 fins(not extending into the flow channel)	AA02-no
+Air cooling-Phase change material-Water cooling-2 fins(not extending into the flow channel)	AW02-no
+Air cooling-Phase change material-Air cooling-4 fins(not extending into the flow channel)	AA04-no
+Air cooling-Phase change material-Water cooling-4 fins(not extending into the flow channel)	AW04-no
+Due to the periodic arrangement of battery cells within the module, a computational domain comprising six centrally located battery cells was selected to reduce mesh requirements, as shown in Fig. 2. The structure of the numerical model is illustrated in Fig. 3.
+Fig. 2
+Download: Download high-res image (438KB)
+Download: Download full-size image
+Fig. 2. Select the computational domain for BTMS.
+
+Fig. 3
+Download: Download high-res image (623KB)
+Download: Download full-size image
+Fig. 3. Structural schematic of numerical model.
+
+In numerical simulations, the phase change material selected was RT35 paraffin, with its primary thermophysical properties sourced from Reference [30]. The batteries employed were Sunwoda SBP-01-1200 lithium iron phosphate (LFP) cells. The PCM enclosure utilized aluminum alloy 7075, and its key material properties were obtained from Refprop. The thermophysical properties of the cooling media-air and water at 25°C-were also derived from Refprop. Table 2 summarizes the key structural material parameters used in the numerical computations.
+Table 2. Structural material parameters for BTMS.
+
+Materials	PCM RT35	Battery Cell	Aluminum Alloy7075
+Density/(kg⋅m−3)	770	2129	2810
+Specific Heat Capacity/(J⋅kg−1⋅K−1)	2000	1174.5	960
+Thermal Conductivity/(W⋅m−1⋅K−1)	0.2	Width direction:10.75	173
+Thickness direction:4.32
+Height direction:10.49
+Dynamic Viscosity Coefficient/(kg⋅m−1⋅s−1)	0.02		
+Latent Heat/(J⋅kg−1)	160000		
+Solidification Temperature/(°C)	32		
+Liquefaction Temperature/(°C)	38		
+3. Numerical methods and boundary conditions
+3.1. Numerical methods
+This study employs the Finite Volume Method (FVM) to solve the unsteady Reynolds-Averaged Navier-Stokes equations. The numerical simulations are conducted using the Ansys Fluent 2022R1 platform. In the model, the Reynolds number of air at a flow velocity of 1 m s−1 (calculated using the relevant formula) in the fluid channel is approximately 13,267. However, due to the presence of fins in the referenced model, the air velocity in certain regions increases to a maximum of 2.2 m s−1, resulting in a Reynolds number of 29,187, which exceeds the critical value of 2300. Additionally, since the fluid flow involved in this study represents a relatively simple flow problem with a reasonably uniform flow region in the central part, the standard k-ε turbulence model was adopted to simulate this flow-thermal coupling problem, considering its lower computational cost and better convergence performance. The governing equations are discretized via a Second-Order Upwind scheme, and the SIMPLEC algorithm is adopted as the pressure-velocity decoupling method. The equations are solved iteratively in a segregated manner until solution convergence is achieved.
+The governing equations for the turbulence model are as follows:
+(1)
+(2)
+The model constants: σk = 1.0, σε = 1.3, cε1 = 1.35, cε2 = 1.80.
+Turbulent energy generation term:
+(3)
+3.2. Battery thermal model
+Since during battery operation, irreversible heat dominates, reversible heat is negligible, and minor changes in the battery itself have almost no impact on the results of this study, the following assumptions can be made for computational simplicity.
+a)
+During battery operation, thermophysical parameters remain constant, and the internal temperature increases uniformly;
+b)
+Thermal radiation and electrochemical reactions are neglected during battery operation.
+Based on these two assumptions, the energy conservation equation for the battery is derived [31]:
+(4)
+Based on the battery heat generation rate model proposed by Bernardi [32] in 1985:
+(5)
+In the equation, 
+ denotes the Joule heat and polarization heat (i.e., the battery heat generation power), while 
+ represents the reversible reaction heat. Since the contribution of 
+ to the total heat generation is negligible, the heat generation in this battery model can be regarded as solely influenced by the internal resistance and current during operation:
+(6)
+Considering that this study primarily focuses on the influence of structural design and cooling medium on battery thermal management performance, and ensure greater salience in the presentation of core research outcomes, we opted to appropriately simplify the battery heat generation model. This simplification strategy neglects the dynamic variation of heat generation power during charging and discharging processes, adopting instead a constant thermal load condition. Specifically, for the battery model used in this research, the average heat generation power over the entire charge-discharge cycle (11.5 W) was set as a fixed heat source boundary condition. Based on the theoretical formula mentioned earlier, the corresponding volumetric heat generation density was calculated as 9452.68929 W m−3.
+3.3. PCM model
+The PCM used in this study is RT35 paraffin. The energy conservation equation for its solid state during phase transition is given by Ref. [33]:
+(7)
+The continuity, momentum and energy equations for PCM in the molten state are given respectively by Refs. [34,35]:
+(8)
+(9)
+(10)
+Additionally, the enthalpy change of PCM can be described by the following formula [36]:
+(11)
+In the equation, H denotes the total enthalpy of the PCM, hs represents the sensible heat of the PCM, T0 is the environment temperature, and 
+ signifies the latent heat of the PCM, which ranges between 0 and L, here, L is the maximum latent heat of the PCM, while θ indicates the liquid volume fraction of the PCM, expressed as:
+(12)
+TS and TL denote the solidification temperature and liquefaction temperature of the PCM, respectively. In this study, and considering its primary focus, a detailed investigation into the influence of natural convection effects on heat transfer during PCM melting was not conducted.
+3.4. Boundary condition
+This study employs transient numerical simulation. The initial temperature of the battery cell and PCM, as well as the inlet temperature of the coolant, are all set to 25 °C. In the upper and lower convective heat exchange zones, the air velocity is 1 m s−1, and the water flow rate is 0.1 m⋅s−1 Periodic boundaries are applied to the computational domain. The boundary conditions within the domain are labeled as shown in Fig. 4. During the numerical simulation, to ensure computational accuracy, the total simulation time was set to 40 h, with a time step of 10 s and 100 iterations per step.
+Fig. 4
+Download: Download high-res image (438KB)
+Download: Download full-size image
+Fig. 4. Boundary conditions (a) Setting of inlet/outlet, periodic and wall boundary conditions. (b) Internal face setup.
+
+3.5. Grid and grid independence verification
+Numerical simulations in this study employed structured meshing via ANSYS ICEM. Grid independence verification was conducted specifically for the AA00 computational model. Five distinct mesh configurations were tested: mesh1 (240,000 cells), mesh2 (330,000 cells), mesh3 (400,000 cells), mesh4 (670,000 cells) and mesh5 (1,000,000 cells). As illustrated in Fig. 5, the average battery temperatures across these mesh schemes demonstrate that mesh1 exhibits slightly lower accuracy, yielding elevated temperature predictions during battery heating. The temperature rise curves of mesh2, mesh3, mesh4 and mesh5 essentially coincide. Considering the trade-off between computational accuracy and computational cost. Mesh3 was adopted for all subsequent calculations. The grid division is illustrated in Fig. 6.
+Fig. 5
+Download: Download high-res image (416KB)
+Download: Download full-size image
+Fig. 5. Grid independence verification results.
+
+Fig. 6
+Download: Download high-res image (373KB)
+Download: Download full-size image
+Fig. 6. Mesh generation illustration (a) Overall mesh (b) Mid-section in Z-direction.
+
+3.6. Verification of numerical computation methods
+Choudhari et al. [35] experimentally investigated the influence of different fin structures on the thermal characteristics of PCM and battery temperature. To verify the accuracy of the numerical simulation method employed in this study, we applied it to analyze and validate the thermal management performance reported in their work. A comparison of the average temperature variation curves for batteries with three fin structures (Fig. 7 a, b, c) demonstrates that the results obtained by our numerical method exhibit excellent agreement with the experimental data, thereby confirming the accuracy of the present numerical approach.
+Fig. 7
+Download: Download high-res image (362KB)
+Download: Download full-size image
+Fig. 7. Analysis and comparative verification of results (a) No fins (b) Type Ⅱ (C) Type Ⅳ.
+
+4. Results and discussions
+4.1. Impact of cooling medium on heat transfer characteristics of battery modules
+Fig. 8 compares the average battery temperatures of two structures with different fin counts under air–PCM-air and air–PCM-water cooling configurations. Analysis of both subfigures clearly demonstrates that, for any given structure, the water-cooled system reduces temperatures by approximately 30–34 °C compared to the air-cooled system. The significant enhancement in cooling performance of the water-cooled structure is notable despite the water flow velocity (0.1 m s−1) being one order of magnitude lower than the air velocity (1 m s−1). This superiority arises from water's specific heat capacity, which is approximately four times that of air, combined with its density roughly 1000 times greater. Consequently, under identical flow cross-sectional areas, water's heat dissipation capability substantially exceeds that of air.
+Fig. 8
+Download: Download high-res image (403KB)
+Download: Download full-size image
+Fig. 8. Comparison of battery temperatures under different cooling media with fin quantities (a) 2 fins (b) 4 fins.
+
+To investigate and visualize the uniformity of temperature distribution in battery modules, the battery temperature non-uniformity index is defined as:
+(13)
+ are the average temperatures of Battery 1 to Battery 6, and 
+ is the mean value of these average temperatures.
+Fig. 9 compares the temperature non-uniformity of batteries under different cooling media for two non-intrusive fin structures. Data analysis reveals that: Data analysis reveals that: The AA02-no and AA04-no structures exhibit 0.5 °C and 1.0 °C lower temperature non-uniformity than their AW02-no and AW04-no counterparts, respectively. Further investigation using battery temperature contour plots and liquid fraction distribution at the 40-h mark (Fig. 10) indicates that: Liquid-cooled systems exhibit higher temperature non-uniformity than air-cooled systems. This discrepancy arises because the strong heat transfer capability of liquid coolant induces migration of high-temperature zones within the battery module. Specifically, cells near the liquid cooling inlet receive efficient cooling first, thus exhibiting lower temperatures, cells distant from the inlet accumulate heat due to insufficient cooling, leading to significantly higher temperatures. This spatial temperature gradient amplifies the temperature span across the module, exacerbating overall non-uniformity.
+Fig. 9
+Download: Download high-res image (413KB)
+Download: Download full-size image
+Fig. 9. Comparison of temperature non-uniformity in batteries with two non-protruding fin configurations across various cooling media.
+
+Fig. 10
+Download: Download high-res image (770KB)
+Download: Download full-size image
+Fig. 10. Cloud visualization of Battery temperature and liquid volume fraction for the 40-h mark (a) Battery temperature under air cooling media for the 04-no fin structure (b) Battery temperature under water cooling media for the 04-no fin structure (c) Battery liquid fraction for the 04-no fin structure (mid-cross-section in the X-direction of the battery module).
+
+By analyzing Fig. 9, it can be observed that the temperature non-uniformity curve of the air-cooled structure exhibits two distinct and significant fluctuation phases. Through in-depth investigation combining the phase change process cloud diagrams of the PCM in Fig. 13, the reasons for these two fluctuations are found to be.
+1.
+During the early transition, PCM in central regions (directly contacting cells) initiates phase change first, limited PCM participation absorbs substantial latent heat, significantly delaying temperature rise in adjacent cells, as cells continue heating before reaching steady-state cooling, temperature extremes diverge sharply, causing the initial fluctuation peak.
+2.
+The late transition, most PCM completes phase change, but material near cooling channels (upper/lower sides) lags due to convective cooling from airflow, while temperatures rise elsewhere, lagging PCM regions continue absorbing heat, locally suppressing cell temperature rise, this localized cooling delay re-widens temperature extremes, triggering the second fluctuation peak.
+Fig. 10(c) reveals that during the battery's thermal stabilization phase, the PCM in the air-cooling system has fully undergone phase transition, whereas in the liquid-cooling system, the PCM transition remains incomplete. This incomplete phase transition in liquid cooling explains why only one significant fluctuation phase appears in the temperature non-uniformity curve of Fig. 9.
+4.2. Effect of fin number on heat transfer characteristics in battery modules
+Fig. 11 compares the average temperature variations of all batteries in a module over a 40-h period under three configurations-no fins, 2 fins not extending into flow channels, and 4 fins not extending into flow channels-for two hybrid cooling methods: Air-PCM-air cooling and air-PCM-water cooling.
+Fig. 11
+Download: Download high-res image (353KB)
+Download: Download full-size image
+Fig. 11. Battery temperature variation with different fin configurations (a) Under air cooling (b) Under water cooling.
+
+Analysis of Fig. 11 (a) reveals the average temperature variations of batteries in an air-PCM-air cooling system: During 0–1 h, the temperature rise rates of the battery module remain nearly identical across three configurations. At t = 1 h, the module temperature reaches the PCM's solid-state transition temperature (32 °C), triggering latent heat absorption and significantly decelerating the temperature rise. In the critical phase-change interval (1–7 h), fins markedly enhance the PCM's heat transfer performance. Compared to the finless design, configurations with 2 fins and 4 fins (both not extending into flow channels) improve thermal conduction within the PCM, achieving more uniform temperature distribution and faster heat absorption efficiency. The 4 non-extending fins deliver the most effective temperature control, reduces average temperature and shortens phase-change duration by accelerating latent heat utilization. The 2-fin configuration ranks second in performance. The finless design exhibits the lowest heat absorption efficiency. Beyond t = 7 h, the high thermal conductivity of fins accelerates heat transfer, leading to a faster temperature rise in finned structures. At thermal stabilization, temperatures ascend as: AA04-no < AA02-no < AA00.
+Analysis of Fig. 11 (b) for the air-PCM-water cooling system reveals that: Water's high density and superior heat transfer capacity (vs. air) eliminate the temperature trend observed in Fig. 11 (a) during the first 7 h. Fins' high thermal conductivity accelerates temperature rise after PCM phase change, leading to faster stabilization in finned structures (post-PCM saturation), thermal hierarchy at equilibrium: AW04-no < AW02-no < AW00.
+Fig. 12 compares the temperature non-uniformity variations of battery modules with different fin configurations over a 40-h period under two cooling methods. The curves reveal that: Regardless of cooling method, all three fin configurations exhibit temperature non-uniformity trends closely aligned with the battery temperature changes mentioned earlier. Key divergence persists, the temperature non-uniformity of air cooling system shows two significant fluctuations during the temperature rise process. Liquid cooling system only have one major fluctuation occurs throughout the thermal evolution.
+Fig. 12
+Download: Download high-res image (472KB)
+Download: Download full-size image
+Fig. 12. Variation in battery temperature non-uniformity with different fin configurations (a) Under air cooling (b) Under water cooling.
+
+Fig. 13
+Download: Download high-res image (511KB)
+Download: Download full-size image
+Fig. 13. Liquid volume fraction distribution across battery modules with varying fin quantities at the t = 5 h mark (mid-cross-section in the Y-direction of the battery module).
+
+Similarly, according to the temperature non-uniformity curves in Fig. 12 and the liquid volume fraction distribution cloud diagrams in Fig. 13, it can be observed that: For both air-PCM-air cooling and air-PCM-water cooling systems, the addition of fins effectively reduces battery module temperature non-uniformity and peak temperature fluctuations. Other hand, it can also take phase transition initiates simultaneously around battery cells and adjacent to fin surfaces, this dual-path mechanism promotes more uniform phase-change propagation throughout the PCM.
+4.3. Impact of fins extending into flow channels on heat transfer characteristics of battery modules
+Fig. 14 compares the effect of fin extension into flow channels on battery temperature variation under air cooling and water cooling.
+Fig. 14
+Download: Download high-res image (451KB)
+Download: Download full-size image
+Fig. 14. Effect of fin extension into flow channels on battery temperature variation trends (a) Under air cooling (b) Under water cooling.
+
+Comprehensive analysis of the temperature curves in Fig. 14 reveals that: In battery modules with 2 fins and 4 fins, designs with fins extending into flow channels exhibit superior thermal performance compared to non-extending designs, reducing average cell temperatures by 7 °C in air-cooling and 5 °C in water-cooling systems. Analysis of temperature cloud diagrams in Fig. 16, Fig. 17 shows that all battery modules exhibit a central high-temperature and bilateral low-temperature' thermal distribution pattern, attributed to the reverse fluidic channel design along the upper and lower sides of the module. According to heat transfer theory, heat transfer efficiency progressively decays along the flow direction in heat-exchange pipes with constant cross-sectional areas-a principle fully consistent with the fluidic channel characteristics of battery modules.
+By comprehensively analyzing the temperature profiles in Fig. 14, Fig. 16, it is evident that around the 1-h mark, the integration of fins induces distinct thermal conductivity differences in the battery module. The 4 fins structure accelerates heat transfer significantly, with the AA04 configuration exhibiting a serrated temperature profile along the fins due to their extension into the fluid channels. During 1–7 h, the battery temperature in the AA02 structure exceeds that of AA04. This results from AA04's superior thermal management scheme, where enhanced thermal conduction and convection dominate the heating phase. Beyond 7 h, as battery temperatures converge toward equilibrium, fin density exerts a more pronounced influence on fluid channel flow fields. Here, AA02's lower fin count minimally disrupts flow behavior, enabling its fluid channels to extract more heat than AA04's.
+Regarding the influence mechanism of fin structures on convective flow fields, although increasing the number of fins expands the contact area between fluid and fins, a distinct fluid blocking effect occurs in the 4-fin configuration. Compared to the 2 fins structure, its denser layout obstructs fluid flow, thereby reducing the effective heat transfer area between the fluid and the battery, PCM and fins. Consequently, when battery heat generation and fluid cooling reach equilibrium, the battery module with the 2 fins structure achieves a lower temperature.
+Regarding the mechanism of how fins influence the flow field, although increasing the number of fins can enlarge the contact area between the fluid and the fins, the four-fin structure exhibits a significant flow blockage effect. As shown in Fig. 15, the blue area in the four-fin structure—indicating where the fluid velocity is substantially reduced due to the fins—is significantly larger than that in the two-fin structure. Compared with the two-fin configuration, the denser arrangement of the four-fin structure hinders fluid flow, thereby reducing the total effective heat exchange area between the fluid and the battery, phase change material, and fins. As a result, when a balance is reached between battery heat generation and fluid cooling, the battery module with the two-fin structure maintains a lower temperature.
+Fig. 15
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 15. Contour plot of the fluid velocity distribution at the cross-section where the fin extends into the flow channel.
+
+Fig. 16
+Download: Download high-res image (866KB)
+Download: Download full-size image
+Fig. 16. Temperature distribution trends cloud images of batteries under air cooling at six different time points (mid-cross-section in the X-direction of the battery module).
+
+Fig. 17
+Download: Download high-res image (914KB)
+Download: Download full-size image
+Fig. 17. Temperature distribution trends cloud images of batteries under water cooling at six different time points (mid-cross-section in the X-direction of the battery module).
+
+For the air-PCM-water cooling system depicted in Fig. 14, Fig. 17, the temperature difference between the two fin structures no longer exhibits significant variations over operating time, owing to water's heat transfer capacity significantly exceeding that of air. When fins do not extend into flow channels, the pattern "more fins, lower battery module temperature" persists. However, when fins extend into flow channels, water's high-efficiency heat dissipation mitigates flow-field disturbances, resulting in the 4 fins structure consistently maintaining slightly lower temperatures than the 2 fins structure. In terms of temperature distribution, the water-cooling system resembles the air-cooling system, but the presence of a water-cooling channel at the bottom shifts the high-temperature zone of the battery module distinctly upward.
+Fig. 18 compares the temperature non-uniformity curves of battery modules under air-PCM-air cooling and air-PCM-water cooling systems with various fin structures. It can be observed that the integration of fins reduces temperature non-uniformity as fin count increases, with a significant improvement effect. However, in air-cooling systems, the flow blockage effect caused by limited heat transfer capacity results in higher temperature non-uniformity for structures with fins extending into flow channels compared to those without channel intrusion. In contrast, water-cooling systems-leveraging water's superior heat transfer capacity-consistently exhibit lower temperature non-uniformity with higher fin counts across all configurations.
+Fig. 18
+Download: Download high-res image (395KB)
+Download: Download full-size image
+Fig. 18. Effect of fin extension into flow channels on battery temperature non-uniformity index comparisons (a) Under air cooling (b) Under water cooling.
+
+5. Conclusions
+This study investigates the multiphysics heat transfer characteristics of a hybrid thermal management system combining convective cooling (air/water) and phase change material (PCM) for battery energy storage. Using numerical simulations, the effects of cooling medium type and fin configuration on the thermal performance of the system were analyzed. The main conclusions are summarized below.
+1.
+Regarding cooling media, while air cooling provides better battery temperature uniformity, water cooling reduces the average battery temperature by 30–34 °C. Furthermore, when water cooling operates synergistically with PCM, its high cooling capacity effectively confines the battery temperature within the PCM's phase transition range, thereby suppressing the primary fluctuation in temperature non-uniformity and enhancing thermal control stability.
+2.
+Increasing the number of fins significantly improves the heat transfer efficiency and phase change uniformity of the PCM. The 4-fin configuration demonstrates optimal performance in reducing both the average battery temperature and temperature non-uniformity compared to the 2-fin and finless structures, achieving more balanced heat distribution within the battery module.
+3.
+Extending fins into the flow channels enhances heat transfer, reducing temperatures by approximately 7 °C in air cooling and 5 °C in water cooling systems. However, the potential flow blockage effect requires careful consideration, particularly in air-cooling systems. In contrast, water-cooling systems exhibit lower sensitivity to fin layout due to the superior heat transfer capacity of water; in such cases, the number of fins becomes the predominant factor influencing cooling performance, with higher fin counts generally yielding better heat dissipation.
+Based on the three conclusions above, it can be inferred that the water cooling + 4-fin scheme offers the best performance for the battery thermal management system. In practical applications, this solution is suitable for scenarios requiring high energy density battery packs, such as stationary energy storage power stations or commercial electric vehicles. In contrast, the less effective air-cooling system is more appropriate for applications with space constraints and limited maintenance conditions, such as low-speed electric vehicles and backup power supplies.

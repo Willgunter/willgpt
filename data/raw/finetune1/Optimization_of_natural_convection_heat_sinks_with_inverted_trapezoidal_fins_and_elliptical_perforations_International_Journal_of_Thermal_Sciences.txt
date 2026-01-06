@@ -1,0 +1,304 @@
+Abstract
+This study presents an optimal design for a three-dimensional natural convection heat sink featuring an inverted trapezoidal geometry with elliptical perforations. The design was validated through numerical simulations and experiments. Key parameters such as the top width L1, bottom width L2, fin height H0, and the axes of the elliptical perforations R1 and R2 were optimized based on minimum base temperature condition while keeping the fin volume constant. This optimization process utilized the Levenberg–Marquardt Method (LMM) and CFD-ACE + software. In Design A, the replacement of rectangular fins with inverted trapezoidal fins resulted in a significant reduction in the average base temperature, decreasing from 87.4 °C to 73.4 °C. The thermal resistance also decreased from 6.2 °C/W to 4.8 °C/W, primarily due to a 47 % decrease in fin height and an increase in the top width. Design B introduced optimized elliptical perforations, further lowering the temperature to 66.4 °C and thermal resistance to 4.1 °C/W. This improvement was attributed to enhanced airflow penetration and the creation of a bifurcated thermal plume. In order to verify the reliability of the numerical model, this study first fabricated physical prototypes of original design, Design A and Design B heat sinks, and conducted experimental measurements. Considering that heat loss inevitably occurs during the experiment due to imperfect insulation at the contact surface between the electric heating plate and the heat sink base plate, as well as from the surrounding environment, we gradually reduced the input power in the simulation and repeatedly compared the simulated and measured temperatures until the two sets of results nearly overlapped. The experimental data, adjusted for approximately 4.4 % heat loss (with an input of 9.56 W), matched the simulations with a margin of error within 5 %. Overall, Design B demonstrated the best performance, achieving a thermal resistance that was 33.9 % lower than the original design and 14.6 % lower than Design A, indicating significant potential for high-efficiency passive cooling.
+Previous article in issue
+Next article in issue
+Keywords
+Elliptical perforationsInverted trapezoidal perforated finsLevenberg–Marquardt methodNatural convection heat sinkOptimal design
+Nomenclature
+Abottom
+base area (mm2)
+cp
+heat capacity (kj/kg-°C)
+g
+gravity acceleration
+H0
+fin height (mm)
+I
+identity matrix
+J
+cost function
+k
+thermal conductivity (W/m-°C)
+L1, L2
+top and bottom width (mm)
+P
+pressure (Pa)
+q
+heat flux per unit area (W/m2)
+Q
+total heating power (W)
+R1, R1
+semi-major and semi-minor radii of elliptical perforation (mm)
+Ras
+Rayleigh number based on fin spacing
+Rth
+thermal resistance (°C/W)
+T
+temperature (°C)
+Tb,avg
+averaged base temperature (°C)
+t
+fin thickness
+u, v, w
+velocity (m/s)
+V
+volume of a single fin (mm3)
+x, y, z
+spatial coordinates (mm)
+Subscripts
+s
+solid
+f
+fluid
+Greek symbols
+β
+coefficient of thermal expansion
+Ψ
+Jacobian matrix
+ρ
+density (kg/m3)
+ν
+kinematic viscosity
+θ
+design variables
+ε
+emissivity
+μn
+damping coefficient
+ω
+hemispherical solid angle
+Ω
+computational domain
+1. Introduction
+With the ongoing miniaturization of electronic devices and the rise in power density, the design of heat dissipation components increasingly relies on maximizing thermal transport efficiency within limited spatial constraints. Natural convection heat sinks are extensively utilized in applications where passive cooling is either preferred or essential. In natural convection cooling systems, the fin geometry plays a decisive role in directing airflow and shaping thermal boundary layers. Consequently, researchers have undertaken extensive investigations into diverse geometric configurations, material combinations, and optimization strategies. For instance, Nemati et al. [1] addressed the problem of excessive predictive error in conventional models at low Rayleigh numbers by introducing a revised Rayleigh number definition for annular fin flow fields and establishing a modified Nusselt number correlation valid over the range Nu = 1 to 20,000. This model substantially improved predictive accuracy under low-Ra conditions and provided a theoretical foundation for non-standard fin geometries.
+In the domain of optimization, Altun and Ziylan [2] investigated the interaction between thermal radiation and natural convection in wavy fins, finding that excessively large wave amplitudes can hinder airflow and consequently reduce heat transfer. They also pointed out that radiation can account for up to 50 % of the total heat transfer. Zhang et al. [3] proposed a W-shaped fin design that alters the airflow direction and path, effectively thinning the thermal boundary layer, reducing thermal resistance, and deriving a Nusselt number correlation incorporating dimensionless variables. Chang et al. [4] optimized fin rotation and inclination angles through a symmetric inclined fin design; both experimental and numerical results showed a temperature reduction of up to 3 °C and significantly improved airflow guidance. Karlapalem et al. [5] were the first to systematically examine branched fins in three configurations—vertical base with vertical fins, horizontal base with vertical fins, and vertical base with horizontal fins—and identified that optimal angles and flow patterns can generate vortex acceleration and geometrical-induced acceleration effects, greatly enhancing natural convection performance.
+Adhikari et al. [6] employed the Dynamic-Q multi-parameter optimization algorithm to comprehensively assess the influence of fin height, spacing, and length on the flow field and thermal gradients. The study highlighted that fin spacing not only governs flow velocity and heat transfer but must also be balanced against heat flux density and the overall base-plate area. This work provides a holistic framework for evaluating design parameters in finned heat sinks. For straight-fin structures, Huang and Chen [7] compared the effects of fin height and fin displacement, revealing that fin displacement had a substantially greater impact on reducing thermal resistance than fin height, while also simplifying fabrication. Their optimized design achieved a 15.6 % reduction in thermal resistance, improving cooling performance.
+Suryawanshi and Sane [8] proposed an inverted V-shaped notch at the center of the fin base, referred to as the inverted notched fin arrays (INFAs), to eliminate the central stagnation zone while preserving the chimney flow pattern. This modification enhanced the heat transfer coefficient by 30–40 %. Building on this concept, Muneeshwaran et al. [9] introduced a hollow notched fin design in which the central opening was extended into the fin region, thereby facilitating the entrainment of external ambient air into the fin array. This approach reduced thermal resistance by approximately 13 %. Their study further highlighted the significant influence of fin material emissivity on cooling performance under natural convection conditions. Feng et al. [10] developed a cross-fin configuration, in which alternating long and short fins redirected the flow field, allowing cold air to impinge directly onto the base plate between fins. This design improved the overall heat transfer coefficient by 11–15 % without increasing the volume or weight of the heat sink, thereby achieving a balance between performance enhancement and cost efficiency.
+Charles and Wang [11] proposed an inverted trapezoidal fin design for natural convection cooling and compared its performance against conventional rectangular and trapezoidal fins to assess the influence of geometry on thermal performance. Their findings revealed that, under identical surface area conditions, the average heat transfer coefficient of the inverted trapezoidal fin was approximately 10 % higher than that of the rectangular fin and about 25 % higher than that of the trapezoidal fin. This enhancement was primarily attributed to the enlarged cross-section at the fin tip, which increased the effective temperature difference for the incoming airflow, mitigated the low-temperature-difference region at the outlet, and promoted higher flow velocities. However, the study was limited to a direct comparison of the three geometries under fixed dimensional constraints and did not conduct a systematic parametric analysis of critical design variables such as top and bottom fin widths. As a result, the work did not identify the optimal combination of parameters required to minimize baseplate temperature.
+Zohora et al. [12] conducted a numerical investigation on the thermo-fluid performance of novel pin-fin heat sinks under forced convection. The results showed that, compared with conventional cylindrical pin fins, the wavy and crinkle geometries achieved maximum enhancements of approximately 43 % and 51 % in the Nusselt number, respectively, at high Reynolds numbers. These findings underscore that joint optimization of fin geometry and perforation design can substantially enhance convective heat transfer while mitigating flow resistance, offering valuable guidance for the design of high-performance passive cooling systems. Konar et al. [13] numerically examined two-dimensional laminar natural convection heat transfer from solid horizontal cylinders equipped with longitudinal fins. The continuity, momentum, and energy equations for incompressible natural convection conjugate heat transfer were solved in the laminar regime. The results show that the heat transfer exclusively from the fin surface initially increases to a maximum and then decreases as the fin spacing increases, while it consistently increases with increasing fin height. In contrast, the heat transfer exclusively from the bare cylindrical surface increases with increasing fin spacing but decreases with increasing fin height.
+Sertkaya et al. [14] experimentally investigated pin fin heat sinks under natural convection and thermal radiation. The results were evaluated by calculating heat-transfer indicators from the experimental measurements, including the corresponding Nusselt and Rayleigh numbers, and by plotting their relationships. The findings indicate that the 121 × 40 pin-fin heat sink provides the highest heat transfer for all three orientation angles. In addition, because the heat sinks were made of aluminum, which has a low emissivity, thermal radiation contributed only minimally to the total heat transfer.
+Recently, Taha et al. [15] investigated plate-fin heat sinks with circular perforations mounted on vertically sinusoidal bases under laminar natural convection. Their results show that adding circular perforations enhances the thermal performance of the heat sinks by reducing the base-plate temperature, even though the fin surface area is decreased. Among the tested configurations, perforation diameters of 3 mm and 6 mm were found to be the most favorable. In addition, when black-body radiation is assumed, the thermal radiation heat-transfer rate is of the same order of magnitude as the natural-convection heat-transfer rate. Among these, the Levenberg–Marquardt Method (LMM) has been demonstrated as an effective tool for multi-parameter optimization [7].
+The aforementioned literature encompasses a wide range of research directions, including fin geometry design, analysis of thermal–flow mechanisms, numerical validation, and performance evaluation methods. However, while Charles and Wang [11] introduced an inverted trapezoidal fin structure and confirmed its thermal potential, their study was limited to geometric comparisons and lacked a systematic optimization analysis. Similarly, Zohora et al. [12] examined the effects of three fin profiles combined with three perforation shapes on heat dissipation characteristics, yet did not investigate the determination of optimal perforation parameters.
+Building upon these contributions and addressing their limitations, the present study employs the LMM [16] approach to perform multi-parameter optimization. Specifically, the method is applied to refine the geometric parameters of the inverted trapezoidal fin and optimize the aspect ratio of elliptical fins. Furthermore, these optimized configurations are integrated with perforated structures, aiming ultimately to minimize the average baseplate temperature of the heat sink.
+2. Methodology
+In contemporary engineering, research approaches to problem-solving are generally divided into two major categories: direct problems and design problems. A direct problem involves determining the solution based on known conditions and governing equations, using specified data as inputs. In such cases, all parameters are given, and the objective is to compute the corresponding outcomes. Today, many commercial software packages, such as CFD-ACE+, FLUENT, and ANSYS, are widely employed to solve these problems through numerical simulations of fluid dynamics, heat transfer, and related processes.
+By contrast, a design problem focuses on determining the conditions necessary to achieve a desired outcome, often involving shape optimization or system-level design. The process begins with clearly defining the cost function, which quantitatively measures the discrepancy between the computed and desired physical quantities. Establishing this cost function is essential, as it provides the foundation upon which the entire optimization process is built. Once the cost function is formulated, an appropriate iterative algorithm is employed to update the design variables. Guided by the gradient or other error-based indicators, the algorithm systematically adjusts the geometry until the objective function converges. Through this structured and algorithm-driven procedure, the optimal design can be efficiently obtained, ensuring that the final configuration satisfies performance requirements under the specified constraints.
+2.1. Mathematical formulation of a plate fin heat sink
+Fig. 1 plot the front and right side views of the original design, Design A and Design B heat sinks with dimensional annotations. Fig. 2(a) indicates the computational domain Ω for the heat sink, because of the symmetrical geometry, only one half of the heat sink is analyzed. It is composed of the subdomains, solid Ωs (heat sink) and fluid Ωf (air) i.e., 
+. Grid structures for the original design plate fin heat sink and the fin-air interface are given in Fig. 2(b) and (c), respectively.
+Fig. 1
+Download: Download high-res image (165KB)
+Download: Download full-size image
+Fig. 1. The front and right side views of (a) original design, (b) Design A, and (c) Design B heat sinks with dimensional annotations.
+
+Fig. 2
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 2. The (a) computational domain of the inverted trapezoidal heat sink, and the grid configurations for (b) heat sink and (c) heat sink−surrounding air domain.
+
+The CFD-ACE + [17] was used as the computational tool for solving natural convection air-heat sink conjugate problems, while the LMM [16] served as the optimization tool for determining the optimal fin parameters and perforation sizes of the fins and therefore enhance the cooling performance and reduce the thermal resistance of the heat sink.
+In the context of 3-D steady-state laminar natural convective flow within region Ω, the following assumptions are made: There is no heat generation or viscous dissipation, furthermore, the physical properties of air are considered to be constant, except for its density, which is calculated using the incompressible-ideal gas law.
+The governing equations for the present work are given below:
+Heat sink: Solid region (Ωs)
+Energy equation
+(1)
+Air: Fluid region (Ωf)
+The continuity, momentum and energy equations in Ωf are given as:
+Continuity equation
+(2)
+Momentum equation
+(3)
+(4)
+(5)
+Here, ρfgβ(Tf−T∞) represents the buoyancy term and is derived from the following Boussinesq approximation:
+(6)
+Energy equation
+(7)
+The boundary conditions are specified as follows:
+The bottom surface of the heat sink is subjected to a constant heating power Q.
+(8)
+and the adiabatic conditions are considered for the surface elsewhere on the heat sink's mounting seat. In addition, a nonslip condition is applied on all the walls.
+The perfect thermal contact condition is utilized on the interface between air and heat sink.
+(9a)
+(9b)
+Where the radiation heat transfer boundary condition for the heat sink can be given as:
+(10a)
+(10b)
+Here ω represents the hemispherical solid angle.
+The direct problem Equations (1), (2), (3), (4), (5), (6), (7), (8), (9a), (9b), (10a), (10b) can be solved by CFD-ACE+ and the velocity and temperature distributions of the air and heat sink can be obtained. The computational setup in CFD-ACE + follows the procedures described in the user's guide [19]. For example, when radiation effects are required, the “Radiation (Rad)” module is activated and the emissivity value is specified. Once these inputs are provided, thermal radiation is automatically included in the computations.
+The thermal resistance Rth of the heat sink can be calculated as:
+(11)
+here 
+ and Tb,avg indicate the ambient air and heat sink bottom-averaged temperatures, respectively. Q = qAbottom, where Abottom is the base area of the heat sink.
+The Rayleigh number based on the length of plate heater L = 45 mm can be obtained as:
+(12)
+For a laminar flow, RaL < 109.
+2.2. Optimal design for a plate fin heat sink
+The fin geometry optimization in this study was carried out in two stages, referred to as Design A and Design B. In the first stage (Design A), the design considered only the variation of the top width L1 and bottom width L2 of the plate fins. The Levenberg–Marquardt Method (LMM) was applied for numerical simulation and optimization to calculate the average base plate temperature, Tb,avg. The results of this design were compared with those of the original rectangular heat sink as well as with the inverted trapezoidal geometry proposed by Charles and Wang [11].
+In the second stage (Design B), elliptical perforations were further incorporated. The design variables included the top width L1, bottom width L2, and the horizontal and vertical radii (R1 and R2) of the elliptical perforations. The same LMM approach was used for optimization, aiming to enhance the thermal performance of the heat sink, thereby achieving lower base plate temperatures and reduced thermal resistance.
+2.2.1. Design A: Optimization of plate fin geometry
+In Design A, the optimization focused on the top width L1 and bottom width L2 of the plate fins. The rectangular fin geometry was taken as the baseline design, and the Levenberg–Marquardt Method (LMM) was employed for numerical optimization, with the average base plate temperature (Tb,avg) used as the primary evaluation metric. Under the constraint of constant total fin volume, i.e. considering a fixed material cost, the effect of geometric parameter variations on natural convection heat dissipation performance was investigated.
+In this study, numerical simulations were conducted to calculate Tb,avg, and the optimized inverted trapezoidal design was compared with both the baseline rectangular heat sink and the inverted trapezoidal geometry proposed by Charles and Wang [11]. Thermal resistance (Rth) was adopted as a secondary evaluation metric.
+The fin volume of the inverted trapezoidal geometry is expressed as:
+(13)
+In this study, the fin thickness was fixed at t = 1.4 mm, giving a single-fin volume of V = 1890 mm3. L1 and L2 are considered as the design variables in Design A, i.e.
+(14)
+By condsidering constant fin volume constraint and applying Equation (13), the fin height (H0) can be determined accordingly. After the optimal geometric model of the heat sink was constructed, the air flow and temperature fields were numerically analyzed based on Equations (1), (2), (3), (4), (5), (6), (7), (8), (9a), (9b), (10a), (10b).
+2.2.2. Design B: Considering perforated fins
+It should be emphasized that introducing perforations into fins increases the available surface area for heat transfer, which can enhance convective cooling. At the same time, perforations decrease the fin's cross-sectional area, thereby limiting its ability to conduct heat. Importantly, when the airflow is very weak, large perforations may fail to improve convective dissipation and may even compromise conductive performance. Consequently, careful optimization of perforation size on the fin surface is essential.
+In Design B, perforations were introduced into the plate fins to enhance natural convection heat dissipation. Inspired by the study of Nemati et al. [18] on the heat transfer advantages of elliptical finned tubes, the circular perforations were replaced with elliptical ones, with the semi-major radius R1, semi-minor radius R2, the top width L1 and bottom width L2 defined as the main design variable θ.
+(15)
+The perforated fin volume of the inverted trapezoidal geometry is expressed as:
+(16)
+Through the constraint defined in Equation (16), the volume was controlled, enabling a systematic analysis of the effects of perforation size and fin geometry on heat dissipation performance. To ensure a fair comparison, the total volume was kept constant during the design process. When the perforation area varied, the fin height (H0) is adjusted accordingly, based on the estimated values of R1, R2, L1 and L2, to maintain the same overall volume, defined in Equation (16).
+3. The objective finction
+In Designs A and B, the focus was placed on reducing the average temperature distribution of the heat sink base plate, Tb,avg (θi). The main operating variables were the top and bottom widths of the inverted trapezoidal fin and the size of the elliptical perforations. By systematically adjusting these parameters, the optimal combination was sought. To evaluate the heat dissipation performance, the following objective function was established:
+(16)
+This objective function defines the optimization direction by minimizing the average base-plate temperature Tb,avg (θi) with respect to design variables θi. Once the optimized results are obtained, the system thermal resistance Rth can be calculated using Equation (11), providing a benchmark for comparing different design schemes and quantitatively evaluating the impact of geometric modifications on heat dissipation performance.
+3.1. Minimization with LMM
+This section describes how the Levenberg–Marquardt Method (LMM) [14] is applied to minimize the objective function (16). The process is based on partial differentiation with respect to each design variable, driving the objective function toward its minimum point. Taking Design B as an example, the mathematical definition is given as:
+(17)
+Since Equation (17) exhibits nonlinear characteristics, Tb,avg (θi) is expanded into a Taylor series, with higher-order terms neglected to retain only the first-order linear approximation. By introducing a damping factor μn to regulate the convergence rate, the entire solution framework can be expressed by the following equations:
+(18)
+(19)
+(20)
+(21)
+Here, superscripts n and T denote the iteration index and matrix transpose, respectively, and bold symbols indicate multidimensional mathematical structures. In these equations, I is the identity matrix, Ψ is the Jacobian matrix representing the sensitivity of temperature with respect to design parameters, and U is the vector quantifying the average base-plate temperature, as defined in Equation (16). The Ψ matrix captures how small perturbations in the design variables θi influence the base-plate temperature distribution of the heat sink, and its mathematical form is given as:
+(22)
+By integrating the above matrix relations, Equation (18) can be reformulated into a more practical iterative form:
+(23)
+The parameter μn plays a critical role in Equation (23), directly affecting the stability and efficiency of convergence. When μn→∞, the algorithm behaves similarly to the Steepest Descent Method, ensuring a more stable iterative process. Conversely, when μn→0, the algorithm transitions to the standard Newton's Method, which accelerates convergence. The parameter μ must be initialized with a large value; in this work, it was set to 10,000. Following the procedure described by Marquardt [14], the value of μ is gradually reduced throughout the iteration process, ultimately leading to the convergence of the design parameters.
+4. Experiment setup
+To verify the accuracy of the numerical simulations, this study commissioned a professional manufacturer to fabricate physical prototypes of the original, Design A and Design B heat sinks, using wire-cut electrical discharge machining. These prototypes were then experimentally tested to compare the discrepancies between the simulation data and the actual experimental results. The schematic of the experimental setup for measuring the base plate temperatures of the three heat sinks is illustrated in Fig. 3(a). The experimental configuration of test sections for inverted trapezoidal and rectangular fins are given in Fig. 3(b) and (c), respectively.
+Fig. 3
+Download: Download high-res image (886KB)
+Download: Download full-size image
+Fig. 3. (a) Schematic of the experimental setup and the experimental configuration for (b) inverted trapezoidal fins and (c) rectangular fins.
+
+In this study, the R300SR infrared thermal imager manufactured by Nippon Avionics Co., Ltd. (Japan) was used. The device is equipped with an uncooled focal plane array (FPA) microbolometer sensor, covering the long-wavelength infrared range of 8–14 μm. It enables non-contact temperature field measurements within a range of −40 °C to 500 °C. The thermal sensitivity reaches 0.03 °C, with a temperature accuracy of ±1 °C or ±1 % of the reading (whichever is greater), and it offers a high spatial resolution of 640 × 480 pixels.
+The plate-type electric heater is used in the experiments. Its structure consists of a nickel-chromium alloy wire wound around a mica substrate, enclosed and protected by a stainless steel outer layer. The heater was designed with dimensions of 45 mm × 45 mm. The total heating power was set to Q = 10 W to provide a stable heat source and meet the requirements of the heat sink performance tests. In this experiment, Cooler Master Ice Fusion V2 thermal paste was used as the thermal interface material. Its function is to fill the microscopic gaps between the heat sink and the heating plate contact surfaces. This thermal compound has a thermal conductivity of 5 W/m-K and is suitable for operating temperatures ranging from −50 °C to 240 °C.
+The insulation material used in this experiment was the 1260 Series ceramic fiber insulation wool manufactured by Isolite Insulating Products Co., Ltd. (Japan). It exhibits excellent high-temperature resistance and superior thermal insulation performance, with a maximum service temperature of 1260 °C and a static thermal conductivity of approximately 0.09 W/m-K.
+The experimental procedure was conducted as follows.
+Step 1. Specimen Preparation and Surface Treatment: The heat sink bodies were fabricated by a partner manufacturer using wire electrical discharge machining. After machining, the surfaces were cleaned, sprayed with black paint (ε = 0.94), and left to dry completely.
+Step 2. Thermal Contact Resistance Control: After wearing rubber gloves, Cooler Master Ice Fusion V2 thermal paste was applied to the heating surface of the heat sink using a cross-pattern coating method to ensure uniform coverage, with a controlled layer thickness of approximately 0.2 mm. The heat sink surface was then firmly attached to the plate-type heater to minimize contact gaps and reduce thermal resistance.
+Step 3. Heat Loss Suppression Assembly: Isolite 1260 Series ceramic fiber insulation wool was tightly laid along the inner walls of the insulation chamber to minimize lateral heat loss. The assembled heating module was then embedded within the chamber and placed horizontally at the center of the platform to maintain consistent convection conditions.
+Step 4. Environmental Parameter Calibration: The air conditioning system was activated and the room temperature was set to 25 ± 0.5 °C. The infrared thermal imager was used to confirm that the ambient temperature had reached and stabilized within the target range.
+Step 5. Steady-State Measurement Execution: The plate-type heater was powered with a 10 W heat source and operated for 30 min. When the rate of temperature change fell below 0.1 °C/min, the system was considered to have reached steady state. At this point, the R300SR infrared camera was switched to high-speed capture mode (60 fps, 12-bit ADC) to record the temperature field on the base plate of the heat sink. The raw thermal data were saved in 16-bit TIFF format on an SD card.
+Step 6. Cross-Verification and Analysis: The same procedure (Steps 2–5) was repeated for three heat sinks, with each test conducted three times to obtain average results. Finally, the data were analyzed using the NS9500PRO software.
+The uncertainty in the calculation of thermal resistance 
+ can be determined according to the method proposed by Taylor [19]:
+(24)
+Where 
+ represent the accuracies of the infrared camera, thermometer, and plate-type electric heater power, respectively. The accuracies of 
+ and 
+ are considered to be 1 % and 2 %, respectively, while the accuracy of 
+ is described in Section 5.
+5. Results and discussion
+In this study, the heat flow and temperature field behavior within inverted trapezoidal fins featuring elliptical perforations were investigated. A systematic analysis was conducted to examine the influence mechanisms of perforation geometric parameters on heat dissipation performance under natural convection.
+5.1. Grid independent test
+To ensure the accuracy and stability of the numerical simulations in this study, a mesh independence test was first conducted. The heat sink body was made of 5083 aluminum alloy, and the ambient temperature was set to 25 °C. The heat sink model used was based on the rectangular fin design of Charles and Wang [11], with the base plate thickness increased from the original 0.2 mm–3 mm to enhance manufacturability, serving as the baseline configuration.
+The simulations were performed using the CFD-ACE + software [17]. Symmetry boundary conditions were applied to the computational domain to reduce computational cost. Convergence was achieved when the relative residual fell below 1 × 10−5, with the maximum number of iterations per simulation set to 1000.
+Three mesh models of different densities were tested, consisting of 1,403,593, 2,050,139, and 2,691,442 elements. The corresponding average base plate temperatures Tb,avg were 87.22 °C, 87.43 °C, and 87.51 °C, respectively. The temperature difference between the 2,050,139 element and 2,691,442 element meshes was only 0.09 %, indicating that a mesh size of approximately 2.05 million elements provided sufficiently accurate and stable simulation results. Therefore, to balance simulation accuracy and computational efficiency, all subsequent analyses and optimizations of the inverted trapezoidal fin designs were performed using a mesh model containing about 2.05 million elements in the present heat sink design problems.
+5.2. The original design heat sink
+The rectangular fin mentioned above was used as the baseline model. The heat sink consists of eight equally spaced rectangular fins, each measuring 45 mm (L1 = L2) × 1.4 mm (t) × 30 mm (H0), symmetrically arranged on the base plate. To account for machining strength and practical manufacturing considerations, the base plate was designed with dimensions of 45 mm × 45 mm. The volume of each fin is obtained as V = 1890 mm3. In the numerical simulations, a uniform heat flux was applied to the base plate, with a total input power Q = 10 W and an ambient temperature of 25 °C. The simulation results yielded an average base plate temperature of Tb,avg = 87.4 °C. The computed Rayleigh number for the original design heat sink is obtained as RaL = 4.45 × 105, it confirms that this is indeed a laminar natural convection problem.
+Charles and Wang [11] conducted a comparative analysis of rectangular, upright trapezoidal, and inverted trapezoidal fin structures under natural convection conditions. They noted that the inverted trapezoidal geometry, due to its expanding flow channels and guiding effect, enhances airflow penetration into the fin spacing, thereby reducing the base plate temperature and improving heat transfer efficiency.
+In this study, the inverted trapezoidal fin parameters proposed by Charles and Wang [11] was considered for comparison. The geometric dimensions of L1 = 75 mm, L2 = 45 mm, t = 1.4 mm and H0 = 22.5 mm are utilized. The fin volume is obtained as V = 1890 mm3 and the average base plate temperature is calculated as Tb,avg = 82.5 °C. The computed 3-D and 2-D temperature distributions for the heat sinks with original rectangular fins and inverted trapezoidal fins [11] are illustrated in Fig. 4(a) and (b) and 5(a), 5(b), respectively, while the air temperature and velocity dtributions are given in Fig. 6(a) and (b) and 7(a), 7(b), respectively. The computed values of Tb,avg and Rth are also summarized in Table 1.
+Fig. 4
+Download: Download high-res image (971KB)
+Download: Download full-size image
+Fig. 4. Three-dimensional temperature distributions for (a) original fin design, (b) Charles and Wang [11], (c) Design A, and (d) Design B heat sinks.
+
+Table 1. The optimized design variables, numerical and experimental results for original, Design A and Design B heat sinks.
+
+Design cases	Optimized design variables, mm (L1、L2、R1、R2)	Numerical values	Experimental values
+Q = 10W	Q = 9.56W (assume 4.4 % heat losses)	Q = 10W (with 4.4 % heat losses)
+Tb,avg (oC)	Rth (oC/W)	Tb,avg (oC)	Rth (oC/W)	Tb,avg (oC)	Rth (oC/W)
+Original design	L1 = L2 = 45.0	87.4	6.24	85.4	6.32	85.3	6.31
+Design A	L1 = 134.51
+L2 = 35.72	73.4	4.8	71.6	4.9	71.3	4.8
+Design B	L1 = 138.64
+L2 = 45
+R1 = 18.8
+R2 = 8.8	66.4	4.14	64.3	4.11	63.8	4.06
+It is obvious that Tb,avg of the inverted trapezoidal fin is indeed lower than that of the original rectangular fin. However, Charles and Wang [11] compared only three specific geometries and did not investigate the influence of geometric parameters of the inverted trapezoidal fins, such as the top and bottom widths or fin height, on thermal performance or their optimization potential.
+Therefore, this study conducts an in-depth investigation of the inverted trapezoidal fin from two perspectives and employs the Levenberg–Marquardt Method (LMM) for systematic design optimization.
+Through the dual optimization of fin geometry and perforation design, this study aims to reduce the average base plate temperature while maintaining equal fin volume, thereby enhancing the heat transfer performance potential under natural convection conditions.
+5.3. Design A: Optimization of plate fin geometry
+The top width L1 and bottom width L2 of the fin were selected as design variables. The initial guess adopted the parameters of the original fin geometry, namely L1 = L2 = 45 mm and fin height H0 = 30 mm. Under the constraint of equal fin volume (V = 1890 mm3), after seven iterations of LMM optimization, the optimal geometric parameters were obtained as L1 = 134.51 mm, L2 = 35.72 mm and H0 = 15.86 mm. Evidently, the estimated optimal fin possesses an inverted trapezoidal form and the corresponding design variables and simulation results are summarized in Table 1.
+The optimized configuration produced an average base plate temperature of Tb,avg = 73.4 °C and a thermal resistance of Rth = 4.8 °C/W, representing an approximately 22.6 % reduction compared with the original thermal resistance (Rth = 6.24 °C/W). This confirms that the optimized design significantly improves the heat dissipation performance of the heat sink.
+Based on Equation (12), the calculated Rayleigh number was RaL = 3.45 × 105, indicating that the present problem falls within the regime of laminar natural convection heat transfer. The corresponding 3-D and 2-D temperature distributions and air temperature and velocity distributions are plotted in Fig. 4, Fig. 5, Fig. 6, Fig. 7, respectively.
+From the three-dimensional temperature distributions shown in Fig. 4, it can be observed that Design A heat sink exhibits a relatively high-temperature region (red zone) at the central portion of the fin, indicating the primary heat conduction path from the heat source to the fin body. Compared with the original rectangular fin and the inverted trapezoidal fin proposed by Charles and Wang [11], Design A presents a more continuous and gradient-rich temperature contour over the fin surface. This indicates that heat diffusion and conduction within the fin are more effective. Such a phenomenon demonstrates that the geometric configuration of Design A facilitates efficient heat conduction from the base plate toward both the upper and lateral fin surfaces, thereby enhancing the natural convection heat transfer between the fin and the surrounding air.
+According to the temperature distributions in the base plate region shown in Fig. 5, the average base temperatures of the original rectangular fin, the inverted trapezoidal fin by Charles and Wang [11], and the optimized Design A are 87.4 °C, 82.5 °C, and 73.4 °C, respectively. This clearly demonstrates that Design A achieves the most significant cooling effect on the base plate. The lower temperature coloration of Design A compared with the other two designs further confirms its superior thermal dissipation capability.
+Fig. 5
+Download: Download high-res image (634KB)
+Download: Download full-size image
+Fig. 5. Two-dimensional temperature distributions for (a) original fin design, (b) Charles and Wang [11], (c) Design A, and (d) Design B heat sinks.
+
+Fig. 6
+Download: Download high-res image (629KB)
+Download: Download full-size image
+Fig. 6. Temperature distributions of the fin and air domain for (a) original fin design, (b) Charles and Wang [11], (c) Design A, and (d) Design B heat sinks in the y–z cross-section at x = 0 mm.
+
+As shown in Fig. 6, which presents the temperature distribution of the air domains along the y–z cross-section at x = 0 mm. The heat in the original rectangular fin is mainly concentrated at the lower region of the fin and spreads upward in a limited manner, forming a narrow high-temperature zone. In the inverted trapezoidal fin design by Charles and Wang [11], the increased upper width allows heat to disperse over a wider region; however, a narrow high-temperature zone still remains. In contrast, the optimized inverted trapezoidal Design A exhibits a broader high-temperature diffusion area, indicating that more heat is effectively transferred to the air domain and exchanged over a larger spatial region.
+Fig. 7 presents the air velocity distributions at the x = 0 mm of y–z cross-section for the three designs, illustrating the velocity field generated by natural convection around the fins. In the original rectangular fin, a slender, high-velocity channel forms along the central axis, while the lateral and bottom regions remain low in velocity, indicating that upward airflow is confined within a narrow region and cannot spread effectively. In the inverted trapezoidal design by Charles and Wang [11], the high-velocity zone above the fin becomes slightly wider, but the main airflow remains concentrated near the center, with limited lateral movement. In contrast, the optimized inverted trapezoidal Design A clearly demonstrates a more uniform velocity distribution. Although its local peak velocity is slightly lower than in the other two cases, a generally higher and more even velocity field is observed throughout the fin region. This indicates that the airflow is no longer confined along the central axis but instead encompasses the entire fin periphery, which contributes to improved overall heat-exchange performance.
+Fig. 7
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 7. Air isotherms for (a) original fin design, (b) Charles and Wang [11], (c) Design A, and (d) Design B heat sinks in the x–z cross-section at y = 0 mm.
+
+5.4. Design B: Considering perforated fins
+Perforations not only increase the fin's surface area but also enhance airflow, thereby significantly improving heat transfer performance. The objective of Design B is to further enhance the cooling performance of Design A by introducing perforations to reduce the average base temperature and thermal resistance.
+The design variables include the semi-major radius R1, semi-minor radius R2, the top width L1 and bottom width L2. The fin height (H0) can be obtained from the constant-volume condition. Before performing the LMM optimization, the initial guesses for the design vector θᵢ = {L1, L2, R1, R2} were set as L1 = L2 = 45 mm (corresponding to a rectangular fin) and R1 = R2 = 1 mm (corresponding to a circle perforation). According to the constant-volume equation, the total fin height (H0) of the initial design is calculated as 30.14 mm.
+After 14 iterations of LMM optimization, the optimal geometric parameters were determined as R1 = 18.8 mm, R2 = 8.8 mm, L1 = 138.64 mm, L2 = 45 mm and H0 = 20.36 mm. The Design B heat sink achieved an average base temperature of Tb,avg = 66.4 °C and a thermal resistance of Rth = 4.1 °C/W, corresponding to an approximate 33.9 % reduction compared with the original thermal resistance (Rth = 6.2 °C/W). Notably, the optimized fin once again exhibits an inverted trapezoidal geometry, and the corresponding optimal design parameters are summarized in Table 1. Based on Equation (12), the calculated Rayleigh number was RaL = 2.95 × 105, indicating that the present problem falls within the regime of laminar natural convection heat transfer. The corresponding 3D and 2D temperature distributions, as well as the air temperature and velocity fields, are presented in Fig. 4, Fig. 5, Fig. 6, Fig. 7, respectively.
+From Fig. 4, it can be observed that the fin structure of Design A exhibits a distinct phenomenon of heat concentration, with the high-temperature region primarily located at the center of the fin, forming a typical hotspot pattern. Such heat concentration may lead to local overheating issues within the fin. In contrast, Design B, through the introduction of elliptical perforations, effectively mitigates the heat concentration problem, resulting in a more dispersed temperature distribution. The previously localized hotspot at the fin center is successfully diffused, leading to a more uniform overall temperature field. As shown in Fig. 5, the top-view base-plate temperature extracted from CFD-ACE + demonstrates that the average base-plate temperature decreases from 73.4 °C to 66.4 °C, representing an improvement of approximately 9.5 %.
+The temperature distribution in the air domain, shown in Fig. 6, further highlights the distinct variations in heat dispersion patterns near the upper region of the heat sinks. In Fig. 6(a) and (b), a prominent single hot spot appears near the central area of the fins, indicating localized thermal accumulation and weak natural convection, which consequently leads to elevated base temperatures. In contrast, Fig. 6(c) demonstrates that increasing the fin's top width while reducing its height facilitates more efficient heat dissipation through both conduction and natural convection, thereby lowering the fin base temperature. Moreover, Fig. 6(d) displays a characteristic dual-peak temperature distribution, with high-temperature zones extending laterally toward both sides due to the influence of the elliptical perforations. This observation confirms that the perforated design effectively mitigates thermal buildup, enhances lateral heat spreading, and strengthens convective airflow around the fins.
+As illustrated in Fig. 7, the air isotherm distribution on the x–z plane at y = 0 mm provides further insight into the heat transfer characteristics of the different heat sink configurations. In both the original design and that of Charles and Wang [11], the air temperature between the fins remains relatively high, indicating that natural convection is weak and the central air region does not effectively contribute to heat exchange. In contrast, the optimized inverted trapezoidal geometry of the Design A heat sink promotes stronger convective flow, resulting in noticeably lower air temperatures between the fins.
+When elliptical perforations are introduced in Design B, the air temperature between the fins decreases substantially. This demonstrates that the perforated structure effectively reconstructs the internal heat transfer pathways within the fins, enlarges the effective heat diffusion area, and mitigates thermal stagnation near the center. Furthermore, the air temperature between the fins approaches the ambient level, confirming a marked enhancement in natural convective heat transfer. Consequently, Design B achieves the lowest base-plate temperature and the highest heat dissipation efficiency among the four configurations, clearly validating the strong capability of perforation design in promoting natural convection heat transfer.
+Fig. 8, which presents the air velocity vector distributions, further validates these observations. Although vertical upward velocity vectors can be observed within the fin channels of Design A, their velocity are generally low, this suggests that air only passes slowly through the channels, limiting convective heat transfer and reducing overall cooling efficiency. In contrast, Design B features elliptical perforations at the center that effectively guide airflow through the fin interior. The velocity vectors around the holes are significantly strengthened and interact with the fin walls, generating high-speed directed flow. Air enters the fins through the perforations and exits from the top, successfully reconstructing the convective flow path, promoting air circulation within and around the fins, and thereby enhancing the overall convective heat transfer efficiency while reducing the base-plate temperature.
+Fig. 8
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 8. Air velocity vector for (a) original fin design, (b) Charles and Wang [11], (c) Design A, and (d) Design B heat sinks in the x–z cross-section at y = 0 mm.
+
+Through the optimized geometric parameters and introduction of elliptical perforationsn, Design B heat sink significantly improves heat dissipation performance. This design not only increases the surface area exposed to air but also optimizes the heat conduction paths and flow structures, enabling heat to be transferred more effectively from the base plate to the fins and dissipated into the environment through enhanced natural convection, ultimately achieving notable reductions in base-plate temperature and thermal resistance.
+5.5. Experimental validation
+Through the LMM optimization algorithm, the Design B heat sink demonstrated superior thermal performance in numerical simulations, with both the Tb,avg and Rth values outperforming those of the original design and Design A. To ensure the reliability and practicality of the numerical results, three physical prototypes corresponding to the different designs were fabricated, and an experimental measurement system was established for verification and analysis. Fig. 9(a) and (b), and 9(c) indicate both the numerical and physical models of the original, Design A, and Design B heat sinks, respectively.
+Fig. 9
+Download: Download high-res image (359KB)
+Download: Download full-size image
+Fig. 9. Numerical and physical models of the (a) original design, (b) Design A, and (c) Design B heat sinks.
+
+An infrared (IR) thermal imager was employed to capture the temperature distribution on the base surface of the above three fabricated heat sinks, and the experimental temperature maps were compared with the corresponding simulation results to assess the accuracy of the computational model. According to the simulation setup, a 10 W plate-type electric heater was used as the heat source during the experiment.
+In the actual experimental operation, perfect thermal insulation between the heater and the heat sink base, as well as between the system and the ambient environment, could not be achieved. Consequently, inevitable heat loss occurred, resulting in experimentally measured temperatures lower than the theoretical predictions. To accurately quantify this heat loss effect, an inverse adjustment approach was applied to modify the input power in the numerical simulation. Through iterative comparisons between simulation and experimental data, it was determined that when the system heat loss was 4.4 % (i.e., the adjusted input power was Q = 9.56 W), the best agreement between the simulation and experimental results was achieved. The value of Q = 9.56 W, i.e. 
+ 4.4 %, was applied in the numerical simulations of all three heat sink designs to ensure consistent comparison with the experimental measurements. Based on Equation (24), the uncertainty of the measured thermal resistance is 
+ = 4.94 %.
+Fig. 10 presents a comparison between the simulated and experimental temperature distributions for the three heat sink designs. The results show excellent agreement between the two, confirming the accuracy and reliability of the LMM optimization algorithm. Among them, the Design B heat sink exhibits noticeably lower temperature distributions than the other two designs, demonstrating that the inverted trapezoidal perforated fin configuration effectively reduces temperature and verifies the significant enhancement in cooling performance achieved through the elliptical perforation design. The experimental values of Tb,avg and Rth, derived from the measured temperatures, are listed in Table 1 and show close agreement with the corresponding numerical results.
+Fig. 10
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 10. Comparison of simulated (left) and experimentally (right) measured temperature distributions for (a) original design, (b) Design A, and (c) Design B heat sinks.
+
+To enable a detailed comparison of the variations between the simulated and measured temperatures on the bottom plate, the temperature distributions along lines A, B, and C (defined in Fig. 10) are illustrated in Fig. 11(a), (b), and 11(c), respectively. As shown in Fig. 11, the maximum deviation between the simulated and experimental temperature profiles along these lines is found to be below 3 %, confirming the excellent consistency between numerical predictions and experimental observations. In addition, Fig. 11 also clearly reveals that the Design B heat sink exhibits substantially better cooling performance compared with both the original and Design A configurations. The data comparison in Table 1 verifies the effectiveness of the optimized natural convection heat sink featuring inverted trapezoidal perforated fins. This conclusion is supported by the finding that, across all cases examined in this study, the maximum relative deviation between the numerical and experimental Rth values remains below 2.0 %.
+Fig. 11
+Download: Download high-res image (628KB)
+Download: Download full-size image
+Fig. 11. Comparison of experimental and numerical temperature distributions along (a) Line A, (b) Line B, and (c) Line C for the original design, Design A, and Design B heat sinks.
+
+Each run of the direct problem on a workstation with an Intel Core i9-14900KF took approximately 2 h. Designs A and B involve 2 and 4 design parameters, respectively; therefore, each LMM iteration requires 3 and 5 computational runs. The total number of iterations for Designs A and B are 7 and 14, respectively, this implies that 21 and 60 computational runs, equivalent to 42 and 120 h, are needed to obtain the optimal design parameters in this study.
+6. Conclusions
+In this study, the CFD-ACE + numerical simulation tool, in conjunction with the Levenberg–Marquardt Method (LMM) and Fortran programming, was employed to develop an optimized design for a natural convection heat sink featuring inverted trapezoidal fins with elliptical perforation. Under constraints of fixed volume and manufacturability, the design variables, L1, L2, R1 and R2 were optimized to minimize the average base temperature and enhance the overall natural convection performance.
+The rectangular fin with circular perforation was considered as the initial guess geometry and the optimal design was obtained as the inverted trapezoidal fin with elliptical perforation. The results of numerical simulations are summarized as follows.
+•
+The value of Tb,avg decreased from 87.4 °C (original) to 73.4 °C (Design A) and 66.4 °C (Design B), while thermal resistance Rth decreased from 6.24 °C/W (original) to 4.80 °C/W (Design A) and 4.14 °C/W (Design B), respectively.
+•
+Performance improvements were primarily due to reduced fin height (shorter conduction path), increased top width (larger convective area), and effective disruption of thermal accumulation zones by elliptical perforations.
+To validate the simulation accuracy, three heat sink prototypes were fabricated and experimentally tested using an infrared thermal imager. Results reveal that the simulated and experimental curves exhibit excellent agreement, reaffirming the strong predictive reliability of the model. They are summarized as follows.
+•
+Experimental testing of three fabricated prototypes verified the numerical predictions, with strong agreement between simulated and measured temperature curves.
+•
+Design A achieved approximately 16 % reduction in Tb,avg and 23.1 % reduction in Rth relative to the original configuration.
+•
+Design B further improved performance, reducing Tb,avg by an additional 9.5 % and Rth by 13.8 % compared with Design A.
+•
+Although perforations introduce some manufacturing complexity, the resulting thermal improvements deliver excellent cost-to-performance benefits.
+In summary, the proposed optimization strategy for an inverted trapezoidal heat sink incorporating elliptical perforations significantly enhances natural convection cooling performance within the constraint of a fixed volume. This improved design is particularly well suited for applications such as high-power LED modules, compact servers, and industrial control units, where efficient passive heat dissipation is essential.

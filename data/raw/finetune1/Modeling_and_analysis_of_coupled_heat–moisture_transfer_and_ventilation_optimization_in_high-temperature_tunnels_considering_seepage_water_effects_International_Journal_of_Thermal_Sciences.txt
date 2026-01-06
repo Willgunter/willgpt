@@ -1,0 +1,374 @@
+Abstract
+Accurate prediction of tunnel environments is essential for developing effective ventilation strategies; however, conventional models often neglect the influence of seepage water. In this study, a bidirectional heat–moisture coupling model for rock and air was developed, in which the surrounding rock was represented as a porous medium containing liquid water and vapor. The model was validated against experimental measurements, and its performance was compared with conventional approaches across different surrounding-rock temperatures. The effects of porosity, the applicability of multiple thermal indices, and the cooling performance and energy consumption of ventilation strategies under extreme conditions were also examined. Results show that the average deviation between simulations and experiments was 1.5 %, confirming the high accuracy of the proposed model. Seepage water induced significant warming effects and exhibited a nonlinear dependence on rock temperature, with maximum increases of 19 % in air temperature, 24 % in HI, and 12 % in WBGT. Under the extreme condition of 90 °C surrounding-rock temperature, the recommended ventilation strategy is an air volume of 65 m3/s with a supply-air temperature of 15 °C. Among the three thermal indices, the air-temperature criterion required the longest cooling time to reach its safety threshold, WBGT the shortest, and HI showed an intermediate response.
+Previous article in issue
+Next article in issue
+Keywords
+Extreme tunnel environmentsCoupled heat-moisture modelSeepage waterHeat and moisture transfer simulationVentilation strategy optimization
+Nomenclature
+
+WBGT	Wet Bulb Globe Temperature, °C
+Cv	Vapor concentration, kg/m3	W(γW)	Total moisture content, kg/m3
+Csat	Vapor saturation concentration, mol/m3		
+Cp	Specific heat capacity, J/(kg·K)	Greek symbols
+D	Vapor saturation concentration, m2/s	αp	Coefficient of thermal expansion, 1/K
+e	Specific internal energy, J/kg	ρ	Density, kg/m3
+E	Specific total energy, J/kg	τ	Stress tensor, Pa
+gevap	Moisture evaporation flux, kg/(m2·s)	f	Body force per unit volume, N/m3
+glc	Liquid water capillary flux, kg/(m3·s)	μ	Dynamic viscosity coefficient, Pa·s
+gw	Water diffusion flux, kg/(m3·s)	λ	Thermal conductivity, W/(m·k)
+G	Moisture source, kg/(m3·s)	εp	Surrounding rock porosity
+HI	Heat Index, °C	ωv	Vapor mass fraction in moist air.
+K	Evaporation rate factor, m/s	φw	Relative humidity, %
+MV	Molar mass of water vapor, kg/mol	κ	permeability, m2
+p	Pressure, Pa		
+q	heat flux, W/m2	Subscripts
+Qevap	Evaporation heat flux, W/m3	a	Air
+QH	Moist air heat flux, W/m3	s	Solid
+Qm	Mass source term, kg/(m3·s)	v	Vapor
+Q	Heat flux, W/m3	l	Liquid
+RH	Relative humidity, %	r	Radiant
+t	Time, s	Darcy	Darcy velocity field
+sl	Liquid water saturation	εp	Surrounding rock pores
+T	Temperature, K	conduction	Heat conduction process
+u	Velocity, m/s		
+1. Introduction
+With the rapid expansion of China's railway network, an increasing number of newly constructed tunnels have encountered extremely high-temperature environments [1,2]. Owing to the unique geological and topographical conditions along the Sichuan–Tibet Railway, construction tunnels in this region are often exposed to harsh environments characterized by high temperature, high humidity, low atmospheric pressure, and insufficient oxygen supply [3,4]. For example, the surrounding rock temperature in the Sangzhuling Tunnel can reach up to 90 °C [5]. In addition, seepage water from the surrounding rock further intensifies the already adverse working conditions [6]. Previous studies have shown that such hot and humid environments not only pose severe risks to workers' health and productivity [7,8] but also threaten the structural integrity and operational reliability of tunnel facilities [9]. As a result, effective environmental regulation and control have become critical technical challenges in contemporary tunnel construction.
+To mitigate these challenging environmental conditions, various control strategies have been employed. Commonly used approaches include mechanical ventilation [10,11], water-spray cooling [12,13], and ice-based cooling techniques [14]. In recent years, more advanced technologies—such as ground-source heat pump systems [15], capillary network cooling [16], and embedded heat exchangers [17]—have been developed to extract residual heat from the surrounding rock and tunnel lining, thereby improving cooling performance and energy efficiency. Among these technologies, mechanical ventilation remains the most widely applied solution in construction tunnels due to its simplicity, robustness, and operational reliability. However, because environmental conditions vary substantially across different tunnels, cooling strategies must be tailored to specific sites and informed by accurate analyses and predictions of environmental variations. For instance, Wang et al. [18] investigated the spatiotemporal variation in tunnel air temperature under different ventilation parameters, thereby identifying the thermal comfort zone for workers and determining optimal air-supply conditions. Conversely, inaccurate assessments of environmental conditions can lead to improper cooling decisions and result in unnecessary energy and resource consumption [19]. Therefore, developing a reliable predictive model capable of accurately simulating and analyzing tunnel environmental variations is essential for ensuring effective cooling design and optimizing overall environmental control strategies.
+Existing models for predicting tunnel environmental conditions can generally be categorized into purely thermal models and coupled heat–moisture transfer models. Thermal models have been widely developed and applied [20,21], and their applicability and predictive accuracy have been further enhanced through the integration of machine learning techniques [22]. However, their limitations remain because they typically ignore humidity variations and vapor transport processes. The latent heat exchange associated with water evaporation and the migration of water vapor both exert significant effects on tunnel microclimatic conditions. In contrast, coupled heat–moisture transfer models are better suited for simulating and predicting extreme tunnel environments. For example, Cao et al. [23] developed a heat–moisture coupling model under piston-wind conditions and found that the wall-surface moisture flux and heat flux density increased by 1.6 and 1.15 times, respectively, which expanded the thermal influence zone and established a dynamic heat–moisture balance within the surrounding rock. Wang et al. [24] established a three-dimensional coupled model that incorporated rock temperature, seepage water, and ventilation airflow. Their model reproduced the temperature–humidity distribution with deviations of 4.7 % and 7.1 %, respectively, and was validated using field monitoring data. Chen et al. [25] proposed a dynamic model for high-geothermal tunnels and systematically evaluated the combined effects of drainage layout and ventilation parameters. Their results showed that increasing airflow rates and shortening drainage paths effectively mitigated heat accumulation. Xu et al. [26] applied a fully coupled three-dimensional model to demonstrate that buoyancy forces and seepage water substantially alter the tunnel temperature field. They further reported that when the groundwater flow rate exceeds 0.01 m/d, groundwater dynamics exert a marked influence on the temperature distribution of both the surrounding rock and the airflow. Zhao et al. [27] investigated environmental evolution during Sichuan–Tibet Railway construction and proposed ventilation optimization measures based on thermal indices, recommending airflow velocities of 10–25 m/s and a duct-to-working-face distance shorter than 20 m to significantly improve working conditions. Overall, heat and moisture transfer processes are inherently coupled, and both seepage water in the surrounding rock and wall-surface evaporation play decisive roles in governing tunnel environmental variations.
+Previous studies on tunnel environmental prediction and modeling—summarized in Table 1—have advanced our understanding but still show key limitations, particularly in conventional heat–moisture coupling models. Most existing models emphasize local heat–moisture variations in either the surrounding rock or the tunnel air, rather than capturing the overall bidirectional coupling process. The effects of seepage water are also frequently neglected, resulting in an inadequate quantitative understanding of its influence on tunnel environmental conditions. Moreover, environmental evaluations commonly rely solely on air temperature and relative humidity, while overlooking comprehensive thermal comfort indices that have different safety thresholds, such as air temperature (28 °C) [28], heat index (HI, 27 °C) [27], and wet-bulb globe temperature (WBGT, 25 °C) [29]. These inconsistencies may directly affect ventilation design and safety assessments.
+Table 1. Previous studies on tunnel environment and prediction models.
+
+Reference	Application	Model composition	Methods	Major results
+[20]	Thermal environment	Analytical solution of rock temperature + Discrete solution of airflow temperature	Theoretical analysis + CFD	
+(1)
+The proposed analytical-discrete coupled model achieves a prediction error of only 6.9 %.
+(2)
+Thermal pressure ventilation reduces airflow temperature to 28 °C within 407 days.
+[21]	Thermal environment	construction heat sources	CFD	
+(1)
+New scheme achieved a ventilation efficiency 3.5 times higher than the traditional scheme
+(2)
+The proposed scheme provided about 1.7 times the heat dissipation capacity of the conventional scheme.
+[22]	Thermal environment	Machine Learning Methods	Machine learning + CFD	
+(1)
+Mechanical ventilation cools to 28 °C (rock 40 °C, wind speed 4.4 m/s), but is insufficient when rock >60 °C.
+(2)
+CNN-BiLSTM model shows high accuracy (R2 = 0.94, MAE = 1.39, RMSE = 1.68).
+[23]	Thermal-moisture environment	Heat-moisture coupling + piston wind	Numerical calculation (MATLAB)	
+(1)
+With piston wind, wall-surface moisture flux increased by ∼1.6 × and heat flux by ∼1.15 × .
+(2)
+Coupled heat-moisture transfer expanded the thermal influence zone (+17 % in 30 days, +19.3 % in 365 days).
+[24]	Thermal-moisture environment	Heat-moisture coupling + hot water influx	CFD	
+(1)
+The 3D coupled model achieved good accuracy (errors: 4.7 % for temperature, 7.1 % for humidity).
+(2)
+Heat Index (HI) shows linear correlation with input wind temperature-humidity and hot water, and a quadratic correlation with air volume.
+[25]	Thermal-moisture environment	Heat-moisture coupling + hot water influx	CFD	
+(1)
+The tunnel thermal-humidity field evolves through three stages: heating & humidifying → constant humidity heating → constant humidity cooling.
+(2)
+Ventilation volume, hot water temperature, and ditch length strongly influence Ta and RH distributions.
+[18]	Thermal environment	Heat transfer model	CFD	
+(1)
+The influence of ventilation parameters on the temperature rise in the ventilation duct is minimal (only 0.39–0.86 °C).
+(2)
+The optimal ventilation parameters are: ventilation temperature of 15 °C, airflow velocity of 10 m/s, and duct position of 10 m.
+[27]	Thermal-moisture environment	Heat-moisture coupling	CFD	
+(1)
+Between the ventilation duct outlet and the working face should not exceed 30 m.
+(2)
+When the surrounding rock temperature ranges from 65 to 85 °C, the recommended ventilation velocity is 10–25 m/s.
+[26]	Thermal-moisture environment	Heat-moisture coupling + buoyancy flow	CFD	
+(1)
+Buoyancy effect plays an important role in tunnel heat transfer and cannot be ignored.
+(2)
+Seepage water significantly affects the temperature field: when the seepage rate >0.01 m/d,
+To address these research gaps, this study develops a bidirectional rock–air heat–moisture coupling model that incorporates seepage water by treating the surrounding rock as a porous medium containing both liquid water and vapor. The proposed model is experimentally validated and used to quantify the effects of seepage water and porosity under different rock temperatures. In addition, two supplementary indices—HI and WBGT—are introduced to enhance environmental evaluation beyond temperature and humidity by accounting for radiation and airflow effects. Comparative analyses of the three indices are conducted to identify optimized ventilation strategies for extreme conditions. Finally, the airflow distribution and the spatial variations of these indices are simulated to provide theoretical guidance for environmental regulation and safety management in high-temperature tunnels.
+2. Methodology
+2.1. Coupled heat-moisture transfer mechanisms in extreme tunnel conditions
+Fig. 1 illustrates the heat and mass transfer mechanisms incorporated into the proposed bidirectional heat–moisture coupling model. To overcome the limitations of previous studies that neglected seepage-water effects, the present model explicitly considers seepage migration and evaporation within the surrounding rock. Under high-temperature conditions, seepage water becomes a dominant source of both heat and moisture, and its behavior exhibits strong nonlinearity due to temperature-dependent thermal properties, Darcy-flow characteristics, and latent-heat-driven phase change.
+Fig. 1
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 1. Heat and mass transfer process inside the tunnel.
+
+A two-way coupling framework is established to capture the mutual feedback between the surrounding rock and the tunnel air. The model integrates multiple processes—including seepage flow, pore-scale evaporation, convective heat transfer, and air–rock moisture exchange—to realistically represent the coupled thermo-hydric response. During ventilation cooling, the model resolves both surface evaporation and continuous internal evaporation driven by thermal gradients, which alter local saturation, vapor pressure, and the effective thermal properties of the surrounding rock, and subsequently affect the airflow field. The rock is represented as a dual-phase porous medium containing liquid water and vapor, with temperature- and saturation-dependent permeability and transport parameters. These formulations capture the essential nonlinear interactions that govern heat and moisture transfer in high-temperature tunnels and substantially improve the physical fidelity and predictive capability of the proposed model.
+2.2. Background and physical model
+The studied tunnel is located in Southwest China and experiences an extreme thermal environment during construction, where the surrounding rock temperature approaches 90 °C. Seepage water originating from the surrounding rock substantially increases the air humidity, further intensifying the already harsh environmental conditions. In addition, the tunnel lies at an altitude of approximately 2270 m, where the atmospheric pressure is about 0.76 atm, resulting in a construction environment characterized by high temperature, high humidity, and low atmospheric pressure. Such extreme conditions necessitate effective environmental control measures to ensure both worker safety and operational efficiency. As shown in Fig. 2, the average outdoor air temperature ranges between 8 °C and 24 °C, with a maximum of 30 °C, indicating its potential as a natural cooling source for ventilation.
+Fig. 2
+Download: Download high-res image (335KB)
+Download: Download full-size image
+Fig. 2. Local air temperature of the tunnel in 2024.
+
+The physical model of the tunnel, illustrated in Fig. 3, consists of three components: the surrounding rock, the tunnel body, and the air-supply duct. The surrounding rock is represented as a cuboid with dimensions of 100 m × 100 m × 110 m; the tunnel adopts a horseshoe-shaped cross-section of 10.2 m × 8.2 m and a total length of 100 m; and the air-supply duct has a radius of 0.75 m, is positioned 6.1 m above the ground, extends 80 m in length, and terminates 20 m from the working face. For analytical clarity, the region between the air outlet and the working face is defined as the working zone, whereas the section between the tunnel entrance and the air outlet is defined as the non-working zone. To highlight the influence of seepage water on the internal environment, the tunnel lining is intentionally omitted from the model, following a common practice in studies of construction-phase tunnels [30]. Moreover, previous studies have shown that a tunnel length of 100 m is sufficient to evaluate the cooling performance of different ventilation strategies [29]; therefore, the same length is adopted in this study.
+Fig. 3
+Download: Download high-res image (279KB)
+Download: Download full-size image
+Fig. 3. Physical model of the tunnel.
+
+2.3. Governing equations for heat and mass transfer
+To simplify the numerical simulation and reduce computational complexity, the following assumptions were made:
+(1)
+Air was treated as an incompressible fluid [29].
+(2)
+Seepage water on the tunnel wall was assumed to be uniformly distributed.
+(3)
+The simulated materials were assumed to be homogeneous and isotropic [25].
+(4)
+The roughness of the tunnel wall is neglected [31].
+The mathematical equations primarily include the Navier-Stokes governing equations, turbulent fluid flow equations, heat transfer equations, moisture transport equations, and boundary control equations used in numerical simulations.
+(1)
+The Navier-Stokes governing equations can be written as follows:
+Continuity equation:
+(1)
+where ρ is the density, kg/m3. u is the velocity, m/s. t is the time, s.
+Momentum equation:
+(2)
+where p is pressure, Pa. τ is the stress tensor, Pa. f is the body force per unit volume, N/m3. For a Newtonian fluid, the stress tensor τ can be expressed as:
+(3)
+where μ is the dynamic viscosity coefficient, Pa·s. T is the temperature, K. and I is the identity matrix.
+Energy equation:
+(4)
+where E is the specific total energy, given by E = e+0.5u·u, J/kg. e is the specific internal energy, J/kg. λ is the thermal conductivity, W/(m·K). q is the heat flux, W/m2.
+(2)
+Governing equations for turbulent airflow and seepage water flow
+Turbulence was modeled using the standard k–ε closure, which offers a robust balance between prediction accuracy and computational efficiency for high-Reynolds-number internal flows in long tunnel geometries. Previous studies on high-temperature and high-geothermal tunnels have demonstrated that both the standard and realizable k–ε formulations can accurately reproduce the dominant airflow structures and temperature evolution under forced-ventilation conditions [27,29]. Although more advanced closures such as RNG k–ε and k–ω SST are effective in capturing pronounced curvature, separation, or strong adverse-pressure-gradient effects, these features are not predominant in the present tunnel configuration, which is characterized by fully developed turbulent forced convection. Considering the engineering focus of this work and the need for extensive three-dimensional coupled heat–moisture simulations and parametric analyses, the standard k–ε model provides an appropriate and computationally efficient choice for the turbulence closure.
+The seepage flow in the surrounding rock is governed by Darcy's law, as follows:
+(9)
+where uDarcy is Darcy's velocity, m/s. κ is the permeability, m2. pεp is the pressure of the surrounding rock pores, pa.
+The combined form of Darcy's law and the continuity equation can be written as follows:
+(10)
+where εp is the surrounding rock porosity. Qm is the mass source term, kg/(m3·s).
+(3)
+Governing equations of heat transfer in air and surrounding rock
+The heat transfer of tunnel air is governed by the moist-air heat transfer equation, as follows:
+(11)
+where Cp is the specific heat capacity, J/(kg·K). qconduction is the heat flux by conduction, W/m2. αp is the coefficient of thermal expansion, 1/K. QH is the moist air heat flux, W/m3. Q is the heat flux, W/m3.
+(12)
+(13)
+(14)
+Where Cp,v Cp,a is the specific heat capacity of vapor and air, J/(kg·K).
+The heat transfer of the surrounding rock with seepage water is governed by the heat transfer equation for a moisture-containing porous medium, as follows:
+(15)
+(16)
+(17)
+where Qevap is the evaporation heat flux, W/m3. sl is the liquid water saturation. ρv ρl ρs is the vapor, liquid water, and solid density, kg/m3. Cp,l Cp,s is the liquid water, and solid specific heat capacity, J/(kg·K). uv ul is the vapor and liquid water velocity, m/s. gw is the water diffusion flux, kg/(m3·s). glc is the liquid water capillary flux, kg/(m3·s).
+(4)
+Governing equations of mass transfer in air and surrounding rock
+The following equation governs the moisture transport in tunnel air:
+(18)
+(19)
+(20)
+where MV is the molar mass of water vapor, kg/mol. Cv is the vapor concentration, kg/m3. φw is the relative humidity, %. Csat is the vapor saturation concentration, mol/m3. D is the vapor saturation concentration, m2/s. G is the moisture source, kg/(m3·s).
+The following equation governs the moisture evaporation at the tunnel wall:
+(21)
+where gevap is the Moisture evaporation flux, kg/(m2·s). K is the evaporation rate factor, m/s, and the value was set to 0.01 in this paper.
+The evaporation and transport of seepage water in the surrounding rock are governed by the following equation:
+(22)
+(23)
+Where W(γW) is the total moisture content, kg/m3. ωv is the vapor mass fraction in moist air.
+(5)
+Governing equation of permeability boundary conditions
+The flow and evaporation of seepage water are governed by the relative permeability of liquid water (κl) and moist air (κa), which describe the dynamic variation of seepage water with temperature, as follows:
+(24)
+(25)
+Where sil is 0.05.
+(6)
+Calculation formula of Heat Index (HI)
+The heat index (HI) quantifies the combined effects of air temperature and relative humidity on human thermal sensation and has been widely applied in the assessment of thermal environments in tunnels [27,32]. The HI is determined using the following empirical equation:
+(26)
+Where HI is the Heat Index, °C. Ta is the air temperature, °C. RH is air relative humidity, %. The constants c1-9 are empirical coefficients, with their values listed in Table 2.
+(7)
+Governing equation of Wet Bulb Globe Temperature (WBGT)
+Table 2. Coefficient values used in the Heat Index (HI) equation.
+
+c1	c2	c3	c4	c5	c6	c7	c8	c9
+−8.784	1.611	2.338	−0.146	−0.123	−0.016	0.002	0.0007	−0.000 003
+The wet-bulb globe temperature (WBGT) is a composite index that integrates the influences of air temperature, humidity, wind velocity, and radiant heat on human thermal stress and has been widely employed for evaluating occupational heat exposure [29]. The WBGT is calculated according to the following expression:
+(27)
+where WBGT is the wet-bulb globe temperature, °C. Tr is the radiant temperature, °C. ua is the air velocity, m/s.
+2.4. Numerical simulation settings and boundary conditions
+COMSOL Multiphysics 6.3, which has been widely applied in heat-moisture coupling simulations of tunnel environments [27,29], was adopted to perform the numerical analyses in this study. Considering the multi-physics nature of the problem, the computational model was divided into two interacting domains: the surrounding-rock domain and the tunnel-air domain. Fluid flow and moisture transport were solved separately within each domain, while heat transfer served as the coupling mechanism between them. Material properties and boundary conditions were specified according to values reported in previous studies [26,27,33]. The key parameters are summarized in Table 3, and the applied boundary conditions are defined as follows:
+(1)
+The initial temperatures of both tunnel air and surrounding rock were set to 70 °C, with an initial relative humidity of 90 %. The air-supply parameters were defined as a volumetric flow rate of 55 m3/s, an air temperature of 20 °C, and a relative humidity of 60 %. The ambient pressure was set to 0.76 atm, and the total cooling duration was 24 h.
+(2)
+Gravitational effects were considered in the calculation. The porosity of the surrounding rock was set to 0.05, and its permeability coefficient was 1 × 10−7 m2. The Darcy velocity field was defined with an inlet pressure boundary of 1 MPa.
+(3)
+To evaluate the differences between the proposed model and conventional models and to analyze the effects of rock porosity and air-supply parameters on tunnel environmental conditions, the simulation cases summarized in Table 4 were designed.
+Table 3. Thermal properties of the material.
+
+Material	Density, kg/m3	Specific heat capacity, J/(kg·k)	Thermal conductivity, W/(m·k)
+Surrounding rock	2700	840	2.65
+Air	0.02897 Pa·Ta/R	1047.636–0.372·Ta+9.453 × 10−4·Ta2-6.024 × 10−7·Ta3+1.286 × 10−10·Ta4	−2.276 × 10−3+1.155 × 10−4·Ta-7.902 × 10−8·Ta2+4.117 × 10−11·Ta3-7.438 × 10−15·Ta4
+Table 4. Numerical simulation cases and boundary conditions.
+
+Case	Model type	Rock temperature
+°C	Supply volume m3/s	Supply temperature
+°C	porosity
+A1	New	90	55	20	0.05
+A2	80
+A3	70
+A4	60
+A5	50
+B1	Conventional	90	55	20	0.05
+B2	80
+B3	70
+B4	60
+B5	50
+C1	New	90	55	20	0.05
+C2	0.10
+C3	0.15
+D1	New	90	45	15	0.05
+D2	55	15
+D3	65	15
+D4	45	20
+D5	55	20
+D6	65	20
+D7	45	25
+D8	55	25
+D9	65	25
+3. Model validation: experiments and grid independence
+3.1. Experimental setup and boundary conditions
+The numerical model was validated against experimental data obtained from the platform illustrated in Fig. 4. The surrounding-rock heating system was realized through embedded heating plates, whereas the ventilation system utilized a fan-coil unit to control air supply. A high-level water tank was employed to simulate seepage flow through rock fractures. The experimental platform had overall dimensions of 2 m × 1 m × 1 m, incorporating a tunnel section of 0.4 m × 1 m and a ventilation duct measuring 0.08 m × 1.8 m. Four temperature sensors (A-D) were installed at distances of 1.75 m, 1.25 m, 0.75 m, and 0.25 m from the tunnel entrance, respectively.
+Fig. 4
+Download: Download high-res image (665KB)
+Download: Download full-size image
+Fig. 4. Schematic and physical view of the experimental setup and system components.
+
+A scaled numerical validation model was constructed using a geometric similarity ratio of 1:22. To maintain physical consistency between the laboratory setup and the prototype tunnel, basic similarity principles were applied. Dynamic similarity was achieved by matching the Reynolds numbers of the experimental (22 m/s, 1.16 × 105) and numerical (1 m/s, 1.14 × 105) flows, ensuring an equivalent turbulent regime. Thermal and moisture-transfer behaviors were kept comparable by employing identical material properties and temperature–humidity boundary conditions, which preserve the dominant heat-convection, conduction, and seepage-induced heat-transfer mechanisms. Although full similarity across all coupled processes cannot be strictly satisfied in a reduced-scale experiment, the adopted scaling approach captures the key physical mechanisms relevant to tunnel ventilation and seepage cooling, providing a reliable basis for validating the numerical model. The material properties and boundary conditions are summarized in Table 5, Table 6.
+Table 5. Material properties of the experimental platform.
+
+Material	Density, kg/m3	Specific heat capacity, J/(kg·k)	Thermal conductivity, W/(m·k)	Rock porosity, -
+Surrounding rock	2680	740	1.13	0.228
+Table 6. Boundary conditions for experiment and simulation validation.
+
+Item	Experiment	Simulation
+Surrounding rock temperature, °C	80	80
+Tunnel air temperature (initial), °C	40	40
+Air relative humidity (initial), %	70	70
+Air supply velocity, m/s	22	1
+Air supply temperature, °C	25–28	25–28
+Air supply relative humidity, %	50	50
+Seepage water head height, m	0.5	11
+Ventilation time, min	300	300
+3.2. Validation using experimental platform data
+Fig. 5 compares the experimental measurements with the numerical simulation results. Overall, the numerical predictions closely matched the experimental trends, although slight discrepancies were observed. The maximum temperature deviations at measurement points A–D were 2.5 %, 2.2 %, 2.2 %, and 2.3 %, respectively, while the corresponding average deviations were 1.7 %, 1.3 %, 1.3 %, and 1.6 %. The overall maximum deviation was 2.5 %, and the mean deviation across all points was 1.5 %. From a spatial perspective, the experimental data showed that point A had the lowest temperature, point C the highest, and point D a slightly lower temperature than point C. These patterns were likely affected by localized airflow behavior near the tunnel entrance. The relatively low airflow velocity at point D may have prolonged local heat transfer, whereas point A may have fallen within a small vortex zone that enhanced convective cooling. In contrast, the airflow at points B and C passed directly through the measurement area, resulting in weaker convective heat transfer and a continuous temperature rise.
+Fig. 5
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 5. Comparison of experimental and simulated air temperature results without heat sources: (a) Point A; (b) Point B; (c) Point C; (d) Point D.
+
+Overall, the numerical results demonstrated good agreement with the experimental data, and the small deviations confirmed the reliability and accuracy of the proposed model. Nevertheless, some discrepancies remained, which can be attributed to several factors. First, the heating plate used as the boundary heat source could not maintain a perfectly constant temperature, differing from the idealized thermal boundary assumed in the simulation. Second, measurement uncertainties—including sensor accuracy and possible airflow leakage near the tunnel entrance—may have introduced additional errors.
+3.3. Validation using published field data
+To further evaluate the predictive performance of the proposed model, its simulation results were compared with the experimental data reported by Gao et al. and the numerical results of Jia, using the corresponding tunnel configurations and boundary conditions provided in the literature [29,34]. As shown in Fig. 6, the proposed model reproduced the measured air temperature and relative humidity with noticeably higher accuracy, particularly under transient boundary conditions during the early cooling stage. The average and maximum deviations in air temperature were 2.0 % and 6.6 %, while those for relative humidity were 2.9 % and 13 %, respectively. Although localized discrepancies were present, the overall variation trends remained consistent, confirming the reliability of the proposed model in capturing tunnel environmental dynamics.
+Fig. 6
+Download: Download high-res image (669KB)
+Download: Download full-size image
+Fig. 6. Validation of the proposed model: (a) air temperature; (b) air relative humidity.
+
+Compared with the conventional model, the proposed model generally predicted lower air temperatures. The average and maximum air-temperature deviations reached 3.3 % and 12 %, and the corresponding relative-humidity deviations reached 6.0 % and 25 %. These results highlight the significant thermodynamic influence of seepage water, whose behavior varies with temperature. During the early cooling stage, the surrounding rock remained uniformly hot, requiring simultaneous cooling of both the rock matrix and the seepage water. This increased the cooling load and yielded slightly higher predicted temperatures. In the later stage, however, the near-wall rock had already been sufficiently cooled, and seepage water absorbed residual heat from deeper layers while releasing latent heat through evaporation, thereby lowering the air temperature and leading the proposed model to predict cooler conditions than the conventional model. Overall, although conventional models can reproduce broad environmental trends, their neglect of seepage-induced heat–moisture coupling results in reduced accuracy under extreme thermo-hydric conditions.
+The experimental platform provides representative high-temperature and high-humidity conditions suitable for model validation; however, it cannot fully reproduce certain extreme or highly variable scenarios encountered in full-scale tunnels, such as very high seepage intensities, geological heterogeneity, or construction-induced transient heat sources. To complement the experimental validation, the proposed model was further assessed through extensive parametric simulations spanning a wide range of surrounding-rock temperatures, porosities, ventilation rates, and seepage conditions. These additional analyses demonstrate that the model remains robust across diverse operating conditions. Nevertheless, future field-scale measurements under more extreme environments would be valuable for enhancing model generality. Taken together, the experimental and parametric validations indicate that the proposed model is sufficiently reliable for the engineering-oriented analyses conducted in this study.
+3.4. Grid independence verification
+To ensure numerical accuracy and stability, local mesh refinement was applied near the tunnel wall and ventilation duct where heat–moisture exchange is most pronounced. Three mesh schemes (Mesh 1–Mesh 3) were generated, containing approximately 0.89 × 106, 1.09 × 106, and 1.39 × 106 elements, respectively (Fig. 7), each with an average mesh quality of 0.66. The results of the grid-independence verification are shown in Fig. 8. With mesh refinement, the predicted tunnel-air temperature increased slightly. The relative deviations in air temperature, heat index (HI), and WBGT between Mesh 1 and Mesh 2 were 0.48 %, 1.4 %, and 0.51 %, while the deviations between Mesh 2 and Mesh 3 decreased to 0.46 %, 0.42 %, and 0.22 %.
+Fig. 7
+Download: Download high-res image (640KB)
+Download: Download full-size image
+Fig. 7. Mesh generation and refinement for numerical simulation.
+
+Fig. 8
+Download: Download high-res image (583KB)
+Download: Download full-size image
+Fig. 8. Mesh independence verification.
+
+Although the total number of elements among the three meshes differs by less than a factor of two—corresponding to an average edge-length reduction of only about 16 % from Mesh 1 to Mesh 3—the refinement was concentrated in the near-wall regions rather than uniformly across the entire domain. As a result, the local element size within the thermally active zones was reduced far more substantially than indicated by the global element count, which explains the slight yet consistent improvement in the predicted fields. Considering the limited variations among the three mesh schemes and the need to balance accuracy with computational cost for large-scale 3D coupled simulations, Mesh 2 was selected as the final grid because it provides mesh-independent predictions with reasonable computational efficiency.
+4. Results and discussion
+4.1. Analysis of tunnel airflow organization
+Fig. 9 shows the airflow distribution and velocity field along the tunnel. The streamline patterns reveal distinct vortex and recirculation zones. In the working zone, the airflow predominantly moved forward; however, under the combined influence of frontal resistance and geometric contraction, noticeable flow disturbances developed near the working face, leading to the formation of vortex structures. As the airflow traveled from the air-supply outlet toward the tunnel entrance, the high-velocity jet impinged on the static-pressure region and generated a large recirculation area. The velocity contours indicate that the airflow velocity increased significantly near both the working face and the tunnel walls, forming a high-velocity boundary layer. In contrast, the region above the air-supply duct exhibited substantially lower velocities, resulting in a low-speed stagnation zone. This non-uniform velocity distribution is expected to strongly influence subsequent heat–moisture coupling and the temperature attenuation behavior within the tunnel.
+Fig. 9
+Download: Download high-res image (658KB)
+Download: Download full-size image
+Fig. 9. Airflow characteristics in the tunnel: (a) velocity contour and streamline distribution. (b) air velocity along the tunnel axis under different supply volumes.
+
+As shown in Fig. 9b, increasing the air-supply volume caused a marked rise in airflow velocity within the vortex region, accompanied by clear local variations, whereas velocity differences within the recirculation zone gradually diminished toward the tunnel entrance. Within the vortex region, the velocity first increased to a local peak, then sharply decreased to a trough, and finally reached its maximum near the working face. These pronounced fluctuations reflect the complex flow structures in the vortex region and contribute to enhanced convective heat transfer in this area. By contrast, velocity variations in the recirculation zone were relatively smooth and steady. As the air-supply volume increased, the airflow velocity at the working face reached 4.4 m/s, 5.4 m/s, and 6.4 m/s, respectively. Although a higher air-supply rate enhances heat transfer, it also increases the airflow velocity near the working face, which may adversely affect workers’ safety and thermal comfort.
+4.2. Effect of seepage water on tunnel heat-moisture environment
+Fig. 10 compares the tunnel environmental variations under identical boundary conditions with and without seepage water. The presence of seepage water increased the air temperature, heat index (HI), and WBGT, with the temperature rise being most pronounced near the tunnel entrance. Seepage water exerts spatially heterogeneous thermal effects: its influence is limited in well-cooled regions but induces substantial local heating in poorly cooled zones, potentially threatening tunnel stability. Regardless of seepage conditions, WBGT consistently remained lower than the air temperature and HI, reflecting the mitigating influence of airflow on perceived heat stress. Seepage water also altered the spatial distributions of temperature and humidity. With seepage, the downstream location where HI exceeded the air temperature shifted from 10 m to 30 m from the entrance, confirming that seepage water reshapes the tunnel's heat–moisture field and makes HI a more representative indicator under poorly cooled conditions. Quantitatively, seepage water increased the overall air temperature by approximately 8.7–16 %, while HI increased by 4.1–15 %, exhibiting an expanded spatial gradient along the tunnel. By contrast, the influence of seepage water on WBGT was comparatively small, with increases below 7.1 % due to the convective mitigation provided by the airflow. Overall, air temperature served as the most sensitive indicator in well-cooled regions such as the working face, whereas HI was more effective in capturing extreme high-temperature, high-humidity characteristics in poorly cooled zones.
+Fig. 10
+Download: Download high-res image (745KB)
+Download: Download full-size image
+Fig. 10. Thermal indicators along the tunnel: (a) new model. (b) conventional model.
+
+Fig. 11 compares the effects of seepage water in the working and non-working zones of the tunnel. Seepage water had only a limited impact in the working zone but caused noticeable heating in the non-working zone. In the working zone, the average air temperature, HI, and WBGT increased by 9.3 %, 6.3 %, and 5.4 %, respectively. By contrast, the corresponding increases in the non-working zone reached 11 %, 17 %, and 8.0 %. These results indicate that seepage water primarily increases the cooling load rather than directly heating the tunnel air. In regions with strong cooling effects, such as the working face, the air temperature increased only slightly, whereas in poorly cooled regions, HI rose sharply—by up to 17 %—highlighting the non-negligible impact of seepage water. Because cooling effectiveness varied considerably along the tunnel, achieving uniform cooling is challenging. Therefore, a ventilation strategy that prioritizes cooling in the working zone and progressively cools downstream areas can help ensure worker safety and equipment reliability while minimizing overall energy consumption. Given its decisive role in construction safety and thermal comfort, the following analysis focuses on the temporal evolution of the working-zone environment. Variations in air temperature, HI, and WBGT are examined to evaluate cooling effectiveness and determine the time required to reach safe thermal thresholds.
+Fig. 11
+Download: Download high-res image (453KB)
+Download: Download full-size image
+Fig. 11. Environmental differences after 24-h cooling under different models: (a) tunnel working zone. (b) tunnel non-working zone.
+
+Fig. 12 shows the hourly evolution of air temperature, HI, and WBGT in the working zone under ventilation with and without seepage water. The two cases exhibited markedly different environmental evolution patterns. Without seepage water (B1), all three indices declined rapidly at first and then gradually stabilized, displaying a steep-then-gentle profile. With seepage water (A1), however, the indices decreased more slowly initially but accelerated after approximately 15 h, resulting in a gentle-then-steep trend. This difference arises from the high specific heat capacity of water, which increases the initial cooling load and delays temperature reduction. In the later stage, seepage water absorbs heat transferred from deeper rock layers toward the wall, thereby suppressing wall heating and enhancing the cooling performance.
+Fig. 12
+Download: Download high-res image (738KB)
+Download: Download full-size image
+Fig. 12. Comparison of tunnel environmental variations over time between different models: (a) Air temperature. (b) HI. (c) WBGT.
+
+In terms of cooling efficiency, seepage water significantly prolonged the time required to reach the safety thresholds: from 8 h to 18 h for air temperature, from 7 h to 17 h for HI, and from 5 h to 14 h for WBGT. These results confirm that seepage water markedly delays the attainment of safe environmental conditions. Among the three indices, air temperature responded the slowest, WBGT the fastest, and HI showed an intermediate response. Ensuring that the air temperature meets its safety limit automatically satisfies the HI and WBGT thresholds but requires the greatest cooling effort. When cooling resources are limited, HI or WBGT can serve as practical alternative indicators for environmental evaluation. At peak deviation, seepage water increased the air temperature, HI, and WBGT by approximately 22 %, 29 %, and 15 %, respectively. Overall, the pronounced lagging effect of seepage water on tunnel cooling must be fully considered in practical ventilation design.
+4.3. Effect of seepage water under different rock temperatures
+Fig. 13 illustrates the influence of seepage water on the tunnel temperature distribution after 24 h of ventilation. The impact was concentrated near the tunnel entrance, where airflow recirculation weakened the cooling effectiveness. In this region, latent heat release and vapor accumulation from seepage water were not readily removed, leading to localized temperature increases. In contrast, the working zone experienced stronger convection, enabling rapid dissipation of seepage-induced heat and resulting in only minor temperature differences. As the surrounding-rock temperature increased from 50 °C to 90 °C, the entrance temperature in seepage cases rose markedly, indicating that higher rock temperatures amplify the heat load introduced by seepage water. However, beyond approximately 80 °C, the additional temperature rise became limited, exhibiting a saturation effect. Without seepage water, the tunnel temperature increased almost linearly with rock temperature, demonstrating that seepage water disrupts the otherwise simple conduction–convection relationship.
+Fig. 13
+Download: Download high-res image (398KB)
+Download: Download full-size image
+Fig. 13. Tunnel temperature distributions under different surrounding rock temperatures.
+
+Fig. 14 illustrates the axial air-temperature profiles along the tunnel. With seepage water, the temperature curves converged toward similar values, particularly near the working face, where the temperature differences were below 0.1 °C. Toward the tunnel entrance, the differences increased slightly, reaching up to 0.55 °C, reflecting the spatially selective influence of seepage water. Without seepage water, the profiles remained clearly separated, with the B1–B2 difference increasing from 0.3 °C at the working face to 1.3 °C at the entrance, exhibiting a linear and monotonic response. Overall, seepage water weakened the linear dependence of air temperature on rock temperature by introducing localized heat and moisture sources that stabilize the airflow temperature field.
+Fig. 14
+Download: Download high-res image (763KB)
+Download: Download full-size image
+Fig. 14. Comparison of air temperature distributions under different cases after 24-h ventilation: (a) new model (A1-A5). (b) conventional model (B1-B5).
+
+Fig. 15 compares the air temperature, HI, and WBGT in the working and non-working zones. WBGT consistently remained below the air temperature and HI. In the working zone, the air temperature exceeded HI when seepage water was present, whereas at low rock temperatures without seepage, HI gradually surpassed the air temperature, indicating different sensitivities of the two indices under varying humidity levels. Quantitatively, in the working zone, the air temperature, HI, and WBGT increased by 9–14 %, 4–6 %, and 5–7 %, respectively. The warming trend was nonlinear: air temperature and WBGT peaked at 60 °C, whereas HI reached its maximum at 80 °C, reflecting distinct peak-response intervals among the three indices. In the non-working zone, seepage water intensified heating. The air temperature, HI, and WBGT increased by 11–19 %, 17–24 %, and 8–12 %, respectively, with HI showing the greatest sensitivity. The strongest spatial heating occurred at 60 °C, suggesting a region of enhanced seepage–conduction interaction.
+Fig. 15
+Download: Download high-res image (629KB)
+Download: Download full-size image
+Fig. 15. Environmental differences after 24-h cooling under different models: (a) tunnel working zone. (b) tunnel non-working zone.
+
+Fig. 16 illustrates the temporal evolution of the working-face environment. With seepage water, all three indicators decreased steadily at 50–60 °C but exhibited a gentle-then-steep pattern at 70–90 °C, showing a late-stage inflection that accelerated cooling. The 80 °C and 90 °C curves converged after the inflection, as did the 60 °C and 70 °C curves, confirming the nonlinear and temperature-dependent influence of seepage water. Without seepage water, all curves followed a steep-then-gentle trend with stable differences. Seepage water substantially prolonged the cooling time—by more than 100 % for air temperature and by 150–300 % for HI and WBGT at 50–80 °C. The greatest delay occurred at 70 °C. At 50–60 °C, enhanced airflow largely offset the seepage effect, demonstrating that ventilation efficiency strongly modulates the coupled heat–moisture response.
+Fig. 16
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 16. Time-dependent variations of thermal indicators in the tunnel working zone under different cases: (a, b) air temperature. (c, d) HI. (e, f) WBGT.
+
+Notably, Fig. 15 identified the strongest spatial heating at 60 °C, while Fig. 16 showed the greatest temporal delay at 70 °C. These results highlight the multidimensional behavior of seepage water: it enhances spatial heat accumulation at moderate temperatures while causing prolonged cooling times at higher temperatures. The response is therefore non-monotonic and temperature-interval-dependent.
+The nonlinear behavior of seepage water arises from three coupled processes: (1) temperature-dependent water–rock thermal properties, which modify the effective heat capacity and conductivity of the porous medium; (2) latent-heat-driven evaporation, whose rate increases rapidly with temperature and vapor-pressure gradients; (3) temperature-dependent permeability and Darcy flow, which enhance convective heat transport at elevated rock temperatures. At low temperatures, seepage water increases the local heat capacity and delays cooling. At higher temperatures, evaporation and deep-layer heat extraction dominate, producing accelerated cooling and saturation effects. These mechanisms explain the observed non-monotonic and interval-peak responses of air temperature, HI, and WBGT under varying rock temperatures.
+4.4. Effect of rock porosity on heat-moisture environment
+Fig. 17 illustrates the variations in air temperature, HI, and WBGT in the working zone under different porosity conditions during ventilation cooling. Porosity did not directly change cooling performance but influenced it indirectly by regulating seepage-water behavior. As porosity increased, seepage-induced thermal inertia became more evident, producing a time-lagged and nonlinear cooling response. At a porosity of 0.10, the cooling curves remained smooth without an obvious acceleration stage; at 0.05, the acceleration appeared after approximately 20 h; and at 0.15, it occurred earlier, around 15 h. Higher porosity enhanced seepage mobility and latent-heat exchange, resulting in a delayed yet stronger cooling enhancement. Differences among the three porosities were small during the first 12 h but gradually amplified with time. After 24 h, the cooling times for air temperature, HI, and WBGT were (21, 21, 18 h), (19, 19, 17 h), and (15, 15, 13 h) for porosities of 0.05, 0.10, and 0.15, respectively. When porosity ≤0.10, its regulatory effect remained similar; however, when porosity exceeded 0.10, both seepage flux and latent-heat exchange increased markedly, suggesting that higher-porosity rocks require separate evaluation. Overall, the relationship among porosity, seepage water, and cooling behavior was clearly nonlinear: although porosity was not a dominant factor, it significantly shaped the cooling dynamics by modulating seepage flow.
+Fig. 17
+Download: Download high-res image (760KB)
+Download: Download full-size image
+Fig. 17. Comparison of time-dependent variations of thermal indicators in the tunnel working zone under different porosities: (a) air temperature. (b) HI. (c) WBGT.
+
+The influence of porosity on cooling behavior arises from its coupled effects on seepage flow and the thermo-hydric properties of the rock. Higher porosity increases permeability, allowing more seepage water to migrate through the pore network and enhancing convective heat transport from deeper regions. Meanwhile, the effective volumetric heat capacity of the porous medium increases with porosity because pore water provides substantial thermal storage, delaying the initial cooling stage and producing the observed lag effect. In addition, larger pore volume promotes liquid–vapor phase exchange, strengthening latent-heat absorption during evaporation and altering the local vapor-pressure field. These combined mechanisms explain why porosity affects both the magnitude of cooling and the nonlinear transition between conduction-dominated and evaporation-enhanced regimes under extreme thermal conditions.
+4.5. Optimal air-supply strategy in extreme tunnels
+Fig. 18 illustrates the air-temperature distributions after 24 h of ventilation under nine air-supply strategies (D1–D9) at a surrounding-rock temperature of 90 °C. Cooling effectiveness varied spatially and was controlled by the interaction between airflow organization and heat-transfer gradients. In the working zone, vortex structures enhanced air disturbance and heat exchange, thereby strengthening convective cooling. Safe cooling was achieved even at lower air volumes—for example, 23 °C under D1 (below the 28 °C threshold) and 26–30 °C under D2–D3—indicating that both airflow volume and supply-air temperature jointly determine cooling intensity. By contrast, in the low-velocity recirculation zone near the tunnel entrance, continuous heat absorption weakened the temperature gradient and limited cooling. The temperature difference between D1 and D2 was 2.8 °C at the working face but only 0.1 °C at the entrance, reflecting the weak thermal response of the recirculation region.
+Fig. 18
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 18. Comparison of air temperature distributions along the tunnel under different ventilation strategies: (a) D1-D3. (b) D4-D6. (c) D7-D9.
+
+Increasing the air-supply volume to 65 m3/s (D7–D9) optimized airflow organization and enhanced cold-air transport, maintaining strong forced convection at the working face while alleviating the entrance cooling blind zone. Entrance temperatures under D6–D9 decreased to 37–39 °C, indicating clear improvement. Even with a 25 °C supply-air temperature, high airflow (D9) reduced the working-face temperature to 28 °C, approaching the safety threshold. As air volume increased, the benefit of lowering the supply-air temperature became more pronounced; for instance, the entrance-temperature difference between D4 and D5 (0.7 °C) exceeded that between D1 and D2 (0.1 °C), confirming higher thermal sensitivity at elevated airflow rates. Overall, combining high airflow with a low supply-air temperature effectively improved tunnel cooling—particularly at the entrance—although excessive cooling at the working face may cause energy waste and reduce thermal comfort.
+Fig. 19 presents the working-face conditions after 24 h of operation under different air-supply strategies, along with the corresponding cooling time and energy consumption required to reach the safety thresholds. When air temperature or HI was used as the evaluation criterion, strategies D3, D6, and D9 failed to reach the safety limits and were therefore excluded; under the WBGT criterion, only D3 and D6 remained unsafe. This indicates that the WBGT threshold allows a greater number of ventilation strategies to meet safety requirements, underscoring the influence of airflow velocity on perceived thermal comfort.
+Fig. 19
+Download: Download high-res image (989KB)
+Download: Download full-size image
+Fig. 19. Cooling performance under different ventilation strategies: (a) working zone environment after 24 h. (b)–(d) cooling time and energy consumption under different evaluation criteria.
+
+The total cooling load comprised the fresh-air load under 30 °C outdoor conditions and a uniform fan power of 22 kWh/h. Cooling time and total energy consumption varied substantially among the three evaluation indices, with the air-temperature criterion requiring the longest time and highest energy input. Strategy D7 reached the air-temperature safety limit within 10 h, consuming 11,979 kWh—the lowest among all strategies. Despite its higher instantaneous power, rapid cooling minimized total energy demand. In contrast, D8 required 22 h and 14,506 kWh. Strategies D2 and D4 consumed approximately 12,200–12,400 kWh, indicating that low airflow combined with low supply-air temperature can also reduce energy use, although system operating flexibility must be considered. Under the HI and WBGT criteria, D7 again achieved the shortest cooling time and lowest energy consumption: 8 h and 9583 kWh for HI, and only 4 h and 4791 kWh for WBGT. Under the extreme condition of 90 °C surrounding-rock temperature, strategy D7 (65 m3/s, 15 °C) provided the dual advantages of minimum cooling time and minimum energy consumption across all three criteria, establishing it as the optimal ventilation strategy.
+5. Conclusion
+To predict environmental variations in extreme tunnels and optimize ventilation design, a bidirectional rock–air heat–moisture coupling model incorporating seepage water was developed, in which the surrounding rock was represented as a porous medium containing a water–vapor mixture. The model was experimentally validated and compared with conventional approaches. The effects of seepage water and porosity were quantified, three thermal evaluation indices were assessed, and optimal ventilation strategies under extreme conditions were proposed. The main conclusions are as follows:
+(1)
+The average deviation between simulations and experiments was 1.5 %, confirming the high accuracy of the proposed model. Seepage water increased tunnel air temperature, HI, and WBGT by up to 19 %, 24 %, and 12 %, respectively. Its influence was strongly nonlinear with rock temperature, producing the largest temperature rise at 60 °C and the longest cooling delay at 70 °C.
+(2)
+At a surrounding-rock temperature of 90 °C, the optimal ventilation strategy was D7 (65 m3/s, 15 °C). This strategy reduced the working-zone air temperature to 28 °C within 10 h, with a total energy consumption of 11,978.5 kWh. Among the three evaluation indices, the air-temperature criterion required the longest cooling time, WBGT the shortest, and HI showed an intermediate response.
+(3)
+When the rock temperature was below 70 °C, seepage water induced a steady temperature decline; above 70 °C, a late-stage inflection appeared, accelerating the cooling rate. Without seepage, cooling consistently followed a steep-then-gentle trend.
+(4)
+Rock porosity indirectly affected cooling by regulating seepage flow and generating lag effects. Higher porosity enhanced latent-heat exchange and accelerated late-stage cooling. When porosity ≤0.1, cooling differences were small; when porosity exceeded 0.1, intensified seepage effects required separate evaluation.
+Future work will incorporate construction heat sources to further refine the model. In addition, clean-energy devices will be explored for absorbing residual heat in non-working zones to achieve both energy savings and balanced cooling.

@@ -1,0 +1,306 @@
+Keywords
+Adaptive rotating vortex generators (ARVG)Drag reductionBoundary layerHeat transferTurbulence control
+Nomenclature
+
+Nomenclature	Dimensionless parameters
+x, y, z	Coordinate direction, m	y+	dimensionless height
+u, v, w	x, y, z velocity components, m/s	z+	dimensionless width
+p	Pressure, N/m2	u+	dimensionless velocity
+n	number of ARVG	f	skin friction coefficient
+ρ	density of fluid, kg/m3	fx	local skin friction coefficient
+υ	kinematic viscosity of fluid, m2/s	η	synthetic coefficient of performance
+um	average bulk velocity, m/s	Re	Reynolds number
+t	time, s	Nu	Nusselt number
+h	heat transfer coefficient, W/(m2·K)	Nux	local Nusselt number
+temperature difference, K	νt	subgrid vorticity coefficient
+uτ	friction velocity, m/s	δ	Kronecker function
+μ	dynamic viscosity, Pa·s	Cs	Smargorinsky constant
+λ	thermal conductivity, W/(m·K)	Sij	the strain rate tensor
+τw	shear stress, N/m2	Δ	filtering dimension
+Η	channel half height, m	A+	semi-empirical constant
+Ta	rotation period	Ω	rotation tensor
+L	Distance between ARVGs, m	S	strain tensor
+ω	rotational angular velocity
+R	radius
+Superscript
+0	Channel without ARVGs
+i, j, k	Different direction
+1. Introduction
+In recent years, the solution to the energy crisis has been imminent due to limited energy resources. In the fields of chemical engineering, aerospace, mechanical engineering, refrigeration, and heating, it is of great significance to probe the method to improve heat transfer performance to alleviate energy shortages. Evaluation of convective heat transfer performance usually considers two key factors, i.e. pressure drop and heat transfer coefficient. Turbulent heat transfer has a close connection to the flow structure in boundary layer, which is an important research orientation of convective heat transfer. Kline et al. [1] and Praturi et al. [2] investigated the turbulent boundary layer structure. They concluded that the streaky structures in boundary layer dominated the momentum transport and the regeneration of turbulence. The boundary layer streaks structures might suddenly oscillate, burst, and ejection with the surrounding fluid, which could impact the entire flow field. Considering the characteristics of turbulent boundary layer, the thickness of the boundary layer may be reduced by the introduction of secondary flow, in turn, lead to the change the original boundary layer streaky structure. Consequently, by influencing the flow structure near the wall, the heat transfer performance is improved.
+In order to change the original turbulence structure and improve the flow characteristics, many control methods have been used. In general, flow control methods are divided into two categories: active and passive methods. In active control processes, external energy needs to be consumed in order to maintain continuous motion of actuator, such as electric energy [3], electromagnetic energy [4], vibration [5], etc. Conversely, the passive control strategy does not require additional energy input. The common passive control strategies are the installation of grooves [6], the addition of additives [7], rheological vibrations [8], vortex generators, surface treatments [9], etc., all of which have influences on the turbulent coherent structure. One of the most common passive control methods was to arrange the vortex generator in boundary layer [10]. The vortex generator immersed in the boundary layer significantly affects the structure of the boundary layer. Additionally, the vortex generator has a lot of potential to improve the heat transfer and flow characteristics. The vortex generator can be arranged in micro-scale channels, fins, heat exchange tubes, rotating fan blades, and other locations, which is a cost-effective measure of heat transfer improvement. The shape, orientation, and arrangement of the vortex generator will influence the heat transfer and fluid flow. Regarding the design of the vortex generator, Zheng et al. [11] found that a proper trapezoidal cross-section vortex generator configuration could improve the heat transfer and synthetic efficiency of the micro-scale channel. Ahmet Ümit Tepe [12] created a triangle slope with punching holes on the outside of the heat exchanger fin surface. He discovered that the PRVG (triangular ramp vortex generator) winglet formed a strong downwash flow that promoted the heat exchange between the heated groove wall and the cold fluid, and had a more significant impact on the fin surface's heat transfer. The highest heat transfer coefficient at the fin surface increased by 59.72 % when downwash flow occurred. Shi et al. [13] found that heat transfer and resistance loss in the channel was raised by the secondary flow inducted by the curved triangular wavelet vortex generator, but the overall thermally hydraulic performance was significantly improved. Changing the setting angle and orientation position of the same vortex generator further influenced the flow heat transfer features. Lu et al. [14] compared LVGs (longitudinal vortex generators) with flat and curved bottom settings, where the CTWP (curved trapezoidal winglet pair) exhibited optimal overall performance at 45° and 20° inclination degrees, respectively, for both the attack and inclination. Chatterjee et al. [14] investigated the heat transfer feature of subcritical rotating cylinder. They found that in some heated critical states, the presence of rotating cylinders made the otherwise stable flow unstable, and the frequency of downstream vortex shedding was greater at low speeds than that at high speeds. Yan et al. [15] found that the curved pin had a more significant implication for promoting heat transfer than that of the vertical pin and the inclined pin. In addition, the friction coefficient was also lower. By changing the configuration of the same vortex generators, the turbulent flow characteristic may also be changed. To create the longitudinal vortex, Wang et al. [16] changed the tilt ratio and rotation angle for the vortex generators within a circular tube. They found that the optimal overall TEF (thermal enhancement factor) of 1.21 was achieved when the pitch ratio and the angle were 0.5 and 0°, respectively. According to Gong et al. [17], combined rectangular winglet pairs (CRWPs) can induce more and larger vortices than that of rectangular winglet pairs (RWP) did, and had good heat transfer performance. The effectiveness of the DWVG (delta-winglet vortex generators) array in improving heat tranfer along the wall of the sharp turn channel was experimentally investigated by Zhao et al. [18]. It was proved that when the aspect ratio was 2 and the spacing was 20 mm, the best effect was to encourage the heat transfer, which led to the increases of heat transfer coefficient and rate 35.1 % and 25.5 %, respectively. Rather et al. [19] found that the heat transfer could increase by 9.51 % with SAH (solar air heater) staggered tilted ribs compared to that of tilted ribs without staggered.
+While most of the existing investigations on vortex generators focus on stationary solids or entities that maintain a fixed motion. There is less investigation on vortex generator that adaptively adjust the motion with the variation of fluid flow states. The more frequently used adaptive components are those with fluidic vibrations and flexible components. Verma et al. [20] studied the vortex-induced vibration with 2DOF (degree of freedom) in a three-dimensional case, and simulated the irregular motion path of an elastic cylinder. Gsell et al. [21] analyzed the motion of a vorticity vibration system at a high Reynolds number. Flexible vortex generators could improve the performance of heat transfer, according to the results obtained by Yang et al. [22] and Kang et al. [23]. The disturbance mechanism of coherent structures can be understood more deeply by analyzing the deformation and motion trajectories of the components.
+The investigation of the wake of a revolving fan with a horizontal direction has shown that the blade tip vortex generated by the fan rotation is a spiral vortex structure near the wake of the fan. Further, it is found that at a fixed speed, the small-scale spiral leaf tip vortex generation and the perturbation gradually develop, and the vortex filaments become unstable by maintaining a stable vortex structure in the wake space and eventually decomposing. As the turbine wake vortex formation develops, higher blade-tip velocity ratios will make the blade-tip vortices more unstable, which will lead to a decline in the number of stable vortex structures. At the same time, the fluid flow through the hub of the adaptive vortex generator (ARVG) also generated an unstable vortex structure, which was complex and dissipated quickly, with a small range of effects [[24], [25], [26]]. According to Wang et al. [27], the turbulent coherent structure would interact with the vortex induced by ARVG, weakening the strength of the root vortex. Additionally, the top vortex structure would quickly destabilize, produce plenty of secondary vortices, and then disintegrate into a consistent small-scale vortex structure in streamwise direction. Chen et al. [28] found that the stability of the wake vortex structure derived from the revolving fan was affected by the turbulence intensity, and the wake would recover more easily when the turbulence intensity was higher. Wang et al. [29] compared the numerical results with those of the experiment, and found that an appropriate fit can be located between the phase-averaged quantity of the rotor wake and the downstream of total circulation. Di Mascio et al. [30] used the velocity and vorticity fields to examine the variation of the propeller coherent structure, and analyzed the influencing factors of vortex instability and turbulent kinetic energy.
+Based on extensive previous investigations, it's found that micro-disturbance components immersed in the boundary layer have an obvious impact on heat transfer and pressure drop. Similarly, the square column vortex generator was used in our previous work [31], which was substantially smaller than the thickness of the boundary layer. Compared to the channel without MCVGs (miniature cuboid vortex generators), the friction coefficient decreased by 8.05 %, the Nusselt number and synthetic performance coefficient increased by 5.17 % and 8.15 %, respectively. Additionally, the flow and heat transfer of each unique MCVG located in buffer layer, log-law zone, and viscous sub-layer were examined [32]. It was found that the flow near the wall was most significantly impacted by the induced near-wall vortex when MCVGs were located in buffer layer, and the optimal heat transfer performance was obtained.
+Most investigations on the rotating wake flow of fans set a fixed rotational speed for ARVG in advance, and there is less investigation on the adaptive rotation of ARVG that acts as a vortex generator. Therefore, a microscale ARVG with one degree of freedom is employed in present work, which is acted as an adaptive vortex generator in a turbulent boundary layer. The ARVGs can rotate adaptively according to the fluid flow and without external energy supply. Furthermore, the impacting mechanism of microscale ARVG on flow and heat transfer characteristics in a rectangular channel is numerically probed.
+2. Physical model and numerical method
+2.1. Physical model
+The physical model used in present work is a rectangular channel with dimensions of 4πH × 2 H × 2πH in the x, y, and z directions, which is shown in Fig. 1. For convenience, the channel without adaptive rotating AVRGs is marked as Case0, while the channels with AVRGs are marked as Case1, Case2, and Case3, depending on the number of AVRGs arranged along the spanwise direction at the bottom of the channel. The origin of the coordinates is located at the center of the inlet base of the channel.
+Fig. 1
+Download: Download high-res image (252KB)
+Download: Download full-size image
+Fig. 1. Channel physical model with ARVGs (a) Overall structure (b) Local details (c) Schematic of ARVGs arrangement.
+
+The directions of ARVGs rotational axes are in line with the flow direction and pass through their respective centers of gravity. Therefore, it is capable of corresponding passive rotational movements in different flow situations.
+In present work, Reynolds number is defined as follows:
+(1)
+Where Um represents fluid velocity, H is the channel's half height, and v is the kinematic motion viscosity of the fluid.
+In Fig. 1(c), the precise geometric characteristics of Cases1, Case2, and Case3 are shown. ARVG rotates around the x-direction (streamwise direction), and the dimensionless parameters involved are:
+(2)
+(3)
+(4)
+(5)
+(6)
+Where y+ refers to the dimensionless distance from the bottom of the channel, y refers to the distance from the channel bottom, 
+ refers to the friction velocity, 
+ refers to the dimensionless width, z indicates the distance in the spanwise direction, 
+ refers to the dimensionless velocity, u refers to the fluid velocity, 
+ refers to the spatiotemporal mean wall shear stress, 
+ relates to the fluid density and 
+ refers to the dynamic viscosity of fluid.
+To guarantee that the ARVGs are immersed in buffer layer region of the turbulent boundary layer, the center of the ARVGs are located at the dimensionless distance y+≈30 in considered cases. Furthermore, it is assumed that the ARVGs material is sufficient tough to prevent deformation in the process of fluid flow.
+2.2. Governing equations
+In present work, the fluid is considered to be incompressible Newtonian fluid, and the large eddy simulation (LES) is used to numerically investigate the flow and heat transfer characteristics for the above physical model. LES is a spatially averaged turbulent pulsation simulation approach that maintains the spatially large eddy while filtering out the tiny eddy to obtain the instantaneous velocity. The finer the grid and the more reasonable the time step, the more accurate the results of the numerical method, and the smaller the diffusivity. The filtered governing equations are as follows:
+(7)
+(8)
+(9)
+Where 
+ and 
+ respectively represents the filtered velocity component, 
+ represents the density of fluid, 
+ represents the fluid temperature, 
+ represents the thermal diffusivity of fluid, 
+ represents the pressure of fluid, 
+ represents the sub-grid heat flux, and 
+ represents the subgrid-scale stress, which is as follows:
+(10)
+(11)
+(12)
+(13)
+Where, 
+ and 
+ indicate shear stress, 
+ is the subgrid vorticity coefficient, 
+ stands for the Kronecker function, Cs is the Smargorinsky constant, 
+ is the deformation rate tensor of solvable scale, 
+ is filtering scale. Practical applications indicate that smaller values should be taken to minimize the spreading effects of subgrid stresses. In Smagorinsky model, based on the eddy viscosity hypothesis, the effect of small scale eddy on the flow field is simulated by adding a sub-grid scale model. However, under the condition of strong shear, especially in region near the wall, excessive viscous dissipation will occur, which means that the energy dissipation obtained by Smagorinsky model is greater than that of true one. Therefore, in present work, the constant Cs in Smagorinsky model is treated as a function of dimensionless distance from the wall. Therefore, the Smargorinsky constant is modified by the near-wall damping coefficient:
+(14)
+Where A+ denotes the semi-empirical constant.
+2.3. Boundary conditions
+The following are the boundary conditions in present numerical simulation.
+(1)
+The temperature of the bottom surface is maintained at 343K.
+(2)
+Periodic boundary conditions are applied in both the streamwise and spanwise directions.
+(3)
+The fluid temperature at inlet is 300 K.
+(4)
+The walls in the computational domain are subjected to no-slip boundary conditions.
+(5)
+Both the ARVG surfaces and the top of the channel are subject to adiabatic boundary conditions.
+Furthermore, to obtain enough temporal averaging stability, the time step in present numerical simulation is set to 1 × 10−5 s, which could ensure the Courant number 
+ is less than 1. Therefore, the temporal averaging stability in present numerical simulation could be effectively guaranteed.
+3. Grid independence test and numerical verification
+3.1. Numerical methods and grid validation
+In present work, ANSYS Fluent is used. In numerical simulation process, the finite volume method (FVM) approach and the Semi-Implicit Method for Pressure Linked Equations (SIMPLE) algorithm are used to solve Eqs. (7), (8), (9). By the bounded central difference scheme and the second-order upwind scheme, the continuity, momentum and energy equations are discretized, respectively. The standard scheme is employed for the discretization of the pressure item. In addition, the under-relaxation factors are 0.6 and 0.4 for the momentum and pressure, respectively, which guarantee the convergence of the numerical process. The implicit second order interpolation scheme is applied for the transient terms. The convergence residuals of governing equations are set to 10−6, which could meet the requirements of numerical calculation accuracy. As a principle, the Courant (Courant-Friedrichs Lewy) Number less than 0.5 is used in selecting the time and space step. The 6DOF module of the dynamic grid is applied to solve the adaptive rotational motion of the ARVGs.
+The hybrid mesh is used in computational domain. The tetrahedral unstructured mesh is distributed in computational domain between 5.88H ≤ X ≤ 6.68H, and the regular hexahedral mesh is used for the rest of the computational domain, which is shown in Fig. 2. The mesh refinement is applied near the ARVGs surface and the rotational domain so that the mesh deformation can be well captured. The remainder of the rectangular channel is covered with structured grid. To ensure the mesh size near the intersection surface is similar, the structured mesh is gradually refined along the streamwise direction towards the unstructured part, and with a growth rate of 1.2. To properly capture the motion of ARVGs and the thermo-hydraulic properties of the fluid near the wall, refined meshes are applied on the ARVGs surface and the bottom of the channel. The dimensionless distance y+ from the first node to the bottom of the channel and the surface of the ARVGs are both less than 1, which has a growth rate of 1.05 in the normal direction.
+Fig. 2
+Download: Download high-res image (652KB)
+Download: Download full-size image
+Fig. 2. Grid structure of the computational domain (a) The overall grid (b) Detail of the grid around ARVGs.
+
+In numerical simulation, mesh resolution pays an important role in accuracy of numerical results. In terms of computational costs, coarser mesh resolution is conducive to save costs. While the coarser mesh will lower the calculation accuracy. On the other hand, to obtain the accurate numerical results, the finer mesh resolution is necessary. In general, the finer mesh resolution, the more accurate of numerical simulation. But the very fine mesh will result in a sharp increase in computational costs. Therefore, appropriate mesh resolution is very important for both the accuracy of numerical simulation and the computational costs. It is now generally accepted that the mesh independence test could effectively the problem.
+The number of grids in present numerical simulation is validated as well, taking into account the accuracy of the numerical simulation and the computing cost. At Re = 5745, five grids are employed for Case2 in numerical validation. Validation tests are conducted for models with 2.09 × 106, 2.41 × 106, 2.98 × 106, 3.64 × 106 and 3.94 × 106 grids, respectively. By contrasting the surface friction coefficients and Nusselt numbers of the numerical simulation results in Table 1, the relative deviation of Nusselt number and surface friction coefficient between adjacent mesh could be obtained.
+Table 1. Test for grid independence at Re = 5745.
+
+Mesh	Quantity of grids ( × 106)	y + max	Nu	Cf
+1	2.09	0.5573 (y+<1)	10.14	4.990 × 10−3
+2	2.41	0.5172 (y+<1)	10.77	6.057 × 10−3
+3	2.98	0.4838 (y+<1)	11.61	6.279 × 10−3
+4	3.46	0.3876 (y+<1)	11.31	6.137 × 10−3
+5	3.94	0.3253 (y+<1)	11.11	6.088 × 10−3
+As shown in Table 1, the deviations between Mesh 4 and Mesh 3 of Nu and Cf are 2.58 % and 2.3 %, respectively. While the deviations between Mesh 5 and Mesh 4 of Nu and Cf are 1.77 % and 0.79 %, respectively. Therefore, considering the numerical accuracy and computational resources, Mesh 4 model is finally selected for the present numerical simulation.
+3.2. Validation of code
+In order to guarantee the accuracy of the numerical simulation, the results of the present numerical simulation are validated with those obtained by experiment and direct numerical simulation. The present dimensionless velocity distributions are compared with the experimental results of Durst et al. [33] and the direct numerical simulation results of Kim et al. [34], which are shown in Fig. 3. In addition, the uncertainties of wall friction velocity and the average velocity statistical error of experimental data [33] are 1 % and 0.5 %, respectively. It indicates that the experimental results of Durst et al. [33] are reliable. The results show that the present numerical results are in good agreement with those of the experiment and numerical simulation. Meanwhile, the wall friction coefficient obtained by the present numerical simulation is compared with the experimental correlation by Dean et al. [35]. The maximum deviation value occurs at the Reynolds number of 9800, and the deviation between the present numerical the experimental results [35] is only 1.36 %, which further proves the accuracy and reliability of the present numerical simulation.
+Fig. 3
+Download: Download high-res image (465KB)
+Download: Download full-size image
+Fig. 3. Validation of code (a) Present result and experimental results at Reynolds number 6600 (b) Present result and experimental results at Reynolds number 9800 (c) Present result and experimental results at Reynolds number 5600 (d) Cf of present simulation and experimental correlation.
+
+In addition, the results of the present normal dimensionless temperature distribution at a Reynolds number of 3300 are compared with those of the channel experiments obtained by Teitel et al. [36], which is shown in Fig. 4. It can be found that the maximum deviation occurs in the logarithmic law region and the deviation between the present and experimental results [36] is less than 5.83 %, which is within the acceptable range. Therefore, the present results exhibit good agreement with numerical and experimental results, suggesting the accuracy and dependability of the present numerical simulation.
+Fig. 4
+Download: Download high-res image (237KB)
+Download: Download full-size image
+Fig. 4. Comparison of dimensionless temperature with experimental results at Re = 3300.
+
+4. Result and discussion
+The numerical simulations are performed for the Reynolds numbers of 3745, 4745, and 5745 respectively, which respond to various dimensionless rotation angular velocity of ARVGs. The results of the flow structure and heat transfer characteristics at Reynolds number 3745 will be paid special attention in this section to conserve space.
+4.1. The flow field
+The streamwise velocity distribution in rectangular channel without and with ARVGs is shown in Fig. 5 at various normal positions. When y+ = 2, the displayed cross section is located in the viscous sublayer. Compared with the channel without ARVGs (Case0), although the ARVGs are not completely immersed into the viscous sublayer region, it can be found that the velocity near the ARVGs increases. Meantime, it can be found that the ARVGs inject momentum into the viscous sublayer during the rotation of the ARVGs, which accelerates the fluid flow. When y+ = 30, the snapshot of streamwise is taken from the section where the center of rotation of ARVGs is located (as shown in Fig. 5 (f), (g), (h)). In this case, the ARVGs is located in the buffer layer of the boundary layer. Compared with the velocity distribution in Case0 (without ARVGs), the low-speed streaks occur behind the ARVGs, which is caused by the obstruction effect of ARVGs during the rotation of the fan blade, and the momentum loss derived from the fluid hitting the ARVGs. Furthermore, relative uniformly distributed low-speed steaks forms behind the ARVGs, which improves the stability of boundary layer because the streaks structure is re-adjusted. When y+ = 60, the streamwise snapshot is taken from the section that is far from the ARVGs and located in the viscous sublayer of the turbulent boundary layer.
+Fig. 5
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 5. The distributions of streamwise velocity at different dimensionless distances from channel bottom Case0 (a, e, i), Case1 (b, f, j), Case2 (c, g, k), Case3 (d, h, l).
+
+In general, the streamwise velocity distribution difference between Case 1, Case 2, Case 3 and Case 0 is not very obvious, which is derived from the fact that the influence of the ARVGs on the flow field is weakened with the increase of the distance from the bottom of the channel. In addition, it is simple to comprehend that when the normal distance from the channel bottom grows, the viscous force gradually reduces and the fluid velocity rises as a result. However, the relative uniformly distributed low-speed steaks can be found as those at y+ = 30. Therefore, the presence of ARVGs improves the stability of turbulent boundary layer to some degree. In fact, the ARVGs arranged in channel pay a certain blocking role for the fluid flow in channel although the ARVGs could adaptively rotate with the fluid flow. Therefore, with the increase of ARVGs number, the blocking effect of ARVG becomes stronger and the vortices induced by the ARVGs become stronger as well. Meantime, due to the enhancement of the blocking effect of ARVGs, the scale of induced vortices becomes larger. Consequently, the effective limits of induced vortices become stronger, which results in the redistribution of momentum in region near the wall, and a more evenly distributed buffer layer is formed.
+Fig. 6 shows the pressure distribution and transient streamline at specific Y-Z sections where the center of the ARVGs is located. In Fig. 6, (a) (c) (e) is the overall situation and (b) (d) (f) is a local zoom-in around the ARVGs. In the local magnification, it can be found that local areas with low pressure appear around the ARVGs. In Fig. 6 (d) and (f), the low-pressure region appears between the two adjacent ARVGs, while the pressure above the ARVGs is higher.
+Fig. 6
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 6. Pressure distributions and streamline in the y-z plane (a, b) Case 1 (c, d) Case 2 (e, f) Case 3.
+
+As shown in Fig. 6, due to the blocking effect of ARVGs, the pressure distribution near the ARVGs presents is uneven. In contrast, the pressure gradient in spanwise direction near the ARVG in Case 1 is the lowest (average of 0.04 Pa/m) in considered three cases, which means that a small amount of vortices could be induced in region near the ARVG. Meantime, the pressure gradient in spanwise direction near the ARVG of Case 3 is the greatest (average of 0.32 Pa/m) in considered three cases, which results in the more fluid flows along the spanwise direction and the more induced vortices could be formed. While the pressure gradient in spanwise direction near the ARVG of Case 2 is between Case 1 and Case 3 (average of 0.28 Pa/m), the amount of induced vortices is between Case 1 and Case 3 as well. Therefore, the pressure gradient along the spanwise direction caused by the ARVGs is the main inducement of secondary vortices formation.
+The alternating distribution of low and fast velocity streaks matches the alternating distribution of high and low-pressure areas. The arrangement of ARVGs impedes the spreading motion of the fluid near the bottom center of the channel, making the interaction between fast and low-speed streaks within the buffer layer of the boundary layer. It delays the lifting of the velocity streaks and makes the low-speed streaks more stable. Furthermore, it can be found that more small streamwise vorticities forms near the wall with the increase of the number of ARVGs, which is benefit for the suppression of sweep motion that derived from the external region of turbulent boundary layer. The arrangement of the ARVGs, therefore, can have a limiting effect on the vortices in the turbulent boundary layer. Additionally, with the increase of the number of ARVGs arranged along the spanwise direction, the influence of ARVGs on vortex limitation becomes more pronounced.
+The normal velocity distribution in channel with ARVGs in various cases at the center cross-section is shown in Fig. 7.
+Fig. 7
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 7. Normal velocity in the y-z plane (a)(b) Case1 (c)(d) Case2 (e)(f) Case3.
+
+It can be observed that during the rotation of ARVGs, there is a normal high-velocity region with high-velocity gradient at the upper part, and a low-speed region with intensive velocity gradient at the lower part. The intensive streamline in Fig. 7 means a greater velocity gradient. In Case2 and Case3, as the increase of the number of ARVGs, there are more areas with high normal velocities near the center of the channel bottom, which means that the fluid mixing near the bottom becomes more intense. The initial flow structure of the channel is altered by the rotation of the ARVGs, which makes the flow field variation near the ARVGs more visible. It can also be understood that, on one side of the ARVGs, rotation of the ARVGs promotes the sweeping of the buffer layer toward the channel bottom while impeding fluid injection around the ARVGs toward the channel center. On the other side of the ARVGs, however, the effect will be the opposite. Due to the ARVGs are located near the channel bottom, the sweeping of the fluid is restricted to a greater extent, and the rotation of the ARVGs strengthens the ejection of fluid from the bottom to outside the boundary layer. Furthermore, as shown in Fig. 7, the positive normal velocity occurs in the upper of the ARVGs, further demonstrating that the rotational motion of the ARVGs limits the sweep motion. Therefore, with the increase of the number of ARVGs, the region with positive normal velocity augments. Consequently, the ejection is superior to the sweeping effect of the ARVGs. It is common knowledge that the sweep motion produces the majority of the Reynolds stress, which is the primary component of friction drag. Therefore, the drag reduction can be obtained for the presence of the ARVGs.
+Fig. 8 displays the normal velocity distribution at the cross-sectional center of an ARVG along the spanwise direction. As shown in Fig. 8, the influence of disturbances caused by the ARVGs along the streamwise direction on the normal velocity can be observed. Fig. 8 (a) shows a cross-section through the ARVGs rotation center in Case1 at Z/H = 0, Fig. 8 (b) shows three cross-sections in Case2 at Z/H = −0.5,0,0.5, and Fig. 8 (c) shows cross-sections through five ARVGs centers in Case3 with Z/H = −1, −0.5,0,0.5, and 1, respectively. It can be observed that there is a negative normal velocity occurs upstream of the ARVGs, injecting additional momentum towards the bottom of the channel and promoting fluids mixing, which enhances local heat transfer. However, it can be found that the area with negative normal velocity is not very large and has little impact on the drag increase. Meanwhile, the high-speed flow region not only appears on the upper side of the ARVGs as shown in Fig. 8, but also in the flow direction, the region of increased normal velocity also appears in downstream of the ARVGs. The positive normal velocity can prevent the central fluid from sweeping towards the wall, maintaining the low-speed streak, restricting the burst of turbulent coherent structure, and obtaining drag reduction.
+Fig. 8
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 8. Normal velocity distribution at different spanwise sections (a) Case 1 (b) Case 2 (c) Case 3.
+
+In Case 2 and Case 3, due to the interaction of adjacent ARVGs, the region with positive and negative normal velocities around the ARVGs varies along the spanwise direction. In Case 2, compared with the section of Z/H = 0, at section of Z/H = 0.5, the region with maximum positive normal velocity above the ARVGs increases about by 57.5 %, while the region with negative normal velocity below the ARVGs decreases by about 50 %. While at section of Z/H = −0.5, the region with positive and negative velocity has no obvious change. In Case 3, compared with the section of Z/H = 0, at section of Z/H = 
+ 0.5, the region with maximum positive normal velocity above the ARVGs is only one third of the section of Z/H = 0, while the region with negative normal velocity below the ARVGs is about three times of the section of Z/H = 0. Similarly, in Case 3, at the section of Z/H = 
+ 1, the region with maximum positive normal velocity above the ARVGs becomes larger, which is about one half of the section of Z/H = 0, while the region with negative normal velocity below the ARVGs has no obvious change. The mentioned above indicates that the interaction of adjacent ARVGs affects the normal velocity above the ARVGs, while the negative normal velocity below the ARVG is almost unaffected by the adjacent ARVGs.
+The flow and heat transfer are significantly impacted by the flow vortex structure in near-wall area. In turbulent boundary layer, the vortex structure is typically found between y+ = 20 and y+ = 40. The Q criterion can be used to observe the vortex structure in turbulent boundary layer. The Q criterion, which is defined as follows:
+(15)
+(16)
+(17)
+Where Ω and Sij represent the rotation tensor and the strain tensor, respectively.
+The three-dimensional vortex structure on the bottom of the channel is exhibited in Fig. 9. In Case 0, the vortex structure on the channel bottom is densely and disorderly distributed. In Case 1, Case 2, and Case 3, it can be found that the vortex in downstream of the ARVGs is thicker than that in upstream of the ARVGs, and the vortex is more obvious than that in Case 0, which is caused by the addition of vortex induced by the ARVGs. With the increase of the number of ARVGs arranged, the length of the vortex extension in downstream of the ARVGs becomes longer, and the vortex becomes more intensive as well. In summary, compared with Case0, the ARVGs located in the buffer layer effectively promote the growth of the streamwise vortex near the channel bottom, and the vortex structure induced by the rotation of the ARVGs has a restraining effect on the channel original turbulent coherent structure. Therefore, the streamwise vortex structure is kept more stable.
+Fig. 9
+Download: Download high-res image (892KB)
+Download: Download full-size image
+Fig. 9. The vortex structure in channel for Y/H ≤ 1 (Q = 20 1/s) (a) Case 0 (b) Case 1 (c) Case 2 (d) Case 3.
+
+Due to the presence of the ARVGs, the vortex strength has significantly increased. Because the buffer layer of turbulent boundary layer pays a critical role in drag reduction. Therefore, the Q-values within buffer layer of turbulent boundary layer in downstream of ARVGs is numerically obtained. In Case 0–3, the Q-values in downstream of the ARVGs within the buffer layer of turbulent boundary layer are 26.4 s−2, 28.3s−2, 31.6s−2, 33.7s−2, respectively. It indicates the vortices induced by the ARVGs enhance the vortex strength in buffer layer, which results in the improvement of buffering of momentum impact from the outside of the boundary layer, and the drag reduction could be achieved consequently.
+In the case under consideration, Fig. 10 depicts the local vortex structure surrounding the ARVGs center (Q = 15 s−2). It shows that a specific induced vortex structure is formed around the ARVG center. It can be found that three vortex structures occur in the region near the ARVGs. The first vortex structure that is marked as vortex1 is a specific spiral vortex structure, which occurs near the wake of ARVGs and is induced by the rotation of the ARVGs blades.
+Fig. 10
+Download: Download high-res image (667KB)
+Download: Download full-size image
+Fig. 10. Local vortex structure near ARVGs (a) Case 1 (b) Case 2 (c) Case 3.
+
+As the ARVGs passively rotate driven by the fluid, the spiral vortex energy is weak and self-sustaining, so the spiral vortex structure only lasts for about one-half turn before disintegrating and dissipating. In addition, the ARVGs have a blocking effect on the incoming flow during its rotation process, creating a mass of induced vortices on the front side near the channel bottom, which is marked as vortex2. Furthermore, the blocking effect of the ARVGs also causes a relatively thin induced vortex that is marked as vortex3 and located on the back side of the ARVGs. As shown in Fig. 10, adjacent induced vortices are connected. In summary, it can be concluded that vortex2 and vortex3 are closer to the bottom compared to vortex1. A more stable vortex structure near the bottom of the channel reduces the momentum transmission between the mainstream fluid and the boundary layer fluid. Consequently, in downstream of the ARVGs, the skin friction coefficient declines. Therefore, with the increase of the ARVGs, the number of the stable vortex structure near the bottom of the channel increases as well, the better drag reduction effect can be achieved.
+The development of vortices induced by the adaptive rotation of the ARVGs in Case 2 is traced in Fig. 11. Under the action of the fluid flow, a counterclockwise adaptive rotation around the streamwise direction is formed, followed by a gradual development of spiral-induced vortice.
+Fig. 11
+Download: Download high-res image (347KB)
+Download: Download full-size image
+Fig. 11. The vortices induced by AVRG at different moments during the rotation cycle.
+
+The velocity gradient at the bottom of the channel can partially reflect the influence of ARVGs on the fluid flow near the bottom of the channel due to the correlation between the shear stress at the bottom of the channel and the velocity distribution in the near-wall area. Fig. 12 shows the dimensionless velocities 
+ in channels with and without ARVGs. The dimensionless velocity distributions of the channel with the ARVGs close to the viscous sublayer are found to agree with the 
+, which shows that the presence of ARVGs has less influence on the velocity distribution near the viscous sublayer. The dimensionless mean velocities in Case 1, Case 2, and Case 3 dramatically rise in the log-law area compared to that in Case 0. Combining Fig. 12, Fig. 9, it's found that the arrangement of ARVGs in buffer layer induces the vortex structure that serves to restrict the fluid motion in the log-law region (60≤y+≤300). As the increase of the number of ARVGs arranged in the channel, the augment of dimensionless velocity in the log-law region becomes obvious. In addition, it can be found that the more the number of induced vortices, the stronger the momentum exchange, and the greater the intensity of the vortices.
+Fig. 12
+Download: Download high-res image (225KB)
+Download: Download full-size image
+Fig. 12. Velocity distribution in near-wall region.
+
+The Reynolds stress distribution in channels with and without ARVG is shown in Fig. 13. It can be found that in region near the bottom of the channel, the Reynolds stress in channel with ARVGs is lower than that in channel without ARVGs. It indicates that the vortices induced by ARVGs buffer the impact that derived from the outer of the boundary layer. Consequently, the Reynolds stress is effectively suppressed, and the drag reduction could be achieved. It also means that the vortices induced by the ARVGs pay a key role for inhibiting momentum exchange between the inner and outer of the turbulent boundary layer. The role of vortices induced by the ARVGs is similar with the viscidity dissipation of fluid. With the increase of the distance from the bottom of the channel, the role of the vortices induced by the ARVGs gradually diminishes, and the Reynolds stress in channels with and without ARVGs become approximate to each other. In general, the small scale ARVGs could induces the small scale vortices, and those induced small scale vortices effectively butter the impact from the outer of the boundary and pay a role of increasing viscous dissipation, which result in the achievement of drag reduction.
+Fig. 13
+Download: Download high-res image (186KB)
+Download: Download full-size image
+Fig. 13. Reynolds stress distribution in channels with and without ARVG at Re = 3745.
+
+4.2. Friction coefficient and Nusselt number at the bottom of the channel
+The surface friction coefficient can be obtained by the time-space averaging method with the following expression:
+(18)
+(19)
+Where A and x here denote the bottom and local parameters of the channel, respectively.
+Fig. 14 displays the shear stress distribution of the channel bottom. It can be found that the channel without ARVGs exhibits a chaotic state in the wall shear stress distribution. In contrast, in channels with ARVGs, the wall shear stress is lower than in channel without ARVGs, which has a smoother distribution and transition. It indicates that the adaptive rotation of ARVGs in the buffer layer can moderate the fluid flow near the bottom of the channel, improving turbulent stability and reducing the wall shear stresses. The obstructive impact of ARVGs causes the local peak of the wall shear stresses around them.
+Fig. 14
+Download: Download high-res image (916KB)
+Download: Download full-size image
+Fig. 14. Distribution of wall shear stress at the bottom (a) Case 0 (b) Case 1 (c) Case 2 (d) Case 3.
+
+The variation of skin friction coefficient along streamwise direction is shown in Fig. 15. To save the space, only the skin friction coefficient in Case 1 at a certain moment is shown.
+Fig. 15
+Download: Download high-res image (245KB)
+Download: Download full-size image
+Fig. 15. The friction coefficient variation in Case 0 and Case 1 along the streamwise direction.
+
+It can be found that the skin friction coefficient slightly decreases in upstream of the ARVGs due to the blocking effect of the ARVGs. In region below the ARVGs, the fluid accelerates due to the fluid flow path becomes narrow, and the skin friction coefficient sharply increases. While in downstream of the ARVGs, due to the buffer effect cause by the induced vortices, the skin friction coefficient gradually decreases, which is lower than that by 7.78 % in channel without ARVGs.
+The Nusselt number can be obtained by:
+(20)
+(21)
+(22)
+Here, the local and bottom channel parameters are indicated by the letters A and x, respectively. hx indicates the local convective heat transfer coefficient at the channel bottom. Δt refers to the difference in temperature between the mainstream and the bottom. λ represents the thermal conductivity of the fluid.
+Fig. 16 shows the distribution of the Nusselt number at the bottom of the channel in Case 0, Case 1, Case 2, and Case 3. As shown in Fig. 16, the distribution of wall shear stress is comparable to that of the Nusselt number. Additionally, it has been found that the Nusselt number in the wake zone of ARVGs decrease to some extent.
+Fig. 16
+Download: Download high-res image (900KB)
+Download: Download full-size image
+Fig. 16. Distribution of Nusselt number at the bottom (a) Case 0 (b) Case 1 (c) Case 2 (d) Case 3.
+
+Combined with the local Nusselt number at the various spanwise cross-sections illustrated in Fig. 17, it is found that the local Nusselt number reduces in downstream of the ARVGs compared to that in upstream of the ARVGs, which is derived from the improvement of the turbulent coherent structure stability for the presence of the ARVGs. In addition, the fluctuation of Nusselt number decreases as well. The local Nusselt number at the cross-section through the center of the ARVGs decreases slightly in upstream of the ARVGs. Near the ARVGs, the local Nusselt number rises dramatically (6.2 < X/H < 6.55), and then tends to level off. Local heat transfer at the bottom of the channel is somewhat encouraged by the passive rotation of ARVGs, but the stable vortex structure induced in upstream and downstream of the ARVGs hinders the mixing of fluid near the channel bottom, which results in the reduction of heat transfer. At the same time, the ARVGs also lead to the increase of vortex intensity in downstream of the ARVGs, which improves the stability of the induced vortex and causes the decrease of Nusselt number.
+Fig. 17
+Download: Download high-res image (461KB)
+Download: Download full-size image
+Fig. 17. Nux at the bottom of the channel at different sections in Case3 (a) Nux along the streamwise direction (b) Nux near the adaptive vortex generator.
+
+The local Nusselt number along the streamwise direction is shown in Fig. 18. As shown in Fig. 18, compared with the average Nusselt number in channel without ARVGs, in upstream of the ARVGs, the Nusselt number decrease by 6.93 %, while in downstream of the ARVGs, the Nusselt number decreases by 7.82 %. In general, the average Nusselt number in channel with ARVGs decreases by 7.23 % compared with that in channel without ARVGs.
+Fig. 18
+Download: Download high-res image (313KB)
+Download: Download full-size image
+Fig. 18. The variation of Nusselt number in Case 0 and Case 1 along the streamwise direction.
+
+4.3. Thermal transfer evaluation
+In the present work, the synthetic performance coefficient η is used to evaluate the performance of flow and heat transfer, which is as follow:
+(23)
+The subscript 0 represents the channel without ARVGs.
+The rotational speed of the ARVG is measured by the tip speed ratio, which is as follow:
+(24)
+The 
+ in equation denotes the rotational angular velocity of the ARVG and R denotes the radius of ARVG. The Nusselt number, surface friction coefficient at the channel bottom, synthetic performance coefficient, and the TSR of the ARVG for various conditions are presented in Table 2. It can be found that the arrangement of the ARVGs in the channel achieves the drag reduction. Conversely, the Nusselt number decreases for the presence of vortex induced by the ARVGs. It has been discovered that the rotation of adaptive ARVGs has a controlling impact on the local turbulent coherent structure near the wall, which prevents the development of the local coherent structure and consequently lowers the skin friction coefficient. The local Nusselt number also drops as a result of the restriction on the formation of turbulent coherent structure. Thus, it is possible to reduce drag at the cost of losing heat transfer efficiency to some extent.
+Table 2. The Nusselt number, skin friction coefficient, synthetic performance coefficient, and TSR under various conditions.
+
+Re	Case	Nu	f	
+TSR
+3745	Case0	8.9417	0.007830	1	/
+Case1	8.195814	0.007215	0.9419	0.595
+Case2	8.215497	0.007176	0.9459	0.600
+Case3	8.239194	0.007137	0.9503	0.633
+4745	Case0	10.6737	0.007287	1	/
+Case1	9.6404	0.006718	0.9280	0.663
+Case2	9.6910	0.006550	0.9408	0.692
+Case3	9.7903	0.006516	0.9521	0.701
+5745	Case0	12.6772	0.007020	1	/
+Case1	11.1590	0.006176	0.9186	0.722
+Case2	11.2804	0.00614	0.9300	0.734
+Case3	11.3399	0.006126	0.9361	0.740
+Nusselt number, surface friction coefficient in various cases are listed in Table 3. With the increase of the Reynolds number, it can be found that the Nusselt number and skin friction coefficient decrease progressively compared to those in channels without ARVGs, which indicates that the influence of ARVGs on drag reduction strengthens.
+Table 3. Nusselt number and surface friction coefficient at various Reynolds numbers.
+
+Re	Case	Nu	difference	f	difference
+3745	Case0	8.9417	/	0.007830	/
+Case1	8.195814	↓8.342 %	0.007215	↓7.854 %
+Case2	8.215497	↓8.122 %	0.007176	↓8.352 %
+Case3	8.239194	↓7.857 %	0.007137	↓8.851 %
+4745	Case0	10.6737	/	0.007287	/
+Case1	9.6404	↓9.686 %	0.006718	↓7.808 %
+Case2	9.6910	↓9.207 %	0.006550	↓10.114 %
+Case3	9.7903	↓8.276 %	0.006516	↓10.580 %
+5745	Case0	12.6772	/	0.007020	/
+Case1	11.1590	↓11.98 %	0.006176	↓12.022 %
+Case2	11.2804	↓11.02 %	0.006149	↓12.410 %
+Case3	11.3399	↓10.55 %	0.00612	↓12.732 %
+The surface friction coefficient at the bottom of channel in Case 3 at Reynolds number of 3745 is 0.007137, which reduces by 8.851 % compared to the channel without ARVGs. When the Reynolds number is 4745, the drag reduction in Case 3 reaches to 10.58 %. The maximum drag reduction is achieved when the Reynolds number is 5845, with a reduction of 12.732 %.
+Correspondingly, the heat transfer deterioration becomes more obvious. Because the rotational velocity of ARVG increases with the augment of the Reynolds number, therefore, the dimension and effective scope of the vortices induced by ARVGs also increase as the Reynolds number grows. As a result, greater drag reduction could be obtained at the expense of worsening the heat transfer performance.
+As shown in Table 3, the drag reduction could be achieved in channel equipped with the ARVGs. Meanwhile, almost the same magnitude heat transfer deterioration is accompanied in drag reduction process. Therefore, in terms of heat transfer enhancement, setting up ARVGs in turbulent boundary layer cannot achieve the expected result. Conversely, setting up ARVGs in turbulent boundary layer is conductive to achieve the drag reduction. Therefore, the ARVGs just apply to the drag reduction or does not consider the deterioration of heat transfer performance.
+The velocity streak distribution in downstream of the ARVGs along the streamwise direction is illustrated in Fig. 19. As shown in Fig. 19, combined with the velocity streak distribution in downstream of ARVGs at varying Reynolds numbers, it can be observed that with the increase of Reynolds number, the presence of ARVGs causes the high and low-speed streak distributions in streamwise direction become more pronounced and regular, and the low-speed streaks extend farther in the streamwise direction. It also indicates that the vortex structure induced by the ARVGs located within the buffer layer becomes more stable when the Reynolds number increases, which makes the drag reduction effect improve with the increase of the Reynolds number. At the same time, as demonstrated in Table 2, the suppression of the heat transfer effect strengthens with the augment of Reynolds number.
+Fig. 19
+Download: Download high-res image (694KB)
+Download: Download full-size image
+Fig. 19. Velocity streaks in downstream of the ARVGs at different Re (a) Re = 3745 (b) Re = 4745 (c) Re = 5745.
+
+As shown in Fig. 19, due to the presence of the ARVGs, the speed streaks in downstream become longer. With the increase of Reynolds number, the average width and length of speed streaks both augment. When Reynolds number is 3745, the average width and length of speed streaks are 0.024m and 0.123m, respectively. While Reynolds number is 4745, the average width and length of speed streaks are 0.029m and 0.215m, respectively. When Reynolds number is 5745, the average width and length of speed streaks are 0.031m and 0.352m, respectively. The wider and longer speed streaks mean that the flow stability in boundary layer has been improved. Therefore, with the increase of Reynolds number, the drag reduction effect becomes more obvious.
+5. Conclusions
+Present work probes the influence of ARVGs immersed in turbulent boundary layer on the flow and heat transfer characteristics in a rectangular channel. The flow field, flow structure, vortex structure, Nusselt number, and shear stress are numerically investigated. The conclusions can be drawn as follows.
+1.
+Because the ARVGs are located near the channel bottom, the rotation of the ARVGs driven by fluid effectively restricts the sweeping towards to the bottom of the channel. Therefore, the stability of high and low-speed streaks is well maintained, which makes the vortex structure induced by the rotation of ARVGs become more stable along the streamwise direction. As a result, ARVGs can be used to achieve the drag reduction in the channel.
+2.
+Under the action of fluid flow, the ARVGs passively rotate to induce the stable streamwise vortex structure. The induced streamwise vortex structure can strengthen the injection and weaken the sweeping motions of fluid. In general, the reduction of sweeping motion, which is the main source of Reynolds stress, efficiently lowers Reynolds stress. During this time, the fluid mixing near the channel bottom weakens, and the fluid ejection in turbulent viscous sub-layer is reduced, resulting in a deterioration of the heat transfer performance.
+3.
+The better drag reduction in channel with ARVGs can be obtained with an increase of Reynolds number. A drag reduction of 12.732 % is achieved at Reynolds number of 5745. The reason is that the higher Reynolds number will lead to the vortex structure induced by ARVGs stretching longer along the streamwise direction, which has a wider effect on the flow field near the channel bottom. Unfortunately, with the increase of Reynolds number, the heat transfer performance deteriorates. The ARVG is demonstrated to be a device with advantages in drag reduction but not in improving the performance of heat transfer, which has better overall performance at low Reynolds numbers.

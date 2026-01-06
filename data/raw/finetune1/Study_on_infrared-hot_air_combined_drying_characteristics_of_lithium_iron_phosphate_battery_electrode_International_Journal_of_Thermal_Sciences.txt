@@ -1,0 +1,268 @@
+Abstract
+Electrode drying is a critical step in lithium-ion battery manufacturing, significantly influencing energy consumption and battery performance. This study experimentally compared the drying characteristics, electrical properties, mechanical properties, and energy consumption of lithium iron phosphate electrodes processed by hot air drying (HAD), infrared drying (IRD), and infrared-hot air combined drying (IRHAD), and analyzed the impact of process parameter variations on the combined drying process. The most suitable drying kinetic model was obtained through data fitting, and the superiority of infrared-hot air combined drying was validated by moisture diffusivity and activation energy calculations. The findings indicated that under the experimental conditions of this study, the substantial benefits of the integrated drying approach: in comparison to hot air drying, it reduces drying time by 75 % while preserving electrode quality and reduces energy consumption by 69 %. In addition, the activation energy required for infrared-hot air combined drying is reduced by 70 % and 32 % compared to single hot air drying and infrared drying, respectively, thereby indicating a higher efficiency. These findings provide support for exploring the industrial application of infrared-hot air combined drying technology in lithium electrode manufacturing.
+Previous article in issue
+Next article in issue
+Keywords
+Battery electrodeInfrared-hot air combined dryingDrying characteristicsMoisture diffusivityActivation energy
+Nomenclature
+
+X	dry basis moisture content of the electrode coating at the moment t (g/g)
+mt	mass of the electrode coating at the moment t (g)
+me	mass of the electrode coating at the completion of drying (g)
+MR	moisture ratio of the electrode
+Xt	dry basis moisture content of the electrode at any drying moment t (g/g)
+X0	dry basis moisture content of the electrode at the initial drying moment (g/g)
+Xe	dry basis moisture content of the electrode at the drying equilibrium moment (g/g)
+DR	drying rate [g/(g·s)]
+W	system energy consumption (kW·h)
+Pl	infrared lamps power (kW)
+Pf	hot air fan power (kW)
+t	drying time (s)
+Wh	air heater energy consumption (kW·h)
+Deff	effective moisture diffusivity of the electrode during drying (m2/s)
+L	thickness of electrode (m)
+D0	pre-exponential factor of the electrode during drying (m2/s)
+Eg	activation energy (kJ/mol)
+Rg	gas molar constant (8.314 J/(mol·K))
+Tabs	drying temperature (K)
+error in f
+Acronyms
+
+HAD	hot air drying
+IRD	infrared drying
+IRHAD	infrared-hot air combined drying
+LFP	lithium iron phosphate
+PVDF	polyvinylidene fluoride
+NMP	N-Methyl-2-Pyrrolidone
+SEM	Scanning Electron Microscope
+EIS	Electrochemical Impedance Spectroscopy
+1. Introduction
+With the advancement of global energy structure transformation and carbon neutrality goals, lithium batteries have become the core power carrier for electric vehicles and large-scale energy storage systems due to their high energy density and long cycle life [1,2]. In recent years, there have been significant advancements in materials research, leading to substantial improvements in battery energy density and cycle life while concurrently reducing costs. However, in contrast to the advancements witnessed in material innovation, research endeavors concerning battery manufacturing processes have been comparatively deficient, particularly with regard to the critical aspects of energy consumption, temporal management, and cost optimization during the production process [3]. These facets have received inadequate attention, underscoring the need for augmented research efforts in this domain. Among the numerous manufacturing steps involved in the production of the aforementioned product, electrode drying proves to be of particular criticality. This process accounts for approximately 46.8 % of the total energy consumption of battery production. Conventional hot air drying techniques, with processing cycles that extend up to 12 h, exert a substantial influence on overall production efficiency and constitute a primary impediment to augmented production throughput [4,5]. Nelson et al.'s [4] BatPac model estimates an annual electrode drying cost of approximately $13.984 million for a standard battery factory. They further emphasize that this capital-intensive and labor-intensive process represents a critical area that necessitates urgent in-depth research. The successful translation of innovations from the laboratory to manufacturing has the potential to generate substantial cost savings.
+Hot air drying (HAD) and infrared drying (IRD) are commonly used drying methods. HAD is a traditional technology that is simple and low cost, but has a slow drying rate and high energy consumption [6]. IRD utilizes the rapid heat transfer characteristics of infrared radiation, which can significantly increase the drying rate and reduce energy consumption [7]. Infrared-hot air combined drying (IRHAD) combines the advantages of hot air and infrared radiation to further improve drying efficiency through synergistic effects, while reducing energy consumption [8]. IRHAD has significant advantages over HAD and IRD in terms of reducing drying time and improving product quality, which have been proved by in-depth research in the field of drying food and crops. Xu et al. [9] explored the effects of IRD and IRHAD on the drying kinetics, aroma, and physicochemical quality of goldenseal, and found that the drying time could be significantly shortened and better-quality products could be obtained at 60 °C under IRHAD. R. Pandiselvam et al. [10] by comparing the effect of IRD, HAD and IRHAD on the quality of coconut oil at different temperatures, found that the use of IRHAD was optimal at a drying temperature of 60 °C, which significantly enhanced the nutritional quality and stability of coconut oil.
+To achieve control and optimization of drying process, the thin-layer drying kinetic model is used to predict the drying process and guide industrial production. Chen [11] found that the Page model optimally describes the hot-air and infrared drying process of thin carrot slices, and its high-precision fitting provides a reliable tool for drying kinetics analysis. Kumar [12] used Logarithmic model to accurately describe the drying process of coffee beans, which provided theoretical support for energy-efficient design of coffee drying equipment, process optimization, and universal validation of drying models for agricultural products.
+In addition, moisture diffusivity and activation energy are two important parameters for evaluating the advantages and disadvantages of the drying process and guiding the choice of optimal drying conditions. The moisture diffusivity characterizes the efficiency of solvent migration within the material [13], activation energy reflects the energy required to overcome the mass transfer energy barrier in the drying process and is an indicator of the difficulty of the drying process. They are of great significance in revealing mass transfer mechanisms and optimizing process conditions. Arulkumar [14] verified by moisture diffusivity and activation energy that performing osmotic pretreatment optimizes the drying process of cheese, accelerates water migration and reduces drying energy consumption. Muthuvairavan [15] compared the moisture diffusivity and activation energy of bulbous kale under different drying methods to evaluate the advantages and disadvantages of the drying methods, and finally forced air circulation drying with the lowest activation energy was selected as the best process.
+In industrial production, IRHAD has demonstrated significant thermodynamic synergy advantages in drying grains and vegetables [[16], [17], [18], [19]]. However, research and application in electrode drying predominantly focus on HAD and IRD, with significant progress having been made in their mechanisms and optimization. Wang et al. [20] developed a model for the electrode coating drying process, identifying optimal parameters to guide lithium-ion battery production. Oppegård et al. [21] developed a dynamic model to demonstrate that infrared drying of electrode is more efficient and more energy saving than hot air drying. Renganathan et al. [22] have chosen the Newton (Lewis) model to describe the hot air drying process of negative electrode.
+However, current research on the IRHAD characteristics of lithium battery electrode remains relatively limited. There is a lack of studies investigating the influence patterns of key process parameters on the comprehensive performance of electrode. Furthermore, drying kinetic models, moisture diffusivity and activation energy research have not been fully applied to electrode drying. Moreover, previous studies employed sampling and weighting method to measure mass changes, which inevitably introduced variations due to temperature fluctuations and alterations in sample conditions.
+This study employs a self-designed drying experimental system to conduct systematic investigations on lithium iron phosphate cathode systems at the laboratory scale. By integrating real-time weighing, precise control, and multi-temperature measurement, the system ensures reliable and consistent data by continuously tracking electrode mass and eliminating transfer-related errors. This paper is pioneering in its use of a systematic comparative analysis of the drying characteristics, energy consumption, and their effects on the electrical, mechanical properties, and microstructure of electrode under HAD, IRD and IRHAD. The study explores the influence patterns of distinct process parameters on the combined drying characteristics of electrode. On this basis, a suitable drying kinetic model is selected to describe the combined drying process. The advantages of combined drying are explained further from the perspective of moisture diffusivity and activation energy. Consequently, this study provides certain technical support for industrial applications.
+2. Experimental system and method
+2.1. Experimental system
+This study designed and constructed a specialized experimental system for infrared-hot air combined drying experiment, and its core structure is shown in Fig. 1. The experimental system is mainly composed of three modules: the main body of the drying oven, the hot air circulation system and the online weighing system.
+Fig. 1
+Download: Download high-res image (472KB)
+Download: Download full-size image
+Fig. 1. Schematic diagram of infrared-hot air combined drying experimental system.
+
+Drying oven body has a built-in adjustable infrared radiation lamp 6 (power range 720–2400 W), with precise adjustment of the distance between the infrared lamps and the electrode sample (40–140 mm) by means of a rod system 8. Four temperature monitoring points are set up in the core drying area of the oven, in which the infrared temperature probe 3 is positioned above the surface of the electrode for direct measurement of the surface temperature of the electrode, and the other three K-type thermocouples 5 are used to monitor the temperature distribution of the hot air in the chamber in real time. NMP concentration on-line detectors 2 are installed at the entrance and exit of the chamber, respectively.
+Hot air circulation systemt consists of centrifugal fan 14 and air heater 12, and uses PID control to realize independent adjustment of air velocity (0–1.60 m/s) and air temperature (20–140 °C). The entrance of air circuit system is equipped with even wind plate to ensure the uniformity of air velocity field in the main working area of the oven.
+Online weighing system consists of suspended pallet 10 and a high precision electronic balance 9 (METTLER TOLEDO MA2002/A). With the data acquisition system 1 to realize the real-time monitoring of the quality change of the electrode during the drying process, the sampling frequency is set to 1 Hz.
+During the experimental operation, the circulating fan and air heater were activated 30 min prior to the commencement of the drying process. The air velocity and temperature parameters were preset to the test conditions and maintained in steady state operation. Prior to the commencement of the drying process, the infrared lamps should be activated for a duration of 1 min. Thereafter, the lamps power should be adjusted to the designated setting, with the objective of maintaining a consistent output. Subsequently, the lamps should be positioned at the stipulated height. During the experiment, the electrode samples, which had been cut to standard size, were fixed on a special tray and placed into the oven. The quality change data was recorded in real time by the online electronic balance.
+2.2. Experimental material
+Common cathode materials include lithium iron phosphate (LFP), lithium cobalt oxide (LiCoO2), and lithium nickel cobalt manganese oxide (NMC). Among cathode materials, lithium iron phosphate (LFP) exhibits unique, comprehensive advantages. Compared to other popular materials, LFP offers exceptional safety and thermal stability [23]. Its stable olivine structure and strong P-O bonds effectively prevent the thermal runaway risks associated with structural phase transitions and oxygen release at high voltages [24]. These risks are inherent in layered oxides, such as LiCoO2 and nickel-manganese-cobalt oxide (NMC). By balancing high energy density with high safety, LFP batteries are widely adopted in large-scale energy storage systems and electric car applications due to their exceptional cycle life and safety. Therefore, in this study, lithium iron phosphate cathode electrode was chosen as the research object. In which N-Methyl-2-Pyrrolidone (NMP) was used as the solvent, the active substance was lithium iron phosphate (LFP), the conductive agent was conductive carbon black, the binder was polyvinylidene fluoride (PVDF), and the collector was aluminum foil. Detailed information on the experimental material is given in the Supplementary material. The solid content of slurry in the experiment was 55 %, and LFP: conductive carbon black: PVDF = 95:1.5:3.5 in the solid part.
+The slurry was produced by a wet process using a planetary mixer (Kejing, MSK-PCE-V2150), as shown in Fig. 2. This mixer employed a planetary centrifugal mixing principle, achieving uniform blending through the combined orbital and rotational motion of the sample. Its non-contact design eliminated the need for stirring blades, thereby minimizing contamination risks. The equipment integrated temperature sensors for real-time monitoring of the mixing process; the experimental environment was maintained at a stable 25 °C to ensure consistent process conditions. Firstly, mix all the binder PVDF with part of NMP, mix 1h; then add all the conductive carbon black, mixing 1h; finally add all the lithium iron phosphate and the remaining NMP, mixing 2 h. During the mixing process, the orbital rotation speed was set at 600 RPM, while the rotational speed was 360 RPM. Rheological testing is conducted on the slurry in order to ensure that its viscosity remains within an appropriate range, thereby maintaining consistency. Detailed viscosity test results are available in the supplementary material. The prepared slurry was uniformly coated on the aluminum foil using a flatbed coater (Kejing, MSK-AFA-SC200) with a fixed coverage area of 90 mm × 190 mm and a fixed thickness of 150 μm.
+Fig. 2
+Download: Download high-res image (301KB)
+Download: Download full-size image
+Fig. 2. Flow chart of slurry preparation.
+
+2.3. Experimental method
+A comprehensive analysis of IRHAD was conducted, encompassing the critical process parameters of radiant power, radiant distance, hot air temperature, and hot air velocity. To ensure the robustness of the findings, a group of pure hot air drying experiments (hot air temperature of 100 °C, hot air velocity of 1.12 m/s) and pure infrared drying experiments (radiant power of 1080 W, radiant distance of 70 mm) were selected as a control group. These experiments were employed to make a comparative analysis of the energy consumption and the performance of electrode drying.
+The configuration of the experimental conditions is delineated in Table 1, while the measurement of the energy consumption for drying the electrode is exhibited in Section 2.5. The quality of the dried electrodes can be characterised by means of the peeling force test, SEM test and the electrode electrical performance test. All experiments were independently repeated three times. Analysis of variance (ANOVA) was performed on the experimental data using SPSS. This analysis aimed to test the statistical significance of differences among various drying methods and the IRHAD process parameters, with a significance level set at p < 0.05.
+Table 1. Drying conditions of electrode.
+
+Variable parameters	Drying conditions
+Radiant power(W)	Radiant distance(mm)	Hot air temperature(°C)	Hot air velocity(m/s)
+Radiant power	720/1080/1440	70	100	1.12
+Radiant distance	1080	40/70/100	100	1.12
+Hot air temperature	1080	70	60/100/140	1.12
+Hot air velocity	1080	70	100	0.64/1.12/1.60
+2.4. Calculation of drying parameters
+The drying characteristics of the electrode can be characterized by the dry basis moisture content curve of the electrode coating and the drying rate curve.
+Wherein, the real-time dry basis moisture content of the electrode coating is calculated by equation (1):
+(1)
+Where X is dry basis moisture content of the electrode coating at the moment t (g/g); where mt is mass of the electrode coating at the moment t (g); where me is mass of the electrode coating at the completion of drying (g).
+Equations (2), (3) show the moisture ratio [25] and drying rate [26] of the battery electrode under different conditions.
+(2)
+Where MR is moisture ratio of the electrode; where Xt is dry basis moisture content of the electrode at any drying moment t (g/g); where X0 is dry basis moisture content of the electrode at the initial drying moment (g/g); where Xe is dry basis moisture content of the electrode at the drying equilibrium moment (g/g).
+(3)
+Where DR is drying rate [g/(g·s)]; where MRt1 is basis moisture ratio at the moment of arbitrary drying t1 of the electrode; where MRt2 is basis moisture ratio at the moment of arbitrary drying t2 of the electrode.
+2.5. Energy consumption calculation method
+In this experiment system, the drying system energy consumption calculation was carried out through equation (4).
+(4)
+Where W is system energy consumption (kW·h); where Pl is infrared lamps power(kW); where Pf is hot air fan power (kW); where t is drying time (s); where Wh is air heater energy consumption, read by electric meter (kW·h).
+2.6. Electrode peeling force test
+After the drying of the electrode was completed, the 180° peeling force test of the electrode was carried out using a tensile machine (ZQ-990L). Cut the electrode to 20 mm × 190 mm, set the peeling length to 100 mm, peeling rate to 100 mm/min.
+2.7. Uncertainty analysis
+The uncertainty of the measured value is given by the instrument and the uncertainty of the derived value is calculated by equation (5) [27].
+(5)
+Where 
+ is error in f, 
+, 
+, 
+ are the uncertainty in the independent variables 
+.
+The uncertainties of the measured values and the combined uncertainties of the derived values in the experimental system are shown in Table 2.
+Table 2. Uncertainty of measured and derived values in experimental systems.
+
+Empty Cell	Parameters	Unit	Uncertainties
+Measured values	temperature	°C	0.5
+velocity	m/s	0.05
+radiant distance	mm	0.1
+mass	g	0.01
+thickness	μm	3
+energy consumption	kW·h	0.01
+Derived values	X	–	1.26 %
+MR	–	2.18 %
+DR	g/(g·s)	9.72 %
+3. Results and analysis
+3.1. Comparison of different drying methods for electrode
+HAD and IRD have different principles, HAD through the hot air blowing over the LFP electrode to be dried, so that the solvent in the electrode coating evaporates and is taken away. IRD, on the other hand, penetrates the surface of the LFP electrode and is absorbed by the molecules inside the electrode, which intensifies the vibration of the molecules and converts them into thermal energy, resulting in rapid surface and internal heating [28]. IRHAD combines the advantages of HAD and IRD with high intensity solvent internal diffusion and enhanced surface evaporation. The principle of the three drying methods is shown in Fig. 3.
+Fig. 3
+Download: Download high-res image (532KB)
+Download: Download full-size image
+Fig. 3. Schematic diagram of HAD, IRD and IRHAD principle.
+
+The dry basis moisture content curves of the electrodes under HAD (hot air temperature 100 °C, hot air velocity 1.12 m/s), IRD (radiant power 1080 W, radiant distance 70 mm) and IRHAD (radiant power 1080 W, radiant distance 70 mm, hot air temperature 100 °C, hot air velocity 1.12 m/s) are shown in Fig. 4. The drying process of HAD is comprised of three distinct stages. In the initial phase, the drying rate accelerates rapidly. This is followed by a period of intense drying, where the rate of drying slows down. Finally, the rate of drying decelerates once more, marking the conclusion of the drying process. In the case of IRD and IRHAD, the drying process is divided into two stages. The first stage is characterised by a rapid increase in drying rate. The second stage is characterised by a decrease in drying rate.
+Fig. 4
+Download: Download high-res image (341KB)
+Download: Download full-size image
+Fig. 4. Effect of three drying methods on the drying characteristics of electrode.
+
+This difference stems from the difference in the mechanism of action of the different drying methods, which in turn leads to different solvent migration mechanisms. The rapid drying at the initial stage of IRD and IRHAD indicates that the drying process is controlled by the diffusion of solvent inside the electrode, while the low drying rate at the initial stage of HAD and the existence of a “hysteresis stage” indicate that the surface evaporation mainly controls the drying process [29].
+Comparison of drying time and energy consumption of electrodes for the three drying processes was shown in Fig. 5. The results showed that the HAD takes 456 s, and IRD significantly improves the heating efficiency based on its deep penetration characteristics, reducing the drying time to 251 s, which is 44 % less than that of the HAD. The IRHAD further optimizes the drying process through a synergistic reinforcement mechanism: while retaining the advantages of infrared radiant heating, the use of forced convection to strengthen the mass and heat transfer effect, accelerating the diffusion and migration of the NMP steam, and ultimately shortening the drying time to 113 s, which is 75 % less than that of the HAD. Different drying methods significantly affect drying time (p < 0.001).
+Fig. 5
+Download: Download high-res image (206KB)
+Download: Download full-size image
+Fig. 5. Comparison of drying time and energy consumption under three drying methods.
+
+The findings of the energy consumption test indicated that the energy consumption of HAD, IRD and IRHAD for a single electrode is 0.55 kW h, 0.08 kW h and 0.17 kW h, respectively. It is evident that the latter two methods achieve energy savings of 86 % and 69 % compared to the benchmark value of HAD, respectively.
+In order to evaluate the advantages and disadvantages of the drying method, in addition to the drying time and drying energy consumption, the mechanical properties, microstructure, and performance of battrry made by electrode are also investigated. Peeling force is the key indicator to characterize the bonding strength of the collector-coating interface [30]. SEM can observe the surface structure of electrode. Electrochemical Impedance Spectroscopy (EIS) testing is an important electrochemical analytical technique. In lithium-ion batteries, EIS can characterize the charge transfer impedance, ion diffusion coefficient and other parameters of the battery electrode materials, which respond to the electrical performance of lithium batteries.
+The SEM micrograph are shown in Fig. 6. The observation of particle agglomeration and pore structure was facilitated by employing ×5000 magnification. Under this magnification, all three samples exhibited adequate pore structure and an absence of conspicuous large particle agglomerations. The microstructure of electrode was not significantly affected by drying methods. The cross-sectional SEM images (x1000) of the electrode obtained from the three drying methods are shown in Fig. 6 d), e), and f). The cross-section of the HAD electrode displays an uneven particle arrangement, accompanied by the presence of significant voids. In contrast, the samples that underwent drying by IRD or IRHAD exhibited relatively uniform particle arrangement, devoid of substantial pores. This finding indicates that the drying performance of these samples is superior to that of HAD alone.
+Fig. 6
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 6. SEM micrograph of electrode under different drying methods.
+
+The results of the peeling force test were showed in Fig. 7. The peeling force of combined drying increased to 1.17 N, which is significantly better than the single drying method, a phenomenon attributed to the optimization of the drying method, which significantly reduces the drying time. Specifically, excessively long drying times may lead to uneven binder migration, thereby weakening interfacial bonding [31]. Traditional HAD is time-consuming, and the binder tends to distribute unevenly during the process. In contrast, IRHAD offers a time advantage over single HAD or IRD, potentially helping to maintain uniform binder distribution within the electrode and thus enhancing peel force. This proposed mechanism requires further experimental validation.
+Fig. 7
+Download: Download high-res image (167KB)
+Download: Download full-size image
+Fig. 7. Comparison of peeling force of LFP electrode under different drying methods.
+
+Binder migration is a prevalent critical issue in lithium-ion battery electrode manufacturing, with its fundamental mechanism primarily stemming from solvent evaporation during the electrode slurry drying stage [32]. During drying, driven by capillary forces, solvents carry binder materials toward the electrode surface, resulting in severe non-uniform distribution of the binder along the electrode's longitudinal axis. Jana Kumberg [33] points out that binder migration negatively impacts battery performance, with the loss of interfacial adhesion directly compromising electrode structural integrity and facilitating active material shedding under mechanical stresses during battery cycling. Bongki Son [34] indicates that drying methods combining infrared radiation with free convection achieve lower steady-state temperatures at equivalent drying rates compared to traditional forced convection or infrared-enhanced forced convection, significantly enhancing post-drying electrode adhesion. This finding aligns with the results presented in this paper.
+The LFP electrodes obtained from the three drying methods were assembled into a button half-cell for EIS testing, and the test results were shown in Fig. 8. In the high-medium-frequency region, the arc radius of the cell corresponding to IRD and IRHAD is close to, and slightly smaller than that of HAD, which indicates that its charge-transfer impedance is slightly lower than that of the cell with HAD electrode. Significant differences in battery performance indicators not produced by the three drying methods. In summary, the peeling force will be chosen an important performance indicator in the subsequent investigation of the effects of different process parameters on the drying characteristics of the electrode. The results of electrochemical performance tests and micro-morphological characterization will not be shown repeatedly.
+Fig. 8
+Download: Download high-res image (218KB)
+Download: Download full-size image
+Fig. 8. EIS mapping of LFP half-cells under different drying methods.
+
+3.2. Influence of different factors on the drying characteristics of LFP electrode
+3.2.1. Radiant power
+Fig. 9 showed the variation rule of dry basis moisture content X with time under different radiant power conditions of LFP battery electrode, as well as the influence law of radiant power on the kinetic characteristics of electrode drying. The results showed that the radiant power shows a significant negative correlation with the drying time (p < 0.001): When the radiant power was increased from 720 W to 1440 W, the drying time was shortened from 248 s to 52 s, a reduction of 79 %. This phenomenon can be attributed to the fact that the enhanced radiant energy input provides sufficient energy to complete the electrode drying process. The drying process is characterized by a typical two-stage process: in the initial stage (X ≥ 0.2) the moisture content decreases rapidly due to the established temperature gradient inside the electrodes, which drives the solvent to the surface efficiently, and the sufficient solvent supply ensures efficient evaporation [35]. In the middle and late stages (X < 0.2) the change in moisture content significantly slows down due to the blockage of solvent diffusion caused by the densification of the electrode structure, and at this point the drying rate is mainly limited by the internal mass transfer process [36].
+Fig. 9
+Download: Download high-res image (339KB)
+Download: Download full-size image
+Fig. 9. Effect of different radiant power on drying characteristics of electrode.
+
+3.2.2. Radiant distance
+The radiant distance has a certain effect on the drying characteristics (p < 0.001), as shown in Fig. 10. When the radiant power was fixed at 1080 W, the drying time was reduced from 123 s to 100 s when the radiant distance was shortened from 100 mm to 40 mm, which was a reduction ratio of 18 %. This efficiency gain stems from the inverse square relationship between the density of radiant heat flow and the distance, and the shortening of the distance allows the electrode to obtain a higher energy density.
+Fig. 10
+Download: Download high-res image (332KB)
+Download: Download full-size image
+Fig. 10. Effect of different radiant distance on drying characteristics of electrode.
+
+3.2.3. Hot air velocity
+The experimental data in Fig. 11 demonstrated that the augmentation of hot air velocity within the range of 0.64–1.12 m/s can result in a reduction in drying time by 22 % (138 s→107 s). Hot air velocity significantly affects electrode drying time (p < 0.001). The hot air velocity enhancement mechanism functions by accelerating the vapor diffusion process on the surface of the electrode. This, in turn, effectively reduces the NMP concentration gradient in the boundary layer, thereby ensuring the maintenance of a high evaporation drive. However, the heat transfer of forced convection is subject to secondary conduction through the air medium. In comparison with the direct penetration heating of infrared radiation, there is a significant disparity in its energy conversion efficiency. Consequently, while the hot air velocity adjustment has been demonstrated to enhance surface mass transfer, the overall drying rate remains constrained.
+Fig. 11
+Download: Download high-res image (337KB)
+Download: Download full-size image
+Fig. 11. Effect of different hot air velocity on drying characteristics of electrode.
+
+3.2.4. Hot air temperature
+The hot air temperature parameter demonstrated significant modulation of the drying kinetics (p < 0.001). As shown in Fig. 12, the experimental investigation revealed that an increase in temperature from 60 °C to 140 °C resulted in a significant reduction in drying time, from 137 s to 102 s. This observation indicates a 25 % decrease in the drying time when the temperature was elevated. However, the purpose of this parameter is to induce a heat conduction hysteresis effect. In order to affect the internal temperature distribution, it is necessary for the heat to penetrate the surface layer of the material. This phenomenon leads to a regulatory effect that is less pronounced than the direct regulation of radiant power.
+Fig. 12
+Download: Download high-res image (328KB)
+Download: Download full-size image
+Fig. 12. Effect of different hot air temperature on drying characteristics of electrode.
+
+3.3. Influence of different factors on the drying characteristics of LFP electrode
+3.3.1. Radiant power
+The energy consumption of lithium-ion battery electrode drying is significantly negatively correlated with the radiant power: when the power was increased from 720 W to 1440 W, the energy consumption of single electrode drying was reduced from 0.34 kW h to 0.08 kW h (76 % reduction), and at the same time the drying cycle was shortened to realize the double improvement of the energy efficiency and the production efficiency. The radiant power on the peeling force of the electrode showed a trend of increasing and then decreasing, 720 W/1080 W/1440 W corresponds to the peeling force of 0.12 N/1.17 N/0.50 N respectively, and the analysis of the mechanism showed that: the low power leads to a long drying time, which triggers the uneven distribution of the binder; the high power, although shortening the time, the rapid drying impedes the diffusion of binder molecules, and the solvent residual formation of micropores weakened the interface bonding. In this experiment, the optimal balance was achieved at 1080 W, which not only avoided excessive thermal stress but also guaranteed the uniformity of the binder [37,38].
+3.3.2. Radiant distance
+Fig. 13b) showed that the unit energy consumption is positively correlated with the radiant distance: when the radiant distance is increased from 40 mm to 100 mm, the energy consumption of a single electrode rises from 0.15 kW h to 0.18 kW h, with an increase of 16 %, but due to the limited energy-saving benefit and the restricted adjustable range, the actual engineering application value is low. When the radiant distance is 40 mm, 70 mm and 100 mm, the peeling force of the electrode is 0.69 N, 1.17 N and 1.54 N, respectively, and the peeling force of the electrode is obviously positively correlated with the radiant distance. When the radiant distance increases, the density of radiation heat flow reaching the surface of theelectrode decreases, reducing the temperature of the surface of the electrode and avoiding drying of the electrode in a high-temperature environment, resulting in a lower peeling force.
+Fig. 13
+Download: Download high-res image (947KB)
+Download: Download full-size image
+Fig. 13. Variation of drying time, peeling force and energy consumption under different process parameters.
+
+3.3.3. Hot air velocity
+Fig. 13c) presented a significant positive correlation between the energy consumption of the electrode drying and the hot air velocity: when the air velocity increases from 0.64 m/s to 1.60 m/s, the unit energy consumption rises from 0.14 kW h to 0.20 kW h, which is a 48 % increase. Although the increase in air velocity shortens the drying cycle by 22 %, the rise in energy consumption of the fan and heating system leads to a reverse increase in total energy consumption. Meanwhile, the peeling force of the electrode increases with the increase of the hot air velocity, and the peeling force of the electrode is 0.79 N at the hot air velocity of 0.64 m/s, but the peeling force increases to 1.37 N when the hot air velocity reaches 1.60 m/s. The higher air velocity accelerates the dynamic balance of the evaporation of the solvent, shortens the drying time, and reduces the length of the electrode exposed to high temperature, which reduces the risk of structural damage and maintains the peeling force at a higher level.
+3.3.4. Hot air temperature
+Hot air temperature regulation will also affect the energy consumption of drying single electrode, hot air temperature regulation from 60 °C to 140 °C, the energy consumption from 0.15 kW h to 0.19 kW h, an increase of 31 %. Although increasing the hot air temperature can shorten the drying time, the heating energy consumption increases significantly, resulting in a rise in energy consumption per unit of electrode. In the industrial production of IRHAD of electrode, in order to save energy consumption, too high air temperature should not be used. Electrode peeling force with the rise of hot air temperature into a decreasing trend, hot air temperature of 60 °C, the electrode peeling force of 1.65 N, but when the hot air temperature reaches 140 °C when the peeling force dropped significantly to 0.77 N. Lower hot air temperature can play a cooling effect in the drying of the electrode, to prevent the surface of the electrode is at a higher temperature to make the internal generation of excessive thermal stress, thus affecting the peeling force of the electrode.
+3.4. Thin-layer drying kinetics model
+The MR curves were analyzed under three different conditions of the experiments in Section 3.1, HAD (hot air temperature of 100 °C, hot air velocity of 1.12 m/s), IRD (radiant power of 1080 W, radiant distance of 70 mm) and IRHAD (radiant power of 1080 W, radiant distance of 70 mm, hot air temperature of 100 °C, hot air velocity of 1.12 m/s). The thin-layer drying model (see Table 3) was fitted, and the model that best fits the drying process of the electrode was selected based on the coefficient of determination R2, chi-square χ2.
+Table 3. Common thin-layer drying kinetic models.
+
+Drying kinetics models	Displayed formula
+Page [39]	MR = exp(-ktx)
+Logarithmic [40]	MR = aexp(-kt) + b
+Lewis [41]	MR = exp(-kt)
+Henderson and Pabis [42]	MR = aexp(-kt)
+Wang and Singh [43]	MR = 1+at + bt2
+Fitting parameters of different models under three drying methods are given in the Supplementary data. Analysis of the fitting results showed that: in the fitting results of each model to the drying process of the electrode under HAD, the coefficients of determination R2 of Page, Logarithmic and Wang and Singh models are all greater than 0.9900 and the chi-square 
+ is less than 20.0 × 10−4, which show a good fitting effect. The Page model with the highest R2 and lowest chi-square 
+ emerged as the best model for describing the drying process of the electrode under HAD, followed by the Logarithmic model and the Wang and Singh model. In the HAD process, the initial stage is often characterized by a “hysteresis stage” due to the low drying rate. Page, Logarithmic and Wang and Singh models can effectively simulate the slowly changing characteristics of MR at this stage, and their mathematical forms are well adapted to the HAD process. In contrast, the Lewis and Henderson and Pabis models are limited by the exponential structure feature and lack of constant terms and power parameter corrections compared to the Page and Logarithmic models, which make it difficult to describe the three phases of HAD at the same time.
+Whereas IRD and IRHAD show different results. For the fitting results of these two drying methods, the Logarithmic model showed the highest R2 (0.9860 for IRD and 0.9891 for IRHAD) and the lowest 
+ (15.5 × 10−4 for IRD and 10.5 × 10−4 for IRHAD), making it the best model describing the two drying modes, followed by the Page model. The Lewis and Henderson and Pabis models, which were previously not applicable to HAD, also had a good fit. IRD and IRHAD are characterized by a fast-slow two-stage process, which can be described by Page, Logarithmic, Lewis and Henderson and Pabis by virtue of an exponential structure, while the quadratic structure of the Wang and Singh model is no longer suitable.
+In summary, for HAD, the Page model is the best fitting model; while the Logarithmic model becomes the best model for IRD and IRHAD. The best drying model fitting results for the three drying methods are shown in Fig. 14.
+Fig. 14
+Download: Download high-res image (273KB)
+Download: Download full-size image
+Fig. 14. Best model fit curves for different drying methods.
+
+3.5. Moisture diffusivity and activation energy analysis for drying of lithium iron phosphate electrode
+Diffusion is the main solvent movement mechanism during drying, and the use of the Fick diffusion equation to obtain the effective moisture diffusivity is usually considered when describing the solvent diffusion process during drying. According to Fick diffusion equation [44], the effective moisture diffusivity can be calculated by equation (6).
+(6)
+Equation (6) can be solved based on the sample geometry, initial drying conditions and boundary conditions. Therefore, the effective moisture diffusivity can be expressed by equation (7) assuming that it has a uniform initial moisture content, constant moisture diffusivity, and neglecting shrinkage and external mass transfer resistance [26].
+(7)
+Where Deff is effective moisture diffusivity of the electrode during drying (m2/s); where L is thickness of electrode (m).
+Taking logarithms on both sides simultaneously yields equation (8)
+(8)
+It is imperative to acknowledge that this model considers Deff to be constant throughout the entirety of the drying process. This is a widely used engineering simplification method aimed at obtaining an "apparent average" diffusion coefficient for quantitatively characterizing the effects of different process parameters on the drying process.
+The moisture diffusivity was calculated using the MR values obtained from the experimental data of combined drying and the MR values generated by fitting the Logarithmic model screened in Section 3.4, respectively, and the errors of the moisture diffusivity obtained in the two ways were compared to further validate the reliability of the Logarithmic model for describing the combined drying process.
+The experimental values of the moisture diffusivity and the fitted values of the Logarithmic model for different operating conditions are shown in Table 4. The range of experimentally calculated moisture diffusivity for the electrode during drying was 1.0441–5.7905 × 10−10 m2/s, while the range of moisture diffusivity obtained by model fitting was 1.0551–5.4431 × 10−10 m2/s. Comparison of the values of the moisture diffusivity obtained in the two ways reveals that they show good agreement (relative error less than 6 %) under most working conditions, further indicating that the Logarithmic model is suitable for describing the IRHAD process of the electrode.
+Table 4. Moisture diffusivity of electrode in each group of working conditions.
+
+Empty Cell	Moisture diffusivity( × 10−10 m2/s)	Inaccuracy
+Experimental	Model fitting
+Radiant power	720W	1.0441	1.0551	1.1 %
+1080W	2.3189	2.3572	1.7 %
+1440W	5.7905	5.4431	5.9 %
+Radiant distance	40 mm	2.6901	2.6709	0.7 %
+70 mm	2.3189	2.3572	1.7 %
+100 mm	2.1566	2.1667	0.5 %
+Hot air temperature	60 °C	2.0905	2.2132	5.8 %
+100 °C	2.3189	2.3572	1.7 %
+140 °C	2.5669	2.5423	1.0 %
+Hot air velocity	0.64 m/s	2.0125	2.0363	1.2 %
+1.12 m/s	2.3189	2.3572	1.7 %
+1.60 m/s	2.5332	2.4621	2.8 %
+Analyzing the pattern of change of the data according to Tables 4 and it can be seen that the moisture diffusivity and the radiant power is significantly positively correlated, and with the increase of radiant distance is a decreasing trend, the moisture diffusivity with the rise of the hot air velocity and temperature and continue to increase. The trends of the four groups of process parameters on the moisture diffusivity and the influence of the drying time show consistency, which further verifies the physical significance that the moisture diffusivity can effectively characterize the migration efficiency of the solvent inside the material.
+Activation energy can be used to characterize the start-up energy required to evaporate a unit mole of solvent during the drying process and is another core parameter of the drying process, which is important in guiding the selection of the optimal drying method to ensure effective removal of solvent along with the desired quality attributes [45].
+The activation energies for HAD (drying temperatures of 80 °C, 100 °C, 120 °C), IRD (drying temperatures of 100 °C, 140 °C, 220 °C), and IRHAD (drying temperatures of 140 °C, 160 °C, and 180 °C) were calculated using the Arrhenius equation [46] in equation (9), (10), respectively. In this study, the temperature selection for activation energy calculations was methodically determined on an individual basis. This determination was based on the technical characteristics of each drying method and the temperature control limitations of the drying system. The mechanisms of heat transfer, namely HAD (primarily convective), IRD (primarily radiative), and IRHAD (incorporating features of both), exhibit distinctly different behaviors.
+(9)
+(10)
+Where D0 is pre-exponential factor of the electrode during drying (m2/s); where Eg is activation energy (kJ/mol); where Rg is gas molar constant (8.314 J/(mol·K)); where Tabs is drying temperature (K).
+Results of lnDeff vs. 1/T fitting for different drying methods are given in the Supplementary data. The activation energies of the electrode under the three drying methods were calculated according to the Arrhenius formula, in which 29.06 kJ/mol for HAD, 12.98 kJ/mol for IRD, and 8.85 kJ/mol for IRHAD, which showed a decreasing trend in order. This also implies that the lowest activation energy requirement is found under combined drying, which further confirms that the combined drying technique has lower energy requirement and the drying process is easier to carry out.
+4. Conclusions
+In this study, the drying characteristics, energy consumption and electrode performance of lithium iron phosphate battery electrde were investigated under HAD, IRD and IRHAD. The findings offer both theoretical foundations and process optimization strategies for the industrial application of IRHAD technology. The specific conclusions are as follows.
+(1)
+IRHAD combines the advantages of IRD and HAD. This process enhances surface evaporation and promotes the internal diffusion of high-intensity solvents, resulting in significant improvements in terms of drying rate, time and energy consumption. It also exerts a minimal influence on the electrochemical properties of the electrodes, yet significantly increases their peeling force.
+(2)
+The efficiency of the IRHAD process is primarily governed by several pivotal parameters, including radiant power, radiant distance, hot air temperature, and velocity. It has been demonstrated that enhancing the radiant power, decreasing the radiant distance, increasing the hot air temperature and air velocity can result in a substantial reduction in drying time and an enhancement in the drying rate.
+(3)
+Energy consumption can be reduced by increasing radiant power or decreasing radiant distance. Conversely, increasing hot air temperature and velocity leads to higher energy consumption. Peeling force of the electrode decreases with increasing hot air temperature and radiant distance, increases with higher hot air velocity, and exhibits a nonlinear relationship with radiant power.
+(4)
+Different thin-layer drying models have different adaptations for different drying methods, with the Page model fitting best to the data of HAD. In contrast, the Logarithmic model shows the best fit in IRD and IRHAD.
+(5)
+The moisture diffusivity obtained from the experimental data during the drying process and the moisture diffusity obtained from the model fitting are basically in agreement.The activation energy of IRHAD was significantly lower than that of HAD or IRD, which provided a mechanistic explanation for its high efficiency and energy savings.
+It should be noted that the findings of this study are based on small-scale laboratory experiments and are mainly relevant to lithium iron phosphate cathode systems. Further investigation is required to evaluate their applicability to industrial-scale processes and to extend these insights to other cathode and anode configurations.
