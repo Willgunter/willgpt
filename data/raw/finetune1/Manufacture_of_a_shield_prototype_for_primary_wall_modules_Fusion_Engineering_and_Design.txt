@@ -1,0 +1,116 @@
+1. Introduction
+The R&D program related to the manufacturing of the shield prototype was carried out in two stages. The first one, which consisted in manufacturing of the small and medium size mock-ups, was followed by the second one, devoted to the manufacturing of the full-scale ITER shield prototype for primary wall (PW) modules [1].
+The contract to manufacture the above quoted shield was awarded to AREVA NP.
+This paper aims to describe the manufacturing program expected to be use for fabrication of the ITER SHIELD No. 11A. The shield prototype for PW modules is fabricated by a process based on hot isostatic pressing (HIP-ing) of steel powder with solid parts. HIP-ing is used to minimize the number of seal welds in the PW modules increasing thereby the reliability of the components during operation. The goal is not to have any single seal weld in the completed Shield. All the seal welds being HIP-ed, the risk of leak due to a weld defect is decreased [2].
+Manufacturing of a shield involves many different techniques at a high level of complexity.
+2. General machining of the forged part
+The rough material as close as possible to ITER Grade (IG) stainless steel are: a forged block (1350 mm × 1300 mm × 450 mm) sheets 20 mm, 2 mm, 3 mm, tubes and SS (IG) powder.
+The first step is to machine the forged block to its almost final dimensions. This operation is not considered as a complex one, but due to the large size of the part, it requires large machine tool.
+The second step is the machining of four facets on the forged block corresponding to the location of the four panels later attached on the shield. This operation aims to give the shape of the shield to follow the toroidal profile of the vacuum vessel.
+Once the machining of facets is completed, the deep drilling operation is launched (Fig. 1).
+
+Download: Download full-size image
+Fig. 1. Forged block.
+
+3. Deep drilling
+157 holes are drilled between the topside and the bottomside. They are located as follows:
+•
+11 holes Ø10 mm corresponding to the ends of the slots machined later.
+•
+8 holes Ø16 mm and 6 holes Ø30 mm corresponding of the two aisles of the shield: the right and left lateral side.
+•
+6 holes Ø22 mm are located just under the rear face. The 9 rows of 14 holes Ø22 mm each complete the set of the top/bottomside holes.
+The location tolerances for all these holes are tight for two reasons:
+•
+The next step of the manufacturing consists in machining of the water collector. Each water box is machined around a set of holes at the closest. If the required theoretical location of the hole is not respected, the drawings of the water collector need to be modified as well as the machining program.
+•
+At the latest stages of the manufacturing, the perpendicular holes used for the attachment of the primary first wall (PFW) panel on the shield will be drilled. The machining tolerances are very severe to avoid any damaging between the toroidal and poloidal holes crossing very closely.
+Some other difficult manufacturing issues are the connections between the holes and special tooling had to be designed and manufactured.
+A drilling sequence was defined to monitor potential distortions and ensure the precision.
+Once, the operation of drilling completed, the dimensional controls of the holes location and axis on both faces of shield are done (Fig. 2).
+
+Download: Download full-size image
+Fig. 2. Deep drilling.
+
+4. Water collector and slots machining
+The third step of the manufacturing consists in machining of the water collector on both (bottom and top) sides. This machining step is not complex and can be done easily.
+After water collector, 11 slots of 3 mm width have been machined from the front side. Their depth is varying from 100 mm to 170 mm. The machining of these grooves needs a tool specially adapted for this operation. The axe of machining is located between the holes drilled previously between the top and bottom face. The depth of the central groove implies a tool of Ø500 mm (Fig. 3, Fig. 4).
+
+Download: Download full-size image
+Fig. 3. Water collector machining.
+
+
+Download: Download full-size image
+Fig. 4. Slots machining.
+
+5. Rear face machining
+The fourth step is the machining of the rear face. 3D bent tubes will be HIP-ed within a powder layer on that face and to monitor their distortions, an adapted design had to be completed and tested. This design was studied through several mock-ups validating the tubes displacement and distortions that occur during HIP process and are related to the supports design. This work has been reported in Soft 2006 proceedings.
+6. 3D bending
+In parallel to the above machining sequence, the cooling tubes are 3D bent. The design principle is to avoid as much as possible the welded connections between the tubes in view to minimize the possible metal excess generated inside the tube during welding process and also reduce the risk of weld defect. The reason of this restriction is dictated by the conditions of ultrasonic examination of the HIP bonded area between tube and surrounding powder. This examination being performed from inside to outside of the tube, the ultrasonic probe has to move freely inside required minimum diameter.
+Manufacturing of many small parts used for tubes/bulk connection was also carried out through the design studies validated with mock-ups (Fig. 5).
+
+Download: Download full-size image
+Fig. 5. 3D bending of tubes.
+
+7. HIP preparation
+This is one of the most critical operations during all manufacturing process of the prototype because of the huge technical and financial risk. If one of the single sub-operation is missed, the consequence can be a total non-conformity of the whole shield without any way to repair. Therefore, this manufacturing stage is done with very high attention applying the repetitive control and examination program. All parts are carefully etched and cleaned to ensure that no impurities such as oxides or grease should make impossible the completion of the HIP process.
+The preparation and the welding of all small parts are done in a clean environment.
+All the welds are He leak tested. When the water coolant circuit is built, all free space between the constituent parts inside the container is filled up with SS powder. The amount of powder to fulfil the free space is calculated using CATIA model. To avoid any risk of defects during the HIP process, so predicted weight of powder has to be fully introduced into container. To ensure a good filling ratio, the filling is done on a vibrating table capable of carrying 5 tons of weight.
+After the powder filling operation, the container is under vacuum conditioned for HIP operation using appropriate vacuum pump system (Fig. 6, Fig. 7, Fig. 8, Fig. 9).
+
+Download: Download full-size image
+Fig. 6. Assembly verification.
+
+
+Download: Download full-size image
+Fig. 7. Water collector welding.
+
+
+Download: Download full-size image
+Fig. 8. Container before sealing.
+
+
+Download: Download full-size image
+Fig. 9. He leak testing.
+
+8. HIP cycle
+The dimensions of the shield No. 11A exceed the largest, available in Europe HIP furnace. For this reason, its external dimensions were reduced and adapted to the dimension (diameter 1280 mm) of the Bodycote Surrahammar facility where the HIP cycle was performed.
+To be located in the right position in the furnace, the shield could not lay on the one of its planned surface. The appropriate tool able to support the shield weight (4.5 tons) inside the HIP furnace at 1400 °C was studied, designed and manufactured. The supporting tool behaviour during the HIP cycle has been calculated to ensure that potential distortions cannot lead to a damage of the furnace.
+The space between the shield and the furnace wall was not exceeding few millimetres.
+The HIP cycle, 1400 °C and 1200 bar was carried out without any problem and the general shape of the HIP-ed part was only slightly distorted even if on the rear side, the reduction of the volume due to the densification of the powder was reached about 30%.
+3D measurements done before and after the HIP cycle determines the distortion ratio and relocates the internal water circuit from external references.
+This is an important aspect of solid powder HIP cycle, the part has several distortions in 3D but the mechanical references have to be replaced to continue the next machining steps.
+An intermediate step is therefore an ultrasonic examination to check the joining efficiency between all parts and also to measure and record the tubes location inside the rear face.
+The HIP was successful; all tubes are properly joined and detected at their expected position.
+The above statement gave the “green light” to pursuit the next stage of the shield prototype manufacturing, i.e. final machining (Fig. 10, Fig. 11, Fig. 12, Fig. 13).
+
+Download: Download full-size image
+Fig. 10. Installation for HIP.
+
+
+Download: Download full-size image
+Fig. 11. After HIP.
+
+
+Download: Download full-size image
+Fig. 12. Ultrasonic examination.
+
+
+Download: Download full-size image
+Fig. 13. Distortion measurement.
+
+9. Final machining
+It consists in several very complex operations:
+The castellation that have been done in an early stage of the manufacturing can now be completed.
+The key corresponding to the panel location are machined and the holes for the studs and nuts of the panel attachment are drilled. All these operations are of the high risk because the holes are located extremely close (3.92 mm) to theoretical location of the neighbour tube. To be sure that any overlapping defect, between holes for panel attachment and cooling circuit tubes will occur during manufacturing, the complex examination is performed before starting the machining (Fig. 14).
+
+Download: Download full-size image
+Fig. 14. Front face final machining.
+
+Once the part is on the drilling machine and once all the dimensional measurement and identification of the drilling axis is identified, an ultrasonic verification is performed checking that the tubes are at a minimum distance from the hole.
+The next machining stage is the machining of the rear keys for the shield attachment on the vacuum vessel and the machining of the hydraulic connector that ensure the water inlet and outlet connection. This final stage is also highly complex because the currently existing machining tools employed for the related operations work in extreme conditions and may induce the heavily reparable defects.
+10. Final equipment
+After this final machining, the connections between the inlet and outlet of the rear face cooling tubes are done by external pipes welding. This operation completes the water circuit erection and finalise the manufacturing of the shield. To validate the shield fabrication, reception tests as hydraulic flow and pressure test are performed.
+11. Conclusion
+This first shield prototype fabricated from forged and powder HIP SS shows that this component which is very complex to manufacture is feasible. The main manufacturing steps have been realised within the required tolerances. Fabrication operation like deep drilling, slots machining, 3D bending, monitoring of HIP distortions has been successfully anticipated and prepared. This manufacture shows how to proceed to monitor the risk by the constant improvement of the manufacturing program consisting in real time analysis of the constraints, fabrication of the small mock-ups validating uncertainties, adaptation and designing of the appropriate tools.
+The close collaboration between designers and manufacturers leads to a final part which fulfils the product specification.

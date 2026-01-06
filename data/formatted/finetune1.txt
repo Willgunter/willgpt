@@ -26087,3 +26087,4867 @@ P_f = ∫ I[g(X) ≤ 0] f_X(X) dX
 
 **Robustness assessment**
 The first-principles basis is sound, but the statistical framework is fragile to violations of independence, stationarity, and tail behavior. The paper correctly identifies that **distribution choice dominates long-term predictions**, which is the core systems-engineering risk.
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Plasma and exposure conditions
+
+* **Deuterium plasma** in Pisces-RF is representative of fusion-relevant PMI conditions.
+* Dominant ion species is **D⁺**, with negligible impurity concentration from the plasma source.
+* **Ion impact energy** is controlled solely by target bias and sheath potential, with ions traversing the sheath collisionlessly.
+* Ion energies in the range **40–250 eV** are sufficient to characterize sputtering behavior relevant to first-wall operation.
+* Plasma is steady during exposure, with electron density and temperature measured upstream by a Langmuir probe and assumed valid at the target.
+
+### Thermal assumptions
+
+* Target temperature is **uniform laterally** and adequately represented by a thermocouple mounted at the rear surface.
+* Front–back temperature gradient is small and quantified, and does not qualitatively affect retention or erosion mechanisms.
+* During TPD, the **measured temperature accurately represents the bulk sample temperature**.
+
+### Deuterium retention and release
+
+* Retained deuterium is fully captured by **TPD up to 1200 K**.
+* Contributions from desorption of species other than D₂ and HD are negligible.
+* Retention is quantified as the **time-integrated desorption flux**, implicitly assuming no significant loss prior to TPD.
+* Retention mechanisms are inferred from macroscopic observables without direct microstructural characterization.
+
+### Erosion measurement
+
+* Optical emission spectroscopy ratio **Cr I (425.4 nm) / D I (656.1 nm)** is proportional to instantaneous erosion rate.
+* Normalization to D I fully compensates for plasma density, temperature, and window transmission variations.
+* Single-energy mass-loss calibration is sufficient to scale the full spectroscopic erosion curve.
+* Net erosion yield from mass loss can be converted to **gross erosion yield** via a re-deposition correction.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Material and microstructure
+
+* Commercially pure Cr (3N) is assumed to be **representative of fusion-relevant Cr surfaces**, despite known brittleness and impurity sensitivity.
+* Polished surface roughness is assumed not to evolve significantly during plasma exposure in ways that alter retention or sputtering.
+* No phase changes, recrystallization, or segregation occur within the exposure temperature range.
+
+### Hydrogen transport physics
+
+* Deuterium transport is implicitly governed by **implantation, diffusion, trapping, and thermal release**, with no hydride phase formation.
+* Trap site populations are assumed to be stable and repeatable across samples.
+* Weak fluence dependence of retention implies **trap saturation or near-surface limited uptake**, an inference not directly measured.
+
+### Spectroscopy and erosion
+
+* Excited Cr neutrals observed by OES originate predominantly from **physical sputtering**, not from thermal evaporation or chemical effects.
+* Ionization of sputtered Cr neutrals is dominated by **electron-impact ionization**, neglecting charge exchange or metastable pathways.
+* Sputtered neutrals follow a **cosine angular distribution**.
+* Sputtering by re-deposited Cr ions is neglected.
+
+### Re-deposition model
+
+* Magnetic confinement of ionized sputtered Cr is perfect within the projected target cylinder.
+* Ion gyro-motion is neglected, implying Larmor radii are small compared to system dimensions.
+* Ionization mean-free path is spatially uniform and determined by local plasma parameters.
+* Thompson energy distribution adequately represents sputtered neutral energies.
+
+---
+
+## 3. GOVERNING FIRST PRINCIPLES
+
+### Plasma sheath acceleration
+
+**Law**
+Energy gained by ions traversing a collisionless sheath equals the sheath potential drop.
+
+**Application**
+Ion impact energy is set by target bias minus plasma potential.
+
+**Validity regime**
+
+* Low neutral pressure
+* Mean free path ≫ sheath thickness
+
+**Boundary violations**
+
+* Elevated neutral pressure
+* Charge-exchange within sheath
+
+---
+
+### Physical sputtering
+
+**Law**
+Momentum transfer from incident ions ejects surface atoms when energy exceeds binding energy.
+
+**Models referenced**
+
+* Binary Collision Approximation
+* SDTrimSP predictions
+
+**Validity**
+
+* Elastic nuclear stopping dominates
+* No chemical sputtering
+
+**Second-order effects**
+
+* Surface roughening
+* Gas-induced yield suppression
+* Near-surface implantation modifying binding energy
+
+---
+
+### Hydrogen isotope transport
+
+**Law**
+Fickian diffusion with trapping and detrapping kinetics.
+
+**Implicit form**
+∂C/∂t = D∇²C − Σ(trap terms)
+
+**Validity**
+
+* Dilute hydrogen concentration
+* No hydride formation
+
+**Failure modes**
+
+* Trap evolution
+* Stress-assisted diffusion
+* Surface recombination limits
+
+---
+
+### Thermal desorption
+
+**Law**
+Arrhenius-type release governed by trap binding energy.
+
+**Application**
+TPD peak temperatures infer trap strengths.
+
+**Boundary issues**
+
+* Non-uniform heating
+* Re-adsorption
+* Surface recombination-limited release
+
+---
+
+### Ionization and re-deposition
+
+**Law**
+Exponential survival probability of neutrals with distance traveled before ionization.
+
+P = 1 − exp(−s/λ)
+
+**Validity**
+
+* Single-step electron-impact ionization
+* Constant plasma parameters
+
+**Second-order effects**
+
+* Magnetic mirroring
+* Ion gyro-orbit displacement
+* Multi-step ionization
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Retention ↔ temperature**
+  Elevated temperature increases detrapping and diffusion to surface, reducing inventory.
+* **High flux ↔ erosion yield**
+  Dense plasma enhances re-deposition, reducing net erosion relative to BCA predictions.
+* **Near-surface D ↔ sputtering**
+  Gas inclusion modifies effective surface binding energy, suppressing yield.
+* **Magnetic confinement ↔ re-deposition**
+  Strong axial B field couples ionization physics to geometric capture probability.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Violated assumption     | Consequence                        |
+| ----------------------- | ---------------------------------- |
+| Collisionless sheath    | Ion energy mischaracterized        |
+| Uniform temperature     | Erroneous retention vs T trends    |
+| Cosine sputter emission | Incorrect re-deposition fraction   |
+| Negligible gyro-motion  | Overestimated re-deposition        |
+| Stable trap population  | Misinterpreted saturation behavior |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Underestimated retention** if significant D is lost during post-exposure cooling.
+* **Overcorrected erosion yield** if re-deposited Cr re-sputters.
+* **Spectroscopic bias** if Cr excitation rates vary nonlinearly with plasma conditions.
+* **Scaling failure** when extrapolating linear-device data to tokamak geometry.
+* **Surface evolution masking mechanisms**, such as nano-morphology or sub-surface bubble formation.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Pure Cr choice**
+
+  * Optimized for PMI clarity
+  * Not representative of structural Cr alloys
+* **Linear device geometry**
+
+  * Enables diagnostics
+  * Suppresses toroidal transport effects
+* **Simplified re-deposition model**
+
+  * Computationally efficient
+  * Sacrifices kinetic fidelity
+* **TPD upper limit**
+
+  * Chosen for practicality
+  * May miss ultra-deep traps
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Plasma parameters measured upstream assumed valid at target.
+* No coupling between erosion and plasma impurity radiation modeled.
+* Target treated as isolated sink without feedback on plasma composition.
+* No mechanical stress evolution despite thermal cycling.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No cumulative damage across exposures.
+* No microstructural evolution with fluence.
+* No oxidation effects post-exposure.
+* Retention behavior assumed time-invariant beyond exposure window.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Conservative interpretation of low retention.
+* Re-deposition explicitly accounted for, improving robustness.
+* No explicit uncertainty propagation from diagnostics to final yields.
+* Single-point sensitivity to ionization mean-free path.
+
+---
+
+## 11. DESIGN VS OPERATING REGIME
+
+### Designed regime
+
+* High-flux, low-energy D plasma
+* Actively cooled surfaces
+* Strong axial magnetic confinement
+
+### Likely reactor reality
+
+* Mixed D–T plasma
+* Transient heat loads
+* Evolving surface chemistry
+* Neutron damage coupling to PMI
+
+### Robustness
+
+* Strong for comparative screening of PFMs
+* Weak for absolute lifetime prediction without neutron effects
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Reactor, mission, and operating regime
+
+* The system is designed for the **EU-DEMO reactor**, operating beyond ITER with a target divertor lifetime of **2 full power years (fpy)**.
+* The divertor cassette body lifetime is constrained primarily by **irradiation-induced embrittlement of EUROFER97**, characterized by DBTT shift.
+* **Typical PWR coolant conditions** are assumed acceptable and beneficial for EUROFER97 under irradiation:
+
+  * Coolant temperature: **295 °C**
+  * Coolant pressure: **15.5 MPa**
+* These operating conditions are assumed to mitigate embrittlement sufficiently to enable lifetime extension from 1.5 to 2 fpy.
+
+### Structural and material assumptions
+
+* **EUROFER97** is assumed to retain adequate elastic and yield properties at **350 °C**, with:
+
+  * Yield stress Rp0.2,min ≈ **411 MPa**
+  * Elastic modulus E ≈ **200 GPa**
+* Material behavior is assumed **linear elastic** for all analyses presented.
+* No inelastic deformation, creep, irradiation hardening, swelling, or fatigue damage is modeled.
+
+### Design comparison framework
+
+* Two cassette body configurations are assumed functionally equivalent in system role:
+
+  1. Ribbed box chamber configuration
+  2. Solid structure with circular channels
+* The comparison is **preliminary**, qualitative, and not RCC-MRx compliant.
+* Structural adequacy is judged primarily via **Von Mises stress relative to yield stress**.
+
+### Loading assumptions
+
+* Three load combinations are sufficient to characterize comparative performance:
+
+  * LC-1: Dead weight + coolant pressure + preload + thermal expansion
+  * LC-2: Thermal expansion only
+  * LC-3: Full combination including EM and ferromagnetic loads from VDE
+* Coolant pressure of **15.5 MPa** is assumed steady and uniform.
+* Thermal loads are represented by a **uniform mean temperature of 350 °C**, derived from thermal maps.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Materials and irradiation
+
+* **Neutron irradiation effects** are reduced to a single DPA threshold of **2.75 dpa at 6 fpy**, with no explicit modeling of:
+
+  * Spatial gradients in damage
+  * Irradiation creep
+  * Synergistic irradiation–thermal effects
+* EUROFER97 properties used are assumed valid **after irradiation**, despite known degradation and scatter.
+
+### Structural mechanics
+
+* Stress concentrations near constraints, noses, bonded contacts, and welds are treated as **non-physical artifacts** or secondary effects.
+* Boundary conditions used in FEM models are assumed representative of real supports, despite their strong influence on stress localization.
+* Buckling, plastic collapse, ratcheting, and fracture are implicitly assumed non-governing.
+
+### Thermo-hydraulics
+
+* Hydraulic performance is reduced to:
+
+  * Pressure drop
+  * Pumping power
+* Flow instabilities, boiling margins, corrosion, erosion-corrosion, and water chemistry effects are not considered.
+* Heat transfer coefficients are assumed sufficient to maintain EUROFER97 below **550 °C**, without margin analysis.
+
+### Manufacturing
+
+* Manufacturing feasibility is assumed achievable with future R&D, especially for:
+
+  * Large-scale HIP of EUROFER97
+  * Multi-step HIP cycles
+  * Hybrid forged + HIP solutions
+* Residual stresses from welding, HIP, brazing, or machining are neglected.
+* Inspection, repairability, and in-service inspection constraints are not explicitly considered.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Pressure vessel mechanics
+
+**Law**
+Thin and thick-walled pressure vessel theory governed by equilibrium and elasticity.
+
+**Application**
+
+* Internal coolant pressure generates membrane and bending stresses.
+* Solid structure reduces stress by distributing pressure loads more uniformly.
+
+**Validity regime**
+
+* Linear elastic response
+* No plasticity or creep
+
+**Boundary of validity**
+
+* At 15.5 MPa and 350 °C, time-dependent creep may become non-negligible over fpy timescales.
+
+---
+
+### Thermal expansion and constraint
+
+**Law**
+Thermal strain ε = αΔT
+
+**Application**
+
+* Uniform temperature rise induces secondary stresses when constrained at supports and interfaces.
+
+**Competing effects**
+
+* Ribbed box: thinner shells, higher flexibility
+* Solid structure: higher stiffness, higher thermal constraint stresses
+
+---
+
+### Electromagnetic forces
+
+**Law**
+Lorentz force density f = J × B and ferromagnetic body forces.
+
+**Application**
+
+* EUROFER97 magnetization induces additional loads during VDEs.
+
+**Limitations**
+
+* EM loads treated as static resultants at peak time.
+* Dynamic amplification and inertial coupling neglected.
+
+---
+
+### Neutron shielding and damage
+
+**Law**
+Atomic displacement rate proportional to neutron flux and energy spectrum.
+
+**Application**
+
+* Shielding effectiveness assessed by dpa threshold in VV.
+
+**Hidden coupling**
+
+* Structural thickness, cooling channel layout, and shielding are tightly coupled.
+
+---
+
+### Fluid mechanics
+
+**Law**
+Darcy–Weisbach and pump power scaling with pressure drop and flow rate.
+
+**Application**
+
+* Solid structure dramatically reduces pressure drop via smoother circular channels.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Structural stiffness ↔ thermal stress**
+  Higher stiffness in solid structure reduces pressure stress but increases thermal constraint stress.
+* **Cooling channel geometry ↔ shielding**
+  Larger uncooled volumes improve shielding but worsen thermal gradients.
+* **Manufacturing method ↔ material properties**
+  HIP and PM-HIP alter grain size, DBTT, fatigue resistance, and irradiation response.
+* **Pressure increase ↔ embrittlement mitigation**
+  Higher coolant temperature reduces DBTT but demands higher pressure, raising structural loads.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption violated          | Consequence                                           |
+| ---------------------------- | ----------------------------------------------------- |
+| Linear elasticity only       | Underestimation of creep and ratcheting               |
+| Uniform temperature          | Underprediction of thermal gradients and local strain |
+| Neglect of irradiation creep | Non-conservative lifetime                             |
+| Idealized supports           | Artificial stress relief or amplification             |
+| Perfect HIP bonds            | Overestimated structural integrity                    |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Creep-fatigue interaction** in EUROFER97 under 350 °C, 15.5 MPa, and neutron flux.
+* **Residual stress superposition** with operational loads in HIPed or welded joints.
+* **Thermal striping** due to mixing of coolant streams at different temperatures.
+* **Local embrittlement hotspots** near cooling channels where dpa gradients peak.
+* **Inspection-limited crack growth**, especially in internal channels.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Ribbed box configuration
+
+* Optimized for:
+
+  * Known ITER heritage
+  * Weld-based fabrication
+* Sacrifices:
+
+  * Hydraulic efficiency
+  * Mass
+  * Stress uniformity
+
+### Solid structure configuration
+
+* Optimized for:
+
+  * Pressure containment
+  * Hydraulic efficiency
+* Sacrifices:
+
+  * Manufacturing maturity
+  * Mass
+  * Thermal flexibility
+
+### What is not optimized
+
+* Maintainability and replaceability
+* In-service inspection access
+* End-of-life dismantling under activation
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Cassette body interacts mechanically with:
+
+  * Vacuum vessel supports
+  * Shielding liner
+  * Vertical targets
+* Thermal boundary defined by coupled nuclear heating and coolant removal.
+* No feedback modeled between:
+
+  * Structural deformation and coolant flow
+  * Damage accumulation and material properties
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* Material properties remain constant over 2 fpy.
+* No progressive embrittlement beyond assumed DBTT mitigation.
+* No crack initiation or growth.
+* No corrosion or water chemistry degradation.
+* No cyclic degradation under plasma transients.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Safety margin implicitly defined by staying below yield stress.
+* No explicit margins for:
+
+  * Irradiation uncertainty
+  * Manufacturing defects
+  * Load combination conservatism
+* Single-point sensitivity:
+
+  * EUROFER97 HIP joint performance
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Design regime
+
+* Steady high-temperature water cooling
+* Elastic structural response
+* Controlled VDE scenarios
+
+### Likely operating regime
+
+* Strong transients
+* Irradiation-induced property evolution
+* Combined creep, fatigue, and embrittlement
+* Off-normal EM load histories
+
+### Robustness assessment
+
+* Ribbed box: robust in manufacturability, weaker in hydraulics
+* Solid structure: robust in pressure and hydraulics, fragile in technology readiness
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Mission and operating environment
+
+* The **ITER Test Blanket Module (TBM)** is assumed to be a valid **proxy for DEMO blanket modules** in terms of:
+
+  * Tritium breeding and recovery
+  * High-grade heat extraction
+  * Structural operating conditions
+* Operating conditions are explicitly assumed to be:
+
+  * **High temperature:** 300–500 °C
+  * **Neutron irradiation:** sufficient to induce swelling, helium production, and embrittlement
+* Structural material must therefore resist:
+
+  * Radiation-induced swelling
+  * Helium embrittlement
+  * Degradation of mechanical properties at elevated temperature
+
+### Material choice
+
+* **RAFM steel F82H** is assumed suitable as a primary structural material due to:
+
+  * Superior swelling resistance
+  * Good high-temperature thermal and mechanical properties
+  * Weldability
+* The normalized and tempered condition of F82H is assumed to be representative of in-service material state.
+
+### Joining technologies
+
+* **TIG welding** and **HIP joining** are assumed to be viable fabrication routes for TBM structures.
+* Post-weld heat treatment (PWHT) at **720 °C for 90 min** is assumed sufficient to:
+
+  * Reduce residual stress
+  * Recover toughness and hardness degradation
+* HIP conditions (**1100 °C, 100 MPa, 2 h**) are assumed sufficient to create a bonded joint representative of TBM fabrication.
+
+### Mechanical testing
+
+* Room-temperature and elevated-temperature tensile tests and Charpy impact tests are assumed sufficient to characterize joint performance.
+* DBTT derived from Charpy tests is assumed to be a meaningful metric for fusion structural integrity.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Irradiation effects
+
+* All mechanical tests are performed **without neutron irradiation**, implicitly assuming:
+
+  * Relative trends between base metal, TIG welds, and HIP joints will persist under irradiation
+  * Irradiation-induced helium and defect clustering do not fundamentally alter joint ranking
+* Helium embrittlement effects at grain boundaries and interfaces are **not explicitly tested**.
+
+### Microstructural stability
+
+* Post-fabrication microstructures are assumed stable during service:
+
+  * No further grain growth at 300–500 °C
+  * No segregation or precipitation under neutron exposure
+* Dissolution of TaC during HIP is implicitly accepted as unavoidable and manageable.
+
+### Mechanical relevance
+
+* **Room-temperature Charpy impact energy** is implicitly treated as relevant to service behavior, despite:
+
+  * Service temperatures being far above DBTT
+  * Fracture mechanisms under irradiation differing from unirradiated behavior
+* Static tensile properties are assumed to dominate design, with:
+
+  * No explicit treatment of creep
+  * No fatigue or creep-fatigue interaction analysis
+
+### Manufacturing scalability
+
+* HIP joining of small laboratory blocks is implicitly assumed scalable to **full TBM dimensions**.
+* Residual stresses from HIP and TIG are assumed removable or negligible after heat treatment.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### High-temperature deformation
+
+**Principle**
+Plastic flow and creep governed by dislocation motion, diffusion, and grain boundary sliding.
+
+**Relevance**
+
+* Above ~450 °C, strength decreases and ductility increases, as observed in tensile tests.
+* Long-term TBM operation will inevitably enter creep regimes not captured here.
+
+**Validity limit**
+
+* Short-duration tensile tests do not represent long-term creep under stress and irradiation.
+
+---
+
+### Martensitic microstructure mechanics
+
+**Principle**
+Strength–toughness balance controlled by:
+
+* Prior austenite grain (PAG) size
+* Carbide dispersion (TaC, WC)
+* Martensitic lath structure
+
+**Application**
+
+* TIG + PWHT refines grain size and recovers hardness.
+* HIP dissolves TaC, leading to PAG coarsening.
+
+**Second-order effects**
+
+* Coarser PAG increases DBTT and reduces impact energy.
+* Irradiation will further amplify grain-boundary sensitivity.
+
+---
+
+### Fracture mechanics and DBTT
+
+**Principle**
+DBTT reflects the competition between cleavage fracture and ductile void growth.
+
+**Application**
+
+* TIG weld metal exhibits lowest DBTT (−110 °C), indicating good toughness margin.
+* HIP joints show severely degraded Charpy energy, implying brittle interface behavior.
+
+**Limitations**
+
+* DBTT measured without helium, which is known to shift DBTT upward dramatically.
+
+---
+
+### Diffusion and oxide formation
+
+**Principle**
+Residual oxygen leads to oxide formation at interfaces during high-temperature joining.
+
+**Application**
+
+* Second-phase particles at HIP interface attributed to oxide inclusions.
+* Degassing temperature affects impact energy but not tensile strength.
+
+**Hidden coupling**
+
+* Oxide particles act as crack initiation sites under impact and irradiation.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **HIP temperature ↔ carbide dissolution ↔ grain growth ↔ toughness**
+* **Degassing ↔ oxygen content ↔ oxide inclusions ↔ impact energy**
+* **Grain size ↔ DBTT ↔ irradiation embrittlement sensitivity**
+* **Joining method ↔ residual stress ↔ fracture behavior**
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption violated         | Physical consequence         |
+| --------------------------- | ---------------------------- |
+| No irradiation effects      | DBTT shift underestimated    |
+| Grain growth acceptable     | Impact toughness collapse    |
+| Oxide inclusions benign     | Interfacial brittle fracture |
+| Tensile strength sufficient | Creep and fatigue ignored    |
+| Lab-scale HIP scalable      | Large-scale defect risk      |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Helium-assisted intergranular fracture** at HIP interfaces.
+* **Creep crack initiation** at oxide-decorated HIP boundaries.
+* **Irradiation-accelerated DBTT shift** making HIP joints brittle at service temperature.
+* **Residual stress + irradiation synergy** causing premature cracking.
+* **Loss of fracture toughness margin** under off-normal thermal transients.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### TIG welding
+
+* Pros:
+
+  * Mature, controllable
+  * Good toughness recovery after PWHT
+* Cons:
+
+  * HAZ complexity
+  * Residual stress
+  * Geometric constraints
+
+### HIP joining
+
+* Pros:
+
+  * Geometric freedom
+  * Potential for complex cooling channels
+* Cons:
+
+  * Severe impact toughness degradation
+  * Oxide contamination
+  * Uncertain irradiation behavior
+
+### What is not optimized
+
+* Creep rupture life
+* Irradiation creep
+* Fatigue and creep-fatigue
+* In-service inspection and repair
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* TBM structures interface with:
+
+  * First wall and side wall cooling channels
+  * Helium coolant at high pressure
+* Joining regions experience:
+
+  * Multiaxial stress
+  * Thermal gradients
+  * Neutron flux gradients
+* No feedback modeled between:
+
+  * Damage accumulation and material properties
+  * Crack initiation and tritium permeation
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* Microstructure assumed static after fabrication.
+* No progressive grain growth during service.
+* No accumulation of helium at joints.
+* No cyclic degradation under plasma transients.
+
+These assumptions are **physically weak** for RAFM steels in fusion environments.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* TIG welds retain:
+
+  * Acceptable tensile strength
+  * Favorable DBTT margin
+* HIP joints show:
+
+  * ~75% reduction in impact energy
+  * Minimal margin against brittle failure
+* No explicit safety factors applied for:
+
+  * Irradiation uncertainty
+  * Joint defects
+  * Scale effects
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Designed regime
+
+* Static mechanical testing
+* Unirradiated material
+* Short-term loading
+
+### Actual operating regime
+
+* Neutron irradiation with helium production
+* Long-term creep and swelling
+* Thermal cycling and transients
+
+### Robustness assessment
+
+* **TIG welding:** structurally conservative, technology-mature
+* **HIP joining:** geometry-enabling but **mechanically fragile** without further R&D
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Mission and operating envelope
+
+* The **EU-DEMO divertor cassette** is designed for **steady-state operation** under nominal plasma conditions.
+* The divertor adopts a **dual cooling scheme**:
+
+  * **Vertical Targets (VTs)**: low-temperature, high-performance cooling to survive peak heat fluxes up to **20 MW m⁻²**.
+  * **Cassette Body (CB)**: high-temperature, high-pressure cooling to mitigate **irradiation-induced embrittlement of Eurofer97**.
+* CB coolant operating conditions are explicitly fixed to **PWR-like conditions**:
+
+  * Inlet temperature: **295 °C**
+  * Inlet pressure: **15.5 MPa**
+  * Target temperature rise: **ΔT = 33 °C**
+
+### Materials and temperature limits
+
+* **Eurofer97 maximum allowable temperature** is assumed to be **550 °C**.
+* **TSB candidate materials** are limited to:
+
+  * CuCrZr
+  * SS 316 Ti
+  * Eurofer97
+* Material properties are taken from literature libraries and assumed **valid at irradiation-relevant temperatures**, without in-situ degradation modeling.
+
+### CFD and modeling framework
+
+* **Steady-state conjugate heat transfer (CHT)** is sufficient to assess divertor thermal-hydraulic performance.
+* **ANSYS CFX (finite-volume)** with:
+
+  * k-ω SST turbulence model
+  * Wall functions
+  * IAPWS-IF97 water properties
+* **PFU internal swirl tapes** are modeled using the **Orthotropic Virtual Swirl Tape (OVST)** approximation.
+* Radiation heat transfer is simplified as **radiation toward the vacuum vessel at 40 °C**.
+
+### Acceptance criteria
+
+The design is evaluated against predefined constraints:
+
+* Eurofer97 temperature ≤ 550 °C
+* Total pressure drop per circuit ≤ 1.4 MPa (legacy limit)
+* Coolant saturation margin ≥ 20 °C (legacy limit)
+* PFU axial velocity ≤ 16 m s⁻¹
+* CHF margin ≥ 1.4
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Thermal–structural coupling
+
+* Thermal hot spots are assumed **structurally acceptable** as long as Eurofer97 temperature remains below 550 °C, without explicit stress or creep coupling.
+* No **thermal ratcheting**, **creep**, or **creep–fatigue interaction** is modeled despite long-term operation at ~350 °C bulk temperature.
+
+### Steady-state dominance
+
+* **Transient events** (ELMs, VDEs, power ramps, loss-of-flow accidents) are implicitly assumed not to govern design limits.
+* CHF correlations are applied under **nominal steady heat flux**, not transient peaks.
+
+### Fluid physics
+
+* Single-phase water flow is assumed except where saturation margin becomes negative.
+* Local vaporisation is identified but **not propagated** into flow instabilities, pressure oscillations, or heat-transfer collapse.
+
+### Neutronics–thermal decoupling
+
+* Nuclear heating distributions are prescribed inputs and assumed **independent of temperature-driven material changes**.
+* Shielding effectiveness is assumed unaffected by temperature-induced deformation or swelling.
+
+### Manufacturability and inspection
+
+* Cooling circuit redesign to fix stagnation or hot spots is assumed feasible without:
+
+  * Excessive manufacturing complexity
+  * Loss of structural robustness
+  * Inspection or maintenance penalties
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Energy conservation (CHT)
+
+**Law**
+[
+\nabla \cdot (k \nabla T) + q''' = \rho c_p \mathbf{u} \cdot \nabla T
+]
+
+**Application**
+
+* Conjugate heat transfer couples solid conduction with coolant convection.
+* Hot spots arise where conduction paths are long or convection is weak.
+
+**Boundary of validity**
+
+* Assumes steady flow and material properties weakly dependent on temperature.
+
+---
+
+### Pressurised water thermodynamics
+
+**Law**
+
+* Saturation temperature increases strongly with pressure.
+
+**Application**
+
+* At **15.5 MPa**, water saturation temperature ≈ **345 °C**.
+* With CB outlet temperature ≈ 328 °C, **maximum theoretical saturation margin ≈ 17 °C**, even with zero pressure drop.
+
+**Implication**
+
+* Legacy **20 °C saturation margin criterion is physically incompatible** with PWR-like operation.
+
+---
+
+### Turbulent forced convection
+
+**Law**
+
+* Heat transfer coefficient scales with Reynolds and Prandtl numbers.
+
+**Application**
+
+* High mass flow in VTs ensures large CHF margins.
+* In CB and RPs, low velocities lead to stagnation and thermal runaway.
+
+---
+
+### Critical Heat Flux (CHF)
+
+**Law**
+
+* CHF occurs when vapor blankets the wall, collapsing heat transfer.
+
+**Models used**
+
+* Modified Tong-75 (PFUs)
+* Groeneveld lookup tables (SL, RPs)
+
+**Validity limits**
+
+* Developed for steady conditions and well-defined flow regimes.
+* Flow reversal and stagnation violate underlying assumptions.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **High coolant temperature ↔ embrittlement mitigation ↔ saturation margin collapse**
+* **Complex CB geometry ↔ non-uniform flow ↔ hot spots ↔ vaporisation**
+* **Material thermal conductivity ↔ nuclear heating ↔ peak structural temperature**
+* **Flow stagnation ↔ CHF margin ↔ local boiling ↔ structural risk**
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption violated          | Physical consequence             |
+| ---------------------------- | -------------------------------- |
+| Steady single-phase flow     | Local boiling, flow oscillations |
+| Legacy saturation margin     | Non-physical requirement         |
+| Uniform cooling              | Thermal stress concentration     |
+| Material properties constant | Underestimated creep risk        |
+| CHF correlations applicable  | Invalid in stagnation zones      |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Local nucleate boiling → vapor locking** in RP channels with flow reversal.
+* **Thermal creep accumulation** in Eurofer97 supports exceeding 550 °C.
+* **Coupled thermal–structural failure** of passively cooled SL, RP, and TSB supports.
+* **Margin erosion under transients**, where CHF margin collapses faster than predicted.
+* **Design dead-ends**, where fixing cooling requires major geometric redesign.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Why high-temperature CB cooling?
+
+* Reduces Eurofer97 DBTT shift under irradiation.
+* Improves plant thermal efficiency and integration with blanket systems.
+
+### What is sacrificed?
+
+* Saturation margin
+* Cooling robustness
+* Geometric simplicity
+* Passive safety margin
+
+### TSB material tradeoffs
+
+* **CuCrZr**: best thermal performance, poorest irradiation tolerance.
+* **SS 316 Ti**: worst temperatures due to low conductivity.
+* **Eurofer97**: consistent material system but tight thermal margin.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* CB interacts thermally and structurally with:
+
+  * SL, RPs, NSs
+  * Wishbone and outer rail
+* Passively cooled supports form **thermal bottlenecks**.
+* No feedback loop modeled between:
+
+  * Temperature and material strength
+  * Deformation and coolant distribution
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No progressive:
+
+  * Creep strain
+  * Swelling
+  * Channel blockage
+  * Oxidation or corrosion
+* No degradation of CHF margin over lifetime.
+* No accumulation of residual heat during off-normal events.
+
+These assumptions are **non-conservative** for DEMO-scale lifetimes.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* VTs cooling circuit: **robust**, high margins.
+* CB cooling circuit:
+
+  * Pressure drop acceptable
+  * Saturation and CHF margins **structurally fragile**
+* Several acceptance criteria are shown to be **internally inconsistent** with new operating conditions.
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Designed regime
+
+* Steady operation
+* Nominal heat loads
+* Fully forced convection
+* No boiling
+
+### Likely operating regime
+
+* Local boiling in CB and RPs
+* Thermal gradients driving creep
+* Sensitivity to transients
+* Degrading margins over time
+
+### Robustness
+
+* VTs: high
+* CB: marginal and geometry-dependent
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Mission role of the WCLL BB
+
+* The WCLL BB is assumed capable of simultaneously fulfilling three core DEMO missions:
+
+  * **Tritium self-sufficiency**
+  * **Neutron shielding of VV and TFC**
+  * **High-grade heat recovery**
+* The design targets **steady-state DEMO operation**, not pulsed ITER-like operation.
+
+### Coolant and breeder choices
+
+* **Pressurized water** is adopted as the structural coolant at:
+
+  * Pressure: **15.5 MPa**
+  * Temperature range: **295–328 °C**
+* **PbLi eutectic** serves as:
+
+  * Tritium breeder
+  * Neutron multiplier
+  * Tritium carrier to TER
+* Lithium enrichment is fixed at **90% ⁶Li**.
+
+### Structural material
+
+* **EUROFER RAFM steel** is assumed to be the sole load-bearing structural material.
+* A **maximum admissible EUROFER temperature of 550 °C** is treated as a hard design constraint.
+
+### Architecture assumptions
+
+* Single-module segment architecture is retained.
+* Two independent water cooling circuits are assumed sufficient:
+
+  * FW circuit
+  * BZ circuit (via DWTs)
+* **Double-Walled Tubes (DWTs)** are assumed to be the correct long-term solution for BZ cooling.
+
+### Analysis framework
+
+* Neutronics: **3D Monte Carlo (MCNP)** with reflective toroidal boundaries.
+* Thermal–hydraulics:
+
+  * Hybrid porous-media models for manifolds
+  * CFD for local slice analyses
+* PbLi is often **treated as a solid** in CFD for conservatism.
+* Structural verification is performed using **RCC-MRx** rules.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Irradiation effects
+
+* Material properties (EUROFER, CuCrZr, SS316L) are assumed **time-invariant**, despite:
+
+  * dpa accumulation
+  * Helium and hydrogen production
+  * Irradiation creep
+* EUROFER DBTT evolution is implicitly assumed manageable solely via temperature control.
+
+### Thermal–mechanical decoupling
+
+* Thermal, neutronic, MHD and structural analyses are mostly **weakly coupled**.
+* Feedback loops such as:
+
+  * Deformation altering coolant paths
+  * Swelling affecting TBR
+    are not modeled self-consistently.
+
+### PbLi behavior
+
+* PbLi is frequently modeled as:
+
+  * Isothermal
+  * Laminar
+  * Conduction-dominated
+* **Buoyancy, turbulence, and mixing** are neglected even though they could reduce peak temperatures.
+
+### Manufacturability
+
+* Helical DWTs are assumed:
+
+  * Manufacturable at DEMO scale
+  * Weldable with acceptable defect rates
+  * Inspectable and replaceable
+* Complex manifold routing is assumed compatible with RM constraints.
+
+### Reliability philosophy
+
+* Reduction of weld count is implicitly equated to higher reliability.
+* Residual water inventory after draining (20–30%) is assumed acceptable for RM and safety.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Neutron transport and breeding
+
+**Law**
+
+* Neutron transport governed by Boltzmann equation.
+* Tritium breeding via:
+
+  * ⁶Li(n,α)T
+  * ⁷Li(n,n’α)T
+
+**Application**
+
+* Water moderates neutrons, increasing ⁶Li capture probability.
+* Excessive water also absorbs neutrons before reaching breeder.
+
+**Boundary**
+
+* TBR sits at **1.14**, just below required **1.15**, indicating operation near a neutronic cliff.
+
+---
+
+### Heat generation and removal
+
+**Law**
+[
+\nabla \cdot (k \nabla T) + q''' = 0
+]
+
+**Application**
+
+* Nuclear heating dominates in BZ.
+* FW surface heat flux adds a strong gradient near plasma side.
+* DWT layout governs conduction length scales.
+
+**Second-order effects**
+
+* Thermal conductivity differences dominate over nuclear heating differences in TSB temperatures.
+
+---
+
+### Pressurized water thermodynamics
+
+**Law**
+
+* At 15.5 MPa, saturation temperature ≈ **345 °C**.
+
+**Implication**
+
+* With outlet at 328 °C, **maximum saturation margin ≈ 17 °C**, even ideally.
+* Classical subcooling criteria are fundamentally incompatible with this regime.
+
+---
+
+### Magnetohydrodynamics (PbLi)
+
+**Law**
+
+* Lorentz force: **J × B**
+* Hartmann number Ha ≫ 1
+
+**Application**
+
+* Flow strongly damped.
+* Heat transfer becomes conduction-dominated (Nu ≈ 1–1.2).
+
+**Emergent behavior**
+
+* Flow redistribution up to **300–500% deviation** between cells.
+* Manifolds dominate pressure losses.
+
+---
+
+### Structural mechanics
+
+**Law**
+
+* Thermoelastic strain:
+  [
+  \varepsilon = \alpha \Delta T
+  ]
+
+**Application**
+
+* Large thermal gradients induce high secondary stresses.
+* RCC-MRx criteria against immediate plastic flow localization are violated in equatorial region.
+
+**Limit**
+
+* Steady analyses do not capture ratcheting or creep-fatigue.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Water fraction ↔ TBR ↔ EUROFER temperature**
+* **DWT layout ↔ water inventory ↔ neutronics**
+* **Magnetic field ↔ PbLi flow ↔ heat removal**
+* **Thermal expansion ↔ attachment stiffness ↔ stress localization**
+* **ECH cut-outs ↔ stiffness loss ↔ stress redistribution**
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Violated assumption       | Physical consequence       |
+| ------------------------- | -------------------------- |
+| EUROFER properties stable | DBTT shift, embrittlement  |
+| Solid PbLi conservative   | Overestimated temperatures |
+| Uniform flow              | Local overheating          |
+| Linear elasticity         | Underpredicted plasticity  |
+| Adequate TBR margin       | Tritium deficit            |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Thermal creep localization** in stiffening plates.
+* **Intergranular fracture** due to irradiation-assisted creep.
+* **MHD-induced flow starvation** in equatorial BZ cells.
+* **Residual water freezing or corrosion** after incomplete draining.
+* **Structural weakening near ECH cut-outs**, propagating fatigue cracks.
+* **TBR shortfall under as-built tolerances**.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Water vs TBR
+
+* Increasing water:
+
+  * Improves cooling
+  * Reduces TBR
+* Current design already sacrifices TBR margin for thermal safety.
+
+### Helical DWTs
+
+* Pros:
+
+  * Fewer welds
+  * Simpler manifolds
+  * −8.1% water inventory
+* Cons:
+
+  * Complex bending
+  * Unproven irradiation behavior
+  * Inspection difficulty
+
+### Structural integration
+
+* Attachments restrict global deformation.
+* Cut-outs improve system integration but worsen local stresses by ~40%.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* BB interfaces with:
+
+  * PHTS
+  * TER
+  * VV
+  * RM systems
+  * ECH wave paths
+* All coolant pipes routed through **upper ports**, constraining layout.
+* Draining depends on CVCS capacity, not BB-intrinsic design.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No evolution of:
+
+  * DWT ovalization
+  * PbLi corrosion
+  * EUROFER creep damage
+  * Weld degradation
+* No cumulative impact of:
+
+  * Load cycling
+  * Thermal ratcheting
+  * EM transients
+
+These assumptions are **optimistic for DEMO lifetimes**.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Shielding: **robust**
+* Thermal margins: **narrow**
+* Structural margins:
+
+  * Primary stress acceptable
+  * Secondary stress often unacceptable
+* Draining:
+
+  * 20–30% water retention is non-negligible for RM and LOCA classification.
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Designed regime
+
+* Steady plasma
+* Nominal heat loads
+* Fully pressurized water
+* No boiling
+* Linear elastic response
+
+### Likely operating regime
+
+* Thermal creep
+* Flow maldistribution
+* MHD-suppressed convection
+* Progressive margin erosion
+* Structural relaxation toward equatorial region
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Mission and functional role
+
+* The divertor must simultaneously:
+
+  * Exhaust extreme surface heat flux from SOL particles and radiation.
+  * Provide effective helium ash and fuel exhaust via controlled gas conductance.
+  * Shield the vacuum vessel and magnets from neutron and gamma loads.
+  * Maintain plasma compatibility through tungsten plasma-facing components.
+* The divertor is **not classified as a safety-important component**, implying it does not carry containment credit.
+
+### Operating envelope
+
+* **Single-null magnetic configuration** is assumed sufficient for DEMO baseline operation.
+* **Pulse length** up to 2 hours with ≥6600 cycles over lifetime.
+* **ELMs are assumed suppressed or mitigated**, not an actively dominant design driver.
+* Disruptions are assumed to occur but with unspecified frequency.
+
+### Lifetime and replacement
+
+* Nominal divertor lifetime is **1.5 full-power years**, primarily limited by irradiation damage.
+* Replacement is assumed to occur via **full cassette exchange**, not in-vessel repair.
+* No ex-situ refurbishment is assumed. Recycling requires melting.
+
+### Cooling concept
+
+* **Dual water cooling circuits** are mandatory:
+
+  * Targets at 130 °C, 5 MPa.
+  * Cassette body, shielding liner, reflector plates at 180–210 °C, 3.5 MPa.
+* Subcooled nucleate boiling is acceptable locally. Film boiling is not.
+* CHF margin of **≥40%** at targets is a hard requirement.
+
+### Materials
+
+* Plasma-facing armor is **pure tungsten**.
+* Structural material is **EUROFER97** for cassette, shielding liner, reflector plates.
+* Cooling pipes are **CuCrZr alloy**, with soft copper interlayer.
+* Wishbone fixation uses **Ti-6Al-4V**.
+* Material properties are assumed sufficiently characterized for design-by-analysis, despite acknowledged data gaps.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Plasma physics assumptions
+
+* Long-term detached divertor operation is implicitly assumed stable and controllable.
+* Strike point sweeping is assumed effective in preventing localized overloads.
+* Gas exhaust paths remain effective despite erosion, deformation, or deposition.
+
+### Irradiation behavior
+
+* EUROFER97 irradiated at **180–210 °C** is assumed to behave similarly to material irradiated at 250–350 °C, despite missing data.
+* CuCrZr mechanical properties are assumed to saturate early and remain stable up to ~10 dpa.
+* Helium bubble formation is assumed not to catastrophically degrade fracture resistance within lifetime.
+
+### Structural design philosophy
+
+* Fracture mechanics-based criteria are assumed sufficient to compensate for:
+
+  * Brittle behavior at low temperature.
+  * Singular stress and strain concentrations.
+* Residual stresses from fabrication are assumed partially relaxed, but the effective stress-free temperature remains uncertain.
+
+### Manufacturability and tolerances
+
+* Uniform 0.5 mm gaps between tungsten monoblocks are assumed achievable and maintainable.
+* Brazed and diffusion-bonded joints are assumed reproducible at scale.
+* Ceramic electrical insulation coatings are assumed durable under irradiation and thermal cycling.
+
+### Maintenance and remote handling
+
+* Robotic installation tolerances are assumed compatible with:
+
+  * 100 mm diameter pins.
+  * Multi-step engagement sequences.
+* Cutting and rewelding of pipes in low-dose regions is assumed feasible despite helium presence.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Heat transfer and CHF
+
+**Governing physics**
+
+* Convective heat transfer in pressurized water with swirl enhancement.
+* CHF governed by hydrodynamic instability correlations.
+
+**Application**
+
+* Targets operate near the upper practical limit of water cooling.
+* Safety margin relies on velocity uniformity and swirl tape performance.
+
+**Boundary**
+
+* CHF margin collapses rapidly if:
+
+  * Flow distribution degrades.
+  * Coolant temperature increases.
+  * Pressure drops locally.
+
+---
+
+### Thermoelasticity and thermal stress
+
+**Law**
+[
+\varepsilon_{th} = \alpha \Delta T
+]
+
+**Application**
+
+* Thermal gradients dominate stress fields in cassette and shielding liner.
+* Mechanical loads from coolant pressure are secondary.
+
+**Second-order effects**
+
+* Differential expansion between EUROFER97 and VV steel drives support loading.
+* Stress redistribution occurs via elastic compliance of the wishbone.
+
+---
+
+### Neutron transport and damage
+
+**Law**
+
+* Neutron slowing down and capture governed by Boltzmann transport.
+* Damage quantified as dpa and transmutation helium production.
+
+**Application**
+
+* Nuclear heating reaches up to 8 MW/m³ near plasma-facing regions.
+* Helium production reaches 100 appm in steel near front faces.
+
+**Limit**
+
+* Irradiation damage exceeds material test database in low-temperature regime.
+
+---
+
+### Fracture mechanics
+
+**Law**
+
+* Crack driving force governed by stress intensity and strain energy release.
+* Thermal loads are strain-controlled rather than force-controlled.
+
+**Application**
+
+* Crack growth tends to self-arrest due to stress relaxation.
+* Singular strain concentrations do not necessarily propagate global failure.
+
+**Boundary**
+
+* Multi-axial stress states near free edges can exhaust ductility locally.
+
+---
+
+### Electromagnetics
+
+**Law**
+[
+\mathbf{F} = \mathbf{J} \times \mathbf{B}
+]
+
+**Application**
+
+* Eddy and halo currents induce MN-scale forces during disruptions.
+* Electrical insulation dramatically reduces forces in target cooling circuits.
+
+**Emergent behavior**
+
+* Magnetic attraction between cassettes contributes beneficial preloading but degrades with irradiation.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Coolant temperature vs irradiation embrittlement**
+  Lower temperature improves CHF but worsens steel brittleness.
+* **Thermal gradients vs fixation stiffness**
+  Stiffer supports reduce displacement but increase stress concentration.
+* **Helium production vs recyclability**
+  High He concentration eliminates cutting and rewelding options.
+* **Residual stress vs fatigue behavior**
+  Stress-free temperature assumptions shift crack initiation regimes.
+* **Plasma detachment vs heat flux peaking**
+  Divertor survivability relies on plasma control as much as hardware.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption violated                      | Physical consequence               |
+| ---------------------------------------- | ---------------------------------- |
+| ELM suppression fails                    | Armor erosion and thermal overload |
+| EUROFER toughness at low T overestimated | Brittle fracture risk              |
+| Uniform coolant flow                     | Local CHF exceedance               |
+| Residual stress relaxed                  | Incorrect crack growth predictions |
+| Helium effects mild                      | Loss of weldability and ductility  |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* Brittle fracture of EUROFER97 in cold CB regions after modest dpa.
+* Ductility exhaustion in CuCrZr pipes at bond free edges.
+* Progressive blockage or maldistribution in cooling channels.
+* Helium-induced intergranular failure in steel supports.
+* Loss of electrical insulation leading to amplified EM loads.
+* Fatigue crack initiation at monoblock gaps evolving into leading-edge overload.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Cooling vs materials reliability
+
+* Low-temperature water cooling protects against boiling but forces operation below optimal steel ductility range.
+
+### Lifetime vs waste
+
+* Short lifetime reduces embrittlement risk but increases radioactive waste.
+
+### ITER inheritance vs DEMO reality
+
+* ITER HHF technology scales thermally but not neutronically.
+
+### Structural simplicity vs stress concentration
+
+* Modular cassette and direct target attachment simplify maintenance but concentrate loads.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Interfaces with:
+
+  * Breeding blanket edges.
+  * Lower port pumping systems.
+  * Primary heat transfer system.
+  * Remote handling tooling.
+* Divertor geometry strongly affects:
+
+  * Neutron streaming.
+  * Gas conductance.
+  * Maintenance access.
+* Divertor design is coupled to magnet count and port allocation.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* Progressive embrittlement of EUROFER97 and CuCrZr.
+* Helium accumulation reducing weldability.
+* Possible relaxation of residual stresses over time.
+* Cumulative thermal cycling effects on interlayers.
+* Decrease in magnetic preload due to permeability loss.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* CHF margin at targets is robust under nominal assumptions.
+* Saturation margin in CB is locally exhausted at wall interface.
+* Structural margins rely on fracture mechanics rather than ductility.
+* EM load mitigation depends critically on electrical insulation integrity.
+* VV shielding margin is comfortable with optional inserts.
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Designed regime
+
+* Stable detached plasma.
+* Controlled strike point sweeping.
+* Uniform coolant distribution.
+* Elastic or shakedown structural response.
+
+### Likely operating regime
+
+* Partial reattachment events.
+* Local coolant boundary layer boiling.
+* Progressive irradiation embrittlement.
+* Increased sensitivity to geometric imperfections.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Role of PM-HIP in nuclear systems
+
+* PM-HIP is assumed to be a **drop-in or near-drop-in replacement** for cast or forged product forms for:
+
+  * Reactor internals
+  * Pressure-retaining components
+  * Selected secondary-side components
+* PM-HIP components are assumed capable of meeting **ASME BPVC Section III nuclear safety requirements** once sufficient irradiation data exist.
+
+### Manufacturing quality assumptions
+
+* PM-HIP is assumed to:
+
+  * Produce **fully dense material** with negligible porosity
+  * Eliminate large casting defects and forging banding
+  * Yield fine, homogeneous, equiaxed grain structures
+* Gas atomization is assumed to generate powders with **low oxidation and controlled chemistry**.
+* HIP consolidation is assumed to suppress macro-segregation and secondary phase clustering.
+
+### Irradiation envelope
+
+* The experiment explicitly targets:
+
+  * Temperatures: **300 °C and 400 °C**
+  * Doses: **~1 dpa and ~3 dpa**
+* These conditions are assumed to be **representative of LWR and near-term advanced reactor environments** for the selected alloys.
+* Irradiation temperatures are assumed acceptable with a tolerance of **±50 °C**, treated as non-fatal to data interpretation.
+
+### Comparative methodology
+
+* A core assumption is that **direct comparison** between PM-HIP and cast/forged materials is valid if:
+
+  * Irradiation temperature
+  * Irradiation dose
+  * Specimen geometry
+  * Post-irradiation examination techniques
+    are held constant.
+
+### Specimen representativeness
+
+* Miniature CT specimens are assumed to provide **fracture toughness trends representative of bulk behavior**, despite size effects.
+* TEM discs are assumed to capture representative irradiation microstructures despite free surface effects.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Powder chemistry control
+
+* Oxygen, nitrogen, and tramp element levels in powders are assumed:
+
+  * Sufficiently low
+  * Uniform across powder batches
+* The experiment implicitly assumes that **powder oxygen content will not dominate irradiation embrittlement**, despite historical evidence to the contrary.
+
+### HIP process uniformity
+
+* HIP consolidation is assumed to produce:
+
+  * Uniform bonding across prior particle boundaries
+  * No weak interfaces that become preferred helium or defect sinks under irradiation
+* Prior particle boundaries are implicitly assumed to behave like grain boundaries post-HIP.
+
+### Irradiation damage scaling
+
+* It is assumed that:
+
+  * **1–5 dpa behavior scales meaningfully to higher doses**
+  * Mechanisms observed at these doses remain relevant for lifetime predictions
+* Dose rate effects specific to ATR are implicitly neglected.
+
+### Temperature homogeneity
+
+* Axial cosine flux shaping is assumed correctable by specimen placement.
+* Temperature gradients within individual specimens are assumed negligible for mechanical interpretation.
+
+### Gas-gap thermal control
+
+* The experiment assumes:
+
+  * Gas gap dimensions are stable throughout irradiation
+  * Swelling, creep, or relaxation do not significantly alter gap conductance
+* ±39 °C temperature scatter is implicitly assumed not to mask fabrication-dependent trends.
+
+### Structural integrity of capsules
+
+* Capsule welds, honing interfaces, and internal fixtures are assumed not to:
+
+  * Distort temperature fields unexpectedly
+  * Introduce local stress concentrations that affect specimens
+* Capsules are assumed to remain **leak-tight** and chemically inert for the full irradiation duration.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Neutron damage accumulation
+
+**Law**
+
+* Displacement damage quantified by:
+  [
+  \text{dpa} = \int \phi(E),\sigma_d(E),dE,dt
+  ]
+
+**Application**
+
+* MCNP + NJOY used to compute energy-dependent displacement cross-sections.
+* Atomic displacement energies are assumed constant:
+
+  * 40 eV for steels and Ni alloys
+  * Lower weighted values for HfAl₃-Al
+
+**Boundary**
+
+* Real displacement efficiency varies with temperature, alloy chemistry, and defect recombination.
+* Effective dpa may deviate from calculated values by tens of percent.
+
+---
+
+### Radiation defect kinetics
+
+**Principles**
+
+* Frenkel pair production
+* Defect migration, recombination, and clustering
+* Sink strength competition (dislocations, grain boundaries, precipitates)
+
+**Application**
+
+* PM-HIP’s finer grain size implies:
+
+  * Higher grain boundary sink density
+  * Altered loop evolution kinetics
+* Forged materials exhibit:
+
+  * Higher initial dislocation density
+  * Different loop to line defect ratios
+
+**Second-order effects**
+
+* Radiation-induced segregation alters local chemistry at sinks.
+* Helium stabilizes voids and bubbles, accelerating embrittlement.
+
+---
+
+### Strengthening and embrittlement
+
+**Law**
+
+* Yield stress increase from obstacles:
+  [
+  \Delta \sigma \propto \sqrt{N} \cdot b
+  ]
+
+**Application**
+
+* Both PM-HIP and wrought alloys show irradiation hardening.
+* Differences arise from:
+
+  * Initial sink populations
+  * Particle boundary chemistry
+  * Oxygen-stabilized defect clusters
+
+**Limit**
+
+* Hardening does not uniquely predict fracture toughness loss.
+
+---
+
+### Fracture mechanics
+
+**Law**
+
+* Fracture resistance governed by:
+  [
+  K_{IC},\ J_{IC},\ \text{and DBTT}
+  ]
+
+**Application**
+
+* Miniature CT specimens probe crack initiation and early growth.
+* PM-HIP steels historically show:
+
+  * Similar DBTT
+  * Larger DBTT shifts
+  * Lower upper shelf energy
+
+**Boundary**
+
+* Constraint effects and limited ligament size reduce transferability to large components.
+
+---
+
+### Heat transfer
+
+**Law**
+
+* Gas conduction across gap dominates:
+  [
+  q \propto \frac{k_{gas}}{g}
+  ]
+
+**Application**
+
+* Small dimensional changes produce large temperature shifts.
+* Temperature control is extremely sensitive to manufacturing tolerances.
+
+**Emergent behavior**
+
+* Thermal uncertainty competes with irradiation effects in data scatter.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Powder oxygen ↔ irradiation embrittlement ↔ fracture toughness**
+* **Grain size ↔ sink strength ↔ loop evolution ↔ hardening**
+* **Temperature ↔ defect mobility ↔ DBTT shift**
+* **Gas gap tolerance ↔ temperature ↔ microstructure evolution**
+* **Specimen size ↔ constraint ↔ measured toughness**
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption violated      | Consequence                            |
+| ------------------------ | -------------------------------------- |
+| Powder oxygen negligible | Severe toughness loss post-irradiation |
+| Grain boundaries benign  | Helium-decorated particle boundaries   |
+| dpa scaling linear       | Misleading lifetime predictions        |
+| Temperature uniform      | Fabrication effects masked             |
+| Mini-CT transferable     | Non-conservative fracture assessment   |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* Inter-particle boundary embrittlement under helium accumulation
+* Oxygen-stabilized vacancy clusters in PM-HIP steels
+* Accelerated DBTT shift at lower irradiation temperatures
+* Loss of strain hardening capacity leading to cleavage-controlled fracture
+* Overconfidence in ASME allowables derived from unirradiated PM-HIP data
+* Gas gap collapse altering specimen temperature mid-irradiation
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+### Qualification speed vs certainty
+
+* PM-HIP promises shorter lead times and lower cost.
+* This comes at the expense of:
+
+  * Long-term irradiation database depth
+  * Confidence in fracture behavior under transients
+
+### Microstructural uniformity vs toughness
+
+* Fine grain size increases strength.
+* Fine grain size may:
+
+  * Increase defect density
+  * Reduce crack tip plasticity after irradiation
+
+### Weld elimination vs inspection risk
+
+* Fewer welds reduce classic weld embrittlement.
+* HIP joints introduce **distributed interfaces** that are harder to inspect.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Results are intended to inform:
+
+  * ASME Section III qualification
+  * Reactor internals design
+  * SMR pressure boundary concepts
+* ATR neutron spectrum approximates LWR but differs from:
+
+  * Fast reactors
+  * Fusion neutron spectra
+* PIE performed in hot cells introduces testing constraints not present in laboratory environments.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* Microstructure assumed stable beyond 3–5 dpa trends.
+* No explicit modeling of:
+
+  * Irradiation creep
+  * Long-term helium bubble coalescence
+  * Environmental cracking post-irradiation
+* Annealing during service transients is not considered.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Capsule structural margins are large:
+
+  * DNBR = 4.8
+  * FIR = 2.15
+* Material property margins are **unknown**, not conservative.
+* Fracture toughness margin erosion is the dominant unresolved risk.
+
+---
+
+## 11. DESIGN REGIME VS OPERATING REGIME
+
+### Designed experimental regime
+
+* Controlled temperature
+* Low to moderate dose
+* Stable capsule geometry
+* Isolated material behavior
+
+### Real reactor regime
+
+* Multiaxial stress
+* Thermal gradients
+* Higher cumulative doses
+* Helium-driven degradation
+* Transient loading and environmental effects
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Role of HIP in ITER PW shield fabrication
+
+* Hot isostatic pressing of **steel powder with solid parts** is assumed to be a **viable full-scale manufacturing route** for ITER primary wall shield modules.
+* HIP is explicitly assumed to:
+
+  * Eliminate *all* single seal welds in the completed shield
+  * Reduce leak risk by HIP-bonding all potential sealing interfaces
+* HIP is treated as a **reliability-enhancing process**, not merely a manufacturing convenience.
+
+### Manufacturing philosophy
+
+* The program assumes that **manufacturing risk can be managed by staging**:
+
+  * Small and medium mock-ups first
+  * Full-scale prototype second
+* Manufacturing feasibility is assumed transferable from mock-ups to full scale provided:
+
+  * Distortions are measured
+  * Tooling is adapted
+  * References are re-established post-HIP
+
+### Material assumptions
+
+* ITER Grade (IG) stainless steel is assumed to:
+
+  * Be compatible with combined forged + powder HIP processing
+  * Maintain acceptable mechanical and joining properties after HIP at **1400 °C and 1200 bar**
+* Steel powder is assumed to:
+
+  * Densify fully
+  * Bond reliably to solid forged parts
+  * Introduce no unacceptable residual porosity or weak interfaces
+
+### Tolerance control
+
+* Extremely tight tolerances are assumed achievable across:
+
+  * 157 deep drilled holes
+  * Slot machining between intersecting cooling channels
+  * Post-HIP final machining near embedded tubes
+* Dimensional control is assumed maintainable through:
+
+  * Defined drilling sequences
+  * Intermediate dimensional inspections
+  * Ultrasonic verification prior to high-risk machining
+
+### Inspection effectiveness
+
+* Ultrasonic testing is assumed capable of:
+
+  * Detecting bonding quality after HIP
+  * Accurately locating embedded cooling tubes
+  * Providing sufficient confidence to proceed with irreversible machining steps
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### HIP bonding completeness
+
+* It is implicitly assumed that **HIP bonding is binary**:
+
+  * Either fully successful or catastrophic
+* No partial-bond degradation mode is considered acceptable or detectable.
+* Long-term service degradation of HIP interfaces is not addressed.
+
+### Powder behavior assumptions
+
+* Powder flow during filling is assumed to:
+
+  * Fully occupy all voids
+  * Avoid local density gradients
+  * Avoid segregation during vibration filling
+* A correct **powder mass equals defect-free HIP** is implicitly assumed.
+
+### Distortion predictability
+
+* Distortions from:
+
+  * Powder densification (~30% local shrinkage)
+  * Tube restraint
+  * Furnace support interaction
+    are assumed to be:
+  * Predictable
+  * Measurable
+  * Recoverable through reference re-definition
+* It is implicitly assumed that distortions **do not compromise internal clearances**, even if external geometry shifts.
+
+### Tooling survivability
+
+* Custom HIP furnace support tooling is assumed to:
+
+  * Survive 1400 °C under 4.5-ton load
+  * Not damage furnace walls despite millimeter-scale clearances
+* Failure of tooling is treated as unacceptable but implicitly unlikely once “calculated.”
+
+### Inspection sufficiency
+
+* Ultrasonic inspection is assumed sufficient to:
+
+  * Detect lack of bonding
+  * Locate tubes with sub-millimeter accuracy
+* No alternative volumetric inspection (e.g., radiography, CT) is discussed, implying confidence in UT alone.
+
+### Repair philosophy
+
+* The process implicitly assumes **zero reparability after HIP**.
+* All risk mitigation must occur *before* HIP.
+* This implies an assumption of **perfect execution**, not just robust design.
+
+---
+
+## 3. FIRST-PRINCIPLES GOVERNING THE PROCESS
+
+### HIP densification physics
+
+* Powder densification governed by:
+
+  * Diffusion-controlled creep
+  * Pore collapse under isostatic pressure
+* At 1400 °C and 1200 bar:
+
+  * Powder shrinks volumetrically
+  * Solid–powder interfaces undergo metallurgical bonding
+
+**Implication**
+
+* Differential shrinkage between powder and solid induces internal stresses and distortion.
+
+---
+
+### Thermal–mechanical distortion
+
+* Non-uniform geometry and constraints produce:
+
+  * Anisotropic shrinkage
+  * Bending moments in tubes
+  * Residual stresses locked in during cooling
+
+**Hidden risk**
+
+* Residual stress fields are not measured, only geometry.
+
+---
+
+### Deep drilling mechanics
+
+* Long, high-aspect-ratio drilling introduces:
+
+  * Tool deflection
+  * Thermal expansion
+  * Cumulative positional error
+
+**Constraint**
+
+* Later machining assumes drilled hole axes are correct within tight margins.
+
+---
+
+### Ultrasonic inspection physics
+
+* UT accuracy depends on:
+
+  * Acoustic impedance contrast
+  * Surface roughness
+  * Beam access and coupling
+* Internal powder-to-solid interfaces complicate signal interpretation.
+
+**Implicit leap**
+
+* UT resolution is assumed sufficient to guarantee “no overlap” during final drilling.
+
+---
+
+### Welding and cleanliness
+
+* HIP success depends on:
+
+  * Oxide-free interfaces
+  * Vacuum integrity
+  * Absence of grease or particulates
+
+**Implicit assumption**
+
+* Cleaning procedures are perfectly effective at this scale.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Powder fill quality ↔ HIP bonding ↔ UT detectability**
+* **Tube distortion ↔ support design ↔ final machining risk**
+* **Deep drilling accuracy ↔ water collector machining ↔ PFW attachment**
+* **HIP distortion ↔ reference redefinition ↔ downstream tolerance stack-up**
+* **Elimination of welds ↔ reliance on HIP integrity**
+
+---
+
+## 5. HIDDEN FAILURE MODES
+
+* Local lack of bonding undetectable by UT
+* Residual stress-driven cracking during operation
+* Tube wall thinning due to post-HIP machining proximity
+* Powder segregation causing local property gradients
+* Inspection blind spots near intersecting holes
+* Accumulated tolerance drift despite intermediate inspections
+
+---
+
+## 6. UNSTATED TRADEOFFS
+
+### Weld elimination vs inspectability
+
+* Fewer welds reduce classic weld defects
+* But HIP joints are **distributed, buried, and non-repairable**
+
+### Manufacturing complexity vs operational reliability
+
+* Reliability in service is gained at the cost of:
+
+  * Extreme manufacturing precision
+  * High financial risk per component
+  * Zero tolerance for execution errors
+
+### Geometry fidelity vs structural predictability
+
+* Geometry can be corrected post-HIP
+* Residual stresses cannot
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Choice of material system
+
+* Tungsten is assumed to be a **representative and critical plasma-facing material** for future fusion reactors.
+* Hydrogen behavior is assumed to be a **dominant degradation mechanism** despite tungsten’s relatively low bulk H solubility.
+* Grain boundaries are explicitly treated as **both beneficial defect sinks** and **potential embrittlement sites**.
+
+### Grain boundary representativeness
+
+* The Σ3(112)[110] and Σ5(310)[100] GBs are assumed to be:
+
+  * Experimentally relevant
+  * Structurally stable at fusion-relevant temperatures
+  * Representative of broader classes of W GBs
+* Results derived from these two GBs are implicitly generalized to **other W GBs**.
+
+### Computational framework validity
+
+* Density Functional Theory with:
+
+  * GGA-PW91
+  * PAW potentials
+  * 400 eV cutoff
+    is assumed sufficient to capture:
+  * H–W interactions
+  * Charge density redistribution
+  * GB cohesion and fracture behavior
+* Static first-principles tensile testing (FPCTT) is assumed to meaningfully represent **mechanical strength and fracture trends**.
+
+### Strain modeling
+
+* Uniaxial tensile strain up to ~10–12% is assumed to:
+
+  * Be physically meaningful at the atomic scale
+  * Represent strain localization near GBs under irradiation and thermal loading
+* Poisson contraction is explicitly neglected, implying:
+
+  * Out-of-plane relaxation is assumed not to dominate fracture physics.
+
+### Hydrogen states
+
+* Hydrogen is assumed to occupy:
+
+  * Interstitial sites
+  * Vacancy sites
+* Molecular hydrogen, bubbles, and extended defects are **explicitly excluded**.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Time-scale separation
+
+* The study implicitly assumes **thermodynamic equilibrium**:
+
+  * H atoms instantaneously find minimum-energy sites
+  * No kinetic barriers limit segregation
+* Diffusion, trapping kinetics, and transient irradiation effects are ignored.
+
+### Temperature effects
+
+* All calculations are effectively at **0 K electronic ground state**, with no:
+
+  * Finite-temperature entropy
+  * Vibrational contributions
+  * Thermally activated migration
+* The influence of fusion-relevant temperatures (800–1500 K) is inferred, not modeled.
+
+### Hydrogen chemical potential
+
+* The reference state for H is implicitly fixed by bulk tetrahedral interstitial energy.
+* Plasma-driven H influx, recombination, and surface effects are not included.
+* The effective hydrogen chemical potential under reactor conditions is assumed compatible with the chosen reference.
+
+### Vacancy population
+
+* Vacancies are introduced **a priori**:
+
+  * Their formation is not coupled to strain, H concentration, or irradiation cascades.
+* Vacancy concentration is implicitly assumed to be:
+
+  * Low enough to treat clusters independently
+  * High enough to matter for GB cohesion
+
+### Fracture mode
+
+* Fracture is implicitly assumed to be:
+
+  * Mode I
+  * Brittle
+  * GB-dominated
+* Plasticity, dislocation emission, and crack blunting are excluded by construction.
+
+---
+
+## 3. FUNDAMENTAL PHYSICAL MECHANISMS (FIRST PRINCIPLES)
+
+### Electron-density mechanism
+
+* Hydrogen prefers sites where local valence electron density approaches an “optimal” value.
+* Tungsten’s bulk interstitial sites have **excessively high electron density** for H.
+* Grain boundaries reduce atomic packing → reduced charge density → favorable H sites.
+
+**Key principle**
+
+> H segregation energy is governed more by **local electronic structure** than by classical elastic strain alone.
+
+---
+
+### Effect of tensile strain
+
+* Uniaxial tensile strain:
+
+  * Expands interstitial volume
+  * Reduces local charge density
+* This systematically lowers H segregation energy at GBs and vacancies.
+
+**Critical implication**
+
+> Mechanical strain is not merely a consequence of embrittlement; it is an *active driver* of H accumulation.
+
+---
+
+### Vacancy–H synergy
+
+* Vacancies act as deep electronic and volumetric traps.
+* Multiple H atoms fill progressively less favorable sites within a vacancy.
+* Tensile strain stabilizes higher-order vacancy–H clusters.
+
+**Nonlinear effect**
+
+* Vacancy dominates strength loss initially.
+* H amplifies damage only once sufficient concentration is reached.
+
+---
+
+### GB cohesion degradation
+
+* H does not form strong directional bonds with W.
+* Instead, it:
+
+  * Weakens W–W bonding by charge redistribution
+  * Increases W–W bond lengths via local compressive effects
+* H at the **GB plane** is far more damaging than H nearby.
+
+---
+
+## 4. INTERDEPENDENCIES REVEALED
+
+* **Strain ↔ charge density ↔ H segregation**
+* **GB structure ↔ atomic density ↔ sensitivity to H**
+* **Vacancy presence ↔ H capacity ↔ embrittlement severity**
+* **H spatial distribution ↔ fracture initiation plane**
+
+These are not additive effects. They are **strongly coupled**.
+
+---
+
+## 5. HIDDEN FAILURE MODES SUGGESTED
+
+* Strain-assisted H accumulation at GBs preceding visible damage
+* Localized GB decohesion without bulk H saturation
+* Vacancy-mediated embrittlement at lower global H concentrations than expected
+* Preferential failure of “open” GBs under identical loading conditions
+
+---
+
+## 6. UNSTATED TRADEOFFS
+
+### Grain boundary engineering
+
+* Increasing GB density improves radiation damage healing
+* But also:
+
+  * Increases H trapping capacity
+  * Raises embrittlement risk under stress
+
+### Mechanical robustness vs defect tolerance
+
+* GBs beneficial for defect annihilation
+* Harmful when electronic structure favors impurity segregation
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Materials and Microstructure
+
+* Tungsten purity is >99.95 %, implying negligible influence of alloying elements or impurities on sputtering, recrystallization, or fuzz growth.
+* The material is **polycrystalline, hot-rolled, mechanically polished**, and **not stress-relief annealed**, implying residual stresses are present but assumed not to dominate sputtering behavior.
+* Grain orientations exposed at the surface are assumed representative of the bulk texture.
+
+### Plasma Environment
+
+* Neon ion energies of ~50 to 80 eV are taken as **fusion-relevant** for ITER first wall and divertor conditions.
+* Helium plasma conditions used to generate fuzz are assumed representative of ITER helium exposure regimes.
+* Plasma flux and energy distributions measured locally are assumed stable and spatially representative over the erosion area.
+
+### Measurement and Diagnostics
+
+* Secondary electron emission is modeled using the Young–Dekker formula parameterized with Walker’s data.
+* A fixed ion temperature of 0.03 eV is assumed based on prior Thomson scattering measurements in a similar source.
+* Optical emission line intensity ratios (W I / Ne II) are assumed proportional to sputtered flux, enabling indirect sputtering yield estimation.
+
+### Geometry and Boundary Conditions
+
+* Ion incidence is assumed normal.
+* Edge effects, shadowing, and macroscopic roughness outside fuzz morphology are neglected.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Microstructural and Manufacturing Assumptions
+
+* Grain interiors are treated as **elastically and crystallographically ideal**, neglecting sub-grain dislocation density, residual rolling textures beyond EBSD resolution, and stress gradients.
+* Mechanical polishing is assumed not to induce preferential amorphization or orientation-dependent surface damage that would bias sputtering.
+* Fuzz morphology is assumed statistically homogeneous within the analyzed regions.
+
+### Aging and Temporal Effects
+
+* No significant microstructural evolution occurs during Ne exposure except erosion. This neglects:
+
+  * Ne-induced defect accumulation
+  * Surface amorphization
+  * Local recrystallization under ~900 to 1000 °C exposure
+* Fuzz is assumed mechanically stable until fully eroded, ignoring possible collapse, sintering, or brittle fracture of tendrils.
+
+### Human and Operational Factors
+
+* ITER operation is implicitly assumed capable of:
+
+  * Controlling He exposure spatially and temporally to engineer fuzz
+  * Maintaining fuzz without unacceptable tritium retention or dust generation
+
+### Modeling Assumptions
+
+* TRIM.SP’s randomized target assumption is implicitly treated as a known limitation, but the experimental results are assumed scalable to ITER despite vastly different exposure times and neutron irradiation.
+* Molecular dynamics feasibility estimates assume classical potentials remain valid for fuzz geometries and high defect densities.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Physical Sputtering
+
+**Principle**
+Momentum transfer from incident ions ejects surface atoms when transferred energy exceeds surface binding energy.
+
+**Key Relations**
+
+* Threshold behavior:
+  ( Y \propto (E_i - E_{th})^n ) for ( E_i \gtrsim E_{th} )
+* Near-threshold regime is highly sensitive to crystallography and surface binding anisotropy.
+
+**Application**
+
+* (100) surfaces show higher sputtering than (111) due to more open atomic packing and lower effective surface binding energy.
+* Fuzz reduces effective momentum transfer due to multiple collisions and redeposition.
+
+**Validity Regime**
+
+* Low-energy, near-threshold, collision-cascade sputtering.
+* Breaks down if chemical sputtering or blistering dominates, which is not assumed here.
+
+---
+
+### 3.2 Crystallographic Anisotropy
+
+**Principle**
+Surface atomic density and channeling directions depend on orientation.
+
+**Application**
+
+* Orientation-dependent angular distribution functions alter escape probability of recoils.
+* (111) planes minimize sputtering yield due to close packing.
+
+**Second-Order Effects**
+
+* Recrystallization alters surface orientation distribution, feeding back into erosion rate.
+
+---
+
+### 3.3 Secondary Electron Emission
+
+**Principle**
+Electron emission modifies sheath potential and effective ion impact energy.
+
+**Application**
+
+* Fuzzy surfaces reduce secondary electron yield, increasing plasma potential and Ne II emission.
+* Assumed average secondary electron energy of ~7 eV.
+
+**Boundary**
+
+* Assumes emission spectra from clean W(100) remain applicable to fuzzed, porous morphologies.
+
+---
+
+### 3.4 Transport and Redeosition in Porous Media
+
+**Principle**
+Mean free path and line-of-sight probability control escape of sputtered atoms.
+
+**Application**
+
+* Increased fuzz thickness increases probability of redeposition.
+* Porosity alone does not uniquely determine yield reduction.
+
+**Emergent Behavior**
+
+* Nonlinear, sigmoidal erosion kinetics due to evolving geometry.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Thermal effects and microstructure**: Elevated surface temperatures promote recrystallization, which biases grain orientation toward (100), increasing sputtering.
+* **Fuzz morphology and plasma sheath**: Reduced secondary electron emission modifies sheath potential, altering ion energies and sputtering yields.
+* **Porosity and collision cascades**: Increased internal collisions damp cascade energy, reinforcing sputtering suppression.
+* **Orientation and erosion feedback**: Preferential erosion exposes subsurface grains, changing the orientation distribution dynamically.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                                              | Violated Outcome                                               |
+| ------------------------------------------------------- | -------------------------------------------------------------- |
+| Randomized target models are sufficient                 | TRIM.SP underpredicts erosion for textured or recrystallized W |
+| Stable fuzz morphology                                  | Collapse or sintering would abruptly increase sputtering       |
+| Linear relation between line intensity and sputter flux | Yield estimates become invalid at very low signal levels       |
+| Fixed ion temperature                                   | Errors in sheath potential and impact energy calculations      |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Accelerated divertor erosion** due to recrystallization-driven (100) texture formation.
+* **Dust generation** from mechanically unstable fuzz under transient loads.
+* **Tritium retention** in high-porosity fuzz layers.
+* **Runaway erosion feedback loop** where erosion promotes recrystallization, which increases erosion.
+* **Diagnostic blind spots** where sputtering yields fall below spectroscopic detection but still contribute to impurity accumulation.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Why tungsten**: prioritizes low sputtering over fracture toughness and manufacturability.
+* **Why fuzz thicknesses <3 μm**: likely constrained by experimental time and plasma stability, not necessarily optimal performance.
+* **What is not optimized**:
+
+  * Mechanical robustness of fuzz
+  * Neutron damage resistance
+  * Tritium inventory limits
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Assumes constant Ne seeding fraction independent of erosion rate.
+* Neglects neutron-induced transmutation and swelling.
+* Ignores electromagnetic forces, transient ELMs, and off-normal ion incidence.
+* Heat removal is assumed adequate to prevent melting despite >900 °C operation.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Short term**: selective sputtering, fuzz erosion, nonlinear yield evolution.
+* **Mid term**: recrystallization, grain reorientation, fuzz depletion.
+* **Long term**: texture cycling, accelerated erosion, impurity accumulation.
+
+Fatigue, creep, and neutron damage are implicitly assumed negligible within the experiment but dominate ITER lifetimes.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* No explicit safety factors on erosion rates are stated.
+* Single-point failure includes loss of fuzz stability or uncontrolled recrystallization.
+* Graceful degradation is not guaranteed once fuzz is fully eroded.
+
+---
+
+## 11. DESIGN REGIME VS OPERATIVE REGIME
+
+* **Design regime**: steady-state, near-threshold Ne bombardment with controlled He exposure.
+* **Likely operative regime**:
+
+  * Transient heat loads
+  * Mixed ion species
+  * Neutron-induced defect evolution
+* Robustness of conclusions degrades rapidly outside near-threshold, steady conditions.
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Materials and Structure
+
+* Thin films of **pure W, pure B, and mixed W–B** are assumed representative of plasma-facing layers formed by erosion and redeposition in ITER.
+* Film densities taken from prior work are assumed valid and uniform throughout the thickness.
+* Film thicknesses are assumed laterally uniform despite long deposition times and an interrupted B deposition.
+* Film chemistry is assumed stable up to 1000 °C, except where explicitly observed at interfaces.
+
+### Implantation Conditions
+
+* Neon isotopes 20Ne and 22Ne are implanted at **35–190 keV** with identical fluence (3 × 10¹⁶ at./cm²).
+* High implantation energies are assumed acceptable proxies for studying **mobility and retention**, not operational damage states.
+* Implantation damage levels of ~8–12 dpa are assumed not to fundamentally alter retention mechanisms in a way that invalidates conclusions.
+
+### Thermal Environment
+
+* Annealing between RT and 1000 °C for 1 h is assumed sufficient to activate any relevant diffusion or desorption processes.
+* Vacuum annealing pressures (~10⁻⁷ mbar) are assumed not to introduce significant contamination or oxidation.
+
+### Diagnostics
+
+* ToF-ERDA is assumed capable of resolving isotope-specific depth profiles with sufficient accuracy to detect diffusion, intermixing, or release.
+* SRIM is assumed adequate for pre-selecting implantation energies and estimating damage, with known limitations acknowledged.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Damage and Defect Physics
+
+* Implantation-induced defects are implicitly assumed to be **stable trapping sites** rather than pathways for enhanced diffusion.
+* Defect evolution during annealing is assumed not to cause bubble coalescence or percolation paths to the surface.
+* The defect population created by keV implantation is implicitly treated as comparable, in its trapping effect, to defects formed under plasma exposure.
+
+### Scale and Geometry
+
+* Thin-film behavior is assumed scalable to bulk or redeposited layers in ITER, despite vastly different thicknesses, stress states, and irradiation histories.
+* Lateral diffusion and edge effects are neglected.
+
+### Chemical Interactions
+
+* Ne is treated as chemically inert, with retention governed purely by physical trapping.
+* Formation of W–B compounds or borides within the film bulk is assumed negligible or irrelevant to Ne mobility.
+* Observed W–Si intermixing is treated as a special case rather than a general concern.
+
+### Time Dependence
+
+* One-hour anneals are assumed sufficient to reveal long-term mobility trends.
+* Slow diffusion processes over reactor-relevant timescales are implicitly assumed absent or negligible.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Noble Gas Transport in Solids
+
+**Principle**
+Diffusion of inert gases occurs via thermally activated hopping between interstitial sites or via defect-mediated transport.
+
+**Key Relation**
+[
+D = D_0 \exp\left(-\frac{E_a}{kT}\right)
+]
+
+**Application**
+
+* No measurable diffusion up to 1000 °C implies a high activation energy for Ne migration in W, B, and W–B mixtures.
+* Retention indicates strong trapping at vacancies, dislocation loops, or implantation-induced clusters.
+
+**Validity**
+
+* Applies to bulk-like regions of films.
+* Breaks down if interconnected porosity or open diffusion paths form.
+
+---
+
+### 3.2 Implantation Damage and Trapping
+
+**Principle**
+High-energy ions create collision cascades producing vacancies, interstitials, and clusters that act as trapping sites.
+
+**Application**
+
+* Calculated dpa values imply dense defect populations capable of immobilizing Ne.
+* Implantation order is designed to avoid disturbing near-surface profiles.
+
+**Second-Order Effects**
+
+* Defect annealing could release trapped Ne, which is not observed, indicating defect stability up to 1000 °C.
+
+---
+
+### 3.3 Thermodynamics of Gas Release
+
+**Principle**
+Desorption occurs when thermal energy exceeds binding energy of trapped species.
+
+**Application**
+
+* Absence of desorption peaks implies Ne binding energies exceed thermal energy available at 1000 °C.
+* Contrasts with He, which has lower migration and release barriers.
+
+---
+
+### 3.4 Interface Reactions
+
+**Principle**
+Chemical reactions at interfaces alter defect structures and diffusion pathways.
+
+**Application**
+
+* W–Si formation above 900 °C modifies Ne depth profiles in W:B/Si samples.
+* Indicates chemistry, not temperature alone, can unlock trapped Ne.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Implantation energy vs. retention**: High energies create deeper, more dispersed trapping sites, reducing surface escape probability.
+* **Damage vs. diffusion**: Damage increases trapping density, suppressing diffusion despite high temperatures.
+* **Film chemistry vs. interfaces**: Stable bulk chemistry contrasts with reactive interfaces that can mobilize Ne.
+* **Measurement resolution vs. interpretation**: ERDA depth resolution limits may mask small-scale redistribution.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                                   | Consequence if Violated                        |
+| -------------------------------------------- | ---------------------------------------------- |
+| keV implantation represents plasma retention | Actual plasma-implanted Ne may be less stable  |
+| Defects remain trapping sites                | Defect annealing could cause sudden Ne release |
+| 1 h anneal is sufficient                     | Long-term diffusion may be underestimated      |
+| Thin films represent ITER walls              | Bulk behavior under neutron damage may differ  |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Long-term impurity accumulation**: Stable Ne retention implies potential buildup in redeposited layers.
+* **Sudden release during chemistry changes**: Interface reactions or phase changes could trigger Ne bursts.
+* **Synergy with neutron damage**: Neutron-induced defects may alter trapping energetics.
+* **Bubble formation at higher fluence**: Not explored but could cause blistering or dust formation.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Why keV implantation**: Chosen for profile separation, not realism.
+* **What is not optimized**:
+
+  * Plasma-relevant damage states
+  * Cyclic thermal loading
+  * Simultaneous D, He, and Ne retention
+* **Tradeoff**: High damage improves detectability but obscures operational relevance.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No concurrent plasma flux during annealing.
+* No neutron irradiation.
+* No mechanical stress or thermal gradients.
+* Substrate chemistry influences results despite being treated as secondary.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Short term**: Ne immobilized at implantation depth.
+* **Medium term**: Stable trapping up to 1000 °C.
+* **Long term**: Unknown behavior under neutron damage, cyclic heating, or chemistry evolution.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Retention stability suggests robustness against thermal excursions.
+* However, **single-point failures** include:
+
+  * Phase formation
+  * Interface reactions
+  * Damage saturation
+* No engineered release mechanism exists once Ne is trapped.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+* **Design regime**: Static films, high implantation energy, vacuum annealing.
+* **Operative regime**: Low-energy plasma implantation, continuous erosion, neutron damage, mixed species.
+* Conclusions are robust for **immobility of Ne in damaged W-based films**, but scalability to ITER timescales and conditions remains uncertain.
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Materials and Geometry
+
+* Tungsten-coated graphite tiles with Mo interlayers are assumed to be **representative erosion markers** for full-W divertor behavior.
+* The nominal coating thicknesses (≈12 μm W, ≈3 μm Mo interlayer, additional 1–2 μm W marker) are assumed known well enough to back-calculate erosion rates.
+* Core-drilled disks are assumed to preserve the **local erosion–deposition history** without significant artefacts from drilling.
+
+### Plasma Exposure
+
+* Integrated plasma exposure times of up to 7.3 h across C1–C5 are assumed sufficient to establish statistically meaningful erosion and deposition patterns.
+* Phase-1 WEST plasmas are assumed ITER-relevant in terms of:
+
+  * Material migration pathways
+  * Strike-point physics
+  * Impurity transport trends
+* Deuterium plasmas dominate, with limited helium exposure, and this is assumed not to fundamentally alter the erosion–deposition topology.
+
+### Diagnostics
+
+* SIMS provides high-resolution depth profiling but is treated as semi-quantitative.
+* IBA techniques (EBS, RBS, NRA, PIXE) are assumed to provide reliable absolute quantification despite:
+
+  * Surface roughness
+  * Layered and porous deposits
+* Agreement between SIMS and IBA is taken as validation of conclusions.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Surface Morphology
+
+* Surface roughness, porosity, and cracking are assumed not to invalidate depth-integrated erosion estimates.
+* Delamination and flaking are treated as secondary effects rather than primary erosion mechanisms.
+
+### Transport Physics
+
+* Net erosion or deposition at a given poloidal coordinate is assumed to reflect **steady-state balance**, not transient reversals.
+* Material transport is assumed dominantly along SOL field lines, with toroidal asymmetries treated as perturbations.
+
+### Chemistry
+
+* Boron oxidation is implicitly assumed to occur primarily **post-mortem** during air exposure, not in-plasma.
+* Oxygen co-deposition is assumed to track boron rather than act independently.
+
+### Time Scaling
+
+* Average erosion rates derived from integrated exposure are assumed extrapolatable to longer reactor lifetimes.
+* Campaign-to-campaign evolution is assumed monotonic, except where magnetic ripple shifts are invoked.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Physical Sputtering and Erosion
+
+**Principle**
+Momentum transfer from plasma ions and impurities removes surface atoms when transferred energy exceeds surface binding energy.
+
+**Application**
+
+* Strong erosion at ISP and OSP reflects peak particle and heat fluxes.
+* Measured net erosion rates of ~0.2–0.3 nm/s at ISP are consistent with near-threshold sputtering of W.
+
+**Validity**
+
+* Applies under steady plasma exposure.
+* Breaks down when flaking or mechanical detachment dominates.
+
+---
+
+### 3.2 Material Migration and Re-deposition
+
+**Principle**
+Eroded atoms are transported along magnetic field lines and redeposited where local flux and temperature decrease.
+
+**Application**
+
+* Thick deposits near ISP towards HFS arise from high upstream erosion and reduced local sputtering.
+* Thin deposits at HFS and LFS limits correspond to low plasma interaction regions.
+
+**Emergent Effects**
+
+* Sharp poloidal boundaries between erosion and deposition zones.
+* Layered deposits reflecting campaign history.
+
+---
+
+### 3.3 Boronization Chemistry
+
+**Principle**
+Injected boron preferentially coats plasma-facing surfaces and getters oxygen.
+
+**Application**
+
+* Strong increase in B and O deposition after C4.
+* O content tracks B due to oxidation affinity.
+
+**Second-Order Effects**
+
+* Boron-rich layers are mechanically weak and prone to delamination.
+* Oxidation increases porosity and reduces adhesion.
+
+---
+
+### 3.4 Mechanical Stability of Deposits
+
+**Principle**
+Thermal cycling and compositional mismatch induce stresses in layered deposits.
+
+**Application**
+
+* Cracking and flaking observed in thick deposits near ISP.
+* Partial loss of B-rich layers inferred after C5.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Erosion ↔ deposition coupling**: High erosion at ISP feeds deposition zones nearby.
+* **Boronization ↔ oxygen uptake**: Boron increases impurity retention but degrades mechanical stability.
+* **Magnetic ripple ↔ deposition topology**: Toroidal ripple shifts local balance between erosion and redeposition.
+* **Surface roughness ↔ diagnostics**: Roughness increases uncertainty in IBA, feeding back into erosion estimates.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                              | If Violated                               |
+| --------------------------------------- | ----------------------------------------- |
+| Net erosion dominates over flaking      | Erosion rates are overestimated           |
+| Deposits are compositionally uniform    | Local hot spots drive unexpected release  |
+| Boron only beneficial                   | Boron layers become dominant failure mode |
+| Short campaigns reflect steady behavior | Long-term cyclic effects dominate         |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Deposit delamination** releasing dust into plasma.
+* **Runaway impurity accumulation** in thick deposition zones.
+* **Sudden exposure of Mo or graphite** once W layers erode.
+* **Migration of erosion zones** due to magnetic configuration changes.
+* **Underestimated hydrogen retention** in porous, boron-rich layers.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Why W despite erosion**: prioritized over carbon due to tritium retention limits.
+* **Why boronization**: trades impurity control for mechanical fragility.
+* **What is not optimized**:
+
+  * Deposit adhesion
+  * Long-term stability under thermal cycling
+  * Dust minimization
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Results depend on WEST geometry and magnetic ripple, not universal.
+* No neutron irradiation considered.
+* No active cooling effects included for inertially cooled tiles.
+* Atmospheric exposure alters post-mortem chemistry.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Early campaigns (C3)**: mild erosion, identifiable markers.
+* **Mid campaigns (C4)**: boron-driven deposition surge.
+* **Late campaigns (C5)**: erosion intensifies, deposition shifts, partial flaking occurs.
+
+Long-term implication is **non-stationary wall conditions**.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* No explicit erosion safety factor applied.
+* Single-point failures include:
+
+  * Loss of W coating
+  * Detachment of thick deposits
+* System lacks passive self-healing once Mo or graphite is exposed.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+* **Design regime**: steady erosion, predictable migration.
+* **Operative regime**:
+
+  * Zonal instability
+  * Chemistry-driven layer failure
+  * Configuration-dependent migration
+* First-principles predictions are only robust locally and temporally.
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Materials and Geometry
+
+* Tungsten–molybdenum coated CFC tiles from JET ILW campaigns are assumed representative of **ITER divertor plasma-facing components**, despite structural differences between CFC-backed coatings and bulk W monoblocks.
+* The W coating thickness (≈10–15 µm) and Mo interlayer (≈3 µm) are assumed sufficient to decouple plasma effects from the CFC substrate.
+* Deposition layers (0–58 µm thick) are treated as continuous, laterally representative layers for correlating thickness with tritium retention.
+
+### Tritium Sources
+
+* Tritium retained in samples is assumed to originate predominantly from:
+
+  * 1.01 MeV tritons produced in D–D fusion reactions
+  * Residual in-vessel tritium from earlier D–T campaigns
+* Neutron-induced trapping is assumed negligible due to low 14 MeV neutron flux during ILW campaigns.
+
+### Thermal Treatment
+
+* ITER-relevant baking conditions are represented by **350 °C for 100 h**.
+* Thermal desorption spectroscopy up to ~1300 K is assumed sufficient to recover essentially all retained tritium.
+
+### Diagnostics
+
+* SEM/EDX cross-sections accurately represent deposition layer thickness and composition.
+* TDS and full combustion are assumed to capture the full tritium inventory when combined.
+* Tritium decay corrections back to 16/10/2016 are assumed accurate.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Retention Mechanisms
+
+* Co-deposition is implicitly assumed to dominate tritium retention wherever thick deposition layers exist.
+* Tritium trapped in bulk tungsten defects is assumed secondary relative to deposition-layer trapping.
+* Tritium implantation depth is assumed shallow and not rate-limiting for retention.
+
+### Microstructure
+
+* Deposition layers are assumed homogeneous enough that thickness alone is a meaningful proxy for retention capacity.
+* Porosity, cracking, and lamination within Be-rich deposits are not explicitly parameterized.
+* Chemical state of deposited Be, including oxidation, is assumed to affect retention but is not quantified.
+
+### Time and Scaling
+
+* Retention accumulated over three ILW campaigns is assumed to be additive and not subject to saturation.
+* Results from D–D produced tritium are implicitly extrapolated to ITER D–T conditions.
+
+### Baking Strategy
+
+* Baking is assumed to act purely by thermally activated diffusion and desorption.
+* Re-trapping of tritium during bake-out is assumed negligible unless explicitly discussed.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Hydrogen Isotope Diffusion and Trapping
+
+**Principle**
+Hydrogen isotopes migrate via thermally activated diffusion and are immobilized by traps such as vacancies, dislocations, interfaces, and impurity phases.
+
+**Governing relation**
+[
+D = D_0 \exp\left(-\frac{E_a}{kT}\right)
+]
+
+**Application**
+
+* Tritium mobility increases with temperature, but release requires overcoming **trap binding energies**, not just lattice diffusion barriers.
+* Higher desorption temperatures imply deeper or stronger trapping sites.
+
+**Validity**
+
+* Applies in bulk W and Be layers.
+* Breaks down when microstructural transport is dominated by pores or cracks.
+
+---
+
+### 3.2 Co-deposition Physics
+
+**Principle**
+When eroded material redeposits together with hydrogen isotopes, the isotopes become incorporated into a growing solid with limited diffusion pathways.
+
+**Application**
+
+* Thick Be-rich deposition layers act as **tritium reservoirs**.
+* Retention scales with layer growth rate and available trapping sites.
+
+**Emergent effect**
+
+* Retention becomes decoupled from bulk W properties and dominated by deposit chemistry.
+
+---
+
+### 3.3 Thermal Desorption
+
+**Principle**
+Desorption occurs when thermal energy exceeds trap binding energy.
+
+**Application**
+
+* Tile 0 shows desorption peaks at 540–640 °C, well above ITER baking temperature.
+* Tile 1 shows lower and broader desorption peaks, indicating weaker or more diverse traps.
+
+**Implication**
+
+* A single baking temperature cannot address all retention states.
+
+---
+
+### 3.4 Heat and Mass Transport in Layered Systems
+
+**Principle**
+Layered materials introduce thermal gradients, diffusion barriers, and stress concentrations.
+
+**Application**
+
+* Thick deposition layers reduce effective bake-out by:
+
+  * Increasing diffusion path length
+  * Promoting re-trapping
+  * Altering thermal conductivity
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Deposition thickness ↔ retention**: Strong correlation for Tile 0, weak for Tile 1, indicating multiple retention regimes.
+* **Chemistry ↔ desorption temperature**: Be-rich layers raise desorption temperatures relative to bulk W.
+* **Microstructure ↔ baking efficacy**: Looser, porous deposits may both increase retention and facilitate partial release.
+* **Location ↔ retention**: Upper inner divertor regions dominate total fuel inventory.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                        | If Violated                                 |
+| --------------------------------- | ------------------------------------------- |
+| Co-deposition dominates retention | Bulk defect trapping may control desorption |
+| 350 °C baking sufficient          | Significant tritium remains trapped         |
+| Thickness predicts retention      | Chemistry and porosity dominate instead     |
+| D–D tritium comparable to D–T     | ITER inventories underestimated             |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Bake-out inefficacy** leading to cumulative tritium inventory.
+* **Localized hot-spot retention** in thick Be layers.
+* **Delayed release** during off-normal heating events.
+* **Dust generation** from thick, stressed deposition layers carrying trapped tritium.
+* **Underestimated inventory** due to incomplete desorption even after TDS.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Why W-based walls**: minimize sputtering and steady retention, at the cost of complex deposit behavior.
+* **Why 350 °C baking**: engineering limits, not physics-optimal.
+* **Tradeoff**:
+
+  * Higher bake temperatures improve tritium removal
+  * But stress coatings, joints, and cooling systems
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No neutron damage representative of ITER fluence.
+* No simultaneous helium effects.
+* Atmospheric exposure alters Be chemistry post-mortem.
+* Carrier gas effects introduce uncertainty in TDS interpretation.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Short term**: Tritium trapped in fresh co-deposits.
+* **Mid term**: Layer thickening increases retention and desorption temperature.
+* **Long term**: Retention becomes dominated by hardest-to-release traps.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Baking removes at most ~30 % of tritium for most samples.
+* Single-point failure is reliance on baking alone for inventory control.
+* No passive mechanism guarantees tritium exhaustion from thick deposits.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+* **Design regime**: uniform bake-out, thin deposits, predictable desorption.
+* **Operative regime**:
+
+  * Thick, chemically complex deposits
+  * Spatially varying desorption temperatures
+  * Partial and uncertain tritium removal
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Material and Structure
+
+* Graphite is modeled as:
+
+  * Pure
+  * Amorphous or effectively isotropic
+  * Uniform density around 2.2–2.23 g/cm³
+* Pyrolytic graphite anisotropy, crystallographic texture, and grain boundaries are **not explicitly resolved**.
+* Surface is assumed initially smooth with no pre-existing roughness, fuzz, or redeposited layers.
+
+### Plasma–Material Interaction Regime
+
+* Incident ions He⁺, D⁺, and T⁺ are assumed to dominate erosion physics in the **near-threshold energy regime**.
+* Incident energies are assumed sufficiently low that:
+
+  * Binary Collision Approximation remains valid
+  * Collective plasma effects, sheath acceleration, and molecular ions are neglected
+* Angle of incidence is treated as a controllable independent variable between 0° and 80°.
+
+### Simulation Validity
+
+* RDS-BASIC and SDTrimSP are assumed to capture the essential physics of:
+
+  * Physical sputtering
+  * Chemical sputtering
+  * Their coupling near threshold energies
+* SDTrimSP’s chemical sputtering model is assumed representative despite being a reduced BCA-based proxy for chemistry.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Surface Physics
+
+* The surface binding energy Es is treated as a tunable constant rather than an emergent property dependent on:
+
+  * Hydrogen saturation
+  * Surface reconstruction
+  * Temperature
+* Reduced displacement thresholds for surface atoms implicitly assume:
+
+  * No dynamic surface roughening
+  * No evolution of local incidence angle due to erosion
+
+### Chemical Kinetics
+
+* Chemical sputtering is assumed to be governed primarily by:
+
+  * Bond breaking thresholds
+  * Local hydrogen concentration
+* Real chemical kinetics, including:
+
+  * Reaction pathways
+  * Time-dependent diffusion
+  * Recombination barriers
+    are not explicitly modeled.
+
+### Temporal Effects
+
+* Simulations assume steady-state erosion per incident ion.
+* No incubation, saturation, or surface poisoning effects are included.
+* Hydrogen inventory is assumed not to saturate trapping sites beyond modeled limits.
+
+### Geometry and Scaling
+
+* Local angle-of-incidence dependence is assumed to scale directly to macroscopic divertor geometries.
+* Shadowing, self-redeposition, and evolving topography are neglected.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Binary Collision Physics
+
+**Principle**
+Sputtering occurs when momentum transfer from an incident ion exceeds surface binding and displacement energies.
+
+**Application**
+
+* Grazing incidence increases near-surface collision probability.
+* Effective sputtering threshold decreases with angle due to reduced normal momentum requirement.
+
+**Validity Regime**
+
+* Low-energy ions
+* Short collision cascades
+* Breaks down for collective or thermal spike effects.
+
+---
+
+### 3.2 Angle-Dependent Energy Partitioning
+
+**Principle**
+At oblique incidence, a larger fraction of ion energy is deposited parallel to the surface.
+
+**Application**
+
+* Explains higher sputtering yields at 60°–80°.
+* Explains threshold reduction with increasing angle.
+
+**Second-Order Effects**
+
+* Increased backscattering at very grazing angles.
+* Competition between surface skimming and penetration.
+
+---
+
+### 3.3 Chemical Bond Disruption
+
+**Principle**
+Chemical sputtering initiates when sufficient energy exists to break C–C bonds and allow volatile hydrocarbon formation.
+
+**Application**
+
+* First threshold around 5 eV corresponds to bond breaking.
+* Requires hydrogen isotope availability near surface.
+
+---
+
+### 3.4 Coupling of Physical and Chemical Sputtering
+
+**Principle**
+Physical displacement creates reactive dangling bonds that enhance chemical erosion.
+
+**Application**
+
+* Secondary threshold at 8–13 eV aligns with physical sputtering onset.
+* Chemical sputtering enhancement above this threshold is displacement-driven.
+
+**Emergent Phenomenon**
+
+* Two-step threshold behavior not predictable from chemistry or mechanics alone.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Angle ↔ threshold coupling**
+  Increasing angle lowers physical threshold, which in turn activates chemical enhancement earlier.
+* **Energy ↔ mechanism dominance**
+  Chemical sputtering dominates near threshold, physical sputtering dominates above ~55 eV.
+* **Backscattering ↔ yield peak location**
+  Competing effects shift maximum yield angle depending on code assumptions.
+* **Ion species ↔ cascade depth**
+  He, D, and T differ in penetration depth, modifying surface vs subsurface chemistry balance.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                | Consequence if Violated                        |
+| ------------------------- | ---------------------------------------------- |
+| Smooth surface            | Real roughness shifts local angle distribution |
+| Static target composition | Hydrogen saturation alters Es and Eth          |
+| BCA validity              | Collective effects may increase erosion        |
+| Constant Es               | Threshold predictions become inaccurate        |
+| No redeposition           | Net erosion may be overestimated               |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Localized runaway erosion** at specific angles due to geometric focusing.
+* **Accelerated thinning** near divertor strike points with oblique flux.
+* **Underpredicted erosion** if redeposition and re-erosion cycles occur.
+* **Misleading lifetime estimates** when angular distributions evolve dynamically.
+* **Unexpected tritium retention coupling**, since chemical sputtering creates hydrocarbons.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Why graphite despite erosion**
+  Low-Z impurity tolerance and helium fuzz immunity outweigh erosion penalties.
+* **Tradeoff not optimized**
+  Graphite erosion versus fuel retention and dust production.
+* **Design implication**
+  Accept erosion to preserve plasma stability.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No neutron damage included.
+* No thermal gradients or transient heat loads.
+* No plasma sheath acceleration effects.
+* No mixed-material interfaces modeled.
+* Results are local, not system-integrated.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* Early exposure dominated by chemical sputtering.
+* As surface roughens, local angle distribution broadens.
+* Over time, physical sputtering dominates net erosion.
+* Chemical sputtering self-limits at higher energies.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* No explicit safety factor on erosion yield.
+* Single-point sensitivity to surface angle distribution.
+* Loss of graphite thickness can accelerate exponentially once geometry changes.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+### Design Regime
+
+* Controlled incidence angles
+* Smooth surfaces
+* Predictable thresholds
+
+### Operative Regime
+
+* Evolving roughness
+* Broad angular distributions
+* Coupled chemical–physical erosion
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Material State and Baseline
+
+* The material is an **11Cr ferritic/martensitic steel** in a *normalized-and-tempered* condition.
+* Initial microstructure is assumed to be **well stabilized** by prior heat treatment at 780 °C for 1.5 h.
+* δ-ferrite fraction of approximately **15 %** is assumed uniform and representative of bulk behavior.
+* Pre-existing precipitate populations (Cr-rich M23C6, Nb-Ta-rich MX, σ-FeCr, σ-FeCrMo) are treated as known, stable reference states.
+
+### Irradiation Conditions
+
+* Ion irradiation with **3.5 MeV Fe13+** ions is assumed to be a valid surrogate for neutron damage.
+* Damage level of **0.84 dpa** is treated as “low dose” but physically meaningful.
+* Irradiation temperature of **700 °C ± 10 °C** is assumed spatially and temporally uniform.
+* SRIM-calculated damage and implantation profiles are assumed accurate.
+
+### Characterization
+
+* TEM, SAED, and EDX are assumed sufficient to:
+
+  * Identify precipitate crystal structures
+  * Distinguish multiphase precipitates
+  * Quantify elemental ratios meaningfully at the nanoscale
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Surrogacy and Scaling
+
+* **Ion irradiation ≈ neutron irradiation** in terms of precipitate evolution, despite:
+
+  * Strongly non-uniform damage profiles
+  * Absence of transmutation products
+  * Different cascade morphology and dose rates
+* Thin foil behavior is implicitly assumed representative of bulk cladding material.
+
+### Thermodynamic vs Kinetic Control
+
+* Phase formation is implicitly governed by **irradiation-enhanced diffusion**, not equilibrium thermodynamics.
+* Local non-equilibrium states are assumed stable enough to be captured post-irradiation.
+
+### Carbon and Nitrogen Availability
+
+* Carbon and nitrogen redistribution is assumed to be:
+
+  * Driven by defect trapping
+  * Not globally limited by prior tempering
+* Local supersaturation near defects is assumed possible even after high-temperature tempering.
+
+### Defect Structure
+
+* Radiation-induced defects (loops, black dots, dislocations) are assumed:
+
+  * Numerous
+  * Stable at 700 °C
+  * Effective sinks for solutes
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Radiation Damage and Point Defect Physics
+
+**Principle**
+Energetic ions create displacement cascades producing vacancies, interstitials, and defect clusters.
+
+**Application**
+
+* These defects act as:
+
+  * Fast diffusion pathways
+  * Solute traps
+  * Nucleation sites for new phases
+
+**Validity Regime**
+
+* Low to moderate dpa
+* Breaks down if defect recombination dominates at higher temperatures or lower flux.
+
+---
+
+### 3.2 Irradiation-Enhanced Diffusion
+
+**Principle**
+Effective diffusion coefficient increases due to defect-mediated transport.
+
+**Application**
+
+* Enables precipitation of M23C6 inside martensite laths where thermal diffusion alone is insufficient.
+* Drives transformation and dissolution of NbC-based MX precipitates.
+
+**Second-Order Effects**
+
+* Solute depletion zones
+* Local composition inversion near boundaries
+
+---
+
+### 3.3 Phase Stability Under Non-Equilibrium
+
+**Principle**
+Under irradiation, metastable phases can form that are thermodynamically unfavorable at equilibrium.
+
+**Application**
+
+* Formation of:
+
+  * NbC (fcc, a = 1.115 nm)
+  * Nb2C
+  * Nb6C5
+  * Fe-Cr intermetallics
+* Indicates dominance of kinetic pathways over free-energy minimization.
+
+---
+
+### 3.4 Solute Partitioning Between Phases
+
+**Principle**
+Elements partition to phases where chemical potential is locally minimized.
+
+**Application**
+
+* δ-ferrite enriched in Cr and W favors:
+
+  * σ-FeCrW
+  * Fe-Cr intermetallics
+  * Cr3C2 precipitation
+* Martensite favors M23C6 evolution.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **Defects ↔ diffusion ↔ precipitation**
+  Radiation defects accelerate diffusion, enabling new precipitate nucleation, which in turn alters solute availability.
+* **Carbon availability ↔ phase selection**
+  Low C in δ-ferrite biases toward Cr3C2 rather than M23C6.
+* **NbC dissolution ↔ secondary Nb phases**
+  Partial dissolution of NbC seeds Nb2C and Nb6C5 formation.
+* **Boundary chemistry ↔ intermetallic formation**
+  δ-ferrite–martensite boundaries act as chemical and kinetic hotspots.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                            | Consequence if Violated                  |
+| ------------------------------------- | ---------------------------------------- |
+| Ion irradiation mimics neutron damage | Bulk reactor behavior may differ         |
+| Uniform temperature                   | Local overheating alters phase stability |
+| Stable defect population              | Precipitation pathways change            |
+| Thin foil equivalence                 | Surface effects exaggerate diffusion     |
+| SRIM damage accuracy                  | dpa misestimation skews conclusions      |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Creep strength degradation** due to:
+
+  * Dissolution of fine MX precipitates
+  * Formation of brittle intermetallics
+* **Embrittlement** from σ-FeCrW and Fe-Cr phases at boundaries.
+* **Loss of long-term stability** if irradiation-induced phases coarsen during service.
+* **Heterogeneous mechanical response** driven by δ-ferrite-localized transformations.
+* **Unanticipated phase reversibility** under thermal cycling or higher doses.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* Steel chemistry optimized for **creep and oxidation**, not radiation stability.
+* Nb additions improve creep but introduce complex irradiation sensitivity.
+* δ-ferrite improves solidification but becomes a liability under irradiation.
+* Tradeoff accepted between:
+
+  * High-temperature strength
+  * Radiation-induced microstructural complexity
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No mechanical stress applied during irradiation.
+* No coolant chemistry interaction.
+* No cyclic thermal loading.
+* No helium or hydrogen transmutation effects.
+* Results are local microstructural, not component-scale.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Early irradiation**: defect accumulation, solute segregation.
+* **Intermediate stage**: irradiation-induced precipitation and phase transformation.
+* **Long term (unstudied)**:
+
+  * Coarsening
+  * Phase instability
+  * Possible dissolution or transformation under creep.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* No explicit margin against irradiation-induced phase instability.
+* δ-ferrite acts as a **single-point vulnerability**.
+* Nb-rich precipitates show **low robustness** to irradiation.
+* Lack of data on long-term thermal stability of Cr3C2 and Nb6C5 phases.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+### Design Regime
+
+* Tempered microstructure
+* Stable M23C6 and MX strengthening
+* Predictable creep behavior
+
+### Operative Regime
+
+* Radiation-driven non-equilibrium phase evolution
+* Boundary-localized intermetallic formation
+* Competing strengthening and embrittlement mechanisms
+
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Plasma Facing Components and Geometry
+
+* All **plasma-facing components are tungsten**, including main chamber, divertor, and inboard limiters.
+* Inboard-limited plasmas are assumed to be **ITER-relevant** during current ramp-up.
+* WEST geometry and limiter configuration are assumed to be a **meaningful analog** for ITER startup physics.
+
+### Boronization Physics
+
+* Glow Discharge Boronization using **He + B₂D₆** produces a **nanometric, amorphous B-rich layer**.
+* Boronization provides three explicit benefits:
+
+  1. Oxygen gettering
+  2. Increased wall pumping and reduced recycling
+  3. Transient shielding of W from sputtering
+* A **non-uniform B layer** is explicitly considered acceptable for plasma operation.
+
+### Diagnostics and Metrics
+
+* Radiated power fraction **Frad** is a valid proxy for impurity contamination and plasma quality.
+* UV and visible spectroscopy line intensities are assumed to be **qualitative indicators** of impurity sourcing.
+* Matching pulses before and after boronization isolates wall effects from plasma control effects.
+
+### Operational Timescales
+
+* Effects of boronization are assumed to be **transient**, fading with cumulated plasma time and energy.
+* Short-term restart performance is prioritized over long-term steady-state optimization.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Wall Inventory and Outgassing
+
+* Tungsten surfaces are assumed to retain **large reservoirs of H, O, N, and C** after venting.
+* Bake and D₂ glow discharge alone are assumed **insufficient** to remove these reservoirs.
+* Boronization acts as a **chemical cap**, not merely a surface coating.
+
+### Spatial Averaging
+
+* Plasma performance is implicitly assumed to be governed by **global impurity content**, not by localized B-depleted regions.
+* Toroidal asymmetry in B thickness is assumed not to trigger localized failure modes during startup.
+
+### Plasma–Wall Coupling
+
+* Detached, cold plasmas are implicitly assumed to be **self-sustaining impurity amplifiers** via radiative collapse.
+* Wall conditions dominate plasma behavior more strongly than plasma control parameters during restart.
+
+### Scaling to ITER
+
+* WEST results are assumed scalable to ITER despite:
+
+  * Smaller size
+  * Lower pulse energy
+  * Different magnetic topology and wall area to volume ratio
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Plasma Radiation and Energy Balance
+
+**Principle**
+Total plasma power balance must satisfy
+P_ohmic + P_aux = P_rad + P_transport + P_wall
+
+**Application**
+
+* Without boronization, **P_rad ≈ P_ohmic**, causing radiative collapse.
+* Boronization reduces impurity radiation, restoring net heating.
+
+**Validity Regime**
+
+* L-mode, cold and dense plasmas
+* Breaks down in high-temperature or strong auxiliary heating regimes.
+
+---
+
+### 3.2 Surface Chemistry and Gettering
+
+**Principle**
+Reactive surfaces lower impurity partial pressures by forming stable compounds.
+
+**Application**
+
+* Boron binds O and possibly N, forming stable boron oxides and nitrides.
+* Reduces recycling and impurity influx from unwetted wall areas.
+
+**Second-Order Effects**
+
+* Reduced impurity sputtering lowers W erosion indirectly.
+* Chemical saturation limits gettering lifetime.
+
+---
+
+### 3.3 Sputtering and Shielding
+
+**Principle**
+Sputtering yield depends on surface binding energy and incident particle energy.
+
+**Application**
+
+* B layer has lower sputtering threshold than W and is eroded preferentially.
+* Acts as a sacrificial shield during early operation.
+
+**Limits**
+
+* Effect is transient in net erosion zones such as divertor strike points.
+
+---
+
+### 3.4 Fuel Retention and Recycling
+
+**Principle**
+Hydrogen isotopes are retained via implantation, trapping, and chemical bonding.
+
+**Application**
+
+* Fresh B layers show strong short-term D₂ retention.
+* Leads to low density and attached plasmas immediately after boronization.
+
+**Tradeoff**
+
+* Improved impurity control at the cost of transient fuel inventory increase.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **B layer thickness ↔ impurity gettering ↔ Frad**
+* **Impurity reduction ↔ reduced W sputtering ↔ lower core radiation**
+* **B erosion ↔ plasma time and energy ↔ loss of benefits**
+* **Limiter versus divertor exposure ↔ spatial persistence of B effects**
+* **Fuel retention ↔ density control ↔ Te0 and attachment state**
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                  | Consequence if Violated                              |
+| --------------------------- | ---------------------------------------------------- |
+| Non-uniform B is sufficient | Localized impurity sources could dominate            |
+| Frad reflects wall state    | Core transport changes could confound interpretation |
+| WEST mimics ITER startup    | ITER may exhibit stronger asymmetry sensitivity      |
+| B layer chemistry stable    | Unexpected compound formation alters behavior        |
+| Detached plasmas benign     | Prolonged detachment may damage components           |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+* **Radiative collapse** driven by light impurities without B gettering.
+* **Uncontrolled density rise** from hydrogen outgassing in unboronized W.
+* **Rapid loss of B in wetted zones**, leading to uneven impurity sourcing.
+* **Transient W sputtering spikes** immediately after boronization due to attached plasmas.
+* **Fuel retention risks** for ITER tritium inventory control.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* ITER port limitations constrain **toroidal symmetry** of conditioning systems.
+* Boronization trades **long-term wall purity** for **short-term restart capability**.
+* Non-uniform boronization reduces system complexity but sacrifices predictability.
+* B layers mitigate impurities but introduce **fuel retention penalties**.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No runaway electron mitigation active during restart.
+* Ohmic and LHCD-dominated scenarios only.
+* Divertor predominantly attached during characterization pulses.
+* No ICRH or ECRH coupling during main analysis.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+* **Immediately after boronization**
+
+  * Low density
+  * Low Frad
+  * Strong impurity suppression
+* **Within one operational day**
+
+  * Partial B erosion
+  * Rising Frad
+  * Increased W and Cu signals
+* **Longer term**
+
+  * Convergence toward pre-B conditions
+  * Residual oxygen and nitrogen suppression persists
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Boronization provides **operational margin against impurity-driven disruptions**.
+* Margin erodes with cumulated plasma exposure.
+* Non-uniform B layers reduce dependence on full symmetry but increase uncertainty.
+* Single-point vulnerability: loss of B in main chamber limiters.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+### Design Regime
+
+* Full-W ITER with controlled startup via boronization
+* Assumed impurity gettering and manageable recycling
+
+### Operative Regime
+
+* Asymmetric B deposition
+* Transient wall chemistry
+* Strong coupling between wall state and plasma stability
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Material and Microstructure
+
+* Materials are **bcc tungsten, molybdenum, and iron**, representative of fusion-relevant structural alloys.
+* Grain boundaries are modeled as **idealized symmetric tilt or low-angle GBs** with well-defined Σ values.
+* GB structures are initially **static, crystalline, and defect-free** prior to SIA loading.
+* Nanocrystalline behavior is inferred from **single-GB simulations**, not from full polycrystalline networks.
+
+### Defect Population
+
+* Radiation damage is dominated by **self-interstitial atoms (SIAs)** and vacancies.
+* SIAs exist primarily as **crowdions or clusters (SIAn)** rather than isolated point defects.
+* Vacancies are assumed immobile at low temperature relative to SIAs.
+* Hydrogen and helium are not explicitly included in the core simulations.
+
+### Simulation Framework
+
+* **Embedded Atom Method (EAM)** potentials adequately represent defect energetics and GB behavior.
+* Molecular statics at **0 K** captures the dominant trapping and blocking mechanisms.
+* Molecular dynamics at controlled temperatures captures qualitative thermal activation trends.
+* Periodic boundary conditions are assumed to not artificially bias GB saturation behavior.
+
+---
+
+## 2. HIDDEN AND IMPLICIT ASSUMPTIONS
+
+### Representativeness of Single GBs
+
+* A single GB segment is assumed to represent **average GB behavior**, despite known variability in:
+
+  * Free volume
+  * Structural units
+  * Local chemistry
+* Triple junctions and GB curvature effects are neglected.
+
+### Defect Flux Balance
+
+* SIA influx to GBs is implicitly assumed to **exceed vacancy influx**, especially at low temperature.
+* Continuous SIA injection mimics irradiation, but **cascade spatial correlations** are ignored.
+
+### Mechanical Constraints
+
+* No external stress is applied.
+* Elastic interactions are assumed sufficient to describe defect energetics.
+* Plastic relaxation or GB migration is not allowed unless thermally activated in MD.
+
+### Timescale Separation
+
+* Structural relaxation is treated as instantaneous relative to defect generation.
+* Long-term microstructural evolution is extrapolated from short MD times.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### 3.1 Point Defect Thermodynamics
+
+**Law**
+Defect formation energy governs equilibrium stability.
+
+**Application**
+
+* SIAs lower their energy by migrating to GB free volume.
+* GBs act as deep potential wells for SIAs.
+
+**Limits**
+
+* Valid under low solute concentration.
+* Breaks down under GB saturation.
+
+---
+
+### 3.2 Defect Kinetics and Migration
+
+**Law**
+Diffusion rate follows Arrhenius behavior
+D ∝ exp(−Em/kT)
+
+**Application**
+
+* SIAs migrate orders of magnitude faster than vacancies.
+* SIAs dominate early GB interactions at low temperature.
+
+**Limits**
+
+* At elevated temperature, blocking states dissolve.
+* Vacancy mobility eventually competes.
+
+---
+
+### 3.3 Elastic Interaction and Strain Energy
+
+**Law**
+Elastic strain energy scales with defect volume and interaction range.
+
+**Application**
+
+* Bulk SIAs generate long-range <111> strain fields.
+* Trapped SIAs collapse strain fields at the GB.
+* Blocked SIAs preserve extended strain fields.
+
+**Second-Order Effects**
+
+* Long-range repulsion of incoming SIAs.
+* Modification of local diffusion landscapes.
+
+---
+
+### 3.4 Free Volume and Structural Unit Saturation
+
+**Law**
+Finite free volume limits defect accommodation.
+
+**Application**
+
+* GB structural units accommodate only a finite number of SIAs.
+* Excess SIAs increase local energy and induce blocking.
+
+**Limits**
+
+* GB phase transformations may alter capacity.
+* High temperature enables reconfiguration.
+
+---
+
+## 4. INTERDEPENDENCIES
+
+* **SIA accumulation ↔ GB free volume exhaustion**
+* **GB saturation ↔ emergence of blocking states**
+* **Blocking state morphology ↔ vacancy annihilation volume**
+* **Blocking state strain field ↔ SIA repulsion**
+* **Temperature ↔ stability of blocking vs trapped states**
+
+These interactions form a **nonlinear feedback loop** that governs defect evolution near GBs.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+| Assumption                         | If Violated                          |
+| ---------------------------------- | ------------------------------------ |
+| GB is an infinite sink             | Blocking and reflection dominate     |
+| SIAs always annihilate vacancies   | Repulsion reduces net annihilation   |
+| Trapped SIAs are optimal           | Blocked SIAs outperform in V removal |
+| Low temperature preserves trapping | Thermal escape dissolves blocking    |
+| Defect flux is uniform             | Local pile-up alters GB behavior     |
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### Microstructural Degradation
+
+* **GB saturation** reduces long-term radiation tolerance.
+* **SIA reflection** increases bulk defect density.
+* **Extended strain fields** promote defect clustering away from GBs.
+
+### Mechanical Consequences
+
+* Localized strain near GBs increases:
+
+  * Embrittlement risk
+  * Stress-assisted void formation
+* Reduced effectiveness of GBs as dislocation sinks.
+
+### Radiation Resistance Breakdown
+
+* Loss of “perfect sink” behavior under sustained irradiation.
+* Transition from defect elimination to defect redistribution.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* Nanocrystalline design trades **sink density** for **sink capacity limits**.
+* Strong GB trapping improves early-stage tolerance but accelerates saturation.
+* Blocked SIAs enhance vacancy annihilation but impair SIA absorption.
+* Optimal radiation resistance is **temperature-window dependent**.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* No alloying elements considered.
+* No transmutation products included.
+* No irradiation-induced segregation of solutes.
+* No GB migration or grain growth modeled.
+
+Thus, results apply primarily to **early-to-intermediate irradiation stages** in clean bcc metals.
+
+---
+
+## 9. TEMPORAL EVOLUTION
+
+### Early Irradiation
+
+* Rapid SIA migration to GBs.
+* Efficient defect annihilation.
+
+### Intermediate Stage
+
+* GB trapping sites saturate.
+* Self-blocking emerges.
+* Vacancy annihilation peaks near GB.
+
+### Later Stage
+
+* SIA reflection into bulk.
+* Reduced net defect removal.
+* Potential buildup of bulk damage.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* GBs possess a **finite defect absorption capacity**.
+* Blocking provides a secondary annihilation mechanism but is not fail-safe.
+* Elevated temperature reduces blocking but risks GB instability.
+* Single-point vulnerability exists if GB structural units saturate locally.
+
+---
+
+## 11. DESIGN VS OPERATIVE REGIME
+
+### Design Regime
+
+* Nanocrystalline metals with high GB density.
+* Low-temperature irradiation.
+* Assumed infinite GB sink efficiency.
+
+### Operative Regime
+
+* Continuous defect injection.
+* GB saturation and self-blocking.
+* Emergent boundary recombination zones.
+* Reduced effectiveness of classical sink models.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Geometry and Configuration
+
+* Castellated plasma-facing components consist of **millimeter-scale gaps** between tungsten monoblocks or tiles.
+* The investigated geometry uses:
+
+  * Tungsten armor thickness of **8 mm**
+  * Gap width of **0.4 mm**
+  * Gap angled **5° relative to surface normal**
+* The geometry is assumed to be representative of divertor monoblocks in devices such as **ITER**, **EAST**, **WEST**, and DEMO-class reactors.
+
+### Materials
+
+* Plasma-facing material is **polycrystalline tungsten (W)**.
+* Heat sink material is **CuCrZr**.
+* Material properties such as diffusion coefficients, sputtering thresholds, and reflection behavior are implicitly taken from established literature values.
+
+### Plasma Conditions
+
+* Edge plasma parameters are explicitly defined:
+
+  * Electron temperature **Te = 2–6 eV**
+  * Electron density **ne = 10¹⁶–10¹⁷ m⁻³**
+  * Ion temperature **Ti = 0.026 eV**
+* Magnetic field strength is **300 G**, oriented **85°** to the surface.
+* Incident ion energies are controlled via applied bias in the range **0 to −200 V**, with simulations focused on **−100 V**.
+
+### Operating Regime
+
+* Plasma-driven permeation (PDP) is treated as **steady-state** over experimental and simulation timescales.
+* The measured permeation flux at the CuCrZr backside is assumed to be representative of total hydrogen isotope transport through the system.
+
+---
+
+## 2. HIDDEN / IMPLICIT ASSUMPTIONS
+
+### Manufacturing and Assembly
+
+* Gaps are assumed to have **uniform width, smooth sidewalls, and precise angular alignment**.
+* Mechanical pressing between tungsten and CuCrZr is assumed to produce **intimate, void-free contact**, with negligible thermal contact resistance.
+* No consideration is given to gap-edge chipping, burrs, or local misalignment from manufacturing tolerances.
+
+### Surface State
+
+* Tungsten surfaces are implicitly assumed to have:
+
+  * Stable oxide or impurity layers prior to plasma exposure
+  * Homogeneous crystallographic orientation at the scale relevant to sputtering and reflection
+* Bias-induced sputtering is assumed to remove impurities without introducing significant roughness or microstructural damage.
+
+### Plasma Neutral Physics
+
+* Neutral particle transport inside gaps is inferred indirectly from reflected-ion behavior.
+* Reflection is assumed to follow a **cosine angular distribution**, independent of surface condition evolution.
+
+### Temporal Stability
+
+* No evolution of:
+
+  * Surface morphology
+  * Defect density
+  * Trapping site population
+  * Thermal fatigue or cracking
+    is considered during experiments or simulations.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Electrostatics and Plasma Sheath Physics
+
+**Poisson’s Equation**
+[
+\nabla^2 \phi = -\frac{\rho}{\varepsilon_0}
+]
+
+* Governs self-consistent electric fields in the sheath and gap entrance.
+* Valid in collisionless or weakly collisional sheath regimes.
+* Strongly geometry-dependent, particularly near sharp corners and gap entrances.
+
+**Debye Shielding**
+[
+\lambda_D = \sqrt{\frac{\varepsilon_0 k T_e}{n_e e^2}}
+]
+
+* Sets the minimum spatial resolution for PIC simulations.
+* Assumes quasi-neutral plasma upstream of the sheath.
+* Breaks down locally near walls and in narrow gaps where strong gradients exist.
+
+### Space-Charge-Limited Ion Transport
+
+**Child–Langmuir Law**
+[
+J \propto \frac{V^{3/2}}{d^2}
+]
+
+* Applied to explain reduced ion flux under thicker biased sheaths.
+* Strictly valid for 1D planar, collisionless, zero-magnetic-field conditions.
+* Its use here implicitly neglects strong magnetic obliquity and 2D effects.
+
+### Particle Dynamics
+
+**Lorentz Force**
+[
+\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})
+]
+
+* Governs ion deflection at gap entrances.
+* Valid as long as gyro-radius is comparable to or larger than gap dimensions.
+* Assumes static magnetic field and no turbulence.
+
+### Surface Interaction Physics
+
+* **Sputtering yield** increases with incident energy above material-dependent thresholds.
+* **Reflection probability** increases at high energy and near-normal incidence.
+* **Hydrogen recombination and desorption** depend on surface cleanliness and defect states.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Sheath thickening under bias** reduces ion density via Child–Langmuir scaling, but **increases ion energy**, intensifying sputtering.
+* **Electric field geometry** interacts with **magnetic field orientation**, determining whether ions impact sidewalls or gap bottoms.
+* **Ion energy spectrum** governs the balance between:
+
+  * Retention via implantation and diffusion
+  * Loss via sputtering and reflection
+* **Surface cleanliness** feeds back into recombination rates, altering effective permeation even at constant flux.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+* If **gap width deviates** from 0.4 mm, sheath overlap and electric field focusing change, invalidating the assumed ion trajectories.
+* If **surface roughness increases**, cosine reflection assumptions fail, altering neutral transport and retention.
+* If **CuCrZr diffusion properties change** due to radiation damage, the assumption that copper dominates permeation may no longer hold.
+* If **plasma parameters fluctuate**, steady-state sheath solutions become invalid, breaking the Child–Langmuir-based flux interpretation.
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### Material Deviations
+
+* Increased tungsten defect density could shift the system from a reflection-dominated to a trapping-dominated regime.
+* CuCrZr embrittlement or oxidation could introduce new trapping reservoirs.
+
+### Environmental Excursions
+
+* Higher-than-assumed ion energies could cross sputtering thresholds for tungsten itself, altering gap geometry over time.
+* Temperature cycling could open microcracks at the W–Cu interface, creating new permeation shortcuts.
+
+### Manufacturing Tolerances
+
+* Non-parallel gap walls could focus electric fields, creating localized hot spots and enhanced erosion.
+* Misalignment could restore partial line-of-sight, invalidating the assumed shielding effect.
+
+### Maintenance and Aging
+
+* Repeated plasma exposure could smooth or roughen surfaces, shifting reflection statistics.
+* Long-term tritium buildup in copper could exceed safety limits despite short-term suppression.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **Tungsten selection** prioritizes high melting point and low sputtering yield over manufacturability and brittleness.
+* **Gap angling** sacrifices plasma transparency for reduced direct implantation risk.
+* **Biasing strategy** trades increased ion energy for reduced net retention, implicitly accepting higher local erosion.
+* The system is **not optimized for transient events** such as ELMs or disruptions.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Upstream plasma is assumed uniform and stationary.
+* Downstream boundary assumes immediate detection of permeated species without re-adsorption.
+* No coupling is modeled between:
+
+  * Plasma source terms
+  * Bulk diffusion and trapping
+  * Coolant-side chemistry
+* Thermal transport between tungsten and CuCrZr is assumed ideal.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* No fatigue accumulation or creep in tungsten.
+* No time-dependent change in diffusion coefficients.
+* No progressive tritium inventory buildup considered.
+* No radiation-induced segregation or transmutation effects.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Safety margins rely on **reflection-dominated suppression** of permeation under bias.
+* Single-point failures include:
+
+  * Loss of bias control
+  * Surface condition changes
+  * Gap closure or widening
+* No graceful degradation mechanism is described if reflection efficiency drops.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design Regime
+
+* Steady plasma
+* Clean, well-defined gaps
+* Controlled bias and temperature
+
+### Likely Operative Regime
+
+* Fluctuating plasma flux
+* Evolving surfaces
+* Mixed ion and neutral populations
+* Long-term material degradation
+
+### Robustness Assessment
+
+* First-principles analysis is robust for **short-term, steady-state behavior**.
+* Predictive power degrades significantly under:
+
+  * Transients
+  * Long-term exposure
+  * Material evolution
+* Full system fidelity requires coupling PIC plasma models with **bulk hydrogen transport solvers** and **surface evolution models**, as correctly acknowledged in the text.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Material System
+
+* The breeder material consists of **biphasic ACB pebbles** with a **nominal composition of 70 mol% Li₄SiO₄ (LOS) and 30 mol% Li₂TiO₃ (LMT)**.
+* Two batches, ACB-1 and ACB-2, are assumed to have **comparable bulk material properties**, despite acknowledged microstructural variability.
+* Cubic Li₂TiO₃ present in pristine samples is explicitly assumed to be **metastable**, formed during rapid cooling in the KALOS process.
+
+### Operating Environment
+
+* Thermal cycling is conducted between **300 and 800 °C**.
+* Atmosphere is **He + 0.1 vol% H₂** at **1200 mbar absolute pressure**.
+* Oxygen and moisture levels are assumed sufficiently low to prevent oxidation or parasitic reactions.
+* The environment is intended to be representative of breeder blanket conditions in fusion systems such as **ITER** and DEMO-class reactors.
+
+### Thermal Loading
+
+* One cycle consists of:
+
+  * 12 h dwell at 300 °C
+  * 12 h dwell at 800 °C
+* Heating rate during cycling is **10 K/min**.
+* Cooling rate is **~0.5 K/min**, limited by furnace capability.
+* A total of **30 cycles** is assumed sufficient to probe relevant degradation mechanisms.
+
+### Metrics of Stability
+
+* Stability is evaluated via:
+
+  * Chemical composition by ICP-OES
+  * Phase composition by XRD
+  * Microstructure by SEM
+  * Porosity by He pycnometry and Hg porosimetry
+  * Mechanical integrity via single-pebble crush load tests
+* Absence of lithium loss, cracking, porosity evolution, or progressive strength degradation is interpreted as acceptable long-term performance.
+
+---
+
+## 2. HIDDEN / IMPLICIT ASSUMPTIONS
+
+### Thermal Shock Severity
+
+* The study implicitly assumes that **slow cooling rates are representative or at least acceptable proxies** for reactor-relevant thermal cycling.
+* High dT/dt transients, asymmetric heating, or local hot spots are not considered.
+
+### Mechanical Loading State
+
+* Pebbles are tested **without compressive preload**, shear, or pebble-pebble contact forces.
+* Mechanical interaction within a packed pebble bed under neutron irradiation and thermal gradients is implicitly neglected.
+
+### Chemical Interactions
+
+* Hydrogen is assumed to be chemically benign at 0.1 vol%.
+* No consideration is given to:
+
+  * Tritium effects
+  * LiOH formation
+  * Redox cycling under off-normal oxygen ingress
+
+### Microstructural Representativeness
+
+* Two observed microstructure types are assumed to span the relevant production variability.
+* Grain boundary chemistry, point defect populations, and lithium mobility at interfaces are assumed stable after early phase transformation.
+
+### Statistical Sufficiency
+
+* Crush load testing of **40 pebbles per condition** is assumed to adequately capture mechanical variability, despite large standard deviations.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Thermodynamics of Phase Stability
+
+* The cubic to monoclinic Li₂TiO₃ transformation is driven by **free energy minimization**.
+* The phase transition implies:
+
+  * Change in crystal symmetry
+  * Increase in unit cell volume
+* This transformation is thermodynamically favored below ~1155 °C.
+
+### Thermal Expansion and Stress
+
+[
+\sigma \approx E \alpha \Delta T
+]
+
+* Differential thermal expansion between LOS and LMT generates internal stresses.
+* Valid in the linear elastic regime.
+* Stress accumulation is mitigated here by slow thermal ramps.
+
+### Diffusion Kinetics
+
+[
+D = D_0 \exp\left(-\frac{Q}{RT}\right)
+]
+
+* Limited grain growth implies diffusion coefficients for Si and Ti in the opposite phase are low.
+* Valid assuming defect-limited diffusion and no radiation enhancement.
+
+### Porosity Conservation
+
+* Open and closed porosities are governed by sintering kinetics and pore coalescence.
+* No densification or pore growth indicates the system remains below sintering activation thresholds during cycling.
+
+### Fracture Mechanics
+
+* Crush load reduction reflects changes in flaw population or residual stress state.
+* Absence of progressive decline indicates no fatigue crack accumulation under tested conditions.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Phase transformation** directly alters **mechanical strength** via lattice reordering and volumetric strain.
+* **Biphasic microstructure** limits diffusion, which stabilizes grain size and porosity.
+* **Slow cooling rates** reduce thermal stress, suppressing crack initiation despite large temperature swings.
+* **Chemical stability** preserves phase equilibria, preventing secondary phase formation that could embrittle the structure.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+* If cooling rates were increased, thermal stress could exceed fracture toughness, invalidating the assumption of crack-free cycling.
+* If hydrogen concentration increased or tritium were present, diffusion and defect chemistry could change, altering phase stability.
+* If the biphasic distribution were less uniform, local stress concentrations could dominate failure behavior.
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### Thermal Transients
+
+* Rapid shutdown or plasma disruptions could induce:
+
+  * Thermal shock cracking
+  * Intergranular decohesion
+* These modes are implicitly avoided by the slow cooling protocol.
+
+### Mechanical Interaction
+
+* Pebble bed compaction could amplify the observed early-cycle strength loss into fragmentation.
+* Load redistribution after crush load reduction is not explored.
+
+### Radiation Effects
+
+* Neutron irradiation could:
+
+  * Enhance diffusion
+  * Stabilize or destabilize specific phases
+  * Modify porosity via helium bubble formation
+* None of these are addressed.
+
+### Chemical Off-Normal Events
+
+* Oxygen ingress could form Li₂CO₃ or LiOH, altering mechanical and thermal properties.
+* The slight positive pressure is assumed sufficient to prevent this indefinitely.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* **LOS–LMT ratio** balances lithium density against mechanical robustness.
+* **KALOS processing** prioritizes spherical geometry and scalability over microstructural uniformity.
+* The system is optimized for **long-term thermal exposure**, not extreme transient resilience.
+* No optimization is evident for minimizing early-cycle strength degradation.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* Pebbles are treated as **isolated systems**, not as elements of a stressed, irradiated, flowing breeder bed.
+* No coupling is made to:
+
+  * Helium purge flow heat transfer
+  * Tritium generation and release
+  * Structural constraints from blanket modules
+* Results implicitly assume uniform temperature distribution within individual pebbles.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* Most irreversible changes occur within the first two cycles.
+* After phase stabilization, properties are assumed time-invariant.
+* No cumulative damage, creep, or fatigue is assumed beyond early transformation effects.
+* Long-term operation beyond 30 cycles is extrapolated implicitly.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Safety margin relies on:
+
+  * Chemical stability of lithium
+  * Absence of fragmentation
+  * Stabilization of mechanical strength after early cycling
+* Single-point vulnerabilities include:
+
+  * Faster cooling rates
+  * Mechanical confinement
+  * Radiation-enhanced damage
+* No self-healing or load-redistribution mechanism is discussed if pebble failure occurs.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design Regime
+
+* Slow thermal ramps
+* Clean reducing atmosphere
+* Unconstrained pebbles
+* No irradiation
+
+### Likely Operative Regime
+
+* Spatial thermal gradients
+* Mechanical confinement
+* Neutron and gamma irradiation
+* Tritium generation and transport
+
+### Robustness Assessment
+
+* First-principles behavior is robust for **pure thermal cycling under mild gradients**.
+* Applicability degrades as additional coupled fields are introduced.
+* The study establishes a **baseline thermochemical qualification**, not a full reactor-equivalent validation.
+
+---WILLGPTSTART---
+
+## 1. EXPLICIT ASSUMPTIONS
+
+### Material State and Processing
+
+* The tungsten is **powder-metallurgy produced and heavily cold-worked** by multi-pass rolling to ∼90 percent thickness reduction.
+* No stress-relief annealing is performed prior to plasma exposure, so a **high stored dislocation density** is assumed and intentionally preserved.
+* Chemical purity above **99.95 wt percent W** implies impurity drag effects on recrystallization are negligible.
+
+### Plasma Exposure Conditions
+
+* Helium plasma exposure produces **subsurface He bubbles without fuzz formation**, ensured by limiting surface temperature to ∼853 K and ion energy to ∼50 eV.
+* The resulting He bubble population is shallow, nanoscale, and initially stable during subsequent annealing.
+* The He plasma condition is treated as representative of near-surface helium production in fusion PFCs, such as those foreseen in **ITER**.
+
+### Annealing Regime
+
+* Recrystallization is studied at **1573 K**, a temperature explicitly assumed to lie within the active recrystallization window of tungsten.
+* Interrupted annealing steps of **15 min** are sufficient to resolve nucleation and early growth processes.
+* Electron-beam annealing is assumed to provide **uniform heating** of the exposed surface with negligible thermal gradients through the probed depth.
+
+### Microstructural Diagnostics
+
+* EBSD-based criteria combining **grain orientation spread and orientation gradient** accurately discriminate recrystallized from deformed grains.
+* TEM imaging under underfocus conditions reliably captures the size and spatial distribution of He bubbles relevant to recrystallization physics.
+* He atoms not visible as bubbles are assumed to be **mechanically insignificant** after sufficient high-temperature annealing.
+
+---
+
+## 2. HIDDEN / IMPLICIT ASSUMPTIONS
+
+### Spatial and Temporal Scope
+
+* Only **near-surface recrystallization** is considered relevant to PFC performance, implicitly assuming bulk recrystallization dominates later or is less critical.
+* The examined area is assumed statistically representative of the whole surface despite known heterogeneity in deformation microstructures.
+
+### Bubble Physics
+
+* He bubbles are assumed to be **spherical, immobile obstacles** to boundary motion within the timescale of annealing.
+* Coalescence, shape instability, or pressure-driven migration of bubbles are implicitly neglected at 1573 K.
+
+### Dislocation Structure
+
+* Orientation gradients measured by EBSD are assumed to reflect **true subgrain structures**, not artefacts of recovery or surface damage.
+* Subgrain boundaries are treated as classical low-angle boundaries composed of dislocation arrays with well-defined mobility laws.
+
+### Stress State
+
+* Residual stresses from rolling and plasma exposure are assumed not to dominate recrystallization kinetics compared to dislocation-stored energy.
+* Thermal stresses induced by rapid electron-beam heating are implicitly assumed insufficient to alter nucleation pathways.
+
+---
+
+## 3. FIRST PRINCIPLES GOVERNING THE SYSTEM
+
+### Thermodynamics of Recrystallization
+
+* Recrystallization proceeds by **reduction of stored strain energy** associated with dislocations.
+* The driving pressure for recrystallization nucleation and growth scales with:
+  [
+  P_\text{drive} \sim \rho , G , b^2
+  ]
+  where ρ is dislocation density, G the shear modulus, and b the Burgers vector.
+
+### Grain Boundary Mechanics
+
+* Grain boundary motion is governed by force balance between:
+
+  * Stored energy driving pressure
+  * Boundary curvature pressure
+  * Particle pinning pressure
+* Classical **Zener pinning** applies when second-phase particles impede boundary migration.
+
+### Subgrain Growth Kinetics
+
+* Subgrain growth increases misorientation until a **high-angle grain boundary** forms, enabling nucleation.
+* Limiting subgrain size limits the maximum achievable misorientation, suppressing nucleation.
+
+### Diffusion and Bubble Stability
+
+* He bubble stability is governed by:
+
+  * Vacancy diffusion
+  * Gas pressure inside bubbles
+  * Surface and elastic energies
+* At sufficiently high temperatures, He desorbs or bubbles dissolve, reducing their mechanical influence.
+
+---
+
+## 4. INTERDEPENDENCIES BETWEEN PRINCIPLES
+
+* **Helium bubble pinning** interacts with **subgrain growth kinetics**, not directly with recrystallized grain growth.
+* **Dislocation density** determines both the driving force for recrystallization and the availability of subgrain boundaries.
+* **Temperature** simultaneously enhances:
+
+  * Dislocation recovery
+  * Bubble mobility or dissolution
+  * Boundary mobility
+* The balance between these competing effects defines a narrow regime of retarded recrystallization.
+
+---
+
+## 5. ASSUMPTION–PRINCIPLE CONNECTIONS
+
+* If He bubbles were mobile or coalesced rapidly, Zener-type pinning of subgrain boundaries would fail, invalidating the suppression model.
+* If dislocation density were lower, stored energy would drop below the threshold needed for nucleation regardless of bubble presence.
+* If annealing temperatures exceeded bubble stability limits, recrystallization would revert to conventional kinetics, as observed at 1673 K.
+
+---
+
+## 6. HIDDEN FAILURE MODES
+
+### Thermal Excursions
+
+* Transient overheating could dissolve He bubbles prematurely, eliminating recrystallization retardation.
+* Local hot spots could allow localized recrystallization, introducing mechanical heterogeneity.
+
+### Irradiation Coupling
+
+* Neutron irradiation may:
+
+  * Generate additional defects
+  * Modify bubble nucleation density
+  * Alter subgrain structures
+* These effects could either reinforce or negate the observed suppression mechanism.
+
+### Mechanical Degradation
+
+* Retarded recrystallization preserves hardness but may increase residual stress, raising susceptibility to brittle fracture.
+* Suppressed nucleation could delay but not prevent catastrophic recrystallization once thresholds are crossed.
+
+---
+
+## 7. UNSTATED CONSTRAINTS AND TRADEOFFS
+
+* The mechanism optimizes **surface-layer stability**, not bulk toughness.
+* Helium is treated as beneficial for recrystallization control but is also known to degrade ductility and thermal conductivity.
+* The approach assumes controllable plasma exposure conditions, which may not hold during off-normal reactor events.
+
+---
+
+## 8. BOUNDARY CONDITIONS AND SYSTEM CONTEXT
+
+* The study isolates **plasma–material interaction** from:
+
+  * Mechanical constraint by monoblock geometry
+  * Thermal gradients across thickness
+  * Cyclic thermal fatigue
+* No coupling to coolant interfaces or macroscopic stress fields is considered.
+
+---
+
+## 9. TEMPORAL EVOLUTION ASSUMPTIONS
+
+* Recrystallization suppression is strongest during **early annealing stages**.
+* Once He bubbles dissolve or shrink below effective size, recrystallization accelerates.
+* Long-term stability relies on maintaining bubble populations through continued plasma exposure.
+
+---
+
+## 10. SAFETY AND ROBUSTNESS MARGINS
+
+* Safety margin derives from delaying embrittlement rather than eliminating it.
+* Single-point vulnerabilities include:
+
+  * Loss of He bubble stability
+  * Excessive annealing temperature
+  * Reduced dislocation density after long service
+* No intrinsic self-limiting mechanism prevents sudden recrystallization once suppression fails.
+
+---
+
+## 11. OPERATIVE VS DESIGN REGIME
+
+### Design Regime
+
+* Controlled He plasma exposure
+* High dislocation density
+* Near-surface dominated damage
+* Annealing temperatures near 1573 K
+
+### Likely Operative Regime
+
+* Spatially varying temperature
+* Concurrent neutron damage
+* Cyclic thermal loads and ELMs
+* Mixed helium production pathways
+
+### Robustness Assessment
+
+* The proposed mechanism is **physically sound but narrowly bounded**.
+* It is robust for near-surface layers under moderate thermal exposure.
+* Applicability diminishes for bulk recrystallization, extreme transients, or altered bubble stability.

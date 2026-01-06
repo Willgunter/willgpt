@@ -1,0 +1,318 @@
+Abstract
+Pure chromium (Cr) targets were exposed to high-flux deuterium (D) plasmas in the Pisces-RF linear plasma device, and measurements of D retention, release, and erosion were subsequently performed. Post-exposure D retention was quantified using temperature-programmed desorption on Cr targets irradiated by 50 eV ions over a broad range of exposure temperatures (423–873 K) and ion fluences (
+–
+ m−2). The retained D inventory was observed to decrease rapidly with increased exposure temperature, from approximately 
+ m−2 at 
+420 K, to then saturate near 
+1020 m−2 for exposure temperatures above 
+550 K. Separately, at fixed exposure temperature (
+450 K), D retention was found to have only a weak dependence on increasing ion fluence. Lastly, the erosion of Cr in D plasma was investigated for ion impact energies in the range 40 
+ E
+ 
+ 250 eV. Erosion was inferred using optical emission spectroscopy (OES) from the ratio of emission lines (Cr I (425.4 nm)/D I (656.1 nm)) measured close to the target. Conversion of the OES yield data to net erosion yield was made with singular ion energy target mass-loss measurements. These net erosion yield data were then further corrected to obtain gross erosion yield by accounting for a re-deposition factor, computed using a simple model. The gross erosion yield is found to be 2–4 times lower than predicted by SDTrimSP, consistent with that typically observed for light-ion sputtering under high-flux plasma conditions.
+Keywords
+PISCES-RFDeuteriumChromiumRetentionSputteringDesorption
+1. Introduction
+The development of new plasma facing materials (PFMs) for magnetic confinement D–T fusion systems presents a multifaceted challenge constrained by numerous performance requirements, and is also identified as one of the six core challenge areas in the US Fusion Science & Technology Roadmap [1]. Candidate materials must endure extreme steady-state and transient heat and particle fluxes, resist surface erosion and associated impurity generation, and demonstrate compatibility with fuel management through low hydrogen-isotope retention in both bulk and co-deposited states. Such materials must also exhibit low radiological activation throughout the reactor lifetime, decommissioning, and post-operation.
+In a recent report [2] that examines the viability of PFM candidates for nuclear fusion, chromium (Cr) was identified as being in the top twenty materials. This assessment considered experimental data and modeling on sputtering, hydrogen solubility, thermal and mechanical stability, surface integrity, and activation and tolerance to irradiation. Historically, however, Cr has been overlooked as a PFM option due to (i) its relatively high atomic number compared to carbon in the pre-tungsten fusion era [3] and (ii) its relatively high sublimation rate at low temperature.
+Cr has a reasonably high melting point of 2180 K and according to [4], modeling of DEMO reactor plasmas with mid-Z impurities like Cr show that excessive radiative losses happen when the core concentration is above about 
+10−4n
+. Assuming a core density of n
+ m−3, the Cr vapor pressure [5] that would lead to 
+ would suggest that Cr PFMs should not operate (even transiently) above 
+ K. However, future fusion power plants (FPPs) will be equipped with active cooling, and in view of this, it seems prudent to have Cr plasma-material-interaction (PMI) data on hand, as the high-heat flux operational temperature limit of water cooled first-wall fusion designs is typically in the 
+ K range [6].
+From a resource perspective, Cr has a relatively low material cost and wide industrial availability compared with other refractory metals (i.e. W or Mo) [7]. However, engineering-wise, pure Cr is known to be hard and brittle, complicating fabrication and joining. Yet, new alloying strategies and/or new advanced processing routes, such as powder metallurgy, or additive manufacturing [7], [8] are under development, and could potentially mitigate or eliminate these limitations.
+As a PFM option, Cr does in fact offer several advantages. Compared to tungsten (W), the leading ITER PFM and likely FPP PFM candidate, Cr is a more core compatible radiator, with comparably lower core cooling by almost an order of magnitude [9], while exhibiting a high cooling factor at scrape-off layer and edge plasma temperatures similar to Ar or Kr impurities. As such, Cr offers an intrinsic access to radiative divertor regimes. A Cr first wall can also enhance plasma performance. For example, in the Tokamak Fusion Test Reactor (TFTR), thin films of Cr (approximately 
+ thick) were deposited over roughly 70% of the torus to act as a getter and condition the first wall [10]. This Cr coating reduced oxygen impurity radiation and vessel out-gassing (H
+O, CO, CO
+) by nearly an order of magnitude, decreased 
+ from 1.3 to 1.1, and allowed an increase in the density limit by about 20%. These performance improvements were attributed to reduced edge radiation and modified oxidation properties of the vessel surfaces.
+Compared to other refractory metals, (W, Mo etc.) Cr also displays better long-term activation characteristics when considered under fusion first-wall operation [7], [11], [12], with specific activity, heat output, and 
+ dose-rate dropping considerably faster after just 10 years, making waste management potentially less problematic.
+Despite the potential advantages of Cr as a mid-Z PFM option, data on hydrogen isotope retention and co-deposition are lacking, and information on sputtering is limited [13]. Also lacking is integrated modeling of impurity erosion, transport, radiation and re-deposition in the presence of Cr first wall PFCs. Understanding Cr PMI is also very relevant for the use of Cr alloyed steels, as Cr segregation can forms Cr-rich layers that effectively constitute the PMI surface [14], [15]. This article thus begins to address these knowledge gaps through study of the PMI of pure Cr in high flux D plasma in the linear device Pisces-RF [16].
+2. Methods and procedure
+2.1. Cr PMI targets
+Cr targets, 25 mm in diameter and 4 mm thick, were fabricated from commercially pure Cr (3N), supplied by American Elements. The material assay is given in Table 1. For these experiments a special ‘top-hat’ shape was machined into the target by reducing the PMI surface diameter to 22 mm, down to a depth of 
+1.5 mm. This allows the target PMI surface to slightly protrude from a Ta locking cap, which affixes it to the actively cooled Pisces-RF target holder [17] during the plasma exposure. The top-hat geometry is most relevant to erosion experiments as it avoids impurity effects that can be generated from line-of-sight sputtering of the locking cap. The PMI surface of each sample was polished and the areal roughness was measured by laser profilometry. The arithmetical mean height of the polished finish was 
+, with the RMS height being 
+.
+Table 1. Composition of the as-received Cr material as certified by the supplier.
+
+Element	Cr	Al	Si	Fe	C	S	O	N
+ppm	balance	47	130	450	100	28	410	27
+2.2. Plasma exposure
+PMI targets are exposed to fusion-relevant plasma in the Pisces-RF linear plasma device. Plasma is generated using a liquid-cooled source operating at 13.56 MHz with a maximum power of 30 kW. The resulting plasma is confined and guided by an axial magnetic field B, of 
+ T in the rf plasma source that increases to 
+ T at the PMI target located 
+ m downstream. At the target location, the electron density n
+ in D plasma can be adjusted in the range 
+–
+ m−3, with electron temperature, T
+, spanning 
+2–10 eV, depending on the chosen density [16]. These parameters are determined from measurements made with a fast-reciprocating, single-tip, RF-compensated Langmuir probe positioned 
+ upstream of the PMI target.
+For deuterium discharges, the dominant ionic species in Pisces-RF is D
+, and the concentration of plasma-source-generated impurities is very low [16]. The plasma terminates on the PMI target and its supporting assembly, with the plasma particle and heat fluxes heating the target surface. The target temperature is controlled by adjusting the flow of a coolant medium (compressed air or pressurized water) through the holder assembly, and is directly monitored using a thermocouple in contact at the target rear surface. In these experiments, the target is biased sufficiently negative with respect to the plasma such that ions accelerated through the sheath dominate the PMI surface power deposition. The ion heat flux to the target (neglecting ion reflection) is, 
+, where 
+ is the incident ion flux and 
+ is the ion energy in eV. Using the measured plasma parameters (see Table 2), this yields 
+, and for the 
+ thick Cr targets, the corresponding temperature at the front and rear (measured) surfaces thus differs by 
+.
+At the operating pressures in Pisces-RF (1–10 mTorr), the ion-neutral mean-free path is much larger than the thickness of the electrostatic plasma-target sheath, meaning that ions of charge state 
+ traversing the sheath arrive at the PMI surface with an energy E
+ representative of the full sheath potential difference, where 
+ and 
+ are the plasma and target-bias potentials, and 
+ is measured by the Langmuir probe. Adjustment of 
+, therefore, allows control of the average ion impact energy.
+2.3. Deuterium retention and release
+Temperature-programmed desorption mass spectrometry (TPD) was utilized to quantitatively assess D retention and thermal release characteristics. During TPD, samples were linearly heated in vacuo to 1200 K, while the temporal evolution of the partial pressures of the predominate hydrogen isotopes (H
+, HD, D
+) are recorded. The resulting pressure–time profiles were subsequently converted into deuterium desorption flux, expressed as the D
+-equivalent flux 
+ (in D atoms m−2 s−1), where ‘D
+-equivalent’ is defined as D
+ + 
+HD. Absolute quantification was achieved via calibration against a standard D
+ leak, and the total retained deuterium was determined by time integration of the flux, 
+. Contributions to the measurement of retained D from the evolution other species (e.g. D
+O, HDO) are found to be small and are neglected in the analysis. A detailed description of the experimental procedure is provided in [18].
+2.4. Measuring erosion
+During plasma exposure, two Avantes AvaSpec ULS-2048 dual-channel spectrometers were employed to continuously monitor the optical emission spectra (OES) from a localized region of the plasma directly in front of the PMI target. The optical emission intensities of excited Cr I (425.4 nm) and D I (656.1 nm) are used to assess the erosion of the target surface. The ratio of these spectroscopic signals Cr I/D I provides a measure of the instantaneous gross erosion from the PMI target, and the normalization to D I compensates for any temporal variation in Cr I arising from changes in plasma parameters, (
+ and 
+), and/or the transmission characteristics of the optical viewing window, which can become coated during an erosion experiment (E.g., [19]).
+Here Cr I/D I is specifically measured as a function of the ion impact energy 
+, at the PMI target surface. Subsequent to this, a new Cr target is weighed using a microbalance with microgram-level resolution, and then exposed under a fixed and well-characterized set of PMI conditions, with specifically, a fixed value of 
+. This is done to quantify the erosion-induced mass loss under a singular value for the energy of impacting ions. The post-exposure areal mass loss in Cr atoms per m
+ of target area, divided by the ion fluence, 
+ in m−2, which is inferred from the Langmuir probe and exposure time (
+), then gives the measured net erosion yield, 
+. At the value of 
+ selected, this measured yield value is then used to normalize the spectroscopically inferred yield curve. Once normalized, the spectroscopic yield curve then represents net erosion as the calibration to mass loss step is prone to the effects of re-deposition [20].
+The relationship between gross and net erosion yield is governed by the fractional re-deposition of eroded target material back onto the PMI surface. The two quantities are related through the re-deposition fraction, 
+, according to 
+. Here, to correct our measured and mass-loss calibrated (net) yield, 
+ to gross yield, 
+ a model is used to estimate and compute the re-deposition fraction 
+ in the Pisces-RF axial plasma and B field geometry. This model is outlined, and computed specifically for Cr re-deposition in Appendix A.
+3. Results and discussion
+Three experiments were conducted to investigate D on Cr PMI.
+1.
+First, the dependence of D retention and release on the plasma exposure temperature is explored in the range (
+–
+ K), for consistent 50 eV D
+ fluences of 
+ m−2.
+2.
+Second, the dependence of D retention and release on 50 eV ion fluences spanning (
+–
+ m−2) is explored at a fixed target temperature of 
+ K.
+3.
+Lastly, calibrated OES erosion yield measurements are obtained for 40 
+ E
+ 
+ 250 eV and compared with SDTrimSP predictions.
+A full summary of the PMI targets and exposure conditions is given in Table 2 with blue shaded cells indicating the consistent variable for PMI target groups.
+Table 2. Pisces-RF Cr target PMI conditions used in these experiments. The number of significant figures in each tabulated value indicates the associated uncertainty. An exception is the measured exposure temperature, T
+, where the value given is the time-averaged temperature over the exposure period, with a typical operational stability of 
+ K. Columned cells with blue background indicate the groups of targets exposed at consistent 
+ or T
+ in experiments. The rightmost column shows measured erosion yield values determined by mass loss.
+
+
+3.1. The dependence of D retention and thermal release on T
+Fig. 1 shows the D
+ equivalent TPD spectra for Cr targets of experiment 1. The spectra exhibit a clear temperature-dependent desorption behavior. For the lower exposure temperatures of 423 K and 478 K, the D
+ release shows pronounced peaks at approximately 690 K and 770 K, respectively, with the 423 K target displaying the greater release. A low-intensity desorption feature is also noted above 900 K for these lower temperature exposures, but is not overly convincing in the higher exposure temperature cases, suggesting the presence of a strongly bound trap condition that populates only when T
+ is below at least 478 K.
+As the exposure temperature increases to 573 K, 723 K, and 873 K, the desorption peaks remain at around 750 K and the magnitude of the release appears to saturate. A final somewhat unusual observation is that the highest T
+ conditions of 723 K and 873 K gave rise to TPD traces that commence release at a temperature below that of T
+. Although peculiar, there are several reasons why D might desorb at temperatures below the plasma exposure temperature. A first step is always to examine the means of temperature measurement during TDS, as measuring temperature in vacuum is notoriously challenging. Over decades of conducting TDS measurements, we have concluded that placing the thermocouple in direct contact with the TDS target gives the most reliable release spectra, and when this method fails, other indicators of the failure such as loss of smooth temperature control and unusual heater power consumption, typically become evident. However, such indicators were not observed in these experiments.
+Fig. 1
+Download: Download high-res image (160KB)
+Download: Download full-size image
+Fig. 1. D
+ TPD spectra for PMI targets Cr-(1–5). Targets were exposed to a 
+ ion fluence of 
+ in the T
+ range of 423–873 K.
+
+Other factors that could explain the early onset of D release relative to the PMI temperature include weakly bound trapping sites, redistribution of D during post-exposure cooling, or recombination-limited release. In these experiments it is not possible to more than speculative about this point, but there other instances of similar effects to be found in the literature. For instance, with tungsten (see Fig. 9 in [21]), deuterium that is energetically bound and released at 800 K during TDS can also slowly desorb over the course of weeks when exposed to room temperature air.
+Fig. 2 shows the integrated D retention (computed from the TPD data in Fig. 1) for the Cr PMI targets of experiment 1. The retained D areal density (
+) decreases as T
+ increases, from a value of 
+ m−2 at 
+ K to 
+ m−2 at 
+ K and then appears to saturate.
+Fig. 2
+Download: Download high-res image (67KB)
+Download: Download full-size image
+Fig. 2. D retention as a function of T
+ for Cr targets exposed to a total 50 eV D
+ fluence of 
+ m−2.
+
+Fig. 3
+Download: Download high-res image (176KB)
+Download: Download full-size image
+Fig. 3. D
+ TPD spectra for PMI targets Cr-(5–8). Targets were exposed at 
+ in the range 440–470 K to varied 
+ D ion fluences spanning 
+.
+
+3.2. The dependence of D retention and thermal release on 
+Fig. 3 shows the TPD desorption rate for selected Cr PMI targets (those closest to T
+ K) of experiment 2. It is noted that the desorption spectra exhibit a primary peak centered near 700–750 K, and with increasing fluence, both the magnitude and area of this desorption peak increases only moderately.
+Fig. 4 shows the integrated D retention (computed from the TPD data in Fig. 3 and inclusive of all the data for this experiment) for the Cr PMI targets of experiment 2. Consistent with the desorption of Figs. 3, 4 reveals a moderately increasing level of D retention with increased fluence, suggestive of a different D uptake process than given by straightforward D implantation, diffusion, and trapping, which would otherwise be characterized by 
+.
+Fig. 4
+Download: Download high-res image (74KB)
+Download: Download full-size image
+Fig. 4. D retention as a function of 50 eV 
+ for Cr PMI targets exposed in the narrow 
+ range of 
+420–480 K.
+
+3.3. Cr erosion in high-flux D plasma
+Fig. 5 shows the erosion yield of Cr under high-flux deuterium plasma bombardment (experiment 3) as a function of the incident ion energy, 
+. In this figure, the black filled circles, denoted as Y
+, are the spectroscopic ratio of the emission lines Cr I/D I, calibrated to target weight loss. The weight-loss calibration was obtained from a subsequent plasma exposure of a Cr PMI target (Cr-A), as listed in Table 2, for plasma ions with a bombardment energy of 100 eV. This procedure normalizes the spectroscopic yield curve at that energy value.
+However, the normalized yield value is affected by re-deposition, which is a significant effect in Pisces-RF and other high-flux linear plasma devices [20], [22]. A corrected (gross) yield curve, 
+, accounts for this effect using a computed re-deposition fraction of 
+,1 based on the values of 
+ and 
+ at which Cr-A was exposed. Details of this correction are discussed in Appendix A. The dashed curve in Fig. 5 is the yield prediction from the binary collision model SDTrimSP for deuterium ions on Cr, where the ion species fraction is derived from Pisces-RF modeling of the ion species mix in [16]. The experimentally corrected yield, 
+, which compensates for re-deposition, can therefore be compared directly with the SDTrimSP prediction, as the latter simulates gross erosion.
+Fig. 5
+Download: Download high-res image (154KB)
+Download: Download full-size image
+Fig. 5. Erosion yield versus E
+ for D plasma on Cr in Pisces-RF. The 
+ yield curve is spectroscopically inferred from the ratio of Cr I/D I, calibrated to mass loss for PMI target Cr-A (refer to Table 2). The corrected yield curve, 
+ accommodates re-deposition (P=0.63) as discussed in Appendix A. The dashed curve is the prediction by the binary collision model SDTrimSP. Symbols (stars, full and open) are the measured and corrected yield values as per other Cr PMI targets (see Table 2 for which net erosion yield measurements were made.
+
+A comparison shows that the experimentally determined yield curve, 
+, is a factor of 2–4 lower than the SDTrimSP prediction. This is also the case for comparison of 
+ to D on Cr erosion data measured in ion beam experiments [13]. To verify the calibration, the measured and corrected erosion yields for the other Cr PMI targets, exposed at 50 eV ion energy, were also computed and overlaid in Fig. 5 (blue stars, filled and open symbols, respectively). These results similarly exhibit reduced yield. Such yield reduction under light ion PMI conditions is often attributed to gas inclusion in the near-surface region, or to surface morphology development, although strong evidence for the latter was not observed in these experiments. The reader is referred to Doerner [20] where a thorough discussion of this effect is given.
+4. Summary
+This work presents a first investigation of pure Cr under D PMI in the Pisces-RF linear device. Three separate sets of complementary experiments were conducted to quantify D retention, thermal release, and surface erosion across plasma conditions relevant to fusion first-wall operation.
+TPD measurements show that D retention in Cr decreases sharply with increasing exposure temperature, falling to a saturation level near 
+ m−2 above 550 K. Further, there is only a weak D retention dependence on ion fluence.
+Erosion yield data were measured for ions of impact energy up to 250 eV, with the data being derived from OES, calibrated to target mass loss, and corrected for re-deposition. The result being that the gross erosion yield for Cr is a factor of 
+2–4 lower than ion beam measurements [13] and the predictions from SDTrimSP. This is consistent with light-ion, high-flux plasma environments.
+Collectively, these results demonstrate that Cr exhibits low hydrogen-isotope retention and moderate erosion resistance under fusion-relevant conditions. Combined with its favorable activation characteristics and thermal properties, these findings suggest that the potential of Cr as a mid-Z PFM for next-generation fusion power systems should not continue to be overlooked, in agreement with the general consensus of ranked PFMs by [2] .
+CRediT authorship contribution statement
+Z. Yu: Writing – review & editing, Formal analysis, Data curation. F. Oneill: Writing – review & editing, Formal analysis, Data curation. M.I. Patino: Writing – review & editing, Data curation. D. Nishijima: Writing – review & editing, Formal analysis, Data curation, Conceptualization. G. Dose: Conceptualization. Z. Popovic: Conceptualization. J. Guterl: Writing – review & editing, Investigation, Conceptualization. A. Marinoni: Writing – review & editing, Supervision. G.R. Tynan: Funding acquisition. M.J. Baldwin: Writing – review & editing, Writing – original draft, Supervision, Project administration, Investigation, Funding acquisition, Formal analysis, Data curation, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+Acknowledgments
+This work was supported by a US–DOE–FES Cooperative Agreement (DE-SC0022528) and General Atomics corporate funding .
+Appendix A. Model used to compute re-deposition fraction
+In high-flux plasma environments, a substantial fraction of sputtered neutral atoms are ionized local to the point of origination and return to the target surface. In PISCES PMI experiments, where the net erosion is measured by weight loss, the re-deposited fraction must be taken into account to determine the gross sputter yield and to facilitate any meaningful comparison to the predictions of binary collision sputtering models [20].
+Here, we apply a simple model of the erosion and re-deposition process applicable to a PISCES material target, in lieu of more complex Monte Carlo re-deposition modeling in linear devices (e.g ERO [24]) that require a dedicated research effort. Monte Carlo codes like ERO are typically the analysis of choice taking into account the physics of ion and neutral transport, energy- and angle-dependent sputtering, reflection, re-deposition, surface evolution and magnetic field effects. However, when applied to linear plasma systems [24], it is noted that ERO computed re-deposition fractions do not necessarily provide better agreement with BCA yield models.
+For simplicity, we have thus followed the simple numerical evaluation of [22], but have generalized it to take into account sputtering from all locations on the PMI target surface. As with [22], the model presented here assumes specific basic processes and also ignores some aspects of the problem. Specifically, in the model:
+1.
+Incident plasma ions of charge state 
+ strike the target surface with an energy reflective of the sheath potential 
+), causing physical sputtering.
+2.
+Sputtered neutrals are emitted with a cosine angular distribution relative to the target surface normal.
+3.
+Sputtered atoms are ionized by plasma electron impact, characterized by a mean-free path 
+.
+4.
+Newly ionized particles are confined by the axial magnetic field and return to the target under acceleration by the presheath electric potential (
+ in PISCES).
+5.
+Re-deposition is limited to ionization events occurring within the cylindrical projection of the target surface, as field lines outside this cylinder do not terminate on target.
+6.
+Sputtering by re-deposited target material ions is ignored.
+7.
+Ion gyro-motion is not taken into account. See [23] for a discussion of this.
+A generalized PISCES sputtering geometry is shown in Fig. 6, which schematically depicts a disk target immersed in a linear plasma and a single sputtered neutral launch caused by a surface sputter event. The target disk is located in the plane 
+, centered on the origin 
+. A sputtered particle is launched from the disk at the vector location 
+ into a trajectory,
+(1)
+where 
+ and 
+ are the lengths of two vectors, and 
+ and 
+ are the directional unit vectors;
+(2)
+(3)
+The cylindrical radius 
+ is the distance from the 
+-axis. If a sputtered neutral reaches the projected cylinder radius 
+, it will not re-deposit according to condition 5 above. This occurs for:
+(4)
+on applying the identities, 
+ and 
+. On rearrangement,
+(5)
+becomes a quadratic in 
+, with a positive real root 
+, for 
+ and 
+ (the geometry is axi-symmetric, allowing the sputter launch azimuth 
+ to be chosen as zero).
+(6)
+This expression is true for 
+ which describes sputtered particles that leave normally from the target and must always redeposit since 
+ in this case. In the plasma, ionization proceeds such that the probability 
+ of a particle not being ionized after traveling a distance 
+ is,
+(7)
+where 
+ is the ionization mean-free path. For a particle trajectory that intersects the cylinder at distance 
+, the probability 
+ that the particle is ionized before leaving the cylinder (and therefore is captured onto field lines and re-deposited) is:
+(8)
+With this, the fully normalized re-deposition fraction 
+, summed over all target co-ordinate variables, can be evaluated over the PMI target surface. That is,
+(9)
+Fig. 7 displays a numerical evaluation of the integral Eq. (9) for a PMI target size radius of 
+, which is chosen as slightly larger than the actual PMI target radius of 11 mm to reflect a slightly larger effective radius that is taken into account to accommodate Cr erosion and re-deposition at the cap surface that locks the target to the Pisces-RF target holder assembly (See [25]). The effective radius is computed as the target radius plus an incremental amount of radial distance that divides the cap area in half, as on average, sputtered re-deposited Cr from the cap can launch radially toward or away from the target center.
+Fig. 6
+Download: Download high-res image (103KB)
+Download: Download full-size image
+Fig. 6. Schematic representation of a sputtered neutral emission from the PMI target along path 
+. Re-deposition occurs only if ionization precedes the neutral’s radial displacement 
+ exceeding the target radius 
+.
+
+Fig. 7
+Download: Download high-res image (83KB)
+Download: Download full-size image
+Fig. 7. Re-deposition probability 
+ as a function of the ionization mean-free path 
+, computed from Eq. (9).
+
+As expected, the curve shown in Fig. 7 indicates strong re-deposition when plasma conditions favor a short ionization mean-free path. Specifically, the mean-free path must exceed 
+0.2 m for 90% or more of the sputtered particles to escape re-deposition. In a typical Pisces-RF plasma (
+ m−3), the mean-free path is only a few centimeters, so the effect of re-deposition must be taken into account [20].
+The ionization mean-free path can be expressed as
+(10)
+where 
+ is the sputtered Cr neutral velocity, 
+ is the electron density, and, 
+ is electron-impact ionization rate coefficient (in units of m
+s−1) and the sputtered Cr neutral particle velocity is taken to be roughly half the Cr surface binding energy, on the assumption of a Thompson distribution of energies for sputtered particles [26].
+Fig. 8
+Download: Download high-res image (143KB)
+Download: Download full-size image
+Fig. 8. Computed re-deposition fraction for Pisces-RF Cr PMI targets using the dependence shown in Fig. 7 and Eq. (10).
+
+Combining the computed results of Fig. 7 and Eq. (10), the re-deposition fraction 
+(n
+, T
+) was evaluated specifically for Cr erosion. In this calculation, values of 
+ were taken from the OPEN-ADAS database (Cr dataset: dere07#cr.dat) [27], and the surface binding energy for Cr (
+) was used to estimate the average velocity of sputtered neutral particles from the Thompson energy distribution, using 
+. The results are shown in Fig. 8 for a range of electron temperatures, 
+, representative of Pisces-RF plasma conditions [16], and are used to convert the measured net erosion yields in Pisces-RF to corresponding gross erosion yields.

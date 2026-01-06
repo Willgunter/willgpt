@@ -1,0 +1,260 @@
+In the context of EUROfusion activities for the development of the DEMO reactor design, the divertor configuration is a major challenge. The current conceptual divertor design is based on the use of EUROFER97 for the divertor cassette body, while tungsten monoblocks bonded to CuCrZr pipes are used for plasma-facing targets. The evaluations developed to identify the best water coolant thermal–hydraulic conditions avoiding material embrittlement (for EUROFER 97) and softening/hardening (for copper alloy pipes) led to the identification of a new divertor baseline solution, based on the new cooling water operating conditions, named Divertor Single Null High-Temperature (SNHT). Such conditions require water at relatively high temperature (295°C) and pressure (15.5 MPa), posing new challenging issues related to the general layout of the divertor cassette, its structural robustness and the manufacturing technologies.
+This work presents a comparative assessment between two different solutions proposed for the design and manufacturing of the divertor cassette body. A preliminary structural assessment and technological parameters are considered, as well as shielding and thermo-hydraulic performances.
+Keywords
+EU-DEMODivertorEurofer97
+1. Introduction
+The DEMO project will be the successor of ITER project, aiming to demonstrate the feasibility of energy production by nuclear fusion reactions. One of the most critical challenges in the development of the EU-DEMO concerns power exhaust issues [1]. In this regard, the divertor has the function of extracting the alpha particle power and the heat loads coming from the plasma Scrape-Off Layer (SOL) during normal, transient and off-normal events. Consequently, divertor targets are subjected to very high heat flux loads. At the same time, divertor must shield the vacuum vessel against nuclear loads and it has to provide plasma facing surface compatible with plasma interaction [2], [3].
+The Pre-Conceptual Design (PCD) phase for EU-DEMO was concluded in 2020, when divertor baseline design was presented to the Gate 1 review, identifying key technology options [3]. In such design, one of the main drivers was related to the assumption of 1.5 full power years (fpy) lifetime for the whole divertor assembly, associated with the Ductile-to-brittle transition temperature (DBTT) of the Eurofer97 under neutron irradiation [4]. As discussed in [5], such assumption is being revised in the current Conceptual Design Phase with the main aim to reduce radwaste volume and inventories, extending the divertor lifetime to 2 fpy. To operate at higher neutron damage level without embrittlement, typical PWR conditions are selected for Divertor Eurofer97 components [5]. The coolant temperature has been raised from 180 °C to 295 °C while the pressure raises from 3.5 MPa to 15.5 MPa. The updated operating conditions, notably the substantial increase in internal pressure, present new challenges for the cassette body, particularly concerning the structural integrity. Two design alternatives have been introduced, called “Ribbed box chamber configuration” and “Solid Structure with Circular Channels”. The aim of this work is to explore both configurations and analyze them considering manufacturing, neutron shielding, thermo-hydraulic and structural performances, which were evaluated through preliminary FEM-based structural analyses conducted only for the purpose of comparing the two configurations.
+2. DEMO divertor high temperature (HT) configuration
+Fig. 1 shows a module of the DEMO divertor system. Three divertor modules are allocated per Vacuum Vessel (VV) sector for a total of 48 modules.
+
+Download: Download high-res image (55KB)
+Download: Download full-size image
+Fig. 1. DEMO divertor side view: subsystems and overall dimensions.
+
+Table 1 reports a list of the main component materials.
+Table 1. Divertor main subsystems and materials adopted.
+
+Divertor main subsystem	Material
+Cassette Body (CB)	Eurofer97
+Inboard and Outboard vertical targets (IVT and OVT)	PFUs	W + CuCrZr
+Body	AISI 316 Ti
+Shielding Liner (SL)	Eurofer97 with W-spray coating
+Reflector Plates (RPs)	Eurofer97 with W-spray coating
+The divertor's architecture comprises several key sub-systems, each fulfilling specific roles:
+•
+Cassette Body (CB): Serving as the primary structural framework, the CB supports the plasma-facing components, integrates the cooling channels and provides neutron shielding for the VV [6].
+•
+Plasma-Facing Components (PFCs): These include the Vertical Targets (VTs) and the Shielding Liner (SL), which directly interface with the plasma. The VTs are designed to withstand extreme heat fluxes, utilizing materials such as tungsten for their high melting points and resilience. Each VT consists of a body in AISI 316 Ti stainless steel that provides mechanical support for the Plasma Facing Units (PFUs) and houses the cooling system. The PFUs are composed of tungsten monoblocks, arranged along the cooling tubes made of CuCrZr to create a highly resilient heat-absorbing surface (ITER-like technology) [7].
+•
+Support Structures: The module is anchored to the VV on the inboard side via two supports (called “Nose”) and on the outboard side with a wishbone system, ensuring stability, precise positioning within the reactor and electrical conductivity [3].
+Detailed descriptions on divertor architecture are available in [3] and [8].
+At the current design stage, the module is cooled by two separated circuits working at different operating conditions. One at high temperature and pressure (PWR conditions) for the CB, Liner and Reflector Plates (RPs) and one for the VTs at 5.5–6.5 MPa and 135 °C [5].
+The CB, SL and RPs circuits pass through the cassette itself. The cooling circuit for the Vertical Targets (VTs) is positioned externally the CB and consists of tubes and manifolds made of AISI 316 L(N). These components are located within dedicated pockets along the external sides of the divertor cassette to optimize their placement and integration. The IVT and OVT are connected in parallel as depicted in Fig. 1 (also alternative connection in series has been explored in [5]).
+3. Design configuration comparison procedure
+The cassette body shall withstand the coolant pressure and the external loads, and, at the same time, it should ensure the VTs position with tight tolerances. In the following sections, considerations on several system performance, summarized in Table 2, are reported for two CB configurations design, named respectively “Ribbed box chamber configuration” (section 4) and “Solid Structure with Circular Channels” (section 5).
+Table 2. Performances used for the option comparison.
+
+System performance	Criteria used
+Manufacturing	The evaluation is based on best practice, grounded in bibliographic research and experience with companies.
+Structural behavior	Preliminary Von Mises stress contour analysis.
+Hydraulic performance	Power consumption for coolant pumping.
+Thermal performance	Average temperature and temp. Hotspot.
+Nuclear shielding performance	Threshold of DPA for 6 fpy (2.75 DPA).
+Specifically, as most relevant figures of merit for the comparison between the “ribbed box chamber construction” and the “solid structure with circular channels”, details on structural performances against different load cases and discussion on manufacturing processes are given in the next sections.
+For both configurations, structural analyses have been conducted considering three load combinations, named LC-1, LC-2 and LC-3 as defined in Table 3 and characterized by the combination of the following single loads:
+•
+Dead weight loads of the CB and the sub-systems attached to the CB (DW)
+•
+Internal coolant pressure of 15.5 MPa (CP)
+•
+Pre-load of 250 kN (Preload)
+•
+The Electromagnetic loads including both the Ferromagnetic effect (FM) associated with the Eurofer97 material and the Lorentz contribution due to a Vertical Displacement Event (VDE) down, considering the time instant at the maximum resultant forces (EM).
+•
+Thermal expansion considering the cassette body at the medium uniform temperature (TH), derived from the calculated thermal maps (see Fig. 5 and Fig. 15, respectively for ribbed box chamber and solid structure configuration).
+Table 3. Load combinations considered for the preliminary structural assessment.
+
+ID	Operating conditions and concatenated events	Comments
+LC-1	DW, CP, Preload, TH	For general comparison between the two design solutions
+LC-2	TH	For preliminary evaluation of secondary stress
+LC-3	DW, CP, Preload, EM + FM, TH	For preliminary general assessment
+Given that the primary objective of this paper is a preliminary comparison of the two configurations under coolant pressure loading:
+•
+LC-1 includes only Dead Weight, internal pressure and preload, serving as a baseline for general comparison.
+•
+LC-2 includes only the thermal expansion at medium uniform temperature.
+•
+LC-3 incorporates all relevant loads (including EM, FM, thermal expansion, and preload) and it is introduced solely for an initial general assessment.
+4. Ribbed box chamber configuration
+The Ribbed box chamber configuration, used also for ITER divertor cassette, consists of a box structure formed using plates with internal reinforcement ribs. The radial, poloidal and toroidal ribs have structural purposes but also define the cooling water paths along the CB (Fig. 2). A general section is shown in Fig. 3, the external shells are 30 mm thick, while the internal ribs are 20 mm thick.
+
+Download: Download high-res image (31KB)
+Download: Download full-size image
+Fig. 2. The Ribbed box chamber configuration with the internal ribs in transparency.
+
+
+Download: Download high-res image (60KB)
+Download: Download full-size image
+Fig. 3. The Ribbed box chamber configuration cut section views with internal ribs.
+
+The total mass of the divertor in this configuration is about 8990 Kg.
+In such configuration, the hydraulic calculations resulted in a total pressure drop less than 0.6 MPa, well below the limit set to 1.4 MPa, and the required pumping power is 20 kW per cassette [3].
+As regards the Nuclear Shielding performances, Fig. 4 shows the maximum level of 0.1 dpa/FPY on the VV, compatible with a maximum limit of 2.75 dpa over 6 FPY of DEMO operations.
+
+Download: Download high-res image (48KB)
+Download: Download full-size image
+Fig. 4. Neutron damage on VV for Ribbed box chamber configuration.
+
+The total nuclear heat power deposited on a single cassette body is 7.14E + 02 kW.
+4.1. Structural analysis
+As stated in section 3, the structural analysis for the CB ribbed box chamber was conducted considering the load combination LC-1 for main comparison between the two proposed design solutions, the load combination LC-2 to provide a first overview of the thermal stress and the load combination LC-3 for preliminary general assessment. As main inputs for the LC-2 and LC-3, Fig. 5 reproduces the thermal map (from [9]) used for the calculation of the mean temperature on the CB, which has been assumed at 350 °C. It should be noted that the high temperature visible in Fig. 5 on the shielding liner required further optimization of the cooling layout (with objective of maintaining Eurofer97 below 550°) which are not discussed in this work which is focused on the Cassette Body. Table 4 summarizes the resultants of the weights, EM and FM loads applied to the CB.
+Table 4. Resultant of the weights, EM and FM loads on the solid structure divertor.
+
+Weight ([kN], [kNm])
+Fx*	Fy	Fz **	Mx	My	Mz
+0	0	−88.2	0	0	0
+EM + FM loads ([kN], [kNm])
+Fx *	Fy	Fz **	Mx	My	Mz
+−1360.7	−97.8	−533.6	97.8	52.4	285
+*
+Positive in Outer Radial direction
+**
+Positive in Upper Vertical direction
+The software used for the structural simulation is Ansys Mechanical 2023 R2.
+The Global Model of the DEMO Divertor was meshed using linear structural elements (Fig. 6), providing a suitable balance between computational efficiency and the required level of accuracy for such a large-scale assembly. The pin-joint connections within the Divertor were represented through coupling joints. The supports of both the SL and the VTs were connected to the Cassette body using bonded contacts. The model has been set up for linear elastic analyses, with the material elastic properties of the Eurofer97 taken from [10] (at 350° C, Rp02min = 411 MPa, E = 200 GPa).
+
+Download: Download high-res image (51KB)
+Download: Download full-size image
+Fig. 5. Divertor ribbed box chamber configuration temperature field (from [9]).
+
+
+Download: Download high-res image (200KB)
+Download: Download full-size image
+Fig. 6. Mesh images for the ribbed box chamber configuration.
+
+The results presented in the following subsections focus on the Cassette body, as it constitutes the primary scope of this study, and the contour plots are limited to the minimum yield stress of Eurofer97.
+It should also be pointed out once more that these structural analyses are preliminary. A detailed assessment in accordance with the RCC-MRx will be required to determine the acceptability of this design solution.
+4.1.1. LC-1
+The Von Mises stress distribution for the external shell of the Cassette body and a view of the internal distribution for LC-1 are depicted, respectively, in Fig. 7 and Fig. 8.
+
+Download: Download high-res image (87KB)
+Download: Download full-size image
+Fig. 7. Von Mises contour of the Ribbed box configuration for LC-1.
+
+
+Download: Download high-res image (42KB)
+Download: Download full-size image
+Fig. 8. Von Mises stress contour on the internal ribs of the Ribbed box configuration for LC-1.
+
+Excluding artificial hotspots arising from bonded contacts or from regions located near the applied displacement boundary conditions, the overall stress state remains below the yield stress for both the external shell and the internal ribs, as shown in Fig. 8, even if slightly higher values are observed in the outer portions of the box structure. Therefore, LC-1 does not represent a critical loading condition for the ribbed configuration of the Cassette body, although a subsequent, more detailed and code-compliant structural assessment will still be required.
+The results indicate that the current ribbed Cassette body configuration is satisfactory, and only limited design refinements are expected to be needed in the next phases of the project, when more advanced and higher-fidelity analyses will be carried out.
+4.1.2. LC-2
+The purpose of LC-2 is to assess the contribution of the thermal field, here applied as a uniform temperature of 350 °C, to the stress state of the ribbed Divertor, thereby providing an initial indication of the secondary stresses.
+As shown in Fig. 9 and Fig. 10, the Von Mises stress remains below the yield stress throughout the structure, except for localized hotspot regions. As observed in LC-1, the stress level is higher on the external shell of the Cassette body than on the internal ribs. The rear portion of the Cassette body exhibits the highest stress values.
+
+Download: Download high-res image (42KB)
+Download: Download full-size image
+Fig. 9. Von Mises contour of the Ribbed box configuration for LC-2.
+
+
+Download: Download high-res image (41KB)
+Download: Download full-size image
+Fig. 10. Von Mises stress contour on the internal ribs of the Ribbed box configuration for LC-2.
+
+Overall, this preliminary thermal analysis does not highlight any critical issues.
+4.1.3. LC-3
+The Von Mises stress contours for the external shell of the Cassette body for LC-3 are depicted in Fig. 11 and Fig. 12. Elevated stress regions are observed near the two noses, where fixed constraints are applied, as well as beneath the SL supports.
+
+Download: Download high-res image (42KB)
+Download: Download full-size image
+Fig. 11. Von Mises contour of the Ribbed box configuration for LC-3.
+
+
+Download: Download high-res image (41KB)
+Download: Download full-size image
+Fig. 12. Von Mises stress contour on the internal ribs of the Ribbed box configuration for LC-3.
+
+As previously noted, these results are provided for an overall qualitative assessment. Despite the stress levels are generally higher than those observed in LC-1, no critical regions emerge that would necessitate design revision. This preliminary structural evaluation therefore appears encouraging, while still requiring confirmation through a full code-compliant assessment.
+4.2. Manufacturing process
+The main envisaged manufacturing process consists of subsequent welding, using arc (e.g. MAG), Laser technology or Electron beam with automatic methods to have a strong control over process variables.
+The divertor CB is divided into blocks (Body and Head), which are manufactured independently starting from the internal ribs to external plates. After dimensional checking the head and body are joined together forming the component. In such process the high number of full-penetration welding and their thickness represent the main concerns in terms of tolerances to be respected, welding distortion and welding examination/inspectability.
+The other foresee options for manufacturing are casting and HIP, further information about the last process are given in the paragraph 5.2.1.
+5. Solid structure configuration
+The solid structure with circular channels option is depicted in Fig. 13. The CB is planned to be manufactured by joining separate Eurofer97 flat plates. Each plate has semicircular channels on both lateral surfaces, except the two external plates of the CB, which have only one semicircular channel. The plates are then assembled to form the CB. Inside the circular channels between the plates seamless tubes can optionally be inserted to provide for a robust pressure retaining part. The final assembly is then joined to result in a solid body component (see section 5.2), internal cooling channels with a diameter of 45 mm are thereby formed. This option minimizes the primary coolant pressure stresses and has the freedom to create more rational cooling path and delete the problems of the internal ribs and reinforcements. On the other side, large volume of “uncooled” material shall be avoided through careful optimization of the holes diameter and layout. The total mass of divertor in this configuration is 11,580 Kg.
+
+Download: Download high-res image (194KB)
+Download: Download full-size image
+Fig. 13. The cassette plate configuration before HIPing, on the left the section view with the grooves for the cooling paths.
+
+With this design solution, the total pressure drop along the circuit amounts to ∼ 0.12 MPa, while the pumping power required for each divertor cassette is ∼ 3.1 Kw [9].
+As regards the neutron shielding performances, Fig. 14 shows the dpa/6FPY in the VV structures (AISI 316 L(N)) with a contour plotted at 2.75 dpa. The limit is not exceeded in the VV with peak values below the liner on the VV shell of ∼ 2 dpa [11].
+
+Download: Download high-res image (73KB)
+Download: Download full-size image
+Fig. 14. Neutron damage on VV for solid structure configuration.
+
+The total nuclear heat power deposited on a single cassette body is 7.18E + 02 kW.
+5.1. Structural analysis
+As for the “box structure” configuration, the structural analysis reported here are referring to the load case LC-1, that considers DW, CP, Preload, TH. The load case LC-2 considers only the thermal field. The load case LC-3 that considers all loads in normal operation conditions and a VDE down is also included for sake of completeness. The weight and electromagnetic (EM) and ferromagnetic (FM) loads applied are summarized in Table 5.
+Table 5. Resultant of the weights, EM and FM loads on the solid structure divertor.
+
+Weight ([kN], [kNm])
+Fx(*)	Fy	Fz(**)	Mx	My	Mz
+0	0	−113.6	0	0	0
+EM + FM loads ([kN], [kNm])
+Fx (*)	Fy	Fz (**)	Mx	My	Mz
+−789.0	−491.6	654.1	1227.7	210.4	2002.2
+*
+Positive in Outer Radial direction.
+**
+Positive in Upper Vertical direction.
+As for the ribbed box chamber configuration, the thermal map in Fig. 15 (reproduced from [12]) is used to calculate the mean temperature for the cassette, which is assumed to be 350 °C.
+The software used for structural simulation are Abaqus CAE 2020 and Ansys 2023 R2.
+The global model has been meshed using tetrahedral and hexahedral elements, both linear and quadratic. In Fig. 16 is depicted the mesh for the model. For the thermal analysis (LC-2 load case) another FE model has been used, the corresponding mesh is depicted in Fig. 17. All the elements are tetrahedral and quadratic.
+
+Download: Download high-res image (58KB)
+Download: Download full-size image
+Fig. 15. Divertor solid structure configuration temperature field.
+
+
+Download: Download high-res image (93KB)
+Download: Download full-size image
+Fig. 16. Mesh images for solid structure configuration.
+
+
+Download: Download high-res image (130KB)
+Download: Download full-size image
+Fig. 17. Mesh image of solid structure configuration for LC-2 case.
+
+5.1.1. LC-1
+In Fig. 18 (from [13]) the Von Mises stress contour is plotted. The stress contour is limited to 411 [MPa] as explained previously. The contour highlights several zones above 411 [MPa] especially on the top surface near the connection of Reflector plates and Shielding liner. The high stress area on the inboard surface is a result of the constraints applied here.
+
+Download: Download high-res image (61KB)
+Download: Download full-size image
+Fig. 18. Von Mises stress contour on Divertor. Dead Weight and CP applied at 350 °C. All the values are in [Pa].
+
+5.1.2. LC-2
+The purpose of LC-2, as previously stated, is to assess the contribution of the thermal field, here applied as a uniform temperature of 350 °C, to the stress state of the solid structure configuration. The Von Mises contours are depicted in Fig. 19 and Fig. 20.
+
+Download: Download high-res image (32KB)
+Download: Download full-size image
+Fig. 19. Von Mises stress contour on Divertor solid structure for LC-2.
+
+
+Download: Download high-res image (34KB)
+Download: Download full-size image
+Fig. 20. Section view of von mises stress contour on Divertor solid structure for LC-2.
+
+The Von Mises stress induced by thermal expansion remain below 411[MPa] except the inboard side near the nose, due to the applied constraints. The LC-2 load case does not highlight any critical issue.
+5.1.3. LC-3
+The LC-3 Von Mises stress contour is depicted in Fig. 21. There are extended zones of high stress on the top and bottom part of the CB and in the inboard. Further design iteration will be devoted to solving these issues, considered not critical for the configuration at this design stage.
+
+Download: Download high-res image (74KB)
+Download: Download full-size image
+Fig. 21. Von Mises stress contour on Divertor solid structure for LC-3 [Pa].
+
+5.2. Manufacturing process
+The manufacturing of the components can be divided into three major steps:
+A.
+Manufacturing the plates via traditional processes such as cutting, milling, etc.
+B.
+Inserting the seamless tubes (optional)
+C.
+Joining the plates with the internal tubes via Hot Isostatic Pressing (HIP) after sealing.
+The step C. needs dedicated R&D on Eurofer97 plates joining at Divertor scale. The proposed method consists of two-step HIP process: it combines two HIP cycles, the first one at low pressure, the second one at high pressure.
+Other manufacturing processes are also considered for the solid structure configuration. One of these options follows the same steps as the previously described process but the final step (C.) uses the brazing technique to join the plates with internal tubes.
+A specific manufacturing issue is in the connection between the seamless tubes and the manifolds (see Fig. 13). After assembling the plates, the manifold is inserted into the hole without the lateral plugs. At this point the pipes are welded to the manifold, the access to the welding position is obtained from the lateral part (there are not the lateral plugs). When the pipes are connected, the plugs are welded to the manifold, sealing the piping.
+5.2.1. HIP manufacturing process with Eurofer: State of the art
+The HIP consists of heating the materials to a high temperature (>0.7 of melting point) and high pressure (above 100 MPa). The process can be used to join solid components or form components from powder.
+Some studies characterize the mechanical proprieties of joined sections. [14] discusses the behavior of a Ferritic/Martensitic F82H RAFM steel. Under joining defined conditions, it shows a decrease in mechanical proprieties of 5 % relative to the original steel (Tensile strength, yield stress and total elongation).
+The Test Blanket Module manufacturing in ITER has been widely studied, and it is under development a technology transfer to DEMO solution. In [15] different HIP process procedure for the Breeding Blanket components is discussed. For the Cooling Plates the Laser + HIP process and two step HIP method are studied. The mock-ups channel dimensions have a maximum section of 15 mm × 15 mm and the thickness vary from 6.5 to 30 mm. The results show good performance.
+The powder HIP fabrication technique uses metallic powder contained inside a canister. The powder is heated at high temperatures and pressure, to form the component needed. This manufacturing technique has been studied to be used in some parts of a pressure vessel for a SMR Fission reactors [16] and in general show better mechanical performance compared to forged parts [17], this is due to limited grain size. Some studies find higher changes in DBTT under irradiation and worse low-cycle fatigue performance [17].
+The behavior strongly depends on the specific material so detailed tests must be done to access this process.
+For Nuclear fusion applications the PM-HIP method has been studied for the primary wall module of ITER [18], [19].
+In [18] a Powder Metallurgy Hot Isostatic Pressing (PM-HIP) process for the fabrication on ITER primary wall is described. The internal tubes for the cooling system are inserted inside a steel capsule. The AISI 316 ITER grade powder is then introduced inside the capsule, and the assembly is HIPed. Extra-metal and post machining refinement can be used to achieve tolerance. In [19] PM-HIP is used only when it offers advantages over forged fabrication method, forged parts and HIPed parts are joined during this phase realizing an “Hybrid” solution.
+Maximum dimension and mechanical proprieties of the HIPed part is not well established, especially for Eurofer97, so further experiments must be done to assess this fabrication technology and define suitable procedures for application in DEMO divertor CB manufacturing. Specifically, the “Hybrid” solution using PM-HIP experimented for the ITER primary wall can offer higher degree of freedom and efficiency.
+6. Conclusions and future work
+This work presented the investigations ongoing for the design of the CB of the EU-DEMO. The assessment has been conducted on two design configurations, the box-structure and the solid-structure CB.
+Various aspects are considered for the comparison, including manufacturing, structural behavior, hydraulic performance, thermal response, and shielding effectiveness. The structural analysis presented in this work serves as a preliminary assessment, while more detailed studies—based on the RCC-MRx code—will be conducted in the future to optimize the configurations.
+Considering the pros and cons of each configuration (as summarized in Table 6) the solid configuration seems to be promising in terms of structural and hydraulics performances. The issues related to HIP joining of Eurofer97 plates and its compatibility with specific requirements of the in-vessel components require further investigations through specific R&D campaigns.
