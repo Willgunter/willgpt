@@ -1,0 +1,517 @@
+Abstract
+This study presents an experimental investigation of the thermal and hydrodynamic performance of a rectangular channel heat sink partially filled with unstructured open-cell copper foam. The foam has a porosity of 0.9625, 30 pores per inch 
+ and a height of 
+. Three configurations are examined based on the foam-to-channel height ratio (Blockage ratio 
+), representing fully and partially filled cases. The Reynolds number, calculated using channel hydraulic diameter, varies between 5000 and 25000. Local temperature distributions along the heater wall are captured using infrared (IR) thermography and a thin stainless-steel foil technique. Results show that the pressure drop decreases by factors of 5 and 19 for 
+ and 
+ configurations, respectively, relative to the fully filled configuration, due to lower flow resistance in the gap regions. The fully filled foam configuration 
+ yields the highest heat transfer performance due to complete fluid-foam interaction, with a decreasing temperature difference 
+ along the flow direction. In contrast, the partially filled cases exhibit increasing temperature differences downstream due to reduced fluid penetration into the foam. The thermal–hydraulic performance assessed using the Colburn factor 
+ and friction factor 
+ indicates that the 
+ configuration provides an optimal tradeoff between heat transfer and pressure loss. A two-model framework is developed to predict mass flow separation and heat transfer in partially foam-filled channels, wherein Model 1 (experiment-based) establishes the benchmark and Model 2 (analytical) provides predictive capability. This integrated approach uniquely addresses flow partitioning in porous–bypass systems, a phenomenon not reported previously to the best of our knowledge. Generalised correlations are proposed for predicting heat transfer coefficients in partially filled porous channels. Overall, the study provides a design framework for optimising thermal performance while minimising pressure drop in systems employing unstructured metal foams.
+Previous article in issue
+Next article in issue
+Keywords
+Porous media heat sinksPartially filled channelInfrared thermography and thin metal foil techniquePressure drop and local heat transfer distributionPerformance evaluation criteriaParallel flow resistance modelHeat sink design
+Nomenclature
+
+Area across the flow section of the duct 
+Foam cross 
+ sectional area
+Foam inertia parameter 
+Specific heat capacity of air 
+Hydraulic diameter 
+Diameter of foam strut 
+Friction factor
+Channel or Duct height 
+Foam height 
+Local convective HTC 
+Colburn factor
+Foam permeability 
+Air thermal conductivity 
+Effective thermal conductivity 
+Foam length 
+Mass flow rate (MFR) 
+Pressure 
+Pore Per Inch
+Applied heat flux 
+Bypass hydraulic resistance
+Foam hydraulic resistance
+Temperature of fluid 
+Wall temperature 
+Darcy velocity 
+Foam velocity 
+Width of the duct (
+)
+Greek Symbols
+ρ	Air density (
+)
+μ	Air dynamic viscosity (
+)
+Porosity
+Dimensionless Numbers
+Nusselt number based on hydraulic diameter 
+Nusselt number based on strut 
+Prandtl Number 
+Effective Prandtl Number 
+Hydraulic diameter based Reynolds number 
+Strut diameter based Reynolds number 
+Streamwise direction
+Span wise direction
+Abbreviation
+MFR	Mass Flow Rate 
+HTC	Heat Transfer Coefficient 
+LHTD	Local Heat Transfer Distribution 
+1. Introduction
+Porous media are increasingly used in thermal systems due to their high surface area-to-volume ratio, which significantly enhances convective heat transfer. Their complex internal structure promotes fluid mixing and disrupts thermal boundary layers, leading to improved thermal performance. Additionally, they offer design flexibility for controlling flow distribution and thermal resistance. These features make porous materials ideal for compact and efficient heat exchangers, particularly in applications requiring high heat transfer rates with minimal size and weight.
+A comprehensive review of open-cell metal foams is conducted by Roge et al. [1], emphasising key parameters such as porosity, pores per inch 
+, foam material and thermal conductivity. Their study showed that while foam thickness has a negligible impact under certain conditions, both heat transfer and pressure drop increase with higher flow velocities. The thermal-hydraulic behaviour is evaluated using Performance Evaluation Criteria 
+ and Constant Pumping Power Criteria 
+, with 
+ values around 3. Several studies indicate that increasing 
+ and reducing porosity lead to higher pressure drops and enhanced heat transfer rates [[2], [3], [4], [5], [6]]. Collectively, these studies affirm that metal foams significantly improve heat transfer with the pressure drop penalty.
+To mitigate the pressure drop penalty while retaining thermal benefits, researchers have explored partially filled metal foam configurations. This approach maintains high heat transfer performance while keeping pressure drop within manageable limits. Metal foams, due to their porous architecture, present large surface areas for convection and enhance flow mixing by disrupting the boundary layers. This makes them ideal for applications such as heat sinks, electronics cooling, and compact heat exchangers. The partial filling strategy allows tailored control of both the thermal and hydrodynamic behaviour. The effectiveness of metal foams in enhancing heat transfer depends on key parameters such as porosity, pore density, thickness, and configuration. Sonavane et al. [7] conducted experimental work using aluminium foams (10 PPI, 94 
+ 96 % porosity) with various blockage ratios (
+) and the Reynolds numbers ranging from 1000 to 15,000. Their results revealed that the partially filled channels, particularly with 
+, offered the best balance between heat transfer and pressure drop. The plated configurations (plate attached to the top of the metal foam in the plated versions) outperformed non-plated ones, and lower PPI foams yielded better thermal-hydraulic efficiency, resulting in up to a 14.5 % performance enhancement and a 40 % reduction in pressure drop.
+Kadhim et al. [8] experimentally examined turbulent flow through copper foams (10 PPI, 0.9 porosity) arranged in five configurations. They observed a 4.8 
+ 10.5 times increase in the Nusselt number and a 12.6
+ 60.4 times increase in the friction factor compared to an empty channel. Among the tested designs, the backward-facing chamfered foam block achieved the highest thermal-hydraulic performance factor of 2.94 at 
+. Chumpia and Hooman [9] evaluated foam-wrapped heat exchangers with varying thicknesses (5–20 mm) in cross-flow air. Although thicker foams improved heat transfer, performance gains diminished due to higher pressure drops, indicating the existence of an optimal thickness that balances thermal and flow resistances.
+Kotresha and Gnanasekaran [10] numerically studied aluminum-based stochastic foams under different partial filling levels and pore densities. Their results highlighted the ability of these foams to significantly enhance mixed convection heat transfer with optimal configurations maximising performance. Similarly, Kiran et al. [11] performed numerical simulations to evaluate entropy generation, exergy, and heat transfer in vertical channels filled partially and fully with aluminium foams (10 
+, 0.95 porosity). Their findings confirmed that partially filled foams reduce entropy generation and enhance exergy transfer. While higher foam thickness improved heat transfer, thinner foams offered the best tradeoff between thermal enhancement and pressure drop.
+In electronic cooling, managing pressure drop is as crucial as enhancing heat transfer, as excessive flow resistance increases energy consumption. Metal foams offer a balance by improving thermal performance while maintaining acceptable pressure drops in compact systems. The study conducted by Bianco et al. [12] explored finned metal foam heat sinks for electronics cooling. Through optimisation and simulation, they showed that foam-fin configurations could achieve 5 to 6 times improvement in heat transfer without additional pumping power, proving their suitability for compact systems. Similarly, the study conducted by Arshad et al. [13] evaluates the thermohydraulic performance of a water-cooled micro-porous heat sink using aluminium metal foam, focusing on the effects of porosity 
+ and 
+ Optimal performance is achieved at 
+ and 
+, resulting in a 
+ enhancement in thermal efficiency and significant reduction in thermal resistance and the pressure drop compared to traditional heat sinks. These findings offer valuable design guidance for high 
+ performance cooling systems.
+In parallel, recent investigations have also examined alternative microchannel architectures for improved heat dissipation. Numerical studies on microchannel heat sinks incorporating impingement jet inlet arrays have demonstrated a marked enhancement in local heat transfer compared to conventional parallel configurations. This improvement is mainly attributed to intensified fluid mixing and boundary-layer disruption. [14]. Likewise, the development of tree-like microchannel networks based on an improved Murray's law has been shown to improve thermal uniformity and hydraulic performance at higher branching levels [15]. These findings emphasise the growing interest in combining geometric optimisation and flow redistribution techniques for compact cooling applications, complementing the foam-based approaches.
+From an analytical perspective, Xu et al. [16] and Lu et al. [17] have provided foundational insights into the behaviour of partially filled metal foams. Using models such as the Brinkman-extended Darcy and the local thermal non-equilibrium frameworks, they derived velocity and temperature profiles, friction factors, and Nusselt numbers. These studies revealed that porosity, pore density, and foam placement critically influence flow resistance and heat transfer performance.
+Most of the existing studies emphasise the importance of porous media in enhancing heat sink performance. However, experimental research on partially filled metal foams remains limited. A detailed analysis of the local heat transfer distribution is missing. To the best of our knowledge, the phenomenon of mass flow separation between the foam and bypass regions has not been reported previously. The present investigation focuses on copper metal foam with a porosity of 0.9625 and a height of 20 mm. The length of the foam is 105 mm with a 100 mm width. The strut and pore diameters of the foam are 0.275 mm and 0.975 mm, respectively [1]. Experiments are conducted for three configurations: 
+ and 
+, where 
+ is the height of the duct and 
+ is the height of the foam. Local wall temperature distributions are captured using an infrared (IR) thermography technique in conjunction with a thin stainless-steel (SS–304) foil (0.2 mm thickness). The study is carried out under constant Reynolds number conditions ranging from 5000 to 25,000. The analysis is performed to evaluate the system's hydraulic, thermal, and thermo-hydraulic performance. Additionally, a parallel resistance model is employed to decouple and quantify the mass flow rate distribution between the foam-filled and bypass regions. A model is proposed for estimating the heat transfer coefficient in partially filled heat sink channels. The following are the major objectives of the present investigation.
+•
+Measure the pressure drop based on Darcy velocity for all configurations
+•
+Measure the local wall temperature to investigate the local heat transfer distributions in the spanwise and streamwise directions
+•
+Measure the performance of the system based on Colburn and the friction factor
+•
+Bifurcation of the mass flow rate going through the foam and the bypass section using pressure drop driven parallel resistance model
+•
+Generalised correlation is proposed to predict the overall heat transfer coefficient for fully as well as partially filled foam channels
+1.1. Experimental setup and procedure
+The experimental setup is designed and fabricated in the FMFP Laboratory at IIT Bombay to investigate the pressure drop and heat transfer characteristics across porous heat sinks. A 3D view of the setup is shown in Fig. 1. Three different foam configurations are tested, as shown in Fig. 2, showing the top view of the foam filling heights of 
+ The foam height 
+ is fixed at 20 mm, while the duct height 
+ varies based on the selected blockage ratio. Specifically, for a blockage ratio of 0.5, 
+; for 0.75, 
+; and for 1.0, 
+. The foam block has a total length of 
+ and a width of 
+. The duct has an overall length of 1400 mm, extending from the outlet of the expander to the exit of the duct, as illustrated in Fig. 1. It begins with a 1000 mm long smooth and unheated inlet section, which allows the flow to achieve hydrodynamic fully developed conditions. This is followed by a 100 mm segment containing the foam insert, and finally, a 300 mm long outlet section completes the setup. The cross-sectional area of the duct is 
+ and 
+ The test section is fabricated using acrylic sheets with a thickness of 12 mm to allow for visibility and durability during experimentation. Compressed air is supplied to the system through a compressor connected to two in-line air filters and a pressure regulator. The air filters are used to remove moisture particles present in the incoming air, ensuring dry flow conditions. The pressure regulator, connected downstream to a venturi meter and a needle valve, is used to precisely control and maintain the desired mass flow rate. After setting the flow rate, the air enters an expander section, which gradually increases the flow area to reduce velocity and help establish a more uniform velocity profile. The expander is directly connected to a rectangular duct, ensuring uniform flow distribution before entering the heat sink region. A K-type thermocouple is mounted at the expander to measure the inlet air temperature. Sufficient duct length is provided upstream of the test section to allow for complete flow development prior to interaction with the heat sink. The heater section consists of a thin SS-304 stainless steel foil with a thickness of 0.2 mm and the area of the plate 
+, selected specifically to minimize axial conduction losses along the plate. The surface of the foil is coated with black Pyromark paint, offering an emissivity of 0.91 [1]. An unstructured metal foam with a porosity of 0.9625, average pore and fiber diameter are 
+ and 
+ is placed in direct contact with the heater plate. A thermal paste (DOWSIL™ SE-4485) is applied at the interface to ensure good thermal contact and minimize interfacial resistance. Further details of the heater assembly are available in Roge et al. [18] (Fig. 4.
+Fig. 1
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 1. A schematic illustrating the experimental setup used for pressure drop measurement and surface temperature monitoring along the heater plate
+
+1) Screw Compressor 2) Air inlet 3) Storage tank 4) Upstream Pressure gauge 5) Upstream flow control valve 6) Pressure Regulator 7) Filter 8) Venturimeter 9) Downstream Pressure gauge 10) U-tube water manometer 11) Downstream flow control valve 12) Expander 13) Inlet thermocouple 14) Flange 15) Rectangular duct 16) Copper bus bar 17) Bakelite sheet 18) Upstream static Pressure taps 19) Heater plate 20) Downstream static Pressure taps 21) Variac 22) AC transformer 23) IR Camera 24) Laptop.
+Fig. 2
+Download: Download high-res image (761KB)
+Download: Download full-size image
+Fig. 2. Schematic of three different configurations (top view) 
+
+Fig. 3
+Download: Download high-res image (244KB)
+Download: Download full-size image
+Fig. 3. Static pressure drop variation with respect to Darcy velocity for all the configurations.
+
+The heater foil is sandwiched between two copper plates, which serve as electrical terminals. These copper plates are connected to a variac used to regulate the input voltage. The variac itself is powered through a 2 kW step-up AC transformer. The voltage and current are monitored using a digital voltmeter (171B + TRMS, Meco, 0–20 V ± 1 %) and a current meter (1080 - TRMS, Meco, 0–1000 A ± 0.5 %). Two pressure taps are installed at the inlet and outlet of the heater section to measure the pressure drop across the length of the foam. The distance between two pressure taps is 120 mm. The local temperature distribution of the heater plate is captured using an infrared (IR) thermal camera, in conjunction with the thin foil heater technique to map the local heat transfer profile. The air temperature at the inlet is measured using a K-type thermocouple placed near the expander outlet. At the foam outlet, temperatures are manually recorded at 12 different points using a single thermocouple probe.
+1.1.1. Data reduction
+The analysis is performed under the condition of a constant Reynolds number for all three configurations, which is defined based on the hydraulic diameter of the channel. The Reynolds number is calculated using the following equation (1):
+(1)
+where, 
+ are the width and height of the channel, respectively. The 
+ is the air mass flow rate 
+. 
+ and 
+ are the cross-sectional area of the channel and the dynamic viscosity of air in 
+ respectively.
+The power supplied to the heater plate is calculated using equation (2). However, a portion of this input is lost to the surroundings through convection and radiation. These heat losses are quantified by conducting a separate experiment under no-flow (quiescent) conditions, where no air is passed over the heater. The losses are estimated using the procedure described by Roge et al. [1]. After accounting for these losses, the net heat flux supplied to the air is determined by subtracting the heat losses from the total input power. The actual heat flux (
+ is calculated using equation (2).
+(2)
+The local heat transfer coefficient is calculated using equation (3), where 
+ represents the heat transfer coefficient, 
+ is the wall temperature at each pixel and 
+ is the corresponding fluid temperature. The fluid temperature at each pixel is estimated using a linear interpolation between the inlet and outlet temperatures, which are measured using K-type thermocouples.
+(3)
+The uncertainty in measurements is computed by using the method recommended by Moffat [19] is shown in Table 1.
+Table 1. Experimental uncertainty of several parameters.
+
+Parameters	Uncertainty in 
+Reynolds number 
+5.1 
+Wall Temperature using IR Camera 
+2.7 
+K – type thermocouple	3.9 
+Heat Flux 
+1.7 
+Heat transfer coefficient 
+13.2 
+2. Results and discussion
+The present study is conducted over a Reynolds number range of 5000 to 25,000 using both fully and partially filled metal foams within a rectangular duct. Three foam configurations are examined for blockage ratios (foam-to-channel height ratios or blockage ratio 
+) of 0.5, 0.75, and 1. The metal foam used in this study has a high porosity of 0.9625 and a pore density of 30 
+. This ensures significant fluid permeability while maintaining a high surface area for heat transfer. The primary objectives of this investigation are to evaluate the thermal behaviour, hydraulic characteristics, and combined thermo-hydraulic performance of each configuration under various flow conditions. In addition to these performance metrics, the mass flow fraction passing through the foam is determined. This is achieved using the Forchheimer equation, allowing for a reliable estimation of the flow distribution between the foam region and any bypass regions.
+2.1. Effect of blockage fraction on the pressure drop and friction factor
+The pressure drop across the foam section is measured using pressure taps installed at the inlet and outlet of the foam region, connected to a U-tube water manometer as depicted in Fig. 1. These measurements are performed for all blockage ratios and a wide range of Darcy velocities. Fig. 3 illustrates the relationship between 
+ and Darcy velocity 
+ for all foam configurations. It is observed that the pressure drop increases with increasing Darcy velocity due to greater inertial and viscous resistance within the foam structure. The pressure drop increases with increasing Darcy velocity due to the combined effect of viscous and inertial resistances within the foam. At low velocities, viscous losses dominate, resulting in an almost linear variation. With increasing velocity, inertial effects caused by flow acceleration and pore-level turbulence become significant, leading to a nonlinear rise in pressure drop consistent with Forchheimer's behaviour. The permeability 
+ and foam drag coefficient 
+ is mentioned in the previous study conducted by Roge et al. [1]. Each configuration shows a linear trend with a decreasing slope and blockage ratios. The fully filled case 
+ exhibiting greater pressure losses due to the larger volume of flow forced through the foam, increasing overall resistance. On the other hand, the pressure drop tends to decrease as the extent of bypass flow increases. This occurs because most of the flow bypasses the foam and travels through the open gap region, where the flow resistance is much lower. As a result, the overall hydraulic resistance of the system is reduced, leading to a lower pressure drop across the test section. This behaviour can be attributed to the combined viscous and inertial losses within the foam pores and the effective flow redistribution through the low-resistance bypass region. This trend is particularly evident in configurations with lower blockage ratios, where a substantial bypass path is available. Based on the pressure drop results, it is observed that at the same Darcy velocity (approximately 4.5 m/s), the configuration with 
+ exhibits a pressure drop that is 19 times lower than that of the fully filled configuration 
+ Similarly, for the configuration of 
+ is 5 times lower than the fully filled case.
+Fig. 4 illustrates the variation of the friction factor as a function of the Reynolds number based on the hydraulic diameter 
+ Friction factor is defined using equation (4). From equation (4), it is clearly evident that the friction factor is directly proportional to the pressure drop per unit length under a given flow condition. Therefore, it is expected that as the bypass region increases, more fluid will avoid the foam and reduce overall flow resistance. The friction factor correspondingly decreases. This trend confirms bypass flow's influence in diminishing the fluid's hydraulic resistance. This results in a lower measured friction factor. Fig. 4 reveals that the friction factor initially increases with increasing Reynolds number, indicating the dominance of viscous forces in the flow regime. However, beyond a certain point, the friction factor decreases nearly linearly and then shows almost constant behaviour. This shows the transition from the laminar (Darcy) regime to the non-Darcy or turbulent regime within the foam structure.
+(4)
+Fig. 4
+Download: Download high-res image (189KB)
+Download: Download full-size image
+Fig. 4. Variation of the friction factor for all three configurations with respect to the Reynolds number defined based on strut diameter.
+
+This behaviour aligns well with observations reported in existing literature, including the finding by Roge et al. [1], where it is noted that for 
+ Reynolds numbers based on pore diameter 
+ which is equivalent to 
+ (for fully filled case) the flow transitions from a purely viscous-dominated (Darcy) regime into a regime where inertial effects become significant.
+2.2. Effect of blockage fraction on the thermal performance
+The present investigation focuses on evaluating the local heat transfer characteristics along the length of the metal foam using an infrared (IR) thermal imaging technique combined with a thin metal foil approach. This analysis is carried out for three configurations corresponding to blockage ratios of 1.0, 0.75, and 0.5. Fig. 5, Fig. 6, Fig. 7, Fig. 8 show the comparison of the temperature contours of the heater plate surface for each configuration with respect to the Reynolds numbers. In Fig. 5, Fig. 6, Fig. 7, Fig. 8, the coordinate origin 
+) marks the inlet of the foam section.
+Fig. 5
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 5. Temperature distribution for all three configuration at a 
+
+Fig. 6
+Download: Download high-res image (961KB)
+Download: Download full-size image
+Fig. 6. Temperature distribution for all three configuration at a 
+
+Fig. 7
+Download: Download high-res image (947KB)
+Download: Download full-size image
+Fig. 7. Temperature distribution for all three configurations at a 
+
+Fig. 8
+Download: Download high-res image (947KB)
+Download: Download full-size image
+Fig. 8. Temperature distribution for all three configurations at a 
+
+In the fully filled case (blockage ratio = 1), the temperature distribution is relatively uniform, indicating effective convective heat transfer. Along a horizontal line at mid-height 
+), the temperature increases only slightly from 34 °C to 38 °C, demonstrating stable thermal behaviour. However, in partially filled configurations with blockage ratios of 0.75 and 0.5, the temperature rise is more significant. For a blockage ratio of 0.75, the wall temperature increases from 37 °C to 66 °C, whereas for 0.5, it escalates from 39 °C to 85 °C along the same midline. Additionally, elevated temperatures are observed near the corners of the heater plate, likely due to reduced convective effectiveness in those regions. This behaviour arises because increasing the bypass region allows a larger fraction of the flow to bypass the foam, reducing the velocity through the foam and lowering convective heat transfer, which leads to higher wall temperatures in partially filled cases.
+Overall, the wall temperature exhibits a continuous rise along the flow direction for all cases, with a steeper gradient in the lower blockage ratio configurations. This trend confirms that the heat transfer performance is reduced due to increased bypass flow and reduced fluid-foam interaction.
+Fig. 9 shows the variation of the local temperature difference, defined as 
+ between the wall (heater plate) temperature and the local fluid temperature along the flow direction for all three configurations (blockage ratios of 1.0, 0.75, and 0.5) under the same Darcy velocity 
+ condition. For the partially filled cases
+, the temperature difference increases progressively along the flow direction. This indicates that as the air moves downstream, it absorbs less heat from the heater plate, leading to a rise in the wall-to-fluid temperature difference. This behaviour can be attributed to a reduced flow rate passing through the foam, as a portion of the flow bypasses through the gap region, thereby diminishing the effective heat exchange with the foam. Conversely, for the fully filled configuration 
+, the temperature difference decreases along the flow direction, implying that the fluid is continuously gaining heat from the heater plate throughout the length of the foam. This behaviour is characteristic of a fully-developed thermal boundary layer and enhanced convective interaction across the entire surface of the foam. As a result, this configuration yields a higher local and average heat transfer coefficient, making it thermally more effective.
+Fig. 9
+Download: Download high-res image (236KB)
+Download: Download full-size image
+Fig. 9. Variation of temperature difference 
+ along the streamwise direction for a Darcy velocity of 
+
+Fig. 10 depicts the distribution of the local heat transfer coefficient along the flow direction for three foam configurations: 
+ It is observed that the heat transfer coefficient increases with Reynolds number across all configurations. For the fully filled case (
+), the entire flow passes through the foam, resulting in enhanced convective and conductive heat transfer due to better flow-foam interaction. Consequently, this configuration shows an increasing trend in the heat transfer coefficient along the flow path. In contrast, the partially filled configurations 
+ and 
+ exhibit a declining trend in local heat transfer coefficient. This reduction is attributed to significant bypass flow through the unfilled gap, which limits the amount of fluid interacting directly with the foam. As a result, less heat is absorbed from the heater plate, especially deeper into the channel, and much of the heat transfer occurs near the foam tip where flow first makes contact.
+Fig. 10
+Download: Download high-res image (672KB)
+Download: Download full-size image
+Fig. 10. Local heat transfer distribution along the streamwise direction for all three configurations at 
+
+Fig. 11 compares the average heat transfer coefficient across all configurations at different Reynolds numbers. The fully filled foam case delivers the highest heat transfer performance, followed by 
+ and then 
+. However, these gains come at the cost of increased pressure drop. Specifically, the pressure drop is reduced by a factor of approximately 19 in the case of 
+ and by a factor of 5 in the case of 
+, compared to the fully-ducted configuration. Correspondingly, the average heat transfer coefficient drops by 2.2 and 1.7, respectively. These results highlight the tradeoff between thermal performance and hydraulic resistance in gap-configured heat sink designs.
+Fig. 11
+Download: Download high-res image (680KB)
+Download: Download full-size image
+Fig. 11. Comparison between the all blockage ratios with respect to the Reynolds numbers at 
+
+Fig. 10, Fig. 11 show an enhanced heat transfer trend near the exit for the fully filled foam case, but not for the partially filled configurations 
+. This difference occurs because, in the fully filled foam, the entire flow passes through the narrow porous matrix, forming a coherent jet that strongly interacts with the solid structure and locally boosts heat transfer at the outlet [17]. In contrast, the partially filled foams exhibit a weaker exit effect due to the presence of a bypass flow region, where part of the flow avoids the foam. This results in a less organized, non-coherent outflow, leading to only a marginal increase in the local heat transfer coefficient near the exit. These observations reinforce the previously discussed effect of bypass flow on reducing effective convective interaction with the foam.
+Fig. 12 illustrates the variation of the average heat transfer coefficient as a function of Darcy velocity for all three foam configurations. As discussed in earlier sections, increasing the bypass (decreasing the blockage ratio) reduces the pressure drop significantly but also leads to a corresponding reduction in the heat transfer coefficient. This occurs because a smaller portion of the flow passes through the foam, thereby reducing the convective interaction with the heated surface and lowering the overall heat transfer effectiveness. Sonavane et al. [7] studied a range of blockage ratios, including 1.0, 0.833, 0.666, 0.333, and 0.166. Their study clearly demonstrated that the heat transfer performance diminishes significantly with decreasing foam height. Notably, for the configuration with a blockage ratio of 0.666, they observed a reduction in the heat transfer coefficient by approximately 1.3 times compared to the fully filled case. This reinforces the idea that while pressure drop can be mitigated by reducing foam volume, it comes at the expense of thermal performance, particularly in configurations where a substantial portion of the flow bypasses the foam altogether. Thus, the present results show good agreement with the trends observed in Sonavane et al. [7] study and indicate that a careful balance between pressure drop and heat transfer performance is necessary when optimising foam height for thermal applications.
+Fig. 12
+Download: Download high-res image (150KB)
+Download: Download full-size image
+Fig. 12. Variation of heat transfer coefficient with respect to Darcy velocity for all configurations.
+
+A dimensionless performance parameter is employed to evaluate the overall thermal-hydraulic performance of the unstructured metal foam configurations with different gap (blockage) ratios. One widely accepted method is the performance plot of the Colburn factor 
+ versus the friction factor (
+) shown in equation (5). This graphical approach enables the designer to identify optimal configurations that deliver high heat transfer performance (high 
+) while maintaining relatively low flow resistance (low 
+). The Colburn-
+ factor represents the convective heat transfer capability, whereas the friction factor quantifies the associated pressure drop penalty.
+(5)
+Fig. 13 depicts the variation of 
+ versus 
+ for all three configurations. The fully filled foam configuration exhibits the highest 
+ factor, reflecting superior heat transfer due to the entire flow passing through the porous region. However, this comes with the tradeoff of a significantly higher friction factor due to the increased flow resistance. As the blockage ratio decreases, both 
+ and 
+ reduce, indicating diminished heat transfer as well as pressure loss. 
+ yield the lowest 
+ and 
+ values. From a designer's perspective, selecting a heat sink configuration is not solely based on achieving the highest heat transfer but rather optimising the thermal performance relative to the pressure drop. The 
+ plot provides crucial insights into this tradeoff. As observed in Fig. 13, the configuration with a partial foam height 
+ achieves a Colburn-
+ factor of approximately 0.15 at a relatively low Reynolds number, with a friction factor of around 21. This operating point reflects a thermally efficient regime where a moderate level of heat transfer is achieved with reasonable flow resistance, making it attractive for applications with limited pumping power or stringent energy constraints. In contrast, achieving the same 
+ value (0.15) with the fully filled configuration 
+ requires operating at a much higher Reynolds number, where the friction factor rises steeply to about 75. Although the fully filled foam enhances heat transfer due to complete flow interaction with the porous matrix, it imposes a substantially higher pressure drop. This leads to increased pumping requirements and potentially greater operational costs.
+Fig. 13
+Download: Download high-res image (150KB)
+Download: Download full-size image
+Fig. 13. Variation of Colburn 
+ factor with respect to Reynolds numbers and friction factor.
+
+This comparison highlights that, for low-to-moderate Reynolds number applications, the 
+ configuration offers a more energy-efficient solution. It delivers comparable thermal performance to the fully filled case but at a significantly lower hydraulic penalty. Therefore, in low 
+ regimes where compact design and energy savings are priorities, partially filled configurations (especially with 
+) can provide optimized thermal-hydraulic performance without compromising heat transfer significantly.
+To better assess the tradeoff between heat transfer enhancement and pressure drop penalty, Fig. 14 shows the plot of Reynolds number 
+ versus the performance parameter 
+ for all the configurations. This parameter is commonly used in the literature to compare heat transfer enhancement normalized against the pressure drop, offering a clearer picture of thermal-hydraulic efficiency. The 
+ decreases with the increasing Reynolds number for all configurations. However, it is notable that the partially filled configurations, especially 
+, provide a reasonable balance between pressure drop and heat transfer performance. While the average heat transfer coefficient is lower than that of the fully filled configuration, the significantly reduced pressure drop leads to only a moderate decrease in 
+, making it a viable option in applications where pumping power is a constraint.
+Fig. 14
+Download: Download high-res image (155KB)
+Download: Download full-size image
+Fig. 14. Thermal hydraulic performance based 
+ vs Reynolds number.
+
+2.3. Heat transfer estimation in partially filled foams heat sink using pressure drop-driven flow separation method
+The amount of the flow going through the channel in partially filled foam heat sink the flow is divided into two section: one is going through foam and other is simply bypass through the gap shows in Fig. 15. To analyse flow distribution in heat sink partially filled with porous media, a theoretical framework based on the parallel flow resistance model (equation (6)) is employed, utilizing experimentally measured pressure drop data. The total mass flow rate (
+) is thus partitioned into two components: the flow through the foam (
+) and the flow through the bypass region (
+), as formulated in equation (7). This distribution is determined by the comparative hydraulic resistances of the two paths — foam and bypass — as given in equation (8). Due to its intricate porous network and associated flow resistance, the foam region typically permits a portion of the fluid flow relative to the bypass. The pressure drop – flow rate correlation for a fully filled foam channel (
+) serves as a benchmark for estimating the foam-side flow rate in the partially filled configurations.
+(6)
+(7)
+(8)
+(9)
+Fig. 15
+Download: Download high-res image (520KB)
+Download: Download full-size image
+Fig. 15. (A) Top view of the foam and bypass section (B) Circuit diagram of the flow distribution.
+
+The present investigation deals with two different models to predict the pressure drop.
+Model 1
+
+Prediction of heat transfer coefficient in a partially filled foam case using pressure drop and the heat transfer coefficient of a fully filled foam case
+The pressure drop observed in all configurations is solely attributed to the presence of the foam in the flow path. Fig. 16 presents a flow chart accompanied by a graphical representation of the results obtained through the described methodology. The chart outlines the step-by-step procedure used to predict the mass flow rate going through the foam using pressure drop data for a partially filled heat sink. Following this procedure, the mass flow rates through the foam and the bypass regions are separated using the Forchheimer equation (9). Fig. 17 presents the results of mass flow rate separation obtained through the Forchheimer equation for the configurations 
+ and 
+. The findings indicate that in the case of 
+, a significantly smaller portion of the flow passes through the foam, with only about 12 
+ 15
+ of the total mass flow rate entering the foam, as illustrated in Fig. 18.
+Fig. 16
+Download: Download high-res image (772KB)
+Download: Download full-size image
+Fig. 16. Flowchart: methodology for predicting heat transfer in partially filled foam configurations using Model 1.
+
+Fig. 17
+Download: Download high-res image (345KB)
+Download: Download full-size image
+Fig. 17. Decoupling of mass flow going through the foam and bypass section for 
+ using Model 1.
+
+Fig. 18
+Download: Download high-res image (190KB)
+Download: Download full-size image
+Fig. 18. Percentage of mass flow rate going through the foam for 
+ using Model 1.
+
+This is due to the larger open region available for bypass flow. In contrast, for the 
+ configuration, approximately 34 
+ of the total mass flow rate passes through the foam shoiwn in Fig. 18. As the available bypass region is comparatively smaller than in the 
+ case.
+Model 2
+
+Prediction of pressure drop and heat transfer coefficient in a partially filled foam case using the pressure drop and heat transfer coefficient of a fully filled foam case
+Fig. 15 illustrates the flow distribution in a rectangular channel partially filled with metal foam. The incoming flow splits into two paths: one through the foam section and the other through the bypass (gap) section. This configuration results in a lower overall pressure drop compared to a fully foam-filled channel, due to the separation of flow. The total mass flow rate entering the duct is the sum of the mass flow rates through the foam and bypass sections given in equation (7). The model was developed based on the three equations (7), (9), (10), and three unknowns 
+ and 
+ Equation (10) shows the pressure drop in the gap section. The friction factor is replaced by using the Blasius equation of friction factor for smooth channel turbulent flow 
+. The velocity of the flow is replaced by 
+(10)
+equation (10) can be written as
+(11)
+(12)
+where 
+ is the constant, and it is represented as
+Equation (9) can be written as
+(13)
+where B and D are the constants, and they are
+After equating the pressure drop equations (11), (13), a nonlinear equation for 
+ as shown in equation (14) is obtained. From this equation, it's observed that equation (14) is a transcendental equation because it involves polynomial terms in 
+ (on the RHS) and a fractional power (7/4) of a nonlinear expression 
+ on the LHS. It cannot be solved analytically. This equation can be solved by using the numerical Newton-Raphson method.
+(14)
+To solve this equation using the Newton-Raphson method, a function shown in equation (15) is defined.
+(15)
+Equation (15) is solved using the Newton-Raphson method. The resulting foam mass flow rate and pressure drop from this solution are compared with the experimental values and the predictions from Model 1. Fig. 19 (A) illustrates the difference in foam mass flow rate between Model 1 and Model 2, while Fig. 19(B) compares the pressure drop predicted by Model 2 with the experimental data.
+Fig. 19
+Download: Download high-res image (365KB)
+Download: Download full-size image
+Fig. 19. (A)Foam mass flow rate predicted by Model 1 compared with Model 2, and B): experimental pressure drop compared with the predicted value obtained through Model 2 for 
+ without correction factor.
+
+From Fig. 19(A) and (B), it is observed that the simple flow through channel pressure drop correlation does not work for the bypass region. One side of the bypass region is bounded by the foam surface, while the other sides are solid duct walls. Although fully enclosed, the presence of the foam on one wall introduces non-standard boundary conditions that differ from a classical smooth duct, potentially altering the wall shear behaviour and effective pressure drop.
+The foam interface interacts with the bypass stream, producing shear layers and turbulence that alter the velocity distribution and frictional resistance. As shown in Fig. 15, the flow is divided into two sections: the foam region and the bypass region. The foam section imposes higher resistance due to porous drag; therefore, as the flow develops downstream, a larger fraction of the fluid is diverted from the foam region into the bypass channel. This injection process is analogous to transpiration, where high-velocity jets emerging from the porous medium push into the bypass stream. In contrast, conventional smooth 
+ channel models assume uniformly smooth walls with no mass injection, which produces higher wall shear and friction. Such an assumption is invalid when one side of the channel is porous. To address this discrepancy, a correction factor 
+ is introduced into the smooth 
+ channel pressure drop equation (15). This modification is based on the fact that blowing through a porous wall (transpiration) reduces skin friction. As the fluid is injected into the bypass flow, the boundary layer thickness is reduced, which lowers the wall shear stress and decreases the effective friction coefficient, i.e., a blowing of the boundary layer occurs due to the porous plate layer existing between the metal foam boundary and the smooth channel. This can be likened to the blowing fluid in addition to the mainstream flow over a flat plate. It is well established in the literature through experimental means that this blowing fluid at an angle with that of the main flow would cause a decrease in the velocity gradient at the wall. This significantly reduces the shear stress on the surface. Experimental data on the boundary layer with blowing/micro-blowing showing significant friction reduction is reported by Refs. [[20], [21], [22], [23]]. Nellis and Klein [24] reported this reduction in friction factor during transpiration cooling. In the present study, a similar mechanism occurs at the foam–bypass interface, where small jets emerging from the porous foam cause transpiration and disturb the near-wall flow.
+After introducing the correction factor 
+ to the smooth channel pressure drop equation (10), the model is modified to better capture the actual flow behaviour in the bypass region, which is influenced by interaction with the adjacent metal foam. This correction accounts for the deviation from ideal smooth flow conditions due to factors such as surface roughness, asymmetric velocity profiles, and partial obstruction by the foam. The modified equation is incorporated into a flow-splitting model that assumes the total mass flow rate is divided between the foam and bypass regions, with an equal pressure drop across both paths. Using the corrected smooth channel equation along with the Forchheimer equation for the foam region, a single nonlinear equation is formed and solved numerically to predict the mass flow rate through the foam. With the predicted mass flow distribution, the corresponding pressure drop is calculated and compared with experimental data. The results showed good agreement, with a maximum deviation of 15 %, as shown in Fig. 20(A) and (B), demonstrating that the introduced correction factor effectively improves the model's accuracy in predicting both flow split and pressure drop across the partially filled duct configuration.
+Fig. 20
+Download: Download high-res image (361KB)
+Download: Download full-size image
+Fig. 20. (A)Foam mass flow rate predicted by Model 1 compared with Model 2, and B): experimental pressure drop compared with the predicted value obtained through Model 2 for 
+ with correction factor.
+
+Fig. 21 compares the results obtained with Model 1 and Model 2 for the mass flow rate going to the foam region and the mass flow rate going to the bypass region with respect to the total mass flow rate for all cases. Although experimental data is not available at every foam velocity for 
+, several matching points show good agreement across all cases. These results validate the model used to estimate the foam mass flow fraction. Model 2 shows good agreement with Model 1 under the 15 % deviation. At the lower foam velocity, results show a higher deviation. It is likely due to the flow being in the Darcy region. Fig. 22 shows the comparison between the results obtained through Model 1 and Model 2 for pressure drop and the heat transfer coefficient with respect to the foam velocity for all cases.
+Fig. 21
+Download: Download high-res image (455KB)
+Download: Download full-size image
+Fig. 21. Comparison between the Model 1 and Model 2 based on flow separation.
+
+Fig. 22
+Download: Download high-res image (320KB)
+Download: Download full-size image
+Fig. 22. Variation of pressure drop and heat transfer coefficient with respect to the velocity of the foam for Model 1, Model 2.
+
+In Model 1, the mass flow split between foam and bypass is obtained directly from experimentally measured pressure drop data for fully filled, 0.75-filled, and 0.5-filled cases. Using the Forchheimer equation, the foam resistance is linked to the measured pressure drop, allowing the foam and bypass mass fractions to be separated. The corresponding heat transfer coefficient is then estimated by comparison with the fully foam-filled case, making this model strongly dependent on experimental data. Model 2 eliminates the need for experimental pressure drop data in partially filled cases by formulating the flow 
+ splitting problem analytically. The foam is modeled with the Forchheimer equation, and the bypass is modeled with a corrected smooth-channel equation while ensuring equal pressure drop across both regions. Solving the resulting nonlinear system yields the foam and bypass mass flow rates and pressure drop, from which the heat transfer coefficient is predicted. Model 2 is thus a predictive tool, validated against the experimental benchmark provided by Model 1. Table 2 shows the overall comparison between model 1 and model 2.
+Table 2. Comparison between (Model 1 vs Model 2).
+
+Aspect	Model 1 (Experimental 
+ based)	Model 2 (Analytical 
+ based)
+Input requirement	Experimental pressure drop data for all configurations (fully, 
+, 
+)	No experimental data required for partial fillings (uses governing equations only and fully filled experimental data)
+Unknowns solved	Foam mass flow rate and Bypass mass flow rate (from data)	
+, 
+ (3 unknowns)
+Foam modeling	Forchheimer equation was fitted using experimental ΔP to obtain 
+Forchheimer equation is directly applied in the analytical formulation
+Bypass modeling	Flow separation obtained indirectly from ΔP data and the Forchheimer equation 
+Corrected smooth-channel equation with the porous-wall correction factor
+Flow split determination	Mass flow rate through foam obtained from experimental ΔP, bypass flow as remainder	Mass flow split obtained by solving a nonlinear system: 
+ with ΔP equality
+Heat transfer prediction	Based on measured ΔP and foam mass flow rate, and comparison with the fully filled foam case	Based on analytically predicted ΔP and mass split, compared with the fully filled foam case
+Dependency	Strongly dependent on experimental data of partially filled foam	Independent of experimental ΔP data for partial fillings
+Use	Benchmark model (ground truth)	Predictive model (validated against Model 1)
+Table 3. Summary of partially filled foam studied reported in the literature.
+
+Author	Fraction
+Material	Porosity (PPI)	Effective thermal conductivity	
+Sonavane et al. [7] (experimental)	0.166	Aluminium	0.927(10)	5.29	2.86
+0.333	0.941(10)	4.43	1.75
+0.666	0.951(10)	3.80	1.30
+0.833	0.949(10)	3.93	1.15
+Al-Chlaihawi et al. [8] (experimental)	0.6	Copper	0.9(10)		2.01
+Kotresha and Gnanasekaran [10](Numerical)	0.4	Aluminium	0.95(10)	3.87	1.85
+0.7	1.21
+Present study (experimental)	0.5	Copper	0.9625(30)	5.71	3.25
+0.75	2
+2.4. Generalised correlation for predicting the heat transfer coefficient for fully filled and partially filled foam without requiring flow separation analysis
+The pressure drop–driven flow separation model provides a practical approach for estimating flow distribution in partially foam-filled channels, but has certain limitations. One of the key constraints is that predicting the heat transfer coefficient depends on pressure drop data. Without experimental pressure drop data, the flow distribution between the foam and bypass regions and the heat transfer coefficient cannot be determined. To overcome this problem, a generalised correlation is provided in the present investigation.
+A)
+Generalised Correlation for Fully Filled Foam Case
+The correlation originally proposed by Roge et al. [1] has been modified in a simplified manner by incorporating additional experimental data available in the existing literature. This modification aims to improve the accuracy and applicability of the correlation across a broader range of porous media configurations. The primary adjustment involves redefining the Nusselt number to be based on the strut diameter and the effective thermal conductivity of the porous medium, as shown in equation (16). Furthermore, the Prandtl number has also been redefined using the effective thermal conductivity, as shown in equation (17). To derive this correlation, both the Nusselt and Prandtl numbers are modified by incorporating the effective thermal conductivity (shown in equation (18)) of the porous medium. This adjustment is crucial due to the conjugate nature of heat transfer within metal foams, where both conduction (through the solid struts) and convection (through the fluid) significantly contribute to overall thermal performance. The incorporation of 
+ allows the dimensionless numbers to more accurately capture this dual-mode heat transfer behaviours. The modified correlation is given in equation (18). The constant 0.04 is determined empirically to best fit the combined experimental dataset and reflects the proportionality between the dimensionless groups under the range of pore densities, porosities, and Reynolds numbers considered. It effectively captures the influence of foam geometry on heat transfer while maintaining simplicity in the correlation. Fig. 23 shows the comparison between experimentally obtained Nusselt numbers with correlation. A total of 186 experimental data points are considered form the existing literature [[1], [2], [3],7,[25], [26], [27]], covering a porosity range of 0.9005–0.9726 and a pore density 
+ range of 5–40. The Reynolds number based on strut diameter 
+ and effective Prandtl number varying from 5.77 to 259 and 0.001992 to 0.007447, respectively. Among these, 150 data points fall within a 
+ deviation range. This ensures the generalisability of the proposed correlation. The correlation performs well for foams with porosity greater than 0.92, demonstrating excellent agreement with the experimental data in this range.
+(16)
+where, 
+ is define based on the study conducted by Calmidi and Mahajan [25]
+(17)
+(18)
+B)
+Generalised Correlation for Partially Filled Foam Case
+Fig. 23
+Download: Download high-res image (243KB)
+Download: Download full-size image
+Fig. 23. Comparison between experimental Nusselt number and Nusselt number obtained through correlation for the fully filled porous channel.
+
+For the partially filled foam channel, the non-dimensional Nusselt number, defined based on the hydraulic diameter (to cover the complete duct area) and effective thermal conductivity 
+ is presented in equation (19). The experimentally obtained Nusselt numbers are validated against a generalised correlation proposed in equation (20). As illustrated in Fig. 24, the experimental data align closely with the predicted values from the correlation and demonstrate strong agreement. A total of 64 experimental data sets are analysed, combining results from the present study 
+ including partially filled gap configurations—with previous investigations Sonavane et al. [7] and Al-Chlaihawi et al. [8]. Among these, 59 data points fall within a 
+ deviation range. This ensures the generalisability of the proposed correlation.
+(19)
+where, 
+ is defined based on the study conducted by Calmidi and Mahajan [25]
+(20)
+Fig. 24
+Download: Download high-res image (212KB)
+Download: Download full-size image
+Fig. 24. Comparison between experimental data and data obtained through correlation for partially filled foam with porous medium.
+
+Table 3 provides a summary of key studies from the existing literature focused on channels partially filled with porous media. The data for the fully filled channel is not provided by Al-Chlaihawi et al. [8]. To obtain the ratio of 
+ for this study the value of 
+ is predicted using the correlation given in equation (18). Fig. 25 shows a comparative analysis between the current study and selected literature data (summarized in Table 3), specifically illustrating the variation of the ratio of heat transfer coefficients without a gap 
+ to those with a gap 
+ as a function of Reynolds number.
+Fig. 25
+Download: Download high-res image (239KB)
+Download: Download full-size image
+Fig. 25. Comparison of variation of 
+ for different Reynolds number of the present study with existing literature.
+
+The variation observed in the 
+ ratio across different studies is attributed to differences in foam properties such as porosity, permeability, and material composition. Despite these variations, certain trends reveal strong agreement between the present results and existing literature. Notably, the study by Al-Chlaihawi et al. [8], which employed copper foam with a foam-to-duct height ratio of 
+, shows close agreement with the current study conducted at 
+. This consistency is likely due to the use of the same base material in both cases. Similarly, good agreement is observed with the results reported by Sonavane et al. [7] for blockage ratios of 0.333 and 0.666 and by Kotresha and Gnanasekaran [10] for blockage ratios of 0.4 and 0.7. These studies also used aluminium foams, which suggests that the material properties play a significant role in governing the thermal performance.
+3. Conclusions
+The study investigated the thermal-hydraulic performance of copper metal foam channels with 0.9625 porosity, 30 PPI, and a height 
+ of 20 mm for blockage ratios 
+ of 0.5, 0.75, and 1. Key findings include:
+•
+The pressure drop decreases with decreasing blockage ratio. Specifically, it is reduced by a factor of ∼19 for 
+ and by ∼5 for 
+ compared to the fully filled configuration, primarily due to increased bypass flow.
+•
+The fully filled configuration shows a decreasing wall-to-fluid temperature difference downstream, indicating efficient convective heat transfer. In contrast, partially filled cases show increasing temperature differences as the bypass flow reduces fluid velocity through the foam, weakening heat transfer and raising wall temperatures.
+•
+The average heat transfer coefficient for partially filled foams is lower than the fully filled case by a factor of 1.7 
+ and 2.2 
+•
+Thermal performance analysis using the Colburn 
+ factor and friction factor 
+ reveals a trade-off: the fully filled foam achieves the highest 
+ values but incurs significantly higher pressure drop, whereas 
+ achieves a good balance of thermal performance and lower frictional losses, making it more energy-efficient.
+•
+A parallel-resistance model based on Forchheimer's equation shows that, on average, only 34 % and 15 % of the total flow passes through the foam for 
+ and
+, respectively.
+•
+A two-model framework (experiment-based and analytical) is developed to predict mass flow separation and heat transfer, uniquely addressing flow partitioning in porous-bypass systems.
+•
+A generalised correlation based on effective thermal conductivity is proposed for predicting heat transfer coefficients in fully and partially filled channels.
+The study considers only a single foam type, porosity, and channel geometry. To generalize the findings, further investigations are needed to explore different foam materials, pore densities and operating conditions. Overall, this work provides a robust framework for understanding flow partitioning and heat transfer in partially filled porous channels, addressing a previously unexplored research gap.

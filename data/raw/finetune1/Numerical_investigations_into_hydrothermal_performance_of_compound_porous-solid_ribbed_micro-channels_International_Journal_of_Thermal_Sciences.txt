@@ -1,0 +1,451 @@
+Abstract
+Effective thermal management is critical for high-power-density microelectronics. While micro-channel heat sinks (MCHSs) incorporating porous structures offer promising heat dissipation capabilities, comprehensive investigations into the hydrothermal behavior of compound porous-solid ribbed structures remain limited. This study presents a numerical investigation of compound porous-solid ribbed micro-channel heat sinks (CPSRMCHSs), focusing on how three geometric parameters—the width ratio (α), depth ratio (β), and height ratio (γ) of the porous medium—affect the hydrothermal performance (HTP). The results reveal that the slip velocity at the porous-fluid interface significantly reduces flow resistance, and this effect is primarily governed by the interfacial area between the porous and fluid domains rather than the thickness of the porous layer. Simultaneously, the porous medium enhances the fluid-solid contact area, thereby augmenting heat transfer; however, its lower thermal conductivity partially offsets this advantage. The integration of porous and solid structures compensates for this deficiency. Compared to the traditional solid-ribbed micro-channel heat sink (SRMCHS), the optimal CPSRMCHS (α = 0.67, β = 0.75, γ = 1.0) achieves a 20.9–23.0 % reduction in the friction factor (f), a 42.9–67.2 % increase in the Nusselt number (Nu), and a 56.0–80.9 % improvement in the Performance Evaluation Criterion (PEC) at Re = 200–1000. Entropy generation analysis confirms that this configuration reduces thermodynamic irreversibility by up to 38.3 % compared to the SRMCHS. This study elucidates the mechanisms by which porous-solid integration enhances both flow and heat transfer, offering an efficient thermal management strategy for next-generation microelectronics.
+Previous article in issue
+Next article in issue
+Keywords
+Micro-channelPorous mediumRibSlip effectHydrothermal performance
+Nomenclature
+Symbols
+CF
+Forchheimer coefficient
+cp
+specific heat, J/(kg·K)
+Dh
+hydraulic diameter, mm
+E
+energy, W
+f
+friction factor
+H
+height, mm
+h
+heat transfer coefficient, W/(m2·K)
+K
+permeability of the porous medium, m2
+k
+thermal conductivity, W/(m·K)
+L
+length, mm
+M
+relative total entropy generation ratio
+mass flow rate, kg/s
+Nu
+Nusselt number
+P
+pressure, Pa
+qw
+heat flux, W/cm2
+Re
+Reynolds number
+S
+total entropy generation, W/K
+SΔP
+flow entropy generation, W/K
+SΔT
+heat transfer entropy generation, W/K
+T
+temperature, K
+u
+velocity component in z direction, m/s
+V
+volume, m2
+velocity vector, m/s
+v
+velocity component in y direction, m/s
+W
+width, mm
+w
+velocity component in x direction, m/s
+Greek letters
+α
+width ratio
+β
+depth ratio
+γ
+height ratio
+ε
+porosity
+μ
+dynamic viscosity, Pa·s
+ρ
+density, kg/m3
+Subscripts
+avg
+average
+f
+fluid phase
+in
+inlet
+out
+outlet
+s
+solid phase
+solid
+solid-ribbed micro-channel heat sink
+porous-solid
+compound porous-solid ribbed micro-channel heat sink
+porous
+porous phase
+w
+micro-channel bottom wall
+Abbreviations
+CPSRMCHS
+compound porous-solid ribbed micro-channel heat sink
+HTP
+hydrothermal performance
+MCHS
+micro-channel heat sink
+PEC
+Performance Evaluation Criterion
+PRMCHS
+porous-ribbed micro-channel heat sink
+SRMCHS
+solid-ribbed micro-channel heat sink
+VTD
+vertical thermal diffusion
+1. Introduction
+Driven by advancements in microelectronics, communication technologies, and new energy systems, the demand for high-performance thermal management solutions has increased significantly [1]. Among various thermal management technologies, micro-channel heat sinks (MCHSs) achieve higher heat transfer coefficients owing to their high surface-area-to-volume ratio. They can efficiently dissipate heat fluxes of up to 790 W/cm2, far exceeding those achievable with conventional air- or liquid-cooling methods. Moreover, micro-channel heat sinks operate efficiently at lower coolant flow rates, thereby reducing pumping power requirements while maintaining excellent thermal performance. Their miniaturized design renders them an ideal integrated solution for space-constrained applications, offering lightweight and compact cooling that surpasses that of conventional finned heat sinks in both thermal management effectiveness and system-level scalability [2]. Continuous advancements in MCHS design and manufacturing technologies have expanded their applications from conventional fields such as supercomputing clusters and data centers to emerging fields including thermal management systems for electric vehicles and aerospace engineering [3]. Strategies for optimizing the hydrothermal performance (HTP) of MCHSs have been extensively explored, including finned structures [4], ribbed structures [5], cavities [6,7], and secondary channels [8]. Moreover, broader investigations into thermal management paradigms—encompassing computational fluid dynamics of nanofluid flows, entropy generation analyses in complex enclosures, and interactions within porous media under non-uniform conditions—have further enriched the methodological frameworks applicable to MCHS innovation [[9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19], [20], [21]].
+Among these strategies, the incorporation of porous ribs into MCHSs has demonstrated significant potential for enhancing hydrothermal performance (HTP) [[22], [23], [24]]. Chuan et al. [25] replaced conventional solid ribs with porous ribs in MCHSs and conducted a numerical study to evaluate their HTP. Simulation results revealed that the thermal performance of the porous-ribbed micro-channel heat sink (PRMCHS) was slightly lower than that of the solid-ribbed micro-channel heat sink (SRMCHS); however, the former achieved a 47.9 % reduction in the pressure drop (ΔP). This improvement is primarily attributed to the slip effect (i.e., the fluid velocity at the porous-fluid interface is not zero) induced by the porous ribs, which reduces the viscous shear stress between the fluid and the porous walls. Fathi et al. [26] systematically investigated the influence of porous rib geometry (i.e., height and width) on the HTP of PRMCHSs. Numerical simulations demonstrated that the pressure drops of the PRMCHSs were lower than those of the SRMCHSs across all geometric parameters studied, with a maximum reduction of 32 %. Vertical thermal diffusion (VTD) within the porous rib structures is weakened due to the low effective thermal conductivity of the porous medium, resulting in a 37.4 % increase in the thermal resistance (R) for the MCHSs with high-height porous ribs compared to the SRMCHSs. Wang et al. [27] developed a double-layer PRMCHS. Numerical results revealed that this design reduced the pumping power (Ω) by 45.3–48.5 % but increased the thermal resistance by 14.8–16.2 %. The increase in thermal resistance was primarily attributed to the reduced thermal conductance of the porous medium, which impedes the heat transfer from the lower layer to the upper layer. Li et al. [28] developed a double-layer MCHS with solid ribs in the lower layer and porous ribs in the upper layer. Their findings indicated that the solid ribs enhanced the vertical thermal diffusion capability of the MCHS, whereas the porous ribs improved its hydraulic performance. Compared with the single-layer SRMCHS, single-layer PRMCHS, double-layer SRMCHS, and double-layer PRMCHS, the proposed design reduced the thermal resistance by 14.98 %, 10.85 %, 9.27 %, and 11.44 %, respectively.
+Based on the aforementioned studies, substituting solid ribs with porous ribs in MCHSs offers advantages in flow resistance reduction due to the slip velocity generated at the porous-fluid interface. Nevertheless, this approach degrades the thermal performance due to the low thermal conductivity of porous media, despite the enlarged heat transfer area provided by the porous structure. In double-layer MCHSs, combining porous and solid ribs can partially compensate for this inherent limitation of porous media. Therefore, researchers have proposed a compound porous-solid ribbed micro-channel heat sink (CPSRMCHS). Gong et al. [29] numerically investigated the hydrothermal performance (HTP) of CPSRMCHSs. The results demonstrated that optimizing the porous-solid thickness ratio can enhance the thermal performance while reducing the pressure drop. At Re = 888, the optimal CPSRMCHS increased the Nusselt number (Nu) by 12.7 % and decreased the pressure drop by 19.2 % compared with the solid-ribbed micro-channel heat sink (SRMCHS). Ghahremannezhad and Vafai [30] studied the impact of integrating porous media of variable thicknesses into the side, top, and bottom walls of MCHSs. The numerical results indicated that the optimal HTP was achieved by adjusting the porous-solid thickness ratio. Building on this work, Ghahremannezhad et al. [31] conducted numerical simulations to evaluate the HTP of a double-layer CPSRMCHS. The results revealed that the average heat transfer coefficient of the double-layer CPSRMCHS increased by 28 % compared with that of the double-layer SRMCHS when the thicknesses of the solid and porous layers were 0.3 mm and 0.025 mm, respectively. Li and Chen [32] numerically investigated the HTP of a double-layer MCHS with porous ribs in the upper layer and compound porous-solid ribs in the lower layer. This design reduced the thermal resistance by 18.93 % and the pumping power by 65.96 % compared with the double-layer SRMCHS. Nandy and Balasubramanian [33] designed a wavy CPSRMCHS. This design incorporated a compound porous-solid ribbed structure based on the wavy-ribbed MCHS, aiming to maximize the fluid mixing and thermal efficiency within MCHSs. Research has shown that this compound structure can generate stronger vortices and create a more uniform temperature distribution, thereby significantly enhancing the thermal performance. Additionally, it was found that there exists a set of optimal geometric parameters (i.e., wavelength and amplitude) that achieves the best HTP. Li and Chen [34] proposed a wavy CPSRMCHS and aimed to minimize the pumping power and thermal resistance using the non-dominated sorting genetic algorithm II (NSGA-II). Compared with the traditional SRMCHS, the optimal design achieved a 16.67 % reduction in the pumping power and a 37.61 % decrease in the thermal resistance. Fathi et al. [35] designed a semi-porous-ribbed MCHS in which the upper and lower portions of the ribs consist of porous and solid structures, respectively. The results indicated that the pressure drops in the semi-porous-ribbed configurations were higher than those in the porous-ribbed configurations but remained lower than those in the traditional solid-ribbed MCHSs. When the rib width ratio was 0.66 and the porous height ratio was 0.5, the thermal resistance of the semi-porous-ribbed MCHS decreased by 11.12 % compared with the solid-ribbed configurations. Liu and Liu [36] conducted a numerical investigation into the HTP of staggered CPSRMCHSs. The study demonstrated that, compared to the conventional SRMCHS and PRMCHS, this configuration enabled efficient heat transfer from the solid regions to the porous domains with excellent convective heat transfer capability, thereby mitigating the inherently limited convective performance of solid ribs and the restricted vertical heat conduction in porous ribs. Furthermore, the staggered arrangement induced periodic flow disturbances within the staggered CPSRMCHSs, significantly enhancing fluid mixing and overall thermal performance. Under low-porosity and low-permeability conditions, the thermal resistance of this design was reduced by up to 19.7 %, highlighting its superior thermal management potential. Zhang et al. [37] conducted experimental measurements on the flow boiling heat transfer characteristics of CPSRMCHSs. The experimental results indicated that, compared with the porous-ribbed micro-channel heat sink (PRMCHS) and SRMCHS, the heat transfer coefficient of the CPSRMCHSs increased by 11.3 % and 60.6 %, respectively.
+The aforementioned literature confirms that compound porous-solid ribbed micro-channel heat sinks (CPSRMCHSs) can simultaneously enhance the hydrothermal performance (HTP) by integrating (i) the high thermal conductivity of solid structures and (ii) the hydrothermal benefits of porous structures, including slip-velocity-induced flow resistance reduction and an expanded heat transfer surface area. Despite the demonstrated advantages of compound porous-solid structures, previous studies have provided only limited investigations into the HTP of CPSRMCHSs. In particular, it remains unclear whether the slip effect and the associated pressure drop reduction are dictated by the volume, thickness, or interfacial area of the porous medium, and how the compound configuration can be optimally designed to mitigate the thermal penalty caused by the low effective thermal conductivity of porous materials while maximizing convective heat transfer. To address this research gap, this study proposes an innovative configuration of CPSRMCHS, which aims to enhance the convective heat transfer within MCHSs by introducing a porous medium while compensating for its low thermal conductivity through the integration of solid structures. A computational model for ribbed MCHSs with different arrangements of porous structures is developed to numerically analyze the effects of critical geometric parameters of the porous medium (e.g., width ratio, height ratio, and depth ratio) on the HTP of the CPSRMCHS. In addition, by systematically investigating the velocity and temperature distributions within the CPSRMCHSs, this study reveals the underlying mechanism by which the slip effect reduces flow resistance. Meanwhile, it elucidates how the compound porous-solid ribbed structure enhances overall thermal performance by simultaneously increasing the solid-fluid contact area and improving vertical thermal diffusion through the high-conductivity solid structures.
+2. Numerical methods
+2.1. Geometrical models
+The geometric model of the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS) is illustrated in Fig. 1. The structural characteristics and dimensional parameters of the studied MCHSs are detailed in Table 1. In the CPSRMCHSs, portions of the solid structures are replaced with porous material, while the height (H), width (W), and length (L) of the CPSRMCHSs remain unchanged. For convenience, three geometric parameters are defined.
+Fig. 1
+Download: Download high-res image (954KB)
+Download: Download full-size image
+Fig. 1. Schematic diagrams of the compound porous-solid ribbed micro-channel heat sink.
+
+Table 1. Geometrical parameters for the studied micro-channel heat sinks.
+
+Parameter (unit)	Value
+L (mm)	60
+W (mm)	1.2
+WFluid (μm)	600
+WRib (μm)	300
+WPorous (μm)	100, 200, 300
+H (mm)	1.2
+HRib (μm)	600
+HSubstrate (μm)	600
+HPorous (μm)	150, 300, 450, 600
+HPorous Rib (μm)	150, 300, 450, 600
+α = WPorous/WRib	0, 0.33, 0.67, 1.0
+β = HPorous/HSubstrate	0, 0.25, 0.50, 0.75, 1.0
+γ = HPorous Rib/HRib	0, 0.25, 0.50, 0.75, 1.0
+The width ratio (α) is calculated by:
+(1)
+The depth ratio (β) is calculated by:
+(2)
+The height ratio (γ) is calculated by:
+(3)
+2.2. Mathematical model
+The numerical simulations are conducted using the porous media model in ANSYS Fluent. Through experimental investigations of the flow characteristics within smooth circular micro-channels, Sharp et al. [38] found that the critical Reynolds number (Re) for the transition from laminar to turbulent flow ranges between 1800 and 2000. In this study, the inlet velocity (uin) varies from 0.335 m/s to 1.676 m/s. Based on the Reynolds number calculation formula (
+), the corresponding inlet Reynolds number ranges from 200 to 1000, which is significantly lower than the values reported by Sharp et al. Consequently, the laminar flow model is adopted for all subsequent numerical simulations. For computational efficiency, the following assumptions are made:
+(1)
+The fluid flow is incompressible, single-phase, steady, and laminar.
+(2)
+The effects of gravity, natural convection, viscous dissipation, and thermal radiation are neglected.
+(3)
+The porous medium is homogeneous and isotropic, with the pores fully saturated by the liquid. Additionally, the solid and liquid phases within the porous medium are in local thermal equilibrium (LTE, i.e., no temperature difference occurs between solid and liquid phases) [39,40]. The present LTE-based model has been validated against experimental data from Zhang et al. [37] under comparable heat flux conditions, showing excellent agreement in both pressure drop and heat transfer coefficient.
+The governing equations based on the above assumptions are as follows:
+For the solid domain:
+(4)
+For the fluid domain:
+(5)
+(6)
+(7)
+where, ks and Ts represent the thermal conductivity and temperature of the solid, respectively. ρf, 
+, μf, kf, cp,f, and Tf are the density, velocity vector, dynamic viscosity, thermal conductivity, specific heat, and temperature of the fluid, respectively. P denotes the pressure. Copper and water are adopted as the materials for the solid domain and fluid domain, respectively. The variation of μf is dependent on temperature, which is calculated by Refs. [26,35]:
+(8)
+For the porous domain:
+(9)
+(10)
+(11)
+where, ε, K, and CF are the porosity, permeability, and dimensionless Forchheimer coefficient, respectively. The porous material is copper with the property of ε = 0.9, K = 7.43 × 10−10 m2, and CF = 0.077 [26,35].
+For the porous medium, since it is a mixture of solid and fluid phases, an equivalent volumetric heat capacity (ρcp)porous needs to be defined. Consider a unit volume V. For a temperature change of ΔT, the change in total energy (ΔE) is calculated as follows:
+(12)
+The energy stored in the solid phase (ΔEs) is calculated by:
+(13)
+The energy stored in the fluid phase (ΔEf) is calculated by:
+(14)
+Therefore, the change in total energy is:
+(15)
+The value of (ρcp)porous needs to be determined to satisfy the following equation:
+(16)
+By combining Eqs. (15), (16), the following relationship is obtained:
+(17)
+where, the subscripts “f”, “s”, and “porous” denote the fluid phase, solid phase, and porous phase, respectively.
+The effective thermal conductivity of the porous domain is calculated by the following equations [26,35,41]:
+(18)
+(19)
+(20)
+(21)
+(22)
+where, ksf and kfs are referred to as the coupled thermal conductivity of the solid and fluid phases, respectively. kss and kff are referred to as the effective thermal conductivity of the solid and fluid phases, respectively.
+2.3. Boundary conditions and physical parameters
+The COUPLED algorithm in ANSYS Fluent is used to solve the continuity, momentum, and energy equations [26,35], with the convergence criteria defined as the residuals falling below 1 × 10−7. In ANSYS Fluent, the COUPLED algorithm improves convergence for micro-channel flow and heat transfer simulations by simultaneously solving the momentum and continuity equations, thereby ensuring stronger coupling between the pressure and velocity fields than is achieved with segregated solvers such as SIMPLE or PISO [42]. This approach is particularly effective for MCHS flows, where high aspect ratios and complex flow patterns may cause numerical instabilities or slow convergence when segregated solvers are employed. By solving the governing equations as a fully coupled system, the COUPLED algorithm minimizes the need for under-relaxation, enhances numerical stability, and accelerates convergence. The computational domain and boundary conditions are shown in Fig. 2.
+Fig. 2
+Download: Download high-res image (446KB)
+Download: Download full-size image
+Fig. 2. Boundary condition settings for numerical simulations.
+
+At the inlet boundary (z = 0) [43]:
+(23)
+At the outlet boundary (z = L) [43]:
+(24)
+At the solid-fluid interface, a no-slip boundary condition is specified, and the temperature of the solid is equal to the fluid [44]:
+(25)
+At the solid-porous interface, a no-slip boundary condition is specified, and the temperature of the solid is equal to the porous [44]:
+(26)
+At the fluid-porous interface [44]:
+(27)
+A constant heat flux is applied to the bottom wall of the MCHS:
+(28)
+Adiabatic boundary conditions imply zero heat transfer across a specified surface or interface. Specifically, at such a boundary, the normal component of the temperature gradient is zero; the surface neither absorbs nor dissipates heat to or from the surroundings; and although temperature may vary tangentially, it remains constant in the normal direction. The average heat transfer coefficient in micro-channel heat sinks (MCHSs) typically exceeds 10,000 W/(m2·K), whereas the upper limit for air under natural convection cooling conditions is generally below 100 W/(m2·K) [45]. In fact, the convective heat transfer coefficient for air under natural convection typically ranges from 5 to 25 W/(m2·K). In this study, the maximum average heat transfer coefficient achieved in the MCHS is 17,507.1 W/(m2·K), which significantly exceeds typical natural convection levels. In practical applications, the top surface of an MCHS is typically covered with an insulating material. Furthermore, in our prior experimental investigations on porous MCHSs [22,23,37,46], the top surface of the test module was covered with a layer of borosilicate glass, which has a low thermal conductivity (1.2 W/(m·K)). This glass layer provides thermal isolation from the ambient environment while enabling visual observation of internal flow patterns. In related numerical studies on porous-ribbed micro-channel heat sinks (PRMCHSs) [[27], [28], [29], [30], [31]], adiabatic boundary conditions are conventionally applied to the top wall. This assumption simplifies model analysis and computational procedures by ensuring mathematical closure of the governing equations and avoiding extraneous assumptions. Furthermore, we set the natural convection boundary condition on the top wall of the MCHS with α = 1.0, β = 0, and γ = 1.0, where the ambient temperature is 298.15 K and the convective heat transfer coefficient is 25 W/(m2·K). Numerical calculations are conducted under these conditions, and the results are shown in Table 2. The calculation results show that the differences in the data obtained under the two different boundary conditions are extremely small and can be ignored.
+Table 2. Comparison of numerical results under adiabatic and natural convection boundary Conditions.
+
+Re	Adiabatic (Nu)	Natural convection (Nu)	Relative deviation	Adiabatic (f)	Natural convection (f)	Relative deviation
+200	8.009	7.997	−0.14 %	0.143	0.143	0.07 %
+400	9.660	9.656	−0.05 %	0.091	0.091	0.02 %
+600	10.959	10.956	−0.02 %	0.069	0.069	0.01 %
+800	12.066	12.064	−0.01 %	0.056	0.056	0.00 %
+1000	13.048	13.047	−0.01 %	0.049	0.049	0.00 %
+Therefor, the top wall of the MCHS is assigned an adiabatic boundary condition:
+(29)
+Symmetry boundary conditions describe the mirror-symmetric distribution of flow fields, temperature profiles, and other relevant physical quantities across a specified plane or axis. Specifically, all scalar quantities (e.g., temperature, pressure, and concentration) exhibit zero normal gradients across the symmetry plane. The normal component of the velocity vector is zero at the symmetry plane, while the tangential velocity components and their gradients remain continuous and symmetrically distributed on both sides. When the MCHS geometry is symmetric with respect to a given plane and the flow and thermal boundary conditions are identical on both sides, it is sufficient to model and simulate only one symmetric segment of the computational domain. This approach significantly reduces the number of mesh elements and computational resource requirements while preserving simulation accuracy. The side walls of the MCHS are set to symmetric boundary conditions [26,35].
+All other walls of the MCHS are insulated. The Tin, Pout, and qw are set to 293.15 K, 0 Pa, and 25 W/cm2, respectively. The thermophysical properties of the copper and water are listed in Table 3.
+Table 3. Thermophysical parameters.
+
+Materials	ρ [kg/m3]	cp [J/(kg·K)]	k [W/(m·K)]
+Water	998.2	4184.2	0.6
+Copper	8978.0	381.0	387.6
+2.4. Evaluation factor
+The hydrothermal performance (HTP) of the micro-channel heat sink (MCHS) is evaluated by the following parameters:
+The Reynolds number (Re) is calculated by:
+(30)
+where, Dh is the hydraulic diameter of the MCHS, 
+.
+The friction factor (f) is calculated by:
+(31)
+where, ΔP is the pressure drop penalty of the MCHS, ΔP = Pin - Pout.
+The average heat transfer coefficient (h) is calculated by:
+(32)
+where, Tw is the average temperature of the bottom wall. Tin and Tout are the inlet and outlet temperatures of the fluid, respectively.
+Nusselt number (Nu) is calculated by:
+(33)
+The hydrothermal performance of the MCHS is evaluated using the Performance Evaluation Criterion (PEC):
+(34)
+where, the subscript “solid” denotes the solid-ribbed micro-channel heat sink (SRMCHS) and the subscript “porous-solid” denotes the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS).
+Entropy generation is a fundamental concept in thermodynamics that quantifies the irreversibility of physical processes. In the analysis of flow and heat transfer in MCHSs, the entropy generation is typically decomposed into two primary components: heat transfer entropy generation and flow entropy generation. The total entropy generation (S), heat transfer entropy generation (SΔT), flow entropy generation (SΔP), and relative total entropy generation ratio (M) are calculated using the following equations [47]:
+(35)
+(36)
+(37)
+(38)
+where, 
+ is the mass flow rate, Aw and Tf,ave are the bottom wall area of the MCHS and the average temperature of the fluid in the MCHS, respectively. 
+.
+2.5. Numerical methods validations
+To validate the reliability of the numerical methods employed in this study, numerical simulations are performed based on the experimental configurations reported by Hetsroni et al. [48], Calmidi et al. [49], and Zhang et al. [37], and the results are compared with their experimental data. Furthermore, the numerical data of Fathi et al. [35] were used to validate the current numerical model for the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS). Hetsroni et al. [48] experimentally investigated the pressure drop (ΔP) across a metal foam heat sink with a porosity of ε = 0.44, using water as the coolant. Calmidi et al. [49] measured the Nusselt number (Nu) for an aluminum metal foam heat sink with a porosity of ε = 0.9486, using air as the coolant. Note that the Rek is the Reynolds number based on permeability. Zhang et al. [37] measured the average heat transfer coefficient (h) and pressure drop of sintered CPSRMCHSs with a porosity of ε = 0.44 when water was used as the coolant. As illustrated in Fig. 3(a)–(d), excellent agreement is observed between the numerical simulation results and the experimental data. Fathi et al. [35] investigated the pressure drop and thermal resistance (R) of semi-porous-ribbed MCHSs with a porosity of ε = 0.9 through numerical methods. As shown in Fig. 3(e) and (f), it can be observed that the computational results of this work are in high agreement with those of Fathi et al. [35]. The porous height ratio (PHR) is the height ratio of the porous medium to the solid structure in the rib. Table 4, Table 5, Table 6, Table 7 list the numerical results, the experimental data from Hetsroni et al. [47], Calmidi et al. [48], and Zhang et al. [37], the numerical simulation data of Fathi et al. [35], and the corresponding relative deviations. The comparisons presented in Table 4, Table 5, Table 6, Table 7 demonstrate that the present numerical methods are sufficiently accurate for predicting the flow and heat transfer characteristics within the CPSRMCHS.
+Fig. 3
+Download: Download high-res image (815KB)
+Download: Download full-size image
+Fig. 3. Validations of the numerical methods.
+
+Table 4. Validations of the numerical methods (ΔP) .
+
+v (m/s)	Present work (MPa)	Experiment (MPa) [48]	Relative deviation
+0.425	0.037	0.042	−11.90 %
+0.528	0.057	0.054	5.56 %
+0.668	0.090	0.079	13.92 %
+0.769	0.120	0.115	4.35 %
+0.864	0.150	0.143	4.90 %
+0.953	0.183	0.178	2.81 %
+1.021	0.210	0.209	0.48 %
+Table 5. Validations of the numerical methods (Nu) .
+
+Rek	Present work	Experiment [49]	Relative deviation
+14.675	5.223	5.413	−3.51 %
+19.806	6.150	6.330	−2.84 %
+24.931	6.926	7.035	−1.55 %
+30.056	7.612	7.775	−2.10 %
+38.527	8.618	8.760	−1.62 %
+45.422	9.358	9.534	−1.85 %
+57.233	10.506	10.588	−0.77 %
+70.234	11.643	12.065	−3.50 %
+75.15	12.045	12.309	−2.14 %
+80.863	12.496	12.942	−3.45 %
+88.933	13.107	13.645	−3.94 %
+Table 6. Validations of the numerical methods (ΔP and h).
+
+qeff (W/cm2)	Present work (ΔP, kPa)	Experiment (ΔP, kPa) [37]	Relative deviation	Present work (h, kW/m2∙K)	Experiment (h, kW/m2∙K) [37]	Relative deviation
+6.27	0.921	0.880	4.64 %	4.280	4.540	−5.74 %
+10.56	0.833	0.807	3.24 %	4.508	4.664	−3.34 %
+17.97	0.719	0.708	1.51 %	4.666	4.723	−1.20 %
+19.91	0.670	0.720	-6.96 %	4.703	4.807	−2.17 %
+Table 7. Validations of the numerical methods (ΔP and R).
+
+PHR	Present work (ΔP, kPa)	Simulation (ΔP, kPa) [35]	Relative deviation	Present work (R × 104, K∙m2/W)	Simulation (R × 104, K∙m2/W) [35]	Relative deviation
+0	1.023	1.056	−3.04 %	1.0227	1.0214	0.13 %
+0.25	1.000	1.026	−2.49 %	0.9811	0.9888	−0.78 %
+0.50	0.942	0.960	−1.92 %	0.9743	0.9834	−0.93 %
+0.75	0.889	0.906	−1.87 %	1.0325	1.0484	−1.52 %
+1.0	0.865	0.876	−1.31 %	1.1587	1.1767	−1.53 %
+A hexahedral structured mesh is utilized for the present numerical simulations. To validate the precision and reliability of the numerical results, a mesh independence analysis was conducted for the CPSRMCHS with α = 0.67, β = 0, and γ = 1.0. As shown in Table 8, when the number of mesh elements reaches 3.42 million, the relative errors in Nu and f fall below 1 % compared to the Richardson extrapolation values (i.e., Nu = 11.409, f = 0.0174). Furthermore, as the number of mesh elements increases from 3.420 million to 4.788 million, the variations in Nu and f are less than 0.5 %, indicating that further increasing the number of mesh elements has a negligible impact on the numerical results. To balance the computational efficiency and accuracy, the mesh with 3.420 million elements is finally selected for subsequent simulations. Fig. 4 shows the computational mesh for the CPSRMCHS with α = 0.67, β = 0, and γ = 1.0. To further validate the mesh independence of the adopted configuration across different MCHSs, mesh independence analyses were performed on MCHSs with α = 0.67, β = 0.75, γ = 1.0 and α = 0, β = 0, γ = 0. The results, presented in Table 9, Table 10, demonstrate that the proposed mesh strategy maintains high accuracy across varying parameter configurations, confirming its robustness and broad applicability. In this study, the first-layer thickness of the boundary layer mesh adjacent to all MCHSs is set to 0.001 mm to ensure numerical accuracy. Taking the solid-ribbed micro-channel heat sink (SRMCHS) as an example—the SRMCHS exhibits the highest wall shear stress among all MCHSs studied—the calculated y + value at Re = 1000 is 0.55.
+Table 8. Mesh-independency analysis (α = 0.67, β = 0, γ = 1.0).
+
+Number of mesh elements	f	Nu	
+1,584,000	0.0168	11.250	–	–
+2,314,000	0.0171	11.348	1.62	0.87
+3,420,000	0.0172	11.386	0.81	0.33
+4,788,000	0.0173	11.431	0.39	0.40
+Fig. 4
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 4. Computational meshes for the compound porous-solid ribbed micro-channel heat sink.
+
+Table 9. Mesh-independency analysis (α = 0.67, β = 0.75, γ = 1.0).
+
+Number of mesh elements	f	Nu	
+1,584,000	0.01538	14.028	–	–
+2,322,000	0.01554	14.114	1.03	0.62
+3,420,000	0.01562	14.173	0.53	0.42
+4,890,600	0.01571	14.232	0.51	0.41
+Table 10. Mesh-independency analysis (α = 0, β = 0, γ = 0).
+
+Number of mesh elements	f	Nu	
+1,579,500	0.01964	8.928	–	–
+2,288,000	0.01983	8.988	0.95	0.67
+3,420,000	0.01997	9.026	0.70	0.42
+4,838,400	0.02010	9.063	0.65	0.41
+3. Results and discussion
+3.1. Effect of the width ratio
+In this section, the influence of the porous medium width ratio (α) on the hydrothermal performance (HTP) of the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS) is discussed. The depth ratio (β) and height ratio (γ) of the porous medium are fixed at 0 and 1.0, respectively.
+3.1.1. Hydraulic performance
+Fig. 5 illustrates the variations of the friction factor (f) with the width ratio (α) at different Re for the MCHSs. The results indicate that introducing the porous layer into the rib significantly improves the hydraulic performance of MCHSs in the range of Re = 200–1000. At Re = 200, the friction factor of the CPSRMCHS with α = 0.33 is 14.6 % lower than that of the solid-ribbed micro-channel heat sink (SRMCHS) (i.e., α = 0 in Fig. 5). However, as the width ratio increases, the variations in the friction factor become negligible. At the same Re, the friction factor among the three CPSRMCHSs (i.e., α = 0.33, 0.67, and 1.0) differs by less than 0.5 %. In addition, for all investigated configurations, the friction factor increases with increasing Re. This increase is attributed to the higher inlet flow rate associated with a larger Re. According to the Hagen-Poiseuille law, under laminar flow conditions, the pressure drop in a channel is directly proportional to the inlet flow rate. Moreover, the pressure drop increases more significantly with Re than with the square of the inlet velocity. Therefore, based on Eq. (31) (i.e., 
+), the friction factor in MCHSs increases with Re.
+Fig. 5
+Download: Download high-res image (375KB)
+Download: Download full-size image
+Fig. 5. Friction factors (f) for the micro-channel heat sinks with different width ratios (α).
+
+Fig. 6 shows the velocity contours in the MCHSs with different width ratios at the cross-section y = 0.3 mm and Re = 1000. In the SRMCHS (i.e., α = 0), the no-slip boundary condition enforces zero fluid velocity at the solid-fluid interface. However, in the CPSRMCHSs (i.e., α = 0.33, 0.67, and 1.0), fluid can penetrate the porous region from the main channel, resulting in a non-zero velocity at the fluid-porous interface, which is called the “slip effect” [25]. Fig. 7 further illustrates the velocity profiles at the intersection of z = 50 mm and y = 0.3 mm for the four MCHSs at Re = 1000. The velocity curves of the four MCHSs at 0.575 mm ≤ x ≤ 0.6 mm (i.e., near the fluid-porous interface) are linearly fitted, and the absolute values of the slopes obtained are shown in Table 11. Among them, the slopes of the SRMCHS are 1.364, 1.396, and 1.445 times those of the CPSRMCHSs with α = 0.33, 0.67, and 1.0, respectively, while the slope of the CPSRMCHS with α = 1.0 is only 1.059 times that with α = 0.33. According to the law of Newton inner friction (
+), the lower velocity gradient near the fluid-porous interface reduces the viscous shear stress between the fluid and porous walls [25], thereby lowering the friction factors of the CPSRMCHSs. However, for the CPSRMCHSs with α = 0.33, 0.67, and 1.0, the velocity profiles near the fluid-porous interface almost overlap, indicating that the viscous shear stress at the fluid-porous interface is negligibly affected by the variations in the width ratio. It should be noted that in the present simulations, the porous domain at the outlet section is set as a wall, thereby causing minor flow disturbances to the penetrated flow. At Re = 1000, the volumetric flow rates within the porous region account for 2.5 %, 4.0 %, and 5.7 % of the total flow rate in the CPSRMCHSs with α = 0.33, 0.67, and 1.0, respectively. However, the differences in the friction factor among the CPSRMCHSs are less than 0.5 % (see Fig. 5). Therefore, increasing the width ratio has a limited influence on the friction factor of the CPSRMCHS.
+Fig. 6
+Download: Download high-res image (397KB)
+Download: Download full-size image
+Fig. 6. Velocity contours on the cross-section y = 0.3 mm in the micro-channel heat sinks with different width ratios α at Re = 1000 (z = 45–50 mm).
+
+Fig. 7
+Download: Download high-res image (521KB)
+Download: Download full-size image
+Fig. 7. Velocity profiles at the intersection of z = 50 mm and y = 0.3 mm along the x-axis for the micro-channel heat sinks with different width ratios (α) at Re = 1000.
+
+Table 11. Absolute values of the velocity slope of the four micro-channel heat sinks at z = 50 mm, y = 0.3 mm, and 0.575 mm ≤ x ≤ 0.6 mm, under Re = 1000.
+
+Width ratio	0	0.33	0.67	1.0
+Slope	30.700	22.501	21.985	21.241
+3.1.2. Thermal performance
+Fig. 8 displays the Nusselt number (Nu) trends with respect to the width ratio at different Re for the MCHSs. It can be observed that Nu initially increases and then decreases with increasing width ratio. Compared with the SRMCHS, the enhanced thermal performance of the CPSRMCHSs is primarily attributed to the permeability of the porous medium, which allows fluid penetration and thereby increases the convective heat transfer area. At Re = 1000, Nu for the CPSRMCHSs with α = 0.33 and 0.67 increases by 24.6 % and 30.3 %, respectively, compared with that of the SRMCHS. However, when the width ratio increases to 1.0, the ribs in the MCHS consist entirely of porous material. Nu in the CPSRMCHS with α = 1.0 increases by only 24.3 % compared with that of the SRMCHS, indicating that the optimal thermal performance can be achieved near a specific width ratio (i.e., α ≈ 0.67). Furthermore, for all investigated configurations, as Re increases, the flow velocity within the MCHSs rises, effectively reducing the boundary layer thickness and enhancing the thermal performance. Therefore, Nu shows a monotonically increasing trend with increasing Re.
+Fig. 8
+Download: Download high-res image (390KB)
+Download: Download full-size image
+Fig. 8. Nusselt number (Nu) for the micro-channel heat sinks with different width ratios.
+
+Fig. 9 shows the temperature distributions along the y-axis at the intersection of z = 50 mm and x = 0.075 mm for the MCHSs with different width ratios at Re = 1000. It can be observed that the temperature gradients for the four MCHSs are nearly identical in the region of y < 0. However, due to the different materials (i.e., solid or porous medium), the MCHSs exhibit distinct temperature gradients in the region of y > 0. For the MCHSs with α = 0 and 0.33, the region of y > 0 and x = 0.075 mm corresponds to the solid domain; thus, the temperature gradient remains continuous, as in the region of y < 0. However, for the MCHS with α = 1.0, this region corresponds to the porous domain. The lower effective thermal conductivity of the porous medium (16.7 W/(m·K)) leads to a significant increase in the temperature gradient in this region. Although the MCHS with α = 0.67 also features a porous domain in this region, its compound porous-solid ribbed structure enhances the vertical thermal diffusion (VTD), thereby reducing the temperature gradient compared to that of the configuration with α = 1.0. This trend is further confirmed by the temperature distributions at the cross-section z = 50 mm (see Fig. 10) and the quantitative data in Table 12. In Fig. 10, the areas outlined by black dashed lines denote the porous domains. Combining Fig. 10 and Table 12, it can be seen that, due to the significantly higher thermal conductivity of the solid structure (387.6 W/(m·K)) compared to that of the porous medium, the temperature distribution in the solid domains of each MCHS is more uniform, with smaller temperature differences. The MCHS with α = 0 exhibits the highest temperature in the solid domain among the cases studied, although its total temperature difference is only 0.727 K. For the MCHS with α = 1.0, the presence of the porous medium hinders heat transfer from the lower region to the upper region of the porous domain, resulting in a significant temperature gradient in the z-direction; the temperature difference in the porous domain reaches 7.520 K, which is significantly higher than the 1.723 K and 2.965 K corresponding to the MCHSs with α = 0.33 and 0.67, respectively. This non-uniform temperature distribution reduces the heat transfer efficiency in the upper region of the MCHS with α = 1.0. In contrast, for the MCHSs with α = 0.33 and 0.67, the high thermal conductivity of the solid structures facilitates the rapid longitudinal heat conduction through the solid domains, leading to more uniform temperature distributions and enhanced thermal performance. Therefore, as the width ratio increases, Nu initially increases and then decreases, as shown in Fig. 8.
+Fig. 9
+Download: Download high-res image (494KB)
+Download: Download full-size image
+Fig. 9. Temperature distributions for the micro-channel heat sinks with different width ratios along the y-axis at z = 50 mm, x = 0.075 mm under Re = 1000.
+
+Fig. 10
+Download: Download high-res image (677KB)
+Download: Download full-size image
+Fig. 10. Temperature distributions on the cross-section z = 50 mm for the micro-channel heat sinks with different width ratios (α) at Re = 1000.
+
+Table 12. Maximum temperatures, minimum temperatures and temperature differences of the four micro-channel heat sinks at z = 50 mm, under Re = 1000.
+
+Width ratio	Solid domain	Porous domain	ΔT (K) (Tmax,solid-Tmin,porous)
+Tmax, solid (K)	Tmin, solid (K)	ΔTsolid (K)	Tmax, porous (K)	Tmin, porous (K)	ΔTporous (K)
+0	336.543	335.816	0.727	–	–		0.727
+0.33	331.993	331.094	0.899	331.650	329.927	1.723	2.066
+0.67	331.307	330.052	1.255	330.960	327.995	2.965	3.312
+1.0	332.149	331.740	0.409	331.763	324.243	7.520	7.906
+3.1.3. Overall hydrothermal performance
+Fig. 11 illustrates the variations of the Performance Evaluation Criterion (PEC) with the width ratio under different Re. For the MCHSs with α = 0.33, 0.67, and 1.0, the PEC remains greater than 1.0 in all cases, indicating that the compound porous-solid ribbed structure enhances the hydrothermal performance (HTP) of the MCHSs. Additionally, the PEC of the CPSRMCHSs increases with Re, which is attributed to the significant enhancement in the heat transfer capability as fluid velocity increases. When Re increases from 200 to 1000, the PEC of the CPSRMCHS with α = 0.67 increases by 8.2 %.
+Fig. 11
+Download: Download high-res image (396KB)
+Download: Download full-size image
+Fig. 11. Performance Evaluation Criteria (PEC) for the micro-channel heat sinks with different width ratios (α).
+
+Fig. 12 illustrates the variations of the entropy generation with the width ratio under different Re. While the PEC provides an engineering-oriented assessment of the trade-off between heat transfer enhancement and friction factor, entropy generation analysis offers a fundamental thermodynamic perspective by quantifying the sources and magnitudes of irreversibility within the system. The flow entropy generation (SΔP) is positively correlated with both the mass flow rate and pressure drop. As Re increases, both parameters rise significantly, resulting in higher flow entropy generation, as shown in Fig. 12(a). Moreover, an increase in Re reduces the thickness of the thermal boundary layer within the MCHSs, thereby enhancing the convective heat transfer. This improvement lowers the temperature difference between the solid wall and the fluid, thereby reducing the irreversibility caused by the heat transfer. Consequently, the heat transfer entropy generation (SΔT) in all MCHSs decreases with increasing Re. Notably, the magnitude of the heat transfer entropy generation is approximately three orders of magnitude higher than that of the flow entropy generation, indicating that the primary source of irreversibility in the convective heat transfer processes within the studied MCHSs is the temperature gradient between the fluid and the solid wall, instead of the flow resistance. As a result, the total entropy generation (S) is almost entirely determined by the heat transfer entropy generation, and both exhibit highly consistent trends (see Fig. 12(c)). With increasing Re, the total entropy generation in all MCHSs decreases, demonstrating that higher Re helps reduce the irreversibility in the flow and heat transfer processes, thereby improving the HTP. Fig. 12(d) presents the variations of the relative total entropy generation rate (M) with the width ratio. When M < 1.0, it indicates that the CPSRMCHS produces lower irreversibility in the convective heat transfer processes compared with that of the SRMCHS. A comparison of Fig. 8, Fig. 12 reveals that the relative total entropy generation rate is primarily governed by the thermal performance of the MCHS. Under all operating conditions, the CPSRMCHS with α = 0.67 exhibits the lowest relative total entropy generation rate, corresponding to the best HTP. Furthermore, as Re increases from 200 to 1000, the relative total entropy generation rate of the CPSRMCHSs with α = 0.33, 0.67, and 1.0 decreases by 6.4 %, 8.1 %, and 6.4 %, respectively, further confirming the significant advantage of the CPSRMCHS with α = 0.67 in enhancing the HTP. Although both the PEC and entropy generation analysis indicate the superior HTP of the CPSRMCHS over the SRMCHS, the entropy generation analysis further reveals the physical origin of thermodynamic irreversibility. As shown in Fig. 12(b), the heat transfer entropy generation dominates the total entropy generation (accounting for >99.9 %), demonstrating that temperature gradients constitute the primary source of thermodynamic loss in the system. Consequently, design optimization should focus on enhancing the heat exchange between the fluid domain and the solid domain rather than solely minimizing friction factor.
+Fig. 12
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 12. Entropy generation for the micro-channel heat sinks with different width ratios (α).
+
+The width ratio governs the balance between enhanced convective heat transfer area and compromised vertical thermal diffusion in CPSRMCHSs. Increasing the width ratio promotes fluid penetration into the porous ribs, thereby improving convective heat transfer; however, excessive α (e.g., α = 1.0) introduces a large low-conductivity porous domain that impedes heat conduction from the heated base to the upper channel, leading to a non-uniform temperature distribution and reduced thermal efficiency. The optimal width ratio of α ≈ 0.67 achieves the best balance by maximizing interfacial area while retaining sufficient solid pathways for effective vertical thermal diffusion. This configuration yields the highest Nusselt number and the lowest entropy generation among all configurations. These results indicate that porous integration should complement rather than replace solid thermal conduction paths to achieve optimal hydrothermal performance. It should be noted that α = 0.67 represents the optimal balance between the porous and solid regions under the present operating conditions, rather than a universal constant. The observed trend indicates that optimizing the geometric ratio between porous and solid sections is essential to achieve a favorable trade-off between heat transfer enhancement and pressure drop.
+3.2. Effect of the depth ratio
+In Section 3.1, it was indicated that the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS) with a width ratio α = 0.67 exhibits the best hydrothermal performance (HTP) among the studied cases. Based on this case (i.e., the CPSRMCHS with α = 0.67), this section investigates the influence of the depth ratio (β) on the HTP of the CPSRMCHS.
+3.2.1. Hydraulic performance
+Fig. 13(a) illustrates the variations of the friction factor (f) with the depth ratio under different Re. It is observed that introducing a porous layer at the bottom of the CPSRMCHS effectively reduces its friction factor. At Re = 1000, increasing the depth ratio from 0 to 0.25 results in an 8.3 % decrease in the friction factor of the CPSRMCHS. However, further increasing the depth ratio from 0.25 to 1.0 results in only a 1.4 % reduction in the friction factor, indicating limited improvement in the hydraulic performance of the CPSRMCHS with further increases in the depth ratio. Fig. 13(b) shows the fluid velocity distribution along the y-axis at z = 50 mm and x = 0.3 mm for Re = 1000. The slip velocity is observed at the fluid-porous interface near the channel bottom, reducing the viscous shear stress between the fluid and the bottom wall. Such a phenomenon indicates that the hydraulic performance of the CPSRMCHS is primarily influenced by the contact area between the fluid domain and the porous domain, rather than by the thickness of the porous layer. This finding will be further verified by the results presented in Section 3.3 (see Fig. 17).
+Fig. 13
+Download: Download high-res image (690KB)
+Download: Download full-size image
+Fig. 13. Friction factors (f) and velocity distributions (u) of the compound porous-solid ribbed micro-channel heat sinks with different depth ratios (β).
+
+3.2.2. Thermal and overall performance
+Fig. 14(a) and (b) illustrate the variations of the Nusselt number (Nu) and the Performance Evaluation Criterion (PEC) with the depth ratio at different Re. The Nu of the CPSRMCHSs first increases and then decreases as the depth ratio rises. This trend is primarily attributed to the low effective thermal conductivity of the porous medium, which restricts the heat conduction within the porous domain. Therefore, an excessive increase in the depth ratio leads to a degradation of the thermal performance in the CPSRMCHSs. Similar to the trend of Nu with the depth ratio, the PEC of the CPSRMCHSs first increases and then decreases as the depth ratio exceeds 0.75. This phenomenon is because the differences in the friction factor among the four CPSRMCHSs with β = 0.25, 0.50, 0.75, and 1.0 are less than 1.4 %, indicating that the PEC of the CPSRMCHSs is primarily governed by the Nu. At Re = 1000, the CPSRMCHS with α = 0.67 and β = 0.75 achieves a 67.24 % increase in the Nu, a 20.92 % reduction in the f, and an 81 % improvement in the PEC compared with that of the SRMCHS.
+Fig. 14
+Download: Download high-res image (615KB)
+Download: Download full-size image
+Fig. 14. Nusselt number (Nu) and Performance Evaluation Criteria (PEC) of the compound porous-solid ribbed micro-channel heat sinks with different depth ratios (β).
+
+Fig. 15
+Download: Download high-res image (528KB)
+Download: Download full-size image
+Fig. 15. Temperature distributions at the cross-section z = 50 mm for the compound porous-solid ribbed micro-channel heat sinks with different depth ratios (β) at Re = 1000.
+
+Fig. 16
+Download: Download high-res image (653KB)
+Download: Download full-size image
+Fig. 16. Entropy generation for the compound porous-solid ribbed micro-channel heat sinks with different height ratios (β).
+
+Fig. 17
+Download: Download high-res image (495KB)
+Download: Download full-size image
+Fig. 17. Friction factors (f) of the compound porous-solid ribbed micro-channel heat sinks with different height ratios (γ).
+
+Fig. 15 shows the temperature distributions at the cross-section z = 50 mm for the two CPSRMCHSs at Re = 1000. The areas outlined by black dashed lines represent the porous domains. For the CPSRMCHS with β = 1.0, the heat at the center of the heating wall cannot be effectively transferred to the upper region of the MCHS, resulting in a significant temperature gradient near the heating wall. This non-uniform temperature distribution weakens the heat transfer efficiency between the fluid and solid domains. In contrast, for the CPSRMCHS with β = 0.75, the heat from the heating wall can be effectively conducted through the solid substrate to the solid ribs and further transferred to the upper region of the flow channel, resulting in a more uniform temperature distribution.
+Fig. 16 presents the variations of the total entropy generation (S) and relative total entropy generation rate (M) with different depth ratios under various Re. It can be observed that the CPSRMCHS with β = 0.75 consistently exhibits the lowest total entropy generation under all operating conditions. The total entropy generation for the CPSRMCHSs with β = 0.50 and β = 1.0 is comparable, whereas that for the CPSRMCHS with β = 0 exhibits the highest value. These results indicate that within the range of β = 0.50 to β = 1.0, an optimal depth ratio exists that minimizes the irreversibility and thereby achieves the best energy-saving performance. In addition, the relative total entropy generation rates of all five CPSRMCHSs are below 1.0, suggesting that the CPSRMCHSs with different depth ratios generate less irreversibility in the convective heat transfer processes compared with the solid-ribbed micro-channel heat sink (SRMCHS), thereby offering superior HTP. As Re increases, the relative total entropy generation rate of the CPSRMCHSs decreases. At Re = 1000, the CPSRMCHS with β = 0.75 exhibits the lowest relative total entropy generation rate of 0.617 among all cases. This result further demonstrates that moderately increasing the depth ratio of the CPSRMCHS enhances the convective heat transfer and reduces the temperature gradient, thereby effectively lowering the total entropy generation and irreversibility in the flow and heat transfer processes.
+Introducing a porous layer at the bottom reduces flow resistance within MCHSs through the slip effect at the fluid-porous interface. However, this hydraulic benefit quickly saturates; increasing β beyond 0.25 yields only a marginal further reduction in the friction factor. In contrast, an excessive porous depth (e.g., β = 1.0) impedes heat conduction from the heated wall due to the low effective thermal conductivity of the porous medium, resulting in a reduced Nusselt number. Therefore, retaining a sufficient solid substrate beneath the porous layer is essential to maintain efficient heat transfer while still benefiting from the slip effect.
+3.3. Effect of the height ratio
+In Section 3.2, the compound porous-solid ribbed micro-channel heat sink (CPSRMCHS) with a width ratio of α = 0.67 and a depth ratio of β = 0.75 exhibits the best hydrothermal performance (HTP) among the studied cases. Based on this case (i.e., α = 0.67 and β = 0.75), this section evaluates the effects of the height ratio (γ) on the HTP of the CPSRMCHS.
+3.3.1. Hydraulic performance
+Fig. 17 shows the variations of the friction factor (f) with the height ratio at different Re. As the height ratio increases, the friction factor of the CPSRMCHS gradually decreases. At Re = 1000, as the height ratio increases from 0 to 1.0, the contact area between the fluid domain and the porous domain increases by 200 %. However, the additional volumetric flow rate within the porous domain accounts for only 3.0 % of the total flow rate, while the friction factor decreases by 15.2 %. This indicates that the range of the slip effect within the CPSRMCHS is a major factor influencing its hydraulic performance. This observation further supports the conclusion in Section 3.2 that the enhancement of the hydraulic performance of the CPSRMCHS is predominantly attributed to the increased contact area between the fluid domain and porous domain.
+3.3.2. Thermal and overall performance
+Fig. 18(a) and (b) show the variations of the Nusselt number (Nu) and the Performance Evaluation Criterion (PEC) with the height ratio, respectively. The results demonstrate that the Nu increases monotonically with increasing height ratio. This observation differs from the findings reported by Fathi et al. [35]. In their study, thermal performance initially increases and then decreases with increasing height ratio. The main reason for this discrepancy is that the width ratio in the MCHS that studied by Fathi et al. was 1.0. For the MCHS with a larger height ratio, the heat in the bottom region of the porous ribs cannot be effectively conducted to the upper channel region, which weakens the heat exchange between the rib structures and the fluid. In contrast, for the CPSRMCHS with α = 0.67 in this study, the limitation imposed by the low effective thermal conductivity of the porous medium is mitigated. This design promotes enhanced heat conduction through the solid structures toward the upper regions of the MCHS (see Fig. 10(c)), thereby improving the thermal performance. Additionally, as shown in Fig. 18, the PEC increases with increasing height ratio, which is attributed to the simultaneous enhancement of the Nu and reduction in the friction factor as the height ratio increases (see Fig. 17, Fig. 18). At Re = 1000, as the height ratio increases from 0 to 1.0, the PEC increases by 24.4 %, indicating that increasing the height ratio enhances both the thermal performance and hydraulic performance of the CPSRMCHS. This advantage is further confirmed by entropy generation analysis (see Fig. 19): both the total entropy generation (S) and the relative total entropy generation rate (M) decrease monotonically with increasing γ, and the relative total entropy generation rate remains below 1.0 across all cases, indicating consistently lower thermodynamic irreversibility compared to the solid-ribbed micro-channel heat sink (SRMCHS). The reduction in S is attributed to the enhanced fluid-flow capacity and thermal performance, which reduce viscous dissipation and temperature gradients. Therefore, increasing the height ratio effectively improves the HTP of the CPSRMCHS and enhances its energy-saving potential in high-efficiency heat transfer applications.
+Fig. 18
+Download: Download high-res image (694KB)
+Download: Download full-size image
+Fig. 18. Nusselt number (Nu) and Performance Evaluation Criteria (PEC) of the compound porous-solid ribbed micro-channel heat sinks with different height ratios (γ).
+
+Fig. 19
+Download: Download high-res image (657KB)
+Download: Download full-size image
+Fig. 19. Entropy generation for the compound porous-solid ribbed micro-channel heat sinks with different height ratios (γ).
+
+Unlike width and depth ratios, increasing the height ratio consistently enhances both the thermal and hydraulic performance. This trend arises because the height ratio directly expands the contact area between the fluid domain and porous domain, which is the primary driver of the slip effect, while the thickness of the porous layer itself has negligible influence on flow resistance reduction. Simultaneously, convective heat transfer improves due to the greater fluid penetration. Critically, this dual enhancement is only possible because the compound structure (α = 0.67, β = 0.75) preserves high-conductivity solid pathways. In contrast, fully porous designs (e.g., α = 1.0, as in Fathi et al. [35]) suffer from degraded thermal performance at high height ratios due to insufficient vertical thermal diffusion.
+4. Conclusions
+This study presents a numerical investigation of the hydrothermal performance (HTP) of compound porous-solid ribbed micro-channel heat sinks (CPSRMCHSs). The effects of the width ratio (α), depth ratio (β), and height ratio (γ) of the porous medium on the hydrodynamic and thermal behaviors of the CPSRMCHSs are systematically investigated. The main conclusions are summarized as follows.
+(1)
+The CPSRMCHSs demonstrate significant advantages in the hydraulic performance compared to the solid-ribbed micro-channel heat sink (SRMCHS) due to the slip velocity generated at the porous-fluid interface, which reduces the viscous shear stress between the porous walls and fluid. However, the influence of the slip effect on the hydraulic performance of the CPSRMCHS is primarily governed by the contact area between the fluid domain and the porous domain, rather than by the thickness of the porous layer. At Re = 1000, the friction factor (f) of the CPSRMCHS varies by less than 1.4 % as the width ratio (α = 0.33–1.0) or the depth ratio (β = 0.25–1.0) increases. In contrast, for the CPSRMCHS with α = 0.67 and β = 1.00, increasing the height ratio (γ) from 0 to 1, which triples the fluid-porous interface area, reduces the friction factor by 15.2 %.
+(2)
+The incorporation of the porous medium enhances convective heat transfer within the CPSRMCHS by increasing the solid-fluid contact area. However, the low effective thermal conductivity of the porous medium induces a substantial temperature gradient within the porous domain, thereby diminishing the heat exchange between the fluid and rib structures in the upper region of the channel. The compound porous-solid ribbed design effectively alleviates this limitation by combining the solid structure with the porous medium. At Re = 1000, β = 0, and γ = 1.0, the Nusselt number (Nu) for the CPSRMCHS with α = 0.33, 0.67, and 1.0 increases by 24.6 %, 30.3 %, and 24.3 %, respectively, compared to that of the SRMCHS.
+(3)
+The Performance Evaluation Criterion (PEC) for all CPSRMCHSs exceeds 1.0, while the relative total entropy generation rate (M) remains below 1.0, collectively confirming superior HTP relative to the SRMCHS. The CPSRMCHS with α = 0.67, β = 0.75, and γ = 1.0 achieves a 20.9 % reduction in the f, a 67.2 % increase in the Nu, an 80.9 % improvement in the PEC, and a 38.3 % reduction in the M, compared to the SRMCHS.
+These findings go beyond case-specific parametric tuning and provide general design principles for high-efficiency MCHSs: (i) maximizing the fluid-porous interfacial area to leverage the slip effect for flow resistance reduction and recognizing that the hydraulic benefit shows little dependence on porous layer thickness; and (ii) preserving continuous solid thermal conduction paths to compensate for the low thermal conductivity of the porous medium and ensure effective heat transfer to the upper regions of the channel. By demonstrating that the CPSRMCHSs can simultaneously achieve a significant PEC improvement and a substantial reduction in thermodynamic irreversibility compared to the conventional solid-ribbed designs, this work offers actionable guidance for thermal engineers. The proposed CPSRMCHS represents a practical, scalable, and energy-efficient structure well-suited for high-power-density applications such as chip-scale cooling and electric vehicle power modules.
+5. Prospect
+This study systematically investigates a series of key geometric parameters of the CPSRMCHS. Through sequential parameter analysis, the optimal width ratio of the porous medium is first identified, followed by the determination of the optimal depth ratio; finally, the height ratio is optimized based on the first two parameters. While the stepwise single-parameter optimization employed in this study successfully identifies a high-performance CPSRMCHS configuration, it inherently neglects potential coupling effects among geometric parameters. For practical engineering design and to achieve globally optimal performance, a multi-objective optimization framework such as NSGA-II coupled with CFD simulations or data-driven surrogate modeling will be essential. This will be the focus of our immediate future work, building directly upon the mechanistic insights and baseline performance established in this study.
+It should also be noted that the present model adopts two common simplifying assumptions in the numerical modeling of porous-ribbed micro-channel heat sinks: (i) the porous medium is treated as homogeneous and isotropic, and (ii) local thermal equilibrium (LTE) is assumed between the solid and fluid phases. While these assumptions may not fully capture the anisotropic microstructure of real sintered or foam-based materials or the potential thermal nonequilibrium under extreme heat fluxes, future work incorporating experimentally measured anisotropic permeability and thermal conductivity tensors and local thermal non-equilibrium (LTNE) models with calibrated interfacial heat transfer coefficients could further enhance predictive fidelity for specific manufacturing processes and extreme operating conditions.
+In addition, this study employs water as the cooling fluid. Although nanofluids have been widely reported in numerical investigations to enhance thermal performance due to their improved effective thermal conductivity and intensified convective heat transfer [[50], [51], [52]], their practical deployment in porous MCHSs faces a critical challenge: the risk of pore clogging caused by nanoparticle deposition. The characteristic pore sizes in typical metal-foam or sintered-particle porous media often range from 10 to 100 μm, which are comparable to or only marginally larger than agglomerated nanoparticle clusters [53,54], particularly under sustained operation or elevated temperatures. Such clogging can lead to irreversible increases in flow resistance, reductions in effective porosity and permeability, and eventual degradation of both hydraulic and thermal performance. These adverse effects are rarely accounted for in idealized numerical models that assume stable and homogeneous nanofluid properties. Consequently, future work should prioritize experimental studies to assess the long-term stability, transport behavior, and clogging propensity of nanofluids in CPSRMCHSs, with systematic evaluation of key parameters such as nanoparticle type, concentration, size distribution, surface functionalization, and operating conditions. Only through such empirical validation can the feasibility and reliability of nanofluid-cooled CPSRMCHSs be properly established for real-world thermal management applications.
+Finally, with the continuous scaling down of transistor feature sizes in microelectronic chips and the substantial increase in integration density, the local heat flux density has risen sharply, pushing conventional single-phase cooling technologies close to their heat dissipation limits. Against this backdrop, two-phase flow heat transfer has emerged as a promising solution for thermal management of high-heat-flux electronic devices due to its high latent heat absorption capacity. While prior studies have demonstrated that porous ribbed structures can enhance boiling heat transfer through their large specific surface area, abundant nucleation sites, and capillary-driven liquid replenishment mechanisms [55,56], the long-term reliability of such structures under sustained high-heat-flux two-phase operation remains a critical concern. The intricate pore network of porous media inherently provides an extremely large internal surface area. While this facilitates heat transfer, it also accelerates surface degradation processes such as oxidation, corrosion, or fouling. This accelerated aging can lead to pore narrowing, reduced permeability, diminished capillary pumping capability, and ultimately a progressive decline in both thermal and hydraulic performance. Therefore, future research should not only investigate the transient boiling characteristics of CPSRMCHSs but also systematically evaluate their performance stability and degradation mechanisms under prolonged two-phase operation. Such studies are essential to assess the practical viability and service life of CPSRMCHSs in real-world high-power electronic cooling applications.

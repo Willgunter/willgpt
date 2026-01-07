@@ -1,0 +1,320 @@
+Abstract
+With the swift advancement of renewable energy sources, notably solar and wind power, there is an escalating demand for conventional thermal power units to perform deep peaking-shaving and valley-filling operations. Gaining a comprehensive understanding of the dynamic response during the deep peaking process is essential for ensuring the operational safety of thermal power units. This research offers an extensive experimental investigation into the dynamic response of supercritical fluids to step input across a broad temperature range, with a particular emphasis on their behavior under supercritical pressures exceeding 22.074 MPa. By examining the dynamic behaviors across both the time and frequency domains, this study unveils pivotal insights into the system's response characteristics, which are crucial for optimizing the performance and reliability of thermal system. The investigation uncovers that the dynamic behavior of the heating flow system is sensitive to the bulk temperature. In liquid-like conditions (T/Tpc<0.95), the system rapidly achieves a new equilibrium state, indicative of a first-order response. Conversely, as the bulk fluid temperature escalates, the response duration extends, demanding more time to reach stability and potentially manifesting as zero-damping periodic oscillations in the vapor-like phase (T/Tpc >1.05), necessitating the application of higher-order functions for accurate modeling. The temperature response to step input is observed to be markedly different across various temperature regions. The transfer function analysis indicates that in the liquid-like region, the system behaves akin to a first-order function with a gradually increasing time constant to a new steady state, characterized by a damping ratio greater than one (ζ > 1). However, in the vicinity of the pseudocritical region, the time constant exhibits a nonlinear and rapid increase, with a corresponding rise in the damping ratio, complicating the system's approach to a new steady state (1>ζ > 0). This is accompanied by an amplified amplitude of fluctuations. In the vapor-like region, the emergence of periodic oscillations with zero damping (ζ = 0) is noted, which can be effectively captured by a fourth-order transfer function. With the proposal of transfer functions for different operational regions, providing a valuable tool for predicting dynamic responses in complex flow systems. These findings contribute to a deeper understanding of supercritical fluid dynamics and have implications for the design and operation of systems subjected to supercritical conditions.
+Previous article in issue
+Next article in issue
+Keywords
+Supercritical waterHeat transferDynamic response
+1. Introduction
+The rapid evolution of renewable energy, particularly the swift growth of solar and wind power, has necessitated a significant capacity for deep peaking-shaving and valley-filling in conventional thermal power units [1]. The widening disparity between peak and valley loads, exacerbated by the increasing proportion of new energy sources, is a trend that is particularly pronounced in China. The dynamic characteristics of thermal power plant thermal engineering objects generally exhibit features such as multivariance, large delays, significant inertia, strong coupling, time-variance, and uncertainty, which are particularly pronounced in ultra-supercritical units [2]. Taking the coordinated control system as an example, this system enhances the rapid responsiveness of the unit to grid load scheduling and the stability of unit operation by coordinating the operation of the.
+Nomenclature
+
+Cv	restricted flow coefficient	t	time, s
+Cp	the specific heat, kJ/(kg∙K)	Greek letters
+D	diameter, m	ρ	density, kg/m3
+dP	differential pressure, kPa	λ	thermal conductivity coefficient, W/(m∙K)
+G	mass flow rate, kg/(m2∙s)	μ	dynamic viscosity coefficient, Pa∙s
+g	gravitational acceleration, m/s2	Subscripts
+H	enthalpy, kJ/kg	in	inlet
+L	length, mm	max	maximum
+OD	outer diameter, mm	min	minimum
+P	pressure, MPa	out	outlet
+Q	heat power, kW	pc	pseudocritical
+q	heat flux, kW/m2	w	tube wall
+T	temperature, °C		
+boiler and the steam turbine [3]. The output parameters of the ultra-supercritical direct current unit's coordinated system including unit load, main steam pressure, and intermediate point temperature, while the input variables consist of fuel quantity, steam turbine control valve opening, and feedwater flow rate, thus forming a strongly coupled system with three inputs and three outputs [4]. To prevent overloading the power grid during peak demand and maintain an active power balance, the output of generator power must be dynamically adjusted to meet the fluctuating power load requirements.
+However, under these varying operational conditions, all operational parameters deviate from their designed values, making the occurrence of multi-transient phenomena inevitable [5]. Consequently, it is imperative to develop more flexible electricity supply strategies to ensure the safety and integrity of thermal systems. In actual production processes, all input variables of the coordination system are constantly changing. Any variation in an input variable will affect the system's output to varying degrees. Accurately identifying the response characteristics of each output quantity relative to each input quantity is a key challenge and focus of modeling research, and it directly determines whether a high-quality control system can be designed.
+The thermal system of coal-fired power units mainly includes boilers, steam turbines, and auxiliary equipment. When modeling these devices, the focus is primarily on mechanistic modeling and experimental modeling [6]. The model structures mainly consist of partial differential equation models, ordinary differential equation models, transfer function models, and black-box models.
+In the realm of mechanistic analysis-based modeling, researchers such as Åström [7] and Bell [8] conducted modeling studies on drum boilers in the 1970s. They simplified the model structures from different perspectives based on the laws of conservation of energy, mass, and momentum, resulting in mathematical models of drum boilers with varying degrees of complexity. According to these researchers' experiments, the higher the accuracy of the model, the more complex its structure becomes, necessitating the identification of unknown parameters and increasing the difficulty of calculations. These factors must be determined based on actual conditions during use. Among these, the most classic is the nonlinear mathematical model of a 160 MW oil-fired drum boiler established by Bell and Åström [9] in 1987 using the concept of lumped parameters.
+In recent years, researchers have developed various models and control strategies for the dynamic characteristics of the ultra-supercritical boiler-turbine system. Their research primarily involves establishing power plant system models to study and predict the safety of the deep peak load shaving process in power plants. Wang et al. [10] focus on enhancing the flexibility and efficiency of double-reheat coal-fired power plants. They develop dynamic simulation models and temperature control systems for a double-reheat boiler using GSE software, which are then validated to understand the heat storage change law. The authors propose an improved control model that effectively enhances the plant's operational flexibility at high load frequencies. Similarly, Hou et al. [11] design an automatic control scheme for the conversion between dry and wet states in subcritical boilers to improve the deep peak shaving capability of combined heat and power (CHP) plants under full operating conditions. By employing precise mechanism structures, reinforcement learning, and multi-objective model predictive control (MPC) algorithms, they rapidly obtain the boiler-turbine unit model under both dry and wet states, achieving load change rates of 5 % and 2 % RCM/min during dry and wet state transition tests, respectively.
+Similarly, for other energy systems, such as solar and nuclear energy, there are studies on the integration of a 660 MW coal-fired power plant with a trans-critical carbon dioxide energy storage cycle [12], the integration of solar combined cycles with wind-photovoltaic power plants [13], and the combined gas-electric and steam (COGES) power plants on liquefied natural gas (LNG) fueled ships [14]. Hong et al. [15] investigated methods to enhance the dynamic performance of solar-assisted coal-fired power plants through optimized control strategies, proposing a modified control strategy that accounts for the characteristics of solar/coal-to-power conversion to achieve controllable power generation. Li et al. [16] developed a dynamic simulation model of a concentrated solar power (CSP) plant using APROS software, while Vajpayee et al. [17] introduced an integrated nonlinear dynamic model for the control design and assessment of pressurized water reactors (PWR) and their associated equipment.
+Based on the research in the mechanism model, these achievements provide significant dynamic modeling and practical guidance for the operational optimization and control strategy development in ultra-supercritical coal-fired power plants, solar energy, nuclear energy, and other areas. However, in the realm of thermal power systems, the dynamic response of thermal facilities is realized through an overall energy and mass balance. The models adopted do not achieve sufficiently high computational accuracy and lack an understanding of the dynamic characteristics of the working fluid during the deep peak-shaving process of thermal power units, as well as the corresponding mechanistic models.
+Understanding the impact of key parameters on the dynamic response characteristics of the water-cooled wall is essential for ensuring the safe operation of supercritical boilers. A substantial body of mathematical modeling work addressing dynamic response characteristics (DRC) in heating surfaces has been established, ranging from simple control strategies to complex nonlinear dynamic systems. This includes mechanistic models, data-driven models, fuzzy logic, reinforcement learning, model predictive control, and Kalman filters. Most models employ the lumped parameter method to investigate the dynamic characteristics of thermal systems, often utilizing commercial software such as GSE [18], APROS [19], Power Plant Simulator & Designer (PPSD), ASPEN Plus Dynamics [20], and MATLAB/Simulink [14]. Deng et al. [21] established a new dynamic model to simulate the startup dynamic process of a 600 MW ultra-supercritical once-through boiler, examining the entire process from ignition to reaching 30 % of the boiler's BMCR, thereby verifying the model's rationality. Guo et al. [22] developed a dynamic model of the heating surface for a 300 MW power plant boiler, using the Modelica/DYMOLA platform for simulation. This model encompassed the boiler's heat exchange network, steam drum, and control parameters. Additionally, Tian et al. [23] studied an online performance monitoring platform based on a full-process model of a subcritical coal-fired power plant. These studies are based on dynamic process modeling, enhancing the operational simulation, performance analysis, and monitoring capabilities of power plant boilers and units. They implement dynamic programs to achieve dynamic, full-process, and application-oriented modeling and analysis. However, the theoretical models lack practical validation, leading to issues where higher computational accuracy results in increased computational load, making real-time applications more challenging. Consequently, they do not effectively guide the dynamic adjustment processes of actual boiler operations.
+To address the insufficient research on the implementation of optimization control in power plants, many scholars have conducted studies on the dynamic characteristics, optimization, and control capabilities of complex ultra-supercritical units.
+For the modeling of the evaporation system of supercritical thermal power plants, Xu et al. [24] established a moving segment model that includes flow segments under both subcritical and supercritical conditions, divided into unsaturated water, saturated two-phase, and superheated steam segments. They also proposed a solution algorithm to automatically manage condition transitions. The model and algorithm were validated for accuracy and feasibility through pseudo-online simulations. Fan et al. [25] developed a dynamic mathematical model of an ultra-supercritical once-through boiler unit based on the principles of mass and energy conservation, as well as thermodynamics. Parameters were identified in conjunction with operational data. Zhang et al. [26] established a fuzzy model for a 1000 MW coal-fired ultra-supercritical boiler-turbine unit, proposing a fuzzy model predictive control method based on an extended state observer (ESO). This method integrates the ESO with stable model predictive control (MPC), effectively addressing the nonlinearity and unknown disturbances associated with the boiler-turbine unit. Tian et al. [27] investigated the modeling and sliding mode predictive control of the ultra-supercritical boiler-turbine system, taking into account uncertainties and input constraints. They developed a nonlinear control-oriented model through mechanism analysis and model simplification techniques, and designed a discrete-time sliding mode predictive controller (SMPC). The study demonstrated the input-state stability and robustness of the closed-loop system. Saini et al. [28] developed a nonlinear estimator for monitoring the reheater system of power plants. This estimator is designed to estimate the transient temperature distribution of both key measured and unmeasured variables during load tracking operations. By employing an Extended Kalman Filter (EKF) to manage differential algebraic equation (DAE) systems, the method successfully reduces the root mean square error of the main steam temperature from 1 °C to 0.2 °C. While this mathematical modeling enhances the understanding of dynamic characteristics in heating surfaces and thermal systems, a notable discrepancy remains between the predicted outputs and actual operations.
+In the study of dynamic characteristics, there is a scarcity of experimental investigations concerning the dynamic response of high-pressure water on heating surfaces. Zheng et al. [29] employed a step disturbance method to experimentally study the dynamic characteristics of evaporating heating surfaces, obtaining the dynamic response characteristics (DRC) at both subcritical and supercritical pressures. Fu et al. [30] discussed the influence of various input parameters (e.g., mass flow rate, pressure) on the DRC and established a mathematical model along with a transfer function. However, the experimental data is limited in scope, with total measurement times of less than 250 s in all cases; such a duration is insufficient to capture the full range of unstable fluctuations induced by step inputs.
+Existing literature indicates that most mathematical models are overly simplified, highlighting the necessity for improvements in model accuracy to adequately account for the nonlinear features of dynamic characteristics and their strong dependence on predictive correlations related to flow and heat transfer. Furthermore, it is evident that many dynamic models are specifically tailored for designed operating conditions, often addressing only minor step disturbances. Consequently, these models may not sufficiently represent scenarios involving larger or more significant step disturbances, underscoring the need for more robust and adaptable modeling approaches. Additionally, it is noteworthy that since 2021, the proportion of supercritical and ultra-supercritical units in China's power sector has exceeded 50 %, according to data from the National Energy Administration (NEA). Current research has overlooked the significant changes in the physical properties of water in the supercritical pressure near the pseudocritical region, and there is a lack of experimental studies focusing on its dynamic characteristics.
+Our research focuses on the behavior of these units under supercritical pressures exceeding 22.074 MPa. The thermophysical properties of supercritical fluids undergo sharp variations, as illustrated in Fig. 1, which significantly alters their dynamic response at elevated pressures. Traditionally, supercritical fluids are considered single-phase flows. However, in recent years, researchers have begun to investigate the behavior of supercritical fluids through the lens of a pseudo-boiling mechanism that occurs across the "Widom line" [31]. Significant differences are observed across various temperature (or enthalpy) regions. In the liquid-like region (T/Tpc < 0.95), properties such as density, thermal conductivity, and viscosity decrease smoothly. In contrast, the pseudocritical region (0.95 < T/Tpc < 1.05) is characterized by a pronounced peak in specific heat at the pseudocritical point. In the vapor-like region (T/Tpc > 1.05), thermophysical properties also exhibit smooth variations. As the fluid transitions through these different temperature regions, its dynamic response characteristics change accordingly.
+Fig. 1
+Download: Download high-res image (463KB)
+Download: Download full-size image
+Fig. 1. Thermo-physical properties of supercritical water at P = 25 MPa.
+
+This study systematically reveals the complete dynamic response evolution of the liquid region—pseudocritical region—vapor-like region for the first time through experimental investigations, and proposes a partitioned transfer function model (first-order, second-order, fourth-order). The dynamic response to step inputs was examined, revealing markedly different dynamic response characteristics below and above the pseudocritical point, with experimental prediction errors controlled within 20 %. This result not only provides experimental evidence for the correction of mechanistic models but also offers direct dynamic safety boundary references for the design and deep peak-shaving operation of supercritical boilers.
+2. Experimental system and content
+2.1. Experimental system
+In the present study, the High Temperature and Pressure test loop (Hi-TaP) at Xi'an Jiaotong University was utilized, as illustrated in Fig. 2.
+Fig. 2
+Download: Download high-res image (427KB)
+Download: Download full-size image
+Fig. 2. Schematic diagram of the Hi-TaP test loop
+
+1: Water tank; 2: Filter; 3: Water piston pump; 4: Valve; 5: Heat exchanger; 6: Preheater; 7: Mass flow meter; 8: Test section; 9: vapor-liquid separator; 10: cooler; 11: condenser; 12: cooling tower; 13: water cooling pump.
+This facility represents a typical parallel heating loop designed to operate under high-pressure conditions. The working fluid, composed of distilled and deionized water, is propelled from a water tank into the circulation system by a high-pressure piston pump, maintaining a consistent mass flow rate. Upon entering the system, the fluid is directed into two distinct branches. A portion of the fluid is returned to the tank via a bypass, while a predetermined mass flow is diverted into the main loop. The water absorbs a specific quantity of heat as it traverses a regenerative heat exchanger, after which it proceeds to a pre-heater, where it is subjected to further heating to achieve the desired test conditions before entering the test section and a vapor-liquid separator. The vapor exiting the vapor-liquid separator circulates through the regenerator, serving as a heat source, while the high-temperature liquid reflows to a condenser cooled by a cooling circuit, eventually making its way back to the feed water tank. Both the pre-heater and the test section are electrically heated by alternating currents (0–10,000 A), albeit at low voltages. To ensure energy efficiency, the entire setup is enveloped in thermal insulation made of glass wool, which effectively minimizes heat loss. The mass flow rate of the water is monitored using a mass flow meter, and the water temperature at various points throughout the system is measured using NiCr–NiSi sheathed thermocouples, providing precise temperature data essential for the experiment.
+2.2. The experimental test section
+In the present study, a smooth 304 stainless steel circular tube was employed, with outer diameters of 32 mm (OD) and wall thickness of 3 mm. Fig. 3 illustrates the schematic diagram of the layout of wall temperature measuring points installed on the outer surface of the test section tubes. The parameters of the experimental test section are shown in Table 1 The test section is connected to an unheated tube with a length of 1.5 m (L/D > 50) to ensure fully developed flow at the inlet of the test section. Along the flow direction of the test tube, ten cross-sections within the tube are arranged to measure the outer wall surface temperatures. A total of 40 NiCr-NiSi K-type thermocouples (±0.2 mm) are welded onto the outer surface of each tested tube to measure the temperature distributions on the outer wall of the test sections. As shown in Fig. 3, four thermocouples are evenly placed in each sections. Additionally, a series of ±3 mm NiCr-NiSi armored thermocouples are inserted into the inlet and outlet of the test section to measure the bulk fluid temperature. The fluid pressure at the inlet of the test section is measured using Rosemount 3051 capacitance-type pressure transmitters, while the pressure drop across the test section is measured by a 3051 capacitance-type differential pressure transducer. In our experimental setup, the pressure and the pressure drop measurement chambers are strategically positioned at both the inlet and outlet. These high-precision instruments guarantee accurate measurement of the pressure profiles across the test loop.
+Fig. 3
+Download: Download high-res image (298KB)
+Download: Download full-size image
+Fig. 3. Layout of wall temperature measuring points.
+
+Table 1. The parameters of the experimental test section.
+
+Parameters	Value	Unit
+Material	304 stainless steel
+Outer diameter	32	mm
+Inner diameter	26	mm
+Length	2000	mm
+Flow direction	Vertically upward
+All measured signals are meticulously captured and seamlessly transferred into a data acquisition system for recording and processing the experimental data, ensuring that the information is accurately documented and readily available for subsequent analysis.
+This experiment primarily investigates the dynamic characteristics under supercritical pressure conditions and the influence of working fluid temperature on the dynamic characteristics of heated surfaces. Considering the safety of the experiment, the experimental parameters are shown in Table 2.
+Table 2. The experimental parameters.
+
+Parameters	Value	Unit
+Pressure	23∼28	MPa
+Mass flow rate	300∼1000	kg·m−2·s−1
+Outlet temperature	200∼430	°C
+Heat flux	0∼400	kW·m−2
+2.3. The equipment uncertainties and response time of sensors
+The fidelity of dynamic signal measurements significantly depends on the precision and response time of the employed sensors. To achieve a more accurate representation of dynamic response characteristics (DRC), it is essential to utilize sensors that provide both high accuracy and rapid response times. Table 3 presents a comprehensive summary of the precision and response times for the various measured parameters, along with the sensors used in this experiment. The parameters include critical measurements such as pressure, mass flow rate, temperature, and heating power, each monitored by specialized transducers designed to ensure the reliability and timeliness of the collected data.
+Table 3. The measurement uncertainty and response time of sensors.
+
+Variable	Parameter range	Primary instrument	Uncertainty	Response time
+Pressure	0∼42 MPa	Rosement pressure transmitter	0.25 %	0.2s
+Mass flow rate	0∼1600 kg⋅h−1	Rheonik Mass flowmeter	0.05 %	0.1s
+Differential pressure (dP)	0∼100 kPa	Rosement differential pressure transmitter	0.25 %	0.2s
+Bulk fluid temperature	0∼500 °C	Omega, Ø2mm, K type	1.5 °C	0.6s
+Wall temperature	0∼800 °C	Omega, Ø0.2 mm, K type	1.5 °C	0.1s
+Heating Power	0∼180 kW
+0∼100 kW
+0∼72V
+0∼2500A	FS-13
+FS-14
+HL-19	0.5 %
+0.5 %
+0.1 %	
+To address the issue of experimental reproducibility, repeated experiments were conducted at key operating conditions, selecting two representative points from the liquid-like region, the pseudocritical region, and the vapor-like region, respectively, to compare the consistency of results. In this study, the sensors used for measuring experimental data had a high level of accuracy, and the uncertainties of each device are shown in Table 3. The data exhibits a high degree of consistency across repeated experiments, with fluctuations remaining below the measurement uncertainty (The error between the two experiments is less than 1 %), indicating that the experimental results possess good repeatability.
+2.4. Experimental process
+Initially, the system parameters—including pressure, flow rate, heat load, and inlet temperature of the heating test section—are meticulously adjusted to specific values. A stabilization period of 180–300 s is allowed for the system to achieve thermal equilibrium. Once the temporal profiles indicate stability, signifying that thermal equilibrium has been reached, we initiate the data acquisition systems to capture experimental data from the stable heating surface. Subsequently, a step disturbance is introduced to the system while continuing to collect the corresponding dynamic response data. As time progresses, the process transitions into a new steady or unsteady state. Data acquisition ceases once the system reaches a new state of stabilization or establishes a more stable periodic damping state. Afterward, system parameters are carefully adjusted back to the original equilibrium state, and power in the preheating section is appropriately increased in preparation for the subsequent round of data acquisition.
+The DRC experiments presented in this paper primarily involve the application of step disturbances to the flow in order to capture the response characteristics of various relevant physical parameters. The range of these step disturbances is set between 5 % and 30 %. The method for adjusting the step disturbance involves manipulating the opening of the backup pressure valve within the main loop. Due to the coupled relationship between pressure and flow rate, both parameters will change correspondingly when a step disturbance occurs.
+2.5. Data reduction
+It is important to note that precisely controlling the backup pressure valve opening at high pressures presents a considerable challenge, primarily due to the restricted flow coefficient (Cv). The Cv, a critical parameter in fluid dynamics, undergoes significant changes within a narrow operational range, typically within a single turn of the valve handle. When subjected to a step change in the valve's position, both the flow rate and pressure experience synchronous variations, as illustrated in Fig. 4. In this context, monitoring the changes in both pressure and flow rate is essential to ensure proper system response and stability.
+Fig. 4
+Download: Download high-res image (294KB)
+Download: Download full-size image
+Fig. 4. Variation of pressure and mass flow rate at step opening of main loop valve.
+
+The regularity of the dynamic responses for both flow rate and pressure has been meticulously analyzed. As illustrated in Fig. 5, a discernible linear relationship exists between the variations in pressure and flow rate. This observation is significant as it indicates that, despite potential fluctuations in mass flow rate caused by human-induced operational changes at different times, universal characteristics in the system's response can still be identified. These universal traits are instrumental in developing a comprehensive understanding of the system's behavior and in formulating effective control strategies.
+Fig. 5
+Download: Download high-res image (229KB)
+Download: Download full-size image
+Fig. 5. The variation relationship between flow rate and pressure.
+
+To obtain a conclusion with greater universality, all results are normalized using the following Equation (1), where 
+ represents the measured value of pressure, temperature, mass flow rate, or pressure drop, while 
+ and 
+ correspond to the minimum and maximum changes in the experimental dynamic adjustment over time, respectively. 
+ represents the normalized value.
+(1)
+According to control theory [32], the dynamic response of a system varies depending on the nature of its roots. Most simple systems are classified as first-order systems; however, second-order systems are notable for their potential to have complex conjugate roots in their characteristic equations. These systems represent the minimum complexity required to exhibit oscillatory behavior in response to a step input, making them fundamental to the study of dynamic systems analysis.
+To elucidate the dynamic response characteristics within a system, transfer functions are commonly utilized. A transfer function, denoted as G(s), is employed to model the relationship between an input x(t) and an output y(t) of a system. This mathematical representation facilitates the analysis of the system's response to variations in input over time.
+To determine the step response of the system in the frequency domain, we apply the Fourier Transform to the output signal.
+(2)
+Where 
+ is the frequency function, 
+ is the time domain function, 
+ is the angular frequency, and j is the imaginary unit.
+Given a system with input 
+, output 
+ and transfer function 
+(3)
+The response of a second-order system is inherently more complex than that of a first-order system. In contrast to the step response of a first-order system, which can be fully characterized by a time constant (determined by the pole of the transfer function) along with initial and final values, as illustrated in Eq (4), the step response of a second-order system is generally much more intricate. This complexity arises because the characteristic equation of a second-order system may possess complex conjugate roots. Moreover, the second-order system represents the lowest order of system capable of exhibiting an oscillatory response to a step input.
+For the first-order system, the transfer function is
+(4)
+The generic form of a second order transfer function is given by:
+(5)
+And for the second-order function, the profile can be drawn as follows（see Fig. 6):
+Fig. 6
+Download: Download high-res image (141KB)
+Download: Download full-size image
+Fig. 6. Dynamic response to step input.
+
+3. Results and discussions
+Existing dynamic models are primarily developed using commercial software to simulate transient processes, and they lack models for different enthalpy ranges in the supercritical pressure region. Therefore, this paper conducts computational simulations of dynamic experiments based on the commercial software, as shown in the figure below. From the figure, it can be observed that the wall temperature predictions obtained from traditional models have a maximum error of 15 °C compared to the experimental values. Traditional models fail to accurately capture the wall temperature changes during flow or pressure step changes (mainly due to the time lag between wall temperature changes and step disturbances in actual operation, as well as the influence of parameters such as wall thermal capacity and thermal diffusivity, which result in a smaller amplitude of wall temperature changes in real operations). Thus, the dynamic characteristics of supercritical water in response to a step input, generated by controlling the backup pressure opening at specified flow parameters, were initially investigated. Subsequently, the dynamic characteristics at various flow conditions with differing bulk fluid temperatures were discussed in detail.
+3.1. Typical dynamic response to a step input at different enthalpy regions
+Under heating conditions, the fluid transitions from a liquid-like phase to a pseudo-boiling phase, and subsequently to a vapor-like phase. The dynamic response to a step input varies across different enthalpy regions due to significant transformations in thermo-physical properties. In this study, three typical experimental results under step input are analyzed in the liquid-like phase region (T/Tpc<0.95), the pseudocritical region (0.95<T/Tpc<1.05), and the high enthalpy region (T/Tpc>1.05).
+3.1.1. In the liquid-like region (similar to ζ > 1)
+Fig. 8 illustrates the dynamic response of multiple flow parameters following a step disturbance at a fixed pressure (step decrease: P = 26 MPa, step increase: P = 23.6 MPa), with a flow rate ranging from 500 to 1000 kg m−2 s−1 and a heat flux of 400 kW m−2. Under these conditions, the outlet bulk temperature is recorded at 324 °C (T/Tpc = 0.84). The dynamic characteristics of the flow and heat transfer of the working fluid exhibit behavior akin to that of the liquid phase.
+As illustrated in Fig. 8, under liquid-like conditions (Tout = 324 °C), the system rapidly reaches a new equilibrium, with a settling time of less than 10 s. The flow rate experiences a rapid decline from 800 to 450 kg m−2 s−1, indicating a disruption of the initial equilibrium. Subsequently, after a brief interval of several seconds, the flow rate gradually rebounds. The instantaneous flow deviation can reach approximately 350 kg m−2 s−1, while the wall temperature fluctuation is limited to about ±5 °C, which is consistent with an overdamped (near first-order) response.
+Regardless of whether a step reduction or increase is applied to the flowing system, pressure and mass flow rate respond simultaneously. As illustrated in Fig. 7(a), a step reduction in flow rate results in an instantaneous decrease of the mass flow rate, which gradually reverts to a higher value over time. This behavior is characteristic of the Hi-TaP system, a quintessential flowing system comprising a main loop and a bypass. The operational pressure and flow rate are modulated by flow components within their respective loops. When the degree of opening is increased by adjusting the backup pressure value, the flow rate in the main loop diminishes, leading to a reduction in flow resistance. Concurrently, the flow rate in the bypass loop increases, resulting in a corresponding rise in flow resistance. This interplay facilitates a rebalance of flow rates in both loops, culminating in the gradual recovery of the initially decreased flow. However, the overall flow rate ultimately stabilizes at a certain value due to the reduction in total system resistance. The wall temperature, influenced by the heat capacity of the tube walls, experiences a rapid increase within a short duration during the step reduction of flow rate. Furthermore, when the flow rate decreases instantaneously, the pressure difference across the experimental section changes rapidly in response to the flow variation. An increase in the degree of opening of the backup pressure value causes the flow rate in the main loop to change rapidly within a brief period, resulting in a decrease in wall temperature while the pressure drop increases sharply. Conversely, the dynamic responses of temperature, pressure, mass flow rate, and pressure are inversely related during the reverse process.
+Fig. 7
+Download: Download high-res image (551KB)
+Download: Download full-size image
+Fig. 7. Comparison between the experimental value of wall temperature and the calculated values of commercial software.
+
+Fig. 8
+Download: Download high-res image (870KB)
+Download: Download full-size image
+Fig. 8. Variation of the flowing parameters after a flow-rate step disturbance at a low temperature condition (Tout = 324 °C).
+
+Drawing from control system theory, the underdamped dynamic behavior observed in our flowing system resembles that of a first-order system or a second-order system without damping (where ζ > 1). The system demonstrates the ability to rapidly attain a new steady state within a few seconds.
+3.1.2. In the pseudocritical region (similar to underdamping 0<ζ < 1)
+When the outlet bulk enthalpy of supercritical water increases to the pseudocritical region, the dynamic response of working parameters to step input present different results. Fig. 9 shows the dynamic response characteristics of flow and heat transfer parameters under a step input when outlet fluid enthalpy is close to the pseudocritical region at pressure of (step decrease: P = 26 MPa, step increase: P = 24.7 MPa), mass flow rate of 800 kg m−2 s−1, the heat flux of 400 kW m−2.
+Fig. 9
+Download: Download high-res image (894KB)
+Download: Download full-size image
+Fig. 9. DRC under step disturbance in the pseudocritical region (Tout = 381 
+, H = 1580 kJ kg−1).
+
+As shown in Fig. 9, in the pseudocritical region, the settling time increases to tens of seconds (approximately 30∼110 s), and wall-temperature fluctuations enlarge to approximately ±20–30 °C, with flow fluctuations of ±200–360 kg m−2 s−1. This is characterized by underdamping (0<ζ < 1), where the amplitude is amplified compared to the liquid-like region and decays slowly; the second-order underdamped transfer function fits the pressure and temperature responses well. The significant increase in settling time and pulsation amplitude in the pseudocritical region, compared to the liquid-like state, is primarily due to the peak heat capacity being amplified by approximately 15∼20, which leads to a significant increase in the local equivalent heat capacity, thereby increasing the equivalent time constant τ compared to the liquid state.
+3.1.3. In the vapor-like phase region (0<ζ < 1)
+Increasing the outlet bulk enthalpy to a higher value accentuates the differences in the DRC of each parameter within the test data. Fig. 10 illustrates the dynamic response characteristics of flow and heat transfer to a step disturbance at H = 2435 kJ kg−1. In this figure, 9(a) presents the results for a step decrease, while 9(b) depicts the scenario for a step increase.
+Fig. 10
+Download: Download high-res image (904KB)
+Download: Download full-size image
+Fig. 10. DRC under step disturbance in the vapor-like region (Tout = 396 
+).
+
+As illustrated in Fig. 10, the heat flux remains predominantly stable, with only minor fluctuations attributed to changes in electrical resistivity. In contrast, significant variations are observed in the mass flow rate (G), pressure (P), pressure difference (dp), and wall temperature (Tw), even after an extended duration exceeding 1000 s, indicating that the system struggles to attain a new steady state. Fig. 10(a) presents a scenario characterized by a step reduction in flow. The mass flow rate fluctuates substantially, ranging from a minimum of 428 kg⋅m−2⋅s−1 to a maximum of 843 kg⋅m−2⋅s−1, with a fluctuation amplitude of up to 415 kg⋅m−2⋅s−1. Notably, the pressure change reaches up to 2.5 MPa. Additionally, the wall temperature exhibits significant variations, fluctuating between 430 °C and 455 °C, with a variation of 25 °C (6 %). An analysis of the fluctuation process over time reveals that the mass flow rate changes inversely to the pressure. The variation in pressure difference closely mirrors that of the pressure rather than the mass flow rate, suggesting that the influence of mass flow rate on dp is minimal. The density variation is particularly pronounced due to the increase in pressure. Furthermore, the wall temperature response is delayed by several seconds, influenced by the heat capacity of the pipe. In the vapor-like phase region, the primary cause of sustained oscillations is attributed to the low fluid density and significant compressibility, resulting in a dynamic behavior that is effectively non-damped.
+3.1.4. Periodic damping in the high enthalpy region(similar to ζ = 0)
+Interestingly, as the outlet bulk temperature is increased appropriately, a nearly periodic fluctuation is observed when the temperature reaches a higher value (i.e., Tout = 412 °C, H = 2435 kJ kg−1), as illustrated in Fig. 11. Fig. 11(a) presents the dynamic response characteristics of the flowing and thermal parameters to a step input when the pressure is 27 MPa, the mass flow rate is 600 kg⋅m−2⋅s−1, the thermal load is 200 kW⋅m−2, and flow step disturbances occur.
+Fig. 11
+Download: Download high-res image (999KB)
+Download: Download full-size image
+Fig. 11. The effects of flow step disturbance on the parameters of flow and heat transfer in tubes in vapor-like region.
+
+Fig. 11(a) clearly illustrates that when the outlet fluid temperature reaches 412 °C, noticeable fluctuations are observed in the flow curves. Under these conditions, the pressure fluctuates within a range of 5 MPa, the mass flow rate varies by as much as 250 kg m−2 s−1, and the wall temperature demonstrates a significant variation of up to 67 °C.
+Similarly, Fig. 11(b) presents another instance with the same outlet temperature, where the characteristics of fluctuation are equally pronounced. It is observed that the fluctuations in each variable do not strictly adhere to an in-phase or anti-phase pattern; notable deviations occur, particularly in the relationship between temperature and pressure difference. Furthermore, upon comparing both cases, it becomes evident that when the initial flow rate is low (300 kg⋅m−2⋅s−1), the fluctuations in wall temperature are more pronounced. This phenomenon can be attributed to the reduced heat storage capacity, with wall temperature variations reaching as high as 95 °C. The dynamic response to step inputs demonstrates a significant difference as the bulk enthalpy increases. As the volume of the vapor-like phase expands, the low-density vapor, possessing a certain degree of compressibility, can induce system instability. Such fluctuations are unacceptable in water-cooled walls and steam generators, as unstable flows within heating tubes can lead to mechanical oscillations, compromising the system's stability and potentially damaging the facility. Prolonged and periodic fluctuations may result in thermal fatigue damage to the tubes.
+The analysis from Fig. 8, Fig. 9, Fig. 10, Fig. 11 indicates a significant cross-zone transition in the system's timescale and amplitude as the outlet temperature moves from the liquid-like region to the pseudocritical region and then into the vapor-like region. In the liquid-like region (Tout = 324 °C), the system stabilizes rapidly (equivalent time <10 s), with minimal fluctuations in wall temperature and flow rate (approximately ±5 °C and ±50 kg m−2 s−1). Upon entering the pseudocritical region, the equivalent time constant significantly increases to approximately 30∼140 s due to the significant peak value of the specific heat (approximately 15–20 times) and the considerable variation in density., resulting in amplified wall temperature fluctuations of approximately ±20–30 °C and flow rate fluctuations rising to several hundred, exhibiting a second-order underdamped response. Further entering the vapor-like region, long-period, zero/near-zero damping oscillations emerge, with extreme values of wall temperature and flow rate reaching ±67–95 °C and ±250∼415 kg m−2·s−1, respectively, while pressure disturbances can extend to 2.5∼5 MPa. The quantified laws clearly indicate that the abrupt changes in pseudocritical physical properties (the drastic variations in specific heat and density) are the fundamental physical reasons for the transitions in the system's timescale and amplitude, necessitating consideration of this nonlinear dynamic behavior in the design, control, and deep peak-shaving process of supercritical boiler and steam generators.
+3.2. Dynamic behavior and transfer function at different conditions
+As noted in the previous section, the dynamic behavior in different temperature regions exhibits significant differences, particularly in the vapor-like phase region. Therefore, the distinct features and transfer functions in these varying temperature regions will be discussed separately.
+3.2.1. In the liquid-like region (ζ > 1)
+(a)
+Characteristic analysis in the Time domain
+Fig. 12 illustrates the dynamic response to a step input in the liquid-like phase region, with an outlet temperature range of 220 °C–367 °C, under an initial pressure of 25 MPa (corresponding to a pseudocritical temperature of approximately 384.8 °C) and a mass flow rate of 1000 kg m−2 s−1. Fig. 12(a)–(c) depict the variations in normalized mass flow rate, pressure, and wall temperature within the liquid-like region over a duration of 200 s.
+Fig. 12
+Download: Download high-res image (908KB)
+Download: Download full-size image
+Fig. 12. Dynamic response to step input under supercritical pressure and different outlet temperature.
+
+As illustrated in Fig. 12, the dynamic response of pressure and mass flow rate rapidly reaches a new equilibrium state. Due to the high heat transfer performance of the liquid-like phase, a small temperature variation occurs in response to the step disturbance, resulting in a noticeable change in the normalized temperature. Following a step disturbance, the wall temperature decreases even as the bulk temperature increases. This phenomenon arises from the forward movement of the pseudocritical point during the pressure transition. As the specific heat capacity of the fluid increases, its heat-carrying capacity also rises rapidly, leading to a decrease in wall temperature. Approaching the pseudocritical point, an overdamped temperature response is observed. Furthermore, as the outlet temperature rises, the response times for both pressure and temperature become nearly identical, gradually increasing from 8 s to 22 s. This indicates that the system's dynamics are influenced by the proximity to the pseudocritical point, where the effects of heat capacity become more pronounced.
+(b)
+Transfer function in the frequency domain
+The dynamic response of pressure and mass flow rate to a step input in the liquid-like enthalpy region resembles that of a first-order function, wherein a new steady state is rapidly attained following a disturbance. Consequently, a first-order transfer function is employed to illustrate their frequency characteristics. In contrast, the temperature exhibits nonlinear changes. At lower temperatures (i.e., Tout = 220 °C), the temperature response aligns with a first-order response; however, it is challenging to define their response function due to minimal temperature variation. As the bulk temperature increases, the transfer function approaches a second-order behavior. Table 4 presents the transfer function in the liquid-like phase region. Notably, the time constant gradually increases for both pressure and mass flow rate, while the temperature shows nonlinear variation. Therefore, the transfer function for temperature should be characterized by a higher-order function.
+Table 4. The transfer function at different outlet temperatures.
+
+Temperature (°C)	Pressure (or mass flow rate) Response, G(s)	Temperature Response, G(s)
+220	
+/
+256	
+/
+276	
+/
+301	
+315	
+329	
+Fig. 13 delineates the evolution of the time constants associated with pressure and mass flow rate within the context of a first-order transfer function. This depiction illustrates how these constants fluctuate over time, providing insight into the system's dynamic behavior. As shown in Fig. 13, the time constant in the first-order function gradually increases with T/Tpc, indicating that in the liquid-like phase region, the changes are relatively smooth and stable.
+Fig. 13
+Download: Download high-res image (208KB)
+Download: Download full-size image
+Fig. 13. Transfer function in the liquid-like phase region.
+
+Fig. 14 illustrates the comparison between the simulated model output and the measured data. Notably, the first-order function aligns well with the pressure variation in the liquid-like phase region. Similarly, the second-order function also demonstrates a good fit with the measured data.
+Fig. 14
+Download: Download high-res image (493KB)
+Download: Download full-size image
+Fig. 14. Predicted results by using transfer function.
+
+3.2.2. In the pseudocritical region(0< ζ < 1)
+(a)
+Characteristic analysis in the Time domain
+Fig. 15 illustrates that as the outlet bulk temperature approaches the pseudocritical region, the flow response to a step disturbance is significantly delayed. Notable variations in the response curve are observed when the step disturbance occurs under different outlet temperature conditions. The dynamic curves were recorded over a temperature range of 379–407 °C, emphasizing the system's sensitivity to temperature changes near the pseudocritical point.
+Fig. 15
+Download: Download high-res image (946KB)
+Download: Download full-size image
+Fig. 15. Dynamic response to step input.
+
+As illustrated in Fig. 15, while the general profiles remain fundamentally similar, the dynamic responses of pressure, mass flow rate, and temperature demonstrate an extended duration to achieve a new equilibrium state following a disturbance. The time required for the system to reach this new equilibrium is directly proportional to the bulk temperature; specifically, higher temperatures result in longer regulation times. For instance, at an outlet temperature of 383 °C, the regulation time is observed to range between 90 and 110 s. However, when the bulk temperature exceeds the pseudocritical temperature, the response time to establish a new equilibrium increases significantly. At an outlet temperature of 407 °C, the time required can exceed 140 s, and the system exhibits considerable fluctuations, indicating heightened sensitivity to temperature changes within this range. Fig. 16, Fig. 17 present the dynamic responses to step inputs in the time domain without normalization, for pressures of 25 MPa and 27 MPa, respectively.
+Fig. 16
+Download: Download high-res image (695KB)
+Download: Download full-size image
+Fig. 16. Variation of flow rate and pressure plotted against with time after a step disturbance (P0 = 25 MPa).
+
+Fig. 17
+Download: Download high-res image (597KB)
+Download: Download full-size image
+Fig. 17. Variation of flow rate and pressure plotted against with time after a step disturbance (P0 = 27 MPa).
+
+As the outlet fluid temperature rises, both the fluctuation amplitudes of the mass flow rate and pressure increase, while the system's regulation time to reach a new equilibrium state progressively lengthens. For instance, at a pressure of 25 MPa, when the outlet fluid temperature increases from 379 °C to 386 °C, the fluctuation amplitudes gradually escalate. Under these conditions, although the outlet bulk temperature remains below the pseudocritical temperature, the near-wall fluid temperature may actually exceed this threshold. This phenomenon leads to an increase in the quantity of "vapor" within the tubes, which corresponds to a heightened fluctuation amplitude. As illustrated in Fig. 16, when the bulk temperature attains a higher value at the experimental outlet, the fluctuations not only change more rapidly but also become more pronounced, and they attenuate more slowly. Fig. 17 further depicts common behavioral patterns: with the increase in bulk temperature, more significant fluctuations are observed. However, the amplitude of these fluctuations progressively decays, becoming smaller over time.
+As observed in Table 5, the amplitude of fluctuations increases with rising bulk temperature. Higher temperatures correspond to reduced attenuation of fluctuations, resulting in unstable fluctuations and a gradual decrease in the period.
+Table 5. Summary of fluctuations under a step input.
+
+P/MPa	G/kg⋅m−2⋅s−1	q/kW⋅m−2	Tout/°C	DG	t/s	Gmax/kg⋅m−2⋅s−1	Gmin/kg⋅m−2⋅s−1	DG2
+27	600	200	407	214	916	807	362	107
+27	600	200	412	160	852	556	444	40
+25	600	200	392	286	1222	665	320	73
+25	600	200	395	80	878	629	525	–
+25	400	200	384	90	1177	565	311	101
+25	400	200	398	221	1240	559	179	65
+25	300	100	400	95	943	370	201	72
+25	300	100	401	104	1010	353	193	23
+Table 5 presents a comprehensive quantitative analysis of the fluctuation characteristics of system parameters under various conditions, including fluctuation period and attenuation. For instance, at a pressure of 25 MPa, a mass flow rate of 600 kg m−2 s−1, a heat flux of 200 kW m−2, and an outlet temperature ranging from 392 °C to 400 °C, the fluctuation period decreases from 1222 s to 871 s, while the fluctuation attenuation diminishes from 73 to 0, indicating a tendency towards periodic behavior. In similar scenarios, comparable results are observed, suggesting a consistent relationship between the system parameters and the fluctuation behavior.
+(b)
+Transfer function in the frequency domain
+In the pseudocritical region, the response function resembles that of an underdamped transfer function (0<ξ < 1). The dynamic behavior can be effectively illustrated using a second-order function (see Table 6).
+Table 6. The transfer function of second order system at different outlet temperature.
+
+Tout	Pressure response function	Temperature response function
+383 °C	
+386 °C	
+389 °C	
+405 °C	
+Fig. 18 presents a comparison between the simulated model output and the measured data. It is evident that the second-order function aligns well with the variations in pressure and temperature within the pseudocritical region.
+Fig. 18
+Download: Download high-res image (268KB)
+Download: Download full-size image
+Fig. 18. Predicted results by using transfer function.
+
+3.2.3. In the vapor-like region
+As shown in Fig. 15, when the outlet bulk temperatures are 416 °C and 424 °C (T/Tpc>1.05), a long periodic fluctuation is observed. The unstable fluctuations in the vapor-like region will be discussed in detail.
+(a)
+Characteristic analysis in the time domain
+Fig. 19 illustrates a noteworthy phenomenon in the vapor-like region. All system parameters demonstrate fluctuations that exhibit a similar periodicity. Although these fluctuations do not overlap, they reveal a distinct phase difference among the involved variables.
+Fig. 19
+Download: Download high-res image (545KB)
+Download: Download full-size image
+Fig. 19. Dynamic response to step input.
+
+As demonstrated in Table 7, an increase in outlet fluid temperature correlates with a reduction in the fluctuation period. For instance, at a pressure of 25 MPa, with a mass flow rate of 600 kg m−2 s−1 and a heat flux of 200 kW m−2, the outlet temperature varies from 392 °C to 400 °C. In this scenario, the fluctuation period decreases from 1222 s to 871 s, while the fluctuation attenuation diminishes from 73 to 0, resulting in the emergence of a periodic fluctuation.
+(b)
+Transfer function in the frequency domain
+Table 7. The dynamic response of flowing parameters to step input.
+
+P/MPa	G/kg⋅m−2⋅s−1	q/kW⋅m−2	Tout/°C	DG	t/s	Gmax/kg⋅m−2⋅s−1	Gmin/kg⋅m−2⋅s−1	DG2
+25	600	200	395	80	878	629	525	–
+25	600	200	400	271	871	682	435	0
+25	400	200	415	73	943	546	329	0
+25	300	100	426	97	1111	395	198	0
+At elevated bulk temperatures or enthalpies, the system exhibits unstable periodic oscillations that persist without damping, resembling the behavior observed in high-order systems with a damping ratio of ζ = 0. However, the underlying mechanisms differ; in this scenario, all variables interact with one another, which complicates the system's response. Traditional second-order functions are insufficient to accurately capture this behavior. Further analysis and validation indicate that a fourth-order transfer function is necessary to adequately describe the variations, as detailed in Table 8. Although the fourth-order function may seem more complex, it aligns well with the observed fluctuations in temperature, pressure drop, and bulk temperature and pressure within the vapor-like region. The comparison between the experimental and predicted values is illustrated in Fig. 20, where the relative error between these values is less than 20 %. This indicates that the transfer function developed in this paper can accurately calculate the dynamic characteristics.
+Table 8. The transfer function of fluctuation parameter in the vapor-like region.
+
+Variables	Response function
+tw	
+dp	
+Tout	
+G	
+P	
+Fig. 20
+Download: Download high-res image (285KB)
+Download: Download full-size image
+Fig. 20. Predicted results by using transfer function.
+
+4. Conclusions
+In the present paper, we conduct an experimental investigation into the dynamic response to step input across a broad range of bulk temperatures at supercritical pressures. Our analysis encompasses both the time and frequency domains to elucidate the underlying dynamic behaviors. The key findings are summarized as follows:
+(1)
+A quantitative comparative analysis of the dynamic characteristics within a tube under different inlet enthalpy conditions at supercritical pressure is conducted for the first time. The study reveals that in the liquid-like region, the system rapidly reaches a new equilibrium state, resembling a first-order response, with a dynamic response time of less than 10 s. However, as the bulk fluid temperature rises, the dynamic response becomes prolonged, requiring more time to stabilize. When the working fluid's inlet temperature within the pseudocritical region, the dynamic response time is delayed to 140 s. In the vapor-like phase region, there may be zero-damping periodic fluctuations, where the response exceeds 1000 s and fails to stabilize. These fluctuations necessitate the application of higher-order functions for accurate representation.
+(2)
+The temperature response to a step input exhibits significant variation across different temperature zones. The fluctuation amplification effect is evident, as the outlet temperature increases, the wall temperature initially rises before decreasing due to the forward shift of the pseudocritical point, which corresponds to the peak in specific heat. With a further increase in the outlet bulk temperature into the vapor-like region, the wall temperature again shows an upward trend. The wall temperature fluctuations range from ±5 °C to ±95 °C.
+(3)
+The transfer function partition model is proposed for the first time, categorizing into first-order (liquid phase), second-order (pseudo-critical phase), and fourth-order (vapor-like phase), with experimental errors less than 20 %. The mass flow rate fluctuation amplification effect is significant. In the liquid-like region, the transfer function for pressure and mass flow rate resembles a first-order function, with the time constant gradually increasing as the system approaches a new steady state, characterized by a damping ratio (ζ > 1). In contrast, within the pseudocritical region, the time constant experiences a rapid nonlinear increase, the damping ratio rises, and the system's response to reaching a new steady state becomes increasingly complex (1 > ζ > 0), accompanied by an increase in the amplitude of fluctuations. The peak specific heat cp within the pseudocritical region increases by 15–20 times, while the density drops sharply by approximately 300 kg/m3, which is the root cause of the response delay and fluctuation amplification. In the vapor-like region, periodic oscillations may emerge (The fluctuations vary from ±50 to ±415 kg m−2·s−1), with zero damping observed in the flow system (ζ = 0). These oscillations can be effectively described by a fourth-order transfer function.
+(4)
+Distinct transfer functions have been formulated for each region, providing predictive capabilities for dynamic responses within complex flow systems. This result not only provides experimental evidence for the correction of mechanistic models but also offers direct dynamic safety boundary references for the design and deep peak-shaving operation in water-cooled walls of supercritical boilers and steam generators in nuclear power plants.

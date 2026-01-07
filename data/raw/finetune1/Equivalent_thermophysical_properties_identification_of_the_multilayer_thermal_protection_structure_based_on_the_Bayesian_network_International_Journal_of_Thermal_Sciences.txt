@@ -1,0 +1,465 @@
+Abstract
+In the paper, an equivalent thermophysical property identification method for the multilayer thermal protection structure (MTPS) is proposed based on the Bayesian network (BN), so as to address the uncertainty of multiple thermophysical properties and the interlayer thermal contact resistance (ITCR) of the MTPS. In the method, an equivalent thermophysical property is proposed to deal with the ITCR between different layers. In order to alleviate the ill-posedness of the thermophysical property identification, the key thermophysical properties of different materials in the MTPS are first determined by sensitivity analysis, and then based on the BN, the thermophysical properties are identified only in their sensitive intervals chronologically, which reduces the number of thermophysical properties to be identified simultaneously. Finally, based on the identified thermophysical properties and the equivalent treatment of the ITCR, the internal temperature response is further predicted under different boundary conditions. Numerical and experimental tests were conducted to validate the proposed method. The maximum error of the temperature response prediction for the numerical case with noise and the experiment was 7.20 % and 7.52 %, respectively.
+Previous article in issue
+Next article in issue
+Keywords
+Multilayer thermal protection structureThermophysical property identificationTemperature predictionBayesian network
+Nomenclature	Greek symbols
+specific heat, [J/(kg·K)]	ω	corresponding weights, [−]
+T	temperature, [K]	γ	mean of identified results, [−]
+t	time, [s]	Superscripts
+x	x coordinate, [m]	a,b	times steps, [s]
+k	thermal conductivity, [W/(m·K)]	M	total number of properties to be identified
+pyrolysis gas mass flux, [kg/(m2·s)]	N	the number of samples
+surface mass ablation rate, [kg/(m2·s)]	Subscripts
+h	enthalpy, [J/kg]	s	solid
+Ai	pre-exponential factor, [−]	g	gas
+n	reaction order, [−]	v	virgin materials
+E	activation energy, [J/mol]	c	charred materials
+R	gas constant, [J/(mol·K)]	p	pyrolysis reaction
+boundary layer gas flow velocity, [m/s]	w	wall
+Q	heat flux, [W/m2]	r	recovery
+Stanton number, [−]	rad	radiation
+uncorrected Stanton number, [−]	exe	external environment
+B	dimensionless mass flow rate, [−]	conv	convective
+property to be identified, [−]		
+z	observation data, [−]	Abbreviation
+P	the sensitivity threshold, [−]	TPS	thermal protection system
+temperature response, [K]	MTPS	multilayer thermal protection structure
+sensitivity of properties, [−]	MHSHS	multifunctional hot structure heat shield
+matrix of thermophysical properties, [−]	ITCR	interlayer thermal contact resistance
+new sequences by sensitivity threshold, [−]	BN	Bayesian network
+sequences by sensitivity threshold, [s]	SA	sensitivity analysis
+u	standard deviation of identified results, [−]	CF/PR	phenolic resin impregnated carbon fiber
+Greek symbols	C/SiC	carbon/silicon carbide
+ρ	density, [kg/m3]	PCM	phase change material
+surface radiation absorptivity, [−]	GTMZ	mullite fiber mat
+ε	surface emissivity, [−]	SIR	sequential importance resampling
+σ	Stefan–Boltzmann constant, [W/(m2·K4)]	GSA	global sensitivity analysis
+λ	scaling factor, [−]	FAST	Fourier amplitude sensitivity test
+δ	noise of the state function, [−]	RBD-FAST	random balance design Fourier amplitude sensitivity test
+η	noise terms in the measurement function, [−]	UB	uncertainty boundary
+1. Introduction
+As hypersonic spacecraft face more extreme and severe aerodynamic thermodynamic environments, higher requirements are placed on the efficiency of the thermal protection system (TPS) of spacecraft [1]. The multilayer thermal protection structure (MTPS) composed of different materials provides a good solution to solve this problem [1,2]. NASA Langley has designed a multifunctional hot structure heat shield (MHSHS) [3]. The outer layer of the MHSHS is a ceramic-based composite with high temperature bearing capacity, while the inner layer is a flexible thermal insulation material, which integrates structural bearing and thermal insulation. Compared to the conventional structure with aluminum alloy as support and ablative material for thermal protection, the MHSHS has a 67 % lower structural thickness and 29 % lower weight. The SMARTEES project, funded by the ESA, has also developed the reusable MTPS for low Earth orbit return missions to reduce operational costs [4]. The structure is SiC, SiC-ZrB2 ceramic, Cf/SiC sandwich and Ti6Al4V metal bracket in order from outside to inside. After SMARTEES project, ESA funded the HYDRA project [5], which focusing on the thermal protection structure composed of ablative materials and ceramic-based composites, with the aim of applying them in the heat flux range of 1.7–5.7 MW/m2. Its peak heat flux is 2.85 times higher than the reference heat flux of the specific mission in Ref. [5]. The ablative material on the outside can cope with higher levels heat load, while the ceramic-based composites on the inside plays a role in supporting and maintaining shape, and the two are bonded by high-temperature ceramic adhesive. These projects show that the MTPS based on a combination of existing materials can take full advantage of the performance of different types of materials and structures, resulting in higher efficiency.
+However, due to the complex structural form and multiple parameters of the MTPS, it is difficultly to accurately predict its internal temperature response [6], which is one of the key indexes to determine whether the TPS can be used safely. Among them, the determination of thermophysical properties is the premise to accurately calculate the internal heat transfer of the MTPS. Although there are a number of studies on the internal heat transfer of the MTPS, the thermophysical properties of the materials are often obtained from references or material libraries [7]. However, different preparation processes and batches may result in different material properties. Moreover, for the MTPS, it is also characterized by a large number of thermophysical parameters, large uncertainties, and large variations in the in-situ properties of the material (e.g., the properties of the insulation felt is related to the degree of compression). Therefore, it is necessary to identify the thermophysical properties of each layer of the MTPS in situ.
+In addition, there is a large difference in thermophysical properties between different layers [6], and high-temperature adhesive is often used at the interface of each layer, the interlayer thermal contact resistance (ITCR) has a great influence on the internal heat transfer of the MTPS. Fang [8] employed a thermal lattice Boltzmann model to investigate the effect of the ITCR on the transient heat transfer process of the MTPS; Tian [9] used the mean value of the interfacial thermophysical properties of the two neighboring layers to characterize the ITCR of the MTPS consisting of SiC, High silica, Aerogel and Steel; Brociek [10] identified the aerodynamic heat on the surface of the launch vehicle, where the thermal protection system of the rocket consists of Alumino silicate, Saffil and Glass wool, and the ITCR is determined by the ratio of the interlayer spacing to the air thermal conductivity. Although these studies have given their own treatments for the ITCR, the properties of interlayer contacts are not the same in different MTPSs, even between different layers in the same MTPS and the ITCR is difficult to quantify and characterize. Therefore, it is necessary to give a more generalized treatment for the ITCR.
+Aiming at the problems of large differences in thermophysical properties and high uncertainty of the ITCR that exist in the MTPS, the paper proposes an in-situ property identification method of the MTPS based on the Bayesian network (BN). The BN can integrate multiple information sources, such as numerical models, experimental data, expert opinions, and describe them graphically for parameter identification, and have been used in structural state parameters identification [11], process parameter identification [12]. In the method, an equivalent thermophysical property is proposed to deal with the ITCR between different layers. In order to alleviate the ill-posedness of the property identification, the key thermophysical properties of the materials are first determined by sensitivity analysis (SA), and then the properties are identified only in their sensitive intervals chronologically, reducing the number of parameters identified simultaneously. Finally, based on the identified thermophysical properties of the materials and the equivalent treatment of the ITCR, the internal temperature response is further predicted under different boundary conditions to verify the validity of the proposed method. The rest of the paper is organized as follows: in Section II, the heat transfer model of the MTPS is introduced. In Section III, the framework and methodology of the property identification of the MTPS are described in detail. The validation conditions of numerical cases and experiments are given in Section IV, and the results are shared and discussed in Section 5. The conclusions are drawn in Section VI.
+2. Heat transfer model of the MTPS
+The paper focuses on the study of the MTPS proposed in Ref. [13]. The MTPS is shown in Fig. 1, the first layer is phenolic resin impregnated carbon fiber (CF/PR), the second layer is carbon/silicon carbide (C/SiC), the third layer is mullite fiber mat (GTMZ), and the fourth layer is phase change material (PCM). In comparison, the MTPS of concern can considerably enhance the comprehensive performance of the TPS, including the lightweight level, thickness reduction, and ablation-resistant capability. Rigid insulation tiles are used for thermal insulation after the PCM to set the PCM backwall as thermally insulated in the ablation model.
+Fig. 1
+Download: Download high-res image (362KB)
+Download: Download full-size image
+Fig. 1. The multilayer thermal protection structure.
+
+Under aerodynamic thermal loading, the temperature gradient along the thickness direction of the structure as well as the variation of material thermophysical properties are much higher than other directions [14,15]. Assuming that the heat and mass transfer within the material is mainly along the material thickness direction, and ignoring the transverse heat conduction and pyrolytic gas flow along the material, the simulation of the thermal response of material ablation is simplified to a one-dimensional problem [16]. The heat transfer mechanism of the MTPS is shown in Fig. 2, during the heating process, the internal temperature of the CF/PR increases, and the virgin material begins to pyrolyze. The pyrolysis gas flows towards the boundary layer, forming char layer. A thermochemical reaction occurs between the surface of the char layer and the boundary layer gases in a high-temperature environment, resulting in a surface recession of the CF/PR. The region of partial pyrolysis of the material is called the pyrolysis layer, and the region that does not show decomposition is referred to as the virgin layer. In contrast to the complex ablative thermal response of the CF/PR, the heat transfer behaviors of the C/SiC, GTMZ, and PCM are mainly heat conduction and heat capacitive heat absorption.
+Fig. 2
+Download: Download high-res image (480KB)
+Download: Download full-size image
+Fig. 2. Heat transfer model of the MTPS.
+
+It is assumed that thermal equilibrium is maintained between the pyrolysis gas and the solid phase at any locations within the material and that there is no chemical reaction between the two [17], and the potential secondary cracking effect of the pyrolysis gas is ignored. The energy conservation equation is as follows [17]:
+(1)
+where, 
+, 
+, and k reflect material density, specific heat, and thermal conductivity, respectively. 
+ illustrates the pyrolysis gas mass flow rate, T is temperature, t is time, 
+ is the enthalpy of pyrolysis gas, and 
+ is the reaction heat of material pyrolysis. Subscripts s and g represent solid materials and gases, respectively. The three terms on the left side of the equation represent, in order, the heat stored locally in the material per unit of time, the heat conduction of the material, and the heat transfer generated by mass transfer with the pyrolysis gas flow, while the right side of the equation represents the heat absorption of the material per unit of time through pyrolysis reaction.
+There is no heat absorption term of pyrolysis reaction or heat transfer term with pyrolysis gas flow for C/SiC, GTMZ, and PCM.
+The mass conservation equation in the ablation process is as follows [17]:
+(2)
+The reaction rate of pyrolysis reaction can be described by the Arrhenius equation shown in the equation [17,18]:
+(3)
+where, Ai、ni and Ei represent the pre-exponential factor, reaction order, and activation energy of the material pyrolysis reaction, respectively.
+Considering the ablation, the surface energy balance equation of the material is generally written like this [19]:
+(4)
+where the subscript w and exe indicates the wall and the external environment, respectively. 
+ represents the gas density in the boundary layer, 
+ signifies the boundary layer gas flow velocity, 
+ is the modified Stanton number, 
+ is recovery enthalpy, 
+ signifies the surface charred layer enthalpy, 
+ is wall enthalpy, 
+ is dimensionless pyrolysis gas mass flow rate, 
+ is dimensionless charred material mass flow rate, 
+ illustrates the surface radiation absorptivity, 
+ is radiation heat flux, 
+ represents surface emissivity, 
+ denotes the Stefan–Boltzmann constant.
+Considering the blocking effect of pyrolysis gas injection on the convective heat of the surface, the corrected Stanton number is given by the following formula:
+(5)
+where 
+ is the uncorrected Stanton number, 
+, and λ is the correction parameter for gas injection when the boundary layer is laminar (λ= 0.5).
+The uncorrected Stanton number is given in this way:
+(6)
+(7)
+(8)
+3. Methodology
+3.1. Framework
+In the MTPS, there are significant differences in thermophysical properties between different layers. Therefore, the framework shown in Fig. 3 is used for layer by layer identification. As the C/SiC and PCM layers may be thin, it is not suitable to arrange thermocouples internally. The CF/PR and GTMZ layers, which can obtain the internal temperature information through thermocouples, are prioritized for identification. Then, combining the identified properties of the two layers, the C/SiC and PCM layers are identified. It should be noted that the identification of properties of the C/SiC and PCM layers is using the thermocouples from adjacent layers, and the identification results may potentially include the impact of ITCR. A possible thermocouple layout is shown in Fig. 3, and the corresponding identification strategy is as follows.
+(1)
+Identify the thermophysical properties 
+ of the CF/PR layer. the external boundary condition Q and the temperature response T2 at TC2 are used as the boundary condition, and the temperature response T1 at TC1 is used as the observation data.
+(2)
+Identify the thermophysical properties 
+ of the GTMZ layer, the temperature responses T3 at TC3 and the temperature responses T5 at TC5 are used as the boundary condition. The temperature response T4 at TC4 is used as the observation data.
+(3)
+Identify the thermophysical properties 
+ of the C/SiC layer. The factors affecting the internal heat transfer, such as the ITCR, are taken into account in the 
+ on the basis of the identified thermophysical properties 
+ and 
+. The first three layers are taken as a whole, Q and the temperature responses T5 at TC5 are used as the boundary condition. Meanwhile, the temperature response T3 at TC3, which is the closest to C/SiC, is used as the observation data as there is no thermocouple inside the C/SiC layer.
+(4)
+Identify the thermophysical properties 
+ of the PCM. 
+, 
+, and 
+ as the known properties, Q and the temperature history T6 at TC6 are used as the boundary condition. The temperature history T5 at TC5 is used as the observation data.
+Fig. 3
+Download: Download high-res image (661KB)
+Download: Download full-size image
+Fig. 3. The property identification framework of the MTPS.
+
+In each layer, A BN has been used to identify the thermophysical properties of the material [20,21]. Compared to the classic L-M algorithm, the BN has the better accuracy in multiple parameter identification problems, which has been discussed in detail in Ref. [21]. The specific steps for the property identification are as follows.
+(1)
+The thermophysical properties to be identified for each layer are 
+,M denotes the number of parameters to be identified. For each thermophysical property, N particles are randomly sampled within its distribution interval to form a matrix 
+;
+(2)
+Bring the thermophysical property matrix 
+ into the heat transfer model and give the boundary based on the property identification framework of the MTPS to obtain the temperature response 
+ at the measurement points;
+(3)
+Based on SA, time-dependent sensitivity coefficients 
+ were obtained for each thermophysical property through the thermophysical property matrix 
+ and temperature response 
+; Then, the key properties 
+ and their dominant intervals 
+ are obtained by a given sensitivity threshold P;
+(4)
+For insensitive thermophysical properties (the sensitivity of properties less than P), treat them as constants. For sensitive thermophysical properties 
+, it is identified in chronological order within its sensitivity interval 
+.
+3.2. Bayesian network
+In the paper, the BN combines the timing relationship among different time steps and the dependence within relationships of time steps. This can save the experience and knowledge of reasoning and learning at the previous moment, and predict and update the network in sequence according to the accumulated information. At present, a variety of Bayesian inference algorithms for the BN have been developed [[22], [23], [24]], among which the PF algorithms [24] that can handle nonlinear and non-Gaussian stochastic systems was selected to track the evolution of state variables in the BN. the sequential importance resampling (SIR) algorithm which was one of the PFs algorithms was employed in the paper.
+The state variables evolved with time according to the following state function [24]:
+(10)
+where δ represents the noise of the state function, the observed variable zt at time t is calculated by the following measurement function:
+(11)
+where η is noise terms in the measurement function.
+The basic solution process of the SIR algorithm was as follows [25].
+(1)
+Generating initial particle set by the prior probability density function 
+;
+(2)
+Looping through the following steps at adjacent moments:
+1)
+Random sampling in the prior probability density function-generating particles 
+ according to 
+ and calculating the corresponding weights 
+ according to 
+;
+2)
+Resampling and estimating-Particles set, 
+ are resampled to 
+. Then, the state at time t is estimated using 
+.
+3.3. Sensitivity analysis
+Considering that the difference of the distribution of the material properties will affect their sensitivity, the global sensitivity analysis (GSA) is selected in the paper. Up to now, there are many GSA methods, such as the Morris method [25], the Sobol’ method [26], the Fourier amplitude sensitivity test (FAST) method [27], and so on. The random balance design FAST (RBD-FAST) [28,29], which is the improved form of FAST is used in the paper. The detail of RBD-FAST can refer to Refs. [28,29].
+4. Method validation cases
+4.1. Thermophysical properties in numerical cases and experiments
+The distribution intervals and adopted/referenced values of thermophysical properties in numerical cases and experiments are shown in Table 1. The distribution of thermophysical properties of CF/PR is refer to Ref. [30], and the distribution of thermophysical properties of C/SiC, GTMZ, and PCM is from tests conducted by ourselves. The adopted properties in numerical cases are randomly obtained within its distribution intervals to verify the effectiveness of the method. The referenced properties in experiments are from Ref. [30], as well as the mean value of the material properties tests. It is worth noting that a wide range of distribution intervals of the thermophysical properties is given in experiments due to the influence of the assembly of the MTPS and the ITCR.
+Table 1. Distribution and adopted/referenced values of thermophysical properties.
+
+Layer	Thermophysical property	Adopted properties in numerical cases/Referenced properties in the experiment	Distribution interval in numerical cases	Distribution interval in experiments
+CF/PR	Density (kg/m3)	
+421.2600/413.0000	[396.4800,429.5200]	[200,500]
+338.6930/332.0500	[318.7699,345.3341]	[200,500]
+Uncertainty factor for enthalpy of pyrolysis gas	α	1.0938/1.0000	[0.2500,1.7500]	[0,3]
+Standard state heat of formation (MJ/kg)	
+−0.8571/-0.8571	[-1.0286, −0.6857]	[-2, −0.1]
+Pre-exponential factor (s−1)	A1	1342.7626/1342.7626	[465.1458,3876.2281]	[400,4000]
+A2	300.6049/300.6049	[71.3587,1266.3255]	[0,2000]
+A3	1.7238/1.7238	[0.6274,4.7360]	[0,10]
+Thermal conductivity (W/(m·K))	
+0.2516/0.4025	[0.2013,0.6038]	[0,1]
+0.3071/0.4913	[0.2457,0.7370]	[0,1]
+0.5737/0.5737	[0.2869,0.8606]	[0.4,1.5]
+0.8185/0.8185	[0.4092,1.2277]	[0.4,1.5]
+Specific heat (J/(kg·K))	
+665.7616/783.2500	[626.5992,939.8987]	[400,2000]
+1443.9166/1698.7300	[1358.9803,2038.4705]	[400,2000]
+1993.1965/1993.2000	[1594.5572,2391.8358]	[1000,3000]
+2101.1596/2101.1600	[1680.9277,2521.3916]	[1000,3000]
+C/SiC	Density (kg/m3)	
+1821.6000/1840.0000	[1803.2000,1876.8000]	[1800,1900]
+Thermal conductivity (W/(m·K))	
+2.2077/2.4530	[1.9624,2.9436]	[0.1,5]
+3.0141/3.3490	[2.6792,4.0188]	[0.1,5]
+4.0070/4.0070	[3.2056,4.8084]	[0.1,5]
+4.3910/4.3910	[3.5128,5.2692]	[0.1,6]
+Specific heat (J/(kg·K))	
+891.1000/938.0000	[844.2000,1031.8000]	[400,7000]
+1555.1500/1637.0000	[1473.3000,1800.7000]	[400,7000]
+1936.1000/2038.0000	[1834.2000,2241.8000]	[400,7000]
+2148.9000/2262.0000	[2035.8000,2488.2000]	[400,7000]
+GTMZ	Density (kg/m3)	
+147.9000/145.0000	[139.2000,150.8000]	[100,200]
+Thermal conductivity (W/(m·K))	
+0.0440/0.0400	[0.0320,0.0480]	[0.01,0.1]
+0.08800.0800	[0.0640,0.0960]	[0.01,0.1]
+0.1700/0.1700	[0.1360,0.2040]	[0.05,0.5]
+0.3300/0.3300	[0.2640,0.3960]	[0.05,0.5]
+Specific heat (J/(kg·K))	
+740.3135/705.0600	[634.5544,775.5665]	[400,1500]
+1209.3203/1151.7300	[1036.5602,1266.9069]	[400,1500]
+1254.1422/1254.1400	[1128.7280,1379.5564]	[1000,2000]
+1268.6004/1268.6000	[1141.7404,1395.4604]	[1000,2000]
+PCM	Density (kg/m3)	
+950.0000/950.0000	[931.0000,969.0000]	[900,1000]
+Latent heat (kJ/kg)	
+164.6600/164.6600	[169.2740,202.2060]	[100,250]
+Thermal conductivity (W/(m·K))	
+6.9080/6.9100	[5.5264,8.2896]	[0.1,10]
+5.0510/5.0500	[4.0408,6.0612]	[0.1,10]
+Specific heat (J/(kg·K))	
+1737.0000/1737.0000	[955.3500,2518.6500]	[400,7000]
+2171.0000/2171.0000	[1194.0500,3147.9500]	[400,7000]
+4.2. Numerical cases
+The MTPS was modeled using the finite element software COMSOL the effectiveness of the ablation model has been validated in previous work, see Ref. [31] for details. In the model, the unit grid length is 0.05 mm, and thermophysical properties of materials are shown in Table 1. To account for the influence of ITCR, the air layer with a thickness of 0.1 mm was added between each two-layer structure of MTPS (CF/PR + C/SiC + GTMZ + PCM), as shown in Fig. 4 (a). The thermal properties of the air layer were obtained from Refs. [10,32], as illustrated in Fig. 4 (b). The initial condition of the model is room temperature. In the case of adding the air layer to replace the effects of ITCR, heat flux conditions shown in Fig. 4 (c) and 4 (e) were respectively designed, with their corresponding internal temperature responses presented in Fig. 4 (d) and 4 (f). The radiation coefficient of CF/PR is 0.9. An adiabatic condition is applied to the back wall. Following the ITCR solution proposed in Fig. 3, the impact of ITCR on internal heat transfer was equivalently incorporated into the thermal properties of both the C/SiC and PCM layers. Consequently, utilizing the geometric dimensions of MTPS and thermocouple positions from Fig. 3, the thermal properties of each layer were identified under the boundary conditions in Fig. 4 (c) and the corresponding internal temperature responses. Finally, verifying the effectiveness of the identified thermal properties. Based on the MTPS shown in Fig. 3, using the model in Section 2, heat flux boundary as shown in Fig. 4 (e), the difference between the internal temperature calculated by the identified properties and the internal temperature calculated by the adopted properties is compared. Based on the proposed framework in Fig. 3, the specific steps for identifying thermal properties are as follows.
+(1)
+Identify the thermophysical properties of the CF/PR.
+1)
+The heat flux 
+ and the temperature responses at TC2 are used as the boundary condition. The temperature responses at TC1 are used as the observational data.
+2)
+Properties 
+ are randomly sampled 2000 times from a uniform distribution across its distribution interval in Table 1 and randomly grouped to generate the matrix 
+.
+3)
+Bring 
+ into the heat transfer model. The loading time of the heat flux is 100 s, and the time step is 0.1s in the model. Get the temperature history 
+ at TC1. Based on the SA, the results of time-dependent sensitivity 
+ of 
+ are calculated according to 
+ and 
+.
+4)
+Based on the experience, 0.3 is selected as the threshold [21]. Obtain the key sensitivity properties 
+ and their dominant time intervals 
+, where the superscript m represents the number of key parameters; Take the insensitive property as a constant whose value is the same as the adopted properties in Table 1. Then, identify 
+ within their dominant time intervals in chronological order by using the BN as shown in Fig. 3.
+(2)
+Identify the thermophysical properties of the GTMZ.
+1)
+The temperature responses of TC3 and TC5 are used as the boundary condition. The temperature responses of TC4 are used as the observational data.
+2)
+Properties 
+ of the GTMZ are randomly sampled 2000 times from a uniform distribution across its distribution interval in Table 1 and randomly grouped to generate the matrix 
+.
+3)
+The subsequent steps are the same as the steps 3)-4) in the property identification of the CF/PR. In this way, the key sensitive properties 
+ of the GTMZ are identified.
+(3)
+Identify the thermophysical properties of the C/SiC.
+1)
+Based on the proposed framework, the CF/PR, C/SiC and GTMZ are treated as a whole. The heat flux 
+ and the temperature responses at TC5 are used as the boundary condition. The temperature responses at TC3 are used as the observational data;
+2)
+Taking 
+ and 
+ as known parameters, and the rest of the insensitive parameters are taken as the values in Table 1. Properties 
+ of the C/SiC are randomly sampled 2000 times from a uniform distribution across its distribution interval in Table 1 and randomly grouped to generate the matrix 
+.
+3)
+The subsequent steps are the same as the steps 3)-4) in the property identification of the CF/PR. The key sensitive properties 
+ of the GTMZ are identified.
+(4)
+Identify the thermophysical properties of the PCM.
+1)
+The CF/PR, C/SiC, GTMZ and PCM layers are treated as a whole. The heat flux 
+ and the temperature responses at TC6 are used as the boundary condition. The temperature responses at TC5 are used as the observation data.
+2)
+Taking 
+, 
+, and 
+ as known parameters, and the rest of the insensitive parameters are taken as the values in Table 1. Properties 
+ are randomly sampled 2000 times from a uniform distribution across its distribution interval in Table 1 and randomly grouped to generate the matrix 
+.
+3)
+The subsequent steps are consistent with the steps 3)-4) in property identification of the CF/PR.
+Fig. 4
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 4. The boundary condition and temperature responses in the numerical case.
+
+In the implementation of the case, all random sampling was conducted using the Monte Carlo method. Both noise free and Gaussian noise are considered, where the mean of the Gaussian noise is zero, and the standard deviation of Gaussian noise is 0.75 % of the measured temperature. A noise level of 0.75 % of the temperature measurement value was chosen because the measurement error of thermocouples is 0.4 %, thus selecting a value that is close to but slightly higher than the thermocouple measurement error. The effect of sampling frequency on identification results is also considered. Two sampling frequencies of 1s and 5s are adopted.
+4.3. Experiments
+In this paper, oxyacetylene was used to carry out high-temperature heating tests on MTPS, and the schematic diagram of the experiment device is shown in Fig. 5. The device mainly consists of flow meters, valves and lances for regulating and controlling the flow of oxygen and acetylene gases, a moving platform for mounting the Gordon meter and the sample, a water-cooling system, and type K thermocouples and dual colorimetric pyrometers for obtaining temperature data of the sample. The observation error of type K thermocouple is 0.4 %.
+Fig. 5
+Download: Download high-res image (225KB)
+Download: Download full-size image
+Fig. 5. Schematic diagram of oxyacetylene heating device.
+
+Picture of the sample, dimensions, thermocouple locations, and before and after experiment pictures are shown in Fig. 6. The experiment was initialized at room temperature, with the back wall remaining exposed to the ambient room temperature environment throughout the duration.
+Fig. 6
+Download: Download high-res image (998KB)
+Download: Download full-size image
+Fig. 6. Pictures of experiment: (a) picture of sample; (b) the position of TCs; (c) picture before the experiment; (d) picture after the experiment.
+
+Two ablation experiments were conducted. In experiment 1, the thermophysical property identification of the MTPS was carried out under a constant heat flux 1620 kW/m2. The calibrated heat flux using a Gordon meter is shown in Fig. 7 (a), and the internal temperature responses in experiment 1 are shown in Fig. 7 (b). The heat flux heats up for 300 s and the sampling frequency is 1 s in experiment 1. The identification strategy is the same to the numerical case. The identified thermophysical properties are utilized to perform a verification experiment 2 for predicting the internal temperature. The heat flux of the verification experiment 2 was 1280 kW/m2 for 200 s. The result of the heat flux calibration is shown in Fig. 7 (c), and the internal temperature responses are shown in Fig. 7 (d).
+Fig. 7
+Download: Download high-res image (825KB)
+Download: Download full-size image
+Fig. 7. The boundary condition and temperature responses in two experiments.
+
+5. Result and discussion
+5.1. Numerical cases
+5.1.1. Identification of thermophysical properties
+The SA results of the MTPS are shown in Fig. 8, and the main dominant intervals of key sensitivity properties are shown in Table 2. It can be seen that the thermophysical properties affecting heat transfer are thermal conductivity and specific heat. In Fig. 8, the white font indicates the properties to be identified and the others indicate the insensitive properties. Since the dominant intervals are less than 5 s when 
+ is identified, the sampling frequencies are set to 0.2 s and 0.4 s, respectively.
+Fig. 8
+Download: Download high-res image (778KB)
+Download: Download full-size image
+Fig. 8. SA results of the MTPS in the numerical case.
+
+Table 2. Dominant intervals of sensitive properties of MTPS in the numerical case.
+
+Layer	Properties	Dominant intervals	Layer	Properties	Dominant intervals
+CF/PR	
+[0.3,3.1]	C/SiC	
+[3.8,16.9]
+[2.5,12.5]	
+[4.5,64.8]
+[9.6,38.1]	
+[50.2142.1]
+[24.9150.0]	
+[112.4150.0]
+GTMZ	
+[10.0,51.1]	PCM	
+[25.1, 144.0]
+[46.7104.1]	
+[129.4150.0]
+[100.2150.0]	–	–
+The probability density distribution of properties and identification error of each property in different layers under different factors are shown in Fig. 9, Fig. 10 and Fig. S1 (Supplementary Material). Temperature responses and the maximum temperature error obtained based on the identified properties are shown in Fig. 11, where the uncertainty boundary (UB) is obtained through γ ± 2u, γ denotes the mean of identified properties and u denotes the standard deviation. It can be found that.
+(1)
+Overall, the accuracy of the identification results with noise free, 1 s sampling with 0.75 % noise, and 5 s sampling with 0.75 % noise gradually decreased, and the variance gradually increased;
+(2)
+At the C/SiC layer, the identified thermal conductivities at 
+ under noise free being 29.32 % lower than the adopted values, while the identified specific heat values are all higher than the adopted values, with the identified value at 
+ under noise free being 20.07 % higher than the adopted. This is because that there is the ITCR between the C/SiC and the CF/PR as well as the GTMZ, which hinders the heat transfer between the layers. However, the thermal resistance effect is not taken into account in the heat transfer model, which leads to a decrease in the heat transfer capacity of the structure, ultimately resulting in a lower identification value for thermal conductivity and a higher identification value for specific heat;
+(3)
+At the PCM layer, the identified specific heat values at 
+ and 
+ under noise free are 18.10 % and 38.33 % higher than the adopted values, respectively. This is also due to the presence of ITCR between the PCM and the GTMZ;
+(4)
+In addition, in the single-layer parameter identification, the identification error of thermophysical properties corresponding to high temperatures is higher, which is due to the fact that the identification is carried out according to the time sequence. Thus, the parameters at low temperatures are identified first, which leads to a gradual accumulation of error. However, in the C/SiC layer the identification error of 
+ is the lowest, while identification error of 
+ is highest, which may be due to the combined effect of multiple parameter identification error;
+(5)
+For the temperature responses, the UB with temperature noise and larger sampling intervals are larger; In addition, the maximum temperature error increases as the temperature measurement points away from the surface. However, the maximum temperature error of measurement points TC5 and TC6 decreases, due to the fact that TC5 and TC6 are located close to the back wall of the model, and their maximum temperature does not exceed 150 °C.
+Fig. 9
+Download: Download high-res image (880KB)
+Download: Download full-size image
+Fig. 9. Probability density distribution of partial sensitivity properties in the numerical case: (a) CF/PR layer; (b) C/SiC layer; (c) GTMZ layer; (d) PCM layer.
+
+Fig. 10
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 10. Identification error of sensitivity properties in different layers in the numerical case: (a) CF/PR layer; (b) C/SiC layer; (c) GTMZ layer; (d) PCM layer.
+
+Fig. 11
+Download: Download high-res image (905KB)
+Download: Download full-size image
+Fig. 11. Temperature response calculated of partial measurement points and the maximum temperature error from identified thermophysical properties under constant heat flux in the numerical case: (a) Temperature response calculated; (b) Maximum temperature error.
+
+5.1.2. Prediction of internal temperature responses
+The thermophysical properties identified with 1s sampling frequency under noise are used to predict the internal temperature for 200 s under variable heat flux as shown in Fig. 4 (c) and calculate the UB, and the predicted results and the maximum temperature error are shown in Fig. 12. It can be seen that the predicted results are in good agreement with the results calculated from the adopted values, the maximum error is 7.20 % of TC5, and the UBs are also able to envelope the results calculated from the adopted values well.
+Fig. 12
+Download: Download high-res image (359KB)
+Download: Download full-size image
+Fig. 12. Temperature responses predicted of partial measurement points and the maximum temperature error from identified thermophysical properties under the varying heat flux in the numerical case: (a) Temperature response predicted; (b) Maximum temperature error.
+
+5.2. Experiments
+5.2.1. Identification of thermophysical properties
+The SA results of the MTPS are shown in Fig. 13 and the main dominant intervals of key sensitivity properties are shown in Table 3. Compared to the numerical case, the thermophysical properties affecting heat transfer are still mainly thermal conductivity and specific heat. Differently, the latent heat 
+ in the PCM layer has also become a sensitive property, due to the expansion of the a priori intervals for each parameter in the experiment.
+Fig. 13
+Download: Download high-res image (800KB)
+Download: Download full-size image
+Fig. 13. SA results of the MTPS in the experiment.
+
+Table 3. Dominant intervals of sensitive properties of MTPS in the experiment.
+
+Layer	Properties	Dominant intervals	Layer	Properties	Dominant intervals
+CF/PR	
+[0.9,20.1]	C/SiC	
+[5.7,41.9]
+[0.8100.0]	
+[58.6,77.6]
+[49.4100.0]	
+[124.4166.7]
+GTMZ	
+[1.3,60.2]	
+[199.7300.0]
+[53.4137.3]	
+[26.5,58.1]
+[139.8300.0]	
+[57.4144.4]
+PCM	
+[169.9180.8]	
+[135.4206.2]
+[27.1161.1]	
+[208.6239.7]
+[159.7300.0]	–	–
+[36.1,66.5]	–	–
+The probability density distribution of sensitivity properties in different layers are shown in Fig. 14 and Fig. S2 (Supplementary Material). Temperature responses and the maximum temperature error obtained based on the identified properties are shown in Fig. 15. Identification of thermophysical properties of the MTPS based on the oxyacetylene experiment leads to the following conclusions.
+(1)
+In CF/PR, GTMZ and C/SiC layers, the mean value of identified thermophysical properties increases with increasing temperature, while in PCM, the identified thermal conductivity before phase transition is higher than that after phase transition, and the variation trend of identification results of the these thermophysical property with temperature is consistent with the referenced values in Table 1;
+(2)
+At the C/SiC layer, the identified thermal conductivities are all lower than the measured values, with the identified value at 
+ being 245.91 % lower than the measured value, while the identified specific heat values are all higher than the measured values, with the identified value at 
+ being 157.32 % higher than the measured. Similar to the results of numerical cases, this is because the influence of ITCR on heat transfer has been equivalently taken into account in the thermophysical properties of C/SiC;
+(3)
+Similarly, the identified 
+ and 
+ are one order of magnitude lower than the measured values, 
+ is 38.24 % higher than the measured reference value, and hl is 21.32 % higher than the measured value due to the presence of ITCR between the PCM and the GTMZ;
+(4)
+The maximum temperature error between the experiment temperature response and the temperature response calculated from the identified thermophysical properties of the MTPS is 8.70 % of measured point TC4, and the UB at different measurement points are also able to envelope the experiment temperatures well.
+Fig. 14
+Download: Download high-res image (872KB)
+Download: Download full-size image
+Fig. 14. Probability density distribution of partial sensitivity properties in the experiment: (a) CF/PR layer; (b) C/SiC layer; (c) GTMZ layer; (d) PCM layer.
+
+Fig. 15
+Download: Download high-res image (427KB)
+Download: Download full-size image
+Fig. 15. Temperature responses calculated of partial measuremtnt points and the maximum temperature error from identified thermophysical properties under 1620 kw/m2 heat flux in the experiment: (a) Temperature response calculated; (b) Maximum temperature error.
+
+5.2.2. Predict internal temperature
+The identified thermophysical properties are used to predict the internal temperature for 200 s under the heat flux boundary conditions shown in Fig. 7 (c), and the predicting results and errors are shown in Fig. 16. It can be seen that the identified thermophysical properties can well predict the internal temperature response under different heat flux, and the maximum temperature errors between the predicted temperature and the experiment temperature is 7.52 % at TC6. The effectiveness of the identified thermophysical properties are further verified.
+Fig. 16
+Download: Download high-res image (424KB)
+Download: Download full-size image
+Fig. 16. Temperature responses predicted of partial measurement points and the maximum temperature error from identified thermophysical properties under 1280 kw/m2 heat flux in the experiment: (a) Temperature response predicted; (b) Maximum temperature error.
+
+From the results of the experiment, employing the equivalent strategy to address the identification of the ITCR can accurately predict the temperature response inside the material. Compared with the methods proposed by other scholars, which model and analyze the influence of the ITCR based on the physical mechanisms of specific materials, the method in this paper is not limited to specific materials. It has universality, thus being more conducive to engineering practice. However, it has limitations in explaining the underlying mechanisms.
+6. Conclusion
+For the MTPS consisting of the ablative heat protection layer, the high-temperature load-bearing layer, the lightweight insulation layer, and the phase change heat absorption layer, a property identification method is proposed based on the BN. In the method, an equivalent thermophysical property is proposed to deal with the ITCR between different layers, and the number of properties to be identified simultaneously is reduced by SA. The identification of equivalent thermophysical properties is carried out under the given heat flux boundary, and the identified thermophysical properties are used for the internal temperature prediction under another heat flux boundary in numerical cases and experiments. The following conclusions can be obtained.
+(1)
+Based on results of SA, the thermophysical properties that affect the heat transfer of the MTPS are mainly the thermal conductivity and specific heat of each layer. In the experiment, a wide range of a priori intervals was given for each parameter due to the influence of ITCR, making the latent heat 
+ of the PCM layer also become a sensitive property;
+(2)
+Due to the presence of the ITCR and its influence on the heat transfer of the MTPS, when the ITCR is taken into account in the C/SiC layer and the PCM layer, it leads to a large deviation of the identified thermophysical properties from the reference or measured values. In numerical cases, the maximum deviation of the C/SiC layer is the parameter 
+, which is 29.32 % lower than the adopted values, and the maximum deviation of the PCM layer is the parameter 
+, which is 38.33 % higher than the adopted values; In the oxyacetylene experiment, the maximum deviation of the C/SiC layer is the parameter 
+, which is 245.91 % lower than the measured values, and the maximum deviation of the PCM layer is the parameter 
+, which is one order of magnitude lower than the measured values;
+(3)
+In the identification of thermophysical properties in numerical cases, as the property identification are performed in chronological order, the parameters at low temperatures are identified first; The identification error of properties will gradually accumulate along with the property identification process, resulting in larger identification errors for thermophysical properties of high temperature; It should be noted that due to the error transfer between different layers, it can cause the property identification error in a single layer no longer increase with temperatures, such as 
+ and 
+ in the C/SiC layer;
+(4)
+In the internal temperature prediction under different heat flux and heating time in the numerical case and the experiment, the maximum temperature error of the prediction is 7.20 %, and 7.52 % respectively, which further verifies the validity of the thermophysical properties identified based on the proposed method.

@@ -1,0 +1,182 @@
+Abstract
+Directed energy deposition – laser beam, wire feedstock (DED-LB/W) shows great promise for manufacturing near net-shape components by saving cost and time. Lateral wire feeding with a certain angle towards the workpiece is commonly used in DED-LB/W, which suffers from limited movement capability and reduced flexibility. In this work, a direction-independent coaxial wire laser directed energy deposition using an annular laser beam was proposed. Metal transfer behavior, which plays an important role in determining the process stability and quality, were investigated in the newly developed process using an annular laser beam with a specific position of wire to laser beam. The results showed that four metal transfer modes, i.e. unstable liquid bridge or pendant droplet, stable liquid bridge, stable wire penetration, and unstable process, were observed under various working distance. The power density and temperature field for the annular laser beam under various working distance were calculated. It was found the power density and the position of wire to laser determine the laser energy for melting the wire, which has a significant effect on the metal transfer mode. Furthermore, an easy-to-use parameter that involves common process parameters such as working distance, laser power and wire feeding speed is proposed for the practice use to predict the metal transfer mode for optimizing the deposition quality in coaxial DED-LB/W.
+Previous article in issue
+Next article in issue
+Keywords
+Wire laser directed energy depositionMetal transfer behaviorAnnular laser beamPower density
+1. Introduction
+Metal additive manufacturing (AM) processes offer new possibilities to generate three-dimensional parts in a layer-by-layer fashion [1]. Wire-based AM processes using metallic wire as feedstock material show great promise for manufacture of parts and components to be produced to near net shape by saving cost and time. Depending on different energy sources, wire-based AM processes are roughly divided into several categories, such as wire arc additive manufacturing (WAAM) [2], electron beam freeform fabrication (EBF3) [3], directed energy deposition – laser beam, wire feedstock (DED-LB/W) [4], and so on. Among them, DED-LB/W has the advantage on the precise controlling of energy input, minimal deformation, and simple process setup. Lateral DED-LB/W, feeding the metallic wire towards the workpiece at an acute angle and using the laser to melt them, has been a common practice due to the simple deposition system [5]. However, such systems employing lateral wire feeding commonly suffer from limited movement capability and reduced flexibility for fabricating complex geometries. Coaxial DED-LB/W, in which laser beams can be flexibly shaped to allow the insertion of the coaxial wire, has been developed in recent years [6,7].
+Metal transfer behavior plays an important role in determining the process stability and quality in DED-LB/W. The proper metal transfer mode enables smooth and regular metal depositions for each layer, which is fundamental to guarantee accuracy and low roughness of parts and components [8,9]. Varying the distance between the intersection of laser beams and the substrate is referred to as working distance. Motta et al. [10] found that the continuous connection between the molten pool on the workpiece and the wire-end was essential to acquire sound beads in proper working distances, and various defects (i.e., dripping and stubbing) were observed by using high-speed imaging at different working distances. Kotar et al. [11,12] also studied the effect of working distance, showing that a slight variation in the working distance ranging from 2.5 mm to 7.0 mm resulted in defected conditions. Besides, wire feeding speed ranging from 1000 mm/min to 4600 mm/min and laser power ranging from 850 W to 2700 W were investigated for linking process parameters and metal transfer behaviors [13,14]. In fact, power density profiles of laser beams and the position of wire corresponding to laser beam affected by multiple process parameters are two principal elements [15], linking process parameters to metal transfer behaviors in DED-LB/W.
+The power density of laser beam is described by the laser irradiance and profile [16,17]. In lateral DED-LB/W with a single laser beam irradiating perpendicular to the surface of the workpiece, the laser beam creates a single spot on the surface of the workpiece, commonly described by Gaussian [18], Goldak [19], or top-hat distribution [20,21]. Different from lateral DED-LB/W, the laser beams create multiple spots [22,23] or annular spot [10] on the workpiece surface in coaxial DED-LB/W. Moreover, the shape and size of laser spots on the workpiece surface exhibit distinct difference in varying the working distance between the workpiece surface and the intersection point of annular or multiple beams, resulting in varying power densities. Some studies have investigated the power density described by the irradiance in coaxial DED-LB/W [24]. Roch et al. [15] proposed a three beams model of the power source to simulate power density in coaxial DED-LB/W using three laser beams. The developed approach can be used to simulate the power density with varying working distance for multiple laser beams, showing that the power density can be homogenized with increasing the number of laser beams in proper working distance. Hence, it is possible to homogenize the power density using an annular laser beam by beam shaping and the annular beam model of the power source requires for a further study. Moreover, the position of wire to laser beam in coaxial DED-LB/W using an annular laser beam is different from that in lateral DED-LB/W [25], having a great influence on the wire melting, which has a significant effect on the metal transfer mode.
+The purpose of this study is to investigate the role of process parameters (working distance, laser power, and wire feeding speed) on metal transfer behavior in DED-LB/W with an annular laser beam and coaxial wire feeding. Firstly, metal transfer modes were classified by high-speed imaging under various working distance. And then the laser models of power density were proposed by the use of the shapes and sizes of laser spots in various working distances. Considering the effect of position of wire to laser beam, the proportions of energy of wire to laser with different working distances were calculated by analyzing workpiece temperature. Furthermore, an easy-to-use parameter involving coaxial DED-LB/W variables (such as working distance, laser power and wire feeding speed) is proposed for the practice use to estimate the metal transfer mode.
+2. Methology
+2.1. Experimental procedure
+The Ti6Al4V wire with a diameter of 1.2 mm was used as the feedstock (initial composition: 6.4 wt% aluminum, 4.1 wt% vanadium) for coaxial DED-LB/W process in this study. A hot rolled Ti6Al4V plate with the thickness of 10 mm was used as a substrate for the deposits. As shown in Fig. 1, the coaxial DED-LB/W system was composed of a Precitec CoaxPrinter coaxial laser processing head, a 6-axis KUKA robot, a Trumpf TruDisk 6001 disk laser with 1030 nm wavelength, and a Fronius KD 7000 wire feeder device. High purity argon was used as the shielding gas to protect the components from oxidation [26,27]. An Optronis CamRecord 3000X2 high-speed digital camera was installed in off-axial position in the system to capture the images from the molten pool and metal transfer behavior in real-time at a frame rate of 2000 fps and an exposure time of 0.04 ms. The illuminator laser with a wavelength of 808 nm was combined with the high-speed camera, and a band-pass filter at 808 ± 5 nm was inserted in front of the high-speed camera.
+Fig. 1
+Download: Download high-res image (696KB)
+Download: Download full-size image
+Fig. 1. A coaxial wire laser directed energy deposition (coaxial DED-LB/W) system.
+
+The shape and size of the laser spots were measured with different working distances in a range of −19 mm–21 mm in steps of 1 mm. The laser power was selected in a range of 300–3000 W with manufacturing time of 300 ms so that the irradiance area on the plate with various working distances can be measured.
+2.2. Numerical modeling
+In order to depict power density in coaxial DED-LB/W process, a realistic modelling of the power source is needed. The principle of coaxial DED-LB/W has been described in detail in the previous study [28]. A Gaussian laser beam produced by the laser device is changed into an annular laser beam with Gaussian distribution by beam shaping in the coaxial laser head. The Gaussian heat source model is well adapted to the common laser beams with Gaussian energy distribution profiles [29,30], as follows:
+(1)
+where 
+ is the irradiance for describing the power density of the laser beams, 
+ is the maximum value of the irradiance, 
+ is the radical distance from the center of the laser beam, and 
+ is the radius of the laser beam. Different from the common laser beam, the annular laser beam located on the plane. The irradiance of the annular laser beam on the workpiece for different working distances should be considered in the annular beam model, as follows:
+(2)
+(3)
+(4)
+(5)
+where 
+ is the radius of the annular laser beam, 
+ is the energy efficiency of the process, 
+ is the laser power, 
+ is the area of the irradiance on the workpiece, 
+ and 
+ are the inner radius and the outer radius of the laser spot, respectively.
+The heat conduction equation of the workpiece [18,31] is expressed by:
+(6)
+where 
+ is the density, 
+ is the specific heat, 
+ is the temperature, 
+ is the time, 
+ is the thermal conductivity of Ti6Al4V alloy, and 
+ is the latent heat of fusion. Thermophysical properties of Ti6Al4V alloy used in numerical modeling are listed in Table 1. The workpiece temperature was calculated using finite element method. The minimum size of the workpiece was 0.05 mm × 0.05 mm × 0.2 mm. The number of modeling nodes was 114,126, and the number of modeling elements was 95,120.
+Table 1. Thermophysical properties of Ti6Al4V alloy and physical parameters used in numerical modeling [18,25].
+
+Parameter	Symbol	Unit	Value
+Density	
+kg/m3	4400
+Specific heat	
+J/(kg·°C)	550
+Thermal conductivity	
+W/(m·°C)	0.016 × T+2
+Latent heat of fusion	
+J/kg	2.92 × 105
+Radius of annular laser	
+mm	Experimental measurement
+Inner radius of annular laser	
+mm	Experimental measurement
+Outer radius of annular laser	
+mm	Experimental measurement
+Laser power	
+W	1200
+Energy efficiency	
+–	0.3
+Liquidus temperature	
+°C	1650
+3. Results and discussion
+3.1. Metal transfer modes in coaxial wire laser additive manufacturing
+Fig. 2 shows the metal transfer modes in coaxial DED-LB/W with the laser power of 1200 W and wire feeding speed of 1 m/min, for varied working distance ranging from 4 mm to 10 mm. The corresponding videos which can show the dynamic metal transfer behaviors are provided in the Supplementary materials. A minimum of three deposition tests were conducted for observing metal transfer behaviors under various working distance of 10 mm, 8 mm, 6 mm and 4 mm, respectively. It is clear that metal transfer modes in coaxial DED-LB/W processes are closely related to various working distance, and metal transfer behaviors play an important role in determining the process stability and quality. When the working distance is 10 mm as shown in Fig. 2(a), the wire-end was inserted into the molten pool on the workpiece and the feeding wire was shaken violently, resulting in incomplete fusion in Fig. 3(a). Decreasing working distance to 8 mm in Fig. 2(b), it allowed to achieve a stable process, in which the wire-end was inserted into the molten pool and low wetting was observed in the molten bond between the molten pool on the workpiece and the feeding wire-end. As working distance decreases to 6 mm in Fig. 2(c), the stable process state was also observed and high wetting was seen in the molten bond. As depicted in Fig. 3(b) and (c), a good single bead formation can be achieved with working distances of 8 mm and 6 mm. When working distance is 4 mm, obviously different metal transfer behaviors were seen in Fig. 2(d) and (e) in a minimum of three deposition tests. As shown in Fig. 2(d), the established molten bond between the molten pool and the feeding wire-end was narrower than the feeding wire-end, so the molten bond was weak causing the top surface of depositions with irregularity in Fig. 3(d). Fig. 2(e) shows that the wire-end was easily melted into the pendant droplet resulting in burning the wire-feeding nozzle with working distance of 4 mm. In conclusion, the metal transfer processes in coaxial DED-LB/W are primarily classified four modes, i.e., unstable liquid bridge or pendant droplet, stable liquid bridge, stable wire penetration, and unstable process. The stable and smooth deposition can be achieved in the stable liquid bridge or stable wire penetration process. It is noted that good deposition can be achieved in two metal transfer processes of coaxial DED-LB/W, but in only one metal transfer process (i.e., stable liquid bridge process) of lateral DED-LB/W [32]. The larger process window of coaxial DED-LB/W attributed to the homogenized power density of an annular laser beam.
+Fig. 2
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 2. Different metal transfer modes in coaxial DED-LB/W processes with different working distances: (a) Unstable process for working distance of 10 mm; (b) Stable wire penetration for working distance of 8 mm; (c) Stable liquid bridge for working distance of 6 mm; (d) Unstable liquid bridge for working distance of 4 mm; (e) Pendant droplet for working distance of 4 mm.
+
+Fig. 3
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 3. Relation between different metal transfer modes and quality in coaxial DED-LB/W processes: (a) Unstable process for working distance of 10 mm; (b) Stable wire penetration for working distance of 8 mm; (c) Stable liquid bridge for working distance of 6 mm; (d) Unstable liquid bridge for working distance of 4 mm.
+
+3.2. Power density and temperature field under annular laser beam condition
+In order to acquire the inner radius and the outer radius of the laser spot, a series of experiments were conducted with different working distances in steps of 1 mm. The shape and size of the laser spots for varying working distance were measured in Fig. 4. The results show an annular laser spot with different sizes for various working distances. The laser spot with the working distance of 0 mm (Z = 0 mm) has the smallest size, and can be considered as a circle near the focal point. The dimensions of the laser spot rapidly enlarged with an increase in the distance from the focal point (Z = 0 mm). Hereinto, the working distance has a strong influence on the size of the laser spot. Previous studies [10,28] have shown that the working distances ranging from 4 mm to 10 mm were set to obtain sound beads. When Z > 10 mm, the power density of the laser spot is not enough to melt the wire and workpiece due to the large size of the laser spot. When Z < 4 mm, it can be observed that the melting process starts above the workpiece surface and the metal droplet is formed instead of sound beads. Therefore, the laser spot and power density of annular laser beams with working distances of 4 mm, 6 mm, 8 mm, and 10 mm were studied further.
+Fig. 4
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 4. Shapes and sizes of the laser spots for varying working distance: (a) schematic diagram and (b) experimental results.
+
+The inner radius and outer radius of the laser spots with proper working distances were measured in Table 2. Therefore, the irradiance of the annular laser beam can be expressed by Eqs. (2)–(4) and the results for different working distances are shown in Fig. 5. It is seen that the intensity and distribution of the irradiance are strongly affected by the working distance. With a working distance of 10 mm, the maximum value of irradiance is about 70 W/mm2 and the resulting power distribution is uniform. The maximum value and the variations in intensity increase with the decrease of the working distance. With a working distance of 4 mm, the maximum value of irradiance is more than 200 W/mm2 and the power distribution focuses on a small area.
+Table 2. The inner radius and outer radius of the laser spots with different working distances ranging from 4 mm to 10 mm.
+
+Working distances (mm)	Inner radius (mm)	Outer radius (mm)
+10	1.19 ± 0.04	1.72 ± 0.03
+8	0.89 ± 0.01	1.41 ± 0.01
+6	0.63 ± 0.01	1.14 ± 0.01
+4	0.33 ± 0.05	0.78 ± 0.02
+Fig. 5
+Download: Download high-res image (915KB)
+Download: Download full-size image
+Fig. 5. Power intensity contour images of annular laser for different working distances: (a) 10 mm, (b) 8 mm, (c) 6 mm and (d) 4 mm.
+
+To further study the influence of power density on the temperature distribution, coaxial DED-LB/W processes were observed by high-speed imaging in Fig. 6. Fig. 6(a) shows the evolution of the melting zone on the workpiece for different working distances off the wire. At the beginning of 0.1 s, annular melting zones on the workpiece are different for various working distances due to the difference of the laser spots. Subsequently, the size of annular melting zone increased. At 0.6 s, annular melting zone on the workpiece was transferred into circular melting zone for different working distances.
+Fig. 6
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 6. The melting zone on the workpiece under annular laser beam condition for different working distances ranging from 4 mm to 10 mm: (a) High speed imaging of the melting zone on the workpiece from 0.1 s to 0.6 s. (b) Comparisons between simulated and experimental melting zones at 0.6 s. The yellow dashed lines in Fig. 6(a) indicate the melting zones. (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+
+In order to obtain the amount of energy within the melting zone on the workpiece, it is necessary to characterize temperature distribution on the surface of the workpiece. The results in Fig. 6(a) indicate that the formation of circular melting zone at 0.6 s corresponds to the interaction of power density of the laser beams and the function of heat conduction. Considering the combined effects of power density of the laser beams and the heat conduction of the workpiece, four cases were calculated with working distances ranging from 4 mm to 10 mm, as seen in Fig. 6(b). These observations, showing the similar dimensions between experimental and theoretical melting zones, validate the accuracy of this model to represent realistic configurations of the workpiece temperature. It can be seen that the size of melting zone on the workpiece decreases and the temperature variation within the melting zone increases with the working distance decreasing.
+3.3. The effect of process parameter on metal transfer behavior
+In the coaxial DED-LB/W process, the laser beam is not only used to bring power to the part but to melt the wire and the part for forming a sound bead. Therefore, power density of the laser beam and the position of the laser beam relative to the wire for different working distances are necessary to have a comprehensive view. Fig. 7 shows the power density of the laser beam on the workpiece and the position of wire to laser beam for different working distances. It can be seen that a slight variation in the working distance results in the apparent variation in beam irradiance, as depicted in Fig. 7(a). Moreover, the position of wire to laser beam also corresponds to the working distance. As shown in Fig. 7(b), the radius of annular laser spot is much bigger than the radius of the wire on the workpiece with working distances of 10 mm and 8 mm, so the laser beam directly illuminates the workpiece and the zone of the workpiece in contact with the wire will not receive any irradiance, as displayed in Fig. 7(c). With working distances of 6 mm and 4 mm in Fig. 7(b), the inner radius of annular laser spot on the workpiece is smaller than the radius of the wire and the outer radius is bigger. It means that the zone of the workpiece off the center wire receives a portion of irradiance as shown in Fig. 7(c), and other laser beams directly irradiate the wire-end of the wire, which is different from the irradiance with working distances of 10 mm and 8 mm. It is found that there exist distinct differences in power density of laser beams on the workpiece and the interaction between the laser beam and the wire, owing to different working distances.
+Fig. 7
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 7. Power density of annular laser beam and the position of the laser beam relative to the wire in coaxial DED-LB/W for working distances of 10 mm, 8 mm, 6 mm, 4 mm from left to right: (a) Power intensity on the workpiece at varying distances from the center of annular laser beam. (b) Schematic diagrams of the position of wire to laser beam in coaxial DED-LB/W. (c) Power intensity on the workpiece off the center wire.
+
+To better understand interaction between the laser beam and the wire, coaxial DED-LB/W processes with the laser power of 1200 W and stationary wire were observed by high-speed imaging in Fig. 8. At the beginning of the coaxial DED-LB/W processes, the wire was placed in contact with the workpiece at different working distances ranging from 4 mm to 10 mm as seen in Fig. 8(a). With working distances of 10 mm and 8 mm, the workpiece, receiving the irradiance of the laser beam, was firstly melt at the beginning of 0.2 s. The wire-end remined in a solid state. In a period time of 0.2–0.6 s, the melting zone on the workpiece became larger and the solid-state wire-end was subsequently melted, owing to the combined role of heat accumulation and thermal conduction. With working distances of 6 mm and 4 mm, the workpiece and wire-end, receiving the laser irradiance, were simultaneously melt at the beginning of 0.1 s. And then, a liquid bridge was established between the workpiece and the wire-end. With heat accumulation increasing, the breakdown of a narrow molten bond or the formation of a pendant droplet generally took place at 0.2 s–0.6 s. The results with or off the wire in Fig. 6, Fig. 8 indicate the wire is easily melt with increasing the amount of energy within the zone on the workpiece in contact with the wire.
+Fig. 8
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 8. The effect of position of wire to laser beam: (a) High speed imaging of coaxial DED-LB/W processes for different working distances ranging from 4 mm to 10 mm. (b) Temperature variations on the workpiece, for working distances of 10 mm, 8 mm, 6 mm and 4 mm from left to right. The red zone in Fig. 8(b) indicates the zone in contact with the wire. (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+
+The effects of laser irradiance and the heat conduction result in a circular melting zone on the workpiece much bigger than the zone in contact with the wire. However, only the energy focused on the zone with respect to the wire could have a direct influence on the metal transfer behavior. Therefore, the ratio of the energy, focused on the zone with respect to the wire, to the total energy on the melting zone was introduced, to characterize the proportion of energy of wire to laser, as follows:
+(7)
+where 
+ is the radius of the wire, 
+ is the radius of the melting zone on the workpiece, 
+ is the temperature variation above the melting point of Ti6Al4V alloy (1650 °C) in different positions on the workpiece. Fig. 8(b) shows the proportions of energy of wire to laser were 16 %, 32 %, 43 % and 60 % with different working distances of 10 mm, 8 mm, 6 mm and 4 mm, respectively. That means more energy will focus on the zone in contact with the wire as the working distance decreases.
+A key finding of this study is to calculate the proportions of energy of wire to laser. The proportions of energy of wire to laser in coaxial DED-LB/W were in a range from 16 % to 60 % with working distances from 10 mm to 4 mm. The proportions of energy of wire to laser affected by working distances play an important role on the bead formation. For instance, Motta et al. [10] has pointed out that good bead formation can be obtained with the working distance of 6 mm. Lv et al. [33] also found that the variation of bead profile was minimum with the proper working distance of about 2 mm and energy proportion of 51 %. Previous studies in coaxial DED-LB/W showed the energy proportion to be potentially an influential variable affecting the bead formation. Kotar et al. [11] used the pyrometer to measure the workpiece temperature. The energy proportion values can be determined from the experiments. The proportions of energy of wire to laser were 13 %, 26 %, 49 % with working distances of 5 mm, 4 mm, 3 mm, respectively. In our study, finite element analysis was used to simulate the workpiece temperature and the energy proportion can be calculated efficiently.
+The sound beads are the foundation of the multipass and multilayer deposits produced by coaxial DED-LB/W processes. In order to achieve the sound beads, the stability of metal transfer process was discussed in different coaxial DED-LB/W variables (i.e., wire feeding speed, working distance and laser power). Fig. 9 shows the coaxial DED-LB/W process states with different wire feeding speed by high-speed imaging. It is seen that metal transfer modes correspond to the various wire feeding speed ranging from 0.2 m/min to 1.8 m/min. With wire feeding speed of 0.2 m/min and 0.4 m/min, the established molten bond between the molten pool on the workpiece and the feeding wire-end was weak. The molten bond was narrower than the wire-end, so the molten bond easily broke and a pendant droplet formed at the wire-end. As wire feeding speed increases, the molten bond between the workpiece and the wire-end becomes stable. High wetting in the molten bond can be seen in coaxial DED-LB/W with wire feeding speed of 0.6 m/min and 0.8 m/min, indicating the stable process state [11,13]. Increasing wire feeding speed to 1.0 m/min, the wire-end was inserted into the molten pool on the workpiece and low wetting was observed in the molten bond. The process states were still stable in wire feeding speed ranging from 1.0 m/min to 1.4 m/min. However, the feeding wire was shaken violently in the whole coaxial DED-LB/W process when the wire feeding speed was in the range of 1.6–1.8 m/min.
+Fig. 9
+Download: Download high-res image (2MB)
+Download: Download full-size image
+Fig. 9. Images of coaxial DED-LB/W process states, with the laser power of 1200 W and working distance of 8 mm, for varying wire feeding speed from 0.2 m/min to 1.8 m/min.
+
+In powder-based laser deposition, the effect of energy density on the formation of the deposition was discussed in detail [34,35]. Different from powder-based laser deposition, not all the laser energy was used to melt the wire in coaxial DED-LB/W process. Therefore, it is necessary to achieve the laser energy used for melting the wire, and the energy density (
+) of coaxial DED-LB/W process was calculated using Eq. (8).
+(8)
+where 
+ is the proportion of energy of wire to laser, 
+ is the cross-sectional area of the feeding wire, 
+ is the wire feeding speed. According to Eq. (8), the energy densities of coaxial DED-LB/W processes with various wire feeding speed of 0.2–1.8 m/min were calculated in Fig. 10. It is shown that the metal transfer modes in coaxial DED-LB/W are closely related to the energy density of the coaxial DED-LB/W in Fig. 9, Fig. 10. When the value of energy density exceeds 11 J/mm3, the coaxial DED-LB/W process state shows unstable liquid bridge or pendant droplet. The stable liquid bridge process was seen in the energy density ranging from 7 J/mm3 to 11 J/mm3 and the stable wire penetration process in the energy density of 4–7 J/mm3. As the value of energy density was lower than 4 J/mm3, the metal transfer process was unstable.
+Fig. 10
+Download: Download high-res image (269KB)
+Download: Download full-size image
+Fig. 10. Energy density of coaxial DED-LB/W processes with the laser power of 1200 W and working distance of 8 mm, for varying wire feeding speed from 0.2 m/min to 1.8 m/min.
+
+Fig. 2, Fig. 11 show the metal transfer processes with different working distances ranging from 4 mm to 10 mm. When the working distance is 10 mm, the proportion of energy of wire to laser was 16 %, indicating that only a small fraction of laser energy was used to melt the wire. The laser energy was too low to melt the feeding wire fully, so the metal transfer process with working distance of 10 mm was unstable. With decreasing the working distances from 10 mm to 4 mm, the proportion of energy of wire to laser was increased from 16 % to 60 %. More laser energy was used to melt the wire and the metal transfer process shows unstable liquid bridge. According to Eq. (8), the values of energy density with various working distances were shown in Fig. 11. The relationship between metal transfer processes and energy density is also in accordance with the law. Unstable liquid bridge or pendant droplet, stable liquid bridge, stable wire penetration, and unstable process are with the energy density in a range of >11 J/mm3, 7–11 J/mm3, 4–7 J/mm3, <4 J/mm3, respectively.
+Fig. 11
+Download: Download high-res image (233KB)
+Download: Download full-size image
+Fig. 11. Energy density of coaxial DED-LB/W processes with the laser power of 1200 W and wire feeding speed of 1 m/min, for varying working distance from 4 mm to 10 mm, which correspond to Fig. 2.
+
+The metal transfer processes for varying laser power from 900 W to 1800 W were observed in Fig. 12. Stable wire penetration processes were seen with laser power of 900 W and 1200 W, and stable liquid bridge processes were detected with laser power of 1500 W and 1800 W. The variations of energy density for different laser power are depicted in Fig. 13 according to Eq. (8). It is seen that the values of the energy density were increased with increasing the laser power. Metal transfer processes showing stable wire penetration have the energy density in a range of 4–7 J/mm3, and metal transfer processes showing stable liquid bridge own the energy density ranging from 7 J/mm3 to 11 J/mm3.
+Fig. 12
+Download: Download high-res image (1MB)
+Download: Download full-size image
+Fig. 12. Images of coaxial DED-LB/W process states, with the working distance of 8 mm and wire feeding speed of 1 m/min, for varying laser power from 900 to 1800 W.
+
+Fig. 13
+Download: Download high-res image (244KB)
+Download: Download full-size image
+Fig. 13. Energy density of coaxial DED-LB/W processes with the working distance of 8 mm and wire feeding speed of 1 m/min, for varying laser power from 900 W to 1800 W.
+
+To qualitatively and quantitatively reveal the variations of metal transfer processes with different coaxial DED-LB/W variables, the energy density of coaxial DED-LB/W process was proposed. The proportion of energy of wire to laser was the key to calculate the energy density. The metal transfer modes are related to the energy density. As depicted in Fig. 14, the relationship between metal transfer modes in coaxial DED-LB/W and energy density obeys the law: unstable liquid bridge or pendant droplet (>11 J/mm3), stable liquid bridge (7–11 J/mm3), stable wire penetration (4–7 J/mm3), and unstable process (<4 J/mm3). The law is suitable for coaxial DED-LB/W with different coaxial DED-LB/W variables (i.e., wire feeding speed, working distance, and laser power). In order to obtain good formation of deposition in proper metal transfer modes, a large number of experiments should be carried out in coaxial DED-LB/W to determine the metal transfer modes and process window [[36], [37], [38]]. Besides, numerical modelling using volume of fluid method helps predict the wire melting, involving complicated equations [39,40]. The modelling in the study only involves simple equations and is used to estimate metal transfer modes efficiently. The scope of this experimental investigation was limited to titanium alloy with a diameter of 1.2 mm. Consequently, the modelling to estimate metal transfer modes may not be directly applicable to other materials (e.g., stainless steels and aluminum alloys) or different wire diameters. Further research is recommended to validate and extend the proposed method to a wider range of materials and diameters.
+Fig. 14
+Download: Download high-res image (667KB)
+Download: Download full-size image
+Fig. 14. The process map correlating process parameters (working distance, laser power, and wire feeding speed) and metal transfer modes: (a) working distance of 4 mm, (b) working distance of 6 mm, (c) working distance of 8 mm, (d) working distance of 10 mm. The stable wire penetration and stable liquid bridge zones indicate a stability process map.
+
+4. Conclusions
+In this research, a direction-independent coaxial DED-LB/W process using an annular laser beam was proposed. Within the tested parameter range (working distances of 4–10 mm, laser power of 900–1800 W, and wire feeding speed of 0.2–1.8 m/min), metal transfer behaviors were investigated in coaxial DED-LB/W process using an annular laser beam with a specific position of wire to laser beam. Furthermore, an easy-to-use parameter involving different coaxial DED-LB/W variables is proposed for the practice use to estimate the metal transfer mode. The following conclusions are drawn.
+(1)
+Metal transfer processes in coaxial DED-LB/W are primarily classified four modes, i.e., unstable liquid bridge or pendant droplet, stable liquid bridge, stable wire penetration, and unstable process. Metal transfer behaviors play an important role in determining the process quality, and the stable and smooth deposition can be achieved in the stable liquid bridge or stable wire penetration process.
+(2)
+Laser irradiance was influenced by the laser spot sizes and shapes for different working distances. At working distances of 8 mm and 10 mm, the workpiece received the laser beam with low laser irradiance. At working distances of 4 mm and 6 mm, both the workpiece and the wire received the laser beam with high laser irradiance. The size of melting zone on the workpiece decreases and the temperature variation within the melting zone increases with the working distance decreasing.
+(3)
+The position of wire to laser beam also corresponds to the working distance. The absorbed power within the wire is essential in metal transfer process. The proportion of energy of wire to laser was proposed in order to depict the absorbed power using workpiece temperature calculated with the function of laser irradiance and heat conduction. The estimated proportions of energy of wire to laser were 16 %, 32 %, 43 % and 60 % with working distances of 10 mm, 8 mm, 6 mm and 4 mm, respectively.
+(4)
+The proposed law linking energy density to metal transfer modes (i.e., unstable liquid bridge or pendant droplet, stable liquid bridge, stable wire penetration, and unstable process) can be applied in coaxial DED-LB/W with different coaxial DED-LB/W variables (i.e., wire feeding speed, working distance and laser power). The sound beads can be achieved in stable liquid bridge process with energy density of 7–11 J/mm3 or in stable wire penetration process with energy density of 4–7 J/mm3.
