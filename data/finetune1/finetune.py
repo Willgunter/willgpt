@@ -1,3 +1,4 @@
+import argparse
 import re
 from datasets import Dataset
 from unsloth import FastLanguageModel
@@ -7,15 +8,34 @@ from transformers import TrainingArguments, Trainer
 # Config
 # -----------------------------
 MODEL_NAME = "Qwen/Qwen3-0.6B"
-DATA_PATH = "data.txt"
-SPLIT_TOKEN = r"---WILLGPT---"
-MAX_LENGTH = 2048
+SPLIT_TOKEN = "---WILLGPTSTART---"
+MAX_LENGTH = 16384
+
+parser = argparse.ArgumentParser(description="Finetune Qwen with Unsloth.")
+parser.add_argument(
+    "--data-path",
+    default="formatted_data.txt",
+    help="Path to the raw training text file.",
+)
+parser.add_argument(
+    "--debug",
+    action="store_true",
+    help="Print diagnostics about splitting/tokenization.",
+)
+args = parser.parse_args()
+DATA_PATH = args.data_path
+DEBUG = args.debug
 
 # -----------------------------
 # Load + split raw text
 # -----------------------------
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     raw_text = f.read()
+
+if DEBUG:
+    print(f"Raw text length (chars): {len(raw_text)}")
+    print(f"Split token: {SPLIT_TOKEN!r}")
+    print(f"Split token occurrences: {raw_text.count(SPLIT_TOKEN)}")
 
 chunks = [
     c.strip()
@@ -25,6 +45,13 @@ chunks = [
 
 dataset = Dataset.from_dict({"text": chunks})
 print(f"Loaded {len(chunks)} examples")
+if DEBUG and chunks:
+    preview = chunks[0][:500]
+    print("First chunk preview (first 500 chars):")
+    print(preview)
+    if len(chunks) > 1:
+        print("Second chunk preview (first 200 chars):")
+        print(chunks[1][:200])
 
 # -----------------------------
 # Load model with Unsloth
