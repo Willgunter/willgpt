@@ -82,12 +82,28 @@ def tokenize(example):
         example["text"],
         truncation=True,
         max_length=MAX_LENGTH,
-        padding=False,
+        padding=MAX_LENGTH, # FALSE gives errors, MAX_LENGTH == ???
     )
     tokens["labels"] = tokens["input_ids"].copy()
     return tokens
 
 tokenized = dataset.map(tokenize, remove_columns=["text"])
+
+# -----------------------------
+# Debug token lengths
+# -----------------------------
+if DEBUG:
+    lengths = [len(x) for x in tokenized["input_ids"]]
+    if lengths:
+        lengths_sorted = sorted(lengths)
+        min_len = lengths_sorted[0]
+        max_len = lengths_sorted[-1]
+        mid_len = lengths_sorted[len(lengths_sorted) // 2]
+        print(f"Tokenized lengths: min={min_len}, median={mid_len}, max={max_len}")
+        print(f"First 10 lengths: {lengths_sorted[:10]}")
+        print(f"Last 10 lengths: {lengths_sorted[-10:]}")
+    else:
+        print("Tokenized lengths: no samples")
 
 # -----------------------------
 # Training config
