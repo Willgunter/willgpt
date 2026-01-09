@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
 import torch
+from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
 HERE = Path(__file__).resolve().parent
@@ -106,6 +107,16 @@ def parse_args() -> argparse.Namespace:
         help="Hugging Face model ID to run.",
     )
     parser.add_argument(
+        "--adapter-path",
+        default=None,
+        help="Optional LoRA adapter path. If set, loads base model then adapter.",
+    )
+    parser.add_argument(
+        "--merge-lora",
+        action="store_true",
+        help="If set with --adapter-path, merge the LoRA into the base before eval.",
+    )
+    parser.add_argument(
         "--output-dir",
         default=None,
         help="Directory to write results. Defaults to evals/custom-evals/runs/<timestamp>.",
@@ -155,12 +166,17 @@ def main() -> None:
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    model = AutoModelForCausalLM.from_pretrained(
+    base_model = AutoModelForCausalLM.from_pretrained(
         args.model,
         torch_dtype=torch_dtype,
         device_map=args.device_map,
         trust_remote_code=args.trust_remote_code,
     )
+    if args.adapter_path:
+        peft_model = PeftModel.from_pretrained(base_model, args.adapter_path)
+        model = peft_model.merge_and_unload() if args.merge_lora else peft_model
+    else:
+        model = base_model
     model.eval()
 
     results_path = output_dir / "results.jsonl"
@@ -181,6 +197,8 @@ def main() -> None:
         "trust_remote_code": args.trust_remote_code,
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "prompt_count": len(prompts),
+        "adapter_path": args.adapter_path,
+        "merge_lora": args.merge_lora,
     }
     run_config_path.write_text(json.dumps(run_config, indent=2))
 

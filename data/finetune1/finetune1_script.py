@@ -7,7 +7,6 @@ from transformers import TrainingArguments, Trainer, DataCollatorForLanguageMode
 # -----------------------------
 # Config
 # -----------------------------
-MODEL_NAME = "Qwen/Qwen3-0.6B"
 SPLIT_TOKEN = "---WILLGPTSTART---"
 MAX_LENGTH = 16384
 
@@ -18,12 +17,18 @@ parser.add_argument(
     help="Path to the raw training text file.",
 )
 parser.add_argument(
+    "--model",
+    default="Qwen/Qwen3-0.6B",
+    help="Base or merged model ID/path to load with Unsloth.",
+)
+parser.add_argument(
     "--debug",
     action="store_true",
     help="Print diagnostics about splitting/tokenization.",
 )
 args = parser.parse_args()
 DATA_PATH = args.data_path
+MODEL_NAME = args.model
 DEBUG = args.debug
 
 # -----------------------------
