@@ -2,7 +2,7 @@ import argparse
 import re
 from datasets import Dataset
 from unsloth import FastLanguageModel
-from transformers import TrainingArguments, Trainer
+from transformers import TrainingArguments, Trainer, DataCollatorForLanguageModeling
 
 # -----------------------------
 # Config
@@ -62,6 +62,8 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     dtype = None,
     load_in_4bit = True,
 )
+if tokenizer.pad_token_id is None:
+    tokenizer.pad_token = tokenizer.eos_token
 
 # Enable LoRA
 model = FastLanguageModel.get_peft_model(
@@ -82,9 +84,8 @@ def tokenize(example):
         example["text"],
         truncation=True,
         max_length=MAX_LENGTH,
-        padding=MAX_LENGTH, # FALSE gives errors, MAX_LENGTH == ???
+        padding=False,
     )
-    tokens["labels"] = tokens["input_ids"].copy()
     return tokens
 
 tokenized = dataset.map(tokenize, remove_columns=["text"])
@@ -114,17 +115,32 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=8,
     num_train_epochs=2,
     learning_rate=2e-4,
-    logging_steps=25,
+    logging_steps=10, # set back to 25
     save_steps=500,
     fp16=True,
     report_to="none",
 )
 
+data_collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
+
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized,
+    data_collator=data_collator
 )
+
+# if DEBUG:
+    # batch = next(iter(trainer.get_train_dataloader()))
+    # labels = batch["labels"]
+    # input_ids = batch["input_ids"]
+    # pad_id = tokenizer.pad_token_id
+    # num_pad_labels = (labels == pad_id).sum().item()
+    # num_ignore_labels = (labels == -100).sum().item()
+    # total_labels = labels.numel()
+    # print("Pad labels:", num_pad_labels)
+    # print("Ignore labels:", num_ignore_labels)
+    # print("Total labels:", total_labels)
 
 # -----------------------------
 # Train
