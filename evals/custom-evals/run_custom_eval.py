@@ -83,14 +83,17 @@ def build_output_dir(path_str: str | None) -> Path:
     return HERE / "runs" / timestamp
 
 
-def slice_generation(output_ids: torch.Tensor, input_len: int, eos_token_id: int | None) -> torch.Tensor:
-    gen_ids = output_ids[input_len:]
-    if eos_token_id is None:
-        return gen_ids
-    eos_positions = (gen_ids == eos_token_id).nonzero(as_tuple=True)[0]
-    if eos_positions.numel():
-        return gen_ids[: eos_positions[0].item()]
-    return gen_ids
+# def slice_generation(output_ids: torch.Tensor, input_len: int, eos_token_id: int | None) -> torch.Tensor:
+#     gen_ids = output_ids[input_len:]
+#     if eos_token_id is None:
+#         return gen_ids
+#     eos_positions = (gen_ids == eos_token_id).nonzero(as_tuple=True)[0]
+#     if eos_positions.numel():
+#         return gen_ids[: eos_positions[0].item()]
+#     return gen_ids
+def slice_generation(output_ids, input_len, eos_token_id):
+    return output_ids[input_len:]
+
 
 
 def parse_args() -> argparse.Namespace:
@@ -251,6 +254,7 @@ def main() -> None:
                 }
                 results_file.write(json.dumps(result, ensure_ascii=True) + "\n")
                 writer.writerow([record["id"], record["prompt"], response_text, "", ""])
+                print(f"response: {response_text}")
             completed += len(batch)
             print(f"Completed {completed} / {total} prompts")
 

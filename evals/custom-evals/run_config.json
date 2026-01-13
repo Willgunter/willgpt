@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen3-0.6B-Base",
+  "prompts": "/content/drive/MyDrive/AI/willgpt/evals/custom-evals/prompts.jsonl",
+  "max_new_tokens": 512,
+  "max_input_tokens": 2048,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "batch_size": 8,
+  "dtype": "auto",
+  "device_map": "auto",
+  "seed": null,
+  "trust_remote_code": false,
+  "timestamp": "2026-01-09 23:58:50",
+  "prompt_count": 59,
+  "adapter_path": "./unsloth-qwen-lora",
+  "merge_lora": false
+}

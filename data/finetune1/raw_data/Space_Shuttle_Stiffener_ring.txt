@@ -1,9 +1,0 @@
-Space Shuttle Stiffener Ring Foam Failure Analysis, A Non-conventional Approach.
-The Space Shuttle Program made use of the excellent properties of rigid polyurethane
-foam for cryogenic tank insulation and as structural protection on the solid rocket
-boosters. When foam applications de-bond, classical methods of failure analysis did not
-provide root cause of the failure of the foam. Realizing that foam is the ideal media to
-document and preserve its own mode of failure, thin sectioning was seen as a logical
-approach for foam failure analysis to observe the three dimensional morphology of the
-foam cells. The cell foam morphology provided a much greater understanding of the
-failure modes than previously achieved. 
