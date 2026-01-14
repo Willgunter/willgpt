@@ -1,14 +1,27 @@
 import argparse
 import re
+
+import torch
 from datasets import Dataset
 from unsloth import FastLanguageModel
-from transformers import TrainingArguments, Trainer, DataCollatorForLanguageModeling
+from transformers import Trainer, TrainingArguments
 
 # -----------------------------
 # Config
 # -----------------------------
 SPLIT_TOKEN = "---WILLGPTSTART---"
 MAX_LENGTH = 16384
+SYSTEM_PROMPT = (
+    "You are an expert extreme-conditions systems engineer who performs complete, "
+    "first-principles failure analyses. Follow the numbered checklist: identify explicit "
+    "and hidden assumptions, map to governing physics, interdependencies, boundary "
+    "conditions, temporal evolution, safety margins, and robustness. Return a structured, "
+    "exhaustive analysis in prose with clear headers."
+)
+REQUEST_PROMPT = (
+    "Produce the full structured analysis according to the checklist above for the provided "
+    "raw technical material."
+)
 
 parser = argparse.ArgumentParser(description="Finetune Qwen with Unsloth.")
 parser.add_argument(
@@ -84,16 +97,36 @@ model = FastLanguageModel.get_peft_model(
 # -----------------------------
 # Tokenization
 # -----------------------------
-def tokenize(example):
-    tokens = tokenizer(
-        example["text"],
-        truncation=True,
-        max_length=MAX_LENGTH,
-        padding=False,
+def tokenize_pair(example):
+    # Build an instruction-style prompt and only train on the response portion.
+    prompt = (
+        f"{SYSTEM_PROMPT}\n\n"
+        "User Instruction:\n"
+        f"{REQUEST_PROMPT}\n\n"
+        "Assistant Response:\n"
     )
-    return tokens
+    prompt_ids = tokenizer(prompt, add_special_tokens=False)["input_ids"]
+    answer_text = example["text"]
+    answer_ids = tokenizer(answer_text + tokenizer.eos_token, add_special_tokens=False)["input_ids"]
 
-tokenized = dataset.map(tokenize, remove_columns=["text"])
+    # Truncate answer if needed to respect the context window.
+    max_answer_len = MAX_LENGTH - len(prompt_ids)
+    if max_answer_len <= 0:
+        raise ValueError("Prompt is longer than MAX_LENGTH. Reduce prompt text or increase MAX_LENGTH.")
+    if len(answer_ids) > max_answer_len:
+        answer_ids = answer_ids[:max_answer_len]
+
+    input_ids = prompt_ids + answer_ids
+    labels = [-100] * len(prompt_ids) + answer_ids
+    attention_mask = [1] * len(input_ids)
+    return {
+        "input_ids": input_ids,
+        "labels": labels,
+        "attention_mask": attention_mask,
+    }
+
+
+tokenized = dataset.map(tokenize_pair, remove_columns=["text"])
 
 # -----------------------------
 # Debug token lengths
@@ -118,15 +151,31 @@ training_args = TrainingArguments(
     output_dir="./unsloth-qwen",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=8,
-    num_train_epochs=2,
-    learning_rate=2e-4,
+    num_train_epochs=1,
+    learning_rate=1e-4,
     logging_steps=10, # set back to 25
     save_steps=500,
     fp16=True,
     report_to="none",
 )
 
-data_collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
+def data_collator(features):
+    max_len = max(len(f["input_ids"]) for f in features)
+    input_ids = []
+    attention_masks = []
+    labels = []
+    pad_id = tokenizer.pad_token_id
+    label_pad = -100
+    for f in features:
+        pad_len = max_len - len(f["input_ids"])
+        input_ids.append(f["input_ids"] + [pad_id] * pad_len)
+        attention_masks.append(f["attention_mask"] + [0] * pad_len)
+        labels.append(f["labels"] + [label_pad] * pad_len)
+    return {
+        "input_ids": torch.tensor(input_ids, dtype=torch.long),
+        "attention_mask": torch.tensor(attention_masks, dtype=torch.long),
+        "labels": torch.tensor(labels, dtype=torch.long),
+    }
 
 trainer = Trainer(
     model=model,
