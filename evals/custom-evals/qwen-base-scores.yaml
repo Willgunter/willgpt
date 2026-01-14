@@ -196,41 +196,41 @@ score: 1/2
 explanation: not great answer, but did list some things
 
 question id: a6
-score: x/2
-explanation:
+score: 0/2
+explanation: dove deeply into one answer, but did not go into other assumptions. also repeated nonsense
 
 question id: a7
-score: x/2
-explanation:
+score: 0/2
+explanation: nonsense answer
 
 question id: a8
-score: x/2
-explanation:
+score: 1/2
+explanation: lists some assumptions, but lists nonsense as well
 
 question id: a9
-score: x/2
-explanation:
+score: 0/2
+explanation: repeated answer
 
 question id: a10
-score: x/2
-explanation:
+score: 1/2
+explanation: good answer reasoning, but does not list assumptions correctly
 
 question id: a11
-score: x/2
-explanation:
+score: 0/2
+explanation: just repeated the question
 
 question id: a12
-score: x/2
-explanation:
+score: 2/2
+explanation: good answer, good reasonoing
 
 question id: a13
-score: x/2
-explanation:
+score: 0/2
+explanation: nonsense repeated answer
 
 question id: a14
-score: x/2
-explanation:
+score: 0/2
+explanation: nonsense car physics problem
 
 question id: a15
-score: x/2
-explanation:
+score: 0/2
+explanation: nonsense repeated question
