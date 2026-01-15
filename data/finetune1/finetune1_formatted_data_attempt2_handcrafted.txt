@@ -24,10 +24,72 @@ A:
 - Improved tensile and bending effects and more effective mobilization of the rebar's tensile capacity
 - Improved slip resistance and enlarged mortar damage zone due to rebars rib induced scraping action
 ---WILLGPTSTART---
-Q: 
+Q: How does cold deformation and crevice geometry affect stress corrosion cracking behavior of stainless steel? 
 
 A: 
+- Accelerates crevice corrosion
+- Degrades protective quality of passive film
+- Induces high density of dislocations
+---WILLGPTSTART---
+Q: What morphological changes occur to Litium-ion batteries under high-velocity impacts?
 
+A: 
+- The outer case undergoes extensive tearing
+- The internal structure of the battery is severely damaged
+- The wound electrode layer is torn or deformed by compression.
+- Significant mechanical damage and internal decomposition
+- Local melting and carbinization
+---WILLGPTSTART---
+Q: What properties do manufacturing approach and filament choice affect in additive manufacturing (3D printing)
+
+
+A: ,
+- Cost of final product
+- Physical properties of final product
+- Mechanical properties of final product
+- Thermal properties of final product
+- Flexibility of final product
+
+---WILLGPTSTART---
+Q: What failure modes under improper settings during additive manufacturing (3D printing)?
+
+A: 
+- Underextrusion
+- Poor layer adhesion
+- Thermal deformation
+- Structural weakness
+- Layer-by-layer constructions results in weak interlayer bonding, resulting in premature failure.
+---WILLGPTSTART---
+Q: What properties of Polylactic acid (PLE) make it a widely used material for additive manufacturing (3D printing)
+
+
+A: 
+- Biodegradability
+- Sustainability
+- Excellent printability
+- Low melting point
+- Low oder / fumes
+- Solid layer adhesion
+- Poses fewer health risks
+- Recyclability
+---WILLGPTSTART---
+Q:  What properties make the piston–cylinder liner pair one of the most failure-prone components in heavy-duty diesel engines?
+
+A: 
+- The piston crown is exposed to combustion gases > 2000 °C
+- The sliding contact between the piston rings and the liner wall reaches 300 - 400 °C
+- The liner must withstand explosion pressures over 10 MPa and high-frequency reciprocating inertial forces
+- Carbon deposits and acidic oxides generated during combustion corrode the contact surfaces
+- Lubricating oil film may rupture under heavy loads, leading to boundary or even dry friction
+---WILLGPTSTART---
+Q: What primary factors contribute to crankshaft failure in diesel engines?
+
+A: 
+- Excessive bending vibrations due to imbalance
+- The absence of a proper balancing system
+- Inadequate lubrication between the bearings and journals
+- High combustion pressures within the cylinders
+- Manufacturing defects, particularly in the fillet regions of the crankpin-web and main journal-web transitions
 ---WILLGPTSTART---
 Q: 
 
@@ -127,39 +189,3 @@ A:
 Q: 
 
 A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
