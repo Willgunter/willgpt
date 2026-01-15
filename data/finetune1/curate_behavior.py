@@ -8,6 +8,7 @@ finetune1_formatted_data_attempt2.txt.
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 from pathlib import Path
 
@@ -58,6 +59,12 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=0.003,
         help="Optional sleep (seconds) between requests to avoid rate limits.",
+    )
+    parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=4,
+        help="Number of concurrent requests to send.",
     )
     return parser.parse_args()
 
@@ -132,17 +139,24 @@ def main() -> None:
     if not examples:
         raise SystemExit("No examples found.")
 
-    processed = []
-    for idx, ex in enumerate(examples, 1):
+    processed: list[str] = [""] * len(examples)
+
+    def process_example(idx: int, ex: str) -> tuple[int, str]:
         try:
             processed_ex = apply_prompt(client, args.model, args.system, ex)
+            if args.sleep > 0:
+                time.sleep(args.sleep)
             print(f"Received response #{idx}")
+            return idx, processed_ex
         except Exception as exc:  # noqa: BLE001
             print(f"Error on example {idx}: {exc}")
-            processed_ex = ""
-        processed.append(processed_ex)
-        if args.sleep > 0:
-            time.sleep(args.sleep)
+            return idx, ""
+
+    with ThreadPoolExecutor(max_workers=args.concurrency) as executor:
+        futures = [executor.submit(process_example, idx, ex) for idx, ex in enumerate(examples, 1)]
+        for fut in as_completed(futures):
+            idx, processed_ex = fut.result()
+            processed[idx - 1] = processed_ex
 
     output_text = "\n".join(f"{args.split_token}\n\n{ex}" for ex in processed)
     args.output.write_text(output_text + "\n", encoding="utf-8")
