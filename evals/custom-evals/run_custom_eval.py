@@ -185,6 +185,9 @@ def main() -> None:
     results_path = output_dir / "results.jsonl"
     review_path = output_dir / "review.csv"
     run_config_path = output_dir / "run_config.json"
+    repitition_penalty_param = 1.15
+    no_repeat_ngram_size_param = 4
+    
 
     run_config = {
         "model": args.model,
@@ -196,6 +199,8 @@ def main() -> None:
         "batch_size": args.batch_size,
         "dtype": args.dtype,
         "device_map": args.device_map,
+        "repotition_penalty": repitition_penalty_param,
+        "no_repeat_ngram_size": no_repeat_ngram_size_param,
         "seed": args.seed,
         "trust_remote_code": args.trust_remote_code,
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -236,7 +241,8 @@ def main() -> None:
                     temperature=args.temperature,
                     top_p=args.top_p,
                     do_sample=do_sample,
-                    pad_token_id=tokenizer.eos_token_id,
+                    repetition_penalty=repitition_penalty_param,
+                    no_repeat_ngram_size=no_repeat_ngram_size_param,
                 )
 
             for idx, record in enumerate(batch):
