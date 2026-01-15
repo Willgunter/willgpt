@@ -1,22 +1,28 @@
 ---WILLGPTSTART---
-Q: (REWORD!!!) What are potential side effects of using industrial grade 17-4 PH SS as oppose to aerospace grade stainless steel in a rocket under cryogenic conditions and strenues flight environments?
-
-spacex direct cause of launch vehicle failure = rupture of Stage 2 LOx tank.
-. helium filled composite overwrapped pressure vessel became liberated within stage 2 LOx tank + hit dome causing it to rupture
-
-leak in annulus of LOx Transfer tube that runs from Stage 2 LOx tank down through Stage 2 ROcket Propellant 1 tank into stage 2 engine
+Q: What are some key factors that drive growth in behind-the-meter Photo-Voltaic systems?
 
 A: 
+- Costs of Photovoltaic has fallen by 50% over the last years
+- Levelized electricity costs are now below $0.16 per kWh for distributed rooftop systems in many regions 
+- State and federal subsidies improve the private economics of PV, for example, the federal investment tax credit, which covers up to 30% of installation costs
+- Net-metering policies, where utilities pay customers for hourly energy production that exceeds their consumption, require utility companies to purchase excess distributed solar PV production at retail rates.
 ---WILLGPTSTART---
-Q: 
+Q: What qualities make relay-based Ising machines a promising approach for efficiently solving complex combinatorial optimization problems?
 
-A: 
+A:
+- Adequate endurance (~300 years)
+- Fast computing speed
+- Scalable device design
+- Wide-range operating temperature range
+- Compatibility with CMOS process technology
 
 ---WILLGPTSTART---
-Q: 
+Q: What properties of EMGRAs could potentially assist with optimizing anchorage design in rock mass engineering?
 
 A: 
-
+- Experimental increase of > 50% pull-out resistance of EMTRAs compared to OM-grouted anchors
+- Improved tensile and bending effects and more effective mobilization of the rebar's tensile capacity
+- Improved slip resistance and enlarged mortar damage zone due to rebars rib induced scraping action
 ---WILLGPTSTART---
 Q: 
 
