@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """
-Generate question prompts for LONG_ANALYSIS blocks in finetune1_formatted_data_attempt2.txt.
+Generate questions for LONG_ANALYSIS blocks in finetune1_formatted_data_attempt2.txt.
 
-For each LONG_ANALYSIS, we ask the model to propose a single realistic question that
-would elicit that analysis (no short bullet answers). Output is formatted as:
+For each LONG_ANALYSIS, ask the model for one realistic question that would elicit
+that analysis. Output is a Q/A block where the answer is the original LONG_ANALYSIS
+paragraph, matching the dataset style:
 
 ---WILLGPTSTART---
 
 Q: <generated question>
 
-LONG_ANALYSIS:
+A:
 <original long analysis text>
 
-Use --limit to test a few samples (e.g., 2 or 3).
+Use --limit to test a few samples (e.g., 2 or 3). The original dataset is not
+modified; results are written to a separate output file.
 """
 
 from __future__ import annotations
@@ -51,8 +53,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("data/finetune1/finetune1_long_analysis_questions.txt"),
-        help="Where to write the Q + LONG_ANALYSIS merged output.",
+        default=Path("data/finetune1/finetune1_long_analysis_QA.txt"),
+        help="Where to write the Q/A blocks derived from LONG_ANALYSIS.",
     )
     parser.add_argument(
         "--model",
@@ -100,10 +102,12 @@ def generate_question(client: OpenAI, model: str, long_text: str) -> str:
     resp = client.chat.completions.create(
         model=model,
         messages=messages,
-        temperature=0.2,
     )
-    content = resp.choices[0].message.content or ""
-    return content.strip()
+    content = (resp.choices[0].message.content or "").strip()
+    # Normalize: strip leading "Q:" if present; we'll add it back consistently.
+    if content.lower().startswith("q:"):
+        content = content.split(":", 1)[1].strip()
+    return content
 
 
 def main() -> None:
@@ -121,8 +125,8 @@ def main() -> None:
             print(f"Generated question #{idx}")
         except Exception as exc:  # noqa: BLE001
             print(f"Error on LONG_ANALYSIS #{idx}: {exc}")
-            question = "Q: [ERROR]"
-        block = f"{SPLIT_TOKEN}\n\n{question}\n\nLONG_ANALYSIS:\n{long_text}"
+            question = "[ERROR]"
+        block = f"{SPLIT_TOKEN}\n\nQ: {question}\n\nA:\n{long_text}"
         outputs.append(block)
         if args.sleep > 0:
             time.sleep(args.sleep)
