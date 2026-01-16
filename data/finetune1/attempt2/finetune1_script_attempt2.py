@@ -22,15 +22,11 @@ QA_USER_PROMPT = (
     "Answer the engineering question with 3–8 concise bullet points focused only on assumptions, "
     "operating limits, or failure modes. No equations, no extra exposition."
 )
-LONG_USER_PROMPT = (
-    "Provide one concise LONG_ANALYSIS paragraph describing the cause → effect → failure chain. "
-    "State assumptions, what changes under stress, and the qualitative mechanism."
-)
 
 parser = argparse.ArgumentParser(description="Finetune Qwen with Unsloth.")
 parser.add_argument(
     "--data-path",
-    default="formatted_data.txt",
+    default="data/finetune1/attempt2/finetune1_formatted_data_attempt2.txt",
     help="Path to the raw training text file.",
 )
 parser.add_argument(
@@ -66,16 +62,6 @@ chunks = [
 ]
 
 def parse_chunk(chunk: str):
-    # LONG_ANALYSIS block
-    if "LONG_ANALYSIS:" in chunk:
-        long_text = chunk.split("LONG_ANALYSIS:", 1)[1].strip()
-        if long_text:
-            return {
-                "kind": "long",
-                "instruction": LONG_USER_PROMPT,
-                "response": long_text,
-            }
-    # Q/A block
     q_match = re.search(r"Q:\\s*(.+?)(?:\\n\\n|\\nA:|$)", chunk, re.S)
     a_match = re.search(r"A:\\s*(.+)", chunk, re.S)
     if q_match and a_match:
@@ -83,20 +69,17 @@ def parse_chunk(chunk: str):
         answer = a_match.group(1).strip()
         if question and answer:
             return {
-                "kind": "qa",
                 "instruction": question,
                 "response": answer,
             }
     # fallback: treat the whole chunk as a response-only example
     return {
-        "kind": "qa",
         "instruction": QA_USER_PROMPT,
         "response": chunk.strip(),
     }
 
 parsed = [parse_chunk(c) for c in chunks]
 dataset = Dataset.from_dict({
-    "kind": [p["kind"] for p in parsed],
     "instruction": [p["instruction"] for p in parsed],
     "response": [p["response"] for p in parsed],
 })
@@ -105,7 +88,6 @@ print(f"Loaded {len(parsed)} examples")
 if DEBUG and parsed:
     print("Sample parsed entries (up to 2):")
     for row in parsed[:2]:
-        print(f"kind={row['kind']}")
         print(f"instruction preview: {row['instruction'][:200]}")
         print(f"response preview: {row['response'][:200]}")
         print("---")
@@ -138,19 +120,12 @@ model = FastLanguageModel.get_peft_model(
 # -----------------------------
 def tokenize_pair(example):
     # Build an instruction-style prompt and only train on the response portion.
-    if example["kind"] == "long":
-        user_prompt = (
-            f"{SYSTEM_PROMPT}\n\n"
-            f"{LONG_USER_PROMPT}\n\n"
-            "LONG_ANALYSIS:\n"
-        )
-    else:
-        user_prompt = (
-            f"{SYSTEM_PROMPT}\n\n"
-            f"{QA_USER_PROMPT}\n\n"
-            f"Q: {example['instruction']}\n\n"
-            "A:\n"
-        )
+    user_prompt = (
+        f"{SYSTEM_PROMPT}\n\n"
+        f"{QA_USER_PROMPT}\n\n"
+        f"Q: {example['instruction']}\n\n"
+        "A:\n"
+    )
 
     prompt_ids = tokenizer(user_prompt, add_special_tokens=False)["input_ids"]
     answer_text = example["response"]
@@ -173,7 +148,7 @@ def tokenize_pair(example):
     }
 
 
-tokenized = dataset.map(tokenize_pair, remove_columns=["kind", "instruction", "response"])
+tokenized = dataset.map(tokenize_pair, remove_columns=["instruction", "response"])
 
 # -----------------------------
 # Debug token lengths

@@ -106,7 +106,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--model",
-        default="Qwen/Qwen3-4B-Base",
+        default="Qwen/Qwen3-0.6-Base",
         help="Hugging Face model ID to run.",
     )
     parser.add_argument(
