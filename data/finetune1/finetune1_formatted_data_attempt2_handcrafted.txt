@@ -43,7 +43,7 @@ A:
 Q: What properties do manufacturing approach and filament choice affect in additive manufacturing (3D printing)
 
 
-A: ,
+A:
 - Cost of final product
 - Physical properties of final product
 - Mechanical properties of final product
@@ -91,101 +91,175 @@ A:
 - High combustion pressures within the cylinders
 - Manufacturing defects, particularly in the fillet regions of the crankpin-web and main journal-web transitions
 ---WILLGPTSTART---
-Q: 
+Q: What properties of the L4 and L5 points make them ideal for space exploration?
+
+A: 
+- Gravatational stability
+- Unique vantage point to explore both solar photosphere, coronal mass ejections, and for forecasting solar particle equivalents
+- Areas of scientific richness due to their accumulation of dust and asteroids
+- Enhanced solar coverage due to a nearly 300° view and coverage of both poles of the sun 
+---WILLGPTSTART---
+Q: What results from the absense of an air preheater in a thermal power station?
+
+A: 
+- Reduced boiler efficiency
+- Wasted heat
+- Increased fuel consumption
+- Decreased combustion 
+- Incomplete burning, slagging, and operational instability
+
+---WILLGPTSTART---
+Q: What are different ways in which cryogenic environments impact multi-cellular organisms?
+
+A: 
+- Cellular dehydration
+- Ice crystal formation
+- Membrane Rigidification and Damage
+- Thermal shock
+- Oxidative Stress and Apoptosis
+---WILLGPTSTART---
+Q: How does high-intensity iodizing radiation exposure impact a personal laptop?
+
+A: 
+- Potential electrical shorts or permanant destruction of a component
+- Gradual degredation in performance of semiconductor components leading to failure
+- Creation of photocurrents thorughout circuites, changing logic states and leading to permanant damage
+---WILLGPTSTART---
+Q: What are the main failure modes of manufacturing semiconductor integrated circuits
 
 A: 
 
 ---WILLGPTSTART---
-Q: 
+Q: What are the main failure modes of PCBs?
 
 A: 
+- Corrosion
+- Solder flux which facilitates corrosion
+- Chlorinated hydrocarbon residues may hydrolyze and release corrosive chlorides
+- Polar covalent compounds like antistatic agents can attract moisture causing parasitic dielectric losses
+- Conductive anodic filaments (CAFs) may grow within PCBs along the fibers of the composite material
+---WILLGPTSTART---
+Q: What are the main failure modes of semiconductor crystals relating to semiconductor crystals?
+
+A: 
+- Nucleation and growth of dislocations.
+- Accumulation of charge carriers trapped in the gate oxide of MOSFETs.
+- Migration of charge carriers from floating gates.
+- Improper passivation.
+- Laser marking of plastic-encapsulated packages may damage the chip if glass spheres in the packaging line up and direct the laser to the chip
+---WILLGPTSTART---
+Q: What are different failures of Gallium arsenide MMICs?
+
+
+A: 
+- Degradation of IDSS by gate sinking and hydrogen poisoning
+- Degradation in gate leakage current.
+- Degradation in pinch-off voltage.
+- Increase in drain-to-source resistance.
+---WILLGPTSTART---
+Q: What physical assumptions are there in deep space satallite communication?
+
+A: 
+- Speed of light limit
+- Inverse square law
+- Precense of noise and interference
+- Signal propagation through a vacuum
+- Highly directional antennas
 
 ---WILLGPTSTART---
-Q: 
+Q: What Engineering and Operational assumptions are there in deep space satallite communication?
 
 A: 
-
+- Highly Directional Antennas
+- Predictable Spacecraft Trajectories
+- Scheduled Communication Windows
+- Store-and-Forward Data Handling
+- On-board Autonomy
 ---WILLGPTSTART---
-Q: 
+Q: Under what conditions does an archimedes screw not function properly?
 
 A: 
-
+- When the screw is perfectly verfical
+- When the screw has excessive gaps
+- When the screw is misaligned
+- If the lifting height or flow rate is too extreme. 
+- If the screw is operating from an incorrect speed or flow rate
 ---WILLGPTSTART---
-Q: 
+Q: What failures might occur when thermal expansion is not accounted for properly in the engine body of an automotive vehicle?
 
 A: 
-
+- Warped cylinder heads
+- Blown head gaskets
+- Cracked engine blocks
+- Scored cylinder walls
+- Piston ring failure
+- Oil leaks from seals (like the main seal or pan gasket)
+- Catastrophic engine failure from components seizing or breaking apart
 ---WILLGPTSTART---
-Q: 
+Q: What assumptions do not hold in deep space when a satallite uses combustion for travel?
 
 A: 
-
+- Convection for heat and mass transfer
+- Atmospheric pressure for exhaust efficiency
+- Air flow for cooling
+- Constant gracitational conditions
 ---WILLGPTSTART---
-Q: 
+Q: What new risks appear when a high compressive strength mechanical system is used in low earth orbit?
 
 A: 
-
+- Atomic oxygen erosion
+- Radiation damage
+- Extreme thermal cycling
+- High-velocity orbital debris impacts
 ---WILLGPTSTART---
-Q: 
+Q: What failure modes occur when a construction beam's elasticity is not properly accounted for?
 
 A: 
-
+- Buckling
+- Shear failure
+- Compression failure
+- Tensile failure
+- Material overload
 ---WILLGPTSTART---
-Q: 
+Q: What principles exist that enable Extreme Ultraviolet (EUV) lithography machines from ASML to exist?
 
 A: 
-
+- Breakthroughs in laser-produced plasma light sources via vaporizing tin droplets
+- Reflective optics
+- Reflective photomasks
+- Extreme vacuum systems
 ---WILLGPTSTART---
-Q: 
+Q: What properties affect the rate of growth of fatigue cracks?
 
 A: 
-
+- Mean stress effect
+- environment, particularly moisture and a vacuum
+- short crack effects
+- underloads
+- overloads
 ---WILLGPTSTART---
-Q: 
+Q: What assumptions of a transverse engine break under low earth orbit?
 
 A: 
-
+- Neglecting thin residual atmosphere (drag)
+- Assumping perfect vacuum for zero aerodynamic forces
+- Ignoring complex aerodynamic torques
+- Treating environment as purely gravitational
 ---WILLGPTSTART---
-Q: 
+Q: What failure modes exist of a spacex satallite going through a CME storm?
 
 A: 
-
+- Radiation damage to electrinics
+- GPS signal loss
+- Navigation errors
+- Increased atmospheric drag in low-earth orbit
 ---WILLGPTSTART---
-Q: 
+Q: What failure modes would exist if datacenters were made more then one story tall?
 
 A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
-
----WILLGPTSTART---
-Q: 
-
-A: 
+- Floor load & foundational strain
+- Vibration & siesmic risk
+- Fire spread
+- Cooling complexity
+- Power distribution
+- Heat dissipation
