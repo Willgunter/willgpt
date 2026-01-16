@@ -107,9 +107,9 @@ if tokenizer.pad_token_id is None:
 # Enable LoRA
 model = FastLanguageModel.get_peft_model(
     model,
-    r = 16,
-    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"],
-    lora_alpha = 32,
+    r = 4, # was 16
+    target_modules = ["q_proj", "v_proj"], # "k_proj", "v_proj", "o_proj"],
+    lora_alpha = 4, # was 32
     lora_dropout = 0.05,
     bias = "none",
     use_gradient_checkpointing = True,
@@ -173,8 +173,8 @@ training_args = TrainingArguments(
     output_dir="./unsloth-qwen",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=8,
-    num_train_epochs=1,
-    learning_rate=1e-4,
+    num_train_epochs=5,
+    learning_rate=3e-5,
     logging_steps=10, # set back to 25
     save_steps=500,
     fp16=True,

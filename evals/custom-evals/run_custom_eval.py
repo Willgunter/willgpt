@@ -124,7 +124,7 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Directory to write results. Defaults to evals/custom-evals/runs/<timestamp>.",
     )
-    parser.add_argument("--max-new-tokens", type=int, default=256)
+    parser.add_argument("--max-new-tokens", type=int, default=64)
     parser.add_argument("--max-input-tokens", type=int, default=2048)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--top-p", type=float, default=1.0)
@@ -199,7 +199,7 @@ def main() -> None:
         "batch_size": args.batch_size,
         "dtype": args.dtype,
         "device_map": args.device_map,
-        "repotition_penalty": repitition_penalty_param,
+        "repetition_penalty": repitition_penalty_param,
         "no_repeat_ngram_size": no_repeat_ngram_size_param,
         "seed": args.seed,
         "trust_remote_code": args.trust_remote_code,
