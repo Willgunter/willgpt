@@ -39,10 +39,17 @@ parser.add_argument(
     action="store_true",
     help="Print diagnostics about splitting/tokenization.",
 )
+parser.add_argument(
+    "--limit",
+    type=int,
+    default=None,
+    help="Optional cap on number of parsed examples to use.",
+)
 args = parser.parse_args()
 DATA_PATH = args.data_path
 MODEL_NAME = args.model
 DEBUG = args.debug
+LIMIT = args.limit
 
 # -----------------------------
 # Load + split raw text
@@ -79,12 +86,14 @@ def parse_chunk(chunk: str):
     }
 
 parsed = [parse_chunk(c) for c in chunks]
+if LIMIT is not None:
+    parsed = parsed[:LIMIT]
 dataset = Dataset.from_dict({
     "instruction": [p["instruction"] for p in parsed],
     "response": [p["response"] for p in parsed],
 })
 
-print(f"Loaded {len(parsed)} examples")
+print(f"Loaded {len(parsed)} examples" + (f" (limit={LIMIT})" if LIMIT is not None else ""))
 if DEBUG and parsed:
     print("Sample parsed entries (up to 2):")
     for row in parsed[:2]:
@@ -108,13 +117,13 @@ if tokenizer.pad_token_id is None:
 model = FastLanguageModel.get_peft_model(
     model,
     r = 4, # was 16
-    target_modules = ["q_proj", "v_proj"], # "k_proj", "v_proj", "o_proj"],
+    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"],
     lora_alpha = 4, # was 32
-    lora_dropout = 0.05,
+    lora_dropout = 0.00,
     bias = "none",
     use_gradient_checkpointing = True,
 )
-
+# model.print_trainable_parameters()
 # -----------------------------
 # Tokenization
 # -----------------------------
@@ -172,9 +181,9 @@ if DEBUG:
 training_args = TrainingArguments(
     output_dir="./unsloth-qwen",
     per_device_train_batch_size=2,
-    gradient_accumulation_steps=8,
+    gradient_accumulation_steps=1,
     num_train_epochs=5,
-    learning_rate=3e-5,
+    learning_rate=5e-4,
     logging_steps=10, # set back to 25
     save_steps=500,
     fp16=True,
