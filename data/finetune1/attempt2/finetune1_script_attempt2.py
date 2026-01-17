@@ -107,7 +107,7 @@ if DEBUG and parsed:
 model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = MODEL_NAME,
     max_seq_length = MAX_LENGTH,
-    dtype = None,
+    dtype = torch.bfloat16,
     load_in_4bit = True,
 )
 if tokenizer.pad_token_id is None:
@@ -182,11 +182,12 @@ training_args = TrainingArguments(
     output_dir="./unsloth-qwen",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=1,
-    num_train_epochs=5,
+    num_train_epochs=25,
     learning_rate=5e-4,
-    logging_steps=10, # set back to 25
+    logging_steps=2, # set back to 25
     save_steps=500,
-    fp16=True,
+    bf16=True,
+    fp16=False,
     report_to="none",
 )
 
