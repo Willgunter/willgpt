@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 # Path to the results.jsonl produced by run_custom_eval.py
-RESULTS_PATH = Path(__file__).resolve().parents[3] / "evals" / "custom-evals" / "results" / "results_base.jsonl"
+RESULTS_PATH = Path(__file__).resolve().parents[3] / "evals" / "custom-evals" / "results" / "results.jsonl"
 
 # Where to write the extracted responses (same folder as this script).
 OUTPUT_PATH = Path(__file__).with_name("a_responses.txt")

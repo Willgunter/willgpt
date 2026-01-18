@@ -12,15 +12,20 @@ from transformers import Trainer, TrainingArguments
 SPLIT_TOKEN = "---WILLGPTSTART---"
 MAX_LENGTH = 16384
 SYSTEM_PROMPT = (
-    "You are an expert extreme-conditions systems engineer who performs complete, "
-    "first-principles failure analyses. Follow the numbered checklist: identify explicit "
-    "and hidden assumptions, map to governing physics, interdependencies, boundary "
-    "conditions, temporal evolution, safety margins, and robustness. Return a structured, "
-    "exhaustive analysis in prose with clear headers."
+    "You are an extreme-conditions systems engineer."
+    "Follow the user’s requested output format exactly. "
+    "Never ask questions. Never generate quizzes or multiple-choice items."
+    "Stop when the requested sections are complete."
 )
 QA_USER_PROMPT = (
-    "Answer the engineering question with 3–8 concise bullet points focused only on assumptions, "
-    "operating limits, or failure modes. No equations, no extra exposition."
+    "Answer the engineering question in 3–8 short lines. "
+    "Rules:"
+    "- Do NOT ask follow-up questions."
+    "- Do NOT generate multiple-choice options (no A), B), a), b), etc)."
+    "- Do NOT include 'Answer:' or 'Q:' or 'A:' or similar in the output."
+    "- No bullet symbols. Each line should be a plain sentence."
+    "End your response with:"
+    "<END>"
 )
 
 parser = argparse.ArgumentParser(description="Finetune Qwen with Unsloth.")
@@ -88,6 +93,8 @@ def parse_chunk(chunk: str):
 parsed = [parse_chunk(c) for c in chunks]
 if LIMIT is not None:
     parsed = parsed[:LIMIT]
+    
+    
 dataset = Dataset.from_dict({
     "instruction": [p["instruction"] for p in parsed],
     "response": [p["response"] for p in parsed],
@@ -116,9 +123,9 @@ if tokenizer.pad_token_id is None:
 # Enable LoRA
 model = FastLanguageModel.get_peft_model(
     model,
-    r = 8, # was 16
+    r = 128, # 8, # was 8
     target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
-    lora_alpha = 8, # was 32
+    lora_alpha = 128, # was 32
     lora_dropout = 0.05,
     bias = "none",
     use_gradient_checkpointing = True,
@@ -183,7 +190,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=2,
     gradient_accumulation_steps=1,
     num_train_epochs=4,
-    learning_rate=1e-4,
+    learning_rate=1e-4, # 1e-4
     logging_steps=50, # set back to 25
     save_steps=500,
     bf16=True,
@@ -191,6 +198,7 @@ training_args = TrainingArguments(
     report_to="none",
 )
 
+# Note to self --> eventually learn how and why this works and what this does
 def data_collator(features):
     max_len = max(len(f["input_ids"]) for f in features)
     input_ids = []
