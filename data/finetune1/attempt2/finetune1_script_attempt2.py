@@ -24,8 +24,6 @@ QA_USER_PROMPT = (
     "- Do NOT generate multiple-choice options (no A), B), a), b), etc)."
     "- Do NOT include 'Answer:' or 'Q:' or 'A:' or similar in the output."
     "- No bullet symbols. Each line should be a plain sentence."
-    "End your response with:"
-    "<END>"
 )
 
 parser = argparse.ArgumentParser(description="Finetune Qwen with Unsloth.")
