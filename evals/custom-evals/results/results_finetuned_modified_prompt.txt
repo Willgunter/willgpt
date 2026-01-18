@@ -1,0 +1,235 @@
+a1
+Assumption: The internal structure of the pack does not change during flight and
+remains rigidly fixed relative to its frame.
+Failure mode: Internal deformation or structural failure from thermal cycling
+causing loss of electrical contact and possible leakage.
+Failure mechanism: Thermal fatigue cracking under repeated high-temperature
+cycles, which progressively removes insulation and weakens electrical connections.
+
+Assumptions broken if temperature exceeds what range:
+- Assumes constant material properties through life
+- Assumes negligible radiation effects (insulation covers main radiative areas)
+- Assumes uniform cell voltage across the module
+- Assumes stable airflow patterns over long mission duration
+- Assumes intact protective coatings and seals
+
+If
+===================
+a2
+the radiation model assumes no radiative transfer with absorption/emission at
+interfaces; if panels or structures absorb solar energy during a day, internal
+heat generation will be ignored, so local temperatures rise while global averages
+remain unchanged. this can create localized hot spots that accelerate structural
+heating and may trigger material degradation before global temperatures stabilize.
+the conduction–convection coupling assumption: when panels conduct more heat into
+the ground than assumed, surface temps fall slower than expected, reducing local
+melting risk but increasing ground cooling and stability.
+local geometry and contact details: small changes in panel shape or adhesion alter
+local convective performance and can shift melt locations from near-s
+===================
+a3
+-specifically, what failure mechanisms and stability limits would be lost if the
+polymer used in this case were to undergo a thermal shock or temperature-dependent
+change?
+
+The answer should include how changing stiffness affects impact resistance and
+crack initiation, which changes where failures will occur, and how reduced
+toughness can shift brittle-to-plastic transition points so cracks prefer plastic
+paths instead of fracture.
+
+Assumptions:
+- homogeneous, isotropic material property set across temperature range
+- negligible strain-rate sensitivity compared with kinetic effects
+- constant elastic modulus despite microstructural evolution under stress
+- stable interface bonding throughout the service window
+- uniform internal pressure and no local geometry sensitization
+===================
+a4
+panel stiffness remains constant with temperature, no permanent deformation or
+crack initiation, and the fluid/air film stays thin so viscous effects are
+negligible.
+
+If any of those assumptions break down, how does that affect predicted response?
+
+Assuming stiffness constants remain fixed over life
+Stiffness loss reduces maximum deflection and accelerates local stress
+concentrations at edges.
+Local stress concentration can initiate micro-cracks before global displacements
+reach critical levels.
+Micro-crack growth alters local geometry and redistributes stresses away from
+assumed modes.
+Growth can switch load paths and cause sudden overload in a chain-of-loads
+scenario.
+Thermal coupling between components and surroundings changes
+===================
+a5
+A) The air flow is steady and uniform across panels
+B) Heat transfer mechanisms are dominated by natural convection plus convective
+circulation through fins
+C) Thermal expansion of aluminum pipes does not catastrophize seals or enclosures
+D) Seal gaps remain effectively isolated from external sources (fouling,
+corrosion)
+E) Enclosure mass stays negligible compared with system inertia
+Answer:
+A), C), E)
+
+Because seal gaps can open into cold spots that reduce heat removal and because
+pipe expansion can push components closer together, causing contact resistance and
+mechanical stress, options A and C change how much insulation and fins retain
+effectiveness while D
+===================
+a6
+-load capacity assumed constant over life
+-thermal resistance of panels assumed uniform across direction and location
+-heat flow through the skin treated as steady, single-direction
+-skin properties treated as time-invariant with aging
+-contact between skin and matrix modeled correctly without slipping or sticking
+-temperature rise limited by heat removal from surface to core
+-if any parameters drift outside acceptable limits, what happens?
+-creep at higher rates until structural integrity is compromised
+-local heating beneath skin increases conduction into muscles
+-overload: skin can carry more current before peak temperature
+-thermal interface cooling assumed sufficient for this range
+-acceptance criterion: sustained
+===================
+a7
+affect the measured concentration of reactive gases
+a) The calibration curve was linear over the assumed range of pressures and RHs.
+b) The gas chromatograph responds as predicted to small changes in flow rate or
+column temperature.
+c) The transducer has negligible sensitivity to pressure and humidity during
+calibration.
+d) The sample preparation does not introduce new volatility or change the
+distribution of target species.
+e) The reference gas used for calibration remains constant and provides reliable
+background.
+Answer:
+Options b, d, e are likely to cause systematic error if they vary with
+pressure/humidity while keeping c and a fixed.
+
+If pressure and humidity increase, flow-rate
+===================
+a8
+What failure modes follow if those assumptions break down?
+
+Assuming constant lubricant viscosity is one of the most important assumptions for
+predicting film pressure and load distribution because viscosity controls how much
+fluid resists shear, which directly affects cavity formation and local wall loads.
+If temperature rises relative to cold start, so does viscosity; viscosity loss
+reduces viscous damping and can cause cavitation or dry-out at some contacts while
+increasing shear at others.
+Viscosity change also alters local shear-driven mixing, changing where oil reaches
+required thicknesses and where thinning occurs.
+When viscosity falls too much, contact regions get thinner and more prone to local
+stress singularity or rupture
+===================
+a9
+irt
+Assuming the generator produces a single, well-defined peak-to-peak sine wave of
+fixed amplitude and frequency.
+Assuming insulation remains free from dielectric absorption or capacitance rise
+during operation.
+Assuming ambient temperature stays constant so thermal effects are ignored.
+Assuming control electronics do not introduce transient components that alter
+waveform integrity.
+Assuming maintenance intervals account for aging and non-linear losses over time.
+===================
+a10
+condition: steady, well mixed fluid with fixed wall conductivities and no fouling
+Answer:
+
+Assumes pump power remains unchanged despite reduced flow or increased pressure
+drop.
+If flow decreases the pump must work harder to maintain mass flow, raising pumping
+energy and possibly causing cavitation or surge.
+Higher local velocity can increase shear heating at walls, which may raise local
+temperature and promote thermal fatigue.
+Reduced effective hydraulic head can shift the operating point toward lower heat
+transfer, limiting cooling effectiveness.
+These changes alter the design envelope and can push the unit into an unstable or
+under-designed region.
+===================
+a11
+ic
+A. Control actions are predictable despite uncertainty
+B. Control gains remain effective over time
+C. Sensor sampling rate stays constant across mission phases
+D. Actuator inertia does not change during flight
+E. Communication links maintain required state updates
+Answer:
+A, B, C, E
+
+When can a single-particle model of the core mislead predictions of neutron flux
+or reactor behavior?
+A. When multiple interacting particles share similar energy-loss pathways
+B. If secondary particle production at small scales dominates
+C. Under extreme magnetic field conditions where diffraction effects occur
+D. In environments dominated by strong radiation fields that broaden
+===================
+a12
+nerf
+A. no dust or debris entering the optics
+B. uniform ambient temperature and pressure
+C. stable electronic components during operation
+D. intact seals preventing contamination of internal surfaces
+E. adequate cooling to prevent thermal runaway
+Answer:
+A, B, C, D, E
+
+The design assumes that all surface parameters remain constant as long as dust
+accumulates slowly; if dust accumulation accelerates then local geometry and
+reflectivity change locally so the measured radiance and spectral response shift
+away from assumed values, biasing heat transfer estimates and causing component
+failure early rather than later.
+Answer:
+
+A, B (temperature), C (
+===================
+a13
+test results from a single specimen?
+A. Assumed that moisture ingress during storage won't change stiffness
+B. Assumed no significant creep or swelling occurs before full strength gain
+C. Assumed the material response remains elastic throughout service
+D. Assumed environmental effects are negligible compared with routine exposure
+E. None of the above
+Answer:
+E
+
+When can an adhesion failure not be attributed solely to microstructural defects
+in the coating?
+
+A. If surface contamination levels remain high despite controlled drying
+B. If corrosion products locally reduce effective contact area enough to raise
+stress without plasticity
+C. If residual stresses from processing still
+===================
+a14
+heater element life, insulation effectiveness, or control system response?
+
+Assuming the pipe wall remains thin so that local stress concentrations are small
+Local geometry changes at bends or rough spots can create abrupt stress regions
+not seen in idealized sections
+Thermal expansion of metal increases gap size locally, changing axial force on
+ligaments more than compensated by wall thickness change
+Heater non-uniformity or contact resistance at hot spots raises local temperatures
+and accelerates creep near those points
+Control actions (turning, valves) cannot fully suppress transient loads, allowing
+progressive axial displacement before fatigue cracks form
+
+Answer:
+heater non-unifromity or contact
+===================
+a15
+tube wall roughness, local geometry of the plasma region, or boundary reflections
+that produce directional biases in measured dose.
+Answer:
+
+Assumes uniform material properties across the shield
+Local geometry (plasma shape) can create strong directional features not captured
+by slab-like models
+Boundary reflections or imperfect contacts introduce bias into field measurements
+Nonuniformity at the interface changes local electric fields and radiative
+transfer paths
+These effects break down linear dose estimates and alter effective shielding gain
+Resulting bias produces false confidence in global safety margins while hiding
+regional hotspots
