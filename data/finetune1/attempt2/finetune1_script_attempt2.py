@@ -123,7 +123,7 @@ model = FastLanguageModel.get_peft_model(
     model,
     r = 128, # 8,
     target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
-    lora_alpha = 128, # was 8
+    lora_alpha = 256, # was 8
     lora_dropout = 0.05,
     bias = "none",
     use_gradient_checkpointing = True,
@@ -188,7 +188,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=2,
     gradient_accumulation_steps=1,
     num_train_epochs=4,
-    learning_rate=1e-4, # 1e-4
+    learning_rate=3e-4, # 1e-4
     logging_steps=50, # set back to 25
     save_steps=500,
     bf16=True,

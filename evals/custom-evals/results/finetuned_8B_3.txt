@@ -1,0 +1,139 @@
+a1
+- Convection remains steady and predictable enough to rely on
+- Heat transfer stays within laminar flow regime
+- Surface temperature represents the internal core temperature
+- Cooling channels continue to deliver uniform heat removal
+- No significant aging or change in cell resistance occurs
+===================
+a2
+Assumed steady heat generation from onboard systems
+Neglect of transient spikes and short-duration high-power events
+Radiation-dominated transport (neglecting conduction/convective coupling)
+Idealized control system response (perfect regulation may not hold)
+No accounting for orbital debris impacts or secondary radiation sources
+===================
+a3
+transient loads, and how they affect the chosen design margins.
+
+Assumed Material Properties Remain Constant
+In reality, toughness and fracture resistance drop sharply with temperature
+Cryogenic embrittlement increases susceptibility to intergranular cracking
+Reduced impact energy means less tolerance for sharp stress risers
+===================
+a4
+material properties remain constant or drift slightly non-proportional deformation
+small enough geometric effects stay negligible stress equilibrium equations no
+longer valid dynamic coupling between crack growth and vibrations increases risk
+of unexpected resonance and rapid damage accumulation
+===================
+a5
+A) Convection continues as expected, so heat is removed by circulating air
+B) Airflow patterns remain steady and predictable for optimal cooling
+C) Heat rejection from components still occurs at rates assumed during sizing
+D) Insulation performs as designed, maintaining required temperature gradients
+E) Pressure relief or venting does not interfere with airflow or seal integrity
+===================
+a6
+thermal cycling, and explain how they can lead to progressive delamination.
+
+Assumed short-term test duration represents long-term operation
+Neglecting time-dependent material degradation under continuous heat flux
+Treating adhesive/primer presence as permanent rather than requiring
+requalification
+Relying on visual/functional checks alone without quantitative life tracking
+Expecting no significant change in core/matrix behavior after initial conditioning
+===================
+a7
+- Assumed constant sensitivity to water vapor despite changes in partial pressure
+- Neglected effect of reduced oxygen availability on adsorption behavior
+- Ignored temperature or dew-point shifts that alter pore occupancy over time
+- Treated surface contamination as negligible after extended exposure
+- Potential for increased false positives due to moisture-induced background
+  signals
+===================
+a8
+shafts and bearings heat up, causing viscosity to drop
+lubricant may thicken or separate under cold conditions
+bearing clearances can shrink or change geometry
+rotational speed may fall below design expectations
+mechanical tolerances and clearances reduce thermal margin
+no allowance made for increased torque demand as viscosity rises
+===================
+a9
+user
+Assumes input is a clean sine wave; harmonics and transients can cause unmodeled
+behavior
+Assumes output filtering removes all ripple; imperfect filters leave low-frequency
+oscillations that bias electrolyte transport
+Assumes constant electrode resistance; temperature or damage increases internal
+heating and impedance mismatch
+Assumes air-side cooling keeps surface temperature uniform; localized hot spots
+accelerate degradation
+Assumes long-term stability against aging; without graceful degradation
+strategies, faults can go unnoticed
+===================
+a10
+- Assumed steady mass flow; degradation can reduce or redistribute flow,
+  invalidating h/Nu comparisons.
+- Empirical correlations for turbulent flow become unreliable as Reynolds number
+  (Re) drops with reduced velocity.
+- Heat transfer coefficients and pressure drop estimates derived from tests lose
+  applicability to the altered regime.
+- Pressure losses can climb far above design, stressing or oversizing pumps and
+  changing flow paths.
+- Variable flow breaks assumed uniform cooling patterns, producing hot spots that
+  accelerate corrosion and thermal cycling.
+===================
+a11
+system identification becomes invalid, leading to incorrect state estimates
+control laws that rely on timely updates will react to outdated information,
+causing miscoordination
+noise can trigger spurious detections or cause parameter drift in the estimator
+sensor fusion logic expecting coherent timestamps across modalities may fail under
+delay
+actuator commands derived from estimated states lose effectiveness if unmodeled
+delays exist
+===================
+a12
+vacuum assumption breaks down as dust and gas ingress
+radiation tolerance of coatings and seals can be exceeded by high-flux regions
+insulation properties degrade under radiation and thermal cycling
+coating adhesion and joint integrity are assumed; contamination undermines that
+electrical connections and cooling paths are presumed reliable over life
+failure modes like progressive coating erosion or seal compromise become credible
+===================
+a13
+The assumed strength stays constant, the bond remains fully cured, and
+environmental factors don't change over time. If humidity or temperature cause
+partial softening of the polymer matrix or create microvoids, adhesion drops and
+fatigue can start. Cyclic stress concentrates tensile components that drive crack
+initiation; without proper conditioning (like a moisture barrier), the interface
+becomes vulnerable to interfacial cracking and progressive delamination.
+===================
+a14
+transient pressures can exceed design limits, risking mechanical damage
+flow can become unsteady and oscillatory, invalidating steady-state models
+material properties and viscosity can change with temperature, altering flow
+behavior
+geometric effects (curvature, expansion) can produce large transient moments
+no explicit allowance for time-dependent deformation or fatigue accumulation
+risk of localized yielding, crack initiation, or rapid fatigue failure
+===================
+a15
+shielding effectiveness drops if the absorber is not dense or has voids;
+anisotropic angular distribution invalidates spherical symmetry, so
+measured/expected values diverge; secondary particle production (spallation) in
+nearby structures can create unexpected dose peaks.
+
+Q: How does assuming perfect absorption of primary particles bias conclusions
+about biological risk?
+
+A:
+
+If primary particles are partially reflected or transmitted by
+coatings/boundaries, modeled backscatter and lateral redistribution are incorrect
+Shielding calculations that ignore scattering underestimate neutron/gamma fluence
+around complex geometries
+Neglecting energy loss from collisions overestimates retained inventory at shallow
+depths
+Underprediction of
