@@ -242,5 +242,9 @@ trainer.train()
 # -----------------------------
 # Save LoRA adapter
 # -----------------------------
-model.save_pretrained("./unsloth-qwen-lora")
-tokenizer.save_pretrained("./unsloth-qwen-lora")
+# model.save_pretrained("./unsloth-qwen-lora")
+# tokenizer.save_pretrained("./unsloth-qwen-lora")
+
+
+model.save_pretrained("./qwen3-8B-extreme-reasoning-lora")
+tokenizer.save_pretrained("./qwen3-8B-extreme-reasoning-lora")

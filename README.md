@@ -1,4 +1,4 @@
-# willgpt
+# engineeringreasoning
 
 Lightweight playground for a college engineering student building and evaluating small-to-mid sized **base LLMs** as foundations for an engineering-focused model.
 
@@ -126,3 +126,5 @@ By default this evaluates the models + tasks listed in `evals/eleuther-ai-evals/
 ### Shot setting
 
 These runs are **0-shot** (no in-context exemplars), mainly due to compute limitations. The script does not pass `num_fewshot`, and the harness defaults to 0 when a task doesn’t specify a different value.
+
+Summaries are model-generated abstractions of publicly available scientific literature. Original texts are not included.
