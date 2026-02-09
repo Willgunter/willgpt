@@ -121,9 +121,9 @@ if tokenizer.pad_token_id is None:
 # Enable LoRA
 model = FastLanguageModel.get_peft_model(
     model,
-    r = 128, # 8,
+    r = 16, #128,
     target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
-    lora_alpha = 256, # was 8
+    lora_alpha = 16, # 256, # was 8
     lora_dropout = 0.05,
     bias = "none",
     use_gradient_checkpointing = True,
